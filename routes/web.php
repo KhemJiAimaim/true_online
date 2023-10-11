@@ -29,7 +29,7 @@ Route::get('/config/clear', function () {
 });
 
 Route::get('/', function () {
-    return view('frontend.pages.new');
+    return view('frontend.pages.pages_1.home');
 });
 
 
