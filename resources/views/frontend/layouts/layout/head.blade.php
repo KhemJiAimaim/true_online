@@ -19,7 +19,7 @@
 
             <!-- secondary nav -->
             <div class="hidden md:flex flex items-center space-x-1">
-                <span class="bg-[#EC1F25] text-white rounded-full px-2 py-1 ">99</span>
+                <span class="bg-[#deec1f] text-white rounded-full px-2 py-1 ">99</span>
                 <a href="#" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-1 text-white" width="20"
                         height="20" viewBox="0 0 20 20" fill="none">
