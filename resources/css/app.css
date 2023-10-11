@@ -1,3 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mitr:wght@200;300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: "Mitr", sans-serif;
+    font-weight: 400;
+}
+
+
+.title-plate-container{
+    width: 100%;
+    max-width: 1730px;
+    margin: 0 auto;
+}
+.title-plate-line{
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    margin:0 auto;
+    /* position: relative; */
+    background: rgb(236,31,37);
+background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%, rgba(0,173,239,1) 54%);
+}
+.plate-group{
+   width: 100%;
+    display: flex;
+    position:relative;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0; */
+    right: 80px;
+}
+.plate-box-s{
+    width: 255px;
+    display: flex;
+    position: relative;
+    bottom: 14px;
+    left: 239px;
+}
+
+.plate-box-s .plate-circleS{
+    width: 20px;
+    height: 25px;
+    position: relative;
+    left: 12px;
+    bottom: -1px;
+    background: rgb(255 255 255);
+    border-radius: 50%;
+    z-index: 9999;
+
+}.plate-box-s .title-plate-textboxS{
+    width: 0;
+    height: 0;
+    border-top: 20px solid rgba(236, 31, 37, 1);
+    border-left: 20px solid transparent;
+    
+   
+}
+.title-plate-textboxC{
+    width: 648px;
+    height: 50px;
+    position: relative;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    left: 16px;
+    bottom: 4px;
+    z-index: 999;
+    background-image: linear-gradient(to right, rgba(236, 31, 37, 1) , rgba(194, 25, 141, 1),rgba(0, 173, 239, 1));
+}
+.plate-box-e{
+    width: 45px;
+    display: flex;
+    position: relative;
+    bottom: 16px;
+    left: 11px;
+}
+.plate-box-e .title-plate-textboxE{
+    width: 0;
+    height: 0;
+    border-top: 20px solid rgba(0, 173, 239, 1);
+    border-right: 20px solid transparent;
+   
+}
+.plate-box-e .plate-circleE{
+    width: 20px;
+    height: 25px;
+    background: rgb(255 253 253);
+    border-radius: 50%;
+    z-index: 999;
+    position: relative;
+    top: 3px;
+    right: 15px;
+}
