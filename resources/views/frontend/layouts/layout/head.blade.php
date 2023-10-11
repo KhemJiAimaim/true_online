@@ -45,7 +45,7 @@
             </div>
 
             <div class="flex items-center">
-                <span class="bg-[#a4ec1f] text-white rounded-full px-1 py-0 ">99</span>
+                <span class="bg-[#EC1F25] text-white rounded-full px-1 py-0 ">99</span>
                 <a href="#" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1 text-white" width="20"
                         height="20" viewBox="0 0 20 20" fill="none">
