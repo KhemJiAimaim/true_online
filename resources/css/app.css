@@ -30,14 +30,15 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
     align-items: center;
     justify-content: center;
     /* margin: 0; */
-    right: 80px;
+    /* right: 80px; */
 }
 .plate-box-s{
-    width: 255px;
+    width: 30%;
     display: flex;
+    justify-content: end;
     position: relative;
     bottom: 14px;
-    left: 239px;
+    left: 8px;
 }
 
 .plate-box-s .plate-circleS{
@@ -45,7 +46,7 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
     height: 25px;
     position: relative;
     left: 12px;
-    bottom: -1px;
+    top: 2px;
     background: rgb(255 255 255);
     border-radius: 50%;
     z-index: 9999;
@@ -59,22 +60,30 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
    
 }
 .title-plate-textboxC{
-    width: 648px;
+    width: 40%;
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    left: 16px;
+    /* left: 16px; */
     bottom: 4px;
     z-index: 999;
     background-image: linear-gradient(to right, rgba(236, 31, 37, 1) , rgba(194, 25, 141, 1),rgba(0, 173, 239, 1));
 }
+.title-plate-textboxC .plate-text{
+    font-size:1.5rem;
+    color: #ffff;
+    text-align: center;
+}
 .plate-box-e{
-    width: 45px;
+    width:30%;
     display: flex;
     position: relative;
     bottom: 16px;
-    left: 11px;
+    right: 5px;
 }
 .plate-box-e .title-plate-textboxE{
     width: 0;
@@ -90,6 +99,64 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
     border-radius: 50%;
     z-index: 999;
     position: relative;
-    top: 3px;
+    top: 4px;
     right: 15px;
+}
+
+@media screen and (max-width:1730px)  {
+    .title-plate-container{
+        width: 80%;
+       
+    }
+}
+
+@media screen and (max-width:1475px) {
+    .title-plate-textboxC .plate-text{
+        font-size:1rem;
+      
+    }
+}
+@media screen and (max-width:1000px) {
+    .title-plate-textboxC {
+        width:80%;
+      
+    }
+}
+@media screen and (max-width:759px) {
+    .title-plate-textboxC {
+        width:80%;
+      
+    }
+    .title-plate-textboxC .plate-text{
+        font-size:0.5rem;
+      
+    }
+}
+@media screen and (max-width:690px) {
+    .title-plate-textboxC {
+        width:100%;
+      
+    }
+    .title-plate-line{
+        display: none;
+    }
+    .plate-box-s {
+         display: none;
+    }
+    .plate-box-e{
+        display:none;
+    }
+    .title-plate-textboxC{
+        border-radius: 30px;
+    }
+    .title-plate-textboxC .plate-text{
+        font-size:1rem;
+      
+    }
+}
+@media screen and (max-width:390px) {
+    .title-plate-textboxC  .plate-text{
+        font-size:0.5rem;
+      
+    }
 }
