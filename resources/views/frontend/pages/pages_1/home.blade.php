@@ -145,7 +145,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="text-xl text-white flex items-center">ทรู คอร์ปอเรชั่น ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
+                    <p class="plate-text">ทรู คอร์ปอเรชั่น ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
