@@ -50,23 +50,28 @@
             <span class="text-gray-400">ค้นหาเบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
                 และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
         </div>
-        <div class="lg:overflow-x-auto ">
-            <div class="flex justify-center gap-x-20 gap-y-5 mb-16 mt-16">
+
+
+        <div class="overflow-x-scroll my-16">
+            <div class="w-[1000px] grid grid-cols-3 gap-4 mx-auto p-4">
                 <div class="bg-gradient-to-r from-red-600 via-pink-700 to-blue-500 flex flex-col items-center rounded-3xl">
-                    <img class="w-[350px] h-[280px]" src="/images/Rectangle 20.png" alt="">
+                    <img class="w-[500px] max-sm:w-[350px] h-[280px]" src="/images/Rectangle 20.png" alt="">
                     <a href="#" class="text-lg text-white">อินเตอร์เน็ตไฟเบอร์</a>
                 </div>
                 <div class="bg-gradient-to-r from-red-600 via-pink-700 to-blue-500 flex flex-col items-center rounded-3xl">
-                    <img class="w-[350px] h-[280px]" src="/images/Rectangle 21.png" alt="">
+                    <img class="w-[500px] max-sm:w-[350px] h-[280px]" src="/images/Rectangle 21.png" alt="">
                     <a href="#" class="text-lg text-white">เบอร์มงคลรายเดือน</a>
                 </div>
                 <div class="bg-gradient-to-r from-red-600 via-pink-700 to-blue-500 flex flex-col items-center rounded-3xl">
-                    <img class="w-[350px] h-[280px] " src="/images/Rectangle 22.png" alt="">
+                    <img class="w-[500px] max-sm:w-[350px] h-[280px] " src="/images/Rectangle 22.png" alt="">
                     <div class="">
                         <a href="#" class="text-lg text-white">แพ็กเกจเสริม</a>
                     </div>
                 </div>
             </div>
         </div>
+
+
+    </div>
     </div>
 @endsection
