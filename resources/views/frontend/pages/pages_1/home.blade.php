@@ -1,143 +1,35 @@
 @extends('frontend.layouts.layout.main')
 @section('content')
-    <div class="my-16">
-        <div class="flex justify-center space-x-32">
-            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55" fill="none">
-                <path
-                    d="M16.0417 34.375C16.0417 34.9828 15.8002 35.5657 15.3704 35.9955C14.9407 36.4252 14.3578 36.6667 13.75 36.6667C13.1422 36.6667 12.5593 36.4252 12.1295 35.9955C11.6998 35.5657 11.4583 34.9828 11.4583 34.375C11.4583 33.7672 11.6998 33.1843 12.1295 32.7546C12.5593 32.3248 13.1422 32.0833 13.75 32.0833C14.3578 32.0833 14.9407 32.3248 15.3704 32.7546C15.8002 33.1843 16.0417 33.7672 16.0417 34.375ZM22.9167 34.375C22.9167 34.9828 22.6752 35.5657 22.2454 35.9955C21.8157 36.4252 21.2328 36.6667 20.625 36.6667C20.0172 36.6667 19.4343 36.4252 19.0045 35.9955C18.5748 35.5657 18.3333 34.9828 18.3333 34.375C18.3333 33.7672 18.5748 33.1843 19.0045 32.7546C19.4343 32.3248 20.0172 32.0833 20.625 32.0833C21.2328 32.0833 21.8157 32.3248 22.2454 32.7546C22.6752 33.1843 22.9167 33.7672 22.9167 34.375Z"
-                    fill="url(#paint0_linear_52_464)" />
-                <path
-                    d="M4.58333 34.375C4.58333 30.0529 4.58333 27.8942 5.92624 26.5513C7.26916 25.2083 9.42791 25.2083 13.75 25.2083H41.25C45.5721 25.2083 47.7308 25.2083 49.0737 26.5513C50.4167 27.8942 50.4167 30.0529 50.4167 34.375C50.4167 38.6971 50.4167 40.8558 49.0737 42.1988C47.7308 43.5417 45.5721 43.5417 41.25 43.5417H13.75C9.42791 43.5417 7.26916 43.5417 5.92624 42.1988C4.58333 40.8558 4.58333 38.6971 4.58333 34.375Z"
-                    stroke="url(#paint1_linear_52_464)" stroke-width="3" />
-                <path
-                    d="M16.0417 25.2083L6.875 9.16667M38.9583 25.2083L48.125 9.16667M32.0833 34.375H41.25M39.341 12.3681C38.3869 10.0637 36.7708 8.09408 34.6972 6.70828C32.6235 5.32247 30.1855 4.58279 27.6914 4.58279C25.1973 4.58279 22.7592 5.32247 20.6855 6.70828C18.6119 8.09408 16.9958 10.0637 16.0417 12.3681"
-                    stroke="url(#paint2_linear_52_464)" stroke-width="3" stroke-linecap="round" />
-                <path
-                    d="M34.2948 15.2579C33.8769 13.8311 33.0079 12.5782 31.818 11.6869C30.6282 10.7955 29.1815 10.3138 27.6948 10.3138C26.2081 10.3138 24.7614 10.7955 23.5716 11.6869C22.3817 12.5782 21.5127 13.8311 21.0948 15.2579"
-                    stroke="url(#paint3_linear_52_464)" stroke-width="3" stroke-linecap="round" />
-                <path
-                    d="M29.9842 16.0417C29.9842 16.6495 29.7427 17.2323 29.313 17.6621C28.8832 18.0919 28.3003 18.3333 27.6925 18.3333C27.0847 18.3333 26.5018 18.0919 26.072 17.6621C25.6423 17.2323 25.4008 16.6495 25.4008 16.0417C25.4008 15.4339 25.6423 14.851 26.072 14.4212C26.5018 13.9914 27.0847 13.75 27.6925 13.75C28.3003 13.75 28.8832 13.9914 29.313 14.4212C29.7427 14.851 29.9842 15.4339 29.9842 16.0417Z"
-                    fill="url(#paint4_linear_52_464)" />
-                <defs>
-                    <linearGradient id="paint0_linear_52_464" x1="17.1875" y1="32.0833" x2="17.1875" y2="36.6667"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint1_linear_52_464" x1="27.5" y1="25.2083" x2="27.5" y2="43.5417"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint2_linear_52_464" x1="27.5" y1="4.58279" x2="27.5" y2="34.375"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint3_linear_52_464" x1="27.6948" y1="10.3138" x2="27.6948" y2="15.2579"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint4_linear_52_464" x1="27.6925" y1="13.75" x2="27.6925" y2="18.3333"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                </defs>
-            </svg>
-
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <path
-                    d="M10 44H38C38.5304 44 39.0391 43.7893 39.4142 43.4142C39.7893 43.0391 40 42.5304 40 42V14.885C40 14.6063 39.9417 14.3307 39.8289 14.0758C39.7161 13.8209 39.5513 13.5924 39.345 13.405L29.572 4.52C29.2039 4.18545 28.7244 4.00005 28.227 4H10C9.46957 4 8.96086 4.21071 8.58579 4.58579C8.21071 4.96086 8 5.46957 8 6V42C8 42.5304 8.21071 43.0391 8.58579 43.4142C8.96086 43.7893 9.46957 44 10 44Z"
-                    stroke="url(#paint0_linear_52_485)" stroke-width="3" />
-                <path
-                    d="M17 17C18.6569 17 20 15.6569 20 14C20 12.3431 18.6569 11 17 11C15.3431 11 14 12.3431 14 14C14 15.6569 15.3431 17 17 17Z"
-                    fill="url(#paint1_linear_52_485)" />
-                <path d="M16 23H32V37H16V23Z" stroke="url(#paint2_linear_52_485)" stroke-width="3" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                <defs>
-                    <linearGradient id="paint0_linear_52_485" x1="24" y1="4" x2="24" y2="44"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint1_linear_52_485" x1="17" y1="11" x2="17" y2="17"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint2_linear_52_485" x1="24" y1="23" x2="24" y2="37"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                </defs>
-            </svg>
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <path
-                    d="M50 4.28571V15.7143M55.7143 9.99999H44.2857M40 27.1428L20 15.7143M32.8343 11.62L47.12 19.7828C47.995 20.2827 48.7223 21.005 49.2281 21.8766C49.7339 22.7482 50.0002 23.738 50 24.7457V38.1114C50.0002 39.1191 49.7339 40.109 49.2281 40.9805C48.7223 41.8521 47.995 42.5745 47.12 43.0743L32.8343 51.2371C31.9711 51.7302 30.9941 51.9896 30 51.9896C29.0059 51.9896 28.0289 51.7302 27.1657 51.2371L12.88 43.0743C12.005 42.5745 11.2777 41.8521 10.7719 40.9805C10.2661 40.109 9.99982 39.1191 10 38.1114V24.7457C9.99982 23.738 10.2661 22.7482 10.7719 21.8766C11.2777 21.005 12.005 20.2827 12.88 19.7828L27.1657 11.62C28.0289 11.1269 29.0059 10.8675 30 10.8675C30.9941 10.8675 31.9711 11.1269 32.8343 11.62Z"
-                    stroke="url(#paint0_linear_64_2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <path
-                    d="M11.4286 22.8571L27.2914 31.4C28.1239 31.8481 29.0546 32.0827 30 32.0827C30.9455 32.0827 31.8761 31.8481 32.7086 31.4L48.5714 22.8571M30 32.8571V51.4286"
-                    stroke="url(#paint1_linear_64_2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                <defs>
-                    <linearGradient id="paint0_linear_64_2" x1="32.8571" y1="4.28571" x2="32.8571" y2="51.9896"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint1_linear_64_2" x1="30" y1="22.8571" x2="30" y2="51.4286"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                </defs>
-            </svg>
-
-
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
-                <g clip-path="url(#clip0_52_472)">
-                    <path
-                        d="M33 26.7143C32.9998 29.3502 32.3366 31.9437 31.0713 34.2562C29.8061 36.5686 27.9795 38.5255 25.7596 39.947C23.5398 41.3684 20.9981 42.2086 18.3684 42.3902C15.7387 42.5718 13.1056 42.089 10.7115 40.9862C8.31731 39.8835 6.23901 38.1962 4.66789 36.0797C3.09676 33.9631 2.08328 31.4854 1.72075 28.8745C1.35822 26.2636 1.65827 23.6035 2.5933 21.139C3.52833 18.6745 5.06828 16.4848 7.07141 14.7714"
-                        stroke="url(#paint0_linear_52_472)" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path
-                        d="M16.5943 20.9C16.2622 21.5858 16.0902 22.338 16.0914 23.1C16.0873 23.7326 16.2088 24.3598 16.449 24.9451C16.6891 25.5304 17.0432 26.0621 17.4905 26.5095C17.9379 26.9568 18.4696 27.3109 19.0549 27.5511C19.6402 27.7912 20.2674 27.9128 20.9 27.9086C21.5418 27.9086 22.1574 28.1635 22.6112 28.6174C23.0651 29.0712 23.32 29.6868 23.32 30.3286V41.2343M1.79144 29.1343H7.60573C8.25183 29.1175 8.89474 29.2303 9.49655 29.466C10.0983 29.7017 10.6469 30.0556 11.1097 30.5067C11.5725 30.9578 11.9403 31.497 12.1914 32.0926C12.4424 32.6882 12.5717 33.328 12.5714 33.9743V41.6743M41.6743 5.87715L38.5314 4.80858C38.3105 4.73355 38.0712 4.73286 37.8498 4.80664C37.6285 4.88041 37.4374 5.02459 37.3057 5.21715L35.0114 8.76858L22.44 2.48287C21.4464 1.89731 20.3357 1.5386 19.1874 1.43239C18.039 1.32619 16.8813 1.47511 15.7972 1.86852C14.7131 2.26192 13.7293 2.89007 12.9163 3.70803C12.1033 4.52599 11.4811 5.51354 11.0943 6.60001C10.9877 6.88186 10.9419 7.18308 10.9599 7.48388C10.9779 7.78469 11.0593 8.07829 11.1988 8.3454C11.3383 8.61251 11.5327 8.84711 11.7693 9.03379C12.0059 9.22047 12.2792 9.35501 12.5714 9.42858L20.7743 12.0686L21.5914 12.3514L23.1314 17.6314C23.1809 17.8153 23.276 17.9837 23.4078 18.121C23.5397 18.2584 23.704 18.3602 23.8857 18.4172L27.5943 19.6114C27.7836 19.6731 27.9856 19.6851 28.1809 19.6464C28.3763 19.6076 28.5583 19.5193 28.7097 19.39C28.8612 19.2606 28.9768 19.0946 29.0457 18.9078C29.1145 18.7209 29.1342 18.5195 29.1029 18.3229L28.2857 14.3943H28.82L36.8343 17.0029C37.3595 17.1839 37.935 17.1501 38.4354 16.9087C38.9358 16.6674 39.3205 16.238 39.5057 15.7143L42.3343 7.00858C42.3654 6.77349 42.3175 6.53472 42.198 6.32988C42.0785 6.12504 41.8943 5.96577 41.6743 5.87715Z"
-                        stroke="url(#paint1_linear_52_472)" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </g>
-                <defs>
-                    <linearGradient id="paint0_linear_52_472" x1="17.2857" y1="14.7714" x2="17.2857"
-                        y2="42.4275" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <linearGradient id="paint1_linear_52_472" x1="22.0675" y1="1.39914" x2="22.0675"
-                        y2="41.6743" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#EC1F25" />
-                        <stop offset="1" stop-color="#CD1A70" />
-                    </linearGradient>
-                    <clipPath id="clip0_52_472">
-                        <rect width="44" height="44" fill="white" />
-                    </clipPath>
-                </defs>
-            </svg>
+    <div class="my-16 ">
+        <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
+            <div class="flex flex-col items-center">
+                <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear (1).png" alt="">
+                <a href="#">เน็ตบ้านไฟเบอร์</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-30 h-30 mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
+                <a href="#">เบอร์มงคล</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-30 h-30 " src="/images/system-uicons_box-add.png" alt="">
+                <a href="#">แพ็กเกจเน็ตซิมเทพ</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <img class="w-30 h-30 mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
+                <a href="#">ซิมท่องเที่ยว</a>
+            </div>
         </div>
 
-        <div class="flex justify-center space-x-24 mb-10">
+        {{-- <div class="flex justify-center space-x-24 mb-10">
             <a>เน็ตบ้านไฟเบอร์</a>
             <a>เบอร์มงคล</a>
             <a>แพ็กเกจเน็ตซิมเทพ</a>
             <a>ซิมท่องเที่ยว</a>
-        </div>
+        </div> --}}
+
 
         {{-- มหัศจรรย์ --}}
-        <div class=""></div>
-        <div class="title-plate-container w-full">
+        {{-- <div class="title-plate-container ">
             <div class="title-plate-line"></div>
             <div class="plate-group">
                 <div class="plate-box-s">
@@ -151,11 +43,30 @@
                     <div class="title-plate-textboxE"></div>
                     <div class="plate-circleE"></div>
                 </div>
-
             </div>
-
-
-        </div>
+        </div> --}}
         {{-- มหัศจรรย์ --}}
+        <div class="">
+            <span class="text-gray-400">ค้นหาเบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
+                และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
+        </div>
+        <div class="lg:overflow-x-auto ">
+            <div class="flex justify-center gap-x-20 gap-y-5 mb-16 mt-16">
+                <div class="bg-gradient-to-r from-red-600 via-pink-700 to-blue-500 flex flex-col items-center rounded-3xl">
+                    <img class="w-[350px] h-[280px]" src="/images/Rectangle 20.png" alt="">
+                    <a href="#" class="text-lg text-white">อินเตอร์เน็ตไฟเบอร์</a>
+                </div>
+                <div class="bg-gradient-to-r from-red-600 via-pink-700 to-blue-500 flex flex-col items-center rounded-3xl">
+                    <img class="w-[350px] h-[280px]" src="/images/Rectangle 21.png" alt="">
+                    <a href="#" class="text-lg text-white">เบอร์มงคลรายเดือน</a>
+                </div>
+                <div class="bg-gradient-to-r from-red-600 via-pink-700 to-blue-500 flex flex-col items-center rounded-3xl">
+                    <img class="w-[350px] h-[280px] " src="/images/Rectangle 22.png" alt="">
+                    <div class="">
+                        <a href="#" class="text-lg text-white">แพ็กเกจเสริม</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
