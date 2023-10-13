@@ -1,5 +1,5 @@
 <!-- nav goes here -->
-<nav class="bg-gradient-to-r from-red-600 via-pink-700 to-blue-500"">
+<nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF]">
     <div class="w-3/4 px-8 mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">

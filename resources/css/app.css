@@ -8,31 +8,35 @@
     font-weight: 400;
 }
 
-
-.title-plate-container{
+.title-plate-container {
     width: 100%;
     max-width: 1730px;
     margin: 0 auto;
 }
-.title-plate-line{
+.title-plate-line {
     width: 100%;
     height: 4px;
     border-radius: 10px;
-    margin:0 auto;
+    margin: 0 auto;
     /* position: relative; */
-    background: rgb(236,31,37);
-background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%, rgba(0,173,239,1) 54%);
+    background: rgb(236, 31, 37);
+    background: linear-gradient(
+        90deg,
+        rgba(236, 31, 37, 1) 47%,
+        rgba(194, 25, 141, 1) 50%,
+        rgba(0, 173, 239, 1) 54%
+    );
 }
-.plate-group{
-   width: 100%;
+.plate-group {
+    width: 100%;
     display: flex;
-    position:relative;
+    position: relative;
     align-items: center;
     justify-content: center;
     /* margin: 0; */
     /* right: 80px; */
 }
-.plate-box-s{
+.plate-box-s {
     width: 30%;
     display: flex;
     justify-content: end;
@@ -41,7 +45,7 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
     left: 8px;
 }
 
-.plate-box-s .plate-circleS{
+.plate-box-s .plate-circleS {
     width: 20px;
     height: 25px;
     position: relative;
@@ -50,16 +54,14 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
     background: rgb(255 255 255);
     border-radius: 50%;
     z-index: 9999;
-
-}.plate-box-s .title-plate-textboxS{
+}
+.plate-box-s .title-plate-textboxS {
     width: 0;
     height: 0;
     border-top: 20px solid rgba(236, 31, 37, 1);
     border-left: 20px solid transparent;
-    
-   
 }
-.title-plate-textboxC{
+.title-plate-textboxC {
     width: 40%;
     height: 50px;
     display: flex;
@@ -71,28 +73,32 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
     /* left: 16px; */
     bottom: 4px;
     z-index: 999;
-    background-image: linear-gradient(to right, rgba(236, 31, 37, 1) , rgba(194, 25, 141, 1),rgba(0, 173, 239, 1));
+    background-image: linear-gradient(
+        to right,
+        rgba(236, 31, 37, 1),
+        rgba(194, 25, 141, 1),
+        rgba(0, 173, 239, 1)
+    );
 }
-.title-plate-textboxC .plate-text{
-    font-size:1.5rem;
+.title-plate-textboxC .plate-text {
+    font-size: 1.5rem;
     color: #ffff;
     text-align: center;
 }
-.plate-box-e{
-    width:30%;
+.plate-box-e {
+    width: 30%;
     display: flex;
     position: relative;
     bottom: 16px;
     right: 5px;
 }
-.plate-box-e .title-plate-textboxE{
+.plate-box-e .title-plate-textboxE {
     width: 0;
     height: 0;
     border-top: 20px solid rgba(0, 173, 239, 1);
     border-right: 20px solid transparent;
-   
 }
-.plate-box-e .plate-circleE{
+.plate-box-e .plate-circleE {
     width: 20px;
     height: 25px;
     background: rgb(255 253 253);
@@ -103,60 +109,52 @@ background: linear-gradient(90deg, rgba(236,31,37,1) 47%, rgba(194,25,141,1) 50%
     right: 15px;
 }
 
-@media screen and (max-width:1730px)  {
-    .title-plate-container{
+@media screen and (max-width: 1730px) {
+    .title-plate-container {
         width: 80%;
-       
     }
 }
 
-@media screen and (max-width:1475px) {
-    .title-plate-textboxC .plate-text{
-        font-size:1rem;
-      
+@media screen and (max-width: 1475px) {
+    .title-plate-textboxC .plate-text {
+        font-size: 1rem;
     }
 }
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
     .title-plate-textboxC {
-        width:80%;
-      
+        width: 80%;
     }
 }
-@media screen and (max-width:759px) {
+@media screen and (max-width: 759px) {
     .title-plate-textboxC {
-        width:80%;
-      
+        width: 80%;
     }
-    .title-plate-textboxC .plate-text{
-        font-size:0.5rem;
-      
+    .title-plate-textboxC .plate-text {
+        font-size: 1rem;
     }
 }
-@media screen and (max-width:690px) {
+@media screen and (max-width: 690px) {
     .title-plate-textboxC {
-        width:100%;
-      
+        width: 100%;
     }
-    .title-plate-line{
+    .title-plate-line {
         display: none;
     }
     .plate-box-s {
-         display: none;
+        display: none;
     }
-    .plate-box-e{
-        display:none;
+    .plate-box-e {
+        display: none;
     }
-    .title-plate-textboxC{
+    .title-plate-textboxC {
         border-radius: 30px;
     }
-    .title-plate-textboxC .plate-text{
-        font-size:1rem;
-      
+    .title-plate-textboxC .plate-text {
+        font-size: 1rem;
     }
 }
-@media screen and (max-width:390px) {
-    .title-plate-textboxC  .plate-text{
-        font-size:0.5rem;
-      
+@media screen and (max-width: 390px) {
+    .title-plate-textboxC .plate-text {
+        font-size: 0.9rem;
     }
 }
