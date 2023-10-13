@@ -29,7 +29,7 @@
 
 
         {{-- มหัศจรรย์ --}}
-        {{-- <div class="title-plate-container ">
+        <div class="title-plate-container ">
             <div class="title-plate-line"></div>
             <div class="plate-group">
                 <div class="plate-box-s">
@@ -44,8 +44,9 @@
                     <div class="plate-circleE"></div>
                 </div>
             </div>
-        </div> --}}
+        </div>
         {{-- มหัศจรรย์ --}}
+
         <div class="">
             <span class="text-gray-400">ค้นหาเบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
                 และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
