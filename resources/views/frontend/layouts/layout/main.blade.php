@@ -14,10 +14,12 @@
 <body>
     @include('frontend.layouts.layout.head')
     @include('frontend.layouts.layout.banner')
+
     <div class="text-center">
         @yield('content')
     </div>
 
+    @include('frontend.layouts.layout.banner_footer')
 
 
 </body>

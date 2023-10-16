@@ -30,7 +30,6 @@
         height: 100%;
         object-fit: cover;
     }
-
     swiper-slide-mobile img {
         display: block;
         width: 100%;
@@ -44,16 +43,15 @@
             height: 150px;
         }
     }
+    
 </style>
 
-
-<swiper-container class="mySwiper " pagination="true" pagination-dynamic-bullets="true" loop="true" autoplay-delay="2000">
-    <swiper-slide><img src="{{ asset('images/13.webp') }}" alt=""></swiper-slide>
-    <swiper-slide><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide>
-    <swiper-slide><img src="{{ asset('images/13.webp') }}" alt=""></swiper-slide>
-    <swiper-slide><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide>
-</swiper-container>
-
+{{-- <div class="absolute bottom-0 left-0" > --}}
+    <swiper-container class="mySwiper " pagination="true" pagination-dynamic-bullets="true" loop="true"
+        autoplay-delay="2000">
+        <swiper-slide><img src="{{ asset('images/footer.webp') }}" alt=""></swiper-slide>
+    </swiper-container>
+{{-- </div> --}}
 
 <!-- mobile swiper -->
 
