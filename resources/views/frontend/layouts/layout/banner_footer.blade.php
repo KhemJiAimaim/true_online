@@ -46,12 +46,12 @@
     
 </style>
 
-{{-- <div class="absolute bottom-0 left-0" > --}}
+
     <swiper-container class="mySwiper " pagination="true" pagination-dynamic-bullets="true" loop="true"
         autoplay-delay="2000">
         <swiper-slide><img src="{{ asset('images/footer.webp') }}" alt=""></swiper-slide>
     </swiper-container>
-{{-- </div> --}}
+
 
 <!-- mobile swiper -->
 

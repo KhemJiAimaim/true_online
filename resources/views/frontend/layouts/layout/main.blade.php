@@ -19,9 +19,10 @@
         @yield('content')
     </div>
 
-    @include('frontend.layouts.layout.banner_footer')
-
-
+    <div class="sticky top-[100vh]">
+        @include('frontend.layouts.layout.banner_footer')
+        @include('frontend.layouts.layout.footer')
+    </div>
 </body>
 <script></script>
 

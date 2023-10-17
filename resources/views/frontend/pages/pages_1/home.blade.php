@@ -11,7 +11,7 @@
                 <a href="#">เบอร์มงคล</a>
             </div>
             <div class="flex flex-col items-center">
-                <img class="w-30 h-30 " src="/images/system-uicons_box-add1.png" alt="">
+                <img class="w-30 h-30" src="/images/system-uicons_box-add1.png" alt="">
                 <a href="#">แพ็กเกจเน็ตซิมเทพ</a>
             </div>
             <div class="flex flex-col items-center">
@@ -19,14 +19,6 @@
                 <a href="#">ซิมท่องเที่ยว</a>
             </div>
         </div>
-
-        {{-- <div class="flex justify-center space-x-24 mb-10">
-            <a>เน็ตบ้านไฟเบอร์</a>
-            <a>เบอร์มงคล</a>
-            <a>แพ็กเกจเน็ตซิมเทพ</a>
-            <a>ซิมท่องเที่ยว</a>
-        </div> --}}
-
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container ">
@@ -58,7 +50,7 @@
                 <div
                     class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center rounded-3xl drop-shadow-md">
                     <a href="">
-                        <img class="w-[500px] max-sm:w-[350px] h-[280px]" src="/images/Rectangle 20.png" alt="">
+                        <img class="w-[500px] max-sm:w-[420px] h-[280px]" src="/images/Rectangle 20.png" alt="">
                         <div class="grid grid-cols-3 mb-2">
                             <div class="flex justify-center items-center">
                                 <img src="images/iconoir_internet.png" class="w-14 h-14" alt="">
@@ -74,7 +66,7 @@
                 <div
                     class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center rounded-3xl drop-shadow-md">
                     <a href="">
-                        <img class="w-[500px] max-sm:w-[350px] h-[280px]" src="/images/Rectangle 21.png" alt="">
+                        <img class="w-[500px] max-sm:w-[420px] h-[280px]" src="/images/Rectangle 21.png" alt="">
                         <div class="grid grid-cols-3 mb-2">
                             <div class="flex justify-center items-center">
                                 <img src="images/solar_sim-cards-linear.png" class="w-14 h-14" alt="">
@@ -90,7 +82,7 @@
                 <div
                     class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center rounded-3xl drop-shadow-md">
                     <a href="">
-                        <img class="w-[500px] max-sm:w-[350px] h-[280px]" src="/images/Rectangle 22.png" alt="">
+                        <img class="w-[500px] max-sm:w-[420px] h-[280px]" src="/images/Rectangle 22.png" alt="">
                         <div class="grid grid-cols-3 mb-2">
                             <div class="flex justify-center items-center">
                                 <img src="images/system-uicons_box-add.png" class="w-14 h-14" alt="">
@@ -111,7 +103,7 @@
         </div>
         {{-- --- --}}
 
-        
+
         <section class="bg-gray-100 py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">อินเทอร์เน็ตไฟเบอร์</p>
@@ -296,7 +288,7 @@
         </section>
         {{-- --- --}}
 
-        
+
         <section class="bg-white py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">เบอร์มงคลรายเดือน</p>
@@ -353,9 +345,9 @@
                                 <img src="images/Vector.png" alt="" class="cursor-pointer w-5 h-5 mx-2 my-2">
                             </div>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                         </div>
                     </div>
@@ -407,9 +399,9 @@
                                 <img src="images/Vector.png" alt="" class="cursor-pointer w-5 h-5 mx-2 my-2">
                             </div>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                         </div>
                     </div>
@@ -461,9 +453,9 @@
                                 <img src="images/Vector.png" alt="" class="cursor-pointer w-5 h-5 mx-2 my-2">
                             </div>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                         </div>
                     </div>
@@ -515,9 +507,9 @@
                                 <img src="images/Vector.png" alt="" class="cursor-pointer w-5 h-5 mx-2 my-2">
                             </div>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                         </div>
                     </div>
@@ -535,7 +527,7 @@
         </section>
         {{-- --- --}}
 
-        
+
         <section class="bg-gray-100 py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">ซิมเติมเงิน</p>
@@ -548,10 +540,10 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                                <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-                                
+                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+
                             {{-- </div> --}}
-                            
+
                         </div>
 
                         <div class="bg-white"">
@@ -577,7 +569,7 @@
                         </div>
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-                           
+
                             <a src="#"
                                 class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -590,10 +582,10 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                                <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-                                
+                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+
                             {{-- </div> --}}
-                            
+
                         </div>
 
                         <div class="bg-white"">
@@ -619,7 +611,7 @@
                         </div>
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-                           
+
                             <a src="#"
                                 class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -632,10 +624,10 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                                <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-                                
+                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+
                             {{-- </div> --}}
-                            
+
                         </div>
 
                         <div class="bg-white"">
@@ -661,7 +653,7 @@
                         </div>
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-                           
+
                             <a src="#"
                                 class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -674,10 +666,10 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                                <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-                                
+                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+
                             {{-- </div> --}}
-                            
+
                         </div>
 
                         <div class="bg-white"">
@@ -702,7 +694,7 @@
                         </div>
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-                           
+
                             <a src="#"
                                 class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -717,7 +709,7 @@
                         class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
                 </div>
             </div>
-                       
+
         </section>
         {{-- --- --}}
 
@@ -733,7 +725,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -769,9 +761,9 @@
                                 <img src="images/Vector.png" alt="" class="cursor-pointer w-5 h-5 mx-2 my-2">
                             </div>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                         </div>
                     </div>
@@ -779,7 +771,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -815,9 +807,9 @@
                                 <img src="images/Vector.png" alt="" class="cursor-pointer w-5 h-5 mx-2 my-2">
                             </div>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                             <a src="#"
-                                class="cursor-pointer py-2 px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                class="cursor-pointer flex items-center px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                         </div>
                     </div>
@@ -825,7 +817,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -871,7 +863,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -928,5 +920,5 @@
         {{-- --- --}}
 
     </div>
-    </div>
+   
 @endsection

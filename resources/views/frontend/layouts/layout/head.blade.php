@@ -63,8 +63,8 @@
     </div>
 
     <!-- mobile menu -->
-    <div class="Mitr mobile-menu hidden xl:hidden bg-white">
-        <a href="" class="block py-2 px-4 text-sm">อินเตอร์เน็ตไฟเบอร์</a>
+    <div class="Mitr mobile-menu hidden xl:hidden bg-white ">
+        <a href="" class="block py-2 px-4 text-sm ">อินเตอร์เน็ตไฟเบอร์</a>
         <a href="" class="block py-2 px-4 text-sm">เบอร์มงคลรายเดือน</span>
             <a href="" class="block py-2 px-4 text-sm">เติมเงิน</a>
             <a href="" class="block py-2 px-4 text-sm">ซิมท่องเที่ยว</a>
@@ -73,7 +73,7 @@
 </nav>
 
 <div class=" hidden xl:flex w-3/4 px-8 mx-auto mt-4 mb-4 ">
-    <div class="hidden xl:flex flex justify-start space-x-20 text-sm font-bold">
+    <div class="hidden xl:flex justify-start space-x-20 text-sm font-bold ">
         <a href="" class="block py-2 px-4 text-sm hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
         <a href="" class="block py-2 px-4 text-sm hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</span>
             <a href="" class="block py-2 px-4 text-sm hover:text-[#EC1F25]">เติมเงิน</a>
