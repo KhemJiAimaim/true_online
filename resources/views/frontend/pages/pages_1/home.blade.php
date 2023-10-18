@@ -123,8 +123,11 @@
 
                     <div class="drop-shadow-md">
                         <div
-                            class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                            class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+
                             <p class="text-white text-left text-[1rem]">แพ็กเกจยอดนิยม</p>
+                            {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
+                            <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                         </div>
 
                         <div class="bg-[#F8F9FA]">
@@ -139,7 +142,22 @@
                                 <p class="text-md text-left text-md">Gbps<br>/500Mbps</p>
                             </div>
 
-                            <div class="">----</div>
+                            <div class="blue-plate-container">
+                                <div class="blue-plate-line"></div>
+                                <div class="blue-plate-group">
+                                    <div class="blue-plate-box-s">
+                                        <div class="blue-plate-circleS"></div>
+                                        <div class="blue-plate-textboxS"></div>
+                                    </div>
+                                    <div class="blue-plate-textboxC">
+                                        <p class="blue-plate-text text-white">รับทันที</p>
+                                    </div>
+                                    <div class="blue-plate-box-e">
+                                        <div class="blue-plate-textboxE"></div>
+                                        <div class="blue-plate-circleE"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="flex justify-center py-6">
                                 <img class="w-20" src="images/Rectangle 235.png" alt="">
                                 <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
@@ -147,7 +165,8 @@
                             </div>
                         </div>
 
-                        <div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2">
+                        <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2">
+                            <img class="absolute top-5 left-0" src="/images/Intersect (1).png" alt="">
                             <div class="grid grid-cols-3">
                                 <p class="text-white text-left text-[1rem]  pt-3">ราคา</p>
                                 <p class="text-white font-medium text-center text-xl pt-3">2,499</p>
@@ -180,7 +199,22 @@
                                 <p class="text-md text-left text-md">Gbps<br>/500Mbps</p>
                             </div>
 
-                            <div class="">----</div>
+                            <div class="blue-plate-container">
+                                <div class="blue-plate-line"></div>
+                                <div class="blue-plate-group">
+                                    <div class="blue-plate-box-s">
+                                        <div class="blue-plate-circleS"></div>
+                                        <div class="blue-plate-textboxS"></div>
+                                    </div>
+                                    <div class="blue-plate-textboxC">
+                                        <p class="blue-plate-text text-white">รับทันที</p>
+                                    </div>
+                                    <div class="blue-plate-box-e">
+                                        <div class="blue-plate-textboxE"></div>
+                                        <div class="blue-plate-circleE"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="flex justify-center py-6">
                                 <img class="w-20" src="images/Rectangle 235.png" alt="">
                                 <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
@@ -221,7 +255,22 @@
                                 <p class="text-md text-left text-md">Gbps<br>/500Mbps</p>
                             </div>
 
-                            <div class="">----</div>
+                            <div class="blue-plate-container">
+                                <div class="blue-plate-line"></div>
+                                <div class="blue-plate-group">
+                                    <div class="blue-plate-box-s">
+                                        <div class="blue-plate-circleS"></div>
+                                        <div class="blue-plate-textboxS"></div>
+                                    </div>
+                                    <div class="blue-plate-textboxC">
+                                        <p class="blue-plate-text text-white">รับทันที</p>
+                                    </div>
+                                    <div class="blue-plate-box-e">
+                                        <div class="blue-plate-textboxE"></div>
+                                        <div class="blue-plate-circleE"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="flex justify-center py-6">
                                 <img class="w-20" src="images/Rectangle 235.png" alt="">
                                 <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
@@ -262,7 +311,22 @@
                                 <p class="text-md text-left text-md">Mbps<br>/500Mbps</p>
                             </div>
 
-                            <div class="">----</div>
+                            <div class="blue-plate-container">
+                                <div class="blue-plate-line"></div>
+                                <div class="blue-plate-group">
+                                    <div class="blue-plate-box-s">
+                                        <div class="blue-plate-circleS"></div>
+                                        <div class="blue-plate-textboxS"></div>
+                                    </div>
+                                    <div class="blue-plate-textboxC">
+                                        <p class="blue-plate-text text-white">รับทันที</p>
+                                    </div>
+                                    <div class="blue-plate-box-e">
+                                        <div class="blue-plate-textboxE"></div>
+                                        <div class="blue-plate-circleE"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="flex justify-center py-6">
                                 <img class="w-20" src="images/Rectangle 235.png" alt="">
                                 <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
