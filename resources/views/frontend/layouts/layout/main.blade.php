@@ -15,12 +15,15 @@
 <body>
     @include('frontend.layouts.layout.head')
     @include('frontend.layouts.layout.banner')
+
     <div class="text-center">
         @yield('content')
     </div>
 
-
-
+    <div class="sticky top-[100vh]">
+        @include('frontend.layouts.layout.banner_footer')
+        @include('frontend.layouts.layout.footer')
+    </div>
 </body>
 <script></script>
 
