@@ -1,4 +1,7 @@
 @extends('frontend.layouts.layout.main')
+
+
+
 @section('content')
     <div class="my-16 ">
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
@@ -343,10 +346,11 @@
                     </div>
 
                 </div>
-                <div class="items-center">
-                    <button type="button"
-                        class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
-                </div>
+
+            </div>
+            <div class="items-center">
+                <button type="button"
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
             </div>
 
         </section>
@@ -582,10 +586,11 @@
 
 
                 </div>
-                <div class="items-center">
-                    <button type="button"
-                        class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
-                </div>
+
+            </div>
+            <div class="items-center">
+                <button type="button"
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
             </div>
 
         </section>
@@ -768,10 +773,11 @@
                     </div>
 
                 </div>
-                <div class="items-center">
-                    <button type="button"
-                        class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
-                </div>
+
+            </div>
+            <div class="items-center">
+                <button type="button"
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
             </div>
 
         </section>
@@ -974,15 +980,15 @@
 
 
                 </div>
-                <div class="items-center">
-                    <button type="button"
-                        class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
-                </div>
+
+            </div>
+            <div class="items-center">
+                <button type="button"
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
             </div>
 
         </section>
         {{-- --- --}}
 
     </div>
-   
 @endsection

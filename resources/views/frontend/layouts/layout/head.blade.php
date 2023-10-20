@@ -12,13 +12,13 @@
                 </div>
 
                 <!-- primary nav -->
-                <div class="hidden md:flex flex items-center space-x-1">
+                <div class="hidden md:flex items-center space-x-1">
                     {{-- <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Text1</a> --}}
                 </div>
             </div>
 
             <!-- secondary nav -->
-            <div class="hidden xl:flex flex items-center space-x-1 ">
+            <div class="hidden xl:flex items-center space-x-1 ">
                 <span class="bg-[#EC1F25] text-white rounded-full px-2 py-1 ">99</span>
                 <a href="#" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <img src="images/ph_shopping-cart.png" class="w-6 mr-1 hover:scale-125"/>

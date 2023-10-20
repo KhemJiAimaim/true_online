@@ -12,19 +12,23 @@
 
 </head>
 
-<body>
+<body class="w-full">
     @include('frontend.layouts.layout.head')
     @include('frontend.layouts.layout.banner')
 
     <div class="text-center">
         @yield('content')
     </div>
-
+    
+    @include('frontend.layouts.layout.contact')
+    
     <div class="sticky top-[100vh]">
         @include('frontend.layouts.layout.banner_footer')
         @include('frontend.layouts.layout.footer')
-    </div>
+    </div> 
+
+    @yield('scripts')
 </body>
-<script></script>
+
 
 </html>
