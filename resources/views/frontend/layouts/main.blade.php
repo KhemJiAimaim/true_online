@@ -9,25 +9,37 @@
     <link rel="stylesheet" href="/public/css/home.css">
     @vite('resources/css/app.css')
     <title>Document</title>
-
+    @yield('style')
 </head>
 
-<body class="w-full">
-    @include('frontend.layouts.layout.head')
-    @include('frontend.layouts.layout.banner')
+
+<body class="w-full min-h-screen">
+    
+    @include('frontend.layouts.head')
+
+    @if (Request::path() != 'fiber/form_true_dtac' && Request::path() != 'thankyou')
+        @include('frontend.layouts.banner')
+    @endif
+
+
 
     <div class="text-center">
         @yield('content')
     </div>
-    
-    @include('frontend.layouts.layout.contact')
-    
+
+    @include('frontend.layouts.contact')
+
     <div class="sticky top-[100vh]">
-        @include('frontend.layouts.layout.banner_footer')
-        @include('frontend.layouts.layout.footer')
-    </div> 
+        @if (Request::is('/'))
+            @include('frontend.layouts.banner_footer')
+        @endif
+        @include('frontend.layouts.footer')
+    </div>
 
     @yield('scripts')
+
+
+
 </body>
 
 

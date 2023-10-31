@@ -1,4 +1,4 @@
-@extends('frontend.layouts.layout.main')
+@extends('frontend.layouts.main')
 
 
 
@@ -7,19 +7,19 @@
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
             <div class="flex flex-col items-center">
                 <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear (1).png" alt="">
-                <a href="#">เน็ตบ้านไฟเบอร์</a>
+                <a href="#" class="text-[1rem]">เน็ตบ้านไฟเบอร์</a>
             </div>
             <div class="flex flex-col items-center">
                 <img class="w-30 h-30 mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
-                <a href="#">เบอร์มงคล</a>
+                <a href="#" class="text-[1rem]">เบอร์มงคล</a>
             </div>
             <div class="flex flex-col items-center">
                 <img class="w-30 h-30" src="/images/system-uicons_box-add1.png" alt="">
-                <a href="#">แพ็กเกจเน็ตซิมเทพ</a>
+                <a href="#" class="text-[1rem]">แพ็กเกจเน็ตซิมเทพ</a>
             </div>
             <div class="flex flex-col items-center">
                 <img class="w-30 h-30 mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
-                <a href="#">ซิมท่องเที่ยว</a>
+                <a href="#" class="text-[1rem]">ซิมท่องเที่ยว</a>
             </div>
         </div>
 

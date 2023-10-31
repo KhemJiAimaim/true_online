@@ -27,6 +27,76 @@ use stdClass;
 
 class HomeController extends Controller
 {
+    public function homePage()
+    {
+        return view("frontend.pages.internet_fiber.fiber_home");
+    }
+
+    public function TrueDtacPage()
+    {
+        return view("frontend.pages.internet_fiber.true_dtac");
+    }
+    public function DetailTrueDtacPage()
+    {
+        return view("frontend.pages.internet_fiber.detail_true_dtac");
+    }
+    public function FormTrueDtacPage()
+    {
+        return view("frontend.pages.internet_fiber.form_true_dtac");
+    }
+    public function FiberGuarantee()
+    {
+        return view("frontend.pages.internet_fiber.home_fiber_guarantee");
+    } 
+    public function DetailFiberGuarantee()
+    {
+        return view("frontend.pages.internet_fiber.detail_guarantee");
+    } 
+    public function RouterFiber()
+    {
+        return view("frontend.pages.internet_fiber.router_fiber");
+    }
+    public function DetailFiberRouter()
+    {
+        return view("frontend.pages.internet_fiber.detail_router");
+    }
+    public function SMEFiber()
+    {
+        return view("frontend.pages.internet_fiber.SME_fiber");
+    }
+    public function DetailSMEFiber()
+    {
+        return view("frontend.pages.internet_fiber.detail_SME");
+    } 
+    public function InternetBasic()
+    {
+        return view("frontend.pages.internet_fiber.internet_basic");
+    }
+    public function DetailInternetBasic()
+    {
+        return view("frontend.pages.internet_fiber.detail_internet_basic");
+    } 
+    public function TrueVisions()
+    {
+        return view("frontend.pages.internet_fiber.true_visions");
+    }
+    public function DetailTrueVisions()
+    {
+        return view("frontend.pages.internet_fiber.detail_true_visions");
+    }
+    public function InternetGame()
+    {
+        return view("frontend.pages.internet_fiber.internet_game");
+    } 
+    public function DetailInternetGame()
+    {
+        return view("frontend.pages.internet_fiber.detail_internet_game");
+    }
+    public function Thankyou()
+    {
+        return view("frontend.pages.internet_fiber.thanks");
+    }
+
     public function index(Request $request)
     {
         $pathname = $request->segments();
@@ -49,7 +119,7 @@ class HomeController extends Controller
             $lang_config = LanguageConfig::where(['language' => $pathname[0], 'page_control' => $cate->id])
                 ->get();
             $lang_config_setting = new stdClass();
-            if(!empty($lang_config)){
+            if (!empty($lang_config)) {
                 foreach ($lang_config as $key => $data) {
                     $name = $data->param;
                     $lang_config_setting->$name = $data->title;

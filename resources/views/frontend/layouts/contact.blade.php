@@ -76,13 +76,15 @@
         </div>
 
 
-        <div id="contact_button" class="cursor-pointer  flex justify-center">
-            <img src="images/Ellipse 33.png" alt=""
-                class="bg-white rounded-full flex justify-center mx-auto relative">
-            <p
-                class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg text-white py-1 px-10 text-lg text-center absolute xl:top-[90%]">
-                ติดต่อ</p>
+        <div id="contact_button" class="cursor-pointer md:flex justify-center ">
+            <img src="/images/Ellipse 33.png" alt=""
+                 class="bg-white rounded-full md:flex justify-center mx-auto relative hidden ">
+            <p class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg text-white py-1 px-8 text-lg text-center md:absolute md:top-[90%] mb-2">
+                ติดต่อ
+            </p>
         </div>
+
+        
 
     </div>
 </div>
