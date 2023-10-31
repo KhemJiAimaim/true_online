@@ -74,3 +74,6 @@ Route::get("/fiber/detail_internet_game", [HomeController::class, "DetailInterne
 
 
 Route::get("/thankyou ", [HomeController::class, "Thankyou"]);
+
+// เบอร์มงคลรายเดือน
+Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);

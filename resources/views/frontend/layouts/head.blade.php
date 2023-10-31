@@ -99,7 +99,7 @@
             </li>
 
             <li class="group z-[99]">
-                <a href="#" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
+                <a href="/bermonthly" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
                 <ul
                     class="hidden mx-auto w-full absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
                     <div class="w-3/4 px-4 mx-auto">
