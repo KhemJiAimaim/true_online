@@ -77,3 +77,4 @@ Route::get("/thankyou ", [HomeController::class, "Thankyou"]);
 
 // เบอร์มงคลรายเดือน
 Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);
+Route::get('/fortune', [BerLuckyMonthlyController::class, "fortune_page"]);
