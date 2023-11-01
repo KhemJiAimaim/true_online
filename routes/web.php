@@ -55,25 +55,31 @@ Route::get('/', function () {
     return view('frontend.pages.home');
 });
 
+//fiber
 Route::get("/fiber", [HomeController::class, "homePage"]);
-Route::get("/fiber/true_dtac", [HomeController::class, "TrueDtacPage"]);
-Route::get("/fiber/detail_true_dtac", [HomeController::class, "DetailTrueDtacPage"]);
-Route::get("/fiber/form_true_dtac", [HomeController::class, "FormTrueDtacPage"]);
-Route::get("/fiber/home_fiber_guarantee", [HomeController::class, "FiberGuarantee"]);
-Route::get("/fiber/detail_fiber_guarantee", [HomeController::class, "DetailFiberGuarantee"]);
-Route::get("/fiber/router_fiber", [HomeController::class, "RouterFiber"]);
-Route::get("/fiber/detail_router_fiber", [HomeController::class, "DetailFiberRouter"]);
-Route::get("/fiber/SME_fiber", [HomeController::class, "SMEFiber"]);
-Route::get("/fiber/detail_SME_fiber", [HomeController::class, "DetailSMEFiber"]);
-Route::get("/fiber/internet_basic", [HomeController::class, "InternetBasic"]);
-Route::get("/fiber/detail_internet_basic", [HomeController::class, "DetailInternetBasic"]);
-Route::get("/fiber/true_visions", [HomeController::class, "TrueVisions"]);
-Route::get("/fiber/detail_true_visions", [HomeController::class, "DetailTrueVisions"]);
-Route::get("/fiber/internet_game", [HomeController::class, "InternetGame"]);
-Route::get("/fiber/detail_internet_game", [HomeController::class, "DetailInternetGame"]);
+Route::get("/fiber/true_dtac", [HomeController::class, "true_dtac"]);
+Route::get("/fiber/detail_true_dtac", [HomeController::class, "detail_true_dtac"]);
+Route::get("/fiber/form_true_dtac", [HomeController::class, "form_true_dtac"]);
+Route::get("/fiber/home_fiber_guarantee", [HomeController::class, "fiber_guarantee"]);
+Route::get("/fiber/detail_fiber_guarantee", [HomeController::class, "detail_fiber_guarantee"]);
+Route::get("/fiber/router_fiber", [HomeController::class, "fiber_router"]);
+Route::get("/fiber/detail_router_fiber", [HomeController::class, "detail_fiber_router"]);
+Route::get("/fiber/SME_fiber", [HomeController::class, "sme_fiber"]);
+Route::get("/fiber/detail_SME_fiber", [HomeController::class, "detail_sme_fiber"]);
+Route::get("/fiber/internet_basic", [HomeController::class, "internet_basic"]);
+Route::get("/fiber/detail_internet_basic", [HomeController::class, "detail_internet_basic"]);
+Route::get("/fiber/true_visions", [HomeController::class, "true_visions"]);
+Route::get("/fiber/detail_true_visions", [HomeController::class, "detail_true_visions"]);
+Route::get("/fiber/internet_game", [HomeController::class, "internet_games"]);
+Route::get("/fiber/detail_internet_game", [HomeController::class, "detail_internet_game"]);
+
+//ซิมเติมเงิน
+Route::get("/prepaid_sim", [HomeController::class, "prepaid_sim"]);
+Route::get("/prepaid_sim/buy_sim", [HomeController::class, "buy_sim"]);
+Route::get("/prepaid_sim/sim_includ", [HomeController::class, "sim_includ"]);
 
 
-Route::get("/thankyou ", [HomeController::class, "Thankyou"]);
+Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 
 // เบอร์มงคลรายเดือน
 Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);

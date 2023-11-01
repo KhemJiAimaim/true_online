@@ -349,8 +349,8 @@
 
             </div>
             <div class="items-center">
-                <button type="button"
-                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
+                <a href="/fiber"
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -582,15 +582,12 @@
                         </div>
                     </div>
 
-
-
-
                 </div>
 
             </div>
             <div class="items-center">
-                <button type="button"
-                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
+                <a href="/bermonthly"
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -609,7 +606,7 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
 
                             {{-- </div> --}}
 
@@ -651,7 +648,7 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
 
                             {{-- </div> --}}
 
@@ -693,7 +690,7 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
 
                             {{-- </div> --}}
 
@@ -735,7 +732,7 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
 
                             {{-- </div> --}}
 
@@ -776,8 +773,8 @@
 
             </div>
             <div class="items-center">
-                <button type="button"
-                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
+                <a href="/prepaid_sim"
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -795,7 +792,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -841,7 +838,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -887,7 +884,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -933,7 +930,7 @@
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left">8 DAYS 449 BAHT</p>
+                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
                         </div>
                         {{-- <div
                             class="">
@@ -976,15 +973,12 @@
                         </div>
                     </div>
 
-
-
-
                 </div>
 
             </div>
             <div class="items-center">
                 <button type="button"
-                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
             </div>
 
         </section>

@@ -32,67 +32,82 @@ class HomeController extends Controller
         return view("frontend.pages.internet_fiber.fiber_home");
     }
 
-    public function TrueDtacPage()
+    public function true_dtac()
     {
         return view("frontend.pages.internet_fiber.true_dtac");
     }
-    public function DetailTrueDtacPage()
+    public function detail_true_dtac()
     {
         return view("frontend.pages.internet_fiber.detail_true_dtac");
     }
-    public function FormTrueDtacPage()
+    public function form_true_dtac()
     {
         return view("frontend.pages.internet_fiber.form_true_dtac");
     }
-    public function FiberGuarantee()
+    public function fiber_guarantee()
     {
         return view("frontend.pages.internet_fiber.home_fiber_guarantee");
     } 
-    public function DetailFiberGuarantee()
+    public function detail_fiber_guarantee()
     {
         return view("frontend.pages.internet_fiber.detail_guarantee");
     } 
-    public function RouterFiber()
+    public function fiber_router()
     {
         return view("frontend.pages.internet_fiber.router_fiber");
     }
-    public function DetailFiberRouter()
+    public function detail_fiber_router()
     {
         return view("frontend.pages.internet_fiber.detail_router");
     }
-    public function SMEFiber()
+    public function sme_fiber()
     {
         return view("frontend.pages.internet_fiber.SME_fiber");
     }
-    public function DetailSMEFiber()
+    public function detail_sme_fiber()
     {
         return view("frontend.pages.internet_fiber.detail_SME");
     } 
-    public function InternetBasic()
+    public function internet_basic()
     {
         return view("frontend.pages.internet_fiber.internet_basic");
     }
-    public function DetailInternetBasic()
+    public function detail_internet_basic()
     {
         return view("frontend.pages.internet_fiber.detail_internet_basic");
     } 
-    public function TrueVisions()
+    public function true_visions()
     {
         return view("frontend.pages.internet_fiber.true_visions");
     }
-    public function DetailTrueVisions()
+    public function detail_true_visions()
     {
         return view("frontend.pages.internet_fiber.detail_true_visions");
     }
-    public function InternetGame()
+    public function internet_games()
     {
         return view("frontend.pages.internet_fiber.internet_game");
     } 
-    public function DetailInternetGame()
+    public function detail_internet_game()
     {
         return view("frontend.pages.internet_fiber.detail_internet_game");
+    } 
+    
+    
+    public function prepaid_sim()
+    {
+        return view("frontend.pages.prepaid_sim.home_sim");
+    } 
+    public function buy_sim()
+    {
+        return view("frontend.pages.prepaid_sim.buy_sim");
     }
-    public function Thankyou()
+    public function sim_includ()
+    {
+        return view("frontend.pages.prepaid_sim.sim_includ");
+    }
+
+    public function thankyou()
     {
         return view("frontend.pages.internet_fiber.thanks");
     }
