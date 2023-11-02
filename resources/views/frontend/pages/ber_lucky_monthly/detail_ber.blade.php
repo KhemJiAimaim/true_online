@@ -54,7 +54,7 @@
         </div>
       </div>
   
-      {{-- <div class="bg-white p-4 rounded-[10px] drop-shadow-md">
+      <div class="bg-white p-4 rounded-[10px] drop-shadow-md">
         <div class="">
           <h1 class="text-lg font-semibold">แพ็กเกจ/ความหมาย</h1>
           <div class="flex items-center gap-4 mt-4">
@@ -62,15 +62,15 @@
             <p class="">เน็ต Unlimited + โทร 1700 Mins</p>
           </div>
         </div>
-      </div> --}}
+      </div>
   
-      <div class="grid grid-cols-2 gap-4">
-        <div class="w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+      <div class="flex gap-4">
+        <div class="w-28 bg-white text-center p-4 rounded-[10px] drop-shadow-md">
           <h1 class="text-lg font-semibold">เกรด</h1>
           <h1 class="text-4xl font-semibold mt-4">A+</h1>
         </div>
     
-        <div class="w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+        <div class="w-28 bg-white text-center p-4 rounded-[10px] drop-shadow-md">
             <h1 class="text-lg font-semibold">ผลรวม</h1>
             <h1 class="text-4xl font-semibold mt-4">99</h1>
         </div>
@@ -97,6 +97,23 @@
     </div>
   </div>
   {{-- มหัศจรรย์ --}}
+
+  {{-- box package --}}
+  <div class="max-w-[1536px] max-2xl:max-w-[80%] py-10 mx-auto">
+    <div class="">
+      <div class="flex">
+        <button id="btn-package" class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px]">รายละเอียด แพ็กเกจ</button>
+        <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px]">เงื่อนไข</button>
+      </div>
+      <div id="box-package" class="p-2 border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
+        ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน
+      </div>
+      <div id="box-condition" class="hidden p-2 border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
+        ย้ายค่ายเบอร์เดิมรับส่วนล
+      </div>
+    </div>
+  </div>
+  {{-- box package --}}
 
   <div class="max-w-[1536px] max-2xl:max-w-[80%] py-10 mx-auto">
 
@@ -133,5 +150,5 @@
 @endsection
 
 @section('scripts')
-  @vite('resources/js/bermonthly_lucky/fortune_ber.js')
+  @vite('resources/js/bermonthly_lucky/detail_ber.js')
 @endsection

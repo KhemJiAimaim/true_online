@@ -131,8 +131,8 @@
           <div class="flex flex-col max-xs:col-span-2">
             <label for="txt_favorite">ช่วงราคา</label>
             <div class="flex gap-4 w-80 max-xl:w-48 max-lg:w-80 max-xs:w-full">
-              <input class="w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="price-low" id="price-low">
-              <input class="w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="price-hight" id="price-hight">
+              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-low" id="price-low">
+              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-hight" id="price-hight">
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@
       {{-- box right --}}
       <div class="w-full flex flex-col justify-between">
         <div class="flex flex-col max-lg:mb-4">
-          <label for="">เสริมดวงด้าน</label>
+          <p class="mb-2">เสริมดวงด้าน</p>
           <div class="flex flex-wrap gap-3">
             <button class="p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px]"><img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-money.png" alt=""></button>
             @for($i = 1; $i <= 9; $i++)
@@ -190,11 +190,23 @@
         </div>
 
         <div class="flex flex-col">
-          <label for="">หมวดหมู่เบอร์</label>
+          <p class="mb-2">หมวดหมู่เบอร์</p>
           <div class="flex flex-wrap gap-3">
-            <button class="p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px]"><img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-swarn.png" alt=""></button>
+            <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] hover:">
+              <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-swarn.png" alt="">
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden">
+                <img class="scale-150" src="/icons/category/union.png" alt="">
+                <p class="w-full text-xs absolute top-0 left-0">การเงิน</p>
+              </div>
+            </button>
             @for($i = 1; $i <= 25; $i++)
-            <button class="p-2 bg-white rounded-[5px]"><img src="/icons/category/icon-swarn.png" alt=""></button>
+            <button class="relative p-2 bg-white rounded-[5px] hover:">
+              <img src="/icons/category/icon-swarn.png" alt="">
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden">
+                <img class="scale-150" src="/icons/category/union.png" alt="">
+                <p class="w-full text-xs absolute top-0 left-0">การเงิน</p>
+              </div>
+            </button>
             @endfor
           </div>
         </div>
@@ -213,6 +225,7 @@
   <div class="text-center">
     <h1 class="font-bold text-xl">แหล่งรวมเบอร์มงคล</h1>
     <p class="text-[#838383]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
+    <p class="text-[#EC1F25]">เบอร์มังกร ที่ค้นพบ 500 เบอร์</p>
   </div>
 
   <!-- box all product -->
@@ -232,10 +245,12 @@
           </div>
       </div>
   
-      <div class="bg-white"">
-          <div class="flex justify-center py-10 ">
+      <div class="bg-white">
+          <a href="{{ url('/detailber/0933501625') }}">
+            <div class="flex justify-center py-10 ">
               <h1 class="text-3xl font-medium text-center">063-782-5555</h1>
-          </div>
+            </div>
+          </a>
       </div>
   
       <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
