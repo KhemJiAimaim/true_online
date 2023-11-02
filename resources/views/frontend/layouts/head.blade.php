@@ -33,7 +33,7 @@
         <!-- mobile button goes here -->
         <div class=" xl:hidden flex justify-between items-center">
             <div class="">
-                <a href="#" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
+                <a href="{{ url('/') }}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <img src="{{ asset('/images/Rectangle 11.png') }}" alt="lago">
                 </a>
             </div>
@@ -65,7 +65,7 @@
     <!-- mobile menu -->
     <div class="Mitr mobile-menu hidden xl:hidden bg-white absolute z-99 bg-opacity-[90%] w-full">
         <li><a href="/fiber" class="block py-2 px-4 text-sm ">อินเตอร์เน็ตไฟเบอร์</a></li>
-        <li><a href="" class="block py-2 px-4 text-sm">เบอร์มงคลรายเดือน</a></li>
+        <li><a href="{{ url('/bermonthly') }}" class="block py-2 px-4 text-sm">เบอร์มงคลรายเดือน</a></li>
         <li><a href="" class="block py-2 px-4 text-sm">เติมเงิน</a></li>
         <li><a href="" class="block py-2 px-4 text-sm">ซิมท่องเที่ยว</a></li>
         <li><a href="" class="block py-2 px-4 text-sm ">วิธีการสั่งซื้อ</a></li>
@@ -108,8 +108,13 @@
             </li>
 
             <li class="group z-[99]">
+<<<<<<< HEAD
                 <a href="/bermonthly" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
                 {{-- <ul
+=======
+                <a href="{{ url('/bermonthly') }}" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
+                <ul
+>>>>>>> d8815a3db55aa04b9b6940752dcc497508a5c829
                     class="hidden mx-auto w-full absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
                     <div class="w-3/4 px-4 mx-auto">
                         <li><a href="#" class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">รายการ 1</a>
