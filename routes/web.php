@@ -83,4 +83,5 @@ Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 
 // เบอร์มงคลรายเดือน
 Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);
-Route::get('/fortune', [BerLuckyMonthlyController::class, "fortune_page"]);
+Route::get('/fortune/{tel}', [BerLuckyMonthlyController::class, "fortune_page"]);
+Route::get('/detailber/{tel}', [BerLuckyMonthlyController::class, "detailber_page"]);
