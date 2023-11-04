@@ -241,7 +241,7 @@
   </div>
 
   <!-- box all product -->
-  <div class="max-w-[1536px] max-2xl:max-w-[90%] max-lg:max-w-[100%] w-full grid grid-cols-5 max-2xl:grid-cols-3 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
+  <div class="max-w-[1536px] max-2xl:max-w-[90%] max-lg:max-w-[100%] w-full grid grid-cols-4 max-2xl:grid-cols-3 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
     @for($i = 1; $i<=20; $i++) 
     <div class="drop-shadow-md">
       <div
@@ -251,52 +251,76 @@
               <p class="text-white font-medium text-[1rem]">A+</p>
           </div>
           <div
-              class="absolute top-0 right-0 bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
-              <p class="transform skew-x-12 text-white mr-2">ผลรวม</p>
-              <p class="transform skew-x-12 text-white font-medium text-[1rem]">59</p>
+              class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
+              <p class="text-white mr-2">ผลรวม</p>
+              <p class="text-white font-medium text-[1rem]">59</p>
           </div>
       </div>
-  
-      <div class="bg-white">
-          <a href="{{ url('/detailber/0933501625') }}">
-            <div class="flex justify-center py-10 ">
-              <h1 class="text-3xl font-medium text-center">063-782-5555</h1>
-            </div>
-          </a>
+      {{-- <div
+          class="">
+          <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
+      </div> --}}
+
+      <div class="bg-white"">
+          <div class="flex justify-center py-10 ">
+              <p class="text-3xl text-center">063-782-5555</p>
+          </div>
       </div>
-  
+
       <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
           <img src="images/Ellipse 6.png" alt="" class="px-4">
-          <p class="text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
+          <p class="text-left text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
       </div>
-  
+
       <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
           <div class="grid grid-cols-3">
-              <p class="text-white text-[1rem] mt-2">ราคา</p>
+              <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
               <p class="text-white font-medium text-center text-3xl">99,999</p>
               <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
-  
+
           </div>
       </div>
-  
-      <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center">
-          <div class="rounded-full border border-red-500 mb-4 mt-2 mx-1">
-              <img src="images/mdi_cart-arrow-down.png" alt=""
-                  class="cursor-pointer w-5 h-5 mx-2 my-2">
+
+      <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
+          <div
+              class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+              <img src="/images/mdi_cart-arrow-down.png" alt=""
+                  class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
           </div>
-          <div class="rounded-full border border-red-500 mb-4 mt-2 mx-1">
-              <img src="images/Vector.png" alt="" class="cursor-pointer w-5 h-5 mx-2 my-2">
+          <div
+              class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+              <img src="/images/icons8-line-app (1) 9.png" alt=""
+                  class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
           </div>
+
           <a src="#"
-              class="cursor-pointer flex items-center px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+              class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
           <a src="#"
-              class="cursor-pointer flex items-center px-4  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-  
+              class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
       </div>
-    </div>
+
+  </div>
     @endfor
   </div>
+
+
+
   <!-- end box product -->
+</div>
+<div class="bg-gradient-to-r from-[#960004] to-[#EC1F25] ">
+  <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
+      <div class="flex flex-col items-center">
+          <img class="mt-2 mb-6 max-xs:w-[50px]" src="/images/code-qr.png" alt="">
+          <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
+          <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
+      </div>
+      <div class="flex flex-col items-center">
+          <img class="max-xs:w-[80px] " src="/images/Rectangle 1245.png" alt="">
+          <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
+          <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
+      </div>
+  </div>
+
 </div>
 @endsection
 
