@@ -36,12 +36,12 @@
             </p>
             <div class="flex items-center gap-x-4 py-2">
                 <a href="#" class="" title="facebook">
-                    <img src="images/facebook icon.png" alt="">
+                    <img src="/images/facebook icon.png" alt="">
                 </a>
                 <a href="#" class="" title="twitter">
-                    <img src="images/x.png" alt=""></a>
+                    <img src="/images/x.png" alt=""></a>
                 <a href="#" class="" title="youtube">
-                    <img src="images/youtube.png" alt=""></a>
+                    <img src="/images/youtube.png" alt=""></a>
             </div>
         </div>
     </div>
