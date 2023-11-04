@@ -30,10 +30,11 @@
 
 
         <div class="flex justify-center border-l border border-gray-500 text-center mx-3 rounded-full px-auto"></div>
-        <div class="flex sm:justify-between justify-center flex-wrap gap-y-2 px-2">
+        <div class="flex sm:justify-between items-center max-md:flex-col gap-y-2 px-2">
             <p class="text-white sm:text-md opacity-50 py-2 text-xs">©True Corporation Public Company Limited. All
                 rights reserved.
             </p>
+
             <div class="flex items-center gap-x-4 py-2">
                 <a href="#" class="" title="facebook">
                     <img src="images/facebook icon.png" alt="">

@@ -74,35 +74,35 @@
 
 <div class="bg-white drop-shadow-md">
     <div class="w-3/4 px-4 mx-auto xl:mt-4">
-        <ul class="hidden xl:grid xl:grid-cols-6 gap-4">
+        <ul class="hidden xl:grid xl:grid-cols-6 gap-4`">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
-            <li class="group z-[99]">
-                <a href="/fiber" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
+            <li class="group z-[99] ">
+                <a href="/fiber" class="flex py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
                 <ul
-                    class="hidden mx-auto w-full h-[350px] absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    class="hidden mx-auto w-full h-[350px] absolute top-[2.5rem] left-0  space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
                     <div class="w-3/4 px-4 mx-auto mt-4 mb-4">
                         <li><a href="/fiber/true_dtac"
-                                class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
                                 สำหรับทรูและดีแทค</a>
                         </li>
                         <li><a href="/fiber/internet_basic"
-                                class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
                                 สำหรับใช้งานพื้นฐาน</a>
                         </li>
                         <li><a href="/fiber/home_fiber_guarantee"
-                                class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เน็ตบ้าน พร้อมประกัน</a>
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน พร้อมประกัน</a>
                         </li>
                         <li><a href="/fiber/true_visions"
-                                class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เน็ตบ้าน พร้อมทรูวิชั่นส์</a>
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน พร้อมทรูวิชั่นส์</a>
                         </li>
                         <li><a href="/fiber/router_fiber"
-                                class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เน็ตบ้าน เลือกเราเตอร์เอง</a>
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน เลือกเราเตอร์เอง</a>
                         </li>
                         <li><a href="/fiber/internet_game"
-                                class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เน็ตบ้าน สำหรับเกมเมอร์</a>
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน สำหรับเกมเมอร์</a>
                         </li>
                         <li><a href="/fiber/SME_fiber"
-                                class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เน็ตบ้าน สำหรับธุรกิจ SME</a>
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน สำหรับธุรกิจ SME</a>
                         </li>
                     </div>
                 </ul>
@@ -110,13 +110,13 @@
 
             {{-- เบอร์มงคลรายเดือน --}}
             <li class="group z-[99]">
-                <a href="/bermonthly" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
+                <a href="/bermonthly" class="flex py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
                 {{-- <ul
-                    class="hidden mx-auto w-full h-[350px] absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
-                    <div class="w-3/4 px-4 mx-auto">
-                        <li><a href="#" class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">รายการ 1</a>
+                    class="hidden mx-auto w-full h-[350px] absolute top-[2.5rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    <div class="w-3/4  mx-auto">
+                        <li><a href="#" class="block py-2  text-[1.2rem] hover:text-[#EC1F25]">รายการ 1</a>
                         </li>
-                        <li><a href="#" class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">รายการ 2</a>
+                        <li><a href="#" class="block py-2  text-[1.2rem] hover:text-[#EC1F25]">รายการ 2</a>
                         </li>
                     </div>
                 </ul> --}}
@@ -124,17 +124,17 @@
 
             {{-- เติมเงิน --}}
             <li class="group z-[99]">
-                <a href="/prepaid_sim" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เติมเงิน</a>
+                <a href="/prepaid_sim" class="flex py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">เติมเงิน</a>
                 <ul
-                    class="hidden mx-auto w-full h-[350px] absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
-                    <div class=" w-3/4 px-4 mx-auto mt-4 mb-4">
+                    class="hidden mx-auto w-full h-[350px] absolute top-[2.5rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    <div class=" w-3/4 mx-auto mt-4 mb-4">
                         <div class= "grid grid-cols-6 ">
-                            <div class="col-start-3 px-2">
+                            <div class="col-start-3  ">
                                 <li><a href="/prepaid_sim/sim_includ"
-                                        class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
+                                        class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
                                 </li>
                                 <li><a href="#"
-                                        class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">แพ็กเกจเสริม</a>
+                                        class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">แพ็กเกจเสริม</a>
                                 </li>
                             </div>
                         </div>
@@ -144,23 +144,23 @@
 
             {{-- ย้ายค่าย --}}
             <li class="group z-[99]">
-                <a href="#" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
+                <a href="#" class="flex py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
                 <ul
-                    class="hidden mx-auto w-full h-[350px] absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
-                    <div class=" w-3/4 px-4 mx-auto mt-4 mb-4">
+                    class="hidden mx-auto w-full h-[350px] absolute top-[2.5rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    <div class=" w-3/4 mx-auto mt-4 mb-4">
                         <div class= "grid grid-cols-6">
                             <div class="col-start-4 px-2">
                                <li><a href="#"
-                                        class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
+                                        class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
                                 </li>
                                 <li><a href="#"
-                                        class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
+                                        class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
                                 </li>
                                 <li><a href="#"
-                                        class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
+                                        class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
                                 </li>
                                 <li><a href="#"
-                                        class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
+                                        class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
                                 </li>
                             </div>
                         </div>
@@ -170,17 +170,17 @@
 
             {{-- ซิมท่องเที่ยว --}}
             <li class="group z-[99]">
-                <a href="#" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
+                <a href="#" class="flex py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
                 <ul
-                    class="hidden mx-auto w-full h-[350px] absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
-                    <div class=" w-3/4 px-4 mx-auto mt-4 mb-4">
+                    class="hidden mx-auto w-full h-[350px] absolute top-[2.5rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    <div class=" w-3/4  mx-auto mt-4 mb-4">
                         <div class= "grid grid-cols-6">
                             <div class="col-start-5 px-2">
                                 <li><a href="#"
-                                    class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">เดินทางไปต่างประเทศ</a>
+                                    class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เดินทางไปต่างประเทศ</a>
                             </li>
                             <li><a href="#"
-                                    class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">มาเที่ยวในไทย</a>
+                                    class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">มาเที่ยวในไทย</a>
                             </li>
                             </div>
                         </div>
@@ -190,9 +190,9 @@
 
             {{-- วิธีการสั่งซื้อ --}}
             <li class="group z-[99]">
-                <a href="#" class="flex py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
+                <a href="#" class="flex py-2 px-4 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
                 {{-- <ul
-                    class="hidden mx-auto w-full h-[350px] absolute left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    class="hidden mx-auto w-full h-[350px] absolute top-[3.25rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
                     <div class="w-3/4 px-4 mx-auto">
                         <li><a href="#" class="block py-2 px-4 text-[1.2rem] hover:text-[#EC1F25]">รายการ 1</a>
                         </li>

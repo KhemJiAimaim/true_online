@@ -57,10 +57,10 @@
         </div>
 
         {{-- --- --}}
-        <div class="overflow-x-scroll lg:overflow-hidden my-16">
-            <div class="w-[1536px] grid grid-cols-3 gap-0  2xl:gap-4 mx-auto p-4 items-center place-content-center">
+        <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
+            <div class="2xl:w-[1536px]  w-[1200px] grid grid-cols-3 gap-0  lg:gap-4 2xl:gap-4 mx-auto p-4 items-center place-content-center">
                 <a href=""
-                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center justify-center mx-auto rounded-3xl drop-shadow-md">
+                    class="w-[350px] lg:w-[380px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
                     <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] h-auto rounded-tl-3xl rounded-tr-3xl"
                         src="/images/internet_fiber_c476c5e742.webp" alt="">
 
@@ -78,7 +78,7 @@
 
 
                 <a href=""
-                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center justify-center mx-auto rounded-3xl drop-shadow-md">
+                    class="w-[350px] lg:w-[380px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
                     <img class="w-[350px] lg:w-[380px] 2xl:w-[450px] h-auto rounded-tl-3xl rounded-tr-3xl"
                         src="/images/mobile_cc0d791368.webp" alt="">
                     <div class="grid grid-cols-3 mb-2">
@@ -94,7 +94,7 @@
                 </a>
 
                 <a href=""
-                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center justify-center mx-auto rounded-3xl drop-shadow-md">
+                    class="w-[350px] lg:w-[380px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
                     <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] h-auto rounded-tl-3xl rounded-tr-3xl"
                         src="/images/entertainment_3063ccb225.webp" alt="">
                     <div class="grid grid-cols-3 mb-2">
@@ -125,7 +125,7 @@
                     Gigatex PRO</p>
             </div>
 
-            <div class="overflow-x-scroll lg:overflow-hidden my-16">
+            <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
                 <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4">
 
                     <div class="drop-shadow-md">
@@ -374,7 +374,7 @@
                 <p class="text-[#838383] mt-2 mb-2 text-[1rem]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
             </div>
 
-            <div class="overflow-x-scroll lg:overflow-hidden my-16">
+            <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
                 <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
 
                     <div class="drop-shadow-md">
@@ -623,7 +623,7 @@
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">ซิมเติมเงิน</p>
                 <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
             </div>
-            <div class="overflow-x-scroll lg:overflow-hidden my-16">
+            <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
                 <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
 
                     <div class="drop-shadow-md">
@@ -810,7 +810,7 @@
                 <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมสำหรับท่องเที่ยว เชื่อมต่อได้ไม่มีสะดุด</p>
             </div>
 
-            <div class="overflow-x-scroll lg:overflow-hidden my-16">
+            <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
                 <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
 
                     <div class="drop-shadow-md">
