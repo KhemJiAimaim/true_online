@@ -1,3 +1,4 @@
+import '../bermonthly_lucky/fortune_ber.js'
 console.log("use detail_ber.js")
 
 let btn_package = document.querySelector('#btn-package');  // ปุ่มรายละเอียด
@@ -26,3 +27,27 @@ btn_condition.addEventListener('click', () => {
   btn_condition.classList.add('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
   btn_condition.classList.remove('bg-[#838383]')
 })
+
+
+// buy action
+ let buynow = document.querySelector('#buynow')
+ let addtocart = document.querySelector('#addtocart')
+
+ buynow.addEventListener('click', () => {
+  buyProductber()
+ })
+
+ addtocart.addEventListener('click', () => {
+  addBerToCart()
+ })
+
+ function buyProductber() {
+  const ber_id = buynow.getAttribute('data-id')
+  console.log("buyProductber : " + ber_id)
+  location.href = `/cartproduct/${ber_id}`;
+ }
+
+ function addBerToCart() {
+  const ber_id = addtocart.getAttribute('data-id')
+  console.log("addBerToCart : " + ber_id)
+ }

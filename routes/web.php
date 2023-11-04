@@ -85,3 +85,4 @@ Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);
 Route::get('/fortune/{tel}', [BerLuckyMonthlyController::class, "fortune_page"]);
 Route::get('/detailber/{tel}', [BerLuckyMonthlyController::class, "detailber_page"]);
+Route::get('/cartproduct/{ber_id}', [BerLuckyMonthlyController::class, "cartproduct_pafe"]);

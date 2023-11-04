@@ -4,7 +4,7 @@
 
   {{-- box fortune --}}
   <div class="bg-[#F8F9FA] mb-10">
-    <div class="max-w-[1536px] max-2xl:max-w-[100%] max-lg:max-w-[100%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col justify-center gap-4">
+    <div class="max-w-[1536px] max-2xl:max-w-[80%] max-lg:max-w-[80%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col justify-center max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
       <div class="bg-white flex flex-col p-4 rounded-[10px] drop-shadow-md">
         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
         @php $formattedTel = substr($tel, 0, 3) . '-' . substr($tel, 3, 3) . '-' . substr($tel, 6); @endphp
@@ -65,12 +65,12 @@
       </div>
   
       <div class="flex gap-4">
-        <div class="w-28 bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+        <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
           <h1 class="text-lg font-semibold">เกรด</h1>
           <h1 class="text-4xl font-semibold mt-4">A+</h1>
         </div>
     
-        <div class="w-28 bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+        <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
             <h1 class="text-lg font-semibold">ผลรวม</h1>
             <h1 class="text-4xl font-semibold mt-4">99</h1>
         </div>
@@ -80,20 +80,22 @@
   {{-- box fortune --}}
 
   {{-- มหัศจรรย์ --}}
-  <div class="title-plate-container">
-    <div class="title-plate-line"></div>
-    <div class="plate-group">
-        <div class="plate-box-s">
-            <div class="plate-circleS"></div>
-            <div class="title-plate-textboxS"></div>
-        </div>
-        <div class="title-plate-textboxC">
-            <p class="plate-text">คำทำนายคู่เลข</p>
-        </div>
-        <div class="plate-box-e">
-            <div class="title-plate-textboxE"></div>
-            <div class="plate-circleE"></div>
-        </div>
+  <div class="max-w-[1536px]  max-2xl:max-w-[100%] pt-10 mx-auto">
+    <div class="title-plate-container">
+      <div class="title-plate-line"></div>
+      <div class="plate-group">
+          <div class="plate-box-s">
+              <div class="plate-circleS"></div>
+              <div class="title-plate-textboxS"></div>
+          </div>
+          <div class="title-plate-textboxC">
+              <p class="plate-text">คำทำนายคู่เลข</p>
+          </div>
+          <div class="plate-box-e">
+              <div class="title-plate-textboxE"></div>
+              <div class="plate-circleE"></div>
+          </div>
+      </div>
     </div>
   </div>
   {{-- มหัศจรรย์ --}}
@@ -186,20 +188,16 @@
       </div>
       <div class="border border-1 border-[#838383] h-full"></div>
       <div class="flex gap-2">
-        <a src="#" class="cursor-pointer flex items-center px-4 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-        <div class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+        <button id="buynow" data-id="0933501625" class="cursor-pointer flex items-center px-4 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+        <button id="addtocart" data-id="0933501625" class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
           <img src="/images/mdi_cart-arrow-down.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-        </div>
-        <div class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+        </button>
+        <a href="https://line.me/ti/p/~@berhoro" class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
           <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-        </div>
+        </a>
       </div>
     </div>
   </div>
-  <div class="">
-
-  </div>
-  
 </div>
 @endsection
 

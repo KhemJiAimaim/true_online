@@ -1,3 +1,4 @@
+
 console.log("use js all product")
 
 let input_fortune = document.querySelector('#input-fortune'); 
