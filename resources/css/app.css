@@ -6,7 +6,10 @@
 * {
     font-family: "Kanit", sans-serif;
     font-weight: 400;
+    scroll-behavior: smooth;
 }
+
+
 /* red-plate-start */
 .title-plate-container,
 .detail-title-plate-container {

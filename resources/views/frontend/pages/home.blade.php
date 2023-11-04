@@ -5,22 +5,31 @@
 @section('content')
     <div class="my-16 ">
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
-            <div class="flex flex-col items-center">
+            <a href="#fiber"
+                class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear (1).png" alt="">
-                <a href="#" class="text-[1rem]">เน็ตบ้านไฟเบอร์</a>
-            </div>
-            <div class="flex flex-col items-center">
+                <p class="text-[1rem]">เน็ตบ้านไฟเบอร์</p>
+            </a>
+
+            <a
+                href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
-                <a href="#" class="text-[1rem]">เบอร์มงคล</a>
-            </div>
-            <div class="flex flex-col items-center">
+                <p class="text-[1rem]">เบอร์มงคล</p>
+            </a>
+
+
+            <a href="#sim"
+                class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30" src="/images/system-uicons_box-add1.png" alt="">
-                <a href="#" class="text-[1rem]">แพ็กเกจเน็ตซิมเทพ</a>
-            </div>
-            <div class="flex flex-col items-center">
+                <p class="text-[1rem]">แพ็กเกจเน็ตซิมเทพ</p>
+            </a>
+
+            <a href="#travel"
+                class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
-                <a href="#" class="text-[1rem]">ซิมท่องเที่ยว</a>
-            </div>
+                <p class="text-[1rem]">ซิมท่องเที่ยว</p>
+            </a>
+
         </div>
 
         {{-- มหัศจรรย์ --}}
@@ -42,62 +51,64 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <div class="py-3">
-            <span class="text-gray-400 text-[1rem]">ค้นหาเบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
+        <div class="mt-12">
+            <span class="text-gray-400 text-[18px]">ค้นหาเบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
                 และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
         </div>
 
         {{-- --- --}}
         <div class="overflow-x-scroll lg:overflow-hidden my-16">
-            <div class="w-[1536px] grid grid-cols-3 gap-4 mx-auto p-4 items-center">
-                <div class="w-[350px] lg:w-[400px] 2xl:w-[450px] 2xl:h-[460px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center rounded-3xl drop-shadow-md">
-                    <a href="">
-                        <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] 2xl:h-[350px] rounded-tl-3xl rounded-tr-3xl" src="/images/internet_fiber_c476c5e742.webp" alt="">
-                        
-                        <div class="grid grid-cols-3 mb-2">
-                            <div class="flex justify-center items-center">
-                                <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
-                            </div>
-                            <div class="col-span-2">
-                                <p class="text-white text-left font-medium text-lg mt-2 mb-2">อินเตอร์เน็ตไฟเบอร์</p>
-                                <p class="text-white text-left">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น เร็วสุด แรงสุด
-                                </p>
-                            </div>
+            <div class="w-[1536px] grid grid-cols-3 gap-0  2xl:gap-4 mx-auto p-4 items-center place-content-center">
+                <a href=""
+                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center justify-center mx-auto rounded-3xl drop-shadow-md">
+                    <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] h-auto rounded-tl-3xl rounded-tr-3xl"
+                        src="/images/internet_fiber_c476c5e742.webp" alt="">
+
+                    <div class="grid grid-cols-3 mb-2">
+                        <div class="flex justify-center items-center">
+                            <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
                         </div>
-                    </a>
-                </div>
-                <div
-                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] 2xl:h-[460px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center rounded-3xl drop-shadow-md">
-                    <a href="">
-                        <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] 2xl:h-[350px] rounded-tl-3xl rounded-tr-3xl" src="/images/mobile_cc0d791368.webp" alt="">
-                        <div class="grid grid-cols-3 mb-2">
-                            <div class="flex justify-center items-center">
-                                <img src="images/solar_sim-cards-linear.png" class="w-14 h-14" alt="">
-                            </div>
-                            <div class="col-span-2">
-                                <p class="text-white text-left font-medium text-lg mt-2 mb-2">เบอร์มงคลรายเดือน</p>
-                                <p class="text-white text-left">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น เร็วสุด แรงสุด
-                                </p>
-                            </div>
+                        <div class="col-span-2">
+                            <p class="text-white text-left font-medium text-lg mt-2 mb-2">อินเตอร์เน็ตไฟเบอร์</p>
+                            <p class="text-white text-left">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น เร็วสุด แรงสุด
+                            </p>
                         </div>
-                    </a>
-                </div>
-                <div
-                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] 2xl:h-[460px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center rounded-3xl drop-shadow-md">
-                    <a href="">
-                        <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] 2xl:h-[350px] rounded-tl-3xl rounded-tr-3xl" src="/images/entertainment_3063ccb225.webp" alt="">
-                        <div class="grid grid-cols-3 mb-2">
-                            <div class="flex justify-center items-center">
-                                <img src="images/system-uicons_box-add.png" class="w-14 h-14" alt="">
-                            </div>
-                            <div class="col-span-2">
-                                <p class="text-white text-left font-medium text-lg mt-2 mb-2">แพ็กเกจเสริม</p>
-                                <p class="text-white text-left">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น เร็วสุด แรงสุด
-                                </p>
-                            </div>
+                    </div>
+                </a>
+
+
+                <a href=""
+                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center justify-center mx-auto rounded-3xl drop-shadow-md">
+                    <img class="w-[350px] lg:w-[380px] 2xl:w-[450px] h-auto rounded-tl-3xl rounded-tr-3xl"
+                        src="/images/mobile_cc0d791368.webp" alt="">
+                    <div class="grid grid-cols-3 mb-2">
+                        <div class="flex justify-center items-center">
+                            <img src="images/solar_sim-cards-linear.png" class="w-14 h-14" alt="">
                         </div>
-                    </a>
-                </div>
+                        <div class="col-span-2">
+                            <p class="text-white text-left font-medium text-lg mt-2 mb-2">เบอร์มงคลรายเดือน</p>
+                            <p class="text-white text-left">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น เร็วสุด แรงสุด
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href=""
+                    class="w-[350px] lg:w-[400px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col items-center justify-center mx-auto rounded-3xl drop-shadow-md">
+                    <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] h-auto rounded-tl-3xl rounded-tr-3xl"
+                        src="/images/entertainment_3063ccb225.webp" alt="">
+                    <div class="grid grid-cols-3 mb-2">
+                        <div class="flex justify-center items-center">
+                            <img src="images/system-uicons_box-add.png" class="w-14 h-14" alt="">
+                        </div>
+                        <div class="col-span-2">
+                            <p class="text-white text-left font-medium text-lg mt-2 mb-2">แพ็กเกจเสริม</p>
+                            <p class="text-white text-left">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น เร็วสุด แรงสุด
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
 
 
 
@@ -110,7 +121,7 @@
         <section id="fiber" class="bg-gray-100 py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">อินเทอร์เน็ตไฟเบอร์</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[1rem]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม หนัง กีฬา ความบันเทิง | True
+                <p class="text-[#838383] mt-2 mb-2 text-[18px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม หนัง กีฬา ความบันเทิง | True
                     Gigatex PRO</p>
             </div>
 
@@ -410,10 +421,12 @@
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -460,16 +473,18 @@
                             </div>
                         </div>
 
-                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
+                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
                             <div
                                 class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -521,10 +536,12 @@
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -576,10 +593,12 @@
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -830,10 +849,12 @@
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -877,10 +898,12 @@
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -924,10 +947,12 @@
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -972,10 +997,12 @@
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full">
                             </div>
-                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
-                            
+
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                             <a src="#"
@@ -996,4 +1023,7 @@
         {{-- --- --}}
 
     </div>
+@endsection
+
+@section('scripts')
 @endsection

@@ -1066,7 +1066,7 @@
             <div class="overflow-x-scroll lg:overflow-hidden my-16 ">
                 <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4">
 
-                    <div class="drop-shadow-md col-start-2 ">
+                    <div class="drop-shadow-md 2xl:col-start-2 ">
                         <div
                             class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
@@ -1193,6 +1193,8 @@
         </section>
         {{-- --- --}}
 
+        
+
         <section class="py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">True Gigatex PRO Gold</p>
@@ -1201,9 +1203,8 @@
             </div>
 
             <div class="overflow-x-scroll lg:overflow-hidden my-16 ">
-                <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4">
-
-                    <div class="drop-shadow-md col-start-2 ">
+                <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4 place-self-auto">
+                    <div class="drop-shadow-md 2xl:col-start-2">
                         <div
                             class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
@@ -1262,7 +1263,6 @@
                                 class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</button>
                         </div>
                     </div>
-
                     <div class="drop-shadow-md">
                         <div
                             class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
@@ -1318,7 +1318,6 @@
                                 class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</button>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -1828,17 +1827,18 @@
         {{-- --- --}}
     </div>
     <div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] ">
-        <div class="p-6 flex justify-center gap-[15rem]">
+        <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
             <div class="flex flex-col items-center">
-                <img class="w-30 h-30 mt-2 mb-6 " src="/images/code-qr.png" alt="">
+                <img class="mt-2 mb-6 max-xs:w-[50px]" src="/images/code-qr.png" alt="">
                 <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
                 <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
             </div>
             <div class="flex flex-col items-center">
-                <img class="w-30 h-30 " src="/images/Rectangle 1245.png" alt="">
+                <img class="max-xs:w-[80px] " src="/images/Rectangle 1245.png" alt="">
                 <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
                 <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
             </div>
         </div>
+    
     </div>
 @endsection
