@@ -85,3 +85,16 @@ Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);
 Route::get('/fortune/{tel}', [BerLuckyMonthlyController::class, "fortune_page"]);
 Route::get('/detailber/{tel}', [BerLuckyMonthlyController::class, "detailber_page"]);
+//ย้ายค่าย
+Route::get('/movecompany', function () {
+    return view('frontend.pages.move_company.home_move');
+});
+Route::get('/movecompany/fixxynolimit', function () {
+    return view('frontend.pages.move_company.fixxynolimit');
+});
+Route::get('/movecompany/5GTogether+', function () {
+    return view('frontend.pages.move_company.5GTogether');
+});
+Route::get('/movecompany/5GSuperSmart', function () {
+    return view('frontend.pages.move_company.5GSuperSmart');
+});
