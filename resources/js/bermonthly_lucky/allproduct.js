@@ -1,3 +1,4 @@
+
 console.log("use js all product")
 
 let input_fortune = document.querySelector('#input-fortune'); 
@@ -13,7 +14,7 @@ function fortuneber() {
   location.href = `/fortune/${input_ber}`;
 }
 
-
+// ใส่ลูกน้ำจำนวนเงิน
 let price_low = document.querySelectorAll('#price-low')
 let price_hight = document.querySelectorAll('#price-hight')
 let priceInputs = document.querySelectorAll('.price-input');

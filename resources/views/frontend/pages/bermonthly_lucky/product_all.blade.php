@@ -182,9 +182,21 @@
         <div class="flex flex-col max-lg:mb-4">
           <p class="mb-2">เสริมดวงด้าน</p>
           <div class="flex flex-wrap gap-3">
-            <button class="p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px]"><img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-money.png" alt=""></button>
+            <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
+              <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-money.png" alt="">
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
+                <img class="scale-150" src="/icons/category/union.png" alt="">
+                <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
+              </div>
+            </button>
             @for($i = 1; $i <= 9; $i++)
-            <button class="p-2 bg-white rounded-[5px]"><img src="/icons/category/icon-money.png" alt=""></button>
+            <button class="relative p-2 bg-white rounded-[5px] group">
+              <img src="/icons/category/icon-money.png" alt="">
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
+                <img class="scale-150" src="/icons/category/union.png" alt="">
+                <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
+              </div>
+            </button>
             @endfor
           </div>
         </div>
@@ -192,17 +204,17 @@
         <div class="flex flex-col">
           <p class="mb-2">หมวดหมู่เบอร์</p>
           <div class="flex flex-wrap gap-3">
-            <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] hover:">
+            <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
               <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-swarn.png" alt="">
-              <div class="w-10 h-10 absolute -top-6 left-3 hidden">
-                <img class="scale-150" src="/icons/category/union.png" alt="">
-                <p class="w-full text-xs absolute top-0 left-0">การเงิน</p>
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
+                  <img class="scale-150" src="/icons/category/union.png" alt="">
+                  <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
               </div>
             </button>
             @for($i = 1; $i <= 25; $i++)
-            <button class="relative p-2 bg-white rounded-[5px] hover:">
+            <button class="relative p-2 bg-white rounded-[5px] group">
               <img src="/icons/category/icon-swarn.png" alt="">
-              <div class="w-10 h-10 absolute -top-6 left-3 hidden">
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
                 <p class="w-full text-xs absolute top-0 left-0">การเงิน</p>
               </div>
