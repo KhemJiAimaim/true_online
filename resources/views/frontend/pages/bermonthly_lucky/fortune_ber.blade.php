@@ -3,7 +3,7 @@
 <div class="text-left">
 
   {{-- box fortune --}}
-  <div class="bg-[#F8F9FA] mb-10">
+  <div class="bg-[#F8F9FA] mb-10 ">
     <div class="max-w-[1536px] max-2xl:max-w-[100%] max-lg:max-w-[100%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col justify-center gap-4">
       <div class="bg-white flex flex-col p-4 rounded-[10px] drop-shadow-md">
         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
@@ -130,6 +130,20 @@
     {{-- box meaning ber --}}
   </div>
 </div>
+
+<div class="bg-gradient-to-r from-[#960004] to-[#EC1F25] ">
+  <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
+      <div class="flex flex-col items-center">
+          <img class="mt-2 mb-6 max-xs:w-[50px]" src="/images/code-qr.png" alt="">
+          <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
+          <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
+      </div>
+      <div class="flex flex-col items-center">
+          <img class="max-xs:w-[80px] " src="/images/Rectangle 1245.png" alt="">
+          <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
+          <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
+      </div>
+  </div>
 @endsection
 
 @section('scripts')
