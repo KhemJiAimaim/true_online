@@ -46,7 +46,7 @@ return new class extends Migration
                 'ad_image' => 'images/slide-food.png',
                 'ad_position_id' => 2,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -56,7 +56,7 @@ return new class extends Migration
                 'ad_image' => 'images/slide-food.png',
                 'ad_position_id' => 2,
                 'ad_priority' => 2,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -66,7 +66,7 @@ return new class extends Migration
                 'ad_image' => 'images/slide-food.png',
                 'ad_position_id' => 2,
                 'ad_priority' => 3,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -76,7 +76,7 @@ return new class extends Migration
                 'ad_image' => 'images/banner-menu.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -86,7 +86,7 @@ return new class extends Migration
                 'ad_image' => 'images/bg-catering.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -96,7 +96,7 @@ return new class extends Migration
                 'ad_image' => 'images/bg-gallery.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -106,7 +106,7 @@ return new class extends Migration
                 'ad_image' => 'images/bg-gallery.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -116,7 +116,7 @@ return new class extends Migration
                 'ad_image' => 'images/bg-about.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -126,7 +126,7 @@ return new class extends Migration
                 'ad_image' => 'images/bg-location.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -136,7 +136,7 @@ return new class extends Migration
                 'ad_image' => 'images/bg-contactus.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
             [
@@ -146,7 +146,7 @@ return new class extends Migration
                 'ad_image' => 'images/bg-book.png',
                 'ad_position_id' => 1,
                 'ad_priority' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'defaults' => true
             ],
         ]);

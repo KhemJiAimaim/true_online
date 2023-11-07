@@ -41,7 +41,7 @@ return new class extends Migration
             [ 'id' => 1, 'username' => 'admin@example.com', 'password' => '$2y$10$s15yQn3lPYMKX03FjQor9.8Lah4FBHlJ6tSyQx9fZitwpaMaUtmm.', 'email' => "admin@example.com", 'account_role' => "backoffice"]
         ]);
         DB::table('admin_accounts')->insert([
-            [ 'account_id' => 1, 'admin_level' => 1, 'admin_status' => 1, 'language' => "fr,en", 'display_name' => "Tester", 'admin_note' => "Account devmode", 'admin_verify_at' => "2022-9-17 08:30"]
+            [ 'account_id' => 1, 'admin_level' => 1, 'admin_status' => 1, 'language' => "th,en", 'display_name' => "Tester", 'admin_note' => "Account devmode", 'admin_verify_at' => "2023-11-07 09:30"]
         ]);
     }
 

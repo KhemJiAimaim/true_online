@@ -20,7 +20,7 @@ class ConfigController extends BaseController
     {
         $this->getAuthUser(1);
         $bannerType = AdSlidePosition::orderBy('name', 'ASC')->get()->all();
-        $languageAvailable = LanguageAvailable::orderBy('defaults', 'DESC')->get()->all();
+        $languageAvailable = LanguageAvailable::where('display', true)->orderBy('defaults', 'DESC')->get()->all();
         $infoType = $this->webInfoType($request->language);
 
         #BANNER

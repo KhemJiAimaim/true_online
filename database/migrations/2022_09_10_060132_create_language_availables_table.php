@@ -20,13 +20,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('flag')->nullable();
             $table->boolean('defaults')->default(false);
+            $table->boolean('display')->default(true);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
 
         DB::table('language_availables')->insert([
-            [ 'id' => 1, 'abbv_name' => 'fr', 'flag' => 'upload/2022/10/11/th16654739570.png', 'name' => 'French' , "defaults" => 1],
-            [ 'id' => 2, 'abbv_name' => 'en', 'flag' => 'upload/2022/10/11/th1216654739700.png', 'name' => 'English', "defaults" => 0],
+            [ 'id' => 1, 'abbv_name' => 'th', 'flag' => 'upload/2022/10/11/th-flag.png', 'name' => 'ไทย' , "defaults" => 1, "display" => 1],
+            [ 'id' => 2, 'abbv_name' => 'en', 'flag' => 'upload/2022/10/11/en-flag.png', 'name' => 'English', "defaults" => 0, "display" => 0],
         ]);
     }
 

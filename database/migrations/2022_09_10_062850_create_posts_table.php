@@ -61,7 +61,7 @@ return new class extends Migration
         DB::table('posts')->insert([
             [
                 'id' => 1,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'tamarindhome',
                 'title' => 'tamarind',
                 'keyword' => '',
@@ -81,7 +81,7 @@ return new class extends Migration
             ],
             [
                 'id' => 2,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'ourstory',
                 'title' => 'Our Story',
                 'keyword' => '',
@@ -102,7 +102,7 @@ return new class extends Migration
             ],
             [
                 'id' => 3,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'contentmore1',
                 'title' => 'contentmore',
                 'keyword' => 'contentmore',
@@ -122,7 +122,7 @@ return new class extends Migration
             ],
             [
                 'id' => 4,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'cartemenu',
                 'title' => 'carte menu',
                 'keyword' => '',
@@ -142,7 +142,7 @@ return new class extends Migration
             ],
             [
                 'id' => 6,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'catering',
                 'title' => 'Catering',
                 'keyword' => '',
@@ -162,7 +162,7 @@ return new class extends Migration
             ],
             [
                 'id' => 7,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'contentmore3',
                 'title' => 'contentmore',
                 'keyword' => 'contentmore',
@@ -182,7 +182,7 @@ return new class extends Migration
             ],
             [
                 'id' => 8,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'gallery',
                 'title' => 'gallery',
                 'keyword' => '',
@@ -202,7 +202,7 @@ return new class extends Migration
             ],
             [
                 'id' => 9,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'contentmore4',
                 'title' => 'contentmore',
                 'keyword' => 'contentmore',
@@ -222,7 +222,7 @@ return new class extends Migration
             ],
             [
                 'id' => 10,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'delivery',
                 'title' => 'delivery',
                 'keyword' => '',
@@ -242,7 +242,7 @@ return new class extends Migration
             ],
             [
                 'id' => 11,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'deliveroo',
                 'title' => 'deliveroo',
                 'keyword' => 'select-menu',
@@ -262,7 +262,7 @@ return new class extends Migration
             ],
             [
                 'id' => 12,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'ubereats',
                 'title' => 'Uber Eats',
                 'keyword' => 'select-menu',
@@ -282,7 +282,7 @@ return new class extends Migration
             ],
             [
                 'id' => 13,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'aboutus',
                 'title' => 'about us',
                 'keyword' => '',
@@ -302,7 +302,7 @@ return new class extends Migration
             ],
             [
                 'id' => 14,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'about-ourstory',
                 'title' => 'Our story',
                 'keyword' => 'story-show',
@@ -322,7 +322,7 @@ return new class extends Migration
             ],
             [
                 'id' => 15,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'about-oursurroundings',
                 'title' => 'Our surroundings',
                 'keyword' => 'story-show',
@@ -342,7 +342,7 @@ return new class extends Migration
             ],
             [
                 'id' => 16,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'about-ourunivers',
                 'title' => 'Our Univers',
                 'keyword' => 'story-show',
@@ -362,7 +362,7 @@ return new class extends Migration
             ],
             [
                 'id' => 17,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'ourlocation',
                 'title' => 'our location',
                 'keyword' => '',
@@ -382,7 +382,7 @@ return new class extends Migration
             ],
             [
                 'id' => 18,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'contactus',
                 'title' => 'Contact us',
                 'keyword' => '',
@@ -402,7 +402,7 @@ return new class extends Migration
             ],
             [
                 'id' => 19,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'booking-online',
                 'title' => 'book',
                 'keyword' => '',
@@ -422,7 +422,7 @@ return new class extends Migration
             ],
             [
                 'id' => 20,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'ourstory2',
                 'title' => 'Our Story',
                 'keyword' => '',
@@ -442,7 +442,7 @@ return new class extends Migration
             ],
             [
                 'id' => 21,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'product-1',
                 'title' => 'Yam mamuang pou nim',
                 'keyword' => 'product',
@@ -462,7 +462,7 @@ return new class extends Migration
             ],
             [
                 'id' => 22,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'product-2',
                 'title' => 'Yam mamuang pou nim',
                 'keyword' => 'product',
@@ -482,7 +482,7 @@ return new class extends Migration
             ],
             [
                 'id' => 23,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'product-3',
                 'title' => 'Yam mamuang pou nim',
                 'keyword' => 'product',
@@ -502,7 +502,7 @@ return new class extends Migration
             ],
             [
                 'id' => 24,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'product-4',
                 'title' => 'Yam mamuang pou nim',
                 'keyword' => 'product',
@@ -522,7 +522,7 @@ return new class extends Migration
             ],
             [
                 'id' => 25,
-                'language' => 'fr',
+                'language' => 'th',
                 'slug' => 'product-5',
                 'title' => 'Yam mamuang pou nim',
                 'keyword' => 'product',
