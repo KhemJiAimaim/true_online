@@ -256,15 +256,13 @@
               <p class="text-white font-medium text-[1rem]">59</p>
           </div>
       </div>
-      {{-- <div
-          class="">
-          <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-      </div> --}}
-
-      <div class="bg-white"">
-          <div class="flex justify-center py-10 ">
-              <p class="text-3xl text-center">063-782-5555</p>
-          </div>
+  
+      <div class="bg-white">
+          <a href="{{ url('/detailber/0933501625') }}"> 
+            <div class="flex justify-center py-10 ">
+              <h1 class="text-3xl font-medium text-center">063-782-5555</h1>
+            </div>
+          </a>
       </div>
 
       <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
@@ -298,15 +296,14 @@
           <a src="#"
               class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
       </div>
-
-  </div>
+    </div>
     @endfor
   </div>
-
-
-
-  <!-- end box product -->
 </div>
+
+
+
+<!-- end box product -->
 <div class="bg-gradient-to-r from-[#960004] to-[#EC1F25] ">
   <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
       <div class="flex flex-col items-center">
@@ -320,7 +317,6 @@
           <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
       </div>
   </div>
-
 </div>
 @endsection
 
