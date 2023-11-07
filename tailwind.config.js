@@ -7,13 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens:{
-        xs:"480px"
+      screens: {
+        xs: "480px"
       },
 
       scale: {
         '175': '1.75',
-      }
+      },
+
     },
   },
   plugins: [],
