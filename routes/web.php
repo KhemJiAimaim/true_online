@@ -85,6 +85,7 @@ Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);
 Route::get('/fortune/{tel}', [BerLuckyMonthlyController::class, "fortune_page"]);
 Route::get('/detailber/{tel}', [BerLuckyMonthlyController::class, "detailber_page"]);
+Route::get('/cartproduct/{tel}', [BerLuckyMonthlyController::class, "cartproduct_page"]);
 
 //ย้ายค่าย
 Route::get('/movecompany', function () {

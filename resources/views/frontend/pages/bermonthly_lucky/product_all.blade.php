@@ -296,15 +296,14 @@
           <a src="#"
               class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
       </div>
-
-  </div>
+    </div>
     @endfor
   </div>
-
-
-
-  <!-- end box product -->
 </div>
+
+
+
+<!-- end box product -->
 <div class="bg-gradient-to-r from-[#960004] to-[#EC1F25] ">
   <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
       <div class="flex flex-col items-center">
@@ -318,7 +317,6 @@
           <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
       </div>
   </div>
-
 </div>
 @endsection
 
