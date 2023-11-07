@@ -258,7 +258,7 @@
       </div>
   
       <div class="bg-white">
-          <a href="{{ url('/detailber/0933501625') }}">
+          <a href="{{ url('/detailber/0933501625') }}"> 
             <div class="flex justify-center py-10 ">
               <h1 class="text-3xl font-medium text-center">063-782-5555</h1>
             </div>
