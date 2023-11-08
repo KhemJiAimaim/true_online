@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class="py-16">
+    <div class="my-36">
         <div
             class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6  2xl:grid-cols-7 gap-4 px-4 mb-16 max-w-[1536px] m-auto">
             <a href="/fiber/true_dtac">

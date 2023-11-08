@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-<div class="text-left">
+<div class="text-left my-36">
 
   {{-- box fortune --}}
   <div class="bg-[#F8F9FA] mb-10 ">

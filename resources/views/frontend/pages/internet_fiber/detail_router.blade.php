@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-    <div class="py-16">
+    <div class="my-36">
         <section class="py-6">
             <div class="py-6 mb-6">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">True Gigatex PRO Special.</p>

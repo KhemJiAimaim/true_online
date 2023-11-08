@@ -78,7 +78,7 @@ Route::get("/prepaid_sim", [HomeController::class, "prepaid_sim"]);
 Route::get("/prepaid_sim/buy_sim", [HomeController::class, "buy_sim"]);
 Route::get("/prepaid_sim/sim_includ", [HomeController::class, "sim_includ"]);
 
-
+//ขอบคุณ
 Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 
 // เบอร์มงคลรายเดือน
@@ -86,6 +86,9 @@ Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"])
 Route::get('/fortune/{tel}', [BerLuckyMonthlyController::class, "fortune_page"]);
 Route::get('/detailber/{tel}', [BerLuckyMonthlyController::class, "detailber_page"]);
 Route::get('/cartproduct/{tel}', [BerLuckyMonthlyController::class, "cartproduct_page"]);
+
+// วิธีสั่งซื้อ
+Route::get('/howtobuy/{cate}', [HowToBuyController::class, "howtobuyPage"]);
 
 //ย้ายค่าย
 Route::get('/movecompany', function () {
