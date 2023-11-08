@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-    <div class="text-left">
+    <div class="text-left my-36">
         <div
             class="max-w-[1536px] max-2xl:max-w-[90%] max-lg:max-w-[100%] w-full mx-auto max-xs:mb-1 p-10 max-xs:p-4 flex justify-between gap-10 max-xs:gap-4">
             <div class="flex flex-col justify-center items-center">

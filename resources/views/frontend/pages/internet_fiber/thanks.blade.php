@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-    <div class="py-16">
+    <div class="my-36">
 
         <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg m-auto p-6 mt-10">
             <div class=" w-full flex flex-col justify-center items-center gap-y-10 mt-20 mb-20">

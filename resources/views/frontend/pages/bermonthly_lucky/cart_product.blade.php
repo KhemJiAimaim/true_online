@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-<div class="text-left">
+<div class="text-left my-36">
   <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
     <div class="text-center">
       <h1 class="text-xl ">ตระกร้าสินค้า</h1>
