@@ -87,6 +87,9 @@ Route::get('/fortune/{tel}', [BerLuckyMonthlyController::class, "fortune_page"])
 Route::get('/detailber/{tel}', [BerLuckyMonthlyController::class, "detailber_page"]);
 Route::get('/cartproduct/{tel}', [BerLuckyMonthlyController::class, "cartproduct_page"]);
 
+// วิธีสั่งซื้อ
+Route::get('/howtobuy/{cate}', [HowToBuyController::class, "howtobuyPage"]);
+
 //ย้ายค่าย
 Route::get('/movecompany', function () {
     return view('frontend.pages.move_company.home_move');

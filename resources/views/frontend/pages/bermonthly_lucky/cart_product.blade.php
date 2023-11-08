@@ -96,33 +96,33 @@
               <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="name" id="name">
             </div>
             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="name">นามสกุล*</label>
+              <label class="text-end" for="last-name">นามสกุล*</label>
               <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="last-name" id="last-name">
             </div>
             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="name">เบอร์โทร*</label>
+              <label class="text-end" for="customer-tel">เบอร์โทร*</label>
               <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="customer-tel" id="customer-tel" maxlength="10">
             </div>
             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="name">อีเมล*</label>
+              <label class="text-end" for="customer-email">อีเมล*</label>
               <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="customer-email" id="customer-email">
             </div>
           </div>
           <div class="flex flex-col gap-2">
             <div class="grid grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="name">ที่อยู่*</label>
+              <label class="text-end" for="customer-address">ที่อยู่*</label>
               <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="customer-address" id="customer-address" cols="30" rows="3"></textarea>
             </div>
             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
               <div class="grid grid-cols-[80px,1fr] gap-4">
                 <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
-                <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="province" id="province">
+                <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="sub-district" id="sub-district">
                   <option value="ศิลา">ศิลา</option>
                 </select>
               </div>
               <div class="grid grid-cols-[80px,1fr] gap-4">
                 <label class="text-end" for="district">อำเภอ/เขต*</label>
-                <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="province" id="province">
+                <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="district" id="district">
                   <option value="ในเมือง">ในเมือง</option>
                 </select>
               </div>

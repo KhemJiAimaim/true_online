@@ -68,13 +68,13 @@
         <div class="mt-4 flex flex-col">
           <label class="" for="">ค้นหาเบอร์</label>
           <div class="flex gap-2">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" data-position="0" value="0" readonly>
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" data-position="0" value="0" disabled>
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="1" maxlength="1" placeholder="-">
             <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="2" maxlength="1" placeholder="-">
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="3" maxlength="1" placeholder="-">
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="4" maxlength="1" placeholder="-">
             <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="5" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" data-positionid="search-num" ="6 h-7" maxlength="1" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="6" maxlength="1" placeholder="-">
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="7" maxlength="1" placeholder="-">
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="8" maxlength="1" placeholder="-">
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="9" maxlength="1" placeholder="-">
@@ -84,7 +84,7 @@
         <div class="mt-4 flex justify-between gap-4 max-xs:grid max-xs:grid-cols-2">
           <div class="flex flex-col">
             <label for="slc-sum">ผลรวม</label>
-            <select class="w-36 max-lg:w-44 h-7 border border-[#838383] rounded-[3px]" name="slc-sum" id="slc-sum">
+            <select class="w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-sum" id="slc-sum">
               <option value="">ผลรวม</option>
               <option value="">30</option>
               <option value="">40</option>
@@ -104,14 +104,14 @@
 
           <div class="flex flex-col">
             <label for="txt_favorite">ค้นหาเลขชุดที่ชอบ</label>
-            <input class="w-80 max-xl:w-48 max-lg:w-80 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="txt_favorite" id="txt_favorite">
+            <input class="w-80 max-xl:w-48 max-lg:w-80 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="txt_favorite" id="txt_favorite" maxlength="10">
           </div>
         </div>
 
         <div class="mt-4 flex justify-between gap-4 max-xs:grid max-xs:grid-cols-2">
           <div class="flex flex-col">
             <label for="slc-sum">แพ็กเกจ</label>
-            <select class="w-52 max-xl:w-36 max-lg:w-44 h-7 border border-[#838383] rounded-[3px]" name="slc-sum" id="slc-sum">
+            <select class="w-52 max-xl:w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-sum" id="slc-sum">
               <option value="">แพ็กเกจ</option>
               <option value="">เน็ต Unlimited + โทร 1700 Mins</option>
               <option value="">แพ็กเกจนี้ใช้ฟรี 3 เดือน</option>
@@ -190,7 +190,7 @@
               </div>
             </button>
             @for($i = 1; $i <= 9; $i++)
-            <button class="relative p-2 bg-white rounded-[5px] group">
+            <button id="predict-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
               <img src="/icons/category/icon-money.png" alt="">
               <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
@@ -212,7 +212,7 @@
               </div>
             </button>
             @for($i = 1; $i <= 25; $i++)
-            <button class="relative p-2 bg-white rounded-[5px] group">
+            <button id="cate-ber" data-id="{{$i}} class="relative p-2 bg-white rounded-[5px] group">
               <img src="/icons/category/icon-swarn.png" alt="">
               <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
@@ -227,7 +227,7 @@
 
     <div class="w-full mt-4 flex justify-center gap-10">
       <button class="px-4 py-1 border border-red-400 rounded-[15px]">คืนค่า</button>
-      <button class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px]">ค้นหา</button>
+      <button id="search-product" class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px]">ค้นหา</button>
     </div>
 
   </div>
@@ -252,8 +252,8 @@
           </div>
           <div
               class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
-              <p class="text-white mr-2">ผลรวม</p>
-              <p class="text-white font-medium text-[1rem]">59</p>
+              <p class="text-white mr-2 skew-x-12">ผลรวม</p>
+              <p class="text-white font-medium text-[1rem] skew-x-12">59</p>
           </div>
       </div>
   
@@ -280,7 +280,7 @@
       </div>
 
       <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-          <div
+          <div id="addtocart" data-id="{{$i}}"
               class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
               <img src="/images/mdi_cart-arrow-down.png" alt=""
                   class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -291,10 +291,10 @@
                   class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
           </div>
 
-          <a src="#"
+          <a href="/detailber/0933501625"
               class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-          <a src="#"
-              class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+          <button id="buynow" data-id="{{$i}}"
+              class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
       </div>
     </div>
     @endfor
