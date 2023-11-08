@@ -266,35 +266,69 @@
             <p class="text-[#EC1F25]">เบอร์มังกร ที่ค้นพบ 500 เบอร์</p>
         </div>
 
-        <!-- box all product -->
-        <div
-            class="max-w-[1536px] max-2xl:max-w-[90%] max-lg:max-w-[100%] w-full grid grid-cols-4 max-2xl:grid-cols-3 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
-            @for ($i = 1; $i <= 20; $i++)
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                        <div class="flex justify-start items-center">
-                            <p class="text-white mr-2">เกรด</p>
-                            <p class="text-white font-medium text-[1rem]">A+</p>
-                        </div>
-                        <div
-                            class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
-                            <p class="text-white mr-2">ผลรวม</p>
-                            <p class="text-white font-medium text-[1rem]">59</p>
-                        </div>
-                    </div>
-                    {{-- <div
-          class="">
-          <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-      </div> --}}
+        <div class="flex flex-col">
+          <p class="mb-2">หมวดหมู่เบอร์</p>
+          <div class="flex flex-wrap gap-3">
+            <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
+              <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-swarn.png" alt="">
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
+                  <img class="scale-150" src="/icons/category/union.png" alt="">
+                  <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
+              </div>
+            </button>
+            @for($i = 1; $i <= 25; $i++)
+            <button class="relative p-2 bg-white rounded-[5px] group">
+              <img src="/icons/category/icon-swarn.png" alt="">
+              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
+                <img class="scale-150" src="/icons/category/union.png" alt="">
+                <p class="w-full text-xs absolute top-0 left-0">การเงิน</p>
+              </div>
+            </button>
+            @endfor
+          </div>
+        </div>
+      </div>
+    </div>
 
-                    <div class="bg-white">
-                        <a href="{{ url('/detailber/0933501625') }}">
-                            <div class="flex justify-center py-10 ">
-                                <h1 class="text-3xl font-medium text-center">063-782-5555</h1>
-                            </div>
-                        </a>
-                    </div>
+    <div class="w-full mt-4 flex justify-center gap-10">
+      <button class="px-4 py-1 border border-red-400 rounded-[15px]">คืนค่า</button>
+      <button class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px]">ค้นหา</button>
+    </div>
+
+  </div>
+  <!-- end search box -->
+
+  {{-- result search --}}
+  <div class="text-center">
+    <h1 class="font-bold text-xl">แหล่งรวมเบอร์มงคล</h1>
+    <p class="text-[#838383]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
+    <p class="text-[#EC1F25]">เบอร์มังกร ที่ค้นพบ 500 เบอร์</p>
+  </div>
+
+  <!-- box all product -->
+  <div class="max-w-[1536px] max-2xl:max-w-[90%] max-lg:max-w-[100%] w-full grid grid-cols-4 max-2xl:grid-cols-3 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
+    @for($i = 1; $i<=20; $i++) 
+    <div class="drop-shadow-md">
+      <div
+          class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
+          <div class="flex justify-start items-center">
+              <p class="text-white mr-2">เกรด</p>
+              <p class="text-white font-medium text-[1rem]">A+</p>
+          </div>
+          <div
+              class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
+              <p class="text-white mr-2">ผลรวม</p>
+              <p class="text-white font-medium text-[1rem]">59</p>
+          </div>
+      </div>
+  
+      <div class="bg-white">
+          <a href="{{ url('/detailber/0933501625') }}"> 
+            <div class="flex justify-center py-10 ">
+              <h1 class="text-3xl font-medium text-center">063-782-5555</h1>
+            </div>
+          </a>
+      </div>
 
                     <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
                         <img src="images/Ellipse 6.png" alt="" class="px-4">
@@ -322,35 +356,33 @@
                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                         </div>
 
-                        <a src="#"
-                            class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                        <a src="#"
-                            class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-                    </div>
-
-                </div>
-            @endfor
-        </div>
-
-
-
-        <!-- end box product -->
+          <a src="#"
+              class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+          <a src="#"
+              class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+      </div>
     </div>
-    <div class="bg-gradient-to-r from-[#960004] to-[#EC1F25] ">
-        <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
-            <div class="flex flex-col items-center">
-                <img class="mt-2 mb-6 max-xs:w-[50px]" src="/images/code-qr.png" alt="">
-                <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
-                <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="max-xs:w-[80px] " src="/images/Rectangle 1245.png" alt="">
-                <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
-                <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
-            </div>
-        </div>
+    @endfor
+  </div>
+</div>
 
-    </div>
+
+
+<!-- end box product -->
+<div class="bg-gradient-to-r from-[#960004] to-[#EC1F25] ">
+  <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
+      <div class="flex flex-col items-center">
+          <img class="mt-2 mb-6 max-xs:w-[50px]" src="/images/code-qr.png" alt="">
+          <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
+          <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
+      </div>
+      <div class="flex flex-col items-center">
+          <img class="max-xs:w-[80px] " src="/images/Rectangle 1245.png" alt="">
+          <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
+          <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
+      </div>
+  </div>
+</div>
 @endsection
 
 @section('scripts')

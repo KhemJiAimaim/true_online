@@ -213,6 +213,7 @@
           <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
       </div>
   </div>
+</div>
 @endsection
 
 @section('scripts')

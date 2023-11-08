@@ -71,6 +71,7 @@ class AuthBackOfficeController extends BaseController
 
     public function loginAccount(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'password' => 'required'
@@ -80,49 +81,57 @@ class AuthBackOfficeController extends BaseController
             return $this->sendErrorValidators('Invalid params', $validator->errors());
         }
 
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            $user = Auth::user();
-            if ($user->account_role !== 'backoffice') {
+        try {
+            if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+                $user = Auth::user();
+                if ($user->account_role !== 'backoffice') {
+                    return response()->json([
+                        'message' => 'error',
+                        'description' => 'Invalid credential',
+                    ], 401);
+                }
+
+                $profile = AdminAccount::where('account_id', $user->id)->get()->first();
+                if (!$profile) {
+                    return response()->json([
+                        'message' => 'error',
+                        'description' => "Profile was not found."
+                    ], 401);
+                }
+
+                if ((int)$profile->admin_status !== 1 || $profile->admin_verify_at === null) {
+                    return response()->json([
+                        'message' => 'error',
+                        'description' => "You have no permission, please contact an admin!"
+                    ], 403);
+                }
+                $checkLangs = explode(",", $profile->language);
+                if (count($checkLangs) < 1 && $checkLangs[0] === "") {
+                    return response()->json([
+                        'message' => 'error',
+                        'description' => "You are not assigned the language of responsibility."
+                    ], 403);
+                }
+
+                $accessToken = $user->createToken('AuthToken')->accessToken;
+
                 return response()->json([
-                    'message' => 'error',
-                    'description' => 'Invalid credential',
+                    'message' => 'success',
+                    'description' => 'Sign-In Succesfully!',
+                    'data' => ['accessToken' => $accessToken]
+                ], 200);
+            } else {
+                return response()->json([
+                    'message' => 'ok',
+                    'description' => 'Authorization failed!',
                 ], 401);
             }
-
-            $profile = AdminAccount::where('account_id', $user->id)->get()->first();
-            if (!$profile) {
-                return response()->json([
-                    'message' => 'error',
-                    'description' => "Profile was not found."
-                ], 401);
-            }
-
-            if ((int)$profile->admin_status !== 1 || $profile->admin_verify_at === null) {
-                return response()->json([
-                    'message' => 'error',
-                    'description' => "You have no permission, please contact an admin!"
-                ], 403);
-            }
-            $checkLangs = explode(",", $profile->language);
-            if (count($checkLangs) < 1 &&  $checkLangs[0] === "") {
-                return response()->json([
-                    'message' => 'error',
-                    'description' => "You are not assigned the language of responsibility."
-                ], 403);
-            }
-
-            $accessToken = $user->createToken('AuthToken')->accessToken;
-
-            return response()->json([
-                'message' => 'success',
-                'description' => 'Sign-In Succesfully!',
-                'data' => ['accessToken' => $accessToken]
-            ],200);
-        } else {
-            return response()->json([
-                'message' => 'ok',
-                'description' => 'Authorization failed!',
-            ], 401);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'error',
+                'status' => false,
+                'errorMessage' => $e->getMessage(),
+            ], 500);
         }
     }
 
@@ -144,7 +153,7 @@ class AuthBackOfficeController extends BaseController
                 ], 403);
             }
 
-            $menu = Category::where('is_menu', 1)->where('language', "en")->where('cate_level', 0)->get()->all();
+            $menu = Category::where('is_menu', 1)->where('language', $langDefault->abbv_name)->where('cate_level', 0)->get()->all();
             $newMenu = [];
             if ($menu) {
                 foreach ($menu as $m) {
@@ -160,7 +169,7 @@ class AuthBackOfficeController extends BaseController
             }
 
             $checkLangs = explode(",",  $userAccount->language);
-            $queryLangs = LanguageAvailable::whereIn('abbv_name', $checkLangs)->get()->all();
+            $queryLangs = LanguageAvailable::whereIn('abbv_name', $checkLangs)->where('display', true)->get()->all();
             $activateLanguage = "";
             foreach ($queryLangs as $lng) {
                 $activateLanguage .= ",{$lng->abbv_name}";
@@ -332,23 +341,23 @@ class AuthBackOfficeController extends BaseController
         $params = $request->all();
         try {
             DB::beginTransaction();
-            $reset_token = DB::table('password_resets')->where(['token'=> $params['token']])->first();
-            if(!$reset_token){
+            $reset_token = DB::table('password_resets')->where(['token' => $params['token']])->first();
+            if (!$reset_token) {
                 return response()->json([
                     'message' => 'error',
                     'description' => 'Token has been revoked!'
                 ], 400);
             }
             $userAdmin = User::where(['email' => $reset_token->email])->first();
-            if(!$userAdmin){
+            if (!$userAdmin) {
                 return response()->json([
                     'message' => 'error',
                     'description' => 'User not found!'
                 ], 404);
             }
             $adminAccount = AdminAccount::where('account_id', $userAdmin->id)->first();
-            if($adminAccount->admin_status !== 1){
-                if(!$userAdmin){
+            if ($adminAccount->admin_status !== 1) {
+                if (!$userAdmin) {
                     return response()->json([
                         'message' => 'error',
                         'description' => 'Account not active!'
@@ -357,7 +366,7 @@ class AuthBackOfficeController extends BaseController
             }
             $userAdmin->password = bcrypt($params['password']);
             $userAdmin->save();
-            DB::table('password_resets')->where(['token'=> $params['token']])->delete();
+            DB::table('password_resets')->where(['token' => $params['token']])->delete();
             DB::commit();
             return response()->json([
                 'message' => 'success',
@@ -379,14 +388,14 @@ class AuthBackOfficeController extends BaseController
     private function sendmailReset($user, $user_account, $reset_token)
     {
         try {
-            $infos = $this->getWebInfo('', );
+            $infos = $this->getWebInfo('',);
             $webInfo = $this->infoSetting($infos);
             Mail::to($user->email)->send(new SendMailResetPassword($user, $user_account, $reset_token, $webInfo));
             return response()->json([
                 'message' => 'success',
                 'description' => 'We have e-mailed your password reset link!'
             ], 200);
-        } catch(Exception $e){
+        } catch (Exception $e) {
             return response()->json([
                 'message' => 'error',
                 'description' => 'Something went wrong.',
@@ -394,5 +403,4 @@ class AuthBackOfficeController extends BaseController
             ], 501);
         }
     }
-
 }

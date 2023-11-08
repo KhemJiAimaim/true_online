@@ -21,7 +21,7 @@ class BerLuckyMonthlyController extends Controller
         return view('frontend.pages.bermonthly_lucky.fortune_ber', compact('tel'));
     }
 
-    public function cartproduct_pafe($ber_id) {
+    public function cartproduct_page($ber_id) {
         return view('frontend.pages.bermonthly_lucky.cart_product', compact('ber_id'));
     }
 }
