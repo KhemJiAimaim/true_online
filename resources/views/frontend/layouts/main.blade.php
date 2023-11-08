@@ -15,9 +15,12 @@
 
 <body class="w-full min-h-screen">
     
-    @include('frontend.layouts.head')
+        @include('frontend.layouts.head')
+    
 
-    @if (Request::path() != 'fiber/form_true_dtac' && Request::path() != 'thankyou' && Request::path() != 'prepaid_sim/buy_sim')
+    @if (Request::path() != 'fiber/form_true_dtac' &&
+            Request::path() != 'thankyou' &&
+            Request::path() != 'prepaid_sim/buy_sim')
         @include('frontend.layouts.banner')
     @endif
 

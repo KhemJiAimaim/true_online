@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-    <div class="py-16">
+    <div class="my-36">
         <p class="text-[22px] font-blod">กรุณากรอกข้อมูล</p>
         <p class="text-[22px] font-blod mb-4">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
         <div class="plate-line max-w-[200px]"></div>

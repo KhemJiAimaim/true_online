@@ -134,48 +134,42 @@
               <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-low" id="price-low">
               <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-hight" id="price-hight">
             </div>
-          </div>
         </div>
 
-        <div class="flex max-xl:flex-col max-xl:gap-4 justify-between mt-4">
-          <div class="flex flex-col">
-            <label for="">ตัวเลขที่ชอบ</label>
-            <div class="flex gap-1 text-white">
-              <button class="w-6 h-7 bg-gradient-to-r from-[#5741CD] to-[#00ACEE] rounded-[3px]">0</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
+        {{-- มหัศจรรย์ --}}
+        <div class="title-plate-container ">
+            <div class="title-plate-line"></div>
+            <div class="plate-group">
+                <div class="plate-box-s">
+                    <div class="plate-circleS"></div>
+                    <div class="title-plate-textboxS"></div>
+                </div>
+                <div class="title-plate-textboxC">
+                    <p class="plate-text">เบอร์มงคล เบอร์เด็ด เบอร์มังกร เสริมดวง</p>
+                </div>
+                <div class="plate-box-e">
+                    <div class="title-plate-textboxE"></div>
+                    <div class="plate-circleE"></div>
+                </div>
             </div>
-          </div>
-
-          <div class="flex flex-col">
-            <label for="">ตัวเลขที่ไม่ชอบ</label>
-            <div class="flex gap-1 text-white">
-              <button class="w-6 h-7 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[3px]">0</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
-            </div>
-          </div>
         </div>
+        {{-- มหัศจรรย์ --}}
 
-      </div>
-      
-      {{-- border center --}}
-      <div class="border  border-1 border-[#838383]">
-      </div>
+        <!-- search box -->
+        <div
+            class="max-w-[1536px] max-2xl:max-w-[100%] max-lg:max-w-[100%] w-full bg-[#F8F9FA] mx-auto my-4 p-6 rounded-[20px]">
+            <div class="flex max-lg:flex-col gap-6">
+                {{-- box left --}}
+                <div class="w-full max-xl:max-w-[54%] max-lg:max-w-full">
+                    <div class="w-full p-4 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px]">
+                        <label class="text-white" for="input-fortune">กรอกเบอร์โทร</label>
+                        <div class="w-full flex gap-2">
+                            <input class="w-full h-7 text-center rounded-[3px]" type="text" id="input-fortune"
+                                maxlength="10">
+                            <button class="w-full max-w-[20%] max-xs:max-w-[29%] bg-white rounded-[15px]"
+                                id="fortune-ber">วิเคราะห์เบอร์</button>
+                        </div>
+                    </div>
 
       {{-- box right --}}
       <div class="w-full flex flex-col justify-between">
@@ -265,19 +259,19 @@
           </a>
       </div>
 
-      <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-          <img src="images/Ellipse 6.png" alt="" class="px-4">
-          <p class="text-left text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
-      </div>
+                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
+                        <img src="images/Ellipse 6.png" alt="" class="px-4">
+                        <p class="text-left text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
+                    </div>
 
-      <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
-          <div class="grid grid-cols-3">
-              <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-              <p class="text-white font-medium text-center text-3xl">99,999</p>
-              <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
+                    <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
+                        <div class="grid grid-cols-3">
+                            <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
+                            <p class="text-white font-medium text-center text-3xl">99,999</p>
+                            <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
 
-          </div>
-      </div>
+                        </div>
+                    </div>
 
       <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
           <div id="addtocart" data-id="{{$i}}"
@@ -321,5 +315,5 @@
 @endsection
 
 @section('scripts')
-  @vite('resources/js/bermonthly_lucky/allproduct.js')
+    @vite('resources/js/bermonthly_lucky/allproduct.js')
 @endsection

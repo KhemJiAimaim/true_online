@@ -48,7 +48,7 @@
 </style>
 
 
-<swiper-container class="mySwiper relative z-[-1]" pagination="true" pagination-dynamic-bullets="true" loop="true"
+<swiper-container class="mySwiper relative z-[-1] top-28" pagination="true" pagination-dynamic-bullets="true" loop="true"
     autoplay-delay="2000">
     <swiper-slide ><img src="{{ asset('images/13.webp') }}" alt=""></swiper-slide>
     <swiper-slide ><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide>
