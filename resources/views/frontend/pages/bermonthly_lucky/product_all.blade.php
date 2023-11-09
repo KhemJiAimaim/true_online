@@ -53,7 +53,7 @@
   {{-- มหัศจรรย์ --}}
 
   <!-- search box -->
-  <div class="max-w-[1536px] max-2xl:max-w-[100%] max-lg:max-w-[100%] w-full bg-[#F8F9FA] mx-auto my-4 p-6 rounded-[20px]">
+  <div class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-[#F8F9FA] mx-auto my-4 p-6 rounded-[20px]">
     <div class="flex max-lg:flex-col gap-6">
       {{-- box left --}}
       <div class="w-full max-xl:max-w-[54%] max-lg:max-w-full">
@@ -67,7 +67,7 @@
 
         <div class="mt-4 flex flex-col">
           <label class="" for="">ค้นหาเบอร์</label>
-          <div class="flex gap-2">
+          <div class="flex gap-2 max-xs:gap-1">
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" data-position="0" value="0" disabled>
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="1" maxlength="1" placeholder="-">
             <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="2" maxlength="1" placeholder="-">
@@ -104,7 +104,7 @@
 
           <div class="flex flex-col">
             <label for="txt_favorite">ค้นหาเลขชุดที่ชอบ</label>
-            <input class="w-80 max-xl:w-48 max-lg:w-80 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="txt_favorite" id="txt_favorite" maxlength="10">
+            <input class="w-80 max-xl:w-32 max-lg:w-64 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="txt_favorite" id="txt_favorite" maxlength="10">
           </div>
         </div>
 
@@ -130,7 +130,7 @@
 
           <div class="flex flex-col max-xs:col-span-2">
             <label for="txt_favorite">ช่วงราคา</label>
-            <div class="flex gap-4 w-80 max-xl:w-48 max-lg:w-80 max-xs:w-full">
+            <div class="flex gap-4 w-80 max-xl:w-40 max-lg:w-64 max-xs:w-full">
               <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-low" id="price-low">
               <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-hight" id="price-hight">
             </div>
@@ -141,32 +141,32 @@
           <div class="flex flex-col">
             <label for="">ตัวเลขที่ชอบ</label>
             <div class="flex gap-1 text-white">
-              <button class="w-6 h-7 bg-gradient-to-r from-[#5741CD] to-[#00ACEE] rounded-[3px]">0</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
+              <button id="like" data-fav="0" class="w-6 h-7 bg-[#838383] rounded-[3px]">0</button>
+              <button id="like" data-fav="1" class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
+              <button id="like" data-fav="2" class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
+              <button id="like" data-fav="3" class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
+              <button id="like" data-fav="4" class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
+              <button id="like" data-fav="5" class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
+              <button id="like" data-fav="6" class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
+              <button id="like" data-fav="7" class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
+              <button id="like" data-fav="8" class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
+              <button id="like" data-fav="9" class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
             </div>
           </div>
 
           <div class="flex flex-col">
             <label for="">ตัวเลขที่ไม่ชอบ</label>
             <div class="flex gap-1 text-white">
-              <button class="w-6 h-7 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[3px]">0</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
-              <button class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
+              <button id="dislike" data-fav="0" class="w-6 h-7 bg-[#838383] rounded-[3px]">0</button>
+              <button id="dislike" data-fav="1" class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
+              <button id="dislike" data-fav="2" class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
+              <button id="dislike" data-fav="3" class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
+              <button id="dislike" data-fav="4" class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
+              <button id="dislike" data-fav="5" class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
+              <button id="dislike" data-fav="6" class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
+              <button id="dislike" data-fav="7" class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
+              <button id="dislike" data-fav="8" class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
+              <button id="dislike" data-fav="9" class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
             </div>
           </div>
         </div>
@@ -182,13 +182,13 @@
         <div class="flex flex-col max-lg:mb-4">
           <p class="mb-2">เสริมดวงด้าน</p>
           <div class="flex flex-wrap gap-3">
-            <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
+            {{-- <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
               <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-money.png" alt="">
               <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
                 <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
               </div>
-            </button>
+            </button> --}}
             @for($i = 1; $i <= 9; $i++)
             <button id="predict-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
               <img src="/icons/category/icon-money.png" alt="">
@@ -204,15 +204,15 @@
         <div class="flex flex-col">
           <p class="mb-2">หมวดหมู่เบอร์</p>
           <div class="flex flex-wrap gap-3">
-            <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
+            {{-- <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
               <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-swarn.png" alt="">
               <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
                   <img class="scale-150" src="/icons/category/union.png" alt="">
                   <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
               </div>
-            </button>
+            </button> --}}
             @for($i = 1; $i <= 25; $i++)
-            <button id="cate-ber" data-id="{{$i}} class="relative p-2 bg-white rounded-[5px] group">
+            <button id="cate-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
               <img src="/icons/category/icon-swarn.png" alt="">
               <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
@@ -241,7 +241,7 @@
   </div>
 
   <!-- box all product -->
-  <div class="max-w-[1536px] max-2xl:max-w-[90%] max-lg:max-w-[100%] w-full grid grid-cols-4 max-2xl:grid-cols-3 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
+  <div class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] grid grid-cols-4 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
     @for($i = 1; $i<=20; $i++) 
     <div class="drop-shadow-md">
       <div
@@ -292,9 +292,9 @@
           </div>
 
           <a href="/detailber/0933501625"
-              class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+              class="flex items-center px-4 max-xl:px-2 max-xs:px-3 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
           <button id="buynow" data-id="{{$i}}"
-              class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+              class="flex items-center px-6 max-xl:px-4 max-xs:px-5  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
       </div>
     </div>
     @endfor

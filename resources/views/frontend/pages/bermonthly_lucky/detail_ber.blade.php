@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-<div class="text-left my-36">
+<div class="text-left mt-32">
 
   {{-- box fortune --}}
   <div class="bg-[#F8F9FA] mb-10">
@@ -14,7 +14,7 @@
       <div class="bg-white p-4 rounded-[10px] drop-shadow-md">
         <div class="flex justify-between gap-4">
           <h1 class="text-lg font-semibold">กราฟคะแนน</h1>
-          <div class="flex items-center">
+          <div class="flex items-center cursor-pointer" id="manual-fortune">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M2.66797 2.66668V13.3333C2.66797 13.687 2.80844 14.0261 3.05849 14.2762C3.30854 14.5262 3.64768 14.6667 4.0013 14.6667H12.0013C12.3549 14.6667 12.6941 14.5262 12.9441 14.2762C13.1942 14.0261 13.3346 13.687 13.3346 13.3333V5.56134C13.3346 5.38372 13.2991 5.20788 13.2302 5.04417C13.1613 4.88046 13.0603 4.73217 12.9333 4.60801L9.9733 1.71334C9.72421 1.46978 9.38968 1.33339 9.0413 1.33334H4.0013C3.64768 1.33334 3.30854 1.47382 3.05849 1.72387C2.80844 1.97392 2.66797 2.31305 2.66797 2.66668Z" stroke="#EC1F25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M9.33594 1.33334V4.00001C9.33594 4.35363 9.47641 4.69277 9.72646 4.94282C9.97651 5.19287 10.3156 5.33334 10.6693 5.33334H13.3359" stroke="#EC1F25" stroke-width="1.5" stroke-linejoin="round"/>
@@ -79,6 +79,54 @@
   </div>
   {{-- box fortune --}}
 
+  {{-- box manual --}}
+  <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-[51]" id="modal-container">
+    <div class="w-[444px] max-xs:w-[355px] h-[421px] p-2 bg-white rounded-[10px]">
+      <div class="w-full flex justify-end">
+        <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close-manual">
+      </div>
+      <div class="text-center flex flex-col items-center gap-3">
+        <img src="/icons/icon-document.png" alt="">
+        <h1 class="text-xl font-bold">รายละเอียดกราฟคะแนน</h1>
+        <p>ท่านสามารถนำข้อมูลนี้ไปประกอบการตัดสินใจในการเลือกเบอร์ได้</p>
+      </div>
+      <div class="mx-auto mt-4 w-[52%] max-xs:w-[55%] grid grid-cols-[70px,20px,1fr]">
+        <p>ดีเยี่ยม</p>
+        <p>=</p>
+        <p>900 - 1000</p>
+
+        <p>ดีมาก</p>
+        <p>=</p>
+        <p>800 - 899</p>
+
+        <p>ดี</p>
+        <p>=</p>
+        <p>700 - 799</p>
+
+        <p>ปานกลาง</p>
+        <p>=</p>
+        <p>600 - 699</p>
+
+        <p>พอใช้</p>
+        <p>=</p>
+        <p>500 - 599</p>
+
+        <p>แย่</p>
+        <p>=</p>
+        <p>0 - 499</p>
+
+        <p>เสีย บอด</p>
+        <p>=</p>
+        <p>แต้มลบ ไม่ควรใช้</p>
+
+        <p>ร้ายมาก</p>
+        <p>=</p>
+        <p>ติดลบ เปลี่ยนเบอร์ทันที</p>
+      </div>
+    </div>
+  </div>
+  {{-- box manual --}}
+
   {{-- มหัศจรรย์ --}}
   <div class="max-w-[1536px]  max-2xl:max-w-[100%] pt-10 mx-auto">
     <div class="title-plate-container">
@@ -108,41 +156,43 @@
         <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px]">เงื่อนไข</button>
       </div>
       {{-- content detail --}}
-      <div id="box-package" class="p-2 border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
-        <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p>
-        <div class="flex gap-2 mb-2">
-          <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-            <img src="/icons/truecard.png" alt="">
+      <div id="box-package" class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] transition-all duration-300 ease-in-out">
+        <div class="p-2">
+          <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p>
+          <div class="flex gap-2 mb-2">
+            <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
+              <img src="/icons/truecard.png" alt="">
+            </div>
+            <div class="">
+              <p>รับสิทธิ์ True Black card นาน 12 เดือน</p>
+            </div>
           </div>
-          <div class="">
-            <p>รับสิทธิ์ True Black card นาน 12 เดือน</p>
+          <div class="flex gap-2 mb-2">
+            <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
+              <img src="/icons/premierleague.png" alt="">
+            </div>
+            <div class="">
+              <p>รับชมพรีเมียร์ ฟุตบอล (EPL)    ได้ตลอดฤดูกาล 2023-2024</p>
+            </div>
           </div>
+          <div class="flex gap-2 mb-2">
+            <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
+              <img src="/icons/trueunlock.png" alt="">
+            </div>
+            <div class="">
+              <p>รับชมความบันเทิงซีรีย์ดัง และ EPL FanPack ฤดูกาล 2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56# โทรออก</p>
+            </div>
+          </div>
+          <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p>
+          <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p>
         </div>
-        <div class="flex gap-2 mb-2">
-          <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-            <img src="/icons/premierleague.png" alt="">
-          </div>
-          <div class="">
-            <p>รับชมพรีเมียร์ ฟุตบอล (EPL)    ได้ตลอดฤดูกาล 2023-2024</p>
-          </div>
-        </div>
-        <div class="flex gap-2 mb-2">
-          <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-            <img src="/icons/trueunlock.png" alt="">
-          </div>
-          <div class="">
-            <p>รับชมความบันเทิงซีรีย์ดัง และ EPL FanPack ฤดูกาล 2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56# โทรออก</p>
-          </div>
-        </div>
-        <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p>
-        <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p>
-        <div class="w-full">
-          <p class="text-center text-[#EC1F25]">แสดงเพิ่มเติม ˅</p>
+        <div class="w-full flex justify-center bg-white rounded-b-[10px] sticky bottom-0 py-1">
+          <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
         </div>
       </div>
 
       {{-- content condition --}}
-      <div id="box-condition" class="hidden p-2 border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
+      <div id="box-condition" class="hidden bg-[#F8F9FA] min-h-[200px] p-2 border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
         เงื่อนไขการได้รับสิทธิพิเศษ ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน
       </div>
     </div>

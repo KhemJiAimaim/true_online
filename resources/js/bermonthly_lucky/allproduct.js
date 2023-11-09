@@ -75,8 +75,11 @@ search_product.addEventListener('click', () => {
 // ทำนายเบอร์
 function fortuneber() {
   let input_ber = input_fortune.value
-  console.log(input_ber)
-  location.href = `/fortune/${input_ber}`;
+  if(input_ber.length == 10) {
+    location.href = `/fortune/${input_ber}`;
+  } else {
+    console.log(input_ber.length)
+  }
 }
 
 // เพิ่มสินค้าลงตะกร้า
@@ -118,7 +121,7 @@ priceInputs.forEach(function(input) {
   // เพิ่ม event listener สำหรับการเก็บค่าเดิมเมื่อ focus
   input.addEventListener('focus', function() {
     this.dataset.previousValue = this.value;
-    console.log(this.value)
+    // console.log(this.value)
   });
 });
 
@@ -127,11 +130,71 @@ function inputNumber(input) {
 }
 
 let predict_ber = document.querySelectorAll('#predict-ber');
-console.log(predict_ber)
+
+predict_ber.forEach(element => {
+  element.addEventListener('click', () => {
+    if (element.classList.contains('bg-gradient-to-r')) {
+      // ถ้ามี class ที่เราต้องการเอาออก
+      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'selected');
+      const img = element.querySelector('img');
+      img.style.filter = '';
+    } else {
+      // ถ้ายังไม่มี class, เพิ่ม class และ style เข้าไป
+      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      const img = element.querySelector('img');
+      img.style.filter = 'invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%)';
+    }
+  });
+});
+
+let cate_ber = document.querySelectorAll('#cate-ber');
+
+cate_ber.forEach(element => {
+  element.addEventListener('click', () => {
+    if (element.classList.contains('bg-gradient-to-r')) {
+      // ถ้ามี class ที่เราต้องการเอาออก
+      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'selected');
+      const img = element.querySelector('img');
+      img.style.filter = '';
+    } else {
+      // ถ้ายังไม่มี class, เพิ่ม class และ style เข้าไป
+      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      const img = element.querySelector('img');
+      img.style.filter = 'invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%)';
+    }
+  });
+});
+
+let like = document.querySelectorAll('#like');
+let dislike = document.querySelectorAll('#dislike');
+
+like.forEach(element => {
+  element.addEventListener('click', () => {
+    if (element.classList.contains('bg-gradient-to-r')) {
+      element.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]' , 'selected');
+    } else {
+      element.classList.add('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
+    }
+  });
+});
+
+dislike.forEach(element => {
+  element.addEventListener('click', () => {
+    if (element.classList.contains('bg-gradient-to-r')) {
+      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'selected');
+    } else {
+      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+    
+    }
+  });
+});
+console.log(dislike)
 
 function product_search() {
 
-  param = {
-
+  let data_price_low = price_low.value
+  let param = {
+    price_low : data_price_low
   }
+  console.log(param)
 }
