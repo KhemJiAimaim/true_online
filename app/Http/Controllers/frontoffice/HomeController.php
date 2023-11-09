@@ -106,6 +106,10 @@ class HomeController extends Controller
     {
         return view("frontend.pages.prepaid_sim.sim_includ");
     }
+    public function package()
+    {
+        return view("frontend.pages.prepaid_sim.package");
+    }
 
     public function thankyou()
     {

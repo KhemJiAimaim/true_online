@@ -78,6 +78,9 @@ Route::get("/prepaid_sim", [HomeController::class, "prepaid_sim"]);
 Route::get("/prepaid_sim/buy_sim", [HomeController::class, "buy_sim"]);
 Route::get("/prepaid_sim/sim_includ", [HomeController::class, "sim_includ"]);
 
+//package
+Route::get("/package ", [HomeController::class, "package"]);
+
 //ขอบคุณ
 Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 

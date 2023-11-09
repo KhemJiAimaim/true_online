@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-    <div class="my-36">
+    <div class="my-16">
         <p class="text-[22px] font-blod">กรุณากรอกข้อมูล</p>
         <p class="text-[22px] font-blod mb-4">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
         <div class="plate-line max-w-[200px]"></div>
@@ -112,19 +112,5 @@
             class="py-2.5 px-5 mr-2 mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</a>
 
     </div>
-    <div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] ">
-        <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
-            <div class="flex flex-col items-center">
-                <img class="mt-2 mb-6 max-xs:w-[50px]" src="/images/code-qr.png" alt="">
-                <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
-                <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="max-xs:w-[80px] " src="/images/Rectangle 1245.png" alt="">
-                <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
-                <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
-            </div>
-        </div>
-
-    </div>
+    @include('frontend.pages.internet_fiber.footer_fiber')
 @endsection
