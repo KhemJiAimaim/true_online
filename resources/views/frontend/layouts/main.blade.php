@@ -14,9 +14,9 @@
 
 
 <body class="w-full min-h-screen">
-    
-        @include('frontend.layouts.head')
-    
+
+    @include('frontend.layouts.head')
+
 
     @if (Request::path() != 'fiber/form_true_dtac' &&
             Request::path() != 'thankyou' &&
@@ -26,7 +26,7 @@
 
 
 
-    <div class="text-center">
+    <div class="main text-center">
         @yield('content')
     </div>
 

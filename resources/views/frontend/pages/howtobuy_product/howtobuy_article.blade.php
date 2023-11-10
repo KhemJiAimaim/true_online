@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 @section('content')
-<div class="text-left">
+<div class="text-left mt-[120px] max-xl:mt-[74px]">
   <div class="p-4 h-16" style="background: var(--RP-GD, linear-gradient(180deg, #EC1F25 0%, #CD1A70 100%));">
     <h1 class="text-xl text-white text-center">วิธีการสั่งซื้อ</h1>
   </div>
@@ -30,7 +30,7 @@
     }
     @endphp
     <figure>
-      <img class="w-[1305px] h-[653px] mx-auto" src="{{$image}}" alt="">
+      <img class="w-[1305px] h-[653px] max-lg:h-[350px] max-xs:h-[240px] mx-auto" src="{{$image}}" alt="">
     </figure>
     <h1 class="my-4 text-center text-xl font-medium">{{$header}}</h1>
 

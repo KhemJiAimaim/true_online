@@ -5,6 +5,7 @@ let btn_package = document.querySelector('#btn-package');  // ปุ่มรา
 let btn_condition = document.querySelector('#btn-condition');  // ปุ่มเงื่อนไข
 let box_package = document.querySelector('#box-package');
 let box_condition = document.querySelector('#box-condition');
+let show_more = document.querySelector('#show-more');
 
 // ฟังก์ชัน package and condition content
 btn_package.addEventListener('click', () => {
@@ -27,6 +28,20 @@ btn_condition.addEventListener('click', () => {
   btn_condition.classList.add('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
   btn_condition.classList.remove('bg-[#838383]')
 })
+
+show_more.addEventListener('click', () => {
+  showMore_boxPackage()
+})
+
+function showMore_boxPackage() {
+  if (box_package.classList.contains('h-[200px]')) {
+    box_package.classList.remove('h-[200px]');
+    box_package.classList.add('h-auto');
+  } else {
+    box_package.classList.add('h-[200px]');
+    box_package.classList.remove('h-auto');
+  }
+}
 
 
 // buy action
