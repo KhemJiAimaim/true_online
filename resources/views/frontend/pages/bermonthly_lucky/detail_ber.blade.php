@@ -34,21 +34,21 @@
                 <div class="w-4 h-4 bg-[#2AB200] rounded-[2px]"></div>
                 <p class="w-full">ความดี/สุข</p>
               </div>
-              <div class="text-[#2AB200]">999</div>
+              <div class="text-[#2AB200]">{{ $score['happy'] }}</div>
             </div>
             <div class="flex justify-between items-center gap-4">
               <div class="flex gap-1">
                 <div class="w-4 h-4 bg-[#CE090E] rounded-[2px]"></div>
                 <p class="w-full">ความร้าย/ทุกข์</p>
               </div>
-              <div class="text-[#CE090E]">999</div>
+              <div class="text-[#CE090E]">{{ $score['sad'] }}</div>
             </div>
             <div class="flex justify-between items-center gap-4">
               <div class="flex gap-1">
                 <div class="w-4 h-4 bg-[#838383] rounded-[2px]"></div>
                 <p class="w-full">ความว่างเปล่า</p>
               </div>
-              <div class="text-[#838383]">999</div>
+              <div class="text-[#838383]">{{ $score['total_score'] }}</div>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
     
         <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
             <h1 class="text-lg font-semibold">ผลรวม</h1>
-            <h1 class="text-4xl font-semibold mt-4">99</h1>
+            <h1 class="text-4xl font-semibold mt-4">{{$data_sumber->predict_sum}}</h1>
         </div>
       </div>
     </div>
@@ -156,7 +156,7 @@
         <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px]">เงื่อนไข</button>
       </div>
       {{-- content detail --}}
-      <div id="box-package" class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] transition-all duration-300 ease-in-out">
+      <div id="box-package" class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
         <div class="p-2">
           <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p>
           <div class="flex gap-2 mb-2">
@@ -201,30 +201,18 @@
 
   {{-- box meaning ber --}}
   <div class="max-w-[1536px] max-2xl:max-w-[80%] pt-10 mx-auto">
-    @php
-      // data test 
-      $sum = 99;
-      $meaning_sum = "พลังแห่งนักวางแผน มุ่งมั่นเด็ดเดี่ยว";
-      $detail_sum = "พลังปัญญาบริสุทธ์ ผู้ใดได้ครอบครองหมายเลขนี้มักเป็นคนใฝ่ดี รักความยุติธรรม อบอุ่น อ่อนโยน ใจดี ใจเย็น เป็นคนมีสมาธิ มีสติในการครองตนอย่างดีเยี่ยม ชีวิตมักประสบความสำเร็จ งานดี เงินดี เป็นคนมีความสุขได้จากภายในจิตใจตนเอง
-                      รู้เท่าทันความคิดตน สมถะ ชีวิตโดยรวมมักมีความสงบและสมดุล รู้จักความพอดี โดยทั่วไปชะตาของคุณค่อนข้างสุขสบาย มีคนอุปถัมป์ค้ำชูเป็นอย่างดี มีการเดินทาง และมีโอกาสดีๆในชีวิตเข้ามาหลายครั้งรวมถึงมีโชคมีลาภ เป็นเลขสมาธิดีอีกเลขหนึ่ง เหมาะจะใช้แก้ปัญหาให้คนใจร้อน หรือเด็กๆที่ไม่ค่อยมีสมาธิ เลขชุดนี้จะช่วยให้สงบใจเย็น อยู่ในศีล มีคุณธรรมและเห็นอกเห็นใจผู้อื่นมากขึ้น";
-      $kuunum = 55;
-      $kuunum_meaning = "พลังปัญญาบริสุทธ์";
-      $kuunum_detail = "     พลังปัญญาบริสุทธ์ ผู้ใดได้ครอบครองหมายเลขนี้มักเป็นคนใฝ่ดี รักความยุติธรรม อบอุ่น อ่อนโยน ใจดี ใจเย็น เป็นคนมีสมาธิ มีสติในการครองตนอย่างดีเยี่ยม ชีวิตมักประสบความสำเร็จ งานดี เงินดี เป็นคนมีความสุขได้จากภายในจิตใจตนเอง
-                            รู้เท่าทันความคิดตน สมถะ ชีวิตโดยรวมมักมีความสงบและสมดุล รู้จักความพอดี โดยทั่วไปชะตาของคุณค่อนข้างสุขสบาย มีคนอุปถัมป์ค้ำชูเป็นอย่างดี มีการเดินทาง และมีโอกาสดีๆในชีวิตเข้ามาหลายครั้งรวมถึงมีโชคมีลาภ เป็นเลขสมาธิดีอีกเลขหนึ่ง
-                            เหมาะจะใช้แก้ปัญหาให้คนใจร้อน หรือเด็กๆที่ไม่ค่อยมีสมาธิ เลขชุดนี้จะช่วยให้สงบใจเย็น อยู่ในศีล มีคุณธรรมและเห็นอกเห็นใจผู้อื่นมากขึ้น";
-    @endphp
     <div class="bg-[#F8F9FA] p-4 rounded-[10px]">
-      <h1 class="text-lg font-semibold mb-1">ผลรวม {{$sum}} : {{$meaning_sum}}</h1>
-      <p class="indent-8">{{$detail_sum}}</p>
+      <h1 class="text-lg font-semibold mb-1">ผลรวม {{$data_sumber->predict_sum}} : {{$data_sumber->predict_name}}</h1>
+      <p class="indent-8">{{$data_sumber->predict_description}}</p>
     </div>
 
     <h1 class="text-lg font-semibold mt-2 mb-1">เบอร์มังกร</h1>
-    @for($i = 1; $i <= 6; $i++)
+    @foreach($data_fortune as $data)
     <div class="mb-4">
-      <h1 class="text-lg font-semibold mb-1">คู่เลข {{$kuunum}} : {{$kuunum_meaning}}</h1>
-      <p class="indent-8">{{$kuunum_detail}}</p>
+      <h1 class="text-lg font-semibold mb-1">คู่เลข {{$data->prophecy_numb}} : {{$data->prophecy_name}}</h1>
+      <p class="indent-8">{{$data->prophecy_desc}}</p>
     </div>
-    @endfor
+    @endforeach
   </div>
   {{-- box meaning ber --}}
 
