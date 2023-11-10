@@ -47,11 +47,11 @@ class HomeController extends Controller
     public function fiber_guarantee()
     {
         return view("frontend.pages.internet_fiber.home_fiber_guarantee");
-    } 
+    }
     public function detail_fiber_guarantee()
     {
         return view("frontend.pages.internet_fiber.detail_guarantee");
-    } 
+    }
     public function fiber_router()
     {
         return view("frontend.pages.internet_fiber.router_fiber");
@@ -67,7 +67,7 @@ class HomeController extends Controller
     public function detail_sme_fiber()
     {
         return view("frontend.pages.internet_fiber.detail_SME");
-    } 
+    }
     public function internet_basic()
     {
         return view("frontend.pages.internet_fiber.internet_basic");
@@ -75,7 +75,7 @@ class HomeController extends Controller
     public function detail_internet_basic()
     {
         return view("frontend.pages.internet_fiber.detail_internet_basic");
-    } 
+    }
     public function true_visions()
     {
         return view("frontend.pages.internet_fiber.true_visions");
@@ -87,17 +87,17 @@ class HomeController extends Controller
     public function internet_games()
     {
         return view("frontend.pages.internet_fiber.internet_game");
-    } 
+    }
     public function detail_internet_game()
     {
         return view("frontend.pages.internet_fiber.detail_internet_game");
-    } 
-    
-    
+    }
+
+
     public function prepaid_sim()
     {
         return view("frontend.pages.prepaid_sim.home_sim");
-    } 
+    }
     public function buy_sim()
     {
         return view("frontend.pages.prepaid_sim.buy_sim");
@@ -110,6 +110,17 @@ class HomeController extends Controller
     {
         return view("frontend.pages.prepaid_sim.package");
     }
+    public function buy_package()
+    {
+        return view("frontend.pages.prepaid_sim.buy_package");
+    }
+
+
+    public function travel_sim()
+    {
+        return view("frontend.pages.travel_sim.home_travel_sim");
+    }
+
 
     public function thankyou()
     {

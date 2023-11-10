@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class="mt-16">
+    <div class="my-36">
         <section class="">
             <div class="py-6">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">ซิมเติมเงิน</p>

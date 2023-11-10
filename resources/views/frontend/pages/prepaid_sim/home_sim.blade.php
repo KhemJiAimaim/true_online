@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <div class="">
+    <div class="mt-16">
        
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container ">

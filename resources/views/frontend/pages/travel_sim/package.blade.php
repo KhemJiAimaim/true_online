@@ -15,7 +15,7 @@
 
 
 @section('content')
-    <div class="mt-16">
+    <div class="">
         <div class="py-10">
             <p class="text-[#000] mt-2 mb-2 text-lg 2xl:text-[2rem] ">แพ็กเกจเสริม</p>
             <p class="text-[#838383] mt-2 mb-2 text-md 2xl:text-[18px]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
