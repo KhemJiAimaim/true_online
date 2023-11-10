@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <div class="2xl:mt-16 mt-20 ">
+    <div class="mt-16 ">
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
             <a href="#fiber"
                 class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
@@ -139,7 +139,7 @@
 
                         <div class="bg-[#F8F9FA]">
                             <div class="">
-                                <p class="py-3">True Gigatex PRO Gold</p>
+                                <p class="py-3 text-[20px]">True Gigatex PRO Gold</p>
                             </div>
                         </div>
                         <div class="bg-white"">

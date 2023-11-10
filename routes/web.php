@@ -79,7 +79,11 @@ Route::get("/prepaid_sim/buy_sim", [HomeController::class, "buy_sim"]);
 Route::get("/prepaid_sim/sim_includ", [HomeController::class, "sim_includ"]);
 
 //package
-Route::get("/package ", [HomeController::class, "package"]);
+Route::get("/prepaid_sim/package ", [HomeController::class, "package"]);
+Route::get("/prepaid_sim/buy_package", [HomeController::class, "buy_package"]);
+
+//travel
+Route::get("/travel_sim", [HomeController::class, "travel_sim"]);
 
 //ขอบคุณ
 Route::get("/thankyou ", [HomeController::class, "thankyou"]);

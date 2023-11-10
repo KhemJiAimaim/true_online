@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <div class="mt-36">
+    <div class="">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
@@ -128,8 +128,8 @@
         {{-- box package --}}
     </div>
 
-    <div class="bg-white drop-shadow-md items-center w-full" style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
-        <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
+    <div class="bg-white drop-shadow-md items-center w-full">
+        <div class="flex items-center justify-center gap-4 py-6 w-full flex-wrap ">
             <p class="2xl:text-lg">ราคา</p>
             <p class="2xl:text-2xl text-xl font-bold">150</p>
             <p class="2xl:text-lg">บาท</p>
@@ -154,7 +154,7 @@
 
             <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
 
-            <div class="flex gap-2 ">
+            <div class="flex gap-2">
                 <button id="buynow" data-id="0933501625"
                     class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                 
