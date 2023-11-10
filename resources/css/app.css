@@ -289,9 +289,10 @@
 
     background: linear-gradient(
         90deg,
-        rgba(86, 66, 205, 1) 40%,
-        rgba(0, 188, 255, 1) 50%
+        #ed4312 40%,
+        #f6911d 50%
     );
+
 }
 .orange-plate-group {
     width: 100%;
@@ -304,14 +305,14 @@
 }
 .orange-plate-box-s {
     width: 30%;
-    height: 25px;
+    height: 24px;
     position: relative;
 }
 .orange-plate-circleS {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #f5f5f7;
+    background-color: #ffffff;
     position: absolute;
     right: 0px;
     top: 2px;
@@ -319,11 +320,11 @@
 }
 .orange-plate-textboxS {
     width: 13px;
-    height: 13px;
+    height: 15px;
     background: #ed4312;
     position: absolute;
-    right: 0;
-    bottom: 9px;
+    right:-1px;
+    bottom:10px;
 }
 .orange-plate-textboxC {
     width: 23%;
@@ -331,7 +332,7 @@
     background: rgb(86, 66, 205);
     background: linear-gradient(90deg, #ed4312 10%, #f6911d 90%);
     border-radius: 0px 0px 10px 10px;
-    top: 4px;
+    top:0;
     position: relative;
 }
 .orange-plate-box-e {
@@ -343,10 +344,10 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #f5f5f7;
+    background-color: #ffffff;
     position: absolute;
     left: 0px;
-    top: 2px;
+    top: 3px;
     z-index: 2222;
 }
 .orange-plate-textboxE {
@@ -354,8 +355,9 @@
     height: 13px;
     background: #f6911d;
     position: absolute;
-    left: 0;
-    bottom: 9px;
+    left:-1px;
+    bottom:12px;
+    top:2px;
 }
 /* orange-plate-end */
 

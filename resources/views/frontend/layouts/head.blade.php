@@ -153,7 +153,7 @@
 
             {{-- ย้ายค่าย --}}
             <li class="group z-[99]">
-                <a href="#" class="flex py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
+                <a href="/movecompany" class="flex py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
                 <ul
                     class="hidden mx-auto w-full h-[350px] absolute top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
                     <div class=" w-3/4 mx-auto mt-4 mb-4">

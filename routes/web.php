@@ -103,3 +103,6 @@ Route::get('/movecompany/5GTogether+', function () {
 Route::get('/movecompany/5GSuperSmart', function () {
     return view('frontend.pages.move_company.5GSuperSmart');
 });
+Route::get('/movecompany/movenow', function () {
+    return view('frontend.pages.move_company.movenow');
+});
