@@ -149,17 +149,10 @@
             </li>
 
             {{-- ย้ายค่าย --}}
-<<<<<<< HEAD
-            <li class="group z-[99]">
-                <a href="/movecompany" class="flex py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
-                <ul
-                    class="hidden mx-auto w-full h-[350px] absolute top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
-=======
             <li class="group z-[99] basis-[180px]">
                 <a href="#" class=" py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
                 {{-- <ul
                     class="submenu hidden mt-4 mx-auto w-full h-[350px] absolute top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
->>>>>>> ca5ded9e936be0aadf493f2be201108d2ff11f89
                     <div class=" w-3/4 mx-auto mt-4 mb-4 px-8">
                         <div class= "flex flex-col">
                            
@@ -188,7 +181,6 @@
             </li>
 
             {{-- วิธีการสั่งซื้อ --}}
-<<<<<<< HEAD
             <li class="group z-[99] basis-[230px]">
                 <a href="#"
                     class="py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
@@ -209,29 +201,6 @@
                             <li><a href="#"
                                     class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
                             </li> {{-- </div> --}}
-=======
-            <li class="group z-[99]">
-                <a href="{{url('/howtobuy/fiber')}}"
-                    class="flex py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
-                <ul
-                    class="hidden mx-auto w-full h-[350px] absolute top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
-                    <div class=" w-3/4  mx-auto mt-4 mb-4 ">
-                        <div class= "grid grid-cols-6">
-                            <div class="col-start-6">
-                                <li><a href="{{url('/howtobuy/fiber')}}"
-                                        class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตไฟเบอร์</a>
-                                </li>
-                                <li><a href="{{url('/howtobuy/bermonth')}}"
-                                        class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคล</a>
-                                </li>
-                                <li><a href="{{url('/howtobuy/paysim')}}"
-                                        class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์เติมเงิน</a>
-                                </li>
-                                <li><a href="{{url('/howtobuy/travelsim')}}"
-                                        class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
-                                </li>
-                            </div>
->>>>>>> ee4e0ff7cf18d53630a418a6f796bca665c8e83c
                         </div>
                 </ul>
             </li>
