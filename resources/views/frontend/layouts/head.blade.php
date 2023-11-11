@@ -74,7 +74,7 @@
 </nav>
 
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40 ">
-    <div class="w-3/4 px-8 mx-auto xl:mt-4 py-2 z-50">
+    <div class="w-3/4 px-8 mx-auto xl:mt-4 py-2 z-50 max-xs:hidden">
         <ul class="hidden 2xl:flex   relative">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
             <li class="group z-[99] basis-[230px] ">
@@ -169,10 +169,10 @@
                     class="submenu hidden mt-4 mx-auto w-full h-[350px] top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
                         <div class= "flex flex-col">
                             {{-- <div class="col-start-5"> --}}
-                            <li><a href="#"
+                            <li><a href="/travel_sim/travelling"
                                     class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เดินทางไปต่างประเทศ</a>
                             </li>
-                            <li><a href="#"
+                            <li><a href="/travel_sim/visiting"
                                     class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">มาเที่ยวในไทย</a>
                             </li>
                             {{-- </div> --}}
