@@ -237,43 +237,45 @@
   <div class="text-center">
     <h1 class="font-bold text-xl">แหล่งรวมเบอร์มงคล</h1>
     <p class="text-[#838383]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
-    <p class="text-[#EC1F25]">เบอร์มังกร ที่ค้นพบ 500 เบอร์</p>
+    <p class="text-[#EC1F25]">เบอร์มังกร ที่ค้นพบ {{count($berproducts)}} เบอร์</p>
   </div>
 
   <!-- box all product -->
   <div class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] grid grid-cols-4 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
-    @for($i = 1; $i<=20; $i++) 
+    @foreach($berproducts as $product) 
     <div class="drop-shadow-md">
       <div
           class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
           <div class="flex justify-start items-center">
               <p class="text-white mr-2">เกรด</p>
-              <p class="text-white font-medium text-[1rem]">A+</p>
+              <p class="text-white font-medium text-[1rem]">{{$product->product_grade}}</p>
           </div>
           <div
               class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
               <p class="text-white mr-2 skew-x-12">ผลรวม</p>
-              <p class="text-white font-medium text-[1rem] skew-x-12">59</p>
+              <p class="text-white font-medium text-[1rem] skew-x-12">{{$product->product_sumber}}</p>
           </div>
       </div>
   
       <div class="bg-white">
-          <a href="{{ url('/detailber/0933501625') }}"> 
+          <a href="{{ url('/detailber/'.$product->product_phone) }}"> 
             <div class="flex justify-center py-10 ">
-              <h1 class="text-3xl font-medium text-center">063-782-5555</h1>
+              <h1 class="text-3xl font-medium text-center">
+                {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
+              </h1>
             </div>
           </a>
       </div>
 
       <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
           <img src="images/Ellipse 6.png" alt="" class="px-4">
-          <p class="text-left text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
+          <p class="text-left text-[0.9rem] py-1 col-span-4">{{$product->product_comment}}</p>
       </div>
 
       <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
           <div class="grid grid-cols-3">
               <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-              <p class="text-white font-medium text-center text-3xl">99,999</p>
+              <p class="text-white font-medium text-center text-3xl">{{ number_format($product->product_price) }}</p>
               <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
 
           </div>
@@ -291,13 +293,13 @@
                   class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
           </div>
 
-          <a href="/detailber/0933501625"
+          <a href="{{url('/detailber/'. $product->product_phone)}}"
               class="flex items-center px-4 max-xl:px-2 max-xs:px-3 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
           <button id="buynow" data-id="{{$i}}"
               class="flex items-center px-6 max-xl:px-4 max-xs:px-5  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
       </div>
     </div>
-    @endfor
+    @endforeach
   </div>
 </div>
 
