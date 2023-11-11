@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Berpredict_sum extends Model
+class BerpredictSum extends Model
 {
     use HasFactory;
 

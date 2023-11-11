@@ -23,10 +23,8 @@
           </div>
         </div>
         <div class="mt-2 flex items-center justify-between gap-4 max-2xl:gap-2">
-          <div class="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" viewBox="0 0 76 76" fill="none">
-              <circle cx="38" cy="38" r="30.5" stroke="black" stroke-width="15"/>
-            </svg>
+          <div class="w-[150px] h-[90px]">
+            <canvas id="myChart"></canvas>
           </div>
 
           @php 
@@ -54,26 +52,16 @@
                 <div class="w-4 h-4 bg-[#838383] rounded-[2px]"></div>
                 <p class="w-full">ความว่างเปล่า</p>
               </div>
-              <div class="text-[#838383]">{{ $score['total_score'] }}</div>
+              <div class="text-[#838383]">{{ $score['empty'] }}</div>
             </div>
           </div>
         </div>
       </div>
-  
-      {{-- <div class="bg-white p-4 rounded-[10px] drop-shadow-md">
-        <div class="">
-          <h1 class="text-lg font-semibold">แพ็กเกจ/ความหมาย</h1>
-          <div class="flex items-center gap-4 mt-4">
-            <img src="/icons/package.png" alt="">
-            <p class="">เน็ต Unlimited + โทร 1700 Mins</p>
-          </div>
-        </div>
-      </div> --}}
-  
+      
       <div class="grid grid-cols-2 gap-4 max-lg:col-span-2 max-xs:col-span-1">
         <div class="w-28 max-lg:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
           <h1 class="text-lg font-semibold">เกรด</h1>
-          <h1 class="text-4xl font-semibold mt-4">A+</h1>
+          <h1 class="text-4xl font-semibold mt-4">{{ $score['grade']->grade_name }}</h1>
         </div>
     
         <div class="w-28 max-lg:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
@@ -193,5 +181,9 @@
 @endsection
 
 @section('scripts')
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    let data = {!! json_encode($score) !!}
+  </script>
   @vite('resources/js/bermonthly_lucky/fortune_ber.js')
 @endsection

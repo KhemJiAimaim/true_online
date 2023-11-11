@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Berpredict_prophecy extends Model
+class BerpredictProphecy extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
         'prophecy_id',
         'prophecy_numb',
