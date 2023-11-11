@@ -21,3 +21,26 @@ close_manual.addEventListener('click', () => {
     modal_container.classList.add('hidden')
   } 
 })
+
+console.log(data)
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      data: [data.happy, data.sad, data.empty],
+      backgroundColor: ["#2AB200", "#CE090E", "#838383"],
+      borderColor: "#ffffff00",
+    }],
+    labels: ['ความดี', 'ความร้าย', 'ความว่างเปล่า'],
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    cutoutPercentage: 70
+  }
+});
