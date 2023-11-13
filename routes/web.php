@@ -62,6 +62,7 @@ Route::get("/prepaid_sim/buy_package", [SimController::class, "buy_package"]);
 Route::get("/travel_sim", [TravelController::class, "travel_sim"]);
 Route::get("/travel_sim/travelling", [TravelController::class, "travel_sim_travelling"]);
 Route::get("/travel_sim/visiting", [TravelController::class, "travel_sim_visiting"]);
+Route::get("/travel_sim/buy", [TravelController::class, "travel_sim_buy"]);
 
 //ขอบคุณ
 Route::get("/thankyou ", [HomeController::class, "thankyou"]);

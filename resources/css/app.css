@@ -373,3 +373,7 @@
   .active{
 	opacity: 1;
 }
+
+ol {
+    list-style-type: decimal; /* ตั้งค่าลำดับให้แสดงเป็นเลขทศนิยม */
+}

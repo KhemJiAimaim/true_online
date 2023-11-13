@@ -19,4 +19,8 @@ class TravelController extends Controller
     {
         return view("frontend.pages.travel_sim.thai_visiting");
     }
+    public function travel_sim_buy()
+    {
+        return view("frontend.pages.travel_sim.buy_sim");
+    }
 }

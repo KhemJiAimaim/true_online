@@ -3,33 +3,35 @@
 
 
 @section('content')
-    <div class="mt-16 ">
-        <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
-            <a href="#fiber"
-                class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear (1).png" alt="">
-                <p class="text-[1rem]">เน็ตบ้านไฟเบอร์</p>
-            </a>
+    <div class="2xl:mt-16 mx-2">
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
+            <div class="grid grid-cols-4 py-6 w-[500px] items-center mx-auto">
+                <a href="#fiber"
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/images/solar_wi-fi-router-linear (1).png" alt="">
+                    <p class="text-[1rem]">เน็ตบ้านไฟเบอร์</p>
+                </a>
 
-            <a
-                href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
-                <p class="text-[1rem]">เบอร์มงคล</p>
-            </a>
+                <a
+                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    <img class="w-30 h-30 max-sm:w-[30px] mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
+                    <p class="text-[1rem]">เบอร์มงคล</p>
+                </a>
 
 
-            <a href="#sim"
-                class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30" src="/images/system-uicons_box-add1.png" alt="">
-                <p class="text-[1rem]">แพ็กเกจเน็ตซิมเทพ</p>
-            </a>
+                <a href="#sim"
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    <img class="w-30 h-30 max-sm:w-[40px]" src="/images/system-uicons_box-add1.png" alt="">
+                    <p class="text-[1rem]">แพ็กเกจเน็ตซิมเทพ</p>
+                </a>
 
-            <a href="#travel"
-                class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
-                <p class="text-[1rem]">ซิมท่องเที่ยว</p>
-            </a>
+                <a href="#travel"
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
+                    <p class="text-[1rem]">ซิมท่องเที่ยว</p>
+                </a>
 
+            </div>
         </div>
 
         {{-- มหัศจรรย์ --}}
@@ -51,14 +53,16 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <div class="mt-12">
-            <span class="text-gray-400 text-[18px]">ค้นหาเบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
+        <div class="2xl:mt-12 my-6">
+            <span class="text-gray-400 2xl:text-[18px] text-[15px]">ค้นหาเบอร์มงคล แพ็กเกจเสริม
+                อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
                 และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
         </div>
 
         {{-- --- --}}
-        <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
-            <div class="2xl:w-[1536px]  w-[1200px] grid grid-cols-3 gap-0  lg:gap-4 2xl:gap-4 mx-auto p-4 items-center place-content-center">
+        <div class="overflow-x-scroll 2xl:overflow-hidden">
+            <div
+                class="2xl:w-[1536px]  w-[1200px] grid grid-cols-3 gap-0  lg:gap-4 2xl:gap-4 mx-auto p-4 items-center place-content-center">
                 <a href=""
                     class="w-[350px] lg:w-[380px] 2xl:w-[450px] h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
                     <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] h-auto rounded-tl-3xl rounded-tr-3xl"
@@ -120,13 +124,13 @@
 
         <section id="fiber" class="bg-gray-100 py-6">
             <div class="">
-                <p class="text-[#000] mt-2 mb-2 text-[2rem] ">อินเทอร์เน็ตไฟเบอร์</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[18px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม หนัง กีฬา ความบันเทิง | True
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] text-[20px] ">อินเทอร์เน็ตไฟเบอร์</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[1rem] text-[14px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม หนัง กีฬา ความบันเทิง | True
                     Gigatex PRO</p>
             </div>
 
-            <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
-                <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4">
+            <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-2">
+                <div class="2xl:w-[1536px] w-[1400px] grid grid-cols-4 gap-4 mx-auto p-4">
 
                     <div class="drop-shadow-md">
                         <div
@@ -361,7 +365,7 @@
             </div>
             <div class="items-center">
                 <a href="/fiber"
-                    class="py-3 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[15px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -370,22 +374,21 @@
 
         <section id="ber_lucky" class="bg-white py-6">
             <div class="">
-                <p class="text-[#000] mt-2 mb-2 text-[2rem] ">เบอร์มงคลรายเดือน</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[1rem]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] text-[20px] ">เบอร์มงคลรายเดือน</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[1rem] text-[14px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
             </div>
 
-            <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
-                <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
-
+            <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-2">
+                <div class="2xl:w-[1536px] w-[1400px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
+                    @for ($i = 1; $i <= 4; $i++)
                     <div class="drop-shadow-md">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <div class="flex justify-start items-center">
-                                <p class="text-white mr-2">เกรด</p>
-                                <p class="text-white font-medium text-[1rem]">A+</p>
+                            <div class="flex justify-start items-center gap-1 text-[17px]">
+                                <p class="text-white">เกรด</p>
+                                <p class="text-white font-medium text-[1.2rem]">A+</p>
                             </div>
-                            <div
-                                class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
+                            <div class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
                                 <p class="text-white mr-2">ผลรวม</p>
                                 <p class="text-white font-medium text-[1rem]">59</p>
                             </div>
@@ -417,12 +420,12 @@
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px] 2xl:h-[50px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px] 2xl:h-[50px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/icons8-line-app (1) 9.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
@@ -434,184 +437,15 @@
                         </div>
 
                     </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <div class="flex justify-start items-center">
-                                <p class="text-white mr-2">เกรด</p>
-                                <p class="text-white font-medium text-[1rem]">A+</p>
-                            </div>
-                            <div
-                                class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
-                                <p class="text-white mr-2">ผลรวม</p>
-                                <p class="text-white font-medium text-[1rem]">59</p>
-                            </div>
-                        </div>
-                        {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-10 ">
-                                <p class="text-3xl text-center">063-782-5555</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-                            <img src="images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                <p class="text-white font-medium text-center text-3xl">999,999</p>
-                                <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-
-                            <a src="#"
-                                class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-                        </div>
-                    </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <div class="flex justify-start items-center">
-                                <p class="text-white mr-2">เกรด</p>
-                                <p class="text-white font-medium text-[1rem]">A+</p>
-                            </div>
-                            <div
-                                class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
-                                <p class="text-white mr-2">ผลรวม</p>
-                                <p class="text-white font-medium text-[1rem]">59</p>
-                            </div>
-                        </div>
-                        {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-10 ">
-                                <p class="text-3xl text-center">063-782-5555</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-                            <img src="images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                <p class="text-white font-medium text-center text-3xl">999,999</p>
-                                <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-
-                            <a src="#"
-                                class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-                        </div>
-                    </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <div class="flex justify-start items-center">
-                                <p class="text-white mr-2">เกรด</p>
-                                <p class="text-white font-medium text-[1rem]">A+</p>
-                            </div>
-                            <div
-                                class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
-                                <p class="text-white mr-2">ผลรวม</p>
-                                <p class="text-white font-medium text-[1rem]">59</p>
-                            </div>
-                        </div>
-                        {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-10 ">
-                                <p class="text-3xl text-center">063-782-5555</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-                            <img src="images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">เน็ต Unlimited + โทร 1700 Mins</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                <p class="text-white font-medium text-center text-3xl">9,999</p>
-                                <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-
-                            <a src="#"
-                                class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-                        </div>
-                    </div>
+                    @endfor
+                    
 
                 </div>
 
             </div>
             <div class="items-center">
-                <a href="/bermonthly"
-                    class="py-3 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                <a href="/fiber"
+                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[15px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -624,7 +458,7 @@
                 <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
             </div>
             <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
-                <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
+                <div class="2xl:w-[1536px] w-[1400px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
 
                     <div class="drop-shadow-md">
                         <div
@@ -811,7 +645,7 @@
             </div>
 
             <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
-                <div class="w-[1536px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
+                <div class="2xl:w-[1536px] w-[1400px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
 
                     <div class="drop-shadow-md">
                         <div
@@ -845,12 +679,12 @@
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1  2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1  2xl:w-[50px]  2xl:h-[50px ]w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/icons8-line-app (1) 9.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
@@ -894,12 +728,12 @@
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/icons8-line-app (1) 9.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
@@ -943,12 +777,12 @@
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
                             <div
-                                class="rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px]  flex justify-center items-center p-2">
+                                class="rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]   flex justify-center items-center p-2">
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full">
                             </div>
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/icons8-line-app (1) 9.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
@@ -993,12 +827,12 @@
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
                             <div
-                                class="rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px]  flex justify-center items-center p-2">
+                                class="rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]   flex justify-center items-center p-2">
                                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                                     class="cursor-pointer w-full h-full">
                             </div>
                             <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
                                 <img src="/images/icons8-line-app (1) 9.png" alt=""
                                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                             </div>
