@@ -79,5 +79,5 @@ Route::get('/howtobuy/{cate}', [HowToBuyController::class, "howtobuyPage"]);
 Route::get('/move', [MoveController::class, "move"]);
 Route::get('/move/fixxynolimit', [MoveController::class, "move_fixxy"]);
 Route::get('/move/5GTogether+', [MoveController::class, "move_together"]);
-Route::get('/move/5GSuperSmart', [MoveController::class, "move_super_smart"]);
+Route::get('/move/5GSuperSmart', [MoveController::class, "moveSupersmart"]);
 Route::get('/move/movenow', [MoveController::class, "movenow"]);

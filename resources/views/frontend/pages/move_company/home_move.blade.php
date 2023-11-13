@@ -36,12 +36,12 @@
                 <div class="max-w-[1536px] my-0 mx-auto flex justify-center px-4 ">
 
                     <div class="drop-shadow-md flex justify-center max-h-[1062px] h-[100%]  ">
-                        <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%] ">
+                        <div class=" 2xl:w-[424px] md:w-[424px] w-[350px] min-[375px]:w-[300px] h-[100%] ">
                             <div
-                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                 {{-- <div class="flex justify-start items-center"> --}}
                                 <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
+                                <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
                                 {{-- </div> --}}
 
                             </div>
@@ -119,8 +119,11 @@
                                 <p class="text-start font-[700] text-[1rem] px-4">เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>
                             </div>
 
-                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                                <div class="grid grid-cols-3">
+                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
+                                    alt="">
+                                <div class="grid grid-cols-3 py-3 px-2">
+
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
@@ -146,24 +149,24 @@
 
 
         </section>
-        {{-- --- --}}
-        <section class="bg-[#F8F9FA] py-6 w-full">
-
+        {{-- 5G Together+ --}}
+        <section class="bg-[#F8F9FA] py-6 w-full relative z-0">
+            <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">5G Together+</p>
                 <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
             </div>
-            <div class=" my-16 w-full sm:px-4">
+            <div class=" my-16 w-full sm:px-4 z-[2]">
                 <div
                     class="max-w-[1536px] my-0 mx-auto grid  2xl:grid-cols-3 md:grid-cols-2 gap-10 md:px-6 grid-cols-1 px-4 ">
 
                     <div class="drop-shadow-md flex justify-center max-h-[1062px] h-[100%]  ">
                         <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%] ">
                             <div
-                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                 {{-- <div class="flex justify-start items-center"> --}}
                                 <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
+                                <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
                                 {{-- </div> --}}
 
                             </div>
@@ -241,8 +244,11 @@
                                 <p class="text-start font-[700] text-[1rem] px-4">เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>
                             </div>
 
-                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                                <div class="grid grid-cols-3">
+                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
+                                    alt="">
+                                <div class="grid grid-cols-3 py-3 px-2">
+
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
@@ -263,10 +269,10 @@
                     <div class="drop-shadow-md flex justify-center max-h-[1062px] h-[100%]  ">
                         <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%] ">
                             <div
-                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                 {{-- <div class="flex justify-start items-center"> --}}
                                 <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
+                                <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
                                 {{-- </div> --}}
 
                             </div>
@@ -344,8 +350,11 @@
                                 <p class="text-start font-[700] text-[1rem] px-4">เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>
                             </div>
 
-                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                                <div class="grid grid-cols-3">
+                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
+                                    alt="">
+                                <div class="grid grid-cols-3 py-3 px-2">
+
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
@@ -366,10 +375,10 @@
                     <div class="drop-shadow-md flex justify-center max-h-[1062px] h-[100%]  ">
                         <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%] ">
                             <div
-                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                 {{-- <div class="flex justify-start items-center"> --}}
                                 <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
+                                <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
                                 {{-- </div> --}}
 
                             </div>
@@ -447,8 +456,11 @@
                                 <p class="text-start font-[700] text-[1rem] px-4">เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>
                             </div>
 
-                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                                <div class="grid grid-cols-3">
+                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
+                                    alt="">
+                                <div class="grid grid-cols-3 py-3 px-2">
+
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
@@ -459,38 +471,37 @@
                             <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
 
                                 <a href="#"
-                                    class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-[12px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
+                                    class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-[12px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
                                 <a href="/prepaid_sim/buy_sim"
                                     class="cursor-pointer py-2 px-8  mb-2 mt-2 text-[12px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                             </div>
                         </div>
                     </div>
-
 
                 </div>
 
             </div>
 
-
+            <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
         </section>
-        {{-- --- --}}
+        {{-- 5G Super Smart --}}
         <section class="bg-[#ffff] py-6">
 
 
             <div class="max-w-[1536px] my-0 mx-auto   ">
                 <div class="">
-                    <p class="text-[#000] mt-2 mb-2 text-[2rem] ">5G Together+</p>
+                    <p class="text-[#000] mt-2 mb-2 text-[2rem] ">5G Super Smart</p>
                     <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
                 </div>
                 <div class=" grid 2xl:grid-cols-2 gap-5 md:grid-cols-2 grid-cols-1 px-4 ">
-                    <div class="drop-shadow-md w-full  flex 2xl:justify-end justify-center ">
-                        <div class="2xl:w-[480px] md:w-full min-[375px]:w-[300px] w-[350px]">
+                    <div class="drop-shadow-md flex justify-end max-h-[1062px] h-[100%]  ">
+                        <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%] ">
                             <div
-                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                 {{-- <div class="flex justify-start items-center"> --}}
                                 <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
+                                <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
                                 {{-- </div> --}}
 
                             </div>
@@ -543,7 +554,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex items-start gap-2 px-4">
+                                <div class="flex items-start gap-2 p-4">
                                     <div class="border-[1px]  border-orange-500 p-4 w-[30%]">
                                         <img src="/images/Rectangle1617.png" alt="">
                                     </div>
@@ -560,7 +571,7 @@
                                         <li>WiFi ไม่อั้น</li>
                                     </ul>
                                 </div>
-                                <div class="px-4">
+                                <div class="p-4">
                                     <p class="text-start text-[1rem]">จากนั้น ทุกๆ 5 วัน
                                         ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ
                                         49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)</p>
@@ -568,10 +579,11 @@
                                 <p class="text-start font-[700] text-[1rem] px-4">เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>
                             </div>
 
-                            <div
-                                class="bg-gradient-to-r
-                                    from-[#ED4312] to-[#F6911D] py-3 px-2">
-                                <div class="grid grid-cols-3">
+                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
+                                    alt="">
+                                <div class="grid grid-cols-3 py-3 px-2">
+
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
@@ -589,14 +601,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="drop-shadow-md w-full  flex 2xl:justify-start justify-center ">
-                        <div class="2xl:w-[480px] md:w-full min-[375px]:w-[300px] w-[350px]">
+                    <div class="drop-shadow-md flex justify-start max-h-[1062px] h-[100%]   ">
+                        <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%]  ">
                             <div
-                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                 {{-- <div class="flex justify-start items-center"> --}}
                                 <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
+                                <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
                                 {{-- </div> --}}
 
                             </div>
@@ -649,7 +660,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex items-start gap-2 px-4">
+                                <div class="flex items-start gap-2 p-4">
                                     <div class="border-[1px]  border-orange-500 p-4 w-[30%]">
                                         <img src="/images/Rectangle1617.png" alt="">
                                     </div>
@@ -666,7 +677,7 @@
                                         <li>WiFi ไม่อั้น</li>
                                     </ul>
                                 </div>
-                                <div class="px-4">
+                                <div class="p-4">
                                     <p class="text-start text-[1rem]">จากนั้น ทุกๆ 5 วัน
                                         ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ
                                         49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)</p>
@@ -674,10 +685,11 @@
                                 <p class="text-start font-[700] text-[1rem] px-4">เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>
                             </div>
 
-                            <div
-                                class="bg-gradient-to-r
-                                    from-[#ED4312] to-[#F6911D] py-3 px-2">
-                                <div class="grid grid-cols-3">
+                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
+                                    alt="">
+                                <div class="grid grid-cols-3 py-3 px-2">
+
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
@@ -695,7 +707,6 @@
                             </div>
                         </div>
                     </div>
-
 
                 </div>
 
@@ -706,18 +717,5 @@
 
     </div>
 
-    <div class="bg-gradient-to-r from-[#F6911D] to-[#ED4312]">
-        <div class="p-6 flex justify-around gap-[15rem]">
-            <div class="flex flex-col items-center w-[100%]">
-                <img class="w-30 h-30 mt-2 mb-6 " src="/images/code-qr.png" alt="">
-                <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
-                <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
-            </div>
-            <div class="flex flex-col items-center w-[50%]">
-                <img class="w-30 h-30 " src="/images/Rectangle 1245.png" alt="">
-                <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
-                <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
-            </div>
-        </div>
-    </div>
+    @include('frontend.pages.move_company.move_footer')
 @endsection

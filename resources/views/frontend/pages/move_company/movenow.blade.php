@@ -1,18 +1,16 @@
 @extends('frontend.layouts.main')
-
 @section('style')
-    @vite('resources/css/move_company/move.css')
+    <link rel="stylesheet" href="/css/move_company/move.css">
 @endsection
-
 @section('content')
     <div class=" 2xl:my-36 ">
-        <div id="movenow" class=" flex justify-center items-center max-xl:mt-48 ">
-            <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3   gap-4 m-3">
+        <div class=" max-w-[1530px] w-full my-4 mx-auto ">
+            <div class=" flex 2xl:flex-row flex-col justify-center items-center  gap-5">
 
-                <div class="bg-white w-full 2xl:h-[590px]  items-center px-4 lg:px-1 mb-6 relative ">
+                <div class="bg-white 2xl:w-[30%] md:w-[80%] 2xl:h-[590px]  items-center px-4 lg:px-1 mb-6 relative ">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2 ">
                         <img id="featured" src="/images/Rectangle1282.png" alt=""
-                            class="2xl:w-full 2xl:h-[500px] w-[350px] lg:h-[350px] cursor-pointer ">
+                            class="2xl:w-full 2xl:h-[500px] md:w-[100%] w-[350px] lg:h-[350px] cursor-pointer ">
                     </div>
                     <div id="slide-wrapper" class="flex  items-center">
 
@@ -43,7 +41,7 @@
                     </div>
                 </div>
 
-                <div class="col-span-2 space-y-10 text-left m-3">
+                <div class=" 2xl:w-[70%] md:w-[80%] col-span-2 space-y-10 text-left m-3 p-4 2xl:p-0">
                     <p class=" font-medium text-2xl ">ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399</p>
 
                     <div
@@ -52,10 +50,10 @@
 
                     <p class="text-xl font-medium">ตัวเลือก</p>
                     <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 m-3 overflow-auto 2xl:overflow-hidden h-[280px] w-full">
+                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4  overflow-auto 2xl:overflow-hidden h-[280px] w-full">
                         @for ($i = 1; $i <= 3; $i++)
-                            <div id="box{{ $i }}"
-                                class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8rem] cursor-pointer">
+                            <div id="box{{ $i }} "
+                                class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[140px] cursor-pointer">
                                 <div class="flex ">
                                     <img src="/images/Rectangle1282.png" alt="" class="w-16">
                                     <p class="text-lg font-medium ml-2">Fixxy No Limited
@@ -68,6 +66,11 @@
                                 </div>
                             </div>
                         @endfor
+                    </div>
+
+                    <div class="w-[100%] mt-0 flex justify-center 2xl:justify-start">
+                        <button
+                            class=" bg-red-600 w-[200px] h-[30] text-center rounded-[15px] p-2 text-white ">ติดต่อเจ้าหน้าที่</button>
                     </div>
 
                 </div>
@@ -171,22 +174,8 @@
     </div> --}}
 
 
-    <div class="bg-gradient-to-r from-[#F6911D] to-[#ED4312]">
-        <div class="p-6 flex justify-center gap-[15rem]">
-            <div class="flex flex-col items-center">
-                <img class="w-30 h-30 mt-2 mb-6 " src="/images/code-qr.png" alt="">
-                <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
-                <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <img class="w-30 h-30 " src="/images/Rectangle 1245.png" alt="">
-                <p class="text-[1rem] text-white">แจ้งขนส่ง</p>
-                <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
-            </div>
-        </div>
-    </div>
+    @include('frontend.pages.move_company.move_footer')
 @endsection
-
 @section('scripts')
-    @vite('resources/js/move_company/movenow.js')
+    <script src="/js/move_company/movenow.js"></script>
 @endsection
