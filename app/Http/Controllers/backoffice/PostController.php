@@ -30,15 +30,26 @@ class PostController extends BaseController
         }
     }
 
-    public function createContent(Request $req  ) {
+    public function createContent(Request $req) {
         $this->getAuthUser();
         $files = $req->allFiles();
         $params = $req->all();
+
         $validator = Validator::make($req->all(), [
             'Thumbnail' => "mimes:jpg,png,jpeg,pdf|max:5000|nullable",
+            // 'slug' => "string|required|unique:posts",
         ]);
         if($validator->fails()) {
             return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        $duplicatePost = Post::where('slug', $req->slug)->first();
+        if ($duplicatePost) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Invalid Param',
+                'errorMessage' => 'The slug has already been taken.'
+            ], 409);
         }
 
         /* Upload Thumbnail */
@@ -50,8 +61,8 @@ class PostController extends BaseController
             DB::beginTransaction();
             $postCreated = Post::create([
                 "thumbnail_link" => $thumbnail,
-                "thumbnail_title" => $params['ThumbnailTitle'],
-                "thumbnail_alt" => $params['ThumbnailAlt'],
+                "thumbnail_title" => $params['ThumbnailTitle'] ? $params['ThumbnailTitle'] : "",
+                "thumbnail_alt" => $params['ThumbnailAlt'] ? $params['ThumbnailAlt'] : "",
                 "category" => $params['category'],
                 "title" => $params['title'],
                 "keyword" => $params['keyword'],
@@ -120,7 +131,7 @@ class PostController extends BaseController
             $uploadMoreImage = array();
             $addMoreImage = array();
             $idRemove = explode(',', $params['moreImageRemove']);
-            
+
             if(isset($params['EditImageLink'])) {
                 PostImage::where('post_id', $params['id'])->where('language', $params['language'])->delete();
                 $numb = count($params['EditImageLink']);
@@ -136,7 +147,7 @@ class PostController extends BaseController
                 }
                 PostImage::insert($addMoreImage);
             }
-            
+
             if(isset($params['Images'])) {
                 foreach($files['Images'] as $key => $val){
                     array_push($uploadMoreImage, [

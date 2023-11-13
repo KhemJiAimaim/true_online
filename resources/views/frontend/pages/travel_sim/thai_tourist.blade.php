@@ -27,7 +27,8 @@
          {{-- มหัศจรรย์ --}}
 
 
-        <section id="travel" class="bg-white py-6">
+      
+         <section id="travel" class="bg-white py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 text-[2rem] ">Thailand Tourist infinite sim</p>
                 <p class="text-[#838383] mt-2 mb-2 text-[1.3rem]">ซิมสำหรับท่องเที่ยวในประเทศไทย เชื่อมต่อได้ไม่มีสะดุด</p>
@@ -105,7 +106,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -180,7 +181,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -255,7 +256,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -265,6 +266,7 @@
             </div>
 
         </section>
+
 
     </div>
 

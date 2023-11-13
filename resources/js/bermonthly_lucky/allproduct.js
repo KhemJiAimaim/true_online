@@ -168,23 +168,34 @@ cate_ber.forEach(element => {
 let like = document.querySelectorAll('#like');
 let dislike = document.querySelectorAll('#dislike');
 
-like.forEach(element => {
-  element.addEventListener('click', () => {
-    if (element.classList.contains('bg-gradient-to-r')) {
-      element.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]' , 'selected');
+like.forEach(likeElement => {
+  likeElement.addEventListener('click', () => {
+    const likeFav = likeElement.getAttribute('data-fav');
+    const matchingDislike = document.querySelector(`#dislike[data-fav="${likeFav}"]`);
+
+    if (likeElement.classList.contains('selected')) {
+      likeElement.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
     } else {
-      element.classList.add('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
+      likeElement.classList.add('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
+      if (matchingDislike.classList.contains('selected')) {
+        matchingDislike.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      }
     }
   });
 });
 
-dislike.forEach(element => {
-  element.addEventListener('click', () => {
-    if (element.classList.contains('bg-gradient-to-r')) {
-      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'selected');
+dislike.forEach(dislikeElement => {
+  dislikeElement.addEventListener('click', () => {
+    const dislikeFav = dislikeElement.getAttribute('data-fav');
+    const matchingLike = document.querySelector(`#like[data-fav="${dislikeFav}"]`);
+
+    if (dislikeElement.classList.contains('selected')) {
+      dislikeElement.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
     } else {
-      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
-    
+      dislikeElement.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      if (matchingLike.classList.contains('selected')) {
+        matchingLike.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
+      }
     }
   });
 });

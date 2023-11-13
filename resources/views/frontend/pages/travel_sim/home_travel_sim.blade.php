@@ -5,14 +5,14 @@
 @section('content')
     <div class="mt-16">
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
-            <a href="#travel"
+            <a href="/travel_sim/travelling"
                 class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear.png" alt="">
                 <p class="text-[1rem]">เดินทาง ไปต่างประเทศ</p>
             </a>
 
             <a
-                href="#travel_thai"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                href="/travel_sim/visiting"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 " src="/images/travel/icon-park_elephant.png" alt="">
                 <p class="text-[1rem]">มาเที่ยว
                     ประเทศไทย</p>
@@ -118,7 +118,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -399,7 +399,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -515,7 +515,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>
@@ -631,7 +631,7 @@
 
                             <a src="#"
                                 class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
+                            <a href="/travel_sim/buy"
                                 class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                         </div>
                     </div>

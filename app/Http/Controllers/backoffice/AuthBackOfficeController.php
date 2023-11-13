@@ -153,7 +153,8 @@ class AuthBackOfficeController extends BaseController
                 ], 403);
             }
 
-            $menu = Category::where('is_menu', 1)->where('language', $langDefault->abbv_name)->where('cate_level', 0)->get()->all();
+            // $menu = Category::where('is_menu', 1)->where('language', $langDefault->abbv_name)->where('cate_level', 0)->get()->all();
+            $menu = Category::where('is_menu', 1)->where('language', $langDefault->abbv_name)->get();
             $newMenu = [];
             if ($menu) {
                 foreach ($menu as $m) {

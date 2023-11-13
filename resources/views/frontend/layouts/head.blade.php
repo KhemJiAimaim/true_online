@@ -32,7 +32,7 @@
 
     <div class="w-full px-8 mx-auto ">
         <!-- mobile button goes here -->
-        <div class=" xl:hidden flex justify-between items-center">
+        <div class="xl:hidden flex justify-between items-center">
             <div class="">
                 <a href="{{ url('/') }}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <img src="{{ asset('/images/Rectangle 11.png') }}" alt="lago">
@@ -64,7 +64,7 @@
 
 
     <!-- mobile menu -->
-    <div class="Mitr mobile-menu hidden xl:hidden bg-white absolute z-99 bg-opacity-[90%] w-full">
+    <div class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full">
         <li><a href="/fiber" class="block py-2 text-sm ">อินเตอร์เน็ตไฟเบอร์</a></li>
         <li><a href="{{ url('/bermonthly') }}" class="block py-2 text-sm">เบอร์มงคลรายเดือน</a></li>
         <li><a href="" class="block py-2 text-sm">เติมเงิน</a></li>
@@ -73,9 +73,9 @@
     </div>
 </nav>
 
-<div class="bg-white drop-shadow-md fixed w-full top-16 z-40 ">
-    <div class="w-3/4 px-8 mx-auto xl:mt-4 py-2 z-50 max-xs:hidden">
-        <ul class="hidden 2xl:flex   relative">
+<div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
+    <div class="w-3/4 px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden ">
+        <ul class="hidden lg:flex 2xl:flex   relative">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
             <li class="group z-[99] basis-[230px] ">
                 <a href="/fiber"
@@ -202,6 +202,8 @@
                     </div>
                 </ul>
             </li>
+        </ul>
+        </li>
     </div>
 </div>
 
