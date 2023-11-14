@@ -62,6 +62,7 @@ Route::get("/prepaid_sim/buy_package", [SimController::class, "buy_package"]);
 Route::get("/travel_sim", [TravelController::class, "travel_sim"]);
 Route::get("/travel_sim/travelling", [TravelController::class, "travel_sim_travelling"]);
 Route::get("/travel_sim/visiting", [TravelController::class, "travel_sim_visiting"]);
+Route::get("/travel_sim/buy", [TravelController::class, "travel_sim_buy"]);
 
 //ขอบคุณ
 Route::get("/thankyou ", [HomeController::class, "thankyou"]);
@@ -79,5 +80,5 @@ Route::get('/howtobuy/{cate}', [HowToBuyController::class, "howtobuyPage"]);
 Route::get('/move', [MoveController::class, "move"]);
 Route::get('/move/fixxynolimit', [MoveController::class, "move_fixxy"]);
 Route::get('/move/5GTogether+', [MoveController::class, "move_together"]);
-Route::get('/move/5GSuperSmart', [MoveController::class, "move_super_smart"]);
+Route::get('/move/5GSuperSmart', [MoveController::class, "moveSupersmart"]);
 Route::get('/move/movenow', [MoveController::class, "movenow"]);

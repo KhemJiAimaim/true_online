@@ -46,7 +46,7 @@
                 <div class="w-4 h-4 bg-[#838383] rounded-[2px]"></div>
                 <p class="w-full">ความว่างเปล่า</p>
               </div>
-              <div class="text-[#838383]">{{ $score['total_score'] }}</div>
+              <div class="text-[#838383]">{{ $score['empty'] }}</div>
             </div>
           </div>
         </div>

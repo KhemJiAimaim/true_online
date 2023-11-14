@@ -16,6 +16,7 @@ class BerproductMonthly extends Model
         'product_price', 
         'product_category', 
         'product_improve', 
+        'product_pin',
         'product_sold', 
         'product_new', 
         'product_comment', 

@@ -1,30 +1,4 @@
-// แท็บรายละเอีใยด
-let btn_package = document.querySelector('#btn-package');  // ปุ่มรายละเอียด
-let btn_condition = document.querySelector('#btn-condition');  // ปุ่มเงื่อนไข
-let box_package = document.querySelector('#box-package');
-let box_condition = document.querySelector('#box-condition');
 
-// ฟังก์ชัน package and condition content
-btn_package.addEventListener('click', () => {
-  console.log("button box package")
-  box_package.classList.remove('hidden')
-  box_condition.classList.add('hidden')
-
-  btn_package.classList.add('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
-  btn_condition.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
-  btn_condition.classList.add('bg-[#838383]')
-})
-
-btn_condition.addEventListener('click', () => {
-  console.log("button box condition")
-  box_package.classList.add('hidden')
-  box_condition.classList.remove('hidden')
-
-  btn_package.classList.add('bg-[#838383]')
-  btn_package.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
-  btn_condition.classList.add('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
-  btn_condition.classList.remove('bg-[#838383]')
-})
 
 
 // active สินค้า
@@ -95,36 +69,6 @@ incrementButtons.forEach(btn => {
 
 
 // รูป slider
-// let thumbnails = document.getElementsByClassName('thumbnail')
-
-// let activeImages = document.getElementsByClassName('active')
-
-// for (var i=0; i < thumbnails.length; i++){
-
-//   thumbnails[i].addEventListener('mouseover', function(){
-//     console.log(activeImages)
-    
-//     if (activeImages.length > 0){
-//       activeImages[0].classList.remove('active')
-//     }
-    
-
-//     this.classList.add('active')
-//     document.getElementById('featured').src = this.src
-//   })
-// }
-
-
-// let buttonRight = document.getElementById('slideRight');
-// let buttonLeft = document.getElementById('slideLeft');
-
-// buttonLeft.addEventListener('click', function(){
-//   document.getElementById('slider').scrollLeft -= 180
-// })
-
-// buttonRight.addEventListener('click', function(){
-//   document.getElementById('slider').scrollLeft += 180
-// })
 
 let thumbnails = document.getElementsByClassName('thumnail');
 let activeImages = document.getElementsByClassName('active');
