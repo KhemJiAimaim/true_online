@@ -69,6 +69,7 @@ class CategoryController extends BaseController
             'cate_keyword' => 'string|nullable',
             'cate_description' => 'string|nullable',
             'is_main_page' => 'required|numeric',
+            'is_product_cate' => 'required|numeric',
             'is_menu' => 'required|numeric',
             'is_bottomside' => 'required|numeric',
             'cate_priority' => 'required|numeric',
@@ -121,6 +122,7 @@ class CategoryController extends BaseController
             $creating->cate_keyword = $params['cate_keyword'];
             $creating->cate_description = $params['cate_description'];
             $creating->is_main_page = $params['is_main_page'];
+            $creating->is_product_cate = $params['is_product_cate'];
             $creating->is_menu = $params['is_menu'] ;
             $creating->is_topside = $params['is_menu'] ;
             $creating->is_bottomside = $params['is_bottomside'] ;
@@ -164,6 +166,7 @@ class CategoryController extends BaseController
             'cate_keyword' => 'string|nullable',
             'cate_description' => 'string|nullable',
             'is_main_page' => 'required|numeric',
+            'is_product_cate' => 'required|numeric',
             'is_menu' => 'required|numeric',
             'is_bottomside' => 'required|numeric',
             'cate_priority' => 'required|numeric',
@@ -212,6 +215,7 @@ class CategoryController extends BaseController
                 "cate_description" => $params['cate_description'],
                 "cate_redirect" => $params['cate_redirect'],
                 "is_main_page" => $params['is_main_page'],
+                "is_product_cate" => $params['is_product_cate'],
                 "is_menu" => $params['is_menu'] ,
                 "is_topside" => $params['is_menu'] ,
                 "is_bottomside" => $params['is_bottomside'] ,
