@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\DB;
 class BerLuckyMonthlyController extends Controller
 {
     //
-    public function get_product_all() {
-            $berproducts = BerproductMonthly::where('product_display', 'yes')->get();
-        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts'));
+    public function get_product_all(Request $request) {
+        // dd($request->all());
+        $berproducts = BerproductMonthly::where('product_display', 'yes')->get();
+        $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
+        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers'));
     }
 
     public function detailber_page($tel) {
