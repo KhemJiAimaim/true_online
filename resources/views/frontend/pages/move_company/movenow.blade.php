@@ -69,8 +69,8 @@
                     </div>
 
                     <div class="w-[100%] mt-0 flex justify-center 2xl:justify-start">
-                        <button
-                            class=" bg-red-600 w-[200px] h-[30] text-center rounded-[15px] p-2 text-white ">ติดต่อเจ้าหน้าที่</button>
+                        <a class=" bg-red-600 w-[200px] h-[30] text-center rounded-[15px] p-2 text-white "
+                            href="/move/movenow/form">ติดต่อเจ้าหน้าที่</a>
                     </div>
 
                 </div>

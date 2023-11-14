@@ -1,4 +1,5 @@
-<div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] ">
+<div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] relative ">
+    <img class=" absolute right-0 top-0" src="/images/circle/Intersect (3).png" alt="">
     <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
         <div class="flex flex-col items-center">
             <img class="mt-2 mb-6 max-xs:w-[50px]" src="/images/code-qr.png" alt="">
@@ -11,5 +12,5 @@
             <p class="text-[0.8rem] text-white">เช็ครหัสขนส่งสินค้า</p>
         </div>
     </div>
-
+    <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (4).png" alt="">
 </div>
