@@ -1,3 +1,4 @@
+import axios from "axios";
 
 console.log("use js all product")
 
@@ -96,8 +97,6 @@ function buyProductNow(ber_id) {
 
 
 // ใส่ลูกน้ำจำนวนเงิน
-let price_low = document.querySelectorAll('#price-low')
-let price_hight = document.querySelectorAll('#price-hight')
 let priceInputs = document.querySelectorAll('.price-input');
 
 priceInputs.forEach(function(input) {
@@ -199,13 +198,81 @@ dislike.forEach(dislikeElement => {
     }
   });
 });
-console.log(dislike)
 
 function product_search() {
 
-  let data_price_low = price_low.value
+  // เตรียมข้อมูล filter ber
+  const search_num = document.querySelectorAll('#search-num')
+  const slc_sum = document.querySelector('#slc-sum').value;
+  const txt_favorite = document.querySelector('#txt_favorite').value;
+  const slc_category = document.querySelector('#slc-category').value;
+  const slc_package = document.querySelector('#slc-package').value;
+  const slc_sort = document.querySelector('#slc-sort').value;
+  const price_min = document.querySelector('#price-min').value;
+  const price_max = document.querySelector('#price-max').value;
+  const btn_like = document.querySelectorAll('#like'); 
+  const btn_dislike = document.querySelectorAll('#dislike'); 
+  const predict_ber = document.querySelectorAll('#predict-ber'); 
+  const cate_ber = document.querySelectorAll('#cate-ber'); 
+  
   let param = {
-    price_low : data_price_low
+    sum : slc_sum,
+    favorite_num : txt_favorite,
+    category : slc_category,
+    package : slc_package,
+    sort : slc_sort,
+    min : price_min.replace(/,/g, ""),
+    max : price_max.replace(/,/g, ""),
+    position: {},
+    like : [],
+    dislike : [],
+    predict : [],
+    cate : [],
   }
-  console.log(param)
+
+  let source = "";
+  if(slc_sum) {
+    source += "sum="+slc_sum
+  }
+  search_num.forEach(input => {
+    const position = input.getAttribute('data-position');
+    const value = input.value.trim();
+
+    if (value !== '') {
+      param.position[`pos${position}`] = value;
+    }
+  });
+
+  btn_like.forEach(element => {
+    if (element.classList.contains("selected")) {
+      const data_fav = element.getAttribute('data-fav');
+      param.like.push(data_fav);
+    }
+  });
+
+  btn_dislike.forEach(element => {
+    if (element.classList.contains("selected")) {
+      const data_fav = element.getAttribute('data-fav');
+      param.dislike.push(data_fav);
+    }
+  });
+
+  predict_ber.forEach( element => {
+    if (element.classList.contains("selected")) {
+      const data_id = element.getAttribute('data-id');
+      param.predict.push(data_id);
+    }
+  })
+
+  cate_ber.forEach( element => {
+    if (element.classList.contains("selected")) {
+      const data_id = element.getAttribute('data-id');
+      param.cate.push(data_id);
+    }
+  })
+
+  console.log(source)
+  location.href = `/bermonthly?${source}`;
+  // location.href = `/bermonthly?id=1`;
+  
 }

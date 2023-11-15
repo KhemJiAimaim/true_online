@@ -86,9 +86,15 @@
             <label for="slc-sum">ผลรวม</label>
             <select class="w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-sum" id="slc-sum">
               <option value="">ผลรวม</option>
-              <option value="">30</option>
-              <option value="">40</option>
-              <option value="">50</option>
+              @foreach($sumbers as $sum)
+              @php 
+                $selected = null;
+                if($sum->predict_sum == $_GET['sum']) {
+                  $selected = "selected";
+                }
+              @endphp
+              <option value="{{$sum->predict_sum}}" {{$selected}}>{{$sum->predict_sum}}</option>
+              @endforeach
             </select>
           </div>
 
@@ -110,29 +116,30 @@
 
         <div class="mt-4 flex justify-between gap-4 max-xs:grid max-xs:grid-cols-2">
           <div class="flex flex-col">
-            <label for="slc-sum">แพ็กเกจ</label>
-            <select class="w-52 max-xl:w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-sum" id="slc-sum">
-              <option value="">แพ็กเกจ</option>
-              <option value="">เน็ต Unlimited + โทร 1700 Mins</option>
-              <option value="">แพ็กเกจนี้ใช้ฟรี 3 เดือน</option>
-              <option value="">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา</option>
+            <label for="slc-package">แพ็กเกจ</label>
+            <select class="w-52 max-xl:w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-package" id="slc-package">
+              <option value="1">แพ็กเกจ</option>
+              <option value="2">เน็ต Unlimited + โทร 1700 Mins</option>
+              <option value="3">แพ็กเกจนี้ใช้ฟรี 3 เดือน</option>
+              {{-- <option value="0">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา</option> --}}
             </select>
           </div>
 
           <div class="flex flex-col">
-            <label for="slc-category">เรียงลำดับ ราคา</label>
-            <select class="w-32 max-lg:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-category" id="slc-category">
+            <label for="slc-sort">เรียงลำดับ ราคา</label>
+            <select class="w-32 max-lg:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-sort" id="slc-sort">
               <option value="">เรียงลำดับ ราคา</option>
-              <option value="">ราคาน้อยไปมาก</option>
-              <option value="">ราคามากไปน้อย</option>
+              <option value="desc">ราคามากไปน้อย</option>
+              <option value="asc">ราคาน้อยไปมาก</option>
+              <option value="rand">สุ่มราคาสินค้า</option>
             </select>
           </div>
 
           <div class="flex flex-col max-xs:col-span-2">
             <label for="txt_favorite">ช่วงราคา</label>
             <div class="flex gap-4 w-80 max-xl:w-40 max-lg:w-64 max-xs:w-full">
-              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-low" id="price-low">
-              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-hight" id="price-hight">
+              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-min" id="price-min">
+              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-max" id="price-max">
             </div>
           </div>
         </div>

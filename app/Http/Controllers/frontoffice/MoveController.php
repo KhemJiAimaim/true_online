@@ -29,4 +29,8 @@ class MoveController extends Controller
     {
         return view('frontend.pages.move_company.movenow');
     }
+    public function formMove()
+    {
+        return view('frontend.pages.move_company.Formmove');
+    }
 }

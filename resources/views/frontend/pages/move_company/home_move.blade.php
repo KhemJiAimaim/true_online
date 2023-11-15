@@ -135,7 +135,7 @@
 
                                 <a href="#"
                                     class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-[12px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
-                                <a href="/prepaid_sim/buy_sim"
+                                <a href="/move/movenow"
                                     class="cursor-pointer py-2 px-8  mb-2 mt-2 text-[12px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                             </div>

@@ -187,16 +187,16 @@
 
                     <div class= "flex flex-col">
                         {{-- <div class="col-start-6"> --}}
-                        <li><a href="#"
+                        <li><a href="/howtobuy/fiber"
                                 class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
                         </li>
-                        <li><a href="#"
+                        <li><a href="/howtobuy/month"
                                 class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
                         </li>
-                        <li><a href="#"
+                        <li><a href="/howtobuy/paysim"
                                 class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
                         </li>
-                        <li><a href="#"
+                        <li><a href="/howtobuy/travelsim"
                                 class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
                         </li> {{-- </div> --}}
                     </div>
