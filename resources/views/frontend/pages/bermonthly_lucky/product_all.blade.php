@@ -89,8 +89,10 @@
               @foreach($sumbers as $sum)
               @php 
                 $selected = null;
-                if($sum->predict_sum == $_GET['sum']) {
-                  $selected = "selected";
+                if(isset($_GET['sum'])){
+                  if($sum->predict_sum == $_GET['sum']) {
+                    $selected = "selected";
+                  }
                 }
               @endphp
               <option value="{{$sum->predict_sum}}" {{$selected}}>{{$sum->predict_sum}}</option>
@@ -102,15 +104,15 @@
             <label for="slc-category">หมวดหมู่เบอร์</label>
             <select class="w-52 max-xl:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-category" id="slc-category">
               <option value="">หมวดหมู่เบอร์</option>
-              <option value="">การเงิน</option>
-              <option value="">การงาน</option>
-              <option value="">ความรัก</option>
+              <option value="1">การเงิน</option>
+              <option value="2">การงาน</option>
+              <option value="3">ความรัก</option>
             </select>
           </div>
 
           <div class="flex flex-col">
             <label for="txt_favorite">ค้นหาเลขชุดที่ชอบ</label>
-            <input class="w-80 max-xl:w-32 max-lg:w-64 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="txt_favorite" id="txt_favorite" maxlength="10">
+            <input class="w-80 max-xl:w-32 max-lg:w-64 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" type="text" name="txt_favorite" id="txt_favorite" maxlength="10" value="{{ isset($_GET['fav']) ? $_GET['fav'] : '' }}">
           </div>
         </div>
 
@@ -138,8 +140,8 @@
           <div class="flex flex-col max-xs:col-span-2">
             <label for="txt_favorite">ช่วงราคา</label>
             <div class="flex gap-4 w-80 max-xl:w-40 max-lg:w-64 max-xs:w-full">
-              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-min" id="price-min">
-              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-max" id="price-max">
+              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-min" id="price-min" value="{{ isset($_GET['min']) ? number_format($_GET['min']) : '' }}">
+              <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text" name="price-max" id="price-max" value="{{ isset($_GET['max']) ? number_format($_GET['max']) : '' }}">
             </div>
           </div>
         </div>
@@ -197,7 +199,7 @@
               </div>
             </button> --}}
             @for($i = 1; $i <= 9; $i++)
-            <button id="predict-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
+            <button id="improve-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
               <img src="/icons/category/icon-money.png" alt="">
               <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
@@ -233,7 +235,7 @@
     </div>
 
     <div class="w-full mt-4 flex justify-center gap-10">
-      <button class="px-4 py-1 border border-red-400 rounded-[15px]">คืนค่า</button>
+      <button id="reset-search" class="px-4 py-1 border border-red-400 rounded-[15px]">คืนค่า</button>
       <button id="search-product" class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px]">ค้นหา</button>
     </div>
 
@@ -248,68 +250,84 @@
   </div>
 
   <!-- box all product -->
+  @if(count($berproducts) > 0)
   <div class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] grid grid-cols-4 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4 mx-auto p-4 z-0">
-    @foreach($berproducts as $product) 
-    <div class="drop-shadow-md">
-      <div
-          class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-          <div class="flex justify-start items-center">
-              <p class="text-white mr-2">เกรด</p>
-              <p class="text-white font-medium text-[1rem]">{{$product->product_grade}}</p>
-          </div>
-          <div
-              class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
-              <p class="text-white mr-2 skew-x-12">ผลรวม</p>
-              <p class="text-white font-medium text-[1rem] skew-x-12">{{$product->product_sumber}}</p>
-          </div>
-      </div>
-  
-      <div class="bg-white">
-          <a href="{{ url('/detailber/'.$product->product_phone) }}"> 
-            <div class="flex justify-center py-10 ">
-              <h2 class="text-3xl font-medium text-center">
-                {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
-              </h2>
+      @foreach($berproducts as $product) 
+      <div class="drop-shadow-md">
+        <div
+            class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
+            <div class="flex justify-start items-center">
+                <p class="text-white mr-2">เกรด</p>
+                <p class="text-white font-medium text-[1rem]">{{$product->product_grade}}</p>
             </div>
-          </a>
+            <div
+                class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 transform -skew-x-12 px-2 flex justify-end items-center">
+                <p class="text-white mr-2 skew-x-12">ผลรวม</p>
+                <p class="text-white font-medium text-[1rem] skew-x-12">{{$product->product_sumber}}</p>
+            </div>
+        </div>
+    
+        <div class="bg-white">
+            <a href="{{ url('/detailber/'.$product->product_phone) }}"> 
+              <div class="flex justify-center py-10 ">
+                <h2 class="text-3xl font-medium text-center">
+                  {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
+                </h2>
+              </div>
+            </a>
+        </div>
+
+        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
+            <img src="images/Ellipse 6.png" alt="" class="px-4">
+            <p class="text-left text-[0.9rem] py-1 col-span-4">{{$product->product_comment}}</p>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
+            <div class="grid grid-cols-3">
+                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
+                <p class="text-white font-medium text-center text-3xl">{{ number_format($product->product_price) }}</p>
+                <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
+
+            </div>
+        </div>
+
+        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
+            <div id="addtocart" data-id="{{$i}}"
+                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                <img src="/images/mdi_cart-arrow-down.png" alt=""
+                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+            </div>
+            <div
+                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                <img src="/images/icons8-line-app (1) 9.png" alt=""
+                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+            </div>
+
+            <a href="{{url('/detailber/'. $product->product_phone)}}"
+                class="flex items-center px-4 max-xl:px-2 max-xs:px-3 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+            <button id="buynow" data-id="{{$i}}"
+                class="flex items-center px-6 max-xl:px-4 max-xs:px-5  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+        </div>
       </div>
-
-      <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-          <img src="images/Ellipse 6.png" alt="" class="px-4">
-          <p class="text-left text-[0.9rem] py-1 col-span-4">{{$product->product_comment}}</p>
+      @endforeach
+    </div>
+    @else
+      <div class="drop-shadow-md text-center">
+        <p class="text-xl">ไม่พบสินค้า</p>
       </div>
-
-      <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
-          <div class="grid grid-cols-3">
-              <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-              <p class="text-white font-medium text-center text-3xl">{{ number_format($product->product_price) }}</p>
-              <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
-
-          </div>
-      </div>
-
-      <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-          <div id="addtocart" data-id="{{$i}}"
-              class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-              <img src="/images/mdi_cart-arrow-down.png" alt=""
-                  class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-          </div>
-          <div
-              class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-              <img src="/images/icons8-line-app (1) 9.png" alt=""
-                  class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-          </div>
-
-          <a href="{{url('/detailber/'. $product->product_phone)}}"
-              class="flex items-center px-4 max-xl:px-2 max-xs:px-3 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-          <button id="buynow" data-id="{{$i}}"
-              class="flex items-center px-6 max-xl:px-4 max-xs:px-5  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+    @endif
+    <div class="flex justify-center my-4">
+      <div class="flex border border-1-[#DFDFDF] gap-2 rounded-[4px]">
+        <button class="h-[28px] px-2 py-1">First</button>
+        <button class="h-[28px] px-2 py-1">Previous</button>
+        <button class="h-[28px] px-2 py-1">1</button>
+        <button class="h-[28px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white">2</button>
+        <button class="h-[28px] px-2 py-1">3</button>
+        <button class="h-[28px] px-2 py-1">Next</button>
+        <button class="h-[28px] px-2 py-1">Last</button>
       </div>
     </div>
-    @endforeach
-  </div>
 </div>
-
 
 
 <!-- end box product -->

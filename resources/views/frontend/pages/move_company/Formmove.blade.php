@@ -6,26 +6,36 @@
         <div class="plate-line max-w-[200px]"></div>
 
         <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg m-auto p-6 mt-10">
-            <div class="flex justify-between items-center">
-                <label for="name" class="w-32 text-right pr-4 font-medium text-gray-700">ชื่อ</label>
-                <div class="flex-1">
-                    <input required type="text" id="name"
-                        class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
-                </div>
-            </div>
-
-            <div class="flex justify-between items-center mt-6">
-                <label for="name" class="w-32 text-right pr-4 font-medium text-gray-700">นามสกุล</label>
-                <div class="flex-1">
-                    <input required type="text" id="name"
-                        class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
-                </div>
-            </div>
-
-
-            <div class="grid grid-cols-2 items-center mt-6">
+            <div class=" grid grid-cols-2 justify-center items-center">
                 <div class="flex justify-between items-center">
-                    <label for="name" class="w-32 text-right pr-2 font-medium text-gray-700">เบอร์โทรศัพท์</label>
+                    <label for="name" class="w-32 text-right pr-4 font-medium text-gray-700">ชื่อ</label>
+                    <div class="flex-1">
+                        <input required type="text" id="name"
+                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center ">
+                    <label for="name" class="w-32 text-right pr-4 font-medium text-gray-700">นามสกุล</label>
+                    <div class="flex-1">
+                        <input required type="text" id="name"
+                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid 2xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 grid-cols-1  gap-4 items-center mt-6">
+                <div class="flex justify-between items-center">
+                    <label for="name" class="w-32 text-right pr-2 font-medium text-gray-700">เบอร์โทรติดต่อ</label>
+                    <div class="flex-1">
+                        <input required type="text" id="name"
+                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <label for="name"
+                        class="w-32 text-right pr-2 font-medium text-gray-700">เบอร์โทรที่ต้องการย้าย</label>
                     <div class="flex-1">
                         <input required type="text" id="name"
                             class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
@@ -40,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-between items-center mt-6">
+            {{-- <div class="flex justify-between items-center mt-6">
                 <label for="about" class="self-start w-32 text-right mt-2 pr-4 font-medium text-gray-700">ที่อยู่</label>
                 <textarea id="about" name="about" rows="3"
                     class="disabled:bg-gray-100 w-full flex-1 placeholder:text-slate-400 appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-600"></textarea>
@@ -90,7 +100,7 @@
                             class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             {{-- <div class="flex justify-between items-center mt-6">
                 <label for="name" class="w-32 text-right pr-4 font-medium text-gray-700">ปักหมุดที่อยู่</label>
