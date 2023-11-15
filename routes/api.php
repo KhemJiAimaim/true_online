@@ -88,11 +88,9 @@ Route::prefix('backoffice/v1')->group(function () {
         /* Utility */
         Route::post('ckeditor/upload/image', [UtilController::class, 'ckeditorUploadImage']);
 
-
         /* ProductCate */
-        Route::get('fibercate/data', [ProductCategoryController::class, 'fiberCate']);
+        Route::get('fiber/data', [ProductCategoryController::class, 'fiberData']);
 
 
     });
-
 });

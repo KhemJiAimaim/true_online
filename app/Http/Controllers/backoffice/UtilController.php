@@ -13,9 +13,9 @@ class UtilController extends BaseController
         try {
             $this->getAuthUser();
             $files = $req->allFiles();
-            $validator = Validator::make($req->all(), [ 
+            $validator = Validator::make($req->all(), [
                 'upload' => "required|mimes:jpg,png,jpeg|max:5120",
-            ]); 
+            ]);
             if($validator->fails()) {
                 // return $this->sendErrorValidators('Invalid params', $validator->errors());
                 return response([
@@ -31,11 +31,11 @@ class UtilController extends BaseController
             $fileName = $files['upload']->getClientOriginalName();
             $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
             $imgSrc = $this->uploadImage($newFolder, $files['upload'], "", "", $fileName);
- 
-            return response([ 
+
+            return response([
                 "uploaded" => 1,
                 "fileName" => $fileName,
-                "url" => config('app.url') ."/".  $imgSrc
+                "url" => config('app.url') . $imgSrc
             ], 201);
 
         } catch (Exception $e) {
