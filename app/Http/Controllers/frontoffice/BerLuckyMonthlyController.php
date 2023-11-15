@@ -4,20 +4,157 @@ namespace App\Http\Controllers\frontoffice;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 use App\Models\BerproductMonthly;
 use App\Models\BerpredictProphecy;
 use App\Models\BerpredictSum;
 use App\Models\BerproductGrade;
-use Illuminate\Support\Facades\DB;
 
 class BerLuckyMonthlyController extends Controller
 {
     //
     public function get_product_all(Request $request) {
-        // dd($request->all());
-        $berproducts = BerproductMonthly::where('product_display', 'yes')->get();
+        $getpost = $this->product_prepare_variable($request->all());
+
+        $sql_sort = null;
+        if(isset($getpost['need_sort'])) {
+            if($getpost['need_sort'] == "RAND"){
+                $sql_sort .= " ORDER BY RAND(),product_sumber DESC ";
+            } else {
+                $sql_sort .= " ORDER BY product_price ".$getpost['need_sort'].",product_sumber DESC ";
+            }
+        } else {
+            $sql_sort .= " ORDER BY product_pin DESC,product_price DESC,product_sumber DESC ";
+        }
+
+        // Set the current page from the request or default to 1
+        $page = request('page', 1);
+
+        // Set the number of items per page
+        $perPage = 10;
+
+        // Calculate the offset based on the current page and items per page
+        $offset = ($page - 1) * $perPage;
+
+        $limit = null;
+        $sql = "SELECT *, MID(product_phone, 4, 7) AS pp
+                    FROM berproduct_monthlies 
+                    WHERE product_sold = :value $getpost[sql]
+                    HAVING product_display = :display $getpost[sql2]
+                    $sql_sort
+                    $limit
+                ";
+
+        $totalCount = DB::select($sql, [
+            'value' => 'no',
+            'display' => 'yes',
+        ]);
+        $sql .= " LIMIT :limit OFFSET :offset ";
+
+        
+        $total_page = ceil(count($totalCount) / $perPage);
+        
+        $berproducts = DB::select($sql, [
+            'value' => 'no',
+            'display' => 'yes',
+            'limit' => $perPage,
+            'offset' => $offset,
+        ]);
+        
+        $berTotal = count($berproducts);
+        $onLastPage = $berTotal < $perPage; // เช็คว่าหน้าสุดท้ายมั้ย true or false
+        // dd($total_page);
+
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
         return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers'));
+    }
+
+    public function product_prepare_variable($request) {
+   
+        $sql = "";  #WHERE
+        $sql2 =  ""; #HAVING
+        $check = [];
+        if(isset($request['pos1']) || isset($request['pos2']) || isset($request['pos3']) ||  isset($request['pos4']) ||  isset($request['pos5']) ||  isset($request['pos6']) ||  isset($request['pos7']) ||  isset($request['pos8']) ||  isset($request['pos9']) ){
+            $pos1 = (isset($request['pos1']) && $request['pos1'] != '')?  $request['pos1'] : '_';
+            $pos2 = (isset($request['pos2']) && $request['pos2'] != '')?  $request['pos2'] : '_';
+            $pos3 = (isset($request['pos3']) && $request['pos3'] != '')?  $request['pos3'] : '_';
+            $pos4 = (isset($request['pos4']) && $request['pos4'] != '')?  $request['pos4'] : '_';
+            $pos5 = (isset($request['pos5']) && $request['pos5'] != '')?  $request['pos5'] : '_';
+            $pos6 = (isset($request['pos6']) && $request['pos6'] != '')?  $request['pos6'] : '_';
+            $pos7 = (isset($request['pos7']) && $request['pos7'] != '')?  $request['pos7'] : '_';
+            $pos8 = (isset($request['pos8']) && $request['pos8'] != '')?  $request['pos8'] : '_';
+            $pos9 = (isset($request['pos9']) && $request['pos9'] != '')?  $request['pos9'] : '_';
+            $check['position'] = ' AND( product_phone LIKE "%0'.$pos1.''.$pos2.''.$pos3.''.$pos4.'%'.$pos5.''.$pos6.''.$pos7.''.$pos8.''.$pos9.'%") ';
+            $sql .= $check['position'];
+        }
+        
+        
+        if(isset($request['sum']) && $request['sum'] !== ""){
+            $sql .= " AND `product_sumber` = $request[sum] ";
+        }
+        
+        if(isset($request['sort'])){
+            $request['sort'] = strtoupper($request['sort']);
+            if($request['sort'] == "ASC" || $request['sort'] == "DESC" || $request['sort'] == "RAND"){
+                $check['need_sort'] = $request['sort'];
+            }
+        }
+
+        if(isset($request['fav'])){
+            $check['fav'] = (strpos($request['fav'],"*"))?explode("*",$request['fav']): explode(",",$request['fav']); 
+            if(!empty($check['fav'])){
+                foreach($check['fav'] as $favv){
+                    $favv = FILTER_VAR($favv,FILTER_SANITIZE_NUMBER_INT);
+                    if($favv=="") continue;
+                    $sql .= ' AND product_phone LIKE "%'.$favv.'%" ';
+                }
+            }
+        }
+        
+        if(isset($request['min']) && $request['min'] !== ""){
+            $min = FILTER_VAR($request['min'],FILTER_SANITIZE_NUMBER_INT);
+            $sql .= " AND `product_price` >= $min ";
+        }
+
+        if(isset($request['max']) && $request['max'] !== ""){
+            $max = FILTER_VAR($request['max'],FILTER_SANITIZE_NUMBER_INT);
+            $sql .= " AND `product_price` <= $max ";
+        }
+
+        if(!empty($request['like'])){
+            $check['like'] = explode(',', $request['like']);
+            $beforelike = filter_var($check['like'][0],FILTER_SANITIZE_NUMBER_INT);
+            if($beforelike != ""){
+                foreach($check['like'] as $key => $val){
+                $val = filter_var($val,FILTER_SANITIZE_NUMBER_INT);
+                if($val == ""){ continue; }
+                $sql2 .= ($key == 0)? " AND( ":" AND ";
+                $sql2 .= "pp LIKE '%".$val."%' ";
+                }
+                $sql2 .=" )";
+            }
+        }
+
+        if(isset($request['dislike'])){
+            $check['dislike'] = explode(',', $request['dislike']);
+            $beforeDislike = filter_var($check['dislike'][0],FILTER_SANITIZE_NUMBER_INT);
+            if($beforeDislike != ""){
+              foreach($check['dislike'] as $key => $val){
+                $val = filter_var($val,FILTER_SANITIZE_NUMBER_INT);
+                if($val == ""){ continue; }
+                $sql2 .= ($key == 0)? " AND( ":" AND ";
+                $sql2 .= "pp NOT LIKE '%".$val."%' ";
+              }
+              $sql2 .=" )"; 
+            }
+          }
+        
+            
+        $getpost = $check;
+        $getpost['sql'] = $sql;
+        $getpost['sql2'] = $sql2;
+        return $getpost;
     }
 
     public function detailber_page($tel) {

@@ -5,6 +5,7 @@ console.log("use js all product")
 let input_fortune = document.querySelector('#input-fortune'); 
 let fortune_ber = document.querySelector('#fortune-ber'); 
 let search_product = document.querySelector('#search-product');
+let reset_search = document.querySelector('#reset-search');
 let addtocart = document.querySelectorAll('#addtocart');
 let buynow = document.querySelectorAll('#buynow');
 
@@ -40,16 +41,16 @@ search_num.forEach(inputElement => {
   });
 });
 
-let txt_favorite = document.querySelector('#txt_favorite')
+// let txt_favorite = document.querySelector('#txt_favorite')
+// txt_favorite.addEventListener('input', function() {
+//   inputNumber(this);
+// });
 
 
 input_fortune.addEventListener('input', function() {
   inputNumber(this);
 });
 
-txt_favorite.addEventListener('input', function() {
-  inputNumber(this);
-});
 
 fortune_ber.addEventListener('click', () => {
   fortuneber()
@@ -72,6 +73,10 @@ buynow.forEach(element => {
 search_product.addEventListener('click', () => {
   product_search()
 })
+
+reset_search.onclick = () => {
+  location.href = "/bermonthly?"
+}
 
 // ทำนายเบอร์
 function fortuneber() {
@@ -128,9 +133,9 @@ function inputNumber(input) {
   input.value = input.value.replace(/[^0-9]/g, '');
 }
 
-let predict_ber = document.querySelectorAll('#predict-ber');
+let improve_ber = document.querySelectorAll('#improve-ber');
 
-predict_ber.forEach(element => {
+improve_ber.forEach(element => {
   element.addEventListener('click', () => {
     if (element.classList.contains('bg-gradient-to-r')) {
       // ถ้ามี class ที่เราต้องการเอาออก
@@ -204,75 +209,122 @@ function product_search() {
   // เตรียมข้อมูล filter ber
   const search_num = document.querySelectorAll('#search-num')
   const slc_sum = document.querySelector('#slc-sum').value;
-  const txt_favorite = document.querySelector('#txt_favorite').value;
-  const slc_category = document.querySelector('#slc-category').value;
+  const favorite_num = document.querySelector('#txt_favorite').value;
+  const category = document.querySelector('#slc-category').value;
   const slc_package = document.querySelector('#slc-package').value;
-  const slc_sort = document.querySelector('#slc-sort').value;
-  const price_min = document.querySelector('#price-min').value;
-  const price_max = document.querySelector('#price-max').value;
+  const sort = document.querySelector('#slc-sort').value;
+  const min = document.querySelector('#price-min').value;
+  const max = document.querySelector('#price-max').value;
   const btn_like = document.querySelectorAll('#like'); 
   const btn_dislike = document.querySelectorAll('#dislike'); 
-  const predict_ber = document.querySelectorAll('#predict-ber'); 
+  const improve_ber = document.querySelectorAll('#improve-ber'); 
   const cate_ber = document.querySelectorAll('#cate-ber'); 
   
-  let param = {
-    sum : slc_sum,
-    favorite_num : txt_favorite,
-    category : slc_category,
-    package : slc_package,
-    sort : slc_sort,
-    min : price_min.replace(/,/g, ""),
-    max : price_max.replace(/,/g, ""),
-    position: {},
-    like : [],
-    dislike : [],
-    predict : [],
-    cate : [],
-  }
+  // let param = {
+  //   sum : slc_sum,
+  //   favorite_num : txt_favorite,
+  //   category : slc_category,
+  //   package : slc_package,
+  //   sort : slc_sort,
+  //   min : price_min.replace(/,/g, ""),
+  //   max : price_max.replace(/,/g, ""),
+  //   position: {},
+  //   like : [],
+  //   dislike : [],
+  //   predict : [],
+  //   cate : [],
+  // }
+  
+  
+  let source = "?";
+  let positions = {};
 
-  let source = "";
-  if(slc_sum) {
-    source += "sum="+slc_sum
-  }
   search_num.forEach(input => {
     const position = input.getAttribute('data-position');
     const value = input.value.trim();
 
     if (value !== '') {
-      param.position[`pos${position}`] = value;
+      positions[`pos${position}`] = value;
     }
-  });
+  })
 
+  Object.keys(positions).forEach(key => {
+    source += `&${key}=${positions[key]}`;
+  });
+  
+  if(slc_sum !== "") {
+    source += "&sum="+slc_sum
+  }
+
+  if(favorite_num !== "") {
+    source += "&fav="+favorite_num
+  }
+
+  if(category !== "") {
+    source += "&cate="+category
+  }
+
+  if(sort !== "") {
+    source += "&sort="+sort
+  }
+
+  if(min !== "") {
+    source += "&min="+min.replace(/,/g, "")
+  }
+
+  if(max !== "") {
+    source += "&max="+max.replace(/,/g, "")
+  }
+
+  let like = [];
   btn_like.forEach(element => {
     if (element.classList.contains("selected")) {
       const data_fav = element.getAttribute('data-fav');
-      param.like.push(data_fav);
+      like.push(data_fav);
     }
   });
-
+  if(like.length > 0) {
+    source += "&like="+like
+  }
+  
+  let dislike = [];
   btn_dislike.forEach(element => {
     if (element.classList.contains("selected")) {
       const data_fav = element.getAttribute('data-fav');
-      param.dislike.push(data_fav);
+      dislike.push(data_fav);
     }
   });
-
-  predict_ber.forEach( element => {
+  if(dislike.length > 0) {
+    source += "&dislike="+dislike
+  }
+  
+  let improve = [];
+  improve_ber.forEach( element => {
     if (element.classList.contains("selected")) {
       const data_id = element.getAttribute('data-id');
-      param.predict.push(data_id);
+      improve.push(data_id);
     }
   })
-
+  if(improve.length > 0) {
+    source += "&improve="+improve
+  }
+  
+  let auspicious = [];
   cate_ber.forEach( element => {
     if (element.classList.contains("selected")) {
       const data_id = element.getAttribute('data-id');
-      param.cate.push(data_id);
+      auspicious.push(data_id);
     }
   })
-
-  console.log(source)
-  location.href = `/bermonthly?${source}`;
+  if(auspicious.length > 0) {
+    source += "&auspicious="+auspicious
+  }
+  
+  source = source.replace("&&", "&");  
+  source = source.replace("?&", "?"); 
+  console.log(source);
+  // return false;
+  location.href = `/bermonthly${source}`;
   // location.href = `/bermonthly?id=1`;
   
 }
