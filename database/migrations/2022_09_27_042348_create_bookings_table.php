@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -26,6 +27,36 @@ return new class extends Migration
             $table->string('status');
             $table->timestamps();
         });
+
+        DB::table('bookings')->insert([
+            [
+                'firstname' => 'Nantachai',
+                'surname' => 'Ruecha',
+                'email' => 'nantachai.ru@gmail.com',
+                'people_number' => 2,
+                'phone' => '0900000999',
+                'time_booking' => '2023-11-14 14:20:00',
+                'status' => 'pending',
+            ],
+            [
+                'firstname' => 'Nantachai',
+                'surname' => 'Ruecha',
+                'email' => 'nantachai.ru@gmail.com',
+                'people_number' => 2,
+                'phone' => '0900000999',
+                'time_booking' => '2023-11-14 14:20:00',
+                'status' => 'pending',
+            ],
+            [
+                'firstname' => 'Nantachai',
+                'surname' => 'Ruecha',
+                'email' => 'nantachai.ru@gmail.com',
+                'people_number' => 2,
+                'phone' => '0900000999',
+                'time_booking' => '2023-11-14 14:20:00',
+                'status' => 'pending',
+            ],
+        ]);
     }
 
     /**
