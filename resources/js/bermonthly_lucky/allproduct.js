@@ -325,6 +325,39 @@ function product_search() {
   console.log(source);
   // return false;
   location.href = `/bermonthly${source}`;
-  // location.href = `/bermonthly?id=1`;
   
 }
+
+// function paginate
+let currentPath = window.location.pathname;
+let queryString = window.location.search;
+
+// console.log(path_url);
+let prev_page = document.querySelector('#prev-page')
+let next_page = document.querySelector('#next-page')
+
+console.log(data_pagi); // Output: "/products/electronics/laptops"
+next_page.addEventListener('click', () => {
+  const next = data_pagi.current_page + 1;
+  let source = null;
+  if(!queryString) {
+    source = `${currentPath}?page=${next}`
+  } else {
+    source = `${currentPath}?${queryString}&page=${next}`
+  }
+  console.log(source); // Output: "/products/electronics/laptops"
+    location.href = `${source}`;
+})
+
+prev_page.addEventListener('click', () => {
+  const next = data_pagi.current_page - 1;
+  let source = null;
+  if(!queryString) {
+    source = `${currentPath}?page=${next}`
+  } else {
+    source = `${currentPath}?${queryString}&page=${next}`
+  }
+  console.log(source); // Output: "/products/electronics/laptops"
+    location.href = `${source}`;
+})
+

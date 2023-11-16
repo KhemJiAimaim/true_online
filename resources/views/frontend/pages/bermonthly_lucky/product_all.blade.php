@@ -69,15 +69,15 @@
           <label class="" for="">ค้นหาเบอร์</label>
           <div class="flex gap-2 max-xs:gap-1">
             <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" data-position="0" value="0" disabled>
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="1" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="2" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="3" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="4" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="5" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="6" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="7" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="8" maxlength="1" placeholder="-">
-            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="9" maxlength="1" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="1" maxlength="1" value="{{ isset($_GET['pos1']) ? $_GET['pos1'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="2" maxlength="1" value="{{ isset($_GET['pos2']) ? $_GET['pos2'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="3" maxlength="1" value="{{ isset($_GET['pos3']) ? $_GET['pos3'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="4" maxlength="1" value="{{ isset($_GET['pos4']) ? $_GET['pos4'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="5" maxlength="1" value="{{ isset($_GET['pos5']) ? $_GET['pos5'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="6" maxlength="1" value="{{ isset($_GET['pos6']) ? $_GET['pos6'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="7" maxlength="1" value="{{ isset($_GET['pos7']) ? $_GET['pos7'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="8" maxlength="1" value="{{ isset($_GET['pos8']) ? $_GET['pos8'] :'' }}" placeholder="-">
+            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text" id="search-num" data-position="9" maxlength="1" value="{{ isset($_GET['pos9']) ? $_GET['pos9'] :'' }}" placeholder="-">
           </div>
         </div>
 
@@ -131,9 +131,9 @@
             <label for="slc-sort">เรียงลำดับ ราคา</label>
             <select class="w-32 max-lg:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-sort" id="slc-sort">
               <option value="">เรียงลำดับ ราคา</option>
-              <option value="desc">ราคามากไปน้อย</option>
-              <option value="asc">ราคาน้อยไปมาก</option>
-              <option value="rand">สุ่มราคาสินค้า</option>
+              <option value="desc" {{ isset($_GET['sort']) && $_GET['sort'] == 'desc' ? 'selected' : '' }}>ราคามากไปน้อย</option>
+              <option value="asc" {{ isset($_GET['sort']) && $_GET['sort'] == 'asc' ? 'selected' : '' }}>ราคาน้อยไปมาก</option>
+              <option value="rand" {{ isset($_GET['sort']) && $_GET['sort'] == 'rand' ? 'selected' : '' }}>สุ่มราคาสินค้า</option>
             </select>
           </div>
 
@@ -201,9 +201,9 @@
             @for($i = 1; $i <= 9; $i++)
             <button id="improve-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
               <img src="/icons/category/icon-money.png" alt="">
-              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
+              <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
-                <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
+                <p class="w-full text-xs absolute top-1 left-0 text-center">การงาน</p>
               </div>
             </button>
             @endfor
@@ -220,15 +220,15 @@
                   <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
               </div>
             </button> --}}
-            @for($i = 1; $i <= 25; $i++)
-            <button id="cate-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
-              <img src="/icons/category/icon-swarn.png" alt="">
-              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
+            @foreach($berproduct_cates as $bercate)
+            <button id="cate-ber" data-id="{{$bercate->bercate_id}}" class="relative p-2 bg-white rounded-[5px] group">
+              <img src="{{$bercate->thumbnail}}" alt="">
+              <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
-                <p class="w-full text-xs absolute top-0 left-0">การเงิน</p>
+                <p class="w-full text-xs absolute top-1 left-0">{{$bercate->bercate_title}}</p>
               </div>
             </button>
-            @endfor
+            @endforeach
           </div>
         </div>
       </div>
@@ -318,13 +318,13 @@
     @endif
     <div class="flex justify-center my-4">
       <div class="flex border border-1-[#DFDFDF] gap-2 rounded-[4px]">
-        <button class="h-[28px] px-2 py-1">First</button>
-        <button class="h-[28px] px-2 py-1">Previous</button>
-        <button class="h-[28px] px-2 py-1">1</button>
-        <button class="h-[28px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white">2</button>
-        <button class="h-[28px] px-2 py-1">3</button>
-        <button class="h-[28px] px-2 py-1">Next</button>
-        <button class="h-[28px] px-2 py-1">Last</button>
+        <button id="fist-page" class="h-[28px] px-2 py-1">First</button>
+        <button id="prev-page" class="h-[28px] px-2 py-1">Previous</button>
+        {{-- <button id="" class="h-[28px] px-2 py-1">1</button> --}}
+        <button id="" class="h-[28px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white">{{$data_paginate['current_page']}}</button>
+        {{-- <button id="" class="h-[28px] px-2 py-1">3</button> --}}
+        <button id="next-page" class="h-[28px] px-2 py-1">Next</button>
+        <button id="last-page" class="h-[28px] px-2 py-1">Last</button>
       </div>
     </div>
 </div>
@@ -348,5 +348,8 @@
 @endsection
 
 @section('scripts')
+  <script>
+    let data_pagi = @json($data_paginate)
+  </script>
   @vite('resources/js/bermonthly_lucky/allproduct.js')
 @endsection

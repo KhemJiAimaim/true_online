@@ -73,8 +73,17 @@
         <li><a href="" class="block py-2 text-sm">เติมเงิน</a></li>
         <li><a href="" class="block py-2 text-sm">ซิมท่องเที่ยว</a></li>
         <li><a href="{{ url('/howtobuy/fiber') }}" class="block py-2 text-sm ">วิธีการสั่งซื้อ</a></li>
+<<<<<<< HEAD
     </ul>
+=======
+    </div>
+
+    
+>>>>>>> 6054e8225d0983b20b222a9164bd4f3992a2fa32
 </nav>
+
+
+
 
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
     <div class="w-3/4 px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden ">
