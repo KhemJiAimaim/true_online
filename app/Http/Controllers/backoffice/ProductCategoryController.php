@@ -20,7 +20,12 @@ class ProductCategoryController extends Controller
                             ->select('fiber_products.*', 'c.cate_title')
                             ->get();
 
-            $benefits = Post::where('category', 'LIKE', '%'. '8,' . '%')
+            $benefits = Post::where('category', 'LIKE', '%'. ',8,' . '%')
+                        ->where(['status_display' => 1])
+                        ->orderBY('priority', 'ASC')
+                        ->get();
+
+            $privileges = Post::where('category', 'LIKE', '%'. ',9,' . '%')
                         ->where(['status_display' => 1])
                         ->orderBY('priority', 'ASC')
                         ->get();
@@ -32,6 +37,7 @@ class ProductCategoryController extends Controller
                     'fiberCate' => $fiberCate,
                     'fiberProduct' => $fiberProduct,
                     'benefits' => $benefits,
+                    'privileges' => $privileges,
                 ],
             ], 200);
         } catch (Exception $e) {
