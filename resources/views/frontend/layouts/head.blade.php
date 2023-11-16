@@ -51,26 +51,29 @@
                 </a>
 
 
-                <button class="mobile-menu-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                <div class="mobile-menu-button" onclick="chnangTog(this)">
+                    <div class="ham-line1"></div>
+                    <div class="ham-line2"></div>
+                    <div class="ham-line3"></div>
+                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+                    </svg> --}}
+                </div>
             </div>
         </div>
     </div>
 
 
     <!-- mobile menu -->
-    <div class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full">
+    <ul class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full">
         <li><a href="/fiber" class="block py-2 text-sm ">อินเตอร์เน็ตไฟเบอร์</a></li>
         <li><a href="{{ url('/bermonthly') }}" class="block py-2 text-sm">เบอร์มงคลรายเดือน</a></li>
         <li><a href="" class="block py-2 text-sm">เติมเงิน</a></li>
         <li><a href="" class="block py-2 text-sm">ซิมท่องเที่ยว</a></li>
         <li><a href="{{ url('/howtobuy/fiber') }}" class="block py-2 text-sm ">วิธีการสั่งซื้อ</a></li>
-    </div>
+    </ul>
 </nav>
 
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
@@ -180,8 +183,7 @@
 
             {{-- วิธีการสั่งซื้อ --}}
             <li class="group z-[99] basis-[230px]">
-                <a href="#"
-                    class="py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
+                <a href="#" class="py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
                 <ul
                     class="submenu hidden mt-4 mx-auto w-full h-[350px] top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
 

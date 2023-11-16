@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- <link rel="stylesheet" href="resources/css/app.css"> --}}
     {{-- <link rel="stylesheet" href="/public/css/home.css"> --}}
-    @vite('resources/css/app.css')
+    @vite('resources/css/app.css', 'resources/js/app.js')
     <title>Document</title>
     @yield('style')
 </head>
