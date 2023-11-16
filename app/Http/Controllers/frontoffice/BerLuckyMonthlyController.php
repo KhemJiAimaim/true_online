@@ -10,6 +10,7 @@ use App\Models\BerproductMonthly;
 use App\Models\BerpredictProphecy;
 use App\Models\BerpredictSum;
 use App\Models\BerproductGrade;
+use App\Models\BerproductCategory;
 
 class BerLuckyMonthlyController extends Controller
 {
@@ -29,13 +30,13 @@ class BerLuckyMonthlyController extends Controller
         }
 
         // Set the current page from the request or default to 1
-        $page = request('page', 1);
-
+        $current_page = request('page', 1);
+ 
         // Set the number of items per page
         $perPage = 10;
 
         // Calculate the offset based on the current page and items per page
-        $offset = ($page - 1) * $perPage;
+        $offset = ($current_page - 1) * $perPage;
 
         $limit = null;
         $sql = "SELECT *, MID(product_phone, 4, 7) AS pp
@@ -45,16 +46,12 @@ class BerLuckyMonthlyController extends Controller
                     $sql_sort
                     $limit
                 ";
-
         $totalCount = DB::select($sql, [
             'value' => 'no',
             'display' => 'yes',
         ]);
-        $sql .= " LIMIT :limit OFFSET :offset ";
 
-        
-        $total_page = ceil(count($totalCount) / $perPage);
-        
+        $sql .= " LIMIT :limit OFFSET :offset ";
         $berproducts = DB::select($sql, [
             'value' => 'no',
             'display' => 'yes',
@@ -62,12 +59,24 @@ class BerLuckyMonthlyController extends Controller
             'offset' => $offset,
         ]);
         
+        $total_page = ceil(count($totalCount) / $perPage);
         $berTotal = count($berproducts);
         $onLastPage = $berTotal < $perPage; // เช็คว่าหน้าสุดท้ายมั้ย true or false
-        // dd($total_page);
+        // dd($offset);
+        $data_paginate = [
+            "current_page" => $current_page,
+            "total_page" => $total_page,
+            "onLastPage" => $onLastPage, 
 
+        ];
+        // dd($data_paginate);
+        $berproduct_cates = BerproductCategory::where('bercate_display', 1)
+            ->where('bercate_pin', 1)
+            ->orderBy('priority')
+            ->get();
+            // dd($berproduct_cates);
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
-        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers'));
+        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'data_paginate'));
     }
 
     public function product_prepare_variable($request) {
@@ -148,8 +157,33 @@ class BerLuckyMonthlyController extends Controller
               }
               $sql2 .=" )"; 
             }
-          }
-        
+        }
+
+        if(!empty($request['improve'])){
+            $check['improve'] = explode(',', $request['improve']);
+            if(!empty($check['improve'])){
+              foreach($check['improve']  as $key =>$val){ 
+                if($val == ""){ continue; }
+                $sql .= " AND product_improve LIKE '%,".$val.",%' ";
+              }
+            }
+        }
+
+        // dd($sql);
+        $cate_val = null;
+        if(!empty($request['auspicious'])){
+            $check['auspicious'] = explode(',', $request['auspicious']);
+            $auspicious = $check['auspicious'];
+            foreach($auspicious as $key => $val){
+              $val = filter_var($val,FILTER_SANITIZE_NUMBER_INT);
+              if($cate_val == $val || $val ==""){ continue; }
+              $sql .= ($key == 0 && !isset($cate_val))? " AND( ":" OR ";
+              $sql .= " product_category LIKE '%,".$val.",%' ";
+            }
+            $sql .= " ) ";
+        }
+        // dd($sql);
+
             
         $getpost = $check;
         $getpost['sql'] = $sql;
