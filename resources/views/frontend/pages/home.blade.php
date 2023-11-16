@@ -45,7 +45,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text">ทรู คอร์ปอเรชั่น ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]">ทรู คอร์ปอเรชั่น ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -55,19 +55,19 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <div class="2xl:my-12 my-6">
-            <span class="text-gray-400 2xl:text-[20px] text-[16px]">ค้นหาเบอร์มงคล แพ็กเกจเสริม
+        <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto">
+            <span class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">ค้นหาเบอร์มงคล แพ็กเกจเสริม
                 อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
                 และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
         </div>
 
         {{-- --- --}}
-        <div class="overflow-x-scroll 2xl:overflow-hidden">
+        <div class="overflow-x-scroll 2xl:overflow-hidden py-2">
             <div
-                class="2xl:w-[1536px]  w-[1200px] se:w-[1000px]  grid grid-cols-3 se:gap-2 se:p-0  gap-4 xs:gap-0  lg:gap-4 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
+                class="2xl:w-[1536px]  w-[1200px] se:w-[1000px] md:w-[1100px] grid grid-cols-3 md:gap-1 se:gap-2 se:p-0  gap-4 xs:gap-0  lg:gap-4 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
 
                 <a href=""
-                    class="w-[350px] lg:w-[380px]  2xl:w-[450px] se:w-[325px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
+                    class="w-[350px] lg:w-[380px]  2xl:w-[450px] md:w-[340px] se:w-[325px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
                     <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] xs:w-[400px] se:w-[325px]  h-auto rounded-tl-3xl rounded-tr-3xl"
                         src="/images/internet_fiber_c476c5e742.webp" alt="">
 
@@ -76,7 +76,7 @@
                             <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
                         </div>
                         <div class="col-span-2">
-                            <p class="text-white text-left font-medium text-[20px] mt-2 mb-2 ">อินเตอร์เน็ตไฟเบอร์</p>
+                            <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">อินเตอร์เน็ตไฟเบอร์</p>
                             <p class="text-white text-left text-[17px] ">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น
                                 เร็วสุด แรงสุด
                             </p>
@@ -86,7 +86,7 @@
 
 
                 <a href=""
-                    class="w-[350px] lg:w-[380px]  2xl:w-[450px] se:w-[325px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
+                    class="w-[350px] lg:w-[380px]  2xl:w-[450px] md:w-[340px] se:w-[325px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
                     <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] xs:w-[400px] se:w-[325px] h-auto rounded-tl-3xl rounded-tr-3xl"
                         src="/images/mobile_cc0d791368.webp" alt="">
                     <div class="grid grid-cols-3 mb-2">
@@ -103,7 +103,7 @@
                 </a>
 
                 <a href=""
-                    class="w-[350px] lg:w-[380px]  2xl:w-[450px] se:w-[325px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
+                    class="w-[350px] lg:w-[380px]  2xl:w-[450px] md:w-[340px] se:w-[325px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
                     <img class="w-[350px] lg:w-[380px] 2xl:w-[550px] xs:w-[400px] se:w-[325px] h-auto rounded-tl-3xl rounded-tr-3xl"
                         src="/images/entertainment_3063ccb225.webp" alt="">
                     <div class="grid grid-cols-3 mb-2">
@@ -130,8 +130,9 @@
 
         <section id="fiber" class="bg-gray-100 py-6">
 
-            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] text-[20px] ">อินเทอร์เน็ตไฟเบอร์</p>
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[18px] text-[16px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม หนัง กีฬา
+            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] md:text-[25px] text-[20px] ">อินเทอร์เน็ตไฟเบอร์</p>
+            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] md:text-[22px] text-[18px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม
+                หนัง กีฬา
                 ความบันเทิง | True
                 Gigatex PRO</p>
 
@@ -185,26 +186,26 @@
 
                             <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
                                 <img class="absolute top-5 left-0" src="/images/Intersect (1).png" alt="">
-                                <div class="grid grid-cols-3">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem]  pt-3">ราคา</p>
-                                    <p class="text-white font-medium text-center 2xl:text-3xl pt-3 text-2xl">2,499</p>
+                                <div class="grid grid-cols-3 items-center">
+                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
+                                    <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">2,499</p>
                                     <p class="text-white text-right text-[1rem] 2xl:text-[18px] ">บาท<br>/เดือน</p>
 
                                 </div>
                             </div>
 
                             <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
-                                <button type="button"
-                                    class="py-3 px-5 mr-2 mb-2 mt-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</button>
+                                <a href=""
+                                    class="py-3 px-5 mr-2 mb-2 mt-2 text-md  2xl:text-[18px] md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
                             </div>
                         </div>
                     @endfor
                 </div>
 
             </div>
-            <div class="items-center mx-auto">
+            <div class="items-center mx-auto mt-4">
                 <a href="/fiber"
-                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[15px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[18px]  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -214,10 +215,10 @@
         <section id="ber_lucky" class="bg-white py-6">
 
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] text-[20px] ">เบอร์มงคลรายเดือน</p>
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
+            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] text-[18px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
 
 
-            <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-2">
+            <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
                 <div class="2xl:w-[1536px] w-[1400px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
@@ -240,41 +241,42 @@
 
                             <div class="bg-white"">
                                 <div class="flex justify-center py-10 ">
-                                    <p class="text-3xl text-center">063-782-5555</p>
+                                    <p class="2xl:text-[2.5rem] text-2xl text-center font-bold">063-782-5555</p>
                                 </div>
                             </div>
 
-                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[80px] items-center">
+                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] items-center">
                                 <img src="images/Ellipse 6.png" alt="" class="px-4">
-                                <p class="text-left text-[0.9rem] py-1 col-span-4">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา
+                                <p class="text-left text-[16px] py-1 col-span-4">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา
                                     นำพาสู่ความสำเร็จ ( แพ็กเกจนี้ใช้ฟรี 3 เดือน )</p>
                             </div>
 
-                            <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2">
+                            <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2 items-center">
                                 <div class="grid grid-cols-3">
-                                    <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                    <p class="text-white font-medium text-center text-3xl">99,999</p>
-                                    <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
+                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] ">ราคา</p>
+                                    <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem]  text-2xl">
+                                        99,999</p>
+                                    <p class="text-white text-right 2xl:text-[18px] text-[1rem] md:text-[18px] ">บาท</p>
 
                                 </div>
                             </div>
 
-                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
+                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 ">
                                 <div
-                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px] 2xl:h-[50px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
+                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[45px] 2xl:h-[45px] md:w-[45px] md:h-[40px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
                                 <div
-                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px] 2xl:h-[50px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
+                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[45px] 2xl:h-[45px] md:w-[45px] md:h-[40px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/icons8-line-app (1) 9.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
 
                                 <a src="#"
-                                    class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                    class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <a src="#"
-                                    class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                    class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md  md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                             </div>
 
                         </div>
@@ -286,7 +288,7 @@
             </div>
             <div class="items-center">
                 <a href="/fiber"
-                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[15px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[18px]  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -295,185 +297,68 @@
 
         <section id="sim" class="bg-gray-100 py-6">
             <div class="">
-                <p class="text-[#000] mt-2 mb-2 text-[2rem] ">ซิมเติมเงิน</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] text-[20px]">ซิมเติมเงิน</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] text-[18px]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ
+                </p>
             </div>
-            <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
+            <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
                 <div class="2xl:w-[1536px] w-[1400px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
+                    @for ($i = 1; $i <= 4; $i++)
+                        <div class="drop-shadow-md">
+                            <div
+                                class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                {{-- <div class="flex justify-start items-center"> --}}
+                                <p class="text-white text-left ml-3 text-[18px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
 
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                            {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
-                            {{-- </div> --}}
-
-                        </div>
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 ">
-                                <img src="images/Rectangle 98.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                            <img src="images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก )
-                                เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
-                                True wifi max speed แบบไม่จำกัด)</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                                <p class="text-white font-medium text-center text-3xl">150</p>
-                                <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
+                                {{-- </div> --}}
 
                             </div>
-                        </div>
 
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
-
-                            <a src="#"
-                                class="cursor-pointer py-3  px-6 mb-2 mt-2  text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer py-3 px-10  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                        </div>
-                    </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                            {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
-                            {{-- </div> --}}
-
-                        </div>
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 ">
-                                <img src="images/Rectangle 98.png" alt="">
+                            <div class="bg-white"">
+                                <div class="flex justify-center py-4 ">
+                                    <img src="images/Rectangle 98.png" alt="">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                            <img src="images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก )
-                                เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
-                                True wifi max speed แบบไม่จำกัด)</p>
-                        </div>
+                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
+                                <img src="images/Ellipse 6.png" alt="" class="px-4">
+                                <p class="text-left text-[16px] py-1 col-span-4">( เล่นฟรีเดือนแรก )
+                                    เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
+                                    True wifi max speed แบบไม่จำกัด)</p>
+                            </div>
 
-                        <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                                <p class="text-white font-medium text-center text-3xl">300</p>
-                                <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
+                            <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
+                                <div class="grid grid-cols-3">
+                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] ">ราคา <br>
+                                        เริ่มต้น</p>
+                                    <p
+                                        class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
+                                        150</p>
+                                    <p class="text-white text-right text-[1rem] 2xl:text-[18px] md:text-[18px]">บาท <br>
+                                        /เดือน</p>
+
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
+
+                                <a href="#"
+                                    class="cursor-pointer py-3  px-6 mb-2 mt-2 md:text-[16px] text-[md] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                <a href="#"
+                                    class="cursor-pointer py-3 px-10  mb-2 mt-2 md:text-[16px] text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                             </div>
                         </div>
+                    @endfor
 
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
-
-                            <a src="#"
-                                class="cursor-pointer py-3  px-6 mb-2 mt-2  text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer py-3 px-10  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                        </div>
-                    </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                            {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
-                            {{-- </div> --}}
-
-                        </div>
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 ">
-                                <img src="images/Rectangle 116.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px]">
-                            <img src="images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น +
-                                โทรฟรี 24ชม. ความเร็ว 30Mbps ไม่ลดสปีด
-                                (ใช้ฟรี wifi แบบไม่จำกัด ทุกแพ็กเกจ)</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                                <p class="text-white font-medium text-center text-3xl">235</p>
-                                <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
-
-                            <a src="#"
-                                class="cursor-pointer py-3  px-6 mb-2 mt-2  text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer py-3 px-10  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                        </div>
-                    </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                            {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
-                            {{-- </div> --}}
-
-                        </div>
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 ">
-                                <img src="images/Rectangle 125.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                            <img src="images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น +โทรฟรี
-                                ทุกเครือข่าย 24ชม. ความเร็ว 15Mbps</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                                <p class="text-white font-medium text-center text-3xl">250</p>
-                                <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
-
-                            <a src="#"
-                                class="cursor-pointer py-3  px-6 mb-2 mt-2  text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer py-3 px-10  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                        </div>
-                    </div>
 
                 </div>
 
             </div>
             <div class="items-center">
                 <a href="/prepaid_sim"
-                    class="py-2.5 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-2.5 px-5 mr-2 mb-2 mt-2 2xl:text-[18px]  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -481,210 +366,63 @@
 
         <section id="travel" class="bg-white py-6">
             <div class="">
-                <p class="text-[#000] mt-2 mb-2 text-[2rem] ">ซิมท่องเที่ยว</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมสำหรับท่องเที่ยว เชื่อมต่อได้ไม่มีสะดุด</p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] text-[20px]">ซิมท่องเที่ยว</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] text-[18px]">ซิมสำหรับท่องเที่ยว เชื่อมต่อได้ไม่มีสะดุด
+                </p>
             </div>
 
             <div class="overflow-x-scroll 2xl:overflow-hidden my-16">
                 <div class="2xl:w-[1536px] w-[1400px] grid grid-cols-4 gap-4 mx-auto p-4 z-0">
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
-                        </div>
-                        {{-- <div
+                    @for ($i = 1; $i <= 4; $i++)
+                        <div class="drop-shadow-md">
+                            <div
+                                class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
+                                <p class="text-white mr-2 text-left text-[18px]">8 DAYS 449 BAHT</p>
+                            </div>
+                            {{-- <div
                             class="">
                             <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
                         </div> --}}
 
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 [h-110px]">
-                                <img src="/images/Rectangle 179.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-                            <img src="images/majesticons_sim-card-line.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">Thailand Tourist infinite sim</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                <p class="text-white font-medium text-center text-3xl">499</p>
-                                <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1  2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1  2xl:w-[50px]  2xl:h-[50px ]w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div class="bg-white"">
+                                <div class="flex justify-center py-4 [h-110px]">
+                                    <img src="/images/Rectangle 179.png" alt="">
+                                </div>
                             </div>
 
-                            <a src="#"
-                                class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-                        </div>
-                    </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
-                        </div>
-                        {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 [h-110px]">
-                                <img src="images/Rectangle 158.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-                            <img src="images/majesticons_sim-card-line.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">Thailand Tourist infinite sim</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                <p class="text-white font-medium text-center text-3xl">499</p>
-                                <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
+                                <img src="/images/travel/majesticons_sim-card-line.png" alt="" class="px-4">
+                                <p class="text-left text-[16px] py-1 col-span-4">Thailand Tourist infinite sim</p>
                             </div>
 
-                            <a src="#"
-                                class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-                        </div>
-                    </div>
+                            <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
+                                <div class="grid grid-cols-3">
+                                    <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
+                                    <p class="text-white font-medium text-center text-3xl">499</p>
+                                    <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
 
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
-                        </div>
-                        {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 [h-110px]">
-                                <img src="images/Rectangle 170.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-                            <img src="images/majesticons_sim-card-line.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">Thailand Tourist infinite sim</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                <p class="text-white font-medium text-center text-3xl">499</p>
-                                <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-                            <div
-                                class="rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]   flex justify-center items-center p-2">
-                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                    class="cursor-pointer w-full h-full">
-                            </div>
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                </div>
                             </div>
 
-                            <a src="#"
-                                class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
+                                <div
+                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1  2xl:w-[45px]  2xl:h-[45px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
+                                    <img src="/images/mdi_cart-arrow-down.png" alt=""
+                                        class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                </div>
+                                <div
+                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1  2xl:w-[45px]  2xl:h-[45px] w-[40px] h-[40px] flex justify-center items-center p-2 hover:bg-red-600">
+                                    <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                        class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                </div>
 
-                        </div>
-                    </div>
-
-                    <div class="drop-shadow-md">
-                        <div
-                            class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                            <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
-                        </div>
-                        {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
-
-                        <div class="bg-white"">
-                            <div class="flex justify-center py-4 [h-110px]">
-                                <img src="images/Rectangle 188.png" alt="">
+                                <a src="#"
+                                    class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 2xl:text-[16px] text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                <a src="#"
+                                    class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                             </div>
                         </div>
-
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
-                            <img src="images/majesticons_sim-card-line.png" alt="" class="px-4">
-                            <p class="text-left text-[0.9rem] py-1 col-span-4">Thailand Tourist sim</p>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
-                                <p class="text-white font-medium text-center text-3xl">299</p>
-                                <p class="text-white text-right text-[1rem] mt-2 ">บาท</p>
-
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-                            <div
-                                class="rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]   flex justify-center items-center p-2">
-                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                    class="cursor-pointer w-full h-full">
-                            </div>
-                            <div
-                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 2xl:w-[50px]  2xl:h-[50px ] w-[40px] h-[40px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                            </div>
-
-                            <a src="#"
-                                class="cursor-pointer flex items-center  px-4 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                            <a src="#"
-                                class="cursor-pointer flex items-center px-6  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-
-                        </div>
-                    </div>
+                    @endfor
 
                 </div>
 

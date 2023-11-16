@@ -106,7 +106,7 @@
 
 .title-plate-textboxC .plate-text,
 .detail-title-plate-textboxC .detail-plate-text {
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
     color: #ffff;
     text-align: center;
 }
@@ -142,11 +142,11 @@
     }
 } */
 
-@media screen and (max-width: 1475px) {
+/* @media screen and (max-width: 1475px) {
     .title-plate-textboxC .plate-text {
         font-size: 1rem;
     }
-}
+} */
 @media screen and (max-width: 1000px) {
     .title-plate-textboxC {
         width: 80%;
@@ -156,9 +156,9 @@
     .title-plate-textboxC {
         width: 80%;
     }
-    .title-plate-textboxC .plate-text {
+    /* .title-plate-textboxC .plate-text {
         font-size: 1rem;
-    }
+    } */
 }
 @media screen and (max-width: 690px) {
     .title-plate-textboxC {
@@ -176,15 +176,15 @@
     .title-plate-textboxC {
         border-radius: 30px;
     }
-    .title-plate-textboxC .plate-text {
+    /* .title-plate-textboxC .plate-text {
         font-size: 1rem;
-    }
+    } */
 }
-@media screen and (max-width: 390px) {
+/* @media screen and (max-width: 390px) {
     .title-plate-textboxC .plate-text {
         font-size: 0.9rem;
     }
-}
+} */
 /* red-plate-end */
 
 /* blue-plate-start */
@@ -380,6 +380,7 @@ ol {
 /* width */
 ::-webkit-scrollbar {
     width: 1px;
+    height: 5px;
   }
   
   /* Track */
