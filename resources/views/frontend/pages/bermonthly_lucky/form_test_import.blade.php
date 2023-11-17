@@ -1,10 +1,14 @@
 @extends('frontend.layouts.main')
 @section('content')
 <div class="text-left mt-20">
-  <div class="flex justify-center m-10 gap-4">
-    <label for="excel">Excel</label>
-    <input type="file" id="excel-file">
-    <button id="submit">ส่ง</button>
+  <div class="flex flex-col justify-center m-10 gap-4">
+    <div class="flex justify-center m-10 gap-4">
+      <label for="excel">Excel</label>
+      <input type="file" id="excel-file">
+      <button class="bg-green-600 text-white rounded-lg px-2 py-1" id="submit">UPLOAD</button>
+    </div>
+
+    <button id="export-file" class="bg-red-600 text-white mx-auto flex justify-center w-40 rounded-lg px-2 py-1">EXPORT FILE</button>
   </div>
 </div>
 
@@ -17,6 +21,9 @@
   submit.addEventListener('click', function() {
     let formData = new FormData();
     let excelFile = document.querySelector('#excel-file').files[0];
+    if(!excelFile) {
+      return false;
+    } 
     formData.append('excel_file', excelFile);
 
     // axios.post(`backoffice/v1/readexcel`,formData).then((response) => {
@@ -39,6 +46,14 @@
           showConfirmButton: false
         })
       }
+    })
+  })
+
+  const export_file = document.querySelector('#export-file');
+
+  export_file.addEventListener('click', function() {
+    axios.get(`/exportexcel`).then((response) => {
+      console.log(response);
     })
   })
 </script>

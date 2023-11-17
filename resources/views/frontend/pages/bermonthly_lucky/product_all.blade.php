@@ -246,7 +246,7 @@
   <div class="text-center">
     <h1 class="font-bold text-xl">แหล่งรวมเบอร์มงคล</h1>
     <p class="text-[#838383]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
-    <p class="text-[#EC1F25]">เบอร์มังกร ที่ค้นพบ {{count($berproducts)}} เบอร์</p>
+    <p class="text-[#EC1F25]">เบอร์มังกร ที่ค้นพบ {{ count($totalCount) }} เบอร์</p>
   </div>
 
   <!-- box all product -->
