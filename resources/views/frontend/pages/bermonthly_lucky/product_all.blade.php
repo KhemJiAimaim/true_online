@@ -104,9 +104,9 @@
             <label for="slc-category">หมวดหมู่เบอร์</label>
             <select class="w-52 max-xl:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-category" id="slc-category">
               <option value="">หมวดหมู่เบอร์</option>
-              <option value="1">การเงิน</option>
-              <option value="2">การงาน</option>
-              <option value="3">ความรัก</option>
+              @foreach($berproduct_cates as $bercate)
+              <option value="{{$bercate->bercate_id}}">{{$bercate->bercate_name}}</option>
+              @endforeach
             </select>
           </div>
 
@@ -198,15 +198,15 @@
                 <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
               </div>
             </button> --}}
-            @for($i = 1; $i <= 9; $i++)
-            <button id="improve-ber" data-id="{{$i}}" class="relative p-2 bg-white rounded-[5px] group">
-              <img src="/icons/category/icon-money.png" alt="">
+            @foreach($berpredict_numbcate as $numbcate)
+            <button id="improve-ber" data-id="{{$numbcate->numbcate_id}}" class="relative p-2 bg-white rounded-[5px] group">
+              <img src="{{$numbcate->thumbnail}}" alt="">
               <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
-                <p class="w-full text-xs absolute top-1 left-0 text-center">การงาน</p>
+                <p class="w-full text-xs absolute top-1 left-0 text-center">{{$numbcate->numbcate_title}}</p>
               </div>
             </button>
-            @endfor
+            @endforeach
           </div>
         </div>
 
@@ -292,7 +292,7 @@
         </div>
 
         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 ">
-            <div id="addtocart" data-id="{{$i}}"
+            <div id="addtocart" data-id=""
                 class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[50px] h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -305,7 +305,7 @@
 
             <a href="{{url('/detailber/'. $product->product_phone)}}"
                 class="flex items-center px-4 max-xl:px-2 max-xs:px-3 mb-4 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-            <button id="buynow" data-id="{{$i}}"
+            <button id="buynow" data-id=""
                 class="flex items-center px-6 max-xl:px-4 max-xs:px-5  mb-4 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
         </div>
       </div>
@@ -321,7 +321,7 @@
         <button id="fist-page" class="h-[28px] px-2 py-1">First</button>
         <button id="prev-page" class="h-[28px] px-2 py-1">Previous</button>
         {{-- <button id="" class="h-[28px] px-2 py-1">1</button> --}}
-        <button id="" class="h-[28px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white">{{$data_paginate['current_page']}}</button>
+        <button id="" class="h-[28px] w-[28px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white rounded-[4px]">{{$data_paginate['current_page']}}</button>
         {{-- <button id="" class="h-[28px] px-2 py-1">3</button> --}}
         <button id="next-page" class="h-[28px] px-2 py-1">Next</button>
         <button id="last-page" class="h-[28px] px-2 py-1">Last</button>

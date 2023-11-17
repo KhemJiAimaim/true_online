@@ -11,6 +11,12 @@ use App\Models\BerpredictProphecy;
 use App\Models\BerpredictSum;
 use App\Models\BerproductGrade;
 use App\Models\BerproductCategory;
+use App\Models\BerpredictNumbcate;
+
+
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\BerMonthlyImportClass;
+use Maatwebsite\Excel\Concerns\ToModel;
 
 class BerLuckyMonthlyController extends Controller
 {
@@ -33,7 +39,7 @@ class BerLuckyMonthlyController extends Controller
         $current_page = request('page', 1);
  
         // Set the number of items per page
-        $perPage = 10;
+        $perPage = 60;
 
         // Calculate the offset based on the current page and items per page
         $offset = ($current_page - 1) * $perPage;
@@ -49,7 +55,7 @@ class BerLuckyMonthlyController extends Controller
         $totalCount = DB::select($sql, [
             'value' => 'no',
             'display' => 'yes',
-        ]);
+        ]);  // query ข้อมูลเบอร์ทั้งหมด
 
         $sql .= " LIMIT :limit OFFSET :offset ";
         $berproducts = DB::select($sql, [
@@ -57,7 +63,7 @@ class BerLuckyMonthlyController extends Controller
             'display' => 'yes',
             'limit' => $perPage,
             'offset' => $offset,
-        ]);
+        ]); // query ข้อมูลเบอร์ต่อหน้า
         
         $total_page = ceil(count($totalCount) / $perPage);
         $berTotal = count($berproducts);
@@ -69,14 +75,20 @@ class BerLuckyMonthlyController extends Controller
             "onLastPage" => $onLastPage, 
 
         ];
-        // dd($data_paginate);
         $berproduct_cates = BerproductCategory::where('bercate_display', 1)
-            ->where('bercate_pin', 1)
-            ->orderBy('priority')
+        ->where('bercate_pin', 1)
+        ->orderBy('priority')
+        ->get();
+        
+        // dd($berproduct_cates);
+        $berpredict_numbcate = BerpredictNumbcate::where('numbcate_display', 1)
+            ->where('numbcate_pin', 1)
+            ->orderBy('numbcate_priority')
             ->get();
-            // dd($berproduct_cates);
+            
+        // dd($berpredict_numbcate);
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
-        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'data_paginate'));
+        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'data_paginate', 'berpredict_numbcate'));
     }
 
     public function product_prepare_variable($request) {
@@ -295,6 +307,46 @@ class BerLuckyMonthlyController extends Controller
     public function formatScore($score) {
         $formatdata = round((($score / 6) * 1000) / 100);
         return $formatdata;
+    }
+
+    public function form_test_import() {
+        return view('frontend.pages.bermonthly_lucky.form_test_import');
+    }
+
+    public function import_by_excel(Request $request) {
+        
+        $file = $request->file('excel_file');   // รับไฟล์จาก request
+
+        // เอาไว้ debug ดูข้อมูลในไฟล์ excel 
+        // ข้อมูลไม่ควรเกิน 100 row 
+        // $importedData = Excel::toArray(new class implements ToModel {
+        //     public function model(array $row)
+        //     {
+        //         return new BerproductMonthly([
+        //             'product_phone' => $row[8], // A1
+        //             'price' => $row[9], // B1
+        //             'network' => $row[10], // C1
+        //             'sold' => $row[11], // D1
+        //             'new' => $row[12], // E1
+        //             'comment' => $row[13], // F1
+        //             'discount' => $row[14], // G1
+        //             'monthly' => $row[15], // H1
+        //         ]);
+        //     }
+        // }, $file);
+        // dd($importedData);
+
+        // delete old data before new up load
+        BerproductMonthly::truncate();
+
+        // method import new ber 
+        Excel::import(new BerMonthlyImportClass, $file);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'upload data successfully'
+        ] ,201);
+
     }
 
     
