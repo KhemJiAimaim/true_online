@@ -3,7 +3,5 @@ import './bootstrap';
 // hamber.addEventListener('click', (e) => {
 //     e.classList.toggle("change");
 // })
-function chnangTog(e) {
-    e.classList.toggle("change");
-}
+
 
