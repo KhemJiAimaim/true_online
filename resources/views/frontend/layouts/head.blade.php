@@ -67,7 +67,6 @@
 
 
     <!-- mobile menu -->
-<<<<<<< HEAD
     <ul
         class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[30vh] transition divide-y-2   ">
         <li class=" bg-gray-100 w-full">
@@ -173,14 +172,6 @@
                 </li> {{-- </div> --}}
             </ul>
         </li>
-=======
-    <ul class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full">
-        <li><a href="/fiber" class="block py-2 text-sm ">อินเตอร์เน็ตไฟเบอร์</a></li>
-        <li><a href="{{ url('/bermonthly') }}" class="block py-2 text-sm">เบอร์มงคลรายเดือน</a></li>
-        <li><a href="" class="block py-2 text-sm">เติมเงิน</a></li>
-        <li><a href="" class="block py-2 text-sm">ซิมท่องเที่ยว</a></li>
-        <li><a href="{{ url('/howtobuy/fiber') }}" class="block py-2 text-sm ">วิธีการสั่งซื้อ</a></li>
->>>>>>> b640dc9b11047434c7a288ed26f64e714b4b96ec
     </ul>
 </nav>
 
