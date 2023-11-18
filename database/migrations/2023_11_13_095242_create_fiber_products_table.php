@@ -28,11 +28,12 @@ return new class extends Migration
             $table->integer('upload_speed')->default(0)->comment('ความเร็วอัพโหลด Mbps');
             $table->integer('price_per_month')->default(0);
             $table->integer('price_per_year')->default(0);
-            $table->integer('special_price')->default(0);
+            $table->integer('special_price')->nullable()->default(0);
             $table->text('special_details')->nullable();
             $table->integer('percen_discount')->default(0);
             $table->integer('page_id')->default(0);
             $table->boolean('display')->default(true);
+            $table->boolean('delete_status')->default(false);
             $table->string('keyword')->nullable();
             $table->string('thumbnail_title')->nullable();
             $table->string('thumbnail_link')->nullable();
@@ -60,7 +61,7 @@ return new class extends Migration
                 'duration' => 24,
                 'fiber_cate_id' => 10,
                 'benefit_ids' => ',4,5,6,7,8,9,10,11,12,13',
-                'privilege_ids' => ',1,2,3,',
+                'privilege_ids' => ',17,18,19',
                 'download_speed' => 1000,
                 'upload_speed' => 1000,
                 'price_per_month' => 999,
@@ -78,7 +79,7 @@ return new class extends Migration
                 'duration' => 24,
                 'fiber_cate_id' => 16,
                 'benefit_ids' => ',5,',
-                'privilege_ids' => ',1,2,3,',
+                'privilege_ids' => ',17,18,19',
                 'download_speed' => 2000,
                 'upload_speed' => 5000,
                 'price_per_month' => 2290,
@@ -96,7 +97,7 @@ return new class extends Migration
                 'duration' => 24,
                 'fiber_cate_id' => 12,
                 'benefit_ids' => ',15,16',
-                'privilege_ids' => ',1,2,3,',
+                'privilege_ids' => ',17,18,19',
                 'download_speed' => 1000,
                 'upload_speed' => 1000,
                 'price_per_month' => 950,
@@ -114,7 +115,7 @@ return new class extends Migration
                 'duration' => 24,
                 'fiber_cate_id' => 15,
                 'benefit_ids' => ',4,5,6,7,8,9,10,11,12,13',
-                'privilege_ids' => ',1,2,3,',
+                'privilege_ids' => ',17,18,19',
                 'download_speed' => 2000,
                 'upload_speed' => 500,
                 'price_per_month' => 1199,

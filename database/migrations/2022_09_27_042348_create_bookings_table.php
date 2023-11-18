@@ -36,7 +36,7 @@ return new class extends Migration
                 'people_number' => 2,
                 'phone' => '0900000999',
                 'time_booking' => '2023-11-14 14:20:00',
-                'status' => 'pending',
+                'status' => 'reserve',
             ],
             [
                 'firstname' => 'Nantachai',
@@ -45,7 +45,7 @@ return new class extends Migration
                 'people_number' => 2,
                 'phone' => '0900000999',
                 'time_booking' => '2023-11-14 14:20:00',
-                'status' => 'pending',
+                'status' => 'reserve',
             ],
             [
                 'firstname' => 'Nantachai',
@@ -54,7 +54,7 @@ return new class extends Migration
                 'people_number' => 2,
                 'phone' => '0900000999',
                 'time_booking' => '2023-11-14 14:20:00',
-                'status' => 'pending',
+                'status' => 'reserve',
             ],
         ]);
     }
