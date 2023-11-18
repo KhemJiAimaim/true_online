@@ -88,9 +88,14 @@ Route::prefix('backoffice/v1')->group(function () {
         /* Utility */
         Route::post('ckeditor/upload/image', [UtilController::class, 'ckeditorUploadImage']);
 
-        /* ProductCate */
-        Route::get('fiber/data', [ProductCategoryController::class, 'fiberData']);
-
+        /* ProductController */
+        // Fiber
+        Route::prefix('fiber/')->group(function () {
+            Route::get('data', [ProductController::class, 'fiberData']);
+            Route::put('product/update', [ProductController::class, 'updateFiberProduct']);
+            Route::post('product/create', [ProductController::class, 'createFiberProduct']);
+            Route::delete('product/delete/{id}', [ProductController::class, 'deleteFiberProduct']);
+        });
 
     });
 });

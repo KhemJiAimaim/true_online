@@ -10,7 +10,7 @@
 }
 
 .mobile-menu-button{
-    width:40px;
+    width:30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,6 +33,27 @@
   .change .ham-line3 {
     transform: translate(0, -11px) rotate(45deg);
   }
+  .dropdow-conten{
+    display: none;
+  }
+  .dropdow-conten2{
+    display: none;
+  }
+  .dropdow-conten3{
+    display: none;
+  }
+  .dropdow-conten4{
+    display: none;
+  }
+  .flip{
+    transform: rotate(180deg);
+    transition: 0.2s;
+  }
+  .flipdow{
+    transform: rotate(0deg);
+    transition: 0.2s;
+  }
+  .show {display: block;}
 /* red-plate-start */
 .title-plate-container,
 .detail-title-plate-container {
