@@ -28,11 +28,12 @@ return new class extends Migration
             $table->integer('upload_speed')->default(0)->comment('ความเร็วอัพโหลด Mbps');
             $table->integer('price_per_month')->default(0);
             $table->integer('price_per_year')->default(0);
-            $table->integer('special_price')->default(0);
+            $table->integer('special_price')->nullable()->default(0);
             $table->text('special_details')->nullable();
             $table->integer('percen_discount')->default(0);
             $table->integer('page_id')->default(0);
             $table->boolean('display')->default(true);
+            $table->boolean('delete_status')->default(false);
             $table->string('keyword')->nullable();
             $table->string('thumbnail_title')->nullable();
             $table->string('thumbnail_link')->nullable();
