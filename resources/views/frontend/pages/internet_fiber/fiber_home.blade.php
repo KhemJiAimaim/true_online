@@ -3,37 +3,37 @@
 @section('content')
     <div class="my-16">
         <div class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6  2xl:grid-cols-7 gap-4 px-4 mb-16 max-w-[1536px] m-auto">
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:text-[#00bbff] var(--tw-gradient-to-position)] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-2" src="/images/arcticons_trueid.png" alt="">
                 <a href="#" class="text-[18px]">เน็ตบ้านสำหรับ
                     ทรูและดีแทค</a>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:text-[#00bbff] var(--tw-gradient-to-position)] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-3" src="/images/iconoir1.png" alt="">
                 <a href="#" class="text-[18px]">เน็ตบ้านสำหรับ
                     ใช้งานพื้นฐาน</a>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:text-[#00bbff] var(--tw-gradient-to-position)] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-3" src="/images/icon-park-outline_shield-add (1).png" alt="">
                 <a href="#" class="text-[18px]">เน็ตบ้าน
                     พร้อมประกัน</a>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:text-[#00bbff] var(--tw-gradient-to-position)] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-4" src="/images/gala_tv.png" alt="">
                 <a href="#" class="text-[18px]">เน็ตบ้าน
                     พร้อมทรูวิชั่น</a>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:text-[#00bbff] var(--tw-gradient-to-position)] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-4" src="/images/solar_wi-fi-router-minimalistic-linear.png" alt="">
                 <a href="#" class="text-[18px]">เน็ตบ้าน
                     เลือกเราเตอร์เอง</a>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:text-[#00bbff] var(--tw-gradient-to-position)] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-4" src="/images/ion_game-controller-outline.png" alt="">
                 <a href="#" class="text-[18px]">เน็ตบ้าน
                     สำหรับเกมเมอร์</a>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center cursor-pointer hover:text-[#00bbff] var(--tw-gradient-to-position)] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                 <img class="w-30 h-30 mb-4" src="/images/iconoir_small-shop.png" alt="">
                 <a href="#" class="text-[18px]">เน็ตบ้าน
                     สำหรับธุรกิจ SME</a>
@@ -41,15 +41,17 @@
         </div>
 
         {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container">
-            <div class="title-plate-line max-w-[1536px]"></div>
-            <div class="plate-group ">
+        <div class="title-plate-container pt-4">
+            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+                <div class="title-plate-line"></div>
+            </div>
+            <div class="plate-group">
                 <div class="plate-box-s">
                     <div class="plate-circleS"></div>
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text">ทรู ออนไลน์ อันดับ 1 เน็ตบ้านไฟเบอร์อัจฉริยะ</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู ออนไลน์ อันดับ 1 เน็ตบ้านไฟเบอร์อัจฉริยะ</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
