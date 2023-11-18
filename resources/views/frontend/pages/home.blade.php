@@ -45,7 +45,8 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู คอร์ปอเรชั่น ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู คอร์ปอเรชั่น
+                        ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -68,8 +69,8 @@
 
                 <a href=""
                     class="w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl"
-                        src="/images/internet_fiber_c476c5e742.webp" alt="">
+                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="/images/internet_fiber_c476c5e742.webp"
+                        alt="">
 
                     <div class="grid grid-cols-3 mb-2">
                         <div class="flex justify-center items-center">
@@ -87,8 +88,8 @@
 
                 <a href=""
                     class="w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px] se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl"
-                        src="/images/mobile_cc0d791368.webp" alt="">
+                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="/images/mobile_cc0d791368.webp"
+                        alt="">
                     <div class="grid grid-cols-3 mb-2">
                         <div class="flex justify-center items-center">
                             <img src="images/solar_sim-cards-linear.png" class="w-14 h-14" alt="">
@@ -104,15 +105,17 @@
 
                 <a href=""
                     class="w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px] se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl"
-                        src="/images/entertainment_3063ccb225.webp" alt="">
+                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="/images/entertainment_3063ccb225.webp"
+                        alt="">
                     <div class="grid grid-cols-3 mb-2">
                         <div class="flex justify-center items-center">
                             <img src="images/system-uicons_box-add.png" class="w-14 h-14" alt="">
                         </div>
                         <div class="col-span-2">
-                            <p class="text-white text-left font-medium text-[20px] ss:text-[18px] mt-2 mb-2">แพ็กเกจเสริม</p>
-                            <p class="text-white text-left text-[17px] ss:text-[16px]">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น
+                            <p class="text-white text-left font-medium text-[20px] ss:text-[18px] mt-2 mb-2">แพ็กเกจเสริม
+                            </p>
+                            <p class="text-white text-left text-[17px] ss:text-[16px]">
+                                เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น
                                 เร็วสุด แรงสุด
                             </p>
                         </div>
@@ -138,7 +141,8 @@
 
 
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
-                <div class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                <div
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -215,11 +219,13 @@
         <section id="ber_lucky" class="bg-white py-6">
 
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">เบอร์มงคลรายเดือน</p>
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
+            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ
+                ที่คุณอาจสนใจ</p>
 
 
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
-                <div class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                <div
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -261,7 +267,8 @@
                                 </div>
                             </div>
 
-                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                            <div
+                                class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
                                 <div
                                     class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
@@ -272,7 +279,7 @@
                                     <img src="/images/icons8-line-app (1) 9.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
-                                
+
                                 <a src="#"
                                     class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <a src="#"
@@ -298,11 +305,13 @@
         <section id="sim" class="bg-gray-100 py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมเติมเงิน</p>
-                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมเติมเงิน
+                    พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ
                 </p>
             </div>
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
-                <div class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                <div
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -367,12 +376,14 @@
         <section id="travel" class="bg-white py-6">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมท่องเที่ยว</p>
-                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมสำหรับท่องเที่ยว เชื่อมต่อได้ไม่มีสะดุด
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมสำหรับท่องเที่ยว
+                    เชื่อมต่อได้ไม่มีสะดุด
                 </p>
             </div>
 
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
-                <div class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                <div
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -404,7 +415,8 @@
                                 </div>
                             </div>
 
-                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                            <div
+                                class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
                                 <div
                                     class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
@@ -415,13 +427,13 @@
                                     <img src="/images/icons8-line-app (1) 9.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
-                                
+
                                 <a src="#"
                                     class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <a src="#"
                                     class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                             </div>
-                            
+
                         </div>
                     @endfor
 
