@@ -75,6 +75,7 @@ Route::get('/cartproduct/{tel}', [BerLuckyMonthlyController::class, "cartproduct
 
 Route::get('/testexcel', [BerLuckyMonthlyController::class, "form_test_import"]);
 Route::post('/readexcel', [BerLuckyMonthlyController::class, "import_by_excel"]);
+Route::get('/exportexcel', [BerLuckyMonthlyController::class, "export_excel"]);
 
 // วิธีสั่งซื้อ
 Route::get('/howtobuy/{cate}', [HowToBuyController::class, "howtobuyPage"]);

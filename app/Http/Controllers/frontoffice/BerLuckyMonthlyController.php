@@ -86,9 +86,9 @@ class BerLuckyMonthlyController extends Controller
             ->orderBy('numbcate_priority')
             ->get();
             
-        // dd($berpredict_numbcate);
+        // dd($totalCount);
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
-        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'data_paginate', 'berpredict_numbcate'));
+        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
     }
 
     public function product_prepare_variable($request) {
@@ -196,7 +196,6 @@ class BerLuckyMonthlyController extends Controller
         }
         // dd($sql);
 
-            
         $getpost = $check;
         $getpost['sql'] = $sql;
         $getpost['sql2'] = $sql2;
@@ -347,6 +346,10 @@ class BerLuckyMonthlyController extends Controller
             'message' => 'upload data successfully'
         ] ,201);
 
+    }
+
+    public function export_excel() {
+        dd("fffofo");
     }
 
     
