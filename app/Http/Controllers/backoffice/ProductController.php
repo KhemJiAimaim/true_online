@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends BaseController
 {
+    // Fiber
     public function fiberData(Request $request)
     {
         try {
@@ -81,11 +82,8 @@ class ProductController extends BaseController
 
         try {
             DB::beginTransaction();
-            $duplicatePriority = FiberProduct::where('priority', $request->priority)->first();
-            if ($duplicatePriority) {
-                // update priority
-                $this->updatePriority("fiber_products", $duplicatePriority->priority);
-            }
+
+            $this->updatePriority("fiber_products", $request->priority);
 
             FiberProduct::create($request->all());
 
@@ -136,11 +134,6 @@ class ProductController extends BaseController
 
         try {
             DB::beginTransaction();
-            $duplicatePriority = FiberProduct::where('priority', $request->priority)->first();
-            if ($duplicatePriority) {
-                // update priority
-                $this->updatePriority("fiber_products", $duplicatePriority->priority);
-            }
 
             $product = FiberProduct::find($request->id);
 
@@ -151,6 +144,8 @@ class ProductController extends BaseController
                     'description' => 'Product not found!'
                 ], 404);
             }
+
+            $this->updatePriority("fiber_products", $request->priority);
 
             $product->update([
                 'title' => $request->title,
@@ -175,11 +170,6 @@ class ProductController extends BaseController
 
             $fiberProduct = $this->getFiberProduct();
 
-            // return response([
-            //     'editData' => $request->all(),
-            //     'product' => $product,
-            // ], 200);
-
             DB::commit();
             return response([
                 'message' => 'ok',
@@ -198,12 +188,49 @@ class ProductController extends BaseController
         }
     }
 
+    public function deleteFiberProduct(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $product = FiberProduct::where('id', $request->id)->first();
+
+            if (!$product) {
+                return response([
+                    'message' => 'error',
+                    'status' => false,
+                    'description' => 'Prouduct Not Found!'
+                ], 404);
+            }
+
+            $product->update(['delete_status' => 1]);
+
+            $fiberProduct = $this->getFiberProduct();
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Fiber product has been deleted successflully',
+                'fiberProduct' => $fiberProduct,
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'error',
+                'status' => false,
+                'description' => $e->getMessage()
+            ], 500);
+        }
+    }
+
 
     /* Private function */
     private function getFiberProduct()
     {
         $fiberProduct = FiberProduct::join('categories AS c', 'c.id', 'fiber_products.fiber_cate_id')
             ->select('fiber_products.*', 'c.cate_title')
+            ->where('delete_status', 0)
             ->orderBy('fiber_products.updated_at', 'DESC')
             ->orderBy('priority', 'ASC')
             ->get();
@@ -213,14 +240,22 @@ class ProductController extends BaseController
 
     private function updatePriority($table, $priority)
     {
-        $productUpdate = DB::table($table)
-            ->where('priority', '>=', $priority)
-            ->get();
+        $duplicatePriority = DB::table($table)
+            ->where('priority', '=', $priority)
+            ->where('delete_status', '=', 0)
+            ->first();
 
-        foreach ($productUpdate as $product) {
-            DB::table($table)->where('id', $product->id)->update([
-                'priority' => $product->priority + 1
-            ]);
+        if ($duplicatePriority) {
+            // update priority
+            $productUpdate = DB::table($table)
+                ->where('priority', '>=', $priority)
+                ->get();
+
+            foreach ($productUpdate as $product) {
+                DB::table($table)->where('id', $product->id)->update([
+                    'priority' => $product->priority + 1
+                ]);
+            }
         }
     }
 }
