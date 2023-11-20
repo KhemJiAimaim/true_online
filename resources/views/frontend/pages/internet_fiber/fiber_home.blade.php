@@ -1,59 +1,59 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class="2xl:mt-16 mx-2">
+    <div class="2xl:mt-16">
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
             <div class="grid grid-cols-7 py-6 w-[1200px] 2xl:w-[1536px] items-center mx-auto">
                 <a href="#fiber"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[40px] mb-4" src="/images/arcticons_trueid.png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้านสำหรับ
+                    <img class="w-[45px] h-[45px] max-sm:w-[40px] mb-4" src="/images/arcticons_trueid.png" alt="">
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้านสำหรับ
                         ทรูและดีแทค</p>
                 </a>
 
                 <a
                     href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/iconoir1.png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้านสำหรับ
+                    <img class="w-[45px] h-[45px] max-sm:w-[30px] mb-4" src="/images/iconoir1.png" alt="">
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้านสำหรับ
                         ใช้งานพื้นฐาน</p>
                 </a>
 
 
                 <a href="#sim"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[40px] mb-4" src="/images/icon-park-outline_shield-add (1).png"
+                    <img class="w-[45px] h-[45px] max-sm:w-[40px] mb-4" src="/images/icon-park-outline_shield-add (1).png"
                         alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้าน
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้าน
                         พร้อมประกัน</p>
                 </a>
 
                 <a href="#travel"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/gala_tv.png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้าน
+                    <img class="w-[45px] h-[45px] max-sm:w-[30px] mb-4" src="/images/gala_tv.png" alt="">
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้าน
                         พร้อมทรูวิชั่น</p>
                 </a>
 
                 <a href="#travel"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/solar_wi-fi-router-minimalistic-linear.png"
+                    <img class="w-[45px] h-[45px] max-sm:w-[30px] mb-4" src="/images/solar_wi-fi-router-minimalistic-linear.png"
                         alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้าน
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้าน
                         เลือกเราเตอร์เอง</p>
                 </a>
 
                 <a href="#travel"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/ion_game-controller-outline.png"
+                    <img class="w-[45px] h-[45px] max-sm:w-[30px] mb-4" src="/images/ion_game-controller-outline.png"
                         alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้าน
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้าน
                         สำหรับเกมเมอร์</p>
                 </a>
 
                 <a href="#travel"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/iconoir_small-shop.png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้าน
+                    <img class="w-[45px] h-[45px] max-sm:w-[30px] mb-4" src="/images/iconoir_small-shop.png" alt="">
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้าน
                         สำหรับธุรกิจ SME</p>
                 </a>
 
@@ -81,8 +81,9 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <section id="fiber" class="bg-gray-100 py-6">
-
+        <section id="fiber" class="bg-gray-100 py-6 relative z-0 px-3">
+            
+            <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">อินเทอร์เน็ตไฟเบอร์</p>
             <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม
                 หนัง กีฬา
@@ -90,9 +91,10 @@
                 Gigatex PRO</p>
 
 
-            <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
+            <div class=" overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4 z-2">
+
                 <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w-[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -157,11 +159,12 @@
                 </div>
 
             </div>
-            <div class="items-center mx-auto mt-4">
-                <a href="/fiber"
-                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[18px]  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
-            </div>
 
+            <div class="items-center mx-auto mt-4 pt-6">
+                <a href="/fiber"
+                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+            </div>
+            <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
         </section>
         {{-- --- --}}
 
