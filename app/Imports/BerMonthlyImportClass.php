@@ -28,8 +28,6 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
 
         // เตรียมข้อมูล
         $improve = "";
-        $vip = ($row[5] == "")?"no":$row[5];
-        $sold = ($row[6] == "")?"no":$row[6];
         $grade = ($row[9] == "")?$this->generate_grade($row[0]):$row[9];
 
         if($row[1] == "") {
@@ -41,21 +39,21 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
         }
 
         return new BerproductMonthly([
-            // 'product_id' => $row, 
             'product_phone' => $row[0], 
             'product_sumber' => $sum, 
             'product_price' => $row[2], 
-            'product_category' => $row[4], 
+            'product_category' => $row[3], 
             'product_improve' => $improve, 
-            'product_pin' => $vip,
-            'product_sold' => $sold, 
-            'product_new' => $row[7], 
-            'product_comment' => $row[8], 
-            'product_package' => "1,2,5,4", 
-            'product_hot' => "no", 
+            'product_pin' => $row[4] = ($row[4] == "")?"no":$row[4],
+            'product_sold' => $row[5] = ($row[5] == "")?"no":$row[5], 
+            'product_new' => $row[6], 
+            'product_comment' => $row[7], 
+            'product_package' => $row[8],
             'product_discount' => $row[10], 
             'product_grade' => $grade, 
+            'default_cate' => $row[3],
             'product_display' => "yes",
+            'monthly_status' => $row[11] = ($row[11] == "")?"no":$row[11],
         ]);
     }
 
@@ -77,16 +75,16 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
                     SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[5] UNION ALL 
                     SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[6] ");
         }
-
         $total_percet = 0;
         foreach ($prophecies as $prophe) {
             $total_percet += $prophe->prophecy_percent;
         }
-
+        $total_score =  (($total_percet / 6) * 1000)/100; // แปลงเปอร์เซ็น ให้เป็นคะแนนให้เต็ม 1000
+        
         if($total_percet > 0) {
             $grade = BerproductGrade::where('grade_display', 'yes')
-                ->where('grade_min', '<=', $total_percet)
-                ->where('grade_max', '>=', $total_percet)
+                ->where('grade_min', '<=', $total_score)
+                ->where('grade_max', '>=', $total_score)
                 ->orderBy('grade_max', 'desc')
                 ->first();
         } else {
@@ -94,7 +92,7 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
             $grade->grade_name = 'F';
         }
 
-        return $grade;
+        return $grade->grade_name;
     }
 
 

@@ -7,7 +7,7 @@
     <div class="max-w-[1536px] max-2xl:max-w-[80%] max-lg:max-w-[80%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col justify-center max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
       <div class="bg-white flex flex-col p-4 rounded-[10px] drop-shadow-md">
         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
-        @php $formattedTel = substr($tel, 0, 3) . '-' . substr($tel, 3, 3) . '-' . substr($tel, 6); @endphp
+        @php $formattedTel = substr($berproduct->product_phone, 0, 3) . '-' . substr($berproduct->product_phone, 3, 3) . '-' . substr($berproduct->product_phone, 6); @endphp
         <h1 class="text-4xl font-semibold mt-4">{{$formattedTel}}</h1>
       </div>
   
@@ -219,7 +219,7 @@
     <div class="flex justify-between items-center gap-2">
       <div class="flex items-center gap-2">
         <p>ราคา</p>
-        <h1 class="text-2xl font-semibold">333,850</h1>
+        <h1 class="text-2xl font-semibold">{{ number_format($berproduct->product_price) }}</h1>
         <p>บาท</p>
       </div>
       <div class="border border-1 border-[#838383] h-full"></div>

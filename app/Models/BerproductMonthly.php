@@ -24,6 +24,8 @@ class BerproductMonthly extends Model
         'product_hot', 
         'product_discount', 
         'product_grade', 
-        'product_display'
+        'default_cate',
+        'product_display',
+        'monthly_status'
     ];
 }
