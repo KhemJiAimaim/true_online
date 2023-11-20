@@ -52,9 +52,10 @@
   const export_file = document.querySelector('#export-file');
 
   export_file.addEventListener('click', function() {
-    axios.get(`/exportexcel`).then((response) => {
-      console.log(response);
-    })
+    location.href = "/exportexcel"
+    // axios.get(`/exportexcel`).then((response) => {
+    //   console.log(response);
+    // })
   })
 </script>
 @endsection

@@ -1,6 +1,18 @@
 @extends('frontend.layouts.main')
 @section('content')
 <div class="text-left">
+  <div class="h-[158px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
+    <div class="flex max-xs:flex-col gap-4">
+      <a href="/bermonthly?sim=month" class="bg-white flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
+        <img class="{{ isset($_GET['sim']) && $_GET['sim'] == 'month' ? '' : 'invisible' }}" src="/icons/check.png" alt="">
+        <p class="text-[#CE090E]">เบอร์มงคลระบบรายเดือน</p>
+      </a>
+      <a href="/bermonthly?sim=paysim" class="bg-black flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
+        <img class="{{ isset($_GET['sim']) && $_GET['sim'] == 'paysim' ?'':'invisible'}}" src="/icons/check.png" alt="">
+        <p class="text-white">เบอร์มงคลระบบเติมเงิน</p>
+      </a>
+    </div>
+  </div>
   <div class="max-w-[1536px] max-2xl:max-w-[90%] max-lg:max-w-[100%] w-full mx-auto max-xs:mb-1 p-10 max-xs:p-4 flex justify-between gap-10 max-xs:gap-4">
     <div class="flex flex-col justify-center items-center">
       <img class="w-10 h-10" src="/icons/category/icon-money-menu.png" alt="">
@@ -105,7 +117,7 @@
             <select class="w-52 max-xl:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-category" id="slc-category">
               <option value="">หมวดหมู่เบอร์</option>
               @foreach($berproduct_cates as $bercate)
-              <option value="{{$bercate->bercate_id}}">{{$bercate->bercate_name}}</option>
+              <option value="{{$bercate->bercate_id}}" {{($select = ($bercate->bercate_id == $_GET['cate'])?"selected":"")}} >{{$bercate->bercate_name}}</option>
               @endforeach
             </select>
           </div>

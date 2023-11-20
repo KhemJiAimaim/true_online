@@ -16,6 +16,7 @@ use App\Models\BerpredictNumbcate;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\BerMonthlyImportClass;
+use App\Exports\BerproductMonthlyExport;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class BerLuckyMonthlyController extends Controller
@@ -95,6 +96,13 @@ class BerLuckyMonthlyController extends Controller
    
         $sql = "";  #WHERE
         $sql2 =  ""; #HAVING
+
+        if(isset($request['sim']) && $request['sim'] == "month") {
+            $sql .= " AND `monthly_status` = 'yes' ";
+        } else if(isset($request['sim']) && $request['sim'] == "paysim") {
+            $sql .= " AND `monthly_status` = 'no' ";
+        }
+
         $check = [];
         if(isset($request['pos1']) || isset($request['pos2']) || isset($request['pos3']) ||  isset($request['pos4']) ||  isset($request['pos5']) ||  isset($request['pos6']) ||  isset($request['pos7']) ||  isset($request['pos8']) ||  isset($request['pos9']) ){
             $pos1 = (isset($request['pos1']) && $request['pos1'] != '')?  $request['pos1'] : '_';
@@ -203,11 +211,12 @@ class BerLuckyMonthlyController extends Controller
     }
 
     public function detailber_page($tel) {
+        $berproduct = BerproductMonthly::where('product_phone', $tel)->first();
         $data_sumber = $this->get_data_sumber($tel);
         $data_fortune = $this->fortune_tel($tel);
         $score = $this->getscore_fortune($data_fortune);
 
-        return view('frontend.pages.bermonthly_lucky.detail_ber', compact('tel', 'data_sumber', 'data_fortune', 'score'));
+        return view('frontend.pages.bermonthly_lucky.detail_ber', compact('berproduct', 'data_sumber', 'data_fortune', 'score'));
     }
 
     public function fortune_page($tel) {
@@ -349,8 +358,7 @@ class BerLuckyMonthlyController extends Controller
     }
 
     public function export_excel() {
-        dd("fffofo");
+        return Excel::download(new BerproductMonthlyExport, 'exportproduct.xlsx');
     }
 
-    
 }

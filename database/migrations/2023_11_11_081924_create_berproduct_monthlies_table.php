@@ -29,8 +29,9 @@ return new class extends Migration
             $table->enum('product_hot', ['yes', 'no']);
             $table->integer('product_discount')->length(4);
             $table->string('product_grade', 4);
-            $table->string('default_cate',100);
+            $table->string('default_cate');
             $table->enum('product_display', ['yes', 'no'])->default('yes');
+            $table->string('monthly_status', 10);
             $table->timestamps();
         });
 
@@ -51,7 +52,8 @@ return new class extends Migration
                 'product_discount' => 0,
                 'product_grade' => 'A+',
                 'default_cate' => '1,2',
-                'product_display' => 'yes'
+                'product_display' => 'yes',
+                'monthly_status' => 'yes'
             ],
             [
                 'product_id' => 2,
@@ -69,7 +71,8 @@ return new class extends Migration
                 'product_discount' => 0,
                 'product_grade' => 'A+',
                 'default_cate' => '1,2',
-                'product_display' => 'yes'
+                'product_display' => 'yes',
+                'monthly_status' => 'yes'
             ],
             [
                 'product_id' => 3,
@@ -87,7 +90,8 @@ return new class extends Migration
                 'product_discount' => 0,
                 'product_grade' => 'A+',
                 'default_cate' => '1',
-                'product_display' => 'yes'
+                'product_display' => 'yes',
+                'monthly_status' => 'yes'
             ],
             [
                 'product_id' => 4,
@@ -105,7 +109,8 @@ return new class extends Migration
                 'product_discount' => 0,
                 'product_grade' => 'A+',
                 'default_cate' => '1,2',
-                'product_display' => 'yes'
+                'product_display' => 'yes',
+                'monthly_status' => 'yes'
             ],
             [
                 'product_id' => 5,
@@ -123,7 +128,8 @@ return new class extends Migration
                 'product_discount' => 0,
                 'product_grade' => 'A+',
                 'default_cate' => '1',
-                'product_display' => 'yes'
+                'product_display' => 'yes',
+                'monthly_status' => 'yes'
             ],
             [
                 'product_id' => 6,
@@ -141,7 +147,8 @@ return new class extends Migration
                 'product_discount' => 0,
                 'product_grade' => 'C',
                 'default_cate' => '1',
-                'product_display' => 'no'
+                'product_display' => 'no',
+                'monthly_status' => 'yes'
             ],
             [
                 'product_id' => 7,
@@ -159,7 +166,8 @@ return new class extends Migration
                 'product_discount' => 0,
                 'product_grade' => 'F',
                 'default_cate' => '1',
-                'product_display' => 'yes'
+                'product_display' => 'yes',
+                'monthly_status' => 'yes'
             ]
             // เพิ่มข้อมูลของรายการอื่น ๆ ที่ต้องการเพิ่ม
         ]);
