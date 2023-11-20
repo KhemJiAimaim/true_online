@@ -329,35 +329,47 @@ function product_search() {
 }
 
 // function paginate
-let currentPath = window.location.pathname;
-let queryString = window.location.search;
+  let prev_page = document.querySelector('#prev-page')
+  let next_page = document.querySelector('#next-page')
+  let fist_page = document.querySelector('#fist-page') 
+  let last_page = document.querySelector('#last-page') 
 
-// console.log(path_url);
-let prev_page = document.querySelector('#prev-page')
-let next_page = document.querySelector('#next-page')
+  const currentURL = window.location.href;
+  const url = new URL(currentURL);
+  const currentPage = parseInt(data_page.current_page);
+  console.log(data_page)
 
-console.log(data_pagi); // Output: "/products/electronics/laptops"
-next_page.addEventListener('click', () => {
-  const next = data_pagi.current_page + 1;
-  let source = null;
-  if(!queryString) {
-    source = `${currentPath}?page=${next}`
-  } else {
-    source = `${currentPath}?${queryString}&page=${next}`
+  const hasPrevPage = currentPage > 1;
+  const hasNextPage = currentPage < data_page.total_page;
+
+  function changePage(pageNumber) {
+    const searchParams = new URLSearchParams(url.search);
+    searchParams.delete('page');
+  
+    const decodedSearch = decodeURIComponent(searchParams.toString());
+  
+    // เพิ่มพารามิเตอร์ 'page' ใหม่
+    const newSearch = `${decodedSearch ? decodedSearch + '&' : ''}page=${pageNumber}`;
+  
+    location.href = `${url.origin}${url.pathname}?${newSearch}`;
   }
-  console.log(source); // Output: "/products/electronics/laptops"
-    location.href = `${source}`;
-})
+   
+  next_page.addEventListener('click', () => {
+    if (hasNextPage) {
+      changePage(currentPage + 1);
+    }
+  })
 
-prev_page.addEventListener('click', () => {
-  const next = data_pagi.current_page - 1;
-  let source = null;
-  if(!queryString) {
-    source = `${currentPath}?page=${next}`
-  } else {
-    source = `${currentPath}?${queryString}&page=${next}`
-  }
-  console.log(source); // Output: "/products/electronics/laptops"
-    location.href = `${source}`;
-})
+  prev_page.addEventListener('click', () => {
+    if (hasPrevPage) {
+      changePage(currentPage - 1);
+    }
+  })
 
+  fist_page.addEventListener('click', () => {
+    changePage(1)
+  })
+
+  last_page.addEventListener('click', () => {
+    changePage(data_page.total_page)
+  })

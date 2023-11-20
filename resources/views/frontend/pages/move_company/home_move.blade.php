@@ -495,7 +495,8 @@
                     <p class="text-[#838383] mt-2 mb-2 text-[1rem]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
                 </div>
                 <div class=" grid 2xl:grid-cols-2 gap-5 md:grid-cols-2 grid-cols-1 px-4 ">
-                    <div class="drop-shadow-md flex justify-end max-h-[1062px] h-[100%]  ">
+                    <div
+                        class="drop-shadow-md flex 2xl:justify-end lg:justify-end md:justify-end justify-center max-h-[1062px] h-[100%]  ">
                         <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%] ">
                             <div
                                 class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
@@ -601,7 +602,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="drop-shadow-md flex justify-start max-h-[1062px] h-[100%]   ">
+                    <div
+                        class="drop-shadow-md flex 2xl:justify-start lg:justify-start md:justify-start justify-center max-h-[1062px] h-[100%]   ">
                         <div class=" 2xl:w-[424px] md:w-[100%] w-[350px] min-[375px]:w-[300px] h-[100%]  ">
                             <div
                                 class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">

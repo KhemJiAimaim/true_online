@@ -1,5 +1,5 @@
 <div class=" bg-[#211830] sticky top-[100vh]">
-    <div class=" max-w-[1536px] mx-auto">
+    <div class=" max-w-[1536px] xl:w-[1200px] mx-auto">
 
         <div class="flex justify-between py-4 px-4 gap-y-3">
             <div class="2xl:grid 2xl:grid-rows-2 2xl:gap-[0] 2xl:mx-0 gap-[7.3rem]">
