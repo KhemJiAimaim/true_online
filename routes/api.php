@@ -91,10 +91,16 @@ Route::prefix('backoffice/v1')->group(function () {
         /* ProductController */
         // Fiber
         Route::prefix('fiber/')->group(function () {
-            Route::get('data', [ProductController::class, 'fiberData']);
-            Route::put('product/update', [ProductController::class, 'updateFiberProduct']);
-            Route::post('product/create', [ProductController::class, 'createFiberProduct']);
-            Route::delete('product/delete/{id}', [ProductController::class, 'deleteFiberProduct']);
+            Route::get('data', [FiberController::class, 'fiberData']);
+            Route::put('product/update', [FiberController::class, 'updateFiberProduct']);
+            Route::post('product/create', [FiberController::class, 'createFiberProduct']);
+            Route::delete('product/delete/{id}', [FiberController::class, 'deleteFiberProduct']);
+        });
+
+        // Package
+        Route::prefix('package/')->group(function () {
+            Route::get('cate/data', [PackageController::class, 'packageCateData']);
+
         });
 
     });

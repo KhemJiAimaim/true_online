@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class ProductController extends BaseController
+class FiberController extends BaseController
 {
     // Fiber
     public function fiberData(Request $request)
