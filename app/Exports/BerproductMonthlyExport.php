@@ -23,7 +23,7 @@ class BerproductMonthlyExport implements FromCollection, WithHeadings, WithStart
     {
         //
         $products = BerproductMonthly::select('product_phone', 'product_sumber', 'product_price', 
-                                    'product_category', 'product_pin', 'product_sold', 'product_new',
+                                    'default_cate', 'product_pin', 'product_sold', 'product_new',
                                     'product_comment', 'product_package', 'product_grade', 'product_discount',
                                     'monthly_status')
                             ->orderByRaw("CASE WHEN product_sold = 'no' THEN 1 ELSE 2 END")
