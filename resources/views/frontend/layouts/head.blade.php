@@ -67,28 +67,27 @@
 
 
     <!-- mobile menu -->
-<<<<<<< HEAD
     <ul
-        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[30vh] transition divide-y-2   ">
+        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white pr-3 absolute z-99 bg-opacity-[90%] w-full h-[30vh] transition divide-y-2   ">
         <li class=" bg-gray-100 w-full">
             <button id="menufiber" onclick="dropClick()"
-                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[14px] hover:text-red-500 ml-5">อินเตอร์เน็ตไฟเบอร์
-                <img id="flip" class=" w-[20px] flip " src="/images/icon/down-arrow.png" alt="">
+                class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5">อินเตอร์เน็ตไฟเบอร์
+                <img id="flip" class="flip w-[20px]  " src="/images/icon/down-arrow.png" alt="">
             </button>
-            <ul id="myDropdown" class="dropdow-conten bg-white">
+            <ul id="myDropdown" class="dropdow-conten bg-white ml-3">
                 <li><a href="/fiber"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เมนูหลัก</a>
+                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เมนูหลัก</a>
                 </li>
                 <li><a href="/fiber/true_dtac"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เน็ตบ้าน
                         สำหรับทรูและดีแทค</a>
                 </li>
                 <li><a href="/fiber/internet_basic"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เน็ตบ้าน
                         สำหรับใช้งานพื้นฐาน</a>
                 </li>
                 <li><a href="/fiber/home_fiber_guarantee"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เน็ตบ้าน
                         พร้อมประกัน</a>
                 </li>
                 <li><a href="/fiber/true_visions"
@@ -110,10 +109,10 @@
             </ul>
         </li>
         <li class="bg-gray-100"><a href="{{ url('/bermonthly') }}"
-                class="block py-2 ml-5 text-[1.2rem] max-sm:text-[14px] hover:text-red-500">เบอร์มงคลรายเดือน</a></li>
+                class="block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500">เบอร์มงคลรายเดือน</a></li>
         <li class="bg-gray-100">
             <button
-                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[14px] hover:text-red-500 ml-5 "
+                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 "
                 onclick="dropClick2()">เติมเงิน
                 <img id="flip2" class=" w-[20px] flip " src="/images/icon/down-arrow.png" alt="">
             </button>
@@ -129,10 +128,10 @@
             </ul>
         </li>
         <li class="bg-gray-100"> <a href="/move"
-                class=" block py-2 ml-5 text-[1.2rem] max-sm:text-[14px] hover:text-red-500">ย้ายค่าย</a></li>
+                class=" block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500">ย้ายค่าย</a></li>
         <li class="bg-gray-100">
             <button
-                class="dropbtn3 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[14px] hover:text-red-500 ml-5"
+                class="dropbtn3 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5"
                 onclick="dropClick3()">ซิมท่องเที่ยว
                 <img id="flip3" class=" w-[20px] flip " src="/images/icon/down-arrow.png" alt="">
             </button>
@@ -151,7 +150,7 @@
         </li>
         <li class="bg-gray-100">
             <button
-                class="dropbtn4 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[14px] hover:text-red-500 ml-5"
+                class="dropbtn4 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5"
                 onclick="dropClick4()">วิธีการสั่งซื้อ
                 <img id="flip4" class=" w-[20px] flip " src="/images/icon/down-arrow.png" alt="">
             </button>
@@ -173,14 +172,6 @@
                 </li> {{-- </div> --}}
             </ul>
         </li>
-=======
-    <ul class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full">
-        <li><a href="/fiber" class="block py-2 text-sm ">อินเตอร์เน็ตไฟเบอร์</a></li>
-        <li><a href="{{ url('/bermonthly') }}" class="block py-2 text-sm">เบอร์มงคลรายเดือน</a></li>
-        <li><a href="" class="block py-2 text-sm">เติมเงิน</a></li>
-        <li><a href="" class="block py-2 text-sm">ซิมท่องเที่ยว</a></li>
-        <li><a href="{{ url('/howtobuy/fiber') }}" class="block py-2 text-sm ">วิธีการสั่งซื้อ</a></li>
->>>>>>> b640dc9b11047434c7a288ed26f64e714b4b96ec
     </ul>
 </nav>
 
@@ -358,6 +349,9 @@
         } else {
             flip.classList.add('flip')
         }
+
+        var dropdown = document.getElementById("myDropdown");
+        dropdown.classList.toggle("active");
     }
 
     // Close the dropdown if the user clicks outside of it

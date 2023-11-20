@@ -46,11 +46,11 @@
     display: none;
   }
   .flip{
-    transform: rotate(180deg);
+    transform: rotate(0deg);
     transition: 0.2s;
   }
   .flipdow{
-    transform: rotate(0deg);
+    transform: rotate(180deg);
     transition: 0.2s;
   }
   .show {display: block;}
