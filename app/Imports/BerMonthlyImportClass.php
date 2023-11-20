@@ -26,8 +26,12 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
     public function model(array $row)
     {
 
+        /* ดึงข้อมูล PredictCate Want & Unwant comment */
+		$this->getPredictWantUnwantArr();
+
         // เตรียมข้อมูล
-        $improve = "";
+        $pp = substr($row[0],3,10);
+        $improve = $this->getProductByCategoryPredict($pp); 
         $grade = ($row[9] == "")?$this->generate_grade($row[0]):$row[9];
 
         if($row[1] == "") {
@@ -38,11 +42,11 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
             $sum = $row[1];
         }
 
-        return new BerproductMonthly([
+        $product = new BerproductMonthly([
             'product_phone' => $row[0], 
             'product_sumber' => $sum, 
             'product_price' => $row[2], 
-            'product_category' => $row[3], 
+            'product_category' => ','.$row[3].',', 
             'product_improve' => $improve, 
             'product_pin' => $row[4] = ($row[4] == "")?"no":$row[4],
             'product_sold' => $row[5] = ($row[5] == "")?"no":$row[5], 
@@ -55,6 +59,8 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
             'product_display' => "yes",
             'monthly_status' => $row[11] = ($row[11] == "")?"no":$row[11],
         ]);
+
+        return $product;
     }
 
     public function generate_grade($tel) {
@@ -94,6 +100,52 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
 
         return $grade->grade_name;
     }
+
+    public function getPredictWantUnwantArr(){
+		GLOBAL $predictArr;
+		$numbcates = DB::select("SELECT * FROM berpredict_numbcates ORDER BY numbcate_id ASC");
+		if(!empty($numbcates)){
+			$predictArr = array();
+			foreach ($numbcates as $nnn) {
+                if (!isset($predictArr[$nnn->numbcate_id]['id'])) {
+                    $predictArr[$nnn->numbcate_id]['id'] = $nnn->numbcate_id;
+                    $predictArr[$nnn->numbcate_id]['numbcate_id'] = $nnn->numbcate_id;
+                    $predictArr[$nnn->numbcate_id]['wanted'] = explode(",", $nnn->numbcate_want);
+                    $predictArr[$nnn->numbcate_id]['unwanted'] = explode(",", $nnn->numbcate_unwant);
+                }
+            }
+		}
+    }
+
+    public static function getProductByCategoryPredict($pp){ 
+		GLOBAL $predictArr;
+		if(isset($pp)){
+		    $improve = ","; 
+			foreach($predictArr as $predVal){ 
+				$founded = "";   
+				$wanted = $predVal['wanted'];
+				$unwanted = $predVal['unwanted'];
+				if(!empty($unwanted)){
+					foreach($unwanted as $unw){
+						if($unw=="") continue;
+						$founded = strpos($pp,$unw);
+						if($founded) break;
+					} 
+				}
+				if(!empty($wanted) && $founded==""){
+					foreach($wanted as $wan){
+						if($wan=="") continue;
+						$required = strpos($pp,$wan);   
+						if($required){
+							$improve .= $predVal['id'].","; 
+							break;
+						} 
+					}
+				}
+			}
+		}
+		return $improve; 
+	 }
 
 
 }

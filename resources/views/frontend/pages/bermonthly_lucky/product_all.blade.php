@@ -116,9 +116,9 @@
             <label for="slc-category">หมวดหมู่เบอร์</label>
             <select class="w-52 max-xl:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-category" id="slc-category">
               <option value="">หมวดหมู่เบอร์</option>
-              {{-- @foreach($berproduct_cates as $bercate)
-              <option value="{{$bercate->bercate_id}}" {{($select = ($bercate->bercate_id == $_GET['cate'])?"selected":"")}} >{{$bercate->bercate_name}}</option>
-              @endforeach --}}
+              @foreach($berproduct_cates as $bercate)
+              <option value="{{ $bercate->bercate_id }}" {{ isset($_GET['cate']) && $bercate->bercate_id == $_GET['cate'] ? 'selected' : '' }}>{{$bercate->bercate_name}}</option>
+              @endforeach
             </select>
           </div>
 
@@ -361,7 +361,7 @@
 
 @section('scripts')
   <script>
-    let data_pagi = @json($data_paginate)
+    let data_page = @json($data_paginate)
   </script>
   @vite('resources/js/bermonthly_lucky/allproduct.js')
 @endsection

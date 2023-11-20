@@ -191,6 +191,10 @@ class BerLuckyMonthlyController extends Controller
 
         // dd($sql);
         $cate_val = null;
+        if(isset($request['cate']) && $request['cate'] != 0){
+            $sql .=  " AND( product_category LIKE '%,".$request['cate'].",%' ) ";
+        }
+
         if(!empty($request['auspicious'])){
             $check['auspicious'] = explode(',', $request['auspicious']);
             $auspicious = $check['auspicious'];
@@ -350,11 +354,75 @@ class BerLuckyMonthlyController extends Controller
         // method import new ber 
         Excel::import(new BerMonthlyImportClass, $file);
 
+        $this->getProductByCategory();
+
         return response()->json([
             'status' => 'success',
             'message' => 'upload data successfully'
         ] ,201);
 
+    }
+
+    private function getProductByCategory() {
+        $reesultCate = BerproductCategory::where('bercate_id', '!=', 0)
+            ->where('status', '=', true)
+            ->orderBy('priority', 'ASC')
+            ->get();
+        // dd($reesultCate);
+        foreach($reesultCate as $cateVal) {
+            // DB::table('berproduct_monthlies')
+            // ->where('product_category', 'like', '%,' . $cateVal['bercate_id'] . ',%')
+            // ->where('default_cate', 'not like', '%,' . $cateVal['bercate_id'] . ',%')
+            // ->update([
+            //     'product_category' => DB::raw("replace(product_category, '," . $cateVal['bercate_id'] . ",' , ',')")
+            // ]);
+            
+            $bercate = array();
+            $sqlProd = array();
+            $bercate[$cateVal['bercate_id']]['cate_id']  = $cateVal['bercate_id'];
+            $sqlProd[$cateVal['bercate_id']]  ="";
+            $sqlProd[$cateVal['bercate_id']]  .= 'SELECT  product_id,product_sold,product_phone,MID(product_phone,4, 10) as pp 
+														 FROM berproduct_monthlies HAVING product_sold NOT LIKE "%y%" AND ';
+                                                        $sqlProd[$cateVal['bercate_id']]  .='(';  
+            $needfulArr = explode(',',$cateVal['bercate_needful']); 
+            foreach($needfulArr as $nfKey => $nfVal){ 
+                $bercate[$cateVal['bercate_id']]['needful'][$nfKey]  = $nfVal;	 
+                if($nfKey != 0){	
+                    $sqlProd[$cateVal['bercate_id']] .=' OR '; 
+                    }						
+                $sqlProd[$cateVal['bercate_id']]  .=' pp LIKE "%'.$nfVal.'%" ';	
+            }
+            $needlessArr = explode(',',$cateVal['bercate_needless']);
+            if($needlessArr[0] != ''){ 
+                $sqlProd[$cateVal['bercate_id']]  .=') AND (';
+                foreach($needlessArr as $nlKey => $nlVal){				 
+                    $bercate[$cateVal['bercate_id']]['needless'][$nlKey]  = $nlVal;
+                    /* sql select product needless  */
+                    if($nlKey != 0){	$sqlProd[$cateVal['bercate_id']]  .=' AND '; }
+                    $sqlProd[$cateVal['bercate_id']]  .=' pp NOT LIKE "%'.$nlVal.'%" ';	
+                }	
+            }
+            $sqlProd[$cateVal['bercate_id']]  .= ')';
+            $resultSlcUpdate = DB::select($sqlProd[$cateVal['bercate_id']]);
+            $cateIdUpdate  =  ''.$cateVal['bercate_id'].','; 
+
+            $valIdIn = "";
+            foreach($resultSlcUpdate as $keySlc => $valSlc){	
+                if($keySlc != 0 ){  $valIdIn .= ',';	}
+                $valIdIn .= $valSlc->product_id;		
+            }   
+            if($valIdIn != ""){
+                DB::update("
+                    UPDATE `berproduct_monthlies` 
+                    SET product_category = CONCAT(product_category, :category_to_append)
+                    WHERE product_id IN ( ".$valIdIn." ) 
+                    AND product_category NOT LIKE :category_condition
+                ", [
+                    'category_to_append' => $cateIdUpdate,
+                    'category_condition' => "%".$cateIdUpdate."%"
+                ]);
+            }
+        }
     }
 
     public function export_excel() {
