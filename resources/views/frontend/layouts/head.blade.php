@@ -51,7 +51,7 @@
                 </a>
 
 
-                <div class="mobile-menu-button">
+                <div class="mobile-menu-button lg:hidden xl:hidden">
                     <div class="ham-line1"></div>
                     <div class="ham-line2"></div>
                     <div class="ham-line3"></div>
@@ -68,13 +68,13 @@
 
     <!-- mobile menu -->
     <ul
-        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white pr-3 absolute z-99 bg-opacity-[90%] w-full h-[30vh] transition divide-y-2   ">
+        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[30vh] transition divide-y-2   ">
         <li class=" bg-gray-100 w-full">
             <button id="menufiber" onclick="dropClick()"
-                class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5">อินเตอร์เน็ตไฟเบอร์
-                <img id="flip" class="flip w-[20px]  " src="/images/icon/down-arrow.png" alt="">
+                class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">อินเตอร์เน็ตไฟเบอร์
+                <img id="flip" class="flip w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">
             </button>
-            <ul id="myDropdown" class="dropdow-conten bg-white ml-3">
+            <ul id="myDropdown" class="dropdow-conten bg-white ">
                 <li><a href="/fiber"
                         class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เมนูหลัก</a>
                 </li>
@@ -108,13 +108,16 @@
                 </li>
             </ul>
         </li>
+
         <li class="bg-gray-100"><a href="{{ url('/bermonthly') }}"
-                class="block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500">เบอร์มงคลรายเดือน</a></li>
+                class="block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 font-medium">เบอร์มงคลรายเดือน</a>
+        </li>
+
         <li class="bg-gray-100">
             <button
-                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 "
+                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick2()">เติมเงิน
-                <img id="flip2" class=" w-[20px] flip " src="/images/icon/down-arrow.png" alt="">
+                <img id="flip2" class=" w-[20px] flip mr-5" src="/images/icon/down-arrow.png" alt="">
             </button>
             <ul id="myDropdown2" class="dropdow-conten2 bg-white">
                 <li><a href="/prepaid_sim"
@@ -127,13 +130,16 @@
                 </li>
             </ul>
         </li>
+
         <li class="bg-gray-100"> <a href="/move"
-                class=" block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500">ย้ายค่าย</a></li>
+                class=" block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 font-medium">ย้ายค่าย</a>
+        </li>
+        
         <li class="bg-gray-100">
             <button
-                class="dropbtn3 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5"
+                class="dropbtn3 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick3()">ซิมท่องเที่ยว
-                <img id="flip3" class=" w-[20px] flip " src="/images/icon/down-arrow.png" alt="">
+                <img id="flip3" class=" w-[20px] flip mr-5" src="/images/icon/down-arrow.png" alt="">
             </button>
             <ul id="myDropdown3" class="dropdow-conten3 bg-white">
                 {{-- <div class="col-start-5"> --}}
@@ -148,13 +154,14 @@
                 {{-- </div> --}}
             </ul>
         </li>
+
         <li class="bg-gray-100">
             <button
-                class="dropbtn4 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5"
+                class="dropbtn4 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick4()">วิธีการสั่งซื้อ
-                <img id="flip4" class=" w-[20px] flip " src="/images/icon/down-arrow.png" alt="">
+                <img id="flip4" class=" flip w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">
             </button>
-            <ul id="myDropdown4" class="dropdow-conten4 bg-white">
+            <ul id="myDropdown4" class="dropdow-conten4 shadow-sm bg-white">
                 {{-- <div class="col-start-6"> --}}
                 <li> <a href="#"
                         class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">เมนูหลัก</a></li>
@@ -179,10 +186,10 @@
 
 
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
-    <div class="w-3/4 px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden ">
-        <ul class="hidden lg:flex 2xl:flex   relative">
+    <div class="2xl:w-3/4 xl:w-3/4 lg:w-full px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden lg:py-4">
+        <ul class="hidden lg:flex 2xl:flex relative">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
-            <li class="group z-[99] basis-[230px] ">
+            <li class="group z-[99] basis-[260px] ">
                 <a href="/fiber"
                     class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
                 <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4">
@@ -219,7 +226,7 @@
             </li>
 
             {{-- เบอร์มงคลรายเดือน --}}
-            <li class="group z-[99] basis-[230px]">
+            <li class="group z-[99] basis-[230px] ">
                 <a href="/bermonthly"
                     class=" py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
                 {{-- <ul
@@ -234,7 +241,7 @@
             </li>
 
             {{-- เติมเงิน --}}
-            <li class="group z-[99] basis-[180px]">
+            <li class="group z-[99] basis-[160px] ">
                 <a href="/prepaid_sim" class=" py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">เติมเงิน</a>
                 <ul
                     class="submenu hidden mt-4 mx-auto w-full h-[350px] top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
@@ -252,7 +259,7 @@
             </li>
 
             {{-- ย้ายค่าย --}}
-            <li class="group z-[99] basis-[180px]">
+            <li class="group z-[99] basis-[160px]">
                 <a href="/move" class=" py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
                 {{-- <ul
                     class="submenu hidden mt-4 mx-auto w-full h-[350px] absolute top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
@@ -265,7 +272,7 @@
             </li>
 
             {{-- ซิมท่องเที่ยว --}}
-            <li class="group z-[99] basis-[230px]">
+            <li class="group z-[99] basis-[200px]">
                 <a href="/travel_sim"
                     class=" py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
                 <ul
@@ -349,9 +356,6 @@
         } else {
             flip.classList.add('flip')
         }
-
-        var dropdown = document.getElementById("myDropdown");
-        dropdown.classList.toggle("active");
     }
 
     // Close the dropdown if the user clicks outside of it

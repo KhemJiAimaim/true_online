@@ -65,7 +65,7 @@
         {{-- --- --}}
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4">
             <div
-                class="2xl:w-[1536px]  w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-2 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-2 se:p-0  gap-4 xs:gap-0  lg:gap-4 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
+                class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-4 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
 
                 <a href=""
                     class="w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
@@ -132,7 +132,7 @@
 
 
         <section id="fiber" class="bg-gray-100 py-6 relative z-0">
-            <img class=" absolute right-0 top-0" src="/images/circle/ci1.png" alt="">
+            <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">อินเทอร์เน็ตไฟเบอร์</p>
             <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม
                 หนัง กีฬา
@@ -143,7 +143,7 @@
             <div class=" overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4 z-2">
 
                 <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -208,6 +208,7 @@
                 </div>
 
             </div>
+
             <div class="items-center mx-auto mt-4">
                 <a href="/fiber"
                     class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[18px]  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
@@ -226,7 +227,7 @@
 
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
                 <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -308,7 +309,7 @@
 
 
         <section id="sim" class="bg-gray-100 py-6 relative z-0">
-            <img class=" absolute right-0 top-0" src="/images/circle/ci1.png" alt="">
+            <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมเติมเงิน</p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมเติมเงิน
@@ -317,7 +318,7 @@
             </div>
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
                 <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
@@ -391,7 +392,7 @@
 
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
                 <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-full w-[1400px] dm:w[1380px] grid grid-cols-4 gap-4 dm:gap-8 ss:gap-6 mx-auto ss:p-1 p-4">
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
