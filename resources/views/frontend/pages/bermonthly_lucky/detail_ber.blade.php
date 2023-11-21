@@ -57,7 +57,7 @@
           <h1 class="text-lg font-semibold">แพ็กเกจ/ความหมาย</h1>
           <div class="flex items-center gap-4 mt-4">
             <img src="/icons/package.png" alt="">
-            <p class="">เน็ต Unlimited + โทร 1700 Mins</p>
+            <p class="">{{ $berproduct->product_comment }}</p>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
       <div class="flex gap-4">
         <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
           <h1 class="text-lg font-semibold">เกรด</h1>
-          <h1 class="text-4xl font-semibold mt-4">{{ $score['grade']->grade_name }}</h1>
+          <h1 class="text-4xl font-semibold mt-4">{{ $berproduct->product_grade }}</h1>
         </div>
     
         <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
@@ -156,33 +156,19 @@
       {{-- content detail --}}
       <div id="box-package" class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
         <div class="p-2">
-          <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p>
+          {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
+          @foreach($package as $pack)
           <div class="flex gap-2 mb-2">
             <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-              <img src="/icons/truecard.png" alt="">
+              <img class="w-[60px] h-[60px]" src="/{{$pack->thumbnail_link}}" alt="">
             </div>
             <div class="">
-              <p>รับสิทธิ์ True Black card นาน 12 เดือน</p>
+              <p>{{$pack->title}}</p>
             </div>
           </div>
-          <div class="flex gap-2 mb-2">
-            <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-              <img src="/icons/premierleague.png" alt="">
-            </div>
-            <div class="">
-              <p>รับชมพรีเมียร์ ฟุตบอล (EPL)    ได้ตลอดฤดูกาล 2023-2024</p>
-            </div>
-          </div>
-          <div class="flex gap-2 mb-2">
-            <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-              <img src="/icons/trueunlock.png" alt="">
-            </div>
-            <div class="">
-              <p>รับชมความบันเทิงซีรีย์ดัง และ EPL FanPack ฤดูกาล 2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56# โทรออก</p>
-            </div>
-          </div>
-          <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p>
-          <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p>
+          @endforeach
+          {{-- <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p> --}}
+          {{-- <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p> --}}
         </div>
         <div class="w-full flex justify-center bg-white rounded-b-[10px] sticky bottom-0 py-1">
           <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
