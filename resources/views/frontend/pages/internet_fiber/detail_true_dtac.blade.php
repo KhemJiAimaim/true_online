@@ -67,11 +67,11 @@
 
 @extends('frontend.layouts.main')
 @section('content')
-    <div class="my-16">
-        <section class="py-6">
+    <div class="2xl:my-16">
+        <section class="py-2 px-3">
             <div class="py-6 mb-6">
-                <p class="text-[#000] mt-2 mb-2 text-[2rem] ">True Gigatex PRO Special.</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[18px]">แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[1.5rem] text-[18px] font-medium">True Gigatex PRO Special.</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[18px] text-[16px]">แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช
                     รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000</p>
             </div>
 
@@ -148,65 +148,63 @@
         </section>
         {{-- --- --}}
 
-        <section class="py-16">
-            <p class="text-xl font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
+        <section class="py-16 px-5">
+            <p class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
             <!-- Swiper -->
-            <div class="swiper items-center mx-auto">
-                <div class="swiper-wrapper">
+            <div class="swiper items-center mx-auto ">
+                <div class="swiper-wrapper ">
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1223.png" alt="" class="w-[171px] h-[171px] block ">
-                        <p>กล่องทรูไอดีทีวี +True ID Basic HD</p>
+                        <img src="/images/Rectangle 1223.png" alt="" class="w-[171px] h-[150px] se:w-[150px] block ">
+                        <p class="se:text-[16px]">กล่องทรูไอดีทีวี +True ID Basic HD</p>
                     </div>
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1221.png" alt="" class="w-[171px] h-[171px]">
+                        <img src="/images/Rectangle 1221.png" alt="" class="w-[171px] h-[150px] se:w-[150px] block">
                         <p>True Gigatex Fiber Router WiFi6</p>
                     </div>
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1225.png" alt="" class="w-[171px] h-[171px]">
+                        <img src="/images/Rectangle 1225.png" alt="" class="w-[171px] h-[150px] se:w-[150px] block">
                         <p>EPL ฤดูกาล 2023/24 สด ครบทุกแมตช์</p>
                     </div>
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1220.png" alt="" class="w-[171px] h-[171px]">
+                        <img src="/images/Rectangle 1220.png" alt="" class="w-[171px] h-[150px] se:w-[150px] block">
                         <p>กล่องทรูไอดีทีวี +True ID Basic HD</p>
                     </div>
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1227.png" alt="" class="w-[171px] h-[171px]">
+                        <img src="/images/Rectangle 1227.png" alt="" class="w-[171px] h-[150px] se:w-[150px] block">
                         <p>VIU Premium นาน 24 เดือน</p>
                     </div>
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1224.png" alt="" class="w-[171px] h-[171px]">
+                        <img src="/images/Rectangle 1224.png" alt="" class="w-[171px] h-[150px] se:w-[150px] block">
                         <p>อุปกรณ์กระจายสัญญาณ Mesh WiFi 6</p>
                     </div>
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1223.png" alt="" class="w-[171px] h-[171px]">
+                        <img src="/images/Rectangle 1223.png" alt="" class="w-[171px] h-[150px] se:w-[150px] block">
                         <p> ชำระค่าแรกเข้า 890 บาท รับกล้อง CCTV</p>
                     </div>
                 </div>
                 <div class="swiper-button-next ml-20"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-
-
         </section>
 
         <section class="py-16 ">
-            <div class="text-xl font-medium mb-6">สิทธิพิเศษ</div>
+            <div class="2xl:text-[1.5rem] text-[18px] font-medium mb-6">สิทธิพิเศษ</div>
             <div class="flex justify-center mt-2">
-                <div class="flex flex-col justify-center w-[500px]">
+                <div class="flex flex-col justify-center w-[550px] gap-4 ">
                     <div class="flex">
-                        <img src="/images/quill_star.png" alt="" class="mr-2">
-                        <p class="text-red-500 font-medium mr-2">ฟรี!</p>
-                        <p> สิทธิยืม True Gigatex Fiber Router Pro รองรับ WiFi6</p>
+                        <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
+                        <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p>
+                        <p class="text-[16px]"> สิทธิยืม True Gigatex Fiber Router Pro รองรับ WiFi6</p>
                     </div>
                     <div class="flex">
-                        <img src="/images/quill_star.png" alt="" class="mr-2">
-                        <p class="text-red-500 font-medium mr-2">ฟรี!</p>
-                        <p> ค่าติดตั้งและค่าเดินสายอินเทอร์เน็ต</p>
+                        <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
+                        <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p>
+                        <p class="text-[16px]"> ค่าติดตั้งและค่าเดินสายอินเทอร์เน็ต</p>
                     </div>
                     <div class="flex">
-                        <img src="/images/quill_star.png" alt="" class="mr-2">
-                        <p class="text-red-500 font-medium mr-2">ฟรี!</p>
-                        <p class="text-left"> ชำระค่าแรกเข้าเพียง 890 บาท (จากปกติ 2,000 บาท) รับทันที! กล้อง CCTV Full HD
+                        <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
+                        <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p>
+                        <p class="text-left text-[16px]"> ชำระค่าแรกเข้าเพียง 890 บาท (จากปกติ 2,000 บาท) รับทันที! กล้อง CCTV Full HD
                             1080p พร้อมดูย้อนหลัง 7 วัน (รวมมูลค่า 3,666 บาท)</p>
                     </div>
                 </div>
@@ -218,7 +216,7 @@
             <a href="/fiber/form_true_dtac"
                 class="py-2.5 px-5 mr-2 mb-2 text-[18px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
         </div>
-        <a href="" class="text-[#838383]">ข้อกำหนดและเงื่อนไข</a>
+        <a href="" class="text-[#838383] text-[16px]">ข้อกำหนดและเงื่อนไข</a>
 
 
     </div>

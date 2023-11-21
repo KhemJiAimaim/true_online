@@ -356,7 +356,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #F5F5F7;
     position: absolute;
     right: 0px;
     top: 2px;
@@ -367,8 +367,8 @@
     height: 15px;
     background: #ed4312;
     position: absolute;
-    right:-1px;
-    bottom:10px;
+    right:0px;
+    bottom:7px;
 }
 .orange-plate-textboxC {
     width: 23%;
@@ -376,7 +376,7 @@
     background: rgb(86, 66, 205);
     background: linear-gradient(90deg, #ed4312 10%, #f6911d 90%);
     border-radius: 0px 0px 10px 10px;
-    top:0;
+    top:4px;
     position: relative;
 }
 .orange-plate-box-e {
@@ -388,7 +388,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #F5F5F7;
     position: absolute;
     left: 0px;
     top: 3px;
@@ -399,8 +399,8 @@
     height: 13px;
     background: #f6911d;
     position: absolute;
-    left:-1px;
-    bottom:12px;
+    left:0px;
+    /* bottom:10px; */
     top:2px;
 }
 /* orange-plate-end */
