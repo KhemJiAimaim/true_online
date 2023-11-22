@@ -11,7 +11,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="max-2xl:mt-40 max-lg:mt-20">
+    <div class="2xl:mt-40 max-lg:mt-20">
         <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
         <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
