@@ -11,7 +11,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="2xl:mt-40 max-lg:mt-20">
+    <div class="2xl:mt-40 lg:mt-32 mt-28">
         <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
         <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
@@ -70,7 +70,7 @@
                     <label for="country"
                         class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700">ตำบล/แขวง</label>
                     <select id="country" name="country" autocomplete="country-name"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] md:w-[17rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                         <option>ศิลา</option>
                         <option>Panama</option>
                         <option>Chile</option>
@@ -82,7 +82,7 @@
                     <label for="country"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">อำเภอ/เขต</label>
                     <select id="country" name="country" autocomplete="country-name"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                         <option>เมืองขอนแก่น</option>
                         <option>Panama</option>
                         <option>Chile</option>
@@ -93,11 +93,11 @@
 
             <div class="grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center mt-4">
                 <div
-                    class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                    class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500 ">
                     <label for="country"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">จังหวัด</label>
                     <select id="country" name="country" autocomplete="country-name"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] md:w-[17rem] ss:w-[6rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                         <option>ศิลา</option>
                         <option>Panama</option>
                         <option>Chile</option>
@@ -131,7 +131,7 @@
 
     </div>
 
-    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 mt-4 2xl:gap-4 mb-10 px-3">
+    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 gap-y-2 mt-4 2xl:gap-4 mb-10 px-3">
         <a href="/fiber/true_dtac"
             class="py-2.5 px-12  mb-2 mt-2  2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
         <a href="/thankyou"

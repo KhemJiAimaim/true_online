@@ -33,7 +33,7 @@ new Chart(ctx, {
       backgroundColor: ["#2AB200", "#CE090E", "#838383"],
       borderColor: "#ffffff00",
     }],
-    labels: ['ความดี', 'ความร้าย', 'ความว่างเปล่า'],
+    labels: ['ความดี / สุข', 'ความร้าย', 'ความว่างเปล่า'],
   },
   options: {
     plugins: {
