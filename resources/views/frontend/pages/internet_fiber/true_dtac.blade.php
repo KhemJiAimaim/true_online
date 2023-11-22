@@ -77,7 +77,7 @@
 
                 <div
                     class="2xl:w-[1536px] xl:w-[1200px]  w-full grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-4 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2    xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
-                    @for ($i = 1; $i <= 6; $i++)
+                    @foreach ($fiber_products as $product)
                         <div class="drop-shadow-md">
                             <div
                                 class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
@@ -92,11 +92,29 @@
                                     <p class="py-3 text-[20px]">True Gigatex PRO Gold</p>
                                 </div>
                             </div>
-                            <div class="bg-white"">
+                            @php 
+                                $download = 0;
+                                $upload = 0;
+                                $unit_download = "Mbps";
+                                $unit_upload = "Mbps";
+                                if($product->download_speed >= 1000) {
+                                    $download = $product->download_speed / 1000;
+                                    $unit_download = "Gbps";
+                                } else {
+                                    $download = $product->download_speed;
+                                }
+                                if($product->upload_speed >= 1000) {
+                                    $upload = $product->upload_speed / 1000;
+                                    $unit_upload = "Gbps";
+                                } else {
+                                    $upload = $product->upload_speed;
+                                }
+                            @endphp
+                            <div class="bg-white">
                                 <div class="flex justify-center py-6 ml-12">
-                                    <p class="text-[35px] text-center font-medium">1</p>
+                                    <p class="text-[35px] text-center font-medium">{{$download}}</p>
                                     <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
-                                    <p class="text-lg text-left text-[16px]">Gbps<br>/500Mbps</p>
+                                    <p class="text-lg text-left text-[16px]">{{$unit_download}}<br>/{{$upload}}{{$unit_upload}}</p>
                                 </div>
 
                                 <div class="blue-plate-container">
@@ -126,18 +144,18 @@
                                 <img class="absolute top-5 left-0" src="/images/Intersect (1).png" alt="">
                                 <div class="grid grid-cols-3 items-center">
                                     <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
-                                    <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">2,499</p>
+                                    <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format($product->price_per_month) }}</p>
                                     <p class="text-white text-right text-[1rem] 2xl:text-[18px] ">บาท<br>/เดือน</p>
 
                                 </div>
                             </div>
 
                             <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
-                                <a href="/fiber/detail_true_dtac"
+                                <a href="{{url('/fiber/detail_true_dtac/'.$product->id)}}"
                                     class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
 
             </div>

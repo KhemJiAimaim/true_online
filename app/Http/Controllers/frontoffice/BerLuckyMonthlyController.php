@@ -39,7 +39,8 @@ class BerLuckyMonthlyController extends Controller
 
         // Set the current page from the request or default to 1
         $current_page = request('page', 1);
- 
+        $current_page = (filter_var($current_page, FILTER_SANITIZE_NUMBER_INT) == "")? 1: $current_page;
+        // dd($current_page);
         // Set the number of items per page
         $perPage = 60;
 
@@ -229,6 +230,7 @@ class BerLuckyMonthlyController extends Controller
         $package = Post::whereIn('id', $explodePackage)
                             ->where('category', 'LIKE', '%8%')
                             ->get();
+                            
         $data_sumber = $this->get_data_sumber($tel);
         $data_fortune = $this->fortune_tel($tel);
         $score = $this->getscore_fortune($data_fortune);

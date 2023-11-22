@@ -199,12 +199,19 @@ class CategoryController extends BaseController
             /* Update Position */
             // $position = (int)$params['cate_position'];
             // $this->priorityCategoryUpdate(99999999,$position, $params['language'], "cate_position");
+            
+            $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
+            if(isset($files['Image'])) {
+                /* Upload Image */
+                $categoryArr["cate_thumbnail"] = $this->uploadImage($newFolder, $files['Image'], "", "", $params['ImageName']);
+            }
 
             $conditions  = ['id' => $params['id'], 'language' => $params['language']];
             $values = [
                 "cate_priority" => $priority,
                 "cate_position" => (int)$params['cate_position'],
                 "cate_root_id" => $params['cate_root_id'],
+                "cate_thumbnail" => $newFolder . $params['ImageName'],
                 "cate_thumbnail_title" => $params['cate_thumbnail_title'],
                 "cate_thumbnail_alt" => $params['cate_thumbnail_alt'],
                 "cate_parent_id" => $params['cate_parent_id'],
@@ -221,12 +228,6 @@ class CategoryController extends BaseController
                 "is_bottomside" => $params['is_bottomside'] ,
                 "updated_at" => date('Y-m-d H:i:s'),
             ];
-
-            if(isset($files['Image'])) {
-                /* Upload Image */
-                $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
-                $categoryArr["cate_thumbnail"] = $this->uploadImage($newFolder, $files['Image'], "", "", $params['ImageName']);
-            }
 
             $result = DB::table('categories')->updateOrInsert($conditions, $values);
             DB::commit();

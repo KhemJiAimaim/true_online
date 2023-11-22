@@ -34,8 +34,8 @@ Route::get('/', function () {
 
 //fiber
 Route::get("/fiber", [FiberController::class, "homePage"]);
-Route::get("/fiber/true_dtac", [FiberController::class, "true_dtac"]);
-Route::get("/fiber/detail_true_dtac", [FiberController::class, "detail_true_dtac"]);
+Route::get("/fiber/true_dtac/{cate_url}", [FiberController::class, "true_dtac"]);
+Route::get("/fiber/detail_true_dtac/{id}", [FiberController::class, "detail_true_dtac"]);
 Route::get("/fiber/form_true_dtac", [FiberController::class, "form_true_dtac"]);
 // Route::get("/fiber/home_fiber_guarantee", [FiberController::class, "fiber_guarantee"]);
 // Route::get("/fiber/detail_fiber_guarantee", [FiberController::class, "detail_fiber_guarantee"]);
