@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backoffice;
 
 use App\Http\Controllers\Controller;
 use App\Models\PackageCategory;
+use App\Models\PackageProduct;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,13 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class PackageController extends BaseController
 {
+    /* Package Category */
     public function packageCateData(Request $request)
     {
         try {
-            $packageCates = PackageCategory::where('delete_status', 0)
-                ->orderBy('updated_at', 'DESC')
-                ->orderBy('priority', 'ASC')
-                ->get();
+            $packageCates = $this->getPackageCateAll();
 
             return response([
                 'message' => 'ok',
@@ -141,7 +140,7 @@ class PackageController extends BaseController
         try {
 
             $cate = PackageCategory::findOrFail($id);
-            $cate->update([ 'delete_status' => 1 ]);
+            $cate->update(['delete_status' => 1]);
 
             $packageCates = $this->getPackageCateAll();
 
@@ -171,8 +170,81 @@ class PackageController extends BaseController
             return response([
                 'message' => 'ok',
                 'status' => true,
-                'description' => 'Display cate has been updated success fully',
+                'description' => 'Display cate has been updated successfully',
                 'updated' => $cate,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /* Package Product */
+    public function packageIndex(Request $request)
+    {
+        try {
+
+            $packageCates = $this->getPackageCateAll();
+            $packages = $this->getPackageProductAll();
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'get package product success',
+                'data' => [
+                    'packages' => $packages,
+                    'packageCates' => $packageCates,
+                ],
+                // 'maxPriority' => PackageCategory::where('delete_status', 0)->max('priority'),
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
+    public function updateDisplayProduct(Request $request, $id)
+    {
+        try {
+
+            $cate = PackageProduct::findOrFail($id);
+            $cate->update($request->only(['display']));
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Display Product has been updated successfully',
+                'updated' => $cate,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function deletePackageProduct(Request $request, $id)
+    {
+        try {
+
+            $cate = PackageProduct::findOrFail($id);
+            $cate->update(['delete_status' => 1]);
+
+            $packages = $this->getPackageProductAll();
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Package product has been deleted successfully',
+                'packages' => $packages,
             ], 200);
         } catch (Exception $e) {
             return response([
@@ -190,6 +262,15 @@ class PackageController extends BaseController
         $data = PackageCategory::where('delete_status', 0)
             ->orderBy('updated_at', 'DESC')
             ->orderBy('priority', 'ASC')
+            ->get();
+
+        return $data;
+    }
+    private function getPackageProductAll()
+    {
+        $data = PackageProduct::where(['delete_status' => 0])
+            ->orderBy('updated_at', 'DESC')
+            ->orderBy('total_price', 'ASC')
             ->get();
 
         return $data;

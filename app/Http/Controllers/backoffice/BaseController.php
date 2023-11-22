@@ -67,15 +67,15 @@ class BaseController extends Controller
 
         if ($duplicatePriority) {
             // update priority
-            $productUpdate = DB::table($table)
+            DB::table($table)
                 ->where('priority', '>=', $priority)
-                ->get();
+                ->increment('priority', 1);
 
-            foreach ($productUpdate as $product) {
-                DB::table($table)->where('id', $product->id)->update([
-                    'priority' => $product->priority + 1
-                ]);
-            }
+            // foreach ($productUpdate as $product) {
+            //     DB::table($table)->where('id', $product->id)->update([
+            //         'priority' => $product->priority + 1
+            //     ]);
+            // }
         }
     }
 
