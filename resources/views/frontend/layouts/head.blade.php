@@ -1,7 +1,7 @@
 <!-- nav goes here -->
 
 <nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed w-full top-0 z-50 ">
-    <div class="w-3/4 px-8 mx-auto">
+    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] px-8 mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">
 
@@ -68,7 +68,7 @@
 
     <!-- mobile menu -->
     <ul
-        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[30vh] transition divide-y-2   ">
+        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[20vh] transition divide-y-2   ">
         <li class=" bg-gray-100 w-full">
             <button id="menufiber" onclick="dropClick()"
                 class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">อินเตอร์เน็ตไฟเบอร์
@@ -186,7 +186,7 @@
 
 
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
-    <div class="2xl:w-3/4 xl:w-3/4 lg:w-full px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden lg:py-4">
+    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] lg:w-full px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden lg:py-4">
         <ul class="hidden lg:flex 2xl:flex relative">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
             <li class="group z-[99] basis-[260px] ">
@@ -229,15 +229,12 @@
             <li class="group z-[99] basis-[230px] ">
                 <a href="/bermonthly"
                     class=" py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
-                {{-- <ul
-                    class="submenu hidden mx-auto px-8 w-full h-[350px] absolute top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50 ">
+                <ul
+                    class="submenu hidden mx-auto px-8 w-full h-[350px] absolute top-[3rem] left-0 space-y-2 group-hover:block z-50 ">
                     <div class="w-3/4  mx-auto">
-                        <li><a href="#" class="block py-2  text-[1.2rem] hover:text-[#EC1F25]">รายการ 1</a>
-                        </li>
-                        <li><a href="#" class="block py-2  text-[1.2rem] hover:text-[#EC1F25]">รายการ 2</a>
-                        </li>
+                       
                     </div>
-                </ul> --}}
+                </ul>
             </li>
 
             {{-- เติมเงิน --}}
@@ -261,8 +258,8 @@
             {{-- ย้ายค่าย --}}
             <li class="group z-[99] basis-[160px]">
                 <a href="/move" class=" py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
-                {{-- <ul
-                    class="submenu hidden mt-4 mx-auto w-full h-[350px] absolute top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                <ul
+                    class="submenu hidden mt-4 mx-auto w-full h-[350px] absolute top-[3rem] left-0 space-y-2 group-hover:block z-50">
                     <div class=" w-3/4 mx-auto mt-4 mb-4 px-8">
                         <div class= "flex flex-col">
 

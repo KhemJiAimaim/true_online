@@ -4,11 +4,11 @@
   <div class="h-[158px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
     <div class="flex max-xs:flex-col gap-4">
       <a href="/bermonthly?sim=month" class="bg-white flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
-        <img class="{{ isset($_GET['sim']) && $_GET['sim'] == 'month' ? '' : 'invisible' }}" src="/icons/check.png" alt="">
+        <img id="system-sim" data-sim="month" class="{{ isset($_GET['sim']) && $_GET['sim'] == 'month' ? 'selected' : 'invisible' }}" src="/icons/check.png" alt="">
         <p class="text-[#CE090E]">เบอร์มงคลระบบรายเดือน</p>
       </a>
       <a href="/bermonthly?sim=paysim" class="bg-black flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
-        <img class="{{ isset($_GET['sim']) && $_GET['sim'] == 'paysim' ?'':'invisible'}}" src="/icons/check.png" alt="">
+        <img id="system-sim" data-sim="paysim" class="{{ isset($_GET['sim']) && $_GET['sim'] == 'paysim' ?'selected':'invisible'}}" src="/icons/check.png" alt="">
         <p class="text-white">เบอร์มงคลระบบเติมเงิน</p>
       </a>
     </div>
@@ -128,15 +128,25 @@
           </div>
         </div>
 
+        @php
+          $packages = [
+            "เน็ต Unlimited + โทร 1700 Mins",
+            "แพ็กเกจนี้ใช้ฟรี 3 เดือน",
+            "เน็ต 1mbs นาน 3 วัน"
+          ];
+          // dd($packages);
+        @endphp
         <div class="mt-4 flex justify-between gap-4 max-xs:grid max-xs:grid-cols-2">
           <div class="flex flex-col">
             <label for="slc-package">แพ็กเกจ</label>
             <select class="w-52 max-xl:w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]" name="slc-package" id="slc-package">
-              <option value="1">แพ็กเกจ</option>
-              <option value="2">เน็ต Unlimited + โทร 1700 Mins</option>
-              <option value="3">แพ็กเกจนี้ใช้ฟรี 3 เดือน</option>
-              {{-- <option value="0">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา</option> --}}
-            </select>
+              <option value="">เลือกแพ็กเกจ</option>
+              @foreach($slc_package as $pack)
+                  <option value="{{$pack->id}}" {{ (isset($_GET['package']) && $_GET['package'] == ($pack->id)) ? 'selected' : '' }}>
+                      {{$pack->title}}
+                  </option>
+              @endforeach
+          </select>
           </div>
 
           <div class="flex flex-col">
@@ -159,35 +169,37 @@
         </div>
 
         <div class="flex max-xl:flex-col max-xl:gap-4 justify-between mt-4">
+          @php 
+            $explodeLike = [];
+            if(isset($_GET['like'])) {
+              $like = $_GET['like'];
+              $explodeLike = explode(',', $like);
+            }
+          @endphp 
           <div class="flex flex-col">
             <label for="">ตัวเลขที่ชอบ</label>
             <div class="flex gap-1 text-white">
-              <button id="like" data-fav="0" class="w-6 h-7 bg-[#838383] rounded-[3px]">0</button>
-              <button id="like" data-fav="1" class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
-              <button id="like" data-fav="2" class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
-              <button id="like" data-fav="3" class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
-              <button id="like" data-fav="4" class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
-              <button id="like" data-fav="5" class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
-              <button id="like" data-fav="6" class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
-              <button id="like" data-fav="7" class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
-              <button id="like" data-fav="8" class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
-              <button id="like" data-fav="9" class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
+                @for($i = 0; $i <= 9; $i++)
+                <button id="like" data-fav="{{ $i }}" class="w-6 h-7 bg-[#838383] rounded-[3px] {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE] selected' : '' }}">
+                  {{ $i }}
+                </button>
+                @endfor
             </div>
           </div>
 
+          @php 
+            $explodedisLike = [];
+            if(isset($_GET['dislike'])) {
+              $dislike = $_GET['dislike'];
+              $explodedisLike = explode(',', $dislike);
+            }
+          @endphp 
           <div class="flex flex-col">
             <label for="">ตัวเลขที่ไม่ชอบ</label>
             <div class="flex gap-1 text-white">
-              <button id="dislike" data-fav="0" class="w-6 h-7 bg-[#838383] rounded-[3px]">0</button>
-              <button id="dislike" data-fav="1" class="w-6 h-7 bg-[#838383] rounded-[3px]">1</button>
-              <button id="dislike" data-fav="2" class="w-6 h-7 bg-[#838383] rounded-[3px]">2</button>
-              <button id="dislike" data-fav="3" class="w-6 h-7 bg-[#838383] rounded-[3px]">3</button>
-              <button id="dislike" data-fav="4" class="w-6 h-7 bg-[#838383] rounded-[3px]">4</button>
-              <button id="dislike" data-fav="5" class="w-6 h-7 bg-[#838383] rounded-[3px]">5</button>
-              <button id="dislike" data-fav="6" class="w-6 h-7 bg-[#838383] rounded-[3px]">6</button>
-              <button id="dislike" data-fav="7" class="w-6 h-7 bg-[#838383] rounded-[3px]">7</button>
-              <button id="dislike" data-fav="8" class="w-6 h-7 bg-[#838383] rounded-[3px]">8</button>
-              <button id="dislike" data-fav="9" class="w-6 h-7 bg-[#838383] rounded-[3px]">9</button>
+              @for($i = 0; $i <= 9; $i++)
+              <button id="dislike" data-fav="{{ $i }}" class="w-6 h-7 bg-[#838383] rounded-[3px] {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">{{ $i }}</button>
+              @endfor
             </div>
           </div>
         </div>
@@ -203,16 +215,20 @@
         <div class="flex flex-col max-lg:mb-4">
           <p class="mb-2">เสริมดวงด้าน</p>
           <div class="flex flex-wrap gap-3">
-            {{-- <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
-              <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-money.png" alt="">
-              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                <img class="scale-150" src="/icons/category/union.png" alt="">
-                <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
-              </div>
-            </button> --}}
+            @php
+              $exImprove = [];
+              if(isset($_GET['improve'])) {
+                $improve = $_GET['improve'];
+                $exImprove = explode(',', $improve);
+              }
+            @endphp
             @foreach($berpredict_numbcate as $numbcate)
-            <button id="improve-ber" data-id="{{$numbcate->numbcate_id}}" class="relative p-2 bg-white rounded-[5px] group">
-              <img src="{{$numbcate->thumbnail}}" alt="">
+            @php
+              $imp_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
+              $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
+            @endphp
+            <button id="improve-ber" data-id="{{$numbcate->numbcate_id}}" class="relative p-2 bg-white rounded-[5px] group {{$imp_selected}}">
+              <img src="{{$numbcate->thumbnail}}" alt="" style="{{ $image_selected }}">
               <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
                 <p class="w-full text-xs absolute top-1 left-0 text-center">{{$numbcate->numbcate_title}}</p>
@@ -222,6 +238,13 @@
           </div>
         </div>
 
+        @php
+          $exAuspicious = [];
+          if(isset($_GET['auspicious'])) {
+            $auspicious = $_GET['auspicious'];
+            $exAuspicious = explode(',', $auspicious);
+          }
+        @endphp
         <div class="flex flex-col">
           <p class="mb-2">หมวดหมู่เบอร์</p>
           <div class="flex flex-wrap gap-3">
@@ -233,8 +256,12 @@
               </div>
             </button> --}}
             @foreach($berproduct_cates as $bercate)
-            <button id="cate-ber" data-id="{{$bercate->bercate_id}}" class="relative p-2 bg-white rounded-[5px] group">
-              <img src="{{$bercate->thumbnail}}" alt="">
+            @php
+              $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
+              $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
+            @endphp
+            <button id="cate-ber" data-id="{{$bercate->bercate_id}}" class="relative p-2 bg-white rounded-[5px] group {{$aus_selected}}">
+              <img src="{{$bercate->thumbnail}}" alt="" style="{{$img_selected}}">
               <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
                 <img class="scale-150" src="/icons/category/union.png" alt="">
                 <p class="w-full text-xs absolute top-1 left-0">{{$bercate->bercate_title}}</p>
@@ -333,8 +360,14 @@
         <button id="fist-page" class="h-[28px] px-2 py-1">First</button>
         <button id="prev-page" class="h-[28px] px-2 py-1">Previous</button>
         {{-- <button id="" class="h-[28px] px-2 py-1">1</button> --}}
+        @for ($i = max(1, $data_paginate['current_page'] - 2); $i < $data_paginate['current_page']; $i++)
+          <button class="max-xs:hidden h-[28px] w-[28px] px-2 py-1" data-index="{{$i}}" id="page-num">{{$i}}</button>
+        @endfor
         <button id="" class="h-[28px] w-[28px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white rounded-[4px]">{{$data_paginate['current_page']}}</button>
         {{-- <button id="" class="h-[28px] px-2 py-1">3</button> --}}
+        @for ($i = $data_paginate['current_page'] + 1; $i <= min($data_paginate['total_page'], $data_paginate['current_page'] + 2); $i++)
+          <button class="max-xs:hidden h-[28px] w-[28px] px-2 py-1" data-index="{{$i}}" id="page-num">{{$i}}</button>
+        @endfor
         <button id="next-page" class="h-[28px] px-2 py-1">Next</button>
         <button id="last-page" class="h-[28px] px-2 py-1">Last</button>
       </div>

@@ -12,6 +12,7 @@ use App\Models\BerpredictSum;
 use App\Models\BerproductGrade;
 use App\Models\BerproductCategory;
 use App\Models\BerpredictNumbcate;
+use App\Models\Post;
 
 
 use Maatwebsite\Excel\Facades\Excel;
@@ -21,7 +22,7 @@ use Maatwebsite\Excel\Concerns\ToModel;
 
 class BerLuckyMonthlyController extends Controller
 {
-    //
+    
     public function get_product_all(Request $request) {
         $getpost = $this->product_prepare_variable($request->all());
 
@@ -44,7 +45,7 @@ class BerLuckyMonthlyController extends Controller
 
         // Calculate the offset based on the current page and items per page
         $offset = ($current_page - 1) * $perPage;
-
+        // dd($getpost['sql']);
         $limit = null;
         $sql = "SELECT *, MID(product_phone, 4, 7) AS pp
                     FROM berproduct_monthlies 
@@ -53,6 +54,7 @@ class BerLuckyMonthlyController extends Controller
                     $sql_sort
                     $limit
                 ";
+                // dd($sql);
         $totalCount = DB::select($sql, [
             'value' => 'no',
             'display' => 'yes',
@@ -87,9 +89,10 @@ class BerLuckyMonthlyController extends Controller
             ->orderBy('numbcate_priority')
             ->get();
             
-        // dd($totalCount);
+        $slc_package = Post::where('category', 'LIKE', '%8%')->get();
+        // dd($package);
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
-        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
+        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'slc_package', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
     }
 
     public function product_prepare_variable($request) {
@@ -105,22 +108,28 @@ class BerLuckyMonthlyController extends Controller
 
         $check = [];
         if(isset($request['pos1']) || isset($request['pos2']) || isset($request['pos3']) ||  isset($request['pos4']) ||  isset($request['pos5']) ||  isset($request['pos6']) ||  isset($request['pos7']) ||  isset($request['pos8']) ||  isset($request['pos9']) ){
-            $pos1 = (isset($request['pos1']) && $request['pos1'] != '')?  $request['pos1'] : '_';
-            $pos2 = (isset($request['pos2']) && $request['pos2'] != '')?  $request['pos2'] : '_';
-            $pos3 = (isset($request['pos3']) && $request['pos3'] != '')?  $request['pos3'] : '_';
-            $pos4 = (isset($request['pos4']) && $request['pos4'] != '')?  $request['pos4'] : '_';
-            $pos5 = (isset($request['pos5']) && $request['pos5'] != '')?  $request['pos5'] : '_';
-            $pos6 = (isset($request['pos6']) && $request['pos6'] != '')?  $request['pos6'] : '_';
-            $pos7 = (isset($request['pos7']) && $request['pos7'] != '')?  $request['pos7'] : '_';
-            $pos8 = (isset($request['pos8']) && $request['pos8'] != '')?  $request['pos8'] : '_';
-            $pos9 = (isset($request['pos9']) && $request['pos9'] != '')?  $request['pos9'] : '_';
+            $pos1 = (isset($request['pos1']) && $request['pos1'] != '')?  filter_var($request['pos1'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos2 = (isset($request['pos2']) && $request['pos2'] != '')?  filter_var($request['pos2'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos3 = (isset($request['pos3']) && $request['pos3'] != '')?  filter_var($request['pos3'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos4 = (isset($request['pos4']) && $request['pos4'] != '')?  filter_var($request['pos4'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos5 = (isset($request['pos5']) && $request['pos5'] != '')?  filter_var($request['pos5'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos6 = (isset($request['pos6']) && $request['pos6'] != '')?  filter_var($request['pos6'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos7 = (isset($request['pos7']) && $request['pos7'] != '')?  filter_var($request['pos7'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos8 = (isset($request['pos8']) && $request['pos8'] != '')?  filter_var($request['pos8'], FILTER_SANITIZE_NUMBER_INT) : '_';
+            $pos9 = (isset($request['pos9']) && $request['pos9'] != '')?  filter_var($request['pos9'], FILTER_SANITIZE_NUMBER_INT) : '_';
             $check['position'] = ' AND( product_phone LIKE "%0'.$pos1.''.$pos2.''.$pos3.''.$pos4.'%'.$pos5.''.$pos6.''.$pos7.''.$pos8.''.$pos9.'%") ';
             $sql .= $check['position'];
         }
+
+        if(isset($request['package']) && filter_var($request['package'], FILTER_SANITIZE_NUMBER_INT) !== "") {
+            $package = filter_var($request['package'], FILTER_SANITIZE_NUMBER_INT);
+            $sql .= " AND FIND_IN_SET($package, product_package) > 0 ";
+        }
         
         
-        if(isset($request['sum']) && $request['sum'] !== ""){
-            $sql .= " AND `product_sumber` = $request[sum] ";
+        if(isset($request['sum']) && filter_var($request['sum'], FILTER_SANITIZE_NUMBER_INT) !== ""){
+            $sum = filter_var($request['sum'], FILTER_SANITIZE_NUMBER_INT);
+            $sql .= " AND `product_sumber` = $sum ";
         }
         
         if(isset($request['sort'])){
@@ -141,12 +150,12 @@ class BerLuckyMonthlyController extends Controller
             }
         }
         
-        if(isset($request['min']) && $request['min'] !== ""){
+        if(isset($request['min']) && FILTER_VAR($request['min'],FILTER_SANITIZE_NUMBER_INT) !== ""){
             $min = FILTER_VAR($request['min'],FILTER_SANITIZE_NUMBER_INT);
             $sql .= " AND `product_price` >= $min ";
         }
 
-        if(isset($request['max']) && $request['max'] !== ""){
+        if(isset($request['max']) && FILTER_VAR($request['max'],FILTER_SANITIZE_NUMBER_INT) !== ""){
             $max = FILTER_VAR($request['max'],FILTER_SANITIZE_NUMBER_INT);
             $sql .= " AND `product_price` <= $max ";
         }
@@ -182,17 +191,18 @@ class BerLuckyMonthlyController extends Controller
         if(!empty($request['improve'])){
             $check['improve'] = explode(',', $request['improve']);
             if(!empty($check['improve'])){
-              foreach($check['improve']  as $key =>$val){ 
+              foreach($check['improve']  as $key =>$val){
+                $val = filter_var($val,FILTER_SANITIZE_NUMBER_INT); 
                 if($val == ""){ continue; }
                 $sql .= " AND product_improve LIKE '%,".$val.",%' ";
               }
             }
         }
 
-        // dd($sql);
         $cate_val = null;
         if(isset($request['cate']) && $request['cate'] != 0){
-            $sql .=  " AND( product_category LIKE '%,".$request['cate'].",%' ) ";
+            $cate = filter_var($request['cate'], FILTER_SANITIZE_NUMBER_INT);
+            $sql .=  " AND( product_category LIKE '%,".$cate.",%' ) ";
         }
 
         if(!empty($request['auspicious'])){
@@ -206,7 +216,6 @@ class BerLuckyMonthlyController extends Controller
             }
             $sql .= " ) ";
         }
-        // dd($sql);
 
         $getpost = $check;
         $getpost['sql'] = $sql;
@@ -216,11 +225,15 @@ class BerLuckyMonthlyController extends Controller
 
     public function detailber_page($tel) {
         $berproduct = BerproductMonthly::where('product_phone', $tel)->first();
+        $explodePackage = explode(',', $berproduct->product_package);
+        $package = Post::whereIn('id', $explodePackage)
+                            ->where('category', 'LIKE', '%8%')
+                            ->get();
         $data_sumber = $this->get_data_sumber($tel);
         $data_fortune = $this->fortune_tel($tel);
         $score = $this->getscore_fortune($data_fortune);
 
-        return view('frontend.pages.bermonthly_lucky.detail_ber', compact('berproduct', 'data_sumber', 'data_fortune', 'score'));
+        return view('frontend.pages.bermonthly_lucky.detail_ber', compact('berproduct', 'package', 'data_sumber', 'data_fortune', 'score'));
     }
 
     public function fortune_page($tel) {
@@ -354,6 +367,7 @@ class BerLuckyMonthlyController extends Controller
         // method import new ber 
         Excel::import(new BerMonthlyImportClass, $file);
 
+        // generate product_category
         $this->getProductByCategory();
 
         return response()->json([
@@ -368,7 +382,7 @@ class BerLuckyMonthlyController extends Controller
             ->where('status', '=', true)
             ->orderBy('priority', 'ASC')
             ->get();
-        // dd($reesultCate);
+
         foreach($reesultCate as $cateVal) {
             // DB::table('berproduct_monthlies')
             // ->where('product_category', 'like', '%,' . $cateVal['bercate_id'] . ',%')
@@ -423,6 +437,8 @@ class BerLuckyMonthlyController extends Controller
                 ]);
             }
         }
+
+
     }
 
     public function export_excel() {
