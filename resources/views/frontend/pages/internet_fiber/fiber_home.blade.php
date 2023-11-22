@@ -158,7 +158,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {{-- <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt=""> --}}
@@ -242,7 +242,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {{-- <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt=""> --}}
@@ -326,7 +326,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {{-- <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt=""> --}}
@@ -471,7 +471,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {{-- <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt=""> --}}
@@ -616,7 +616,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {{-- <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt=""> --}}
@@ -703,7 +703,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {{-- <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt=""> --}}
@@ -787,7 +787,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {{-- <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt=""> --}}
@@ -871,7 +871,7 @@
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
+                <a href="/fiber/true_dtac"
                 class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
