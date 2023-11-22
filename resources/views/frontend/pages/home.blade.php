@@ -257,7 +257,7 @@
                             </div>
 
                             <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] ">
-                                <img src="images/Ellipse 6.png" alt="" class="px-4 py-2">
+                                <img src="/images/Ellipse 6.png" alt="" class="px-4 py-2">
                                 <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4 ">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา
                                     นำพาสู่ความสำเร็จ ( แพ็กเกจนี้ใช้ฟรี 3 เดือน )</p>
                             </div>
