@@ -237,25 +237,4 @@ class FiberController extends BaseController
 
         return $fiberProduct;
     }
-
-    private function updatePriority($table, $priority)
-    {
-        $duplicatePriority = DB::table($table)
-            ->where('priority', '=', $priority)
-            ->where('delete_status', '=', 0)
-            ->first();
-
-        if ($duplicatePriority) {
-            // update priority
-            $productUpdate = DB::table($table)
-                ->where('priority', '>=', $priority)
-                ->get();
-
-            foreach ($productUpdate as $product) {
-                DB::table($table)->where('id', $product->id)->update([
-                    'priority' => $product->priority + 1
-                ]);
-            }
-        }
-    }
 }

@@ -17,7 +17,7 @@ class BaseController extends Controller
     }
 
     public function queryAccount($id) {
-        $account = DB::select("SELECT  
+        $account = DB::select("SELECT
                 users.email,
                 users.username,
                 admin_roles.role_name,
@@ -31,8 +31,8 @@ class BaseController extends Controller
                 ac.language,
                 ac.admin_verify_at,
                 ac.updated_at
-            FROM users 
-            INNER JOIN admin_accounts as ac ON users.id = ac.account_id 
+            FROM users
+            INNER JOIN admin_accounts as ac ON users.id = ac.account_id
             INNER JOIN admin_roles ON admin_roles.id = ac.admin_level
             WHERE users.id = ? ", [$id]);
         return $account;
@@ -46,7 +46,7 @@ class BaseController extends Controller
                 'description' => "You have no permission"
             ], 409);
         }
-        
+
         if($level > 0) {
             if($auth->admin_level > $level) {
                 return response()->json([
@@ -58,10 +58,31 @@ class BaseController extends Controller
         return $auth;
     }
 
+    public function updatePriority($table, $priority)
+    {
+        $duplicatePriority = DB::table($table)
+            ->where('priority', '=', $priority)
+            ->where('delete_status', '=', 0)
+            ->first();
+
+        if ($duplicatePriority) {
+            // update priority
+            $productUpdate = DB::table($table)
+                ->where('priority', '>=', $priority)
+                ->get();
+
+            foreach ($productUpdate as $product) {
+                DB::table($table)->where('id', $product->id)->update([
+                    'priority' => $product->priority + 1
+                ]);
+            }
+        }
+    }
+
     // // $set = "priority = priority+1";
     // // $where = "priority >= '".$post_priority_new."' AND category LIKE '%".$cate_id."%'";
 
-    // public function priorityAutoUpdate($target, $tableName, $columnName, $conditions = "") { 
+    // public function priorityAutoUpdate($target, $tableName, $columnName, $conditions = "") {
     //     $sql = "UPDATE {$tableName} SET {$columnName} = {$columnName} + 1 WHERE {$columnName} >= {$target} {$condition} ";
     //     return DB::update($sql,[]);
     // }

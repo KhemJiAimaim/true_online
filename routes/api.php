@@ -100,6 +100,11 @@ Route::prefix('backoffice/v1')->group(function () {
         // Package
         Route::prefix('package/')->group(function () {
             Route::get('cate/data', [PackageController::class, 'packageCateData']);
+            Route::patch('cate/updatepin/{id}', [PackageController::class, 'updatePinCate']);
+            Route::patch('cate/updatedisplay/{id}', [PackageController::class, 'updateDisplayCate']);
+            Route::post('cate/create', [PackageController::class, 'createPackageCate']);
+            Route::post('cate/update/{id}', [PackageController::class, 'updatePackageCate']);
+            Route::delete('cate/delete/{id}', [PackageController::class, 'deletePackageCate']);
 
         });
 
