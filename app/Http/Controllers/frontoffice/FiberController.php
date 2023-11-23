@@ -10,6 +10,7 @@ use App\Models\Post;
 
 class FiberController extends Controller
 {
+    // หน้ารวมสินค้า Fiber
     public function homePage()
     {   
         $cate_fiber = Category::where('cate_parent_id', 2)
@@ -19,35 +20,53 @@ class FiberController extends Controller
         return view("frontend.pages.internet_fiber.fiber_home",compact('cate_fiber', 'fiber_products'));
     }
 
+    // สินค้า Fiber เฉพาะหมวดหมู่
     public function true_dtac($cate_url)
     {
-        // $cate_fiber = Category::select('id')->where('cate_url', $cate_url)->first();
-        // $fiber_products = FiberProduct::where('fiber_cate_id', $cate_fiber->id)->orderBy('priority')->get();
+        $cate_fiber = Category::where('cate_parent_id', 2)
+            ->orderBy('cate_priority', 'ASC')
+            ->get();
+
+        $current_cate = [];
+        foreach($cate_fiber as $cate){
+            if($cate->cate_url == $cate_url){
+                $current_cate['keyword'] = $cate->cate_keyword;
+                $current_cate['description'] = $cate->cate_description;
+                break;
+            }
+        }
+
         $fiber_products = FiberProduct::join('categories', 'fiber_products.fiber_cate_id', '=', 'categories.id')
-        ->select('fiber_products.*')
-        ->where('categories.cate_url', $cate_url)
-        ->orderBy('fiber_products.priority')
-        ->get();
-        return view("frontend.pages.internet_fiber.true_dtac", compact( 'fiber_products'));
+            ->select('fiber_products.*')
+            ->where('categories.cate_url', $cate_url)
+            ->orderBy('fiber_products.priority')
+            ->get();
+        return view("frontend.pages.internet_fiber.true_dtac", compact( 'fiber_products','current_cate','cate_fiber'));
     }
 
+    // รายละเอียดสินค้า Fiber
     public function detail_true_dtac($id)
     {
-        $fiber_products = FiberProduct::find($id);
-
+        // $fiber_products = FiberProduct::find($id);
+        $fiber_products = FiberProduct::join('categories', 'fiber_products.fiber_cate_id', '=', 'categories.id')
+            ->select('fiber_products.*', 'categories.cate_keyword','categories.cate_description')
+            ->where('fiber_products.id', $id)
+            ->orderBy('fiber_products.priority')
+            ->first();
         
         $benefit_ids = explode(',', $fiber_products->benefit_ids);
         $posts = Post::select('title','thumbnail_link')->whereIn('id', $benefit_ids)->get();
 
         $privilege_ids = explode(',', $fiber_products->privilege_ids);
-        $privilege = Post::select('title','thumbnail_link')->whereIn('id', $privilege_ids)->get();
+        $privilege = Post::select('title','thumbnail_link','content')->whereIn('id', $privilege_ids)->get();
  
         return view("frontend.pages.internet_fiber.detail_true_dtac", compact('fiber_products','posts', 'privilege'));
     }
 
-    public function form_true_dtac()
+    public function form_true_dtac($id)
     {
-        return view("frontend.pages.internet_fiber.form_true_dtac");
+        $product = FiberProduct::find($id);
+        return view("frontend.pages.internet_fiber.form_true_dtac", compact('product'));
     }
 
     public function fiber_guarantee()

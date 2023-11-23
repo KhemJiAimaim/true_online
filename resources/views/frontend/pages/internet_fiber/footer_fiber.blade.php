@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] relative ">
+<div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] relative overflow-hidden">
     <img class=" absolute right-0 top-0" src="/images/circle/Intersect (3).png" alt="">
     <div class="p-6 flex justify-center gap-[2rem] md:gap-[4rem] 2xl:gap-[15rem]">
         <div class="flex flex-col items-center">

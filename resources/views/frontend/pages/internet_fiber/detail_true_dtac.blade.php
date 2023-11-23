@@ -70,9 +70,9 @@
     <div class="2xl:my-16">
         <section class="py-2 px-3">
             <div class="py-6 mb-6">
-                <p class="text-[#000] mt-2 mb-2 2xl:text-[1.5rem] text-[18px] font-medium">{{$fiber_products->title}}</p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[1.5rem] text-[18px] font-medium">{{$fiber_products->cate_keyword}}</p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[18px] text-[16px]">
-                    แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000
+                    {{$fiber_products->cate_description}}
                 </p>
             </div>
 
@@ -81,87 +81,79 @@
             {{-- มหัศจรรย์ --}}
 
             <div
-                class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-4 m-auto p-4 mt-10 ">
+                class="max-w-[1536px] gap-4 m-auto p-4 mt-10 ">
 
-                <div class="drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4">
-                    <p class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
-                        {{$fiber_products->title}}
-                    </p>
-                    <div class="grid grid-cols-3 px-10 mt-4">
-                        <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
-                        <p class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-4xl pt-3">
-                            {{ number_format($fiber_products->price_per_month) }}
+                <div class="flex flex-wrap justify-center gap-4 mx-auto">
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4">
+                        <p class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
+                            {{$fiber_products->title}}
                         </p>
-                        <p class="text-black font-medium text-[1rem]">บาท<br>/เดือน</p>
+                        <div class="grid grid-cols-3 px-10 mt-4">
+                            <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
+                            <p class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-4xl pt-3">
+                                {{ number_format($fiber_products->price_per_month) }}
+                            </p>
+                            <p class="text-black font-medium text-[1rem]">บาท<br>/เดือน</p>
+                        </div>
+                        <p class="text-md mt-2">ระยะสัญญา {{$fiber_products->duration}} เดือน</p>
                     </div>
-                    <p class="text-md mt-2">ระยะสัญญา {{$fiber_products->duration}} เดือน</p>
-                </div>
-
-                @if($fiber_products->fiber_cate_id == 10)
-                <div class="drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
-                    <div class="orange-plate-container">
-                        <div class="orange-plate-group">
-                            <div class="orange-plate-box-s">
-                                <div class="orange-plate-circleS"></div>
-                                <div class="orange-plate-textboxS"></div>
-                            </div>
-                            <div class="orange-plate-textboxC">
-                                <p class="orange-plate-text text-white text-xl items-center">พิเศษ</p>
-                            </div>
-                            <div class="orange-plate-box-e">
-                                <div class="orange-plate-textboxE"></div>
-                                <div class="orange-plate-circleE"></div>
+    
+                    @if($fiber_products->fiber_cate_id == 10)
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
+                        <div class="orange-plate-container">
+                            <div class="orange-plate-group">
+                                <div class="orange-plate-box-s">
+                                    <div class="orange-plate-circleS"></div>
+                                    <div class="orange-plate-textboxS"></div>
+                                </div>
+                                <div class="orange-plate-textboxC">
+                                    <p class="orange-plate-text text-white text-xl items-center">พิเศษ</p>
+                                </div>
+                                <div class="orange-plate-box-e">
+                                    <div class="orange-plate-textboxE"></div>
+                                    <div class="orange-plate-circleE"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <p class="mt-4 font-medium text-[18px]">สำหรับลูกค้าดีแทค และ ทรูมูฟ เอช รายเดือน</p>
-                    <div class="grid grid-cols-3 px-10 mt-3">
-                        <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
-                        <p class="font-bold text-center text-4xl pt-3">{{ number_format($fiber_products->special_price) }}</p>
-                        <p class="text-black font-medium text-[1rem] ">บาท<br>/เดือน</p>
-                    </div>
-                </div>
-                @endif
-
-                @php 
-                    $download = 0;
-                    $upload = 0;
-                    $unit_download = "Mbps";
-                    $unit_upload = "Mbps";
-                    if($fiber_products->download_speed >= 1000) {
-                        $download = $fiber_products->download_speed / 1000;
-                        $unit_download = "Gbps";
-                    } else {
-                        $download = $fiber_products->download_speed;
-                    }
-                    if($fiber_products->upload_speed >= 1000) {
-                        $upload = $fiber_products->upload_speed / 1000;
-                        $unit_upload = "Gbps";
-                    } else {
-                        $upload = $fiber_products->upload_speed;
-                    }
-                @endphp
-                <div class="drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
-                    <div class="grid grid-cols-2 mt-6">
-                        <div class="flex justify-center">
-                            <img src="/images/Rectangle 1233.png" alt="" class="w-[7rem] h-[7rem]">
+    
+                        <p class="mt-4 font-medium text-[18px]">สำหรับลูกค้าดีแทค และ ทรูมูฟ เอช รายเดือน</p>
+                        <div class="grid grid-cols-3 px-10 mt-3">
+                            <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
+                            <p class="font-bold text-center text-4xl pt-3">{{ number_format($fiber_products->special_price) }}</p>
+                            <p class="text-black font-medium text-[1rem] ">บาท<br>/เดือน</p>
                         </div>
-                        <div class="">
-                            <p
-                                class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-2xl text-left">
-                                ความเร็ว</p>
-                            <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
-                            <div class="flex justify-start py-6 ">
-                                <p class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-4xl">
-                                    {{$download}}
-                                </p>
-                                <div class="border-l border border-gray-500 text-center mx-6 rounded-full "></div>
-                                <p class="text-md text-md text-left font-medium">{{$unit_download}}<br>/{{$upload}}{{$unit_upload}}</p>
+                    </div>
+                    @endif
+    
+                    @php 
+                        $download = ($fiber_products->download_speed >= 1000) ? ($fiber_products->download_speed / 1000) : $fiber_products->download_speed;
+                        $unit_download = ($fiber_products->download_speed >= 1000) ? "Gbps" : "Mbps";
+
+                        $upload = ($fiber_products->upload_speed >= 1000) ? ($fiber_products->upload_speed / 1000) : $fiber_products->upload_speed;
+                        $unit_upload = ($fiber_products->upload_speed >= 1000) ? "Gbps" : "Mbps";
+                    @endphp
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
+                        <div class="grid grid-cols-2 mt-6">
+                            <div class="flex justify-center">
+                                <img src="/images/Rectangle 1233.png" alt="" class="w-[7rem] h-[7rem]">
+                            </div>
+                            <div class="">
+                                <p
+                                    class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-2xl text-left">
+                                    ความเร็ว</p>
+                                <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
+                                <div class="flex justify-start py-6 ">
+                                    <p class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-4xl">
+                                        {{$download}}
+                                    </p>
+                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full "></div>
+                                    <p class="text-md text-md text-left font-medium">{{$unit_download}}<br>/{{$upload}}{{$unit_upload}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
         {{-- --- --}}
@@ -188,10 +180,10 @@
             <div class="flex justify-center mt-2">
                 <div class="flex flex-col justify-center w-[550px] gap-4 ">
                     @foreach($privilege as $previl)
-                    <div class="flex">
+                    <div class="flex items-center">
                         <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
-                        <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p>
-                        <p class="text-[16px]">{{$previl->title}}</p>
+                        {{-- <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p> --}}
+                        <p class="text-[16px]">{!! $previl->content !!}</p>
                     </div>
                     @endforeach
                     {{-- <div class="flex">
@@ -211,7 +203,7 @@
 
 
         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center">
-            <a href="/fiber/form_true_dtac"
+            <a href="{{ url('/fiber/form_true_dtac/'.$fiber_products->id) }}"
                 class="py-2.5 px-5 mr-2 mb-2 text-[18px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
         </div>
         <a href="" class="text-[#838383] text-[16px]">ข้อกำหนดและเงื่อนไข</a>

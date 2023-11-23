@@ -8,7 +8,9 @@
     {{-- <link rel="stylesheet" href="resources/css/app.css"> --}}
     {{-- <link rel="stylesheet" href="/public/css/home.css"> --}}
     @vite('resources/css/app.css', 'resources/js/app.js')
-    <title>Document</title>
+    <title>True Online | @yield('title')</title>
+    <meta name="description" content="คำอธิบายเนื้อหาเว็บไซต์">
+    <meta name="keywords" content="true,true online,เบอร์มงคล,fiber">
     @yield('style')
 </head>
 
