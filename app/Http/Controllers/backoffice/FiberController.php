@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class ProductController extends BaseController
+class FiberController extends BaseController
 {
     // Fiber
     public function fiberData(Request $request)
@@ -236,26 +236,5 @@ class ProductController extends BaseController
             ->get();
 
         return $fiberProduct;
-    }
-
-    private function updatePriority($table, $priority)
-    {
-        $duplicatePriority = DB::table($table)
-            ->where('priority', '=', $priority)
-            ->where('delete_status', '=', 0)
-            ->first();
-
-        if ($duplicatePriority) {
-            // update priority
-            $productUpdate = DB::table($table)
-                ->where('priority', '>=', $priority)
-                ->get();
-
-            foreach ($productUpdate as $product) {
-                DB::table($table)->where('id', $product->id)->update([
-                    'priority' => $product->priority + 1
-                ]);
-            }
-        }
     }
 }

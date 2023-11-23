@@ -67,12 +67,13 @@
 
 @extends('frontend.layouts.main')
 @section('content')
-    <div class="my-16">
-        <section class="py-6">
+    <div class="2xl:my-16">
+        <section class="py-2 px-3">
             <div class="py-6 mb-6">
-                <p class="text-[#000] mt-2 mb-2 text-[2rem] ">True Gigatex PRO Special.</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[18px]">แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช
-                    รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000</p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[1.5rem] text-[18px] font-medium">{{$fiber_products->title}}</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[18px] text-[16px]">
+                    แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000
+                </p>
             </div>
 
             {{-- มหัศจรรย์ --}}
@@ -83,19 +84,20 @@
                 class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-4 m-auto p-4 mt-10 ">
 
                 <div class="drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4">
-                    <p
-                        class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
-                        True Gigatex PRO Specail 999</p>
+                    <p class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
+                        {{$fiber_products->title}}
+                    </p>
                     <div class="grid grid-cols-3 px-10 mt-4">
                         <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
-                        <p
-                            class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-4xl pt-3">
-                            999</p>
-                        <p class="text-black font-medium text-[1rem] ">บาท<br>/เดือน</p>
+                        <p class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-4xl pt-3">
+                            {{ number_format($fiber_products->price_per_month) }}
+                        </p>
+                        <p class="text-black font-medium text-[1rem]">บาท<br>/เดือน</p>
                     </div>
-                    <p class="text-md mt-2">ระยะสัญญา 24 เดือน</p>
+                    <p class="text-md mt-2">ระยะสัญญา {{$fiber_products->duration}} เดือน</p>
                 </div>
 
+                @if($fiber_products->fiber_cate_id == 10)
                 <div class="drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
                     <div class="orange-plate-container">
                         <div class="orange-plate-group">
@@ -116,14 +118,30 @@
                     <p class="mt-4 font-medium text-[18px]">สำหรับลูกค้าดีแทค และ ทรูมูฟ เอช รายเดือน</p>
                     <div class="grid grid-cols-3 px-10 mt-3">
                         <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
-                        <p class="font-bold text-center text-4xl pt-3">
-                            799</p>
+                        <p class="font-bold text-center text-4xl pt-3">{{ number_format($fiber_products->special_price) }}</p>
                         <p class="text-black font-medium text-[1rem] ">บาท<br>/เดือน</p>
                     </div>
-
-
                 </div>
+                @endif
 
+                @php 
+                    $download = 0;
+                    $upload = 0;
+                    $unit_download = "Mbps";
+                    $unit_upload = "Mbps";
+                    if($fiber_products->download_speed >= 1000) {
+                        $download = $fiber_products->download_speed / 1000;
+                        $unit_download = "Gbps";
+                    } else {
+                        $download = $fiber_products->download_speed;
+                    }
+                    if($fiber_products->upload_speed >= 1000) {
+                        $upload = $fiber_products->upload_speed / 1000;
+                        $unit_upload = "Gbps";
+                    } else {
+                        $upload = $fiber_products->upload_speed;
+                    }
+                @endphp
                 <div class="drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
                     <div class="grid grid-cols-2 mt-6">
                         <div class="flex justify-center">
@@ -135,11 +153,11 @@
                                 ความเร็ว</p>
                             <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
                             <div class="flex justify-start py-6 ">
-                                <p
-                                    class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-4xl">
-                                    1</p>
+                                <p class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-4xl">
+                                    {{$download}}
+                                </p>
                                 <div class="border-l border border-gray-500 text-center mx-6 rounded-full "></div>
-                                <p class="text-md text-md text-left font-medium">Gbps<br>/500Mbps</p>
+                                <p class="text-md text-md text-left font-medium">{{$unit_download}}<br>/{{$upload}}{{$unit_upload}}</p>
                             </div>
                         </div>
                     </div>
@@ -148,67 +166,45 @@
         </section>
         {{-- --- --}}
 
-        <section class="py-16">
-            <p class="text-xl font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
+        <section class="py-16 px-5">
+            <p class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
             <!-- Swiper -->
-            <div class="swiper items-center mx-auto">
-                <div class="swiper-wrapper">
+            <div class="swiper items-center mx-auto ">
+                <div class="swiper-wrapper ">
+                    @foreach($posts as $pos)
                     <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1223.png" alt="" class="w-[171px] h-[171px] block ">
-                        <p>กล่องทรูไอดีทีวี +True ID Basic HD</p>
+                        <img src="/{{$pos->thumbnail_link}}" alt="" class="w-[171px] h-[150px] se:w-[150px] block ">
+                        <p class="se:text-[16px]">{{$pos->title}}</p>
                     </div>
-                    <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1221.png" alt="" class="w-[171px] h-[171px]">
-                        <p>True Gigatex Fiber Router WiFi6</p>
-                    </div>
-                    <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1225.png" alt="" class="w-[171px] h-[171px]">
-                        <p>EPL ฤดูกาล 2023/24 สด ครบทุกแมตช์</p>
-                    </div>
-                    <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1220.png" alt="" class="w-[171px] h-[171px]">
-                        <p>กล่องทรูไอดีทีวี +True ID Basic HD</p>
-                    </div>
-                    <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1227.png" alt="" class="w-[171px] h-[171px]">
-                        <p>VIU Premium นาน 24 เดือน</p>
-                    </div>
-                    <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1224.png" alt="" class="w-[171px] h-[171px]">
-                        <p>อุปกรณ์กระจายสัญญาณ Mesh WiFi 6</p>
-                    </div>
-                    <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                        <img src="/images/Rectangle 1223.png" alt="" class="w-[171px] h-[171px]">
-                        <p> ชำระค่าแรกเข้า 890 บาท รับกล้อง CCTV</p>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="swiper-button-next ml-20"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-
-
         </section>
 
         <section class="py-16 ">
-            <div class="text-xl font-medium mb-6">สิทธิพิเศษ</div>
+            <div class="2xl:text-[1.5rem] text-[18px] font-medium mb-6">สิทธิพิเศษ</div>
             <div class="flex justify-center mt-2">
-                <div class="flex flex-col justify-center w-[500px]">
+                <div class="flex flex-col justify-center w-[550px] gap-4 ">
+                    @foreach($privilege as $previl)
                     <div class="flex">
-                        <img src="/images/quill_star.png" alt="" class="mr-2">
-                        <p class="text-red-500 font-medium mr-2">ฟรี!</p>
-                        <p> สิทธิยืม True Gigatex Fiber Router Pro รองรับ WiFi6</p>
+                        <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
+                        <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p>
+                        <p class="text-[16px]">{{$previl->title}}</p>
+                    </div>
+                    @endforeach
+                    {{-- <div class="flex">
+                        <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
+                        <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p>
+                        <p class="text-[16px]"> ค่าติดตั้งและค่าเดินสายอินเทอร์เน็ต</p>
                     </div>
                     <div class="flex">
-                        <img src="/images/quill_star.png" alt="" class="mr-2">
-                        <p class="text-red-500 font-medium mr-2">ฟรี!</p>
-                        <p> ค่าติดตั้งและค่าเดินสายอินเทอร์เน็ต</p>
-                    </div>
-                    <div class="flex">
-                        <img src="/images/quill_star.png" alt="" class="mr-2">
-                        <p class="text-red-500 font-medium mr-2">ฟรี!</p>
-                        <p class="text-left"> ชำระค่าแรกเข้าเพียง 890 บาท (จากปกติ 2,000 บาท) รับทันที! กล้อง CCTV Full HD
+                        <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
+                        <p class="text-red-500 font-medium mr-2 text-[16px]">ฟรี!</p>
+                        <p class="text-left text-[16px]"> ชำระค่าแรกเข้าเพียง 890 บาท (จากปกติ 2,000 บาท) รับทันที! กล้อง CCTV Full HD
                             1080p พร้อมดูย้อนหลัง 7 วัน (รวมมูลค่า 3,666 บาท)</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
@@ -218,7 +214,7 @@
             <a href="/fiber/form_true_dtac"
                 class="py-2.5 px-5 mr-2 mb-2 text-[18px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
         </div>
-        <a href="" class="text-[#838383]">ข้อกำหนดและเงื่อนไข</a>
+        <a href="" class="text-[#838383] text-[16px]">ข้อกำหนดและเงื่อนไข</a>
 
 
     </div>

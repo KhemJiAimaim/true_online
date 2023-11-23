@@ -91,10 +91,27 @@ Route::prefix('backoffice/v1')->group(function () {
         /* ProductController */
         // Fiber
         Route::prefix('fiber/')->group(function () {
-            Route::get('data', [ProductController::class, 'fiberData']);
-            Route::put('product/update', [ProductController::class, 'updateFiberProduct']);
-            Route::post('product/create', [ProductController::class, 'createFiberProduct']);
-            Route::delete('product/delete/{id}', [ProductController::class, 'deleteFiberProduct']);
+            Route::get('data', [FiberController::class, 'fiberData']);
+            Route::put('product/update', [FiberController::class, 'updateFiberProduct']);
+            Route::post('product/create', [FiberController::class, 'createFiberProduct']);
+            Route::delete('product/delete/{id}', [FiberController::class, 'deleteFiberProduct']);
+        });
+
+        // Package
+        Route::prefix('package/')->group(function () {
+            // Category
+            Route::get('cate/data', [PackageController::class, 'packageCateData']);
+            Route::patch('cate/updatepin/{id}', [PackageController::class, 'updatePinCate']);
+            Route::patch('cate/updatedisplay/{id}', [PackageController::class, 'updateDisplayCate']);
+            Route::post('cate/create', [PackageController::class, 'createPackageCate']);
+            Route::post('cate/update/{id}', [PackageController::class, 'updatePackageCate']);
+            Route::delete('cate/delete/{id}', [PackageController::class, 'deletePackageCate']);
+
+            // Product
+            Route::get('product/index', [PackageController::class, 'packageIndex']);
+            Route::patch('product/updatedisplay/{id}', [PackageController::class, 'updateDisplayProduct']);
+            Route::delete('product/delete/{id}', [PackageController::class, 'deletePackageProduct']);
+
         });
 
     });

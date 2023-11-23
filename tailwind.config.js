@@ -10,12 +10,14 @@ module.exports = {
       screens: {
         ss: "360px",
         se: "375px",
+        es: "412px",
         xs: "480px",
+        ex: "540px",
         dm: "912px"
       },
 
       scale: {
-        '175': '1.75',
+        '115': '1.15',
       },
 
     },

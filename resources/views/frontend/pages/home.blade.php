@@ -3,39 +3,40 @@
 
 
 @section('content')
-    <div class="2xl:mt-16 mx-2">
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
+    <div class="2xl:mt-16">
+        
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
             <div class="grid grid-cols-4 py-6 w-[500px] 2xl:w-[800px] items-center mx-auto">
                 <a href="#fiber"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/images/solar_wi-fi-router-linear (1).png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เน็ตบ้านไฟเบอร์</p>
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้านไฟเบอร์</p>
                 </a>
 
                 <a
                     href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">เบอร์มงคล</p>
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์มงคล</p>
                 </a>
 
 
                 <a href="#sim"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[40px]" src="/images/system-uicons_box-add1.png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">แพ็กเกจเน็ตซิมเทพ</p>
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">แพ็กเกจเน็ตซิมเทพ</p>
                 </a>
 
                 <a href="#travel"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
-                    <p class="2xl:text-[18px] text-[16px]">ซิมท่องเที่ยว</p>
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">ซิมท่องเที่ยว</p>
                 </a>
 
             </div>
         </div>
 
         {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container pt-4">
+        <div class="title-plate-container pt-4 px-3">
             <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
                 <div class="title-plate-line"></div>
             </div>
@@ -56,14 +57,14 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto">
+        <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto px-3">
             <span class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">ค้นหาเบอร์มงคล แพ็กเกจเสริม
                 อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
                 และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
         </div>
 
         {{-- --- --}}
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4">
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4 px-3">
             <div
                 class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-4 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
 
@@ -131,7 +132,8 @@
         {{-- --- --}}
 
 
-        <section id="fiber" class="bg-gray-100 py-6 relative z-0">
+        <section id="fiber" class="bg-gray-100 py-6 relative z-0 px-3">
+            
             <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">อินเทอร์เน็ตไฟเบอร์</p>
             <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม
@@ -209,16 +211,16 @@
 
             </div>
 
-            <div class="items-center mx-auto mt-4">
+            <div class="items-center mx-auto mt-4 pt-6">
                 <a href="/fiber"
-                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[18px]  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
         </section>
         {{-- --- --}}
 
 
-        <section id="ber_lucky" class="bg-white py-6">
+        <section id="ber_lucky" class="bg-white py-6 px-3">
 
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">เบอร์มงคลรายเดือน</p>
             <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ
@@ -254,9 +256,9 @@
                                 </div>
                             </div>
 
-                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] items-center">
-                                <img src="images/Ellipse 6.png" alt="" class="px-4">
-                                <p class="text-left text-[16px] py-1 col-span-4">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา
+                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] ">
+                                <img src="/images/Ellipse 6.png" alt="" class="px-4 py-2">
+                                <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4 ">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา
                                     นำพาสู่ความสำเร็จ ( แพ็กเกจนี้ใช้ฟรี 3 เดือน )</p>
                             </div>
 
@@ -299,16 +301,16 @@
                 </div>
 
             </div>
-            <div class="items-center">
+            <div class="items-center mx-auto mt-4 pt-6">
                 <a href="/fiber"
-                    class="py-3 px-5 mr-2 mb-2 mt-2 2xl:text-[18px]  md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
         {{-- --- --}}
 
 
-        <section id="sim" class="bg-gray-100 py-6 relative z-0">
+        <section id="sim" class="bg-gray-100 py-6 relative z-0 px-3">
             <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมเติมเงิน</p>
@@ -338,7 +340,7 @@
 
                             <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
                                 <img src="images/Ellipse 6.png" alt="" class="px-4">
-                                <p class="text-left text-[16px] py-1 col-span-4">( เล่นฟรีเดือนแรก )
+                                <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">( เล่นฟรีเดือนแรก )
                                     เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
                                     True wifi max speed แบบไม่จำกัด)</p>
                             </div>
@@ -374,15 +376,15 @@
                 </div>
 
             </div>
-            <div class="items-center">
-                <a href="/prepaid_sim"
-                    class="py-2.5 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+            <div class="items-center mx-auto mt-4 pt-6">
+                <a href="/fiber"
+                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
         </section>
         {{-- --- --}}
 
-        <section id="travel" class="bg-white py-6">
+        <section id="travel" class="bg-white py-6 px-3">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมท่องเที่ยว</p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมสำหรับท่องเที่ยว
@@ -452,15 +454,17 @@
                 </div>
 
             </div>
-            <div class="items-center">
-                <button type="button"
-                    class="py-2.5 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</button>
+
+            <div class="items-center mx-auto mt-4 pt-6">
+                <a href="/fiber"
+                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
         {{-- --- --}}
 
-    </div>
+   
+</div>
 @endsection
 
 @section('scripts')

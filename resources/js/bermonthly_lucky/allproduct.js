@@ -1,4 +1,5 @@
 import axios from "axios";
+import { forEach } from "lodash";
 
 console.log("use js all product")
 
@@ -207,6 +208,7 @@ dislike.forEach(dislikeElement => {
 function product_search() {
 
   // เตรียมข้อมูล filter ber
+  const system_sim = document.querySelectorAll('#system-sim')
   const search_num = document.querySelectorAll('#search-num')
   const slc_sum = document.querySelector('#slc-sum').value;
   const favorite_num = document.querySelector('#txt_favorite').value;
@@ -219,25 +221,16 @@ function product_search() {
   const btn_dislike = document.querySelectorAll('#dislike'); 
   const improve_ber = document.querySelectorAll('#improve-ber'); 
   const cate_ber = document.querySelectorAll('#cate-ber'); 
-  
-  // let param = {
-  //   sum : slc_sum,
-  //   favorite_num : txt_favorite,
-  //   category : slc_category,
-  //   package : slc_package,
-  //   sort : slc_sort,
-  //   min : price_min.replace(/,/g, ""),
-  //   max : price_max.replace(/,/g, ""),
-  //   position: {},
-  //   like : [],
-  //   dislike : [],
-  //   predict : [],
-  //   cate : [],
-  // }
-  
-  
+
   let source = "?";
   let positions = {};
+
+  system_sim.forEach(element => {
+    if (element.classList.contains('selected')) {
+      const data_sim = element.getAttribute('data-sim')
+      source += "&sim="+data_sim
+    }
+  })
 
   search_num.forEach(input => {
     const position = input.getAttribute('data-position');
@@ -258,6 +251,10 @@ function product_search() {
 
   if(favorite_num !== "") {
     source += "&fav="+favorite_num
+  }
+
+  if(slc_package !== "") {
+    source += "&package="+slc_package
   }
 
   if(category !== "") {
@@ -333,6 +330,7 @@ function product_search() {
   let next_page = document.querySelector('#next-page')
   let fist_page = document.querySelector('#fist-page') 
   let last_page = document.querySelector('#last-page') 
+  let page_num = document.querySelectorAll('#page-num')
 
   const currentURL = window.location.href;
   const url = new URL(currentURL);
@@ -359,7 +357,6 @@ function product_search() {
       changePage(currentPage + 1);
     }
   })
-
   prev_page.addEventListener('click', () => {
     if (hasPrevPage) {
       changePage(currentPage - 1);
@@ -367,9 +364,19 @@ function product_search() {
   })
 
   fist_page.addEventListener('click', () => {
-    changePage(1)
+    if (hasPrevPage) {
+      changePage(1);
+    }
+  })
+  last_page.addEventListener('click', () => {
+    if (hasNextPage) {
+      changePage(data_page.total_page)
+    }
   })
 
-  last_page.addEventListener('click', () => {
-    changePage(data_page.total_page)
-  })
+  page_num.forEach(element => {
+    element.addEventListener('click', () => {
+      const numpage = element.getAttribute('data-index');
+      changePage(parseInt(numpage))
+    })
+  });
