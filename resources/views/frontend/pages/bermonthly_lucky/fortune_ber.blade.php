@@ -3,16 +3,17 @@
     <div class="text-left mt-[120px] max-xl:mt-[74px]">
 
         {{-- box fortune --}}
-        <div class="bg-[#F8F9FA] mb-10 ">
+        <div class="bg-[#F8F9FA]">
             <div
-                class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[90%] w-[90%] py-10 mx-auto flex max-xs:flex-col justify-center max-lg:grid max-lg:grid-cols-2 max-xs:grid-cols-1 gap-4">
-                <div class="bg-white flex flex-col p-4 rounded-[10px] drop-shadow-md">
-                    <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
-                    @php $formattedTel = substr($tel, 0, 3) . '-' . substr($tel, 3, 3) . '-' . substr($tel, 6); @endphp
-                    <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
+                class="2xl:w-[1536px] max-2xl:max-w-[80%] max-lg:max-w-[80%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col justify-between max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
+                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[35%]">
+                    <div class="bg-white flex flex-col drop-shadow-md rounded-[8px] h-full p-4">
+                        <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
+                        @php $formattedTel = substr($tel, 0, 3) . '-' . substr($tel, 3, 3) . '-' . substr($tel, 6); @endphp
+                        <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
+                    </div>
                 </div>
-
-                <div class="bg-white p-4 rounded-[10px] drop-shadow-md">
+                <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[35%]">
                     <div class="flex justify-between gap-4">
                         <h1 class="text-lg font-semibold">กราฟคะแนน</h1>
                         <div class="flex items-center cursor-pointer" id="manual-fortune">
@@ -29,8 +30,8 @@
                         </div>
                     </div>
                     <div class="mt-2 flex items-center justify-between gap-4 max-2xl:gap-2">
-                        <div class="w-[150px] h-[90px]">
-                            <canvas id="myChart"></canvas>
+                        <div class="w-[150px] h-[100px]">
+                            <canvas id="myChart" class="se:w-[97px]"></canvas>
                         </div>
 
                         @php
@@ -41,37 +42,37 @@
                             <div class="flex justify-between items-center gap-4">
                                 <div class="flex gap-1">
                                     <div class="w-4 h-4 bg-[#2AB200] rounded-[2px]"></div>
-                                    <p class="w-full">ความดี/สุข</p>
+                                    <p class="w-full text-[16px]">ความดี/สุข</p>
                                 </div>
-                                <div class="text-[#2AB200]">{{ $score['happy'] }}</div>
+                                <div class="text-[#2AB200] text-[16px]">{{ $score['happy'] }}</div>
                             </div>
                             <div class="flex justify-between items-center gap-4">
                                 <div class="flex gap-1">
                                     <div class="w-4 h-4 bg-[#CE090E] rounded-[2px]"></div>
-                                    <p class="w-full">ความร้าย/ทุกข์</p>
+                                    <p class="w-full text-[16px]">ความร้าย/ทุกข์</p>
                                 </div>
-                                <div class="text-[#CE090E]">{{ $score['sad'] }}</div>
+                                <div class="text-[#CE090E] text-[16px]">{{ $score['sad'] }}</div>
                             </div>
                             <div class="flex justify-between items-center gap-4">
                                 <div class="flex gap-1">
                                     <div class="w-4 h-4 bg-[#838383] rounded-[2px]"></div>
-                                    <p class="w-full">ความว่างเปล่า</p>
+                                    <p class="w-full text-[16px]">ความว่างเปล่า</p>
                                 </div>
-                                <div class="text-[#838383]">{{ $score['empty'] }}</div>
+                                <div class="text-[#838383] text-[16px]">{{ $score['empty'] }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 max-lg:col-span-2 max-xs:col-span-1">
-                    <div class="w-28 max-lg:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+                <div class="grid grid-cols-2 col-span-2 gap-8 max-lg:col-span-2 max-xs:col-span-1 2xl:w-[25%]">
+                    <div class="  bg-white text-center p-4 rounded-[10px] drop-shadow-md ">
                         <h1 class="text-lg font-semibold">เกรด</h1>
-                        <h1 class="text-4xl font-semibold mt-4">{{ $score['grade']->grade_name }}</h1>
+                        <h1 class="text-4xl font-semibold mt-8">{{ $score['grade']->grade_name }}</h1>
                     </div>
 
-                    <div class="w-28 max-lg:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+                    <div class="  bg-white text-center p-4 rounded-[10px] drop-shadow-md ">
                         <h1 class="text-lg font-semibold">ผลรวม</h1>
-                        <h1 class="text-4xl font-semibold mt-4">{{ $data_sumber->predict_sum }}</h1>
+                        <h1 class="text-4xl font-semibold mt-8">{{ $data_sumber->predict_sum }}</h1>
                     </div>
                 </div>
             </div>
@@ -128,15 +129,17 @@
         {{-- box manual --}}
 
         {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container">
-            <div class="title-plate-line"></div>
+        <div class="title-plate-container px-3 2xl:py-16 py-6">
+            <div class="mx-auto max-w-[1536px] max-2xl:max-w-[80%]  ">
+                <div class="title-plate-line"></div>
+            </div>
             <div class="plate-group">
                 <div class="plate-box-s">
                     <div class="plate-circleS"></div>
                     <div class="title-plate-textboxS"></div>
                 </div>
-                <div class="title-plate-textboxC">
-                    <p class="plate-text">คำทำนายคู่เลข</p>
+                <div class="title-plate-textboxC 2xl:w-[13%] xl:w-[15%] lg:w-[17%] md:w-[22%]">
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px] text-[18px]">คำทำนายคู่เลข</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -146,13 +149,13 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <div class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[90%] w-[90%] py-10 mx-auto">
+        <div class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[90%] w-[90%] pb-10 mx-auto">
 
             {{-- box meaning sum --}}
             <div class="bg-[#F8F9FA] p-4 rounded-[10px]">
                 <h1 class="text-lg font-semibold mb-1">ผลรวม {{ $data_sumber->predict_sum }} :
                     {{ $data_sumber->predict_name }}</h1>
-                <p class="indent-8">{{ $data_sumber->predict_description }}</p>
+                <p class="indent-8 text-[16px]">{{ $data_sumber->predict_description }}</p>
             </div>
             {{-- box meaning sum --}}
 
@@ -163,7 +166,7 @@
                     <div class="mb-4">
                         <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} :
                             {{ $data->prophecy_name }}</h1>
-                        <p class="indent-8">{{ $data->prophecy_desc }}</p>
+                        <p class="indent-8 text-[16px]">{{ $data->prophecy_desc }}</p>
                     </div>
                 @endforeach
             @else

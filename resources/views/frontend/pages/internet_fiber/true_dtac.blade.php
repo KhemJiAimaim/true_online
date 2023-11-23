@@ -4,59 +4,15 @@
     <div class="2xl:my-16">
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 px-3">
             <div class="grid grid-cols-7 px-3 py-6 se:w-[1000px] ss:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
-                <a href="#fiber"
+                @foreach($cate_fiber as $cate)
+                <a href="{{url('/fiber/true_dtac/'.$cate->cate_url)}}"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/images/arcticons_trueid.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เน็ตบ้าน</p>
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">สำหรับทรูและดีแทค</p>
+                    <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{$cate->cate_thumbnail}}" alt="">
+                    @foreach(explode(' ', $cate->cate_title) as $word)
+                        <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
+                    @endforeach
                 </a>
-
-                <a
-                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/images/iconoir1.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เน็ตบ้าน</p>
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]"> สำหรับใช้งานพื้นฐาน</p>
-                </a>
-
-
-                <a href="#sim"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[40px] mb-4 max-sm:mt-5" src="/images/icon-park-outline_shield-add (1).png"
-                        alt="">
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เน็ตบ้าน</p>
-                     <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">พร้อมประกัน</p>
-                </a>
-
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/images/gala_tv.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เน็ตบ้าน</p>
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">พร้อมทรูวิชั่น</p>
-                </a>
-
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[40px] mb-4 max-sm:mt-5" src="/images/solar_wi-fi-router-minimalistic-linear.png"
-                        alt="">
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เน็ตบ้าน</p>
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เลือกเราเตอร์เอง</p>
-                </a>
-
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[40px] mb-4 max-sm:mt-5" src="/images/ion_game-controller-outline.png"
-                        alt="">
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เน็ตบ้าน</p>
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">สำหรับเกมเมอร์</p>
-                </a>
-
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4  max-sm:mt-5" src="/images/iconoir_small-shop.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">เน็ตบ้าน</p>
-                    <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">สำหรับธุรกิจ SME</p>
-                </a>
-
+                @endforeach
             </div>
         </div>
 
@@ -67,14 +23,10 @@
         {{-- มหัศจรรย์ --}}
 
         <section id="fiber" class="py-10  z-0 px-3">
-            
-            {{-- <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt=""> --}}
-            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">True Gigatex PRO Special.</p>
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000</p>
-
+            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">{{$current_cate['keyword']}}</p>
+            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">{{$current_cate['description']}}</p>
 
             <div class="2xl:my-16 my-6 z-2">
-
                 <div
                     class="2xl:w-[1536px] xl:w-[1200px]  w-full grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-4 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2    xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     @foreach ($fiber_products as $product)
@@ -92,23 +44,13 @@
                                     <p class="py-3 text-[20px]">True Gigatex PRO Gold</p>
                                 </div>
                             </div>
+
                             @php 
-                                $download = 0;
-                                $upload = 0;
-                                $unit_download = "Mbps";
-                                $unit_upload = "Mbps";
-                                if($product->download_speed >= 1000) {
-                                    $download = $product->download_speed / 1000;
-                                    $unit_download = "Gbps";
-                                } else {
-                                    $download = $product->download_speed;
-                                }
-                                if($product->upload_speed >= 1000) {
-                                    $upload = $product->upload_speed / 1000;
-                                    $unit_upload = "Gbps";
-                                } else {
-                                    $upload = $product->upload_speed;
-                                }
+                                $download = ($product->download_speed >= 1000) ? ($product->download_speed / 1000) : $product->download_speed;
+                                $unit_download = ($product->download_speed >= 1000) ? "Gbps" : "Mbps";
+
+                                $upload = ($product->upload_speed >= 1000) ? ($product->upload_speed / 1000) : $product->upload_speed;
+                                $unit_upload = ($product->upload_speed >= 1000) ? "Gbps" : "Mbps";
                             @endphp
                             <div class="bg-white">
                                 <div class="flex justify-center py-6 ml-12">
@@ -141,7 +83,7 @@
                             </div>
 
                             <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
-                                <img class="absolute top-5 left-0" src="/images/Intersect (1).png" alt="">
+                                <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                 <div class="grid grid-cols-3 items-center">
                                     <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
                                     <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format($product->price_per_month) }}</p>
