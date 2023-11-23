@@ -93,9 +93,9 @@
                     <div class="w-full p-4 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px]">
                         <label class="text-white " for="input-fortune">กรอกเบอร์โทร</label>
                         <div class="w-full flex gap-2">
-                            <input class="w-full h-7 text-center rounded-[3px]" type="text" id="input-fortune"
+                            <input class="w-full h-7 text-center rounded-[3px] " type="text" id="input-fortune"
                                 maxlength="10">
-                            <button class="w-full max-w-[20%] max-xs:max-w-[29%] bg-white rounded-[15px] se:text-[14px]"
+                            <button class="w-full max-w-[20%] max-xs:max-w-[29%] bg-white rounded-[15px] text-[17px] se:text-[14px] text-[#EC1F25] font-medium"
                                 id="fortune-ber">วิเคราะห์เบอร์</button>
                         </div>
                     </div>
@@ -199,10 +199,10 @@
                         </div>
 
                         <div class="flex flex-col">
-                            <label for="slc-sort">เรียงลำดับ ราคา</label>
-                            <select class="w-32 max-lg:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]"
+                            <label for="slc-sort">เรียงลำดับราคา</label>
+                            <select class="w-36 max-lg:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]"
                                 name="slc-sort" id="slc-sort">
-                                <option value="">เรียงลำดับ ราคา</option>
+                                <option value="">เรียงลำดับราคา</option>
                                 <option value="desc"
                                     {{ isset($_GET['sort']) && $_GET['sort'] == 'desc' ? 'selected' : '' }}>ราคามากไปน้อย
                                 </option>
@@ -217,11 +217,11 @@
 
                         <div class="flex flex-col max-xs:col-span-2">
                             <label for="txt_favorite">ช่วงราคา</label>
-                            <div class="flex gap-4 w-80 max-xl:w-40 max-lg:w-64 max-xs:w-full">
-                                <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text"
+                            <div class="flex gap-4 w-80 max-xl:w-40 max-lg:w-64 max-xs:w-full ">
+                                <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input p-2" type="text"
                                     name="price-min" id="price-min"
                                     value="{{ isset($_GET['min']) ? number_format($_GET['min']) : '' }}">
-                                <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input" type="text"
+                                <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input p-2" type="text"
                                     name="price-max" id="price-max"
                                     value="{{ isset($_GET['max']) ? number_format($_GET['max']) : '' }}">
                             </div>
@@ -376,7 +376,7 @@
 
                             <div class="bg-white ">
                                 <a href="{{ url('/detailber/' . $product->product_phone) }}">
-                                    <div class="flex justify-center 2xl:py-10 py-2">
+                                    <div class="flex justify-center py-10 max-ex:py-2">
                                         <h2 class="2xl:text-[2.5rem] text-[1.5rem] text-center font-bold">
                                             {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
                                         </h2>
@@ -384,7 +384,7 @@
                                 </a>
                             </div>
 
-                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[80px]">
+                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 max-dm:h-[80px] h-[100px]">
                                 <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1">
                                 <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4">
                                     {{ $product->product_comment }}</p>
