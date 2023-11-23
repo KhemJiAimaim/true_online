@@ -109,8 +109,11 @@ Route::prefix('backoffice/v1')->group(function () {
 
             // Product
             Route::get('product/index', [PackageController::class, 'packageIndex']);
+            Route::post('product/create', [PackageController::class, 'createpackageProduct']);
             Route::patch('product/updatedisplay/{id}', [PackageController::class, 'updateDisplayProduct']);
+            Route::patch('product/updaterec/{id}', [PackageController::class, 'updateRecommendedProduct']);
             Route::delete('product/delete/{id}', [PackageController::class, 'deletePackageProduct']);
+            Route::put('product/update/{id}', [PackageController::class, 'updatePackageProduct']);
 
         });
 

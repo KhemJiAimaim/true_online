@@ -73,6 +73,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 1,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 2,
@@ -91,6 +94,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 2,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 3,
@@ -109,6 +115,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 3,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 4,
@@ -127,6 +136,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 4,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 5,
@@ -145,6 +157,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 5,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 6,
@@ -163,6 +178,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 6,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 7,
@@ -181,6 +199,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => false,
                 'cate_priority' => 7,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 8,
@@ -199,6 +220,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true, // สำหรับ product
                 'cate_priority' => 8,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 9,
@@ -217,6 +241,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true, // สำหรับ product
                 'cate_priority' => 9,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 10,
@@ -235,6 +262,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 10,
+                'cate_thumbnail' => 'upload/2023/11/22/trueanddtac.png',
+                'cate_thumbnail_title' => 'true and dtac',
+                'cate_thumbnail_alt' => 'true and dtac',
             ],
             [
                 'id' => 11,
@@ -253,6 +283,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 11,
+                'cate_thumbnail' => 'upload/2023/11/22/standard.png',
+                'cate_thumbnail_title' => 'standard',
+                'cate_thumbnail_alt' => 'standard',
             ],
             [
                 'id' => 12,
@@ -271,6 +304,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 12,
+                'cate_thumbnail' => 'upload/2023/11/22/waranty.png',
+                'cate_thumbnail_title' => 'waranty',
+                'cate_thumbnail_alt' => 'waranty',
             ],
             [
                 'id' => 13,
@@ -289,6 +325,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 13,
+                'cate_thumbnail' => 'upload/2023/11/22/truevision.png',
+                'cate_thumbnail_title' => 'truevision',
+                'cate_thumbnail_alt' => 'truevision',
             ],
             [
                 'id' => 14,
@@ -307,6 +346,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 14,
+                'cate_thumbnail' => 'upload/2023/11/22/selectroute.png',
+                'cate_thumbnail_title' => 'select router',
+                'cate_thumbnail_alt' => 'select router',
             ],
             [
                 'id' => 15,
@@ -325,6 +367,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 15,
+                'cate_thumbnail' => 'upload/2023/11/22/gaming.png',
+                'cate_thumbnail_title' => 'gaming',
+                'cate_thumbnail_alt' => 'gaming',
             ],
             [
                 'id' => 16,
@@ -343,6 +388,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 16,
+                'cate_thumbnail' => 'upload/2023/11/22/sme.png',
+                'cate_thumbnail_title' => 'sme',
+                'cate_thumbnail_alt' => 'sme',
             ],
             [
                 'id' => 17,
@@ -361,6 +409,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 17,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 18,
@@ -379,6 +430,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 18,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 19,
@@ -397,6 +451,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 19,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 20,
@@ -415,6 +472,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 20,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 21,
@@ -433,6 +493,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 21,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 22,
@@ -451,6 +514,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 22,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
             [
                 'id' => 23,
@@ -469,6 +535,9 @@ return new class extends Migration
                 'defaults' => true,
                 'on_product' => true,
                 'cate_priority' => 23,
+                'cate_thumbnail' => '',
+                'cate_thumbnail_title' => '',
+                'cate_thumbnail_alt' => '',
             ],
 
 

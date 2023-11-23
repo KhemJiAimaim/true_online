@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('package_code')->nullable();
             $table->boolean('display')->default(true);
             $table->boolean('pin')->default(false);
+            $table->boolean('recommended')->default(false);
             $table->boolean('defaults')->default(false);
             $table->string('language')->default('th');
             $table->boolean('delete_status')->default(false);
@@ -52,7 +53,7 @@ return new class extends Migration
                                         ประกันอุบัติเหตุ 100,000 บ.</strong></p>
 
                                         <ul>
-                                            <li>เปอดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
                                             <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
                                             <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
                                             <li>WiFi ไม่อั้น</li>
@@ -74,14 +75,14 @@ return new class extends Migration
                 'language' => 'th',
             ],
             [
-                'package_cate_id' => 2,
+                'package_cate_id' => 1,
                 'title' => 'เน็ต 1GB',
                 'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
                 'details_content' => '<p><strong>เน็ต 1GB<br />
                                         ประกันอุบัติเหตุ 100,000 บ.</strong></p>
 
                                         <ul>
-                                            <li>เปอดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
                                             <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
                                             <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
                                             <li>WiFi ไม่อั้น</li>
@@ -103,6 +104,122 @@ return new class extends Migration
                 'language' => 'th',
             ],
             [
+                'package_cate_id' => 1,
+                'title' => 'เน็ต 1GB',
+                'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'lifetime' => 30,
+                'price' => 99,
+                'vat' => 6.93,
+                'total_price' => 105.93,
+                'package_type' => 'ต่ออายุอัตโนมัติ',
+                'type' => 'รายเดือน',
+                'package_code' => '*900*7430#',
+                'pin' => false,
+                'defaults' => false,
+                'language' => 'th',
+            ],
+            [
+                'package_cate_id' => 2,
+                'title' => 'เน็ต 1GB',
+                'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'lifetime' => 30,
+                'price' => 99,
+                'vat' => 6.93,
+                'total_price' => 105.93,
+                'package_type' => 'ต่ออายุอัตโนมัติ',
+                'type' => 'รายเดือน',
+                'package_code' => '*900*7430#',
+                'pin' => false,
+                'defaults' => false,
+                'language' => 'th',
+            ],
+            [
+                'package_cate_id' => 2,
+                'title' => 'เน็ต 1GB',
+                'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'lifetime' => 30,
+                'price' => 99,
+                'vat' => 6.93,
+                'total_price' => 105.93,
+                'package_type' => 'ต่ออายุอัตโนมัติ',
+                'type' => 'รายเดือน',
+                'package_code' => '*900*7430#',
+                'pin' => false,
+                'defaults' => false,
+                'language' => 'th',
+            ],
+            [
+                'package_cate_id' => 2,
+                'title' => 'เน็ต 1GB',
+                'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'lifetime' => 30,
+                'price' => 99,
+                'vat' => 6.93,
+                'total_price' => 105.93,
+                'package_type' => 'ต่ออายุอัตโนมัติ',
+                'type' => 'รายเดือน',
+                'package_code' => '*900*7430#',
+                'pin' => false,
+                'defaults' => false,
+                'language' => 'th',
+            ],
+            [
                 'package_cate_id' => 3,
                 'title' => 'เน็ต 1GB',
                 'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
@@ -110,7 +227,94 @@ return new class extends Migration
                                         ประกันอุบัติเหตุ 100,000 บ.</strong></p>
 
                                         <ul>
-                                            <li>เปอดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'lifetime' => 30,
+                'price' => 99,
+                'vat' => 6.93,
+                'total_price' => 105.93,
+                'package_type' => 'ต่ออายุอัตโนมัติ',
+                'type' => 'รายเดือน',
+                'package_code' => '*900*7430#',
+                'pin' => false,
+                'defaults' => false,
+                'language' => 'th',
+            ],
+            [
+                'package_cate_id' => 3,
+                'title' => 'เน็ต 1GB',
+                'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'lifetime' => 30,
+                'price' => 99,
+                'vat' => 6.93,
+                'total_price' => 105.93,
+                'package_type' => 'ต่ออายุอัตโนมัติ',
+                'type' => 'รายเดือน',
+                'package_code' => '*900*7430#',
+                'pin' => false,
+                'defaults' => false,
+                'language' => 'th',
+            ],
+            [
+                'package_cate_id' => 3,
+                'title' => 'เน็ต 1GB',
+                'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'lifetime' => 30,
+                'price' => 99,
+                'vat' => 6.93,
+                'total_price' => 105.93,
+                'package_type' => 'ต่ออายุอัตโนมัติ',
+                'type' => 'รายเดือน',
+                'package_code' => '*900*7430#',
+                'pin' => false,
+                'defaults' => false,
+                'language' => 'th',
+            ],
+            [
+                'package_cate_id' => 3,
+                'title' => 'เน็ต 1GB',
+                'details' => 'ประกันอุบัติเหตุ 100,000 บ.',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
                                             <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
                                             <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
                                             <li>WiFi ไม่อั้น</li>
