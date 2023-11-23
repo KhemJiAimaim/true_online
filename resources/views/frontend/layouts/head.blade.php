@@ -117,9 +117,9 @@
             <button
                 class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick2()">เติมเงิน
-                <img id="flip2" class=" w-[20px] flip mr-5" src="/images/icon/down-arrow.png" alt="">
+                <img id="flip2" class=" w-[20px] flip2 mr-5" src="/images/icon/down-arrow.png" alt="">
             </button>
-            <ul id="myDropdown2" class="dropdow-conten2 bg-white">
+            <ul id="myDropdown2" class="dropdow-conten bg-white">
                 <li><a href="/prepaid_sim"
                         class=" block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">เมนูหลัก</a></li>
                 <li><a href="/prepaid_sim/sim_includ"
@@ -134,14 +134,14 @@
         <li class="bg-gray-100"> <a href="/move"
                 class=" block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 font-medium">ย้ายค่าย</a>
         </li>
-        
+
         <li class="bg-gray-100">
             <button
-                class="dropbtn3 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
+                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick3()">ซิมท่องเที่ยว
-                <img id="flip3" class=" w-[20px] flip mr-5" src="/images/icon/down-arrow.png" alt="">
+                <img id="flip3" class=" flip3 w-[20px]  mr-5" src="/images/icon/down-arrow.png" alt="">
             </button>
-            <ul id="myDropdown3" class="dropdow-conten3 bg-white">
+            <ul id="myDropdown3" class="dropdow-conten bg-white">
                 {{-- <div class="col-start-5"> --}}
                 <li> <a href="/travel_sim"
                         class=" block py-2 ml-5 2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">เมนูหลัก</a></li>
@@ -157,11 +157,11 @@
 
         <li class="bg-gray-100">
             <button
-                class="dropbtn4 w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
+                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick4()">วิธีการสั่งซื้อ
-                <img id="flip4" class=" flip w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">
+                <img id="flip4" class=" flip4 w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">
             </button>
-            <ul id="myDropdown4" class="dropdow-conten4 shadow-sm bg-white">
+            <ul id="myDropdown4" class="dropdow-conten bg-white">
                 {{-- <div class="col-start-6"> --}}
                 <li> <a href="#"
                         class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">เมนูหลัก</a></li>
@@ -178,6 +178,7 @@
                         class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
                 </li> {{-- </div> --}}
             </ul>
+
         </li>
     </ul>
 </nav>
@@ -347,109 +348,80 @@
     });
 
     function dropClick() {
-        document.getElementById("myDropdown").classList.toggle("show");
+        let drop = document.getElementById("myDropdown");
         let flip = document.getElementById("flip");
         flip.classList.toggle("flipdow");
         if (flip.classList.contains('flipdow')) {
             flip.classList.remove('flip')
-
+            drop.classList.toggle("show")
         } else {
             flip.classList.add('flip')
+            drop.classList.remove("show")
         }
     }
 
     // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdow-conten");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-
-                }
-            }
-        }
-    }
 
     function dropClick2() {
-        document.getElementById("myDropdown2").classList.toggle("show");
+        let drop = document.getElementById("myDropdown2");
         let flip = document.getElementById("flip2");
         flip.classList.toggle("flipdow");
         if (flip.classList.contains('flipdow')) {
-            flip.classList.remove('flip')
-
+            flip.classList.remove('flip2')
+            drop.classList.toggle("show")
         } else {
-            flip.classList.add('flip')
+            flip.classList.add('flip2')
+            drop.classList.remove("show")
         }
     }
 
 
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn2')) {
-            var dropdowns = document.getElementsByClassName("dropdow-conten2");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
+
 
     function dropClick3() {
-        document.getElementById("myDropdown3").classList.toggle("show");
+        let drop = document.getElementById("myDropdown3");
         let flip = document.getElementById("flip3");
         flip.classList.toggle("flipdow");
         if (flip.classList.contains('flipdow')) {
-            flip.classList.remove('flip')
-
+            flip.classList.remove('flip3')
+            drop.classList.toggle("show")
         } else {
-            flip.classList.add('flip')
+            flip.classList.add('flip3')
+            drop.classList.remove("show")
         }
     }
 
 
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn3')) {
-            var dropdowns = document.getElementsByClassName("dropdow-conten3");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
+
 
     function dropClick4() {
-        document.getElementById("myDropdown4").classList.toggle("show");
+        let drop = document.getElementById("myDropdown4");
         let flip = document.getElementById("flip4");
         flip.classList.toggle("flipdow");
         if (flip.classList.contains('flipdow')) {
-            flip.classList.remove('flip')
-
+            flip.classList.remove('flip4')
+            drop.classList.toggle("show")
         } else {
-            flip.classList.add('flip')
+            flip.classList.add('flip4')
+            drop.classList.remove("show")
         }
     }
+    // window.onclick = function(event) {
+    //     if (!event.target.matches('.dropbtn')) {
+    //         var dropdowns = document.getElementsByClassName("dropdow-conten");
+    //         var i;
+    //         for (i = 0; i < dropdowns.length; i++) {
+    //             var openDropdown = dropdowns[i];
+    //             if (openDropdown.classList.contains('show')) {
+    //                 openDropdown.classList.remove('show');
+
+    //             }
+    //         }
+    //     }
+    // }
 
 
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn4')) {
-            var dropdowns = document.getElementsByClassName("dropdow-conten4");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
+
     // function chnangTog(e) {
     //     e.classList.toggle("change");
     // }

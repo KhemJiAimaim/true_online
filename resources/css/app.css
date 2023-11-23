@@ -45,10 +45,22 @@
   .dropdow-conten4{
     display: none;
   }
-  .flip{
+  .flip,.flip2,.flip3,.flip4{
     transform: rotate(0deg);
     transition: 0.2s;
   }
+  /* .flip2{
+    transform: rotate(0deg);
+    transition: 0.2s;
+  }
+  .flip3{
+    transform: rotate(0deg);
+    transition: 0.2s;
+  }
+  .flip4{
+    transform: rotate(0deg);
+    transition: 0.2s;
+  } */
   .flipdow{
     transform: rotate(180deg);
     transition: 0.2s;
