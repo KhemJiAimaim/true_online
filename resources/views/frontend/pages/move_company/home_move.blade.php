@@ -122,7 +122,7 @@
                             <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                 <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 py-3 px-2">
+                                <div class="flex items-center justify-between py-3 px-2">
 
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
@@ -247,10 +247,10 @@
                             <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                 <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 py-3 px-2">
+                                <div class="flex items-center justify-between py-3 px-2">
 
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
-                                    <p class="text-white font-medium text-center text-3xl">350</p>
+                                    <p class="text-white font-medium text-center text-3xl">399</p>
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
 
                                 </div>
@@ -353,10 +353,14 @@
                             <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                 <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 py-3 px-2">
+                                <div class="flex items-center justify-between py-3 px-2">
 
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
-                                    <p class="text-white font-medium text-center text-3xl">350</p>
+                                    <div class=" flex items-end gap-3">
+                                        <p class="text-gray-200 font-[200] text-center text-[13px] line-through">1,199</p>
+                                        <p class="text-white font-medium text-center text-3xl">899</p>
+                                    </div>
+
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
 
                                 </div>
@@ -459,10 +463,14 @@
                             <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                 <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 py-3 px-2">
+                                <div class="flex items-center justify-between py-3 px-2">
 
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
-                                    <p class="text-white font-medium text-center text-3xl">350</p>
+                                    <div class=" flex items-end gap-3">
+                                        <p class="text-gray-200 font-[200] text-center text-[13px] line-through">2,199</p>
+                                        <p class="text-white font-medium text-center text-3xl">1,649</p>
+                                    </div>
+
                                     <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
 
                                 </div>
@@ -583,7 +591,7 @@
                             <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                 <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 py-3 px-2">
+                                <div class="flex items-center justify-between py-3 px-2">
 
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>
@@ -690,7 +698,7 @@
                             <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                 <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 py-3 px-2">
+                                <div class="flex items-center justify-between py-3 px-2">
 
                                     <p class="text-white text-left text-[1rem] ">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">350</p>

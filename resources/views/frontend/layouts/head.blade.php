@@ -68,7 +68,7 @@
 
     <!-- mobile menu -->
     <ul
-        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[20vh] transition divide-y-2   ">
+        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto  ">
         <li class=" bg-gray-100 w-full">
             <button id="menufiber" onclick="dropClick()"
                 class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">อินเตอร์เน็ตไฟเบอร์
@@ -233,7 +233,7 @@
                 <ul
                     class="submenu hidden mx-auto px-8 w-full h-[350px] absolute top-[3rem] left-0 space-y-2 group-hover:block z-50 ">
                     <div class="w-3/4  mx-auto">
-                       
+
                     </div>
                 </ul>
             </li>
