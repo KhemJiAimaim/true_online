@@ -58,9 +58,9 @@
                         @if($product->fiber_cate_id == $cate->id)
                         <div class="drop-shadow-md overflow-hidden">
                             <div
-                                class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                                class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
-                                <p class="text-white text-left text-[18px]">แพ็กเกจยอดนิยม</p>
+                                <p class="text-white text-left text-[18px]">{{$product->details}}</p>
                                 {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
                                 <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                             </div>
@@ -100,10 +100,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                @php 
+                                    $benefit_ids = explode(',', $product->benefit_ids);
+                                    $post_ids = $post_benefits->pluck('id')->toArray();
+
+                                    // หาค่าที่เหมือนกัน
+                                    $same_benefit = array_intersect($benefit_ids, $post_ids);
+                                    $benefit_items = array_slice($same_benefit, 0, 3);
+                                @endphp
                                 <div class="flex justify-center py-6">
-                                    <img class="w-20" src="images/Rectangle 235.png" alt="">
-                                    <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
-                                    <img class="w-20" src="images/Rectangle 234.png" alt="">
+                                    @foreach($benefit_items as $item)
+                                        @foreach($post_benefits as $post)
+                                            @if($post->id == $item)
+                                                <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
+                                                <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
                                 </div>
                             </div>
 
