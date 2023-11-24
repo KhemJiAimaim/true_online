@@ -1,163 +1,191 @@
 @extends('frontend.layouts.main')
 @section('content')
-<div class="text-left mt-20">
-  <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
-    <div class="text-center">
-      <h1 class="text-xl ">ตระกร้าสินค้า</h1>
-      <h1 class="text-lg text-[#838383]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</h1>
-      <div class="w-[201px] h-1 bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF]  mx-auto mt-6 "></div>
+    <div class="text-left 2xl:mt-32 xl:mt-32 mt-16">
+        <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
+            <div class="text-center">
+                <h1 class="2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium ">ตระกร้าสินค้า</h1>
+                <h1 class=" text-[#838383] 2xl:text-[20px]  xl:text-[18px] text-[16px]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</h1>
+                <div class="w-[201px] h-1 bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF]  mx-auto mt-6 "></div>
+            </div>
+        </div>
+
+        <div class="2xl:w-[1536px] xl:w-[1200px] w-full py-10 mx-auto px-3">
+
+            <div class="bg-[#F8F9FA] flex flex-col justify-center">
+                <div
+                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] text-white p-4  rounded-t-[10px] flex justify-between">
+                    <p class="2xl:text-[18px] text-[16px]">สินค้า</p>
+                    <div class="flex justify-between 2xl:gap-40 xl:gap-[5rem] 2xl:pr-52 pr-[8rem]  items-center">
+                        <p class="text-center 2xl:text-[18px] text-[16px]">ราคา</p>
+                        <p class="text-center 2xl:text-[18px] text-[16px]">จำนวน</p>
+                        <p class="text-center 2xl:text-[18px] text-[16px] 2xl:pr-4">ราคารวม</p>
+                    </div>
+                </div>
+
+                {{-- cart items list --}}
+                <div class="">
+                    <div class="p-4 flex justify-between items-center">
+                        <div class="flex justify-between gap-10 items-center">
+                            <figure>
+                                <img class="w-[100px] h-[100px]" src="/icons/category/imgcart.png" alt="">
+                            </figure>
+                            <div class="">
+                                <p class="font-semibold">เบอร์มงคล</p>
+                                <p>หมายเลขเบอร์ 096-554-6995</p>
+                                <p>เกรด A+</p>
+                                <p>เน็ต Unlimited + โทร 1700 Mins</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between 2xl:gap-44 gap-[2rem] pr-6">
+                            <p class="text-center flex justify-center items-center text-[16px] font-semibold">333,850</p>
+                            <p class="text-center flex justify-center items-center text-[16px] font-semibold">1</p>
+                            <p class="text-center flex justify-center items-center text-[16px] font-semibold">333,850</p>
+                            <figure class="flex justify-center items-center cursor-pointer">
+                                <img src="/icons/cart_trash.png" alt="">
+                            </figure>
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr>
+
+                {{-- <div class="p-4 flex justify-between items-center">
+
+                    <div class="flex justify-between gap-10 items-center">
+                        <figure>
+                            <img class="w-[100px] h-[100px]" src="/icons/category/imgcart.png" alt="">
+                        </figure>
+                        <div class="">
+                            <p class="font-semibold">เบอร์มงคล</p>
+                            <p>หมายเลขเบอร์ 096-554-6995</p>
+                            <p>เกรด A+</p>
+                            <p>เน็ต Unlimited + โทร 1700 Mins</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between 2xl:gap-44 gap-[6rem] pr-6">
+                        <p class="text-center flex justify-center items-center text-[16px] font-semibold">333,850</p>
+                        <p class="text-center flex justify-center items-center text-[16px] font-semibold">1</p>
+                        <p class="text-center flex justify-center items-center text-[16px] font-semibold">333,850</p>
+                        <figure class="flex justify-center items-center">
+                            <img src="/icons/cart_trash.png" alt="">
+                        </figure>
+                    </div>
+                </div> --}}
+                <hr>
+
+                {{-- total price --}}
+                <div class="m-4 p-4 bg-white border border-[1px]-[#D9D9D9] rounded-[10px]">
+                    <div class="flex justify-between">
+                        <p class="text-[16px] font-semibold">ยอดรวม สินค้า</p>
+                        <div class="flex gap-4">
+                            <div class="text-[16px] font-semibold">334,799</div>
+                            <p class="text-[#838383]">บาท</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between ">
+                        <div class="flex gap-2">
+                            <p class="text-[16px] font-semibold">ค่าจัดส่ง</p>
+                            <p class="text-[12px] text-[#838383]">***จัดส่งฟรีเมื่อยอดสั่งซื้อขั้นต่ำมากว่า 1,000,000 บาท
+                            </p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-[16px] font-semibold">334,799</div>
+                            <p class="text-[#838383]">บาท</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <h1 class="text-lg text-[#EC1F25]">ยอดรวมทั้งหมด</h1>
+                        <div class="flex items-end gap-4">
+                            <p class="text-lg font-semibold text-[#EC1F25]">334,799</p>
+                            <p class="text-[#838383]">บาท</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- customer contact --}}
+                <div class="m-4 p-4 bg-white border border-[1px]-[#D9D9D9] rounded-[10px]">
+                    <h1 class="text-lg font-semibold">กรอกที่อยู่ในการจัดส่ง</h1>
+                    <div class="grid grid-cols-2 max-lg:grid-cols-1 gap-10 max-lg:gap-2">
+                        <div class="flex flex-col gap-2">
+                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                                <label class="text-end" for="name">ชื่อ*</label>
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
+                                    name="name" id="name">
+                            </div>
+                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                                <label class="text-end" for="last-name">นามสกุล*</label>
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
+                                    name="last-name" id="last-name">
+                            </div>
+                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                                <label class="text-end" for="customer-tel">เบอร์โทร*</label>
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
+                                    name="customer-tel" id="customer-tel" maxlength="10">
+                            </div>
+                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                                <label class="text-end" for="customer-email">อีเมล*</label>
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
+                                    name="customer-email" id="customer-email">
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="grid grid-cols-[80px,1fr] gap-4">
+                                <label class="text-end" for="customer-address">ที่อยู่*</label>
+                                <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="customer-address"
+                                    id="customer-address" cols="30" rows="3"></textarea>
+                            </div>
+                            <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
+                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                    <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
+                                    <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                        name="sub-district" id="sub-district">
+                                        <option value="ศิลา">ศิลา</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                    <label class="text-end" for="district">อำเภอ/เขต*</label>
+                                    <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                        name="district" id="district">
+                                        <option value="ในเมือง">ในเมือง</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
+                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                    <label class="text-end" for="province">จังหวัด*</label>
+                                    <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                        name="province" id="province">
+                                        <option value="ขอนแก่น">ขอนแก่น</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                    <label class="text-end" for="post-code">รหัสไปรษณี*</label>
+                                    <input class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                        type="text" name="post-code" id="post-code" maxlength="5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- btn submit --}}
+            <div class="mt-5 flex justify-center gap-4">
+                <a class="px-6 py-1 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] rounded-[15px]">กลับหน้าหลัก</a>
+                <button class="px-3 py-1 bg-[#EC1F25] text-white rounded-[15px]"
+                    id="submit-buy">ยืนยันการสั่งซื้อ</button>
+            </div>
+
+        </div>
     </div>
-  </div>
-
-  <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
-    <div class="bg-[#F8F9FA] flex flex-col justify-center">
-      <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] text-white p-4 grid grid-cols-[700px,1fr,1fr,1fr,100px] max-xl:grid-cols-[500px,1fr,1fr,1fr,30px] max-lg:grid-cols-[400px,1fr,1fr,1fr,30px] max-xs:grid-cols-[150px,1fr,1fr,1fr,30px] max-xs:gap-2 rounded-t-[10px]">
-        <p>สินค้า</p>
-        <p class="text-center">ราคา</p>
-        <p class="text-center">จำนวน</p>
-        <p class="text-center">ราคารวม</p>
-      </div>
-
-      {{-- cart items list --}}
-      <div class="p-4 grid grid-cols-[700px,1fr,1fr,1fr,100px] max-xl:grid-cols-[500px,1fr,1fr,1fr,30px] max-lg:grid-cols-[400px,1fr,1fr,1fr,30px] max-xs:grid-cols-[150px,1fr,1fr,1fr,30px] max-xs:gap-2">
-        <div class="grid grid-cols-[100px,1fr] max-xs:grid-cols-1 gap-4">
-          <figure>
-            <img class="w-[100px] h-[100px]" src="/icons/category/imgcart.png" alt="">
-          </figure>
-          <div>
-            <p class="font-semibold">เบอร์มงคล</p>
-            <p>หมายเลขเบอร์ 096-554-6995</p>
-            <p>เกรด A+</p>
-            <p>เน็ต Unlimited + โทร 1700 Mins</p>
-          </div>
-        </div>
-        <p class="text-center flex justify-center items-center">333,850</p>
-        <p class="text-center flex justify-center items-center">1</p>
-        <p class="text-center flex justify-center items-center">333,850</p>
-        <figure class="flex justify-center items-center">
-          <img src="/icons/cart_trash.png" alt="">
-        </figure>
-      </div>
-      <hr>
-
-      <div class="p-4 grid grid-cols-[700px,1fr,1fr,1fr,100px] max-xl:grid-cols-[500px,1fr,1fr,1fr,30px] max-lg:grid-cols-[400px,1fr,1fr,1fr,30px] max-xs:grid-cols-[150px,1fr,1fr,1fr,30px] max-xs:gap-2">
-        <div class="grid grid-cols-[100px,1fr] max-xs:grid-cols-1 gap-4">
-          <figure>
-            <img class="w-[100px] h-[100px]" src="/icons/category/imgcart.png" alt="">
-          </figure>
-          <div>
-            <p class="font-semibold">เบอร์มงคล</p>
-            <p>หมายเลขเบอร์ 096-554-6995</p>
-            <p>เกรด A+</p>
-            <p>เน็ต Unlimited + โทร 1700 Mins</p>
-          </div>
-        </div>
-        <p class="text-center flex justify-center items-center">333,850</p>
-        <p class="text-center flex justify-center items-center">1</p>
-        <p class="text-center flex justify-center items-center">333,850</p>
-        <figure class="flex justify-center items-center">
-          <img src="/icons/cart_trash.png" alt="">
-        </figure>
-      </div>
-      <hr>
-
-      {{-- total price --}}
-      <div class="m-4 p-4 bg-white border border-[1px]-[#D9D9D9] rounded-[10px]">
-        <div class="flex justify-between">
-          <h1 class="">ยอดรวม สินค้า</h1>
-          <div class="flex gap-4">
-            <div>334,799</div>
-            <p>บาท</p>
-          </div>
-        </div>
-        <div class="flex justify-between">
-          <h1 class="">ค่าจัดส่ง</h1>
-          <div class="flex gap-4">
-            <div>334,799</div>
-            <p>บาท</p>
-          </div>
-        </div>
-        <div class="flex justify-between">
-          <h1 class="text-lg text-[#EC1F25]">ยอดรวมทั้งหมด</h1>
-          <div class="flex items-end gap-4">
-            <h1 class="text-lg text-[#EC1F25]">334,799</h1>
-            <p>บาท</p>
-          </div>
-        </div>
-      </div>
-
-      {{-- customer contact --}}
-      <div class="m-4 p-4 bg-white border border-[1px]-[#D9D9D9] rounded-[10px]">
-        <h1 class="text-lg font-semibold">กรอกที่อยู่ในการจัดส่ง</h1>
-        <div class="grid grid-cols-2 max-lg:grid-cols-1 gap-10 max-lg:gap-2">
-          <div class="flex flex-col gap-2">
-            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="name">ชื่อ*</label>
-              <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="name" id="name">
-            </div>
-            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="last-name">นามสกุล*</label>
-              <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="last-name" id="last-name">
-            </div>
-            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="customer-tel">เบอร์โทร*</label>
-              <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="customer-tel" id="customer-tel" maxlength="10">
-            </div>
-            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="customer-email">อีเมล*</label>
-              <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="customer-email" id="customer-email">
-            </div>
-          </div>
-          <div class="flex flex-col gap-2">
-            <div class="grid grid-cols-[80px,1fr] gap-4">
-              <label class="text-end" for="customer-address">ที่อยู่*</label>
-              <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="customer-address" id="customer-address" cols="30" rows="3"></textarea>
-            </div>
-            <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
-              <div class="grid grid-cols-[80px,1fr] gap-4">
-                <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
-                <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="sub-district" id="sub-district">
-                  <option value="ศิลา">ศิลา</option>
-                </select>
-              </div>
-              <div class="grid grid-cols-[80px,1fr] gap-4">
-                <label class="text-end" for="district">อำเภอ/เขต*</label>
-                <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="district" id="district">
-                  <option value="ในเมือง">ในเมือง</option>
-                </select>
-              </div>
-            </div>
-            <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
-              <div class="grid grid-cols-[80px,1fr] gap-4">
-                <label class="text-end" for="province">จังหวัด*</label>
-                <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="province" id="province">
-                  <option value="ขอนแก่น">ขอนแก่น</option>
-                </select>
-              </div>
-              <div class="grid grid-cols-[80px,1fr] gap-4">
-                <label class="text-end" for="post-code">รหัสไปรษณี*</label>
-                <input class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text" name="post-code" id="post-code" maxlength="5">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{-- btn submit --}}
-    <div class="mt-5 flex justify-center gap-4">
-      <a class="px-6 py-1 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] rounded-[15px]">กลับหน้าหลัก</a>
-      <button class="px-3 py-1 bg-[#EC1F25] text-white rounded-[15px]" id="submit-buy">ยืนยันการสั่งซื้อ</button>
-    </div>
-    
-  </div>
-</div>
 
 
-<!-- end box product -->
-@include('frontend.pages.bermonthly_lucky.footer_bermonthly_lucky')
+    <!-- end box product -->
+    @include('frontend.pages.bermonthly_lucky.footer_bermonthly_lucky')
 @endsection
 
 @section('scripts')
-  @vite('resources/js/bermonthly_lucky/cartproduct.js')
+    @vite('resources/js/bermonthly_lucky/cartproduct.js')
 @endsection

@@ -34,10 +34,10 @@
                 class="cursor-pointer py-3 px-8  mb-2 mt-2 2xl:text-lg font-medium text-white focus:outline-none bg-[#4f4f4f] rounded-lg border hover:bg-[#666] hover:text-white ">รายเดือน</a>
         </div>
 
-        <section class="flex justify-center items-center m-6">
-            <div class="drop-shadow-md w-[1536px]">
+        <section class="flex justify-center items-center m-6 ">
+            <div class="drop-shadow-md max-w-[1536px] ">
                 <div
-                    class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3">
+                    class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3 ">
                     <p class="text-white text-center ml-3 2xl:text-[16px]">Flash Sale</p>
                     
                 </div>
