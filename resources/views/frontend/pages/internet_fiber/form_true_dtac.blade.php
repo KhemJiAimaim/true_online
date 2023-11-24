@@ -20,19 +20,19 @@
         <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-6 px-3">
             <div class="grid 2xl:grid-cols-2 xl:grid-cols-2  lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center">
                 <div class="flex justify-between items-center">
-                    <label for="name"
+                    <label for="first-name"
                         class="w-32 text-right max-ex:text-left  pr-4 font-medium text-gray-700">ชื่อ</label>
                     <div class="flex-1">
-                        <input required type="text" id="name"
+                        <input required type="text" id="first-name"
                             class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
                     </div>
                 </div>
 
                 <div class="flex justify-between items-center ">
-                    <label for="name"
+                    <label for="last-name"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">นามสกุล</label>
                     <div class="flex-1">
-                        <input required type="text" id="name"
+                        <input required type="text" id="last-name"
                             class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
                     </div>
                 </div>
@@ -40,52 +40,51 @@
 
             <div class="grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center mt-4">
                 <div class="flex justify-between items-center">
-                    <label for="name"
+                    <label for="phone"
                         class="w-32  text-right max-ex:text-left pr-2 font-medium text-gray-700">เบอร์โทรศัพท์</label>
                     <div class="flex-1">
-                        <input required type="text" id="name"
-                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                        <input required type="text" id="phone"
+                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent" maxlength="10">
                     </div>
                 </div>
                 <div class="flex justify-between items-center">
-                    <label for="name"
+                    <label for="line-id"
                         class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700">ไลน์ไอดี</label>
                     <div class="flex-1">
-                        <input required type="text" id="name"
+                        <input required type="text" id="line-id"
                             class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
                     </div>
                 </div>
             </div>
 
             <div class="flex justify-between items-center mt-4">
-                <label for="about"
+                <label for="address"
                     class="self-start w-32  text-right max-ex:text-left mt-2 pr-4 font-medium text-gray-700">ที่อยู่</label>
-                <textarea id="about" name="about" rows="3"
+                <textarea id="address" name="address" rows="3"
                     class="disabled:bg-gray-100 w-full flex-1 placeholder:text-slate-400 appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-600"></textarea>
             </div>
 
             <div class="grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center mt-4">
                 <div
                     class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
-                    <label for="country"
+                    <label for="sub-district"
                         class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700">ตำบล/แขวง</label>
-                    <select id="country" name="country" autocomplete="country-name"
+                    <select id="sub-district" name="sub-district"
                         class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                         <option>ศิลา</option>
-                        <option>Panama</option>
+                        <option>ในเมือง</option>
                         <option>Chile</option>
                     </select>
                 </div>
 
                 <div
                     class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
-                    <label for="country"
+                    <label for="district"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">อำเภอ/เขต</label>
-                    <select id="country" name="country" autocomplete="country-name"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
-                        <option>เมืองขอนแก่น</option>
-                        <option>Panama</option>
-                        <option>Chile</option>
+                    <select id="district" name="district" class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        <option value="ชุมแพ">ชุมแพ</option>
+                        <option value="สึชมพู">สึชมพู</option>
+                        <option value="ภูเวียง">ภูเวียง</option>
                     </select>
                 </div>
             </div>
@@ -94,22 +93,22 @@
             <div class="grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center mt-4">
                 <div
                     class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500 ">
-                    <label for="country"
+                    <label for="province"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">จังหวัด</label>
-                    <select id="country" name="country" autocomplete="country-name"
+                    <select id="province" name="province"
                         class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
-                        <option>ศิลา</option>
-                        <option>Panama</option>
-                        <option>Chile</option>
+                        <option value="ขอนแก่น">ขอนแก่น</option>
+                        <option value="อุดร">อุดร</option>
+                        <option value="หนองคาย">หนองคาย</option>
                     </select>
                 </div>
 
                 <div class="flex justify-between items-center">
-                    <label for="name"
+                    <label for="zip-code"
                         class="w-32 text-right max-ex:text-left pr-2 font-medium text-gray-700">รหัสไปรษณี</label>
                     <div class="flex-1">
-                        <input required type="text" id="name"
-                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                        <input required type="text" id="zip-code"
+                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent" maxlength="5">
                     </div>
                 </div>
             </div>
@@ -132,11 +131,18 @@
     </div>
 
     <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 gap-y-2 mt-4 2xl:gap-4 mb-10 px-3">
-        <a href="/fiber/true_dtac"
+        <a href="{{ url('/fiber') }}"
             class="py-2.5 px-12  mb-2 mt-2  2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
-        <a href="/thankyou"
-            class="py-2.5 px-5  mb-2 mt-2 2xl:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</a>
+        <button id="save-form-data"
+            class="py-2.5 px-5  mb-2 mt-2 2xl:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>
 
     </div>
     @include('frontend.pages.internet_fiber.footer_fiber')
+@endsection
+
+@section('scripts')
+<script>
+    let data = @json($product);
+</script>
+@vite('resources/js/internet_fiber/form_true_dtac.js')
 @endsection

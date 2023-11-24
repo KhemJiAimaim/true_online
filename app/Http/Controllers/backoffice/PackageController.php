@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\backoffice;
 
-use App\Http\Controllers\Controller;
 use App\Models\PackageCategory;
 use App\Models\PackageProduct;
 use Exception;
@@ -209,6 +208,51 @@ class PackageController extends BaseController
         }
     }
 
+    public function createpackageProduct(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'string|required',
+            'details' => 'string|required',
+            'details_content' => 'string|required',
+            'package_code' => 'string|required',
+            'package_type' => 'string|required',
+            'type' => 'string|required',
+
+            'package_cate_id' => 'numeric|required',
+            'price' => 'numeric|required',
+            'total_price' => 'numeric|required',
+            'vat' => 'numeric|required',
+            'recommended' => 'boolean|required',
+            'display' => 'boolean|required',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+
+            PackageProduct::create($request->all());
+
+            $packages = $this->getPackageProductAll();
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Create package product success',
+                'packages' => $packages,
+                // 'maxPriority' => PackageCategory::where('delete_status', 0)->max('priority'),
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
     public function updateDisplayProduct(Request $request, $id)
     {
         try {
@@ -231,12 +275,61 @@ class PackageController extends BaseController
         }
     }
 
-    public function deletePackageProduct(Request $request, $id)
+    public function updateRecommendedProduct(Request $request, $id)
     {
         try {
 
             $cate = PackageProduct::findOrFail($id);
-            $cate->update(['delete_status' => 1]);
+            $cate->update($request->only(['recommended']));
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Recommended Product has been updated successfully',
+                'updated' => $cate,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updatePackageProduct(Request $request, $id)
+    {
+        try {
+
+            $product = PackageProduct::findOrFail($id);
+
+            $data = $request->except(['id', 'created_at', 'updated_at', 'th', 'display']);
+
+            $product->update($data);
+
+            $packages = $this->getPackageProductAll();
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Package product has been updated successfully',
+                'packages' => $packages,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function deletePackageProduct(Request $request, $id)
+    {
+        try {
+
+            $product = PackageProduct::findOrFail($id);
+            $product->update(['delete_status' => 1]);
 
             $packages = $this->getPackageProductAll();
 
