@@ -28,9 +28,7 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
+Route::get('/', [HomeController::class,"homePage"]);
 
 //fiber
 Route::get("/fiber", [FiberController::class, "homePage"]);

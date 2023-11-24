@@ -14,16 +14,25 @@ class FiberController extends Controller
     public function homePage()
     {   
         $cate_fiber = Category::where('cate_parent_id', 2)
+            ->where('cate_status_display', true)
             ->orderBy('cate_priority', 'ASC')
             ->get();
-        $fiber_products = FiberProduct::all();
-        return view("frontend.pages.internet_fiber.fiber_home",compact('cate_fiber', 'fiber_products'));
+        $fiber_products = FiberProduct::where('display', true)
+            ->orderBy('priority', 'ASC')
+            ->get();
+        $post_benefits = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
+            ->where('status_display', true)
+            ->orderBy('priority')
+            ->get();
+            // dd($fiber_products);
+        return view("frontend.pages.internet_fiber.fiber_home",compact('cate_fiber', 'fiber_products','post_benefits'));
     }
 
     // สินค้า Fiber เฉพาะหมวดหมู่
     public function true_dtac($cate_url)
     {
         $cate_fiber = Category::where('cate_parent_id', 2)
+            ->where('cate_status_display', true)
             ->orderBy('cate_priority', 'ASC')
             ->get();
 
@@ -41,7 +50,12 @@ class FiberController extends Controller
             ->where('categories.cate_url', $cate_url)
             ->orderBy('fiber_products.priority')
             ->get();
-        return view("frontend.pages.internet_fiber.true_dtac", compact( 'fiber_products','current_cate','cate_fiber'));
+
+        $post_benefits = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
+            ->where('status_display', true)
+            ->orderBy('priority')
+            ->get();
+        return view("frontend.pages.internet_fiber.true_dtac", compact( 'fiber_products','current_cate','cate_fiber','post_benefits'));
     }
 
     // รายละเอียดสินค้า Fiber
