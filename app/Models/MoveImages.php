@@ -12,4 +12,8 @@ class MoveImages extends Model
     protected $table = "move_images";
     protected $primaryKey = "id";
     protected $guarded = [];
+
+    public function moveProduct() {
+        return $this->belongsTo(MoveProduct::class);
+    }
 }

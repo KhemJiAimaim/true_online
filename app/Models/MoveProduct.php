@@ -12,4 +12,8 @@ class MoveProduct extends Model
     protected $table = "move_products";
     protected $primaryKey = "id";
     protected $guarded = [];
+
+    public function images() {
+        return $this->hasMany(MoveImages::class, 'move_id', 'id')->orderBy('defaults', 'DESC');
+    }
 }

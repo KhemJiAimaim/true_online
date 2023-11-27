@@ -121,10 +121,14 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::prefix('move/')->group(function () {
             //Category
             Route::get('cate/data', [MoveController::class, 'moveCateIndex']);
+            Route::post('cate/create', [MoveController::class, 'createMoveCate']);
             Route::patch('cate/updatepin/{id}', [MoveController::class, 'updatePinCate']);
             Route::patch('cate/updatedisplay/{id}', [MoveController::class, 'updateDisplayCate']);
             Route::post('cate/update/{id}', [MoveController::class, 'updateMoveCate']);
             Route::delete('cate/delete/{id}', [MoveController::class, 'deleteMoveCate']);
+
+            //Product
+            Route::get('product/data', [Movecontroller::class, 'moveProductIndex']);
         });
 
     });
