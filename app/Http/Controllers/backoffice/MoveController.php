@@ -26,7 +26,6 @@ class MoveController extends BaseController
                 'moveCates' => $moveCates,
                 'maxPriority' => MoveCategory::where('delete_status', 0)->max('priority'),
             ], 200);
-
         } catch (Exception $e) {
             return response([
                 'message' => 'error',
@@ -34,8 +33,49 @@ class MoveController extends BaseController
                 'errorsMessage' => $e->getMessage()
             ], 501);
         }
+    }
 
+    public function createMoveCate(Request $request)
+    {
 
+        $validator = Validator::make($request->all(), [
+            'title' => 'string|required',
+            'priority' => 'numeric|required',
+            'details' => 'string|nullable',
+            'description' => 'string|nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $this->updatePriority("move_categories", $request->priority);
+
+            $data = $request->only(['title', 'priority', 'details', 'description']);
+
+            MoveCategory::create($data);
+
+            $moveCates = $this->getMoveCateAll();
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Move cate has been created successfully',
+                'moveCates' => $moveCates,
+                'maxPriority' => MoveCategory::where('delete_status', 0)->max('priority'),
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
     }
 
     public function updatePinCate(Request $request, $id)
@@ -167,6 +207,27 @@ class MoveController extends BaseController
     // Move Product
     public function moveProductIndex(Request $request)
     {
+        try {
+
+            $moveCates = $this->getMoveCateAll();
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'get move cate success',
+                'data' => [
+                    'moveCates' => $moveCates,
+                    'moveProducts' => [],
+                ],
+                'maxPriority' => MoveCategory::where('delete_status', 0)->max('priority'),
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
     }
 
 
@@ -174,7 +235,8 @@ class MoveController extends BaseController
 
 
     /* Private Function */
-    private function getMoveCateAll() {
+    private function getMoveCateAll()
+    {
         $data = MoveCategory::where('delete_status', 0)
             ->orderBy('updated_at', 'DESC')
             ->orderBy('priority', 'ASC')
