@@ -230,15 +230,6 @@
             <li class="group z-[99] basis-[230px] ">
                 <a href="/bermonthly"
                     class=" py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
-<<<<<<< HEAD
-                <ul
-                    class="submenu hidden mx-auto px-8 w-full h-[350px] absolute top-[3rem] left-0 space-y-2 group-hover:block z-50 ">
-                    <div class="w-3/4  mx-auto">
-
-                    </div>
-                </ul>
-=======
->>>>>>> 20176452196293e47548fe687cfaeab966ffea0d
             </li>
 
             {{-- เติมเงิน --}}

@@ -3,21 +3,21 @@
 
 
 @section('content')
-    <div class="mt-36">
+    <div class="mt-36 max-ex:mt-20">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
                 <div class="bg-white w-full 2xl:h-[590px]  items-center px-4 lg:px-1 mb-6 relative">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2">
                         <img id="featured" src="/images/Rectangle 1281.png" alt=""
-                            class="2xl:w-full 2xl:h-[500px] w-[350px] lg:h-[350px] cursor-pointer ">
+                            class="max-ex:w-[250px] max-ex:h-[250px] cursor-pointer ">
                     </div>
                     <div id="slide-wrapper" class="flex justify-center items-center">
 
 
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
-                        <div id="slider" class="flex items-center gap-4 overflow-x-hidden m-4 p-3">
+                        <div id="slider" class="flex items-center gap-4 overflow-x-hidden mx-4 ">
                             {{-- @for ($i = 1; $i <= 6; $i++)  --}}
                             <img src="/images/Rectangle 1281.png" alt=""
                                 class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
@@ -41,19 +41,19 @@
                     </div>
                 </div>
 
-                <div class="col-span-2 space-y-10 text-left m-3">
+                <div class="col-span-2 space-y-6 text-left mx-3">
                     <p class=" font-medium 2xl:text-2xl text-xl ">(เล่นฟรีเดือนแรก) ซิมเทพ True เล่นเน็ตไม่อั้น ความเร็ว 4Mbps
                         (พร้อมใช้ฟรี
                         True wifi max
                         speed แบบไม่จำกัด)</p>
 
                     <div
-                        class="flex justify-center border-l border border-gray-500 text-center  rounded-full px-auto">
+                        class="flex justify-center border-l border border-gray-500 text-center  rounded-full px-2">
                     </div>
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 m-3 overflow-auto 2xl:overflow-hidden h-[280px] w-full">
+                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:overflow-hidden h-[280px] w-full">
                         @for ($i = 1; $i <= 8; $i++)
                             <div id="box{{ $i }}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8rem] cursor-pointer">
@@ -61,7 +61,7 @@
                                     <img src="/images/Rectangle 98.png" alt="" class="w-16">
                                     <p class="text-lg font-medium ml-2">4Mbps</p>
                                 </div>
-                                <div class="flex items-center mt-2">
+                                <div class="flex items-center">
                                     <img src="/images/check-one.png" alt="" class="check-box w-10">
                                     <p class="text-xl 2xl:text-[2rem] font-bold ml-10 text-red-600">150 </p>
                                     <p class="2xl:text-lg font-medium ml-2">บาท</p>
