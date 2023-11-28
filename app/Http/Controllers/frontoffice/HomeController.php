@@ -22,14 +22,21 @@ use App\Models\LanguageAvailable;
 use App\Models\LanguageConfig;
 use App\Models\LeaveMessage;
 use App\Models\User;
+use App\Models\BerproductMonthly;
 use Illuminate\Support\Facades\Mail;
 use stdClass;
 
 class HomeController extends Controller
 {
     public function homePage() {
-        
-        return view('frontend.pages.home');
+        $cate_home = Category::whereIn('id', [2, 3, 4, 6])
+            ->where('cate_status_display', true)
+            ->orderBy('cate_priority')
+            ->get();
+            // dd($cate_home);
+        $berproducts = BerproductMonthly::where('product_sold', 'no')->where('product_display', 'yes')->inRandomOrder()->distinct()->limit(4)->get();
+        // dd($berproducts);
+        return view('frontend.pages.home',compact('cate_home','berproducts'));
     }
 
     public function thankyou()
