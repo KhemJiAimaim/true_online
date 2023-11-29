@@ -131,96 +131,286 @@
         </div>
         {{-- --- --}}
 
-
-        <section id="fiber" class="bg-gray-100 py-6 relative z-0 px-3">
-
-            <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
-            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">อินเทอร์เน็ตไฟเบอร์</p>
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม
-                หนัง กีฬา
-                ความบันเทิง | True
-                Gigatex PRO</p>
-
+        @php 
+            $j = 1;
+        @endphp
+        @foreach($cate_home as $cate)
+        {{-- @dd($cate) --}}
+        @php 
+            $bg = "";
+            $circle1 = "";
+            $circle2 = "";
+            if($j % 2 != 0) {
+                $bg = "bg-gray-100";
+                $circle1 = '<img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">';
+                $circle2 = '<img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">';
+            } else {
+                $bg = "";
+                $circle1 = "";
+                $circle2 = "";
+            }
+            $j++;
+        @endphp
+        <section id="{{$cate->cate_url}}" class="{{$bg}} py-6 relative z-0 px-3">
+            {!!$circle1!!}
+            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">{{$cate->cate_title}}</p>
+            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">{{$cate->cate_description}}</p>
 
             <div class=" overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4 z-2">
-
-                <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
-                    @for ($i = 1; $i <= 4; $i++)
-                        <div class="drop-shadow-md">
-                            <div
-                                class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
-
-                                <p class="text-white text-left text-[18px] max-es:text-[16px]">แพ็กเกจยอดนิยม</p>
-                                {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
-                                <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
-                            </div>
-
-                            <div class="bg-[#F8F9FA]">
-                                <div class="">
-                                    <p class="py-3 text-[20px]">True Gigatex PRO Gold</p>
-                                </div>
-                            </div>
-                            <div class="bg-white"">
-                                <div class="flex justify-center py-6 ml-12">
-                                    <p class="text-[35px] text-center font-medium">1</p>
-                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
-                                    <p class="text-lg text-left text-[16px]">Gbps<br>/500Mbps</p>
+                <div class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
+                    {{-- เน็ตไฟเบอร์ --}}
+                    @if($cate->id == 2)
+                        @for ($i = 1; $i <= 4; $i++)
+                            <div class="drop-shadow-md">
+                                <div class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                                    <p class="text-white text-left text-[18px]">แพ็กเกจยอดนิยม</p>
+                                    {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
+                                    <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                                 </div>
 
-                                <div class="blue-plate-container">
-                                    <div class="blue-plate-line"></div>
-                                    <div class="blue-plate-group">
-                                        <div class="blue-plate-box-s">
-                                            <div class="blue-plate-circleS"></div>
-                                            <div class="blue-plate-textboxS"></div>
-                                        </div>
-                                        <div class="blue-plate-textboxC">
-                                            <p class="blue-plate-text text-white text-[18px]">รับทันที</p>
-                                        </div>
-                                        <div class="blue-plate-box-e">
-                                            <div class="blue-plate-textboxE"></div>
-                                            <div class="blue-plate-circleE"></div>
-                                        </div>
+                                <div class="bg-[#F8F9FA]">
+                                    <div class="">
+                                        <p class="py-3 text-[20px]">True Gigatex PRO Gold</p>
                                     </div>
                                 </div>
-                                <div class="flex justify-center py-6">
-                                    <img class="w-20" src="images/Rectangle 235.png" alt="">
-                                    <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
-                                    <img class="w-20" src="images/Rectangle 234.png" alt="">
+                                <div class="bg-white">
+                                    <div class="flex justify-center py-6 ml-12">
+                                        <p class="text-[35px] text-center font-medium">1</p>
+                                        <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
+                                        <p class="text-lg text-left text-[16px]">Gbps<br>/500Mbps</p>
+                                    </div>
+
+                                    <div class="blue-plate-container">
+                                        <div class="blue-plate-line"></div>
+                                        <div class="blue-plate-group">
+                                            <div class="blue-plate-box-s">
+                                                <div class="blue-plate-circleS"></div>
+                                                <div class="blue-plate-textboxS"></div>
+                                            </div>
+                                            <div class="blue-plate-textboxC">
+                                                <p class="blue-plate-text text-white text-[18px]">รับทันที</p>
+                                            </div>
+                                            <div class="blue-plate-box-e">
+                                                <div class="blue-plate-textboxE"></div>
+                                                <div class="blue-plate-circleE"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center py-6">
+                                        <img class="w-20" src="images/Rectangle 235.png" alt="">
+                                        <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                        <img class="w-20" src="images/Rectangle 234.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
+                                    <img class="absolute top-5 left-0" src="/images/Intersect (1).png" alt="">
+                                    <div class="grid grid-cols-3 items-center">
+                                        <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
+                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">2,499</p>
+                                        <p class="text-white text-right text-[1rem] 2xl:text-[18px] ">บาท<br>/เดือน</p>
+
+                                    </div>
+                                </div>
+
+                                <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
+                                    <a href=""
+                                        class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
                                 </div>
                             </div>
+                        @endfor
+                    {{-- เน็ตไฟเบอร์ --}}
 
-                            <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
-                                <img class="absolute top-5 left-0" src="/images/Intersect (1).png" alt="">
-                                <div class="grid grid-cols-3 items-center">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
-                                    <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">2,499</p>
-                                    <p class="text-white text-right text-[1rem] 2xl:text-[18px] ">บาท<br>/เดือน</p>
+                    {{-- เบอร์มงคลรายเดือน --}}
+                    @elseif($cate->id == 3)
+                        @foreach ($berproducts as $ber)
+                            <div class="drop-shadow-md">
+                                <div
+                                    class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
+                                    <div class="flex justify-start items-center gap-1 ">
+                                        <p class="text-white text-[18px]">เกรด</p>
+                                        <p class="text-white font-medium text-[1.5rem]">{{$ber->product_grade}}</p>
+                                    </div>
+                                    <div
+                                        class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 xl:w-4/6 md:w-4/6 transform -skew-x-12 px-2 flex justify-end items-center">
+                                        <p class="text-white mr-1 text-[18px]">ผลรวม</p>
+                                        <p class="text-white font-bold text-[1.5rem]">{{$ber->product_sumber}}</p>
+                                    </div>
+                                    <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
+                                </div>
+
+                                <div class="bg-white">
+                                    <div class="flex justify-center py-10 ">
+                                        <p class="2xl:text-[2.5rem] text-[2rem] text-center font-bold">{{$ber->product_phone}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] ">
+                                    <img src="/images/Ellipse 6.png" alt="" class="px-4 py-2">
+                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4 ">{{$ber->product_comment}}</p>
+                                </div>
+
+                                <div
+                                    class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2 items-center">
+                                    <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png" alt="">
+                                    <div class="grid grid-cols-3">
+                                        <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] ">ราคา</p>
+                                        <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem]  text-2xl">{{number_format($ber->product_price)}}</p>
+                                        <p class="text-white text-right 2xl:text-[18px] text-[1rem] md:text-[18px] ">บาท</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                                    <div
+                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                        <img src="/images/mdi_cart-arrow-down.png" alt=""
+                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                    </div>
+                                    <div
+                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
+                                        <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                    </div>
+
+                                    <a href="{{url('/detailber/'.$ber->product_phone)}}"
+                                        class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                    <a href="#"
+                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                </div>
+
+                            </div>
+                        @endforeach
+                    {{-- เบอร์มงคลรายเดือน --}}
+
+                    {{-- ซิมเติมเงิน --}}   
+                    @elseif($cate->id == 4)
+                        @for ($i = 1; $i <= 4; $i++)
+                            <div class="drop-shadow-md">
+                                <div
+                                    class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                    {{-- <div class="flex justify-start items-center"> --}}
+                                    <p class="text-white text-left ml-3 text-[18px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                                    <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
+                                    {{-- </div> --}}
+
+                                </div>
+
+                                <div class="bg-white">
+                                    <div class="flex justify-center py-4 ">
+                                        <img src="images/Rectangle 98.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
+                                    <img src="images/Ellipse 6.png" alt="" class="px-4">
+                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">( เล่นฟรีเดือนแรก )
+                                        เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
+                                        True wifi max speed แบบไม่จำกัด)</p>
+                                </div>
+
+                                <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
+                                    <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
+                                        alt="">
+                                    <div class="grid grid-cols-3">
+                                        <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] ">ราคา <br>
+                                            เริ่มต้น</p>
+                                        <p
+                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
+                                            150</p>
+                                        <p class="text-white text-right text-[1rem] 2xl:text-[18px] md:text-[18px]">บาท <br>
+                                            /เดือน</p>
+
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
+
+                                    <a href="#"
+                                        class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                    <a href="#"
+                                        class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                                 </div>
                             </div>
+                        @endfor
+                    {{-- ซิมเติมเงิน --}}
 
-                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
-                                <a href=""
-                                    class="py-2 px-5 mr-2 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
+                    {{-- ซิมท่องเที่ยว --}}
+                    @elseif($cate->id == 6)
+                        @for ($i = 1; $i <= 4; $i++)
+                            <div class="drop-shadow-md">
+                                <div
+                                    class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
+                                    <p class="text-white mr-2 text-left text-[18px]">8 DAYS 449 BAHT</p>
+                                    <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
+                                </div>
+                                {{-- <div
+                                class="">
+                                <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
+                            </div> --}}
+
+                                <div class="bg-white">
+                                    <div class="flex justify-center py-4 [h-110px]">
+                                        <img src="/images/Rectangle 179.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
+                                    <img src="/images/travel/majesticons_sim-card-line.png" alt="" class="px-4">
+                                    <p class="text-left text-[16px] py-1 col-span-4">Thailand Tourist infinite sim</p>
+                                </div>
+
+                                <div class=" relative bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
+                                    <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
+                                        alt="">
+                                    <div class="grid grid-cols-3">
+                                        <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
+                                        <p class="text-white font-medium text-center text-3xl">499</p>
+                                        <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
+
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                                    <div
+                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                        <img src="/images/mdi_cart-arrow-down.png" alt=""
+                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                    </div>
+                                    <div
+                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
+                                        <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                    </div>
+
+                                    <a src="#"
+                                        class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                    <a src="#"
+                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                </div>
+
                             </div>
-                        </div>
-                    @endfor
+                        @endfor
+                    {{-- ซิมท่องเที่ยว --}}
+
+                    @endif
                 </div>
 
             </div>
 
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="/fiber"
-                    class="py-2.5 px-5 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                <a href="{{url('/'.$cate->cate_redirect)}}" class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
-            <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
+            {!!$circle2!!}
         </section>
+        @endforeach
         {{-- --- --}}
 
 
-        <section id="ber_lucky" class="bg-white py-6 px-3">
+        {{-- <section id="ber_lucky" class="bg-white py-6 px-3">
 
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">เบอร์มงคลรายเดือน</p>
             <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ
@@ -245,10 +435,6 @@
                                 </div>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             </div>
-                            {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
 
                             <div class="bg-white"">
                                 <div class="flex justify-center py-10 ">
@@ -307,11 +493,11 @@
                     class="py-2.5 px-5 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
-        </section>
+        </section> --}}
         {{-- --- --}}
 
 
-        <section id="sim" class="bg-gray-100 py-6 relative z-0 px-3">
+        {{-- <section id="sim" class="bg-gray-100 py-6 relative z-0 px-3">
             <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมเติมเงิน</p>
@@ -326,11 +512,8 @@
                         <div class="drop-shadow-md">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                                {{-- <div class="flex justify-start items-center"> --}}
-                                <p class="text-white text-left ml-3 text-[18px] max-es:text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น
-                                    ใช้ได้ไม่จำกัด</p>
+                                <p class="text-white text-left ml-3 text-[18px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-                                {{-- </div> --}}
 
                             </div>
 
@@ -382,10 +565,10 @@
                     class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
-        </section>
+        </section> --}}
         {{-- --- --}}
 
-        <section id="travel" class="bg-white py-6 px-3 ">
+        {{-- <section id="travel" class="bg-white py-6 px-3">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมท่องเที่ยว</p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมสำหรับท่องเที่ยว
@@ -403,10 +586,6 @@
                                 <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">8 DAYS 449 BAHT</p>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             </div>
-                            {{-- <div
-                            class="">
-                            <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
 
                             <div class="bg-white"">
                                 <div class="flex justify-center py-4 [h-110px]">
@@ -461,7 +640,7 @@
                     class="py-2.5 px-5 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
-        </section>
+        </section> --}}
         {{-- --- --}}
 
 
