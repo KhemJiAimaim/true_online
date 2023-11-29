@@ -21,15 +21,8 @@ class FiberController extends BaseController
             $fiberCate = Category::where(['cate_level' => 1, 'cate_parent_id' => 2])->get();
             $fiberProduct = $this->getFiberProduct();
 
-            $benefits = Post::where('category', 'LIKE', '%' . ',8,' . '%')
-                ->where(['status_display' => 1])
-                ->orderBY('priority', 'ASC')
-                ->get();
-
-            $privileges = Post::where('category', 'LIKE', '%' . ',9,' . '%')
-                ->where(['status_display' => 1])
-                ->orderBY('priority', 'ASC')
-                ->get();
+            $benefits = $this->getBenefits();
+            $privileges = $this->getPrivileges();
 
             return response([
                 'message' => 'ok',

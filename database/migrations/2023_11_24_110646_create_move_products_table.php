@@ -59,7 +59,7 @@ return new class extends Migration
                 'internet_volume' => '40', // GB
                 'sim_gen' => '5G',
                 'package_options' => 'Fixxy No Limited:399, Fixxy No Limited:499', // package option 1:price, package option 2:price
-                'thumbnail_link' => '',
+                'thumbnail_link' => 'images/Rectangle1282.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
                 'details_content' => '',
@@ -69,6 +69,52 @@ return new class extends Migration
                 'recommended' => true,
 
                 'priority' => 1,
+                'language' => 'th',
+            ],
+            [
+                'move_cate_id' => 2,
+                'title' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'details' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'benefit_ids' => ',4,7,',
+                'price' => 99,
+                'discount' => 0,
+                'call_minutes' => '100',  // นาที
+                'internet_volume' => '40', // GB
+                'sim_gen' => '5G',
+                'package_options' => 'Fixxy No Limited:399, Fixxy No Limited:499', // package option 1:price, package option 2:price
+                'thumbnail_link' => 'images/Rectangle1282.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'details_content' => '',
+                'terms_conditions' => '',
+                'unlimited_wifi' => true,
+                'voice_hd' => true,
+                'recommended' => false,
+
+                'priority' => 2,
+                'language' => 'th',
+            ],
+            [
+                'move_cate_id' => 3,
+                'title' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'details' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'benefit_ids' => ',5,',
+                'price' => 99,
+                'discount' => 0,
+                'call_minutes' => '100',  // นาที
+                'internet_volume' => '40', // GB
+                'sim_gen' => '5G',
+                'package_options' => 'Fixxy No Limited:399, Fixxy No Limited:499', // package option 1:price, package option 2:price
+                'thumbnail_link' => 'images/Rectangle1282.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'details_content' => '',
+                'terms_conditions' => '',
+                'unlimited_wifi' => true,
+                'voice_hd' => true,
+                'recommended' => false,
+
+                'priority' => 3,
                 'language' => 'th',
             ],
         ]);

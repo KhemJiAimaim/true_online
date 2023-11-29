@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backoffice;
 
 use App\Http\Controllers\Controller;
 use App\Models\MoveCategory;
+use App\Models\MoveProduct;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -191,25 +192,14 @@ class MoveController extends BaseController
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Move Product
     public function moveProductIndex(Request $request)
     {
         try {
 
             $moveCates = $this->getMoveCateAll();
+            $moveProducts = $this->getMoveProductAll();
+            $benefits = $this->getBenefits();
 
             return response([
                 'message' => 'ok',
@@ -217,7 +207,8 @@ class MoveController extends BaseController
                 'description' => 'get move cate success',
                 'data' => [
                     'moveCates' => $moveCates,
-                    'moveProducts' => [],
+                    'moveProducts' => $moveProducts,
+                    'benefits' => $benefits,
                 ],
                 'maxPriority' => MoveCategory::where('delete_status', 0)->max('priority'),
             ], 200);
@@ -227,6 +218,50 @@ class MoveController extends BaseController
                 'description' => 'Something went wrong.',
                 'errorsMessage' => $e->getMessage()
             ], 501);
+        }
+    }
+
+    public function updateRecProduct(Request $request, $id)
+    {
+        try {
+
+            $product = MoveProduct::findOrFail($id);
+            $product->update($request->only(['recommended']));
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update recommend successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updateDisplayProduct(Request $request, $id)
+    {
+        try {
+
+            $product = MoveProduct::findOrFail($id);
+            $product->update($request->only(['display']));
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update display successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
         }
     }
 
@@ -240,6 +275,19 @@ class MoveController extends BaseController
         $data = MoveCategory::where('delete_status', 0)
             ->orderBy('updated_at', 'DESC')
             ->orderBy('priority', 'ASC')
+            ->get();
+
+        return $data;
+    }
+
+    private function getMoveProductAll()
+    {
+        $data = MoveProduct::join('move_categories AS mc', 'mc.id', 'move_products.move_cate_id')
+            ->select('move_products.*', 'mc.title AS move_cate_name')
+            ->where('move_products.delete_status', 0)
+            ->orderBy('move_products.updated_at', 'DESC')
+            ->orderBy('move_products.priority', 'ASC')
+            ->with('images')
             ->get();
 
         return $data;
