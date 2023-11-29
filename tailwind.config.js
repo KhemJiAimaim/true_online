@@ -13,6 +13,7 @@ module.exports = {
         es: "412px",
         xs: "480px",
         ex: "540px",
+        xx: "820px",
         dm: "912px"
       },
 

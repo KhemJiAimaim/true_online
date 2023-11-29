@@ -34,7 +34,7 @@
             <div class="pt-6 w-full">
                 <div class="max-w-[1536px] my-0 mx-auto flex justify-center px-4 ">
                     <div class="drop-shadow-md flex justify-center ">
-                        <div class="2xl:w-[424px] md:w-[424px] xl:w-[420px] w-[350px] max-md:w-[350px] h-[100%] ">
+                        <div class="2xl:w-[424px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
                             <div
                                 class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                 {{-- <div class="flex justify-start items-center"> --}}
@@ -44,7 +44,7 @@
 
                             </div>
 
-                            <div class="bg-white flex items-center justify-center flex-col p-4 gap-4  ">
+                            <div class="bg-white flex items-center justify-center flex-col p-4 ">
                                 <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
                                 <div class="flex justify-center items-baseline gap-10">
                                     <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต</p>
@@ -128,7 +128,7 @@
                             <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 gap-3">
 
                                 <a href="#"
-                                    class="cursor-pointer py-2 px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
+                                    class="cursor-pointer py-2 xl:px-2 px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
                                 <a href="/move/movenow"
                                     class="cursor-pointer py-2 max-md:px-10 px-16  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
@@ -140,7 +140,7 @@
         </section>
 
         {{-- 5G Together+ --}}
-        <section class="bg-[#F8F9FA] py-6 w-full relative z-0 px-3 max-md:px-4">
+        <section class="bg-[#F8F9FA] py-6 relative z-0 px-3 max-md:px-4">
             <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px]">5G Together+</p>
@@ -148,10 +148,10 @@
             </div>
             <div class="overflow-x-scroll 2xl:overflow-hidden mt-10 w-full py-2 z-[2]">
                 <div
-                    class="2xl:w-[1536px] xl:w-[1280px] lg:w-[1300px] md:w-[1300px] w-[1100px] dm:w-[1380px] my-0 grid grid-cols-3 2xl:mx-auto gap-6 ">
+                    class="2xl:w-[1536px] xl:w-[1250px] lg:w-[1300px] md:w-[1300px] w-[1100px] dm:w-[1380px] my-0 grid grid-cols-3 2xl:mx-auto items-center ">
 
                     @for($i=1 ; $i <= 3 ; $i++)
-                    <div class="drop-shadow-md flex justify-center 2xl:w-[424px] xl:w-[420px] md:w-[424px] w-[350px] max-md:w-[350px] h-[100%]">
+                    <div class="drop-shadow-md flex justify-center items-center mx-auto 2xl:w-[424px] xl:w-[410px] md:w-[424px] w-[350px] max-md:w-[350px] h-[100%]">
                         <div class="">
                             <div
                                 class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
@@ -162,7 +162,7 @@
 
                             </div>
 
-                            <div class="bg-white flex items-center justify-center flex-col p-4 gap-4  ">
+                            <div class="bg-white flex items-center justify-center flex-col p-4 ">
                                 <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
                                 <div class="flex justify-center items-baseline gap-10">
                                     <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต</p>
@@ -248,7 +248,7 @@
                             <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 gap-3">
 
                                 <a href="#"
-                                    class="cursor-pointer py-2 px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
+                                    class="cursor-pointer py-2 xl:px-2 px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
                                 <a href="/move/movenow"
                                     class="cursor-pointer py-2 max-md:px-10 px-16  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
@@ -284,7 +284,7 @@
 
                             </div>
 
-                            <div class="bg-white flex items-center justify-center flex-col p-4 gap-4  ">
+                            <div class="bg-white flex items-center justify-center flex-col p-4">
                                 <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
                                 <div class="flex justify-center items-baseline gap-10">
                                     <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต</p>
