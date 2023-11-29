@@ -18,13 +18,37 @@ return new class extends Migration
             $table->id();
             $table->integer('move_id')->nullable();
             $table->string('image_link');
-            $table->string('alt')->nullable();
-            $table->string('title')->nullable();
+            $table->string('image_alt')->nullable();
+            $table->string('image_title')->nullable();
             $table->string('language')->nullable();
             $table->string('defaults')->default(0);
 
             $table->timestamps();
         });
+
+        DB::table('move_images')->insert([
+            [
+                'move_id' => 1,
+                'image_link' => 'images/Rectangle1282.png',
+                'image_alt' => '',
+                'image_title' => '',
+                'language' => 'th',
+            ],
+            [
+                'move_id' => 2,
+                'image_link' => 'images/Rectangle1282.png',
+                'image_alt' => '',
+                'image_title' => '',
+                'language' => 'th',
+            ],
+            [
+                'move_id' => 3,
+                'image_link' => 'images/Rectangle1282.png',
+                'image_alt' => '',
+                'image_title' => '',
+                'language' => 'th',
+            ],
+        ]);
     }
 
     /**
