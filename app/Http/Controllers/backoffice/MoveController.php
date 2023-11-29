@@ -265,6 +265,56 @@ class MoveController extends BaseController
         }
     }
 
+    public function updateMoveProduct(Request $request, $id)
+    {
+
+        return response([
+            'data' => $request->all(),
+            'Files' => $request->allFiles(),
+            'id' => $id,
+        ]);
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'string|required',
+            'priority' => 'numeric|required',
+            'details' => 'string|nullable',
+            'description' => 'string|nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $this->updatePriority("move_categories", $request->priority);
+
+            $cateUpdate = MoveCategory::findOrFail($id);
+            $data = $request->only(['title', 'priority', 'details', 'description']);
+            $cateUpdate->update($data);
+
+            $moveCates = $this->getMoveCateAll();
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Move cate has been updated successfully',
+                'newUpdated' => $cateUpdate,
+                'moveCates' => $moveCates,
+                'maxPriority' => MoveCategory::where('delete_status', 0)->max('priority'),
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
 
 
 
