@@ -3,8 +3,8 @@
 
 
 @section('content')
-    <div class="2xl:mt-16">
-        
+    <div class="2xl:my-12">
+
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
             <div class="grid grid-cols-4 py-6 w-[500px] 2xl:w-[800px] items-center mx-auto">
                 <a href="#fiber"
@@ -133,7 +133,7 @@
 
 
         <section id="fiber" class="bg-gray-100 py-6 relative z-0 px-3">
-            
+
             <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
             <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">อินเทอร์เน็ตไฟเบอร์</p>
             <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">เน็ตแรงที่สุด 2Gbps ดูเต็มอิ่ม
@@ -151,7 +151,7 @@
                             <div
                                 class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
-                                <p class="text-white text-left text-[18px]">แพ็กเกจยอดนิยม</p>
+                                <p class="text-white text-left text-[18px] max-es:text-[16px]">แพ็กเกจยอดนิยม</p>
                                 {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
                                 <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                             </div>
@@ -203,7 +203,7 @@
 
                             <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
                                 <a href=""
-                                    class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
+                                    class="py-2 px-5 mr-2 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
                             </div>
                         </div>
                     @endfor
@@ -213,7 +213,7 @@
 
             <div class="items-center mx-auto mt-4 pt-6">
                 <a href="/fiber"
-                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-2.5 px-5 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
         </section>
@@ -235,12 +235,12 @@
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                 <div class="flex justify-start items-center gap-1 ">
-                                    <p class="text-white text-[18px]">เกรด</p>
+                                    <p class="text-white text-[18px] max-es:text-[16px]">เกรด</p>
                                     <p class="text-white font-medium text-[1.5rem]">A+</p>
                                 </div>
                                 <div
                                     class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 xl:w-4/6 md:w-4/6 transform -skew-x-12 px-2 flex justify-end items-center">
-                                    <p class="text-white mr-1 text-[18px]">ผลรวม</p>
+                                    <p class="text-white mr-1 text-[18px] max-es:text-[16px]">ผลรวม</p>
                                     <p class="text-white font-bold text-[1.5rem]">59</p>
                                 </div>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
@@ -258,7 +258,8 @@
 
                             <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] ">
                                 <img src="/images/Ellipse 6.png" alt="" class="px-4 py-2">
-                                <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4 ">พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา
+                                <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4 ">พลังแห่งปัญญา
+                                    การสนับสนุนค้ำจุน สติปัญญา
                                     นำพาสู่ความสำเร็จ ( แพ็กเกจนี้ใช้ฟรี 3 เดือน )</p>
                             </div>
 
@@ -266,11 +267,11 @@
                                 class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2 items-center">
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] ">ราคา</p>
+                                <div class="grid grid-cols-3 items-center">
+                                    <p class="text-white text-left text-[18px] max-es:text-[16px]] ">ราคา</p>
                                     <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem]  text-2xl">
                                         99,999</p>
-                                    <p class="text-white text-right 2xl:text-[18px] text-[1rem] md:text-[18px] ">บาท</p>
+                                    <p class="text-white text-right text-[18px] max-es:text-[16px] ">บาท</p>
 
                                 </div>
                             </div>
@@ -289,9 +290,9 @@
                                 </div>
 
                                 <a src="#"
-                                    class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                    class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <a src="#"
-                                    class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                    class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                             </div>
 
                         </div>
@@ -303,7 +304,7 @@
             </div>
             <div class="items-center mx-auto mt-4 pt-6">
                 <a href="/fiber"
-                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-2.5 px-5 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
@@ -326,7 +327,8 @@
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                 {{-- <div class="flex justify-start items-center"> --}}
-                                <p class="text-white text-left ml-3 text-[18px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                                <p class="text-white text-left ml-3 text-[18px] max-es:text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น
+                                    ใช้ได้ไม่จำกัด</p>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                                 {{-- </div> --}}
 
@@ -334,12 +336,13 @@
 
                             <div class="bg-white"">
                                 <div class="flex justify-center py-4 ">
-                                    <img src="images/Rectangle 98.png" alt="">
+                                    <img src="/images/Rectangle 98.png" alt=""
+                                        class="max-ex:w-[120px] max-ex:h-[120px]">
                                 </div>
                             </div>
 
                             <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                                <img src="images/Ellipse 6.png" alt="" class="px-4">
+                                <img src="/images/Ellipse 6.png" alt="" class="px-4">
                                 <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">( เล่นฟรีเดือนแรก )
                                     เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
                                     True wifi max speed แบบไม่จำกัด)</p>
@@ -349,12 +352,12 @@
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
                                 <div class="grid grid-cols-3">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] ">ราคา <br>
+                                    <p class="text-white text-left text-[18px] max-es:text-[16px] ">ราคา <br>
                                         เริ่มต้น</p>
                                     <p
                                         class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
                                         150</p>
-                                    <p class="text-white text-right text-[1rem] 2xl:text-[18px] md:text-[18px]">บาท <br>
+                                    <p class="text-white text-right text-[18px] max-es:text-[16px]">บาท <br>
                                         /เดือน</p>
 
                                 </div>
@@ -363,7 +366,7 @@
                             <div
                                 class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                                <a href="#"
+                                <a href="/prepaid_sim/buy_sim"
                                     class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                                 <a href="#"
                                     class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
@@ -371,20 +374,18 @@
                             </div>
                         </div>
                     @endfor
-
-
                 </div>
 
             </div>
             <div class="items-center mx-auto mt-4 pt-6">
                 <a href="/fiber"
-                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
         </section>
         {{-- --- --}}
 
-        <section id="travel" class="bg-white py-6 px-3">
+        <section id="travel" class="bg-white py-6 px-3 ">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium">ซิมท่องเที่ยว</p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมสำหรับท่องเที่ยว
@@ -394,12 +395,12 @@
 
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
                 <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
+                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w-[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     @for ($i = 1; $i <= 4; $i++)
                         <div class="drop-shadow-md">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                <p class="text-white mr-2 text-left text-[18px]">8 DAYS 449 BAHT</p>
+                                <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">8 DAYS 449 BAHT</p>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             </div>
                             {{-- <div
@@ -422,9 +423,9 @@
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
                                 <div class="grid grid-cols-3">
-                                    <p class="text-white text-left text-[1rem] mt-2">ราคา</p>
+                                    <p class="text-white text-left text-[18px] max-es:text-[16px] mt-2">ราคา</p>
                                     <p class="text-white font-medium text-center text-3xl">499</p>
-                                    <p class="text-white text-right text-[1rem]  mt-2">บาท</p>
+                                    <p class="text-white text-right text-[18px] max-es:text-[16px]  mt-2">บาท</p>
 
                                 </div>
                             </div>
@@ -443,9 +444,9 @@
                                 </div>
 
                                 <a src="#"
-                                    class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                    class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <a src="#"
-                                    class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                    class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                             </div>
 
                         </div>
@@ -457,14 +458,14 @@
 
             <div class="items-center mx-auto mt-4 pt-6">
                 <a href="/fiber"
-                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                    class="py-2.5 px-5 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
 
         </section>
         {{-- --- --}}
 
-   
-</div>
+
+    </div>
 @endsection
 
 @section('scripts')

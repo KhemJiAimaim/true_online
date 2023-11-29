@@ -1,461 +1,70 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class="mt-16">
+    <div class="2xl:mt-16">
         <section class="">
-            <div class="py-6">
-                <p class="text-[#000] mt-2 mb-2 text-[2rem] ">ซิมเติมเงิน</p>
-                <p class="text-[#838383] mt-2 mb-2 text-[18px]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
+            <div class="2xl:py-6 ">
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px] ">ซิมเติมเงิน</p>
+                <p class="text-[#838383] mt-2 mb-10  2xl:text-[20px] md:text-[18px] text-[16px] ">ซิมเติมเงิน
+                    พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
             </div>
             {{-- มหัศจรรย์ --}}
 
-            <div class="plate-line max-w-[200px] "></div>
+            <div class="plate-line max-w-[200px]"></div>
 
             {{-- มหัศจรรย์ --}}
 
             <div
-                class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 m-auto p-4 mt-10">
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 98.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก )
-                            เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
-                            True wifi max speed แบบไม่จำกัด)</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
-                        <img class=" absolute left-0 buttom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="">
-                        <div class="grid grid-cols-3 py-3 px-2">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">150</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
+                class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 m-auto p-4 2xl:mt-16 mt-6 mb-10 ">
+                @for ($i = 1; $i <= 10; $i++)
+                    <div class="drop-shadow-md">
+                        <div
+                            class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                            {{-- <div class="flex justify-start items-center"> --}}
+                            <p class="text-white text-left ml-3 text-[18px] max-es:text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น
+                                ใช้ได้ไม่จำกัด</p>
+                            <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
+                            {{-- </div> --}}
 
                         </div>
-                    </div>
 
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href="#"
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น + โทรฟรีทุกค่าย 24 ซม.</p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 107.png" alt="">
+                        <div class="bg-white"">
+                            <div class="flex justify-center py-4 ">
+                                <img src="/images/Rectangle 98.png" alt=""
+                                    class="max-ex:w-[120px] max-ex:h-[120px]">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น
-                            ความเร็ว 100Mbps (พร้อมใช้ฟรี True wifi
-                            max speed แบบไม่จำกัด)</p>
-                    </div>
+                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
+                            <img src="/images/Ellipse 6.png" alt="" class="px-4">
+                            <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">( เล่นฟรีเดือนแรก )
+                                เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
+                                True wifi max speed แบบไม่จำกัด)</p>
+                        </div>
 
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] relative">
-                        <img class=" absolute left-0 buttom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="">
-                        <div class="grid grid-cols-3 py-3 px-2">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">300</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
+                        <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
+                            <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png" alt="">
+                            <div class="grid grid-cols-3">
+                                <p class="text-white text-left text-[18px] max-es:text-[16px] ">ราคา <br>
+                                    เริ่มต้น</p>
+                                <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
+                                    150</p>
+                                <p class="text-white text-right text-[18px] max-es:text-[16px]">บาท <br>
+                                    /เดือน</p>
+
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
+
+                            <a href="/prepaid_sim/buy_sim"
+                                class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                            <a href="#"
+                                class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                         </div>
                     </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href=""
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ไม่ลดสปิด</p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 116.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น +
-                            โทรฟรี 24ชม. ความเร็ว 30Mbps ไม่ลดสปีด
-                            (ใช้ฟรี wifi แบบไม่จำกัด ทุกแพ็กเกจ)</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
-                        <img class=" absolute left-0 buttom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="" />
-                        <div class="grid grid-cols-3 py-3 px-2">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">235</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href="#"
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพเล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด+โทรฟรี 24ซม.
-                        </p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 125.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น +โทรฟรี
-                            ทุกเครือข่าย 24ชม. ความเร็ว 15Mbps</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
-                        <img class=" absolute left-0 bottom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="">
-                        <div class="grid grid-cols-3 py-3 px-2">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">250</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href="#"
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 98.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก )
-                            เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
-                            True wifi max speed แบบไม่จำกัด)</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 relative">
-                        <img class=" absolute left-0 bottom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="">
-                        <div class="grid grid-cols-3">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">150</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href="#"
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น + โทรฟรีทุกค่าย 24 ซม.</p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 107.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น
-                            ความเร็ว 100Mbps (พร้อมใช้ฟรี True wifi
-                            max speed แบบไม่จำกัด)</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 relative">
-                        <img class=" absolute left-0 bottom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="">
-                        <div class="grid grid-cols-3">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">300</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href=""
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ไม่ลดสปิด</p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 116.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น +
-                            โทรฟรี 24ชม. ความเร็ว 30Mbps ไม่ลดสปีด
-                            (ใช้ฟรี wifi แบบไม่จำกัด ทุกแพ็กเกจ)</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 relative">
-                        <img class=" absolute left-0 bottom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="">
-                        <div class="grid grid-cols-3">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">235</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href="#"
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพเล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด+โทรฟรี 24ซม.
-                        </p>
-                        <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 125.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น +โทรฟรี
-                            ทุกเครือข่าย 24ชม. ความเร็ว 15Mbps</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 relative">
-                        <img class=" absolute left-0 bottom-0 h-[100%]" src="/images/circle/Intersect (2).png"
-                            alt="">
-                        <div class="grid grid-cols-3">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">250</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href="#"
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 98.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก )
-                            เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
-                            True wifi max speed แบบไม่จำกัด)</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                        <div class="grid grid-cols-3">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">150</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href="#"
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
-
-                <div class="drop-shadow-md">
-                    <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                        {{-- <div class="flex justify-start items-center"> --}}
-                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น + โทรฟรีทุกค่าย 24 ซม.</p>
-
-                        {{-- </div> --}}
-
-                    </div>
-
-                    <div class="bg-white"">
-                        <div class="flex justify-center py-4 ">
-                            <img src="/images/Rectangle 107.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
-                        <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                        <p class="text-left text-[0.9rem] py-1 col-span-4">( เล่นฟรีเดือนแรก ) เล่นเน็ตไม่อั้น
-                            ความเร็ว 100Mbps (พร้อมใช้ฟรี True wifi
-                            max speed แบบไม่จำกัด)</p>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2">
-                        <div class="grid grid-cols-3">
-                            <p class="text-white text-left text-[1rem] ">ราคา <br> เริ่มต้น</p>
-                            <p class="text-white font-medium text-center text-3xl">300</p>
-                            <p class="text-white text-right text-[1rem]  ">บาท <br> /เดือน</p>
-
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4">
-
-                        <a href=""
-                            class="cursor-pointer py-2 px-4  mb-2 mt-2 mx-2 text-md font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                        <a href="/prepaid_sim/buy_sim"
-                            class="cursor-pointer py-2 px-8  mb-2 mt-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
-                    </div>
-                </div>
+                @endfor
 
 
             </div>
