@@ -10,7 +10,7 @@
                 <div class="bg-white w-full 2xl:h-[590px]  items-center px-4 lg:px-1 mb-6 relative">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2">
                         <img id="featured" src="/images/Rectangle 1281.png" alt=""
-                            class="max-ex:w-[250px] max-ex:h-[250px] cursor-pointer ">
+                            class="max-ex:w-[250px] max-ex:h-[250px] cursor-pointer pb-4">
                     </div>
                     <div id="slide-wrapper" class="flex justify-center items-center">
 
@@ -53,8 +53,8 @@
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:overflow-hidden h-[280px] w-full">
-                        @for ($i = 1; $i <= 8; $i++)
+                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
+                        @for ($i = 1; $i <= 10; $i++)
                             <div id="box{{ $i }}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8rem] cursor-pointer">
                                 <div class="flex ">
@@ -75,53 +75,59 @@
             </div>
         </div>
 
-        {{-- box package --}}
-        <div class="max-w-[1536px] max-2xl:max-w-[80%] pt-10 mx-auto mb-6 mt-0 text-left">
+
+         {{-- box package --}}
+         <div class="max-w-[1536px] max-2xl:max-w-[80%] pt-6 mx-auto mb-6">
             <div class="">
                 <div class="flex">
                     <button id="btn-package"
-                        class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px]">รายละเอียด
+                        class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
                         แพ็กเกจ</button>
-                    <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px]">เงื่อนไข</button>
+                    <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
                 </div>
                 {{-- content detail --}}
                 <div id="box-package"
-                    class="p-4 border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] w-full h-[500px]   overflow-hidden overflow-y-auto">
-            
-                    <div class="w-full lg:w-[350px] 2xl: ml-3 h-[500px]">
-                        <p>ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย
+                    class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
+                    <div class="w-full lg:w-[400px] ml-3 text-left">
+                        <p class="text-[16px] font-medium mt-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย
                             True
                         </p>
-                        <p>1. True ความเร็ว 10Mbps (ไม่ลดสปีด) "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 210 บาท (รวมภาษีแล้ว)</p>
-                        <p>2. True ความเร็ว 20Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 70GB (FUP 1Mbps) "ฟรีเดือนแรก" เดือนต่อไป
-                            เติมเงิน
-                            200 บาท (รวมภาษีแล้ว)</p>
-                        <p>3. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 80GB (FUP 1Mbps) "ฟรีเดือนแรก" เดือนต่อไป
-                            เติมเงิน
-                            300 บาท (รวมภาษีแล้ว)</p>
-                        <p>4. True ความเร็ว 15Mbps + เล่นเน็ตไม่อั้น 55GB (FUP 1Mbps) "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 250
-                            บาท
-                            (รวมภาษีแล้ว)</p>
-                        <p>5. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 30GB (FUP 384Kbps) "ฟรีเดือนแรก"
-                            เดือนต่อไป
-                            เติมเงิน 200 บาท (รวมภาษีแล้ว)</p>
-                        <p>6. True ความเร็ว 4Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps) "ฟรีเดือนแรก" เดือนต่อไป
-                            เติมเงิน 150 บาท (รวมภาษีแล้ว)</p>
-                        <p>** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล Facebook, Line,
+
+                        <ol class="mx-6">
+                            <li  class="text-[16px]">True ความเร็ว 10Mbps (ไม่ลดสปีด) "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 210 บาท (รวมภาษีแล้ว)
+                            </li>
+                            <li class="text-[16px]" >True ความเร็ว 20Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 70GB (FUP 1Mbps) "ฟรีเดือนแรก"
+                                เดือนต่อไป
+                                เติมเงิน
+                                200 บาท (รวมภาษีแล้ว)</li>
+                            <li class="text-[16px]" >True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 80GB (FUP 1Mbps) "ฟรีเดือนแรก"
+                                เดือนต่อไป
+                                เติมเงิน
+                                300 บาท (รวมภาษีแล้ว)</li>
+                            <li class="text-[16px]" >True ความเร็ว 15Mbps + เล่นเน็ตไม่อั้น 55GB (FUP 1Mbps) "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน
+                                250
+                                บาท
+                                (รวมภาษีแล้ว)</li>
+                            <li class="text-[16px]" >True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 30GB (FUP 384Kbps) "ฟรีเดือนแรก"
+                                เดือนต่อไป
+                                เติมเงิน 200 บาท (รวมภาษีแล้ว)</li>
+                            <li class="text-[16px]" >True ความเร็ว 4Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps) "ฟรีเดือนแรก"
+                                เดือนต่อไป
+                                เติมเงิน 150 บาท (รวมภาษีแล้ว)</li>
+                        </ol>
+                        <p class="text-[16px]">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล Facebook, Line,
                             instagram, TikTok</p>
 
                     </div>
-                    {{-- <div class="w-full sticky top-[100vh]">
-                        <p class="text-center text-[#EC1F25] cursor-pointer hover:text-red-500 ">แสดงเพิ่มเติม ˅</p>
-                    </div> --}}
+                    <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
+                        <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
+                    </div>
                 </div>
 
                 {{-- content condition --}}
-                <div id="box-condition"
-                    class="hidden p-4 border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] w-full h-[500px] lg:h-[450px] overflow-hidden overflow-y-auto">
-                    <div class="w-full 2xl:w-[450px] ml-3 h-[500px]">
-                        เงื่อนไขการได้รับสิทธิพิเศษ ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน
-                    </div>
+                <div id="box-condition" 
+                    class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium mt-3 rounded-r-[10px] rounded-bl-[10px]">
+                    เงื่อนไขการได้รับสิทธิพิเศษ ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน
                 </div>
             </div>
         </div>
