@@ -6,15 +6,17 @@
     <div class="2xl:mt-16 mt-6">
 
         {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container px-3 ">
-            <div class="title-plate-line"></div>
+        <div class="title-plate-container px-3 xs:px-8">
+            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+                <div class="title-plate-line"></div>
+            </div>
             <div class="plate-group">
                 <div class="plate-box-s">
                     <div class="plate-circleS"></div>
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[16px]  text-[16px] p-4">ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[16px]  text-[16px] p-4  ">ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช
                         พร้อมรับส่วนลดสุดคุ้มที่นี่</p>
                 </div>
                 <div class="plate-box-e">
@@ -37,12 +39,12 @@
             </div>
             <div class="mt-10 w-full py-2 z-[2]">
                 <div
-                    class="2xl:w-[1536px] w-full my-0 2xl:grid 2xl:grid-cols-3 flex flex-wrap 2xl:mx-auto items-center gap-6 ">
+                    class="2xl:w-[1536px] my-0 2xl:grid 2xl:grid-cols-3 flex flex-wrap mx-auto items-center gap-x-6 gap-y-8 ">
 
                     @for ($i = 1; $i <= 10; $i++)
                         <div
-                            class="drop-shadow-md flex justify-center items-center mx-auto 2xl:w-[424px] xl:w-[350px] lg:w-[420px] w-[350px] h-[100%]">
-                            <div class="">
+                            class="drop-shadow-md flex justify-center items-center mx-auto">
+                            <div class=" 2xl:w-full xl:w-[380px] lg:w-[420px] w-[350px] h-[100%]">
                                 <div
                                     class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -51,8 +53,7 @@
                                     <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
                                     {{-- </div> --}}
 
-                                </div>
-
+                                    </div>
                                 <div class="bg-white flex items-center justify-center flex-col p-4  max-md:p-2">
                                     <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
                                     <div class="flex justify-center items-baseline gap-10">
@@ -150,9 +151,9 @@
                                 <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 gap-3">
 
                                     <a href="#"
-                                        class="cursor-pointer py-2 xl:px-2 px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
+                                        class="cursor-pointer py-2 xl:px-2 px-1  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
                                     <a href="/move/movenow"
-                                        class="cursor-pointer py-2 max-md:px-10 px-16  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
+                                        class="cursor-pointer py-2 max-md:px-12 xl:px-10 px-10  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                 </div>
                             </div>

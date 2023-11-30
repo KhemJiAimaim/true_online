@@ -11,7 +11,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="2xl:mt-40 lg:mt-32 mt-28">
+    <div class="2xl:mt-16  mt-[1rem]">
         <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
         <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
@@ -70,7 +70,7 @@
                     <label for="sub-district"
                         class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700">ตำบล/แขวง</label>
                     <select id="sub-district" name="sub-district"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                         <option>ศิลา</option>
                         <option>ในเมือง</option>
                         <option>Chile</option>
@@ -81,7 +81,7 @@
                     class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
                     <label for="district"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">อำเภอ/เขต</label>
-                    <select id="district" name="district" class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                    <select id="district" name="district" class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                         <option value="ชุมแพ">ชุมแพ</option>
                         <option value="สึชมพู">สึชมพู</option>
                         <option value="ภูเวียง">ภูเวียง</option>
@@ -96,7 +96,7 @@
                     <label for="province"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">จังหวัด</label>
                     <select id="province" name="province"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[15rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                         <option value="ขอนแก่น">ขอนแก่น</option>
                         <option value="อุดร">อุดร</option>
                         <option value="หนองคาย">หนองคาย</option>
@@ -132,9 +132,9 @@
 
     <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 gap-y-2 mt-4 2xl:gap-4 mb-10 px-3">
         <a href="{{ url('/fiber') }}"
-            class="py-2.5 px-12  mb-2 mt-2  2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
+            class="py-2.5 px-12  mb-2 mt-2  text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
         <button id="save-form-data"
-            class="py-2.5 px-5  mb-2 mt-2 2xl:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>
+            class="py-2.5 px-5  mb-2 mt-2 text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>
 
     </div>
     @include('frontend.pages.internet_fiber.footer_fiber')

@@ -7,7 +7,9 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
-            <div class="title-plate-line"></div>
+            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+                <div class="title-plate-line"></div>
+            </div>
             <div class="plate-group">
                 <div class="plate-box-s">
                     <div class="plate-circleS"></div>
