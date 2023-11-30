@@ -1,10 +1,9 @@
 <!-- nav goes here -->
 
 <nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed w-full top-0 z-50 ">
-    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] px-8 mx-auto">
+    <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">
-
                 <!-- logo -->
                 <div class="hidden xl:flex">
                     <a href="/" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
@@ -51,7 +50,7 @@
                 </a>
 
 
-                <div class="mobile-menu-button lg:hidden xl:hidden">
+                <div class="mobile-menu-button xl:hidden">
                     <div class="ham-line1"></div>
                     <div class="ham-line2"></div>
                     <div class="ham-line3"></div>
@@ -68,7 +67,7 @@
 
     <!-- mobile menu -->
     <ul
-        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto  ">
+        class="Mitr mobile-menu hidden xl:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto  ">
         <li class=" bg-gray-100 w-full">
             <button id="menufiber" onclick="dropClick()"
                 class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">อินเตอร์เน็ตไฟเบอร์
@@ -187,7 +186,7 @@
 
 
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
-    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] lg:w-full px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden lg:py-4">
+    <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
         <ul class="hidden lg:flex 2xl:flex relative">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
             <li class="group z-[99] basis-[260px] ">
@@ -275,7 +274,7 @@
             </li>
 
             {{-- วิธีการสั่งซื้อ --}}
-            <li class="group z-[99] basis-[230px]">
+            <li class="group z-[99] basis-[200px]">
                 <a href="#"
                     class="py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
                 <ul

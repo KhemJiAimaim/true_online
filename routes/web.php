@@ -41,8 +41,8 @@ Route::get("/prepaid_sim", [SimController::class, "prepaid_sim"]);
 Route::get("/prepaid_sim/buy_sim", [SimController::class, "buy_sim"]);
 Route::get("/prepaid_sim/sim_includ", [SimController::class, "sim_includ"]);
 //package
-Route::get("/prepaid_sim/package ", [SimController::class, "package"]);
-Route::get("/prepaid_sim/buy_package", [SimController::class, "buy_package"]);
+Route::get("/prepaid_sim/package/{type?}", [SimController::class, "package"]);
+Route::get("/prepaid_sim/buy_package/{id}", [SimController::class, "buy_package"]);
 
 //travel
 Route::get("/travel_sim", [TravelController::class, "travel_sim"]);

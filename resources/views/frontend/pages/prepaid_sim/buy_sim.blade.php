@@ -3,16 +3,16 @@
 
 
 @section('content')
-    <div class="mt-36 max-ex:mt-20">
+    <div class="2xl:mt-16 mt-[5rem]">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
-                <div class="bg-white w-full 2xl:h-[590px]  items-center px-4 lg:px-1 mb-6 relative">
+                <div class="bg-white w-full 2xl:h-[500px]  items-center px-4 lg:px-1 mb-6 relative">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2">
                         <img id="featured" src="/images/Rectangle 1281.png" alt=""
-                            class="max-ex:w-[250px] max-ex:h-[250px] cursor-pointer pb-4">
+                            class="max-ex:w-[250px] max-ex:h-[250px] w-[370px] cursor-pointer pb-4">
                     </div>
-                    <div id="slide-wrapper" class="flex justify-center items-center">
+                    <div id="slide-wrapper" class="flex  items-center">
 
 
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
@@ -77,7 +77,7 @@
 
 
          {{-- box package --}}
-         <div class="max-w-[1536px] max-2xl:max-w-[80%] pt-6 mx-auto mb-6">
+         <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6">
             <div class="">
                 <div class="flex">
                     <button id="btn-package"
@@ -126,7 +126,7 @@
 
                 {{-- content condition --}}
                 <div id="box-condition" 
-                    class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium mt-3 rounded-r-[10px] rounded-bl-[10px]">
+                    class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
                     เงื่อนไขการได้รับสิทธิพิเศษ ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน
                 </div>
             </div>
