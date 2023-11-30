@@ -7,13 +7,14 @@
 
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
             <div class="grid grid-cols-4 py-6 w-[500px] 2xl:w-[800px] items-center mx-auto">
-                <a href="#fiber"
+                @foreach($cate_home as $cate)
+                <a href="#{{$cate->cate_url}}"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/images/solar_wi-fi-router-linear (1).png" alt="">
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เน็ตบ้านไฟเบอร์</p>
+                    <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="{{$cate->cate_thumbnail}}" alt="">
+                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{$cate->cate_title}}</p>
                 </a>
-
-                <a
+                @endforeach
+                {{-- <a
                     href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์มงคล</p>
@@ -30,7 +31,7 @@
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">ซิมท่องเที่ยว</p>
-                </a>
+                </a> --}}
 
             </div>
         </div>
@@ -160,19 +161,26 @@
                 <div class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
                     {{-- เน็ตไฟเบอร์ --}}
                     @if($cate->id == 2)
-                        @for ($i = 1; $i <= 4; $i++)
-                            <div class="drop-shadow-md">
+                        @foreach ($product_fiber as $fiber)
+                            <div class="drop-shadow-md overflow-hidden">
                                 <div class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
-                                    <p class="text-white text-left text-[18px]">แพ็กเกจยอดนิยม</p>
+                                    <p class="text-white text-left text-[18px]">{{$fiber->details}}</p>
                                     {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
                                     <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                                 </div>
 
                                 <div class="bg-[#F8F9FA]">
                                     <div class="">
-                                        <p class="py-3 text-[20px]">True Gigatex PRO Gold</p>
+                                        <p class="py-3 text-[20px]">{{$fiber->title}}</p>
                                     </div>
                                 </div>
+                                @php 
+                                    $download = ($fiber->download_speed >= 1000) ? ($fiber->download_speed / 1000) : $fiber->download_speed;
+                                    $unit_download = ($fiber->download_speed >= 1000) ? "Gbps" : "Mbps";
+
+                                    $upload = ($fiber->upload_speed >= 1000) ? ($fiber->upload_speed / 1000) : $fiber->upload_speed;
+                                    $unit_upload = ($fiber->upload_speed >= 1000) ? "Gbps" : "Mbps";
+                                @endphp
                                 <div class="bg-white">
                                     <div class="flex justify-center py-6 ml-12">
                                         <p class="text-[35px] text-center font-medium">1</p>
@@ -196,29 +204,42 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @php 
+                                    $benefit_ids = explode(',', $fiber->benefit_ids);
+                                    $post_ids = $post_benefits->pluck('id')->toArray();
+
+                                    // หาค่าที่เหมือนกัน
+                                    $same_benefit = array_intersect($benefit_ids, $post_ids);
+                                    $benefit_items = array_slice($same_benefit, 0, 3);
+                                    @endphp
                                     <div class="flex justify-center py-6">
-                                        <img class="w-20" src="images/Rectangle 235.png" alt="">
-                                        <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
-                                        <img class="w-20" src="images/Rectangle 234.png" alt="">
+                                        @foreach($benefit_items as $item)
+                                            @foreach($post_benefits as $post)
+                                                @if($post->id == $item)
+                                                    <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
+                                                    <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                                @endif
+                                            @endforeach
+                                        @endforeach
                                     </div>
                                 </div>
 
                                 <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
-                                    <img class="absolute top-5 left-0" src="/images/Intersect (1).png" alt="">
+                                    <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                     <div class="grid grid-cols-3 items-center">
                                         <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
-                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">2,499</p>
+                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{number_format($fiber->price_per_month)}}</p>
                                         <p class="text-white text-right text-[1rem] 2xl:text-[18px] ">บาท<br>/เดือน</p>
 
                                     </div>
                                 </div>
 
                                 <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
-                                    <a href=""
+                                    <a href="{{url('/fiber/detail_true_dtac/'.$fiber->id)}}"
                                         class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     {{-- เน็ตไฟเบอร์ --}}
 
                     {{-- เบอร์มงคลรายเดือน --}}

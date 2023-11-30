@@ -13,10 +13,7 @@ class FiberController extends Controller
     // หน้ารวมสินค้า Fiber
     public function homePage()
     {   
-        $cate_fiber = Category::where('cate_parent_id', 2)
-            ->where('cate_status_display', true)
-            ->orderBy('cate_priority', 'ASC')
-            ->get();
+        $cate_fiber = $this->get_fiberProduct();
         $fiber_products = FiberProduct::where('display', true)
             ->orderBy('priority', 'ASC')
             ->get();
@@ -31,10 +28,7 @@ class FiberController extends Controller
     // สินค้า Fiber เฉพาะหมวดหมู่
     public function true_dtac($cate_url)
     {
-        $cate_fiber = Category::where('cate_parent_id', 2)
-            ->where('cate_status_display', true)
-            ->orderBy('cate_priority', 'ASC')
-            ->get();
+        $cate_fiber = $this->get_fiberProduct();
 
         $current_cate = [];
         foreach($cate_fiber as $cate){
@@ -56,6 +50,15 @@ class FiberController extends Controller
             ->orderBy('priority')
             ->get();
         return view("frontend.pages.internet_fiber.true_dtac", compact( 'fiber_products','current_cate','cate_fiber','post_benefits'));
+    }
+
+    // Function get Fiber
+    public function get_fiberProduct() {
+        $cate_fiber = Category::where('cate_parent_id', 2)
+            ->where('cate_status_display', true)
+            ->orderBy('cate_priority', 'ASC')
+            ->get();
+        return $cate_fiber;
     }
 
     // รายละเอียดสินค้า Fiber
@@ -142,4 +145,5 @@ class FiberController extends Controller
     {
         return view("frontend.pages.internet_fiber.detail_internet_game");
     }
+
 }
