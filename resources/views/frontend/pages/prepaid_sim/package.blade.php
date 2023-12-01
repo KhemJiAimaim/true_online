@@ -29,10 +29,10 @@
 
         <div class=" flex justify-center px-4 gap-4 items-center 2xl:mt-10 mt-6">
 
-            <a href="{{url('/prepaid_sim/package/paysim')}}"
-                class="cursor-pointer py-3  px-10 mb-2 mt-2  2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-lg border  hover:bg-gradient-to-br">เติมเงิน</a>
-            <a href="{{url('/prepaid_sim/package/month')}}"
-                class="cursor-pointer py-3 px-8  mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none bg-[#4f4f4f] rounded-lg border hover:bg-[#666] hover:text-white ">รายเดือน</a>
+            <button id="btn-package" data-type="paysim"
+                class="py-3 px-10 mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none rounded-lg border {{$css_btnPaysim}}">เติมเงิน</button>
+            <button id="btn-package" data-type="month"
+                class="py-3 px-8 mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none rounded-lg border {{$css_btnMonth}}">รายเดือน</button>
         </div>
 
         @foreach($cate_package as $cate)
@@ -75,4 +75,5 @@
 @endsection
 
 @section('scripts')
+@vite('resources/js/prepaid_sim/package.js')
 @endsection

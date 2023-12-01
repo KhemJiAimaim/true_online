@@ -34,14 +34,13 @@ class HomeController extends Controller
             ->where('cate_status_display', true)
             ->orderBy('cate_priority')
             ->get();
-            // dd($cate_home);
+
         $berproducts = BerproductMonthly::where('product_sold', 'no')->where('product_display', 'yes')->inRandomOrder()->distinct()->limit(4)->get();
         $product_fiber = FiberProduct::where('display', true)->OrderBy('priority')->limit(4)->get();
         $post_benefits = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
             ->where('status_display', true)
             ->orderBy('priority')
             ->get();
-        // dd($product_fiber);
         return view('frontend.pages.home',compact('cate_home','berproducts', 'product_fiber','post_benefits'));
     }
 
