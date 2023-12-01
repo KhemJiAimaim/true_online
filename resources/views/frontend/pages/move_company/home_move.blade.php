@@ -106,17 +106,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                @php 
+                                    $benefit_ids = explode(',', $product->benefit_ids);
+                                    $post_ids = $posts->pluck('id')->toArray();
+
+                                    // หาค่าที่เหมือนกัน
+                                    $same_benefit = array_intersect($benefit_ids, $post_ids);
+                                    $benefit_items = array_slice($same_benefit, 0, 3);
+                                    // dd($benefit_items)
+                                @endphp
                                 <div>
-                                    <div class="flex items-start gap-2 px-4">
-                                        <div class="border-[1px]  border-orange-500 p-4 w-[30%]">
-                                            <img src="/images/Rectangle1617.png" alt="">
+                                    @foreach($benefit_items as $item)
+                                        @foreach($posts as $pos)
+                                        @if($pos->id == $item)
+                                        <div class="flex items-start gap-2 px-4">
+                                            <div class="border-[1px]  border-orange-500 p-4 w-[30%]">
+                                                <img src="{{$pos->thumbnail_link}}" alt="">
+                                            </div>
+        
+                                            <p class="text-start text-[18px] max-md:text-[16px]">{{$pos->title}}</p>
                                         </div>
-    
-                                        <p class="text-start text-[18px] max-md:text-[16px]">รับชมความบันเทิงซีรีย์ดัง และ EPL
-                                            FanPack ฤดูกาล
-                                            2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56#
-                                            โทรออก</p>
-                                    </div>
+                                        @endif
+                                        @endforeach
+                                    @endforeach
                                 </div>
                                 
                                 <div class="px-4 text-start" id="content-ck">

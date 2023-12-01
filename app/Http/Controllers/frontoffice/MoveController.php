@@ -17,12 +17,12 @@ class MoveController extends Controller
             ->where('display', true)
             ->where('delete_status', false)->get();
             
-        $post_benefits = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
+        $posts = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
             ->where('status_display', true)
             ->orderBy('priority')
             ->get();
             // dd($post_benefits);
-        return view('frontend.pages.move_company.home_move', compact('data_category', 'move_product', 'post_benefits'));
+        return view('frontend.pages.move_company.home_move', compact('data_category', 'move_product', 'posts'));
     }
     
     public function category_move($id) {
