@@ -31,9 +31,12 @@
 
         <section class="bg-white py-6 px-3 max-md:px-4">
             <div class="">
-                <p class="text-[#000]   2xl:text-[2rem] xl:text-[25px] text-[22px]">Fixxy No Limit</p>
-                <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">ซิมเติมเงิน พร้อมแพ็กเกจเสริม
-                    ที่คุณอาจสนใจ</p>
+                @foreach($data_category['move_cate'] as $cate)
+                @if($cate->id == $data_category['cate_id'])
+                    <p class="text-[#000]   2xl:text-[2rem] xl:text-[25px] text-[22px]">{{$cate->title}}</p>
+                    <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
+                @endif
+                @endforeach
             </div>
             <div class="pt-6 w-full">
                 <div class="max-w-[1536px] my-0 mx-auto flex justify-center px-4 ">
@@ -137,7 +140,7 @@
 
                                 <a href="#"
                                     class="cursor-pointer py-2 xl:px-2 px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
-                                <a href="/move/movenow"
+                                <a href="/movedetail"
                                     class="cursor-pointer py-2 max-md:px-10 px-16  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                             </div>

@@ -15,6 +15,7 @@ class FiberController extends Controller
     {   
         $cate_fiber = $this->get_fiberProduct();
         $fiber_products = FiberProduct::where('display', true)
+            ->where('delete_status', false)
             ->orderBy('priority', 'ASC')
             ->get();
         $post_benefits = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
@@ -42,6 +43,7 @@ class FiberController extends Controller
         $fiber_products = FiberProduct::join('categories', 'fiber_products.fiber_cate_id', '=', 'categories.id')
             ->select('fiber_products.*')
             ->where('categories.cate_url', $cate_url)
+            ->where('delete_status', false)
             ->orderBy('fiber_products.priority')
             ->get();
 
@@ -68,6 +70,7 @@ class FiberController extends Controller
         $fiber_products = FiberProduct::join('categories', 'fiber_products.fiber_cate_id', '=', 'categories.id')
             ->select('fiber_products.*', 'categories.cate_keyword','categories.cate_description')
             ->where('fiber_products.id', $id)
+            ->where('delete_status', false)
             ->orderBy('fiber_products.priority')
             ->first();
         
