@@ -94,16 +94,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex items-start gap-2 px-4">
-                                    <div class="border-[1px]  border-orange-500 p-4 w-[30%]">
+                                <div class="flex items-start gap-2 px-4 ">
+                                    <div class="border-[1px]  border-orange-500 rounded-lg p-4 w-[35%] pb-2">
                                         <img src="/images/Rectangle1617.png" alt="">
                                     </div>
 
-                                    <p class="text-start text-[18px] max-md:text-[16px]">รับชมความบันเทิงซีรีย์ดัง และ EPL
-                                        FanPack ฤดูกาล
+                                    <p class="text-start text-[18px] max-md:text-[16px]">รับชมความบันเทิงซีรีย์ดัง และ
+                                        EPL FanPack ฤดูกาล
                                         2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56#
                                         โทรออก</p>
                                 </div>
+
                                 <div class="px-4 ">
                                     <p class="text-start text-[18px] max-md:text-[16px]">เปอดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</p>
                                     <ul class="text-start list-disc ml-7 text-[18px] max-md:text-[16px]">
@@ -201,7 +202,7 @@
                                         <p class="2xl:text-[1.2rem] text-[14px]">เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ 4G</p>
                                     </div>
                                 </div>
-                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden ">
+                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden h-[450px]">
                                     <div class="orange-plate-container pb-2">
                                         <div class="orange-plate-line"></div>
                                         <div class="orange-plate-group">
@@ -219,8 +220,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex items-start gap-2 px-4">
-                                        <div class="border-[1px]  border-orange-500 p-4 w-[35%] pb-2">
+
+                                    <div class="flex items-start gap-2 px-4 ">
+                                        <div class="border-[1px]  border-orange-500 rounded-lg p-4 w-[35%] pb-2">
+                                            <img src="/images/Rectangle1617.png" alt="">
+                                        </div>
+
+                                        <p class="text-start text-[18px] max-md:text-[16px]">รับชมความบันเทิงซีรีย์ดัง และ
+                                            EPL FanPack ฤดูกาล
+                                            2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56#
+                                            โทรออก</p>
+                                    </div>
+                                    <div class="flex items-start gap-2 px-4 ">
+                                        <div class="border-[1px]  border-orange-500 rounded-lg p-4 w-[35%] pb-2">
+                                            <img src="/images/Rectangle1617.png" alt="">
+                                        </div>
+
+                                        <p class="text-start text-[18px] max-md:text-[16px]">รับชมความบันเทิงซีรีย์ดัง และ
+                                            EPL FanPack ฤดูกาล
+                                            2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56#
+                                            โทรออก</p>
+                                    </div>
+                                    <div class="flex items-start gap-2 px-4 ">
+                                        <div class="border-[1px]  border-orange-500 rounded-lg p-4 w-[35%] pb-2">
                                             <img src="/images/Rectangle1617.png" alt="">
                                         </div>
 
@@ -240,13 +262,7 @@
                                             <li>WiFi ไม่อั้น</li>
                                         </ul>
                                     </div>
-                                    <div class="px-4">
-                                        <p class="text-start text-[18px] max-md:text-[16px]">จากนั้น ทุกๆ 5 วัน
-                                            ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ
-                                            49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)</p>
-                                    </div>
-                                    <p class="text-start font-[700] text-[18px] max-md:text-[16px] px-4 py-2">เริ่ม 11 ต.ค.
-                                        66 - 31 ต.ค. 66</p>
+                                  
                                 </div>
 
                                 <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
@@ -330,7 +346,7 @@
                                     <p class="2xl:text-[1.2rem] text-[14px]">เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ 4G</p>
                                 </div>
                             </div>
-                            <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden ">
+                            <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden h-[200px] ">
                                 <div class="orange-plate-container pb-2">
                                     <div class="orange-plate-line"></div>
                                     <div class="orange-plate-group">
@@ -348,32 +364,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex items-start gap-2 px-4">
-                                    <div class="border-[1px]  border-orange-500 p-4 w-[30%]">
+                                <div class="flex items-start gap-2 px-4 ">
+                                    <div class="border-[1px]  border-orange-500 rounded-lg p-4 w-[35%] pb-2">
                                         <img src="/images/Rectangle1617.png" alt="">
                                     </div>
 
-                                    <p class="text-start text-[18px] max-md:text-[16px]">รับชมความบันเทิงซีรีย์ดัง และ EPL
-                                        FanPack ฤดูกาล
+                                    <p class="text-start text-[18px] max-md:text-[16px]">รับชมความบันเทิงซีรีย์ดัง และ
+                                        EPL FanPack ฤดูกาล
                                         2023/24 (เลือกชมทีมโปรด 1 ทีม) รับสิทธิ์กด *555*56#
                                         โทรออก</p>
                                 </div>
-                                <div class="px-4 ">
-                                    <p class="text-start text-[18px] max-md:text-[16px]">เปอดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน
-                                    </p>
-                                    <ul class="text-start list-disc ml-7 text-[18px] max-md:text-[16px]">
-                                        <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
-                                        <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
-                                        <li>WiFi ไม่อั้น</li>
-                                    </ul>
-                                </div>
-                                <div class="px-4">
-                                    <p class="text-start text-[18px] max-md:text-[16px]">จากนั้น ทุกๆ 5 วัน
-                                        ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ
-                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)</p>
-                                </div>
-                                <p class="text-start font-[700] text-[18px] max-md:text-[16px] px-4 py-2">เริ่ม 11 ต.ค. 66
-                                    - 31 ต.ค. 66</p>
+
+                               
                             </div>
 
                             <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
