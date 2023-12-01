@@ -60,7 +60,7 @@
                             <div
                                 class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
-                                <p class="text-white text-left text-[18px]">{{$product->details}}</p>
+                                <p class="text-white text-left text-[16px]">{{$product->details}}</p>
                                 {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
                                 <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                             </div>
@@ -108,7 +108,7 @@
                                     $same_benefit = array_intersect($benefit_ids, $post_ids);
                                     $benefit_items = array_slice($same_benefit, 0, 3);
                                 @endphp
-                                <div class="flex justify-center py-6">
+                                {{-- <div class="flex justify-center py-6">
                                     @foreach($benefit_items as $item)
                                         @foreach($post_benefits as $post)
                                             @if($post->id == $item)
@@ -117,22 +117,49 @@
                                             @endif
                                         @endforeach
                                     @endforeach
+                                </div> --}}
+                                <div class="flex justify-center py-6">
+                                    @php
+                                        $showDivider = false;
+                                    @endphp
+                                
+                                    @foreach($benefit_items as $item)
+                                        @foreach($post_benefits as $post)
+                                            @if($post->id == $item)
+                                                <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
+                                                @php
+                                                    $showDivider = true;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                
+                                        {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
+                                        @if($showDivider && !$loop->last)
+                                            <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                            @php
+                                                $showDivider = false;
+                                            @endphp
+                                        @endif
+                                    @endforeach
                                 </div>
+                                
+                                
+                                
                             </div>
 
                             <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
                                 <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                 <div class="grid grid-cols-3 items-center">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
+                                    <p class="text-white text-left text-[16px]  ">ราคา</p>
                                     <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format($product->price_per_month) }}</p>
-                                    <p class="text-white text-right text-[1rem] 2xl:text-[18px] ">บาท<br>/เดือน</p>
+                                    <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
 
                                 </div>
                             </div>
 
                             <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
                                 <a href="{{url('/fiber/detail_true_dtac/'.$product->id)}}"
-                                    class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
+                                    class="py-2 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
                             </div>
                         </div>
                         @endif
@@ -143,7 +170,7 @@
 
             <div class="items-center mx-auto mt-4 pt-6">
                 <a href="{{url('/fiber/true_dtac/'.$cate->cate_url)}}"
-                class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
+                class="py-2.5 px-5 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
             </div>
             {!! $circle2 !!}
         </section>

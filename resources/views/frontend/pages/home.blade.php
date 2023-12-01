@@ -208,15 +208,30 @@
                                     $benefit_items = array_slice($same_benefit, 0, 3);
                                     @endphp
                                     <div class="flex justify-center py-6">
+                                        @php
+                                            $showDivider = false;
+                                        @endphp
+                                    
                                         @foreach($benefit_items as $item)
                                             @foreach($post_benefits as $post)
                                                 @if($post->id == $item)
                                                     <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
-                                                    <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                                    @php
+                                                        $showDivider = true;
+                                                    @endphp
                                                 @endif
                                             @endforeach
+                                    
+                                            {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
+                                            @if($showDivider && !$loop->last)
+                                                <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                                @php
+                                                    $showDivider = false;
+                                                @endphp
+                                            @endif
                                         @endforeach
                                     </div>
+                                    
                                 </div>
 
                                 <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
