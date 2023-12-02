@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('more_details')->nullable();
             $table->string('description')->nullable();
             $table->integer('price')->default(0)->comment('ราคาขาย/บาท');
-            $table->integer('discount')->default(0)->comment('ส่วนลด/บาท');
+            $table->integer('discount')->nullable()->default(0)->comment('ส่วนลด/บาท');
             $table->string('call_minutes')->comment('นาทีการโทร/นาที,ไม่จำกัด');
             $table->string('internet_volume')->comment('ปริมาณอินเทอร์เน็ต/GB,ไม่จำกัด');
             $table->string('sim_gen')->nullable()->comment('4G,5G');

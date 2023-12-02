@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\backoffice;
 
 use Illuminate\Http\Request;
@@ -22,9 +23,6 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::post('account/token/invoke/token_id', [AuthBackOfficeController::class, 'revokeTokenByID']);
         Route::post('account/token/invoke/all', [AuthBackOfficeController::class, 'revokeAllToken']);
 
-        /* Profile Page */
-        // Route::get('profile/data', [ProfileController::class, 'getProfile']);
-
         /* Dashboard Page */
         Route::get('booking/data', [BookingController::class, 'index']);
         Route::patch('booking/approve', [BookingController::class, 'bookingApprove']);
@@ -32,39 +30,39 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::post('bookingsetting/create', [BookingController::class, 'createBookingSetting']);
 
         /* Slide Page */
-        Route::get('slide/data', [ SlideController::class, 'index']);
-        Route::get('slide/data/{id}', [ SlideController::class, 'getSlideById']);
-        Route::post('slide/create', [ SlideController::class, 'createSlide']);
-        Route::post('slide/update/{id}', [ SlideController::class, 'updateSlideById']);
-        Route::delete('slide/{language}/{token}', [ SlideController::class, 'deleteWebInfoByInfoId']);
+        Route::get('slide/data', [SlideController::class, 'index']);
+        Route::get('slide/data/{id}', [SlideController::class, 'getSlideById']);
+        Route::post('slide/create', [SlideController::class, 'createSlide']);
+        Route::post('slide/update/{id}', [SlideController::class, 'updateSlideById']);
+        Route::delete('slide/{language}/{token}', [SlideController::class, 'deleteWebInfoByInfoId']);
 
         /* Infomation Page */
-        Route::get('webinfo/data', [ WebInfoController::class, 'index']);
-        Route::post('webinfo/details', [ WebInfoController::class, 'updateWebDetails']);
-        Route::delete('webinfo/image/{language}/{position}', [ WebInfoController::class, 'deleteImage']);
-        Route::post('webinfo/create', [ WebInfoController::class, 'createWebInfo']);
-        Route::post('webinfo/token/{token}', [ WebInfoController::class, 'addWebInfo']);
-        Route::patch('webinfo/token/{token}', [ WebInfoController::class, 'editWebInfo']);
-        Route::patch('webinfo/display/toggle', [ WebInfoController::class, 'toggleDisplayByToken']);
-        Route::delete('webinfo/{language}/{token}', [ WebInfoController::class, 'deleteWebInfoByInfoId']);
+        Route::get('webinfo/data', [WebInfoController::class, 'index']);
+        Route::post('webinfo/details', [WebInfoController::class, 'updateWebDetails']);
+        Route::delete('webinfo/image/{language}/{position}', [WebInfoController::class, 'deleteImage']);
+        Route::post('webinfo/create', [WebInfoController::class, 'createWebInfo']);
+        Route::post('webinfo/token/{token}', [WebInfoController::class, 'addWebInfo']);
+        Route::patch('webinfo/token/{token}', [WebInfoController::class, 'editWebInfo']);
+        Route::patch('webinfo/display/toggle', [WebInfoController::class, 'toggleDisplayByToken']);
+        Route::delete('webinfo/{language}/{token}', [WebInfoController::class, 'deleteWebInfoByInfoId']);
 
         /* Category Page */
-        Route::get('category/data', [ CategoryController::class, 'index']);
-        Route::post('category/create', [ CategoryController::class, 'createCategory']);
-        Route::post('category/update/{id}', [ CategoryController::class, 'updateCategory']);
+        Route::get('category/data', [CategoryController::class, 'index']);
+        Route::post('category/create', [CategoryController::class, 'createCategory']);
+        Route::post('category/update/{id}', [CategoryController::class, 'updateCategory']);
         Route::delete('category/{language}/{token}', [CategoryController::class, 'deleteCategory']);
-        Route::get('category/menu', [ CategoryController::class, 'getCateMenu']);
+        Route::get('category/menu', [CategoryController::class, 'getCateMenu']);
 
         /* Content Page */
-        Route::get('content/data', [ PostController::class, 'index']);
-        Route::post('content/create', [ PostController::class, 'createContent']);
-        Route::post('content/update/{id}', [ PostController::class, 'updateContent']);
-        Route::delete('content/{language}/{token}', [ PostController::class, 'deleteContent']);
+        Route::get('content/data', [PostController::class, 'index']);
+        Route::post('content/create', [PostController::class, 'createContent']);
+        Route::post('content/update/{id}', [PostController::class, 'updateContent']);
+        Route::delete('content/{language}/{token}', [PostController::class, 'deleteContent']);
 
         /* Admin Page */
-        Route::get('admin/data', [ AdminController::class, 'index']);
-        Route::post('admin/edit', [ AdminController::class, 'editAdminAccount']);
-        Route::delete('admin/{language}/{token}', [ AdminController::class, 'deleteAdminAccount']);
+        Route::get('admin/data', [AdminController::class, 'index']);
+        Route::post('admin/edit', [AdminController::class, 'editAdminAccount']);
+        Route::delete('admin/{language}/{token}', [AdminController::class, 'deleteAdminAccount']);
 
         /* Language Config Page */
         Route::get('language/data', [LanguageConfigController::class, 'index']);
@@ -114,7 +112,6 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::patch('product/updaterec/{id}', [PackageController::class, 'updateRecommendedProduct']);
             Route::delete('product/delete/{id}', [PackageController::class, 'deletePackageProduct']);
             Route::put('product/update/{id}', [PackageController::class, 'updatePackageProduct']);
-
         });
 
         // Move
@@ -131,8 +128,9 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::get('product/data', [Movecontroller::class, 'moveProductIndex']);
             Route::patch('product/updaterec/{id}', [MoveController::class, 'updateRecProduct']);
             Route::patch('product/updatedisplay/{id}', [MoveController::class, 'updateDisplayProduct']);
+            Route::post('product/create', [MoveController::class, 'createMoveProduct']);
             Route::post('product/update/{id}', [MoveController::class, 'updateMoveProduct']);
+            Route::delete('product/delete/{id}', [MoveController::class, 'deleteMoveProduct']);
         });
-
     });
 });
