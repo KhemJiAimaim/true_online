@@ -109,7 +109,7 @@
             <div class="overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4">
                 <div
                     class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
-                    @for ($i = 1; $i <= 4; $i++)
+                    @foreach($package as $pack)
                         <div class="drop-shadow-md">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
@@ -124,7 +124,7 @@
 
                             <div class="bg-[#F8F9FA] flex flex-col justify-center items-center py-2  h-[150px]">
                                 <p class="text-[18px]">เน็ต</p>
-                                <p class="text-[30px] font-medium">8Mbps/1วัน</p>
+                                <p class="text-[30px] font-medium">{{$pack->title}}/{{$pack->lifetime}}วัน</p>
                             </div>
 
                             <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
@@ -132,8 +132,7 @@
                                     alt="">
                                 <div class="grid grid-cols-3 items-center">
                                     <p class="text-white text-left text-[18px] max-es:text-[16px] ">ราคา</p>
-                                    <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                        32</p>
+                                    <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">{{number_format($pack->price)}}</p>
                                     <p class="text-white text-right text-[18px] max-es:text-[16px]">บาท <br>
                                         แบบรายครั้ง</p>
                                 </div>
@@ -142,14 +141,14 @@
                             <div
                                 class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                                <a href="/prepaid_sim/buy_sim"
-                                    class="cursor-pointer py-2  px-6 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                                <a href="#"
-                                    class="cursor-pointer py-2 px-10  mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                <a href="{{url('/prepaid_sim/buy_package/'.$pack->id)}}"
+                                    class="cursor-pointer py-2 px-6 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
+                                <a href="tel:{{$pack->package_code}}"
+                                    class="cursor-pointer py-2 px-10 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
 
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
 
                 </div>
 

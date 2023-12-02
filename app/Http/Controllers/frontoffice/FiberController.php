@@ -66,7 +66,6 @@ class FiberController extends Controller
     // รายละเอียดสินค้า Fiber
     public function detail_true_dtac($id)
     {
-        // $fiber_products = FiberProduct::find($id);
         $fiber_products = FiberProduct::join('categories', 'fiber_products.fiber_cate_id', '=', 'categories.id')
             ->select('fiber_products.*', 'categories.cate_keyword','categories.cate_description')
             ->where('fiber_products.id', $id)

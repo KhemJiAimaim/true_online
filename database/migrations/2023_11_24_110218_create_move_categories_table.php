@@ -34,16 +34,19 @@ return new class extends Migration
         DB::table('move_categories')->insert([
             [
                 'title' => 'Fixxy No Limit',
+                'details' => 'ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ',
                 'priority' => 1,
                 'language' => 'th',
             ],
             [
                 'title' => '5G Together+',
+                'details' => 'ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ',
                 'priority' => 2,
                 'language' => 'th',
             ],
             [
                 'title' => '5G Super Smart',
+                'details' => 'ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ',
                 'priority' => 3,
                 'language' => 'th',
             ],
