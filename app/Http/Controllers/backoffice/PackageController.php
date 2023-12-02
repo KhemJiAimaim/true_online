@@ -213,8 +213,8 @@ class PackageController extends BaseController
 
         $validator = Validator::make($request->all(), [
             'title' => 'string|required',
-            'details' => 'string|required',
-            'details_content' => 'string|required',
+            'details' => 'string|nullable',
+            'details_content' => 'string|nullable',
             'package_code' => 'string|required',
             'package_type' => 'string|required',
             'type' => 'string|required',
@@ -223,6 +223,7 @@ class PackageController extends BaseController
             'price' => 'numeric|required',
             'total_price' => 'numeric|required',
             'vat' => 'numeric|required',
+            'lifetime' => 'numeric|required',
             'recommended' => 'boolean|required',
             'display' => 'boolean|required',
         ]);
@@ -242,7 +243,6 @@ class PackageController extends BaseController
                 'status' => true,
                 'description' => 'Create package product success',
                 'packages' => $packages,
-                // 'maxPriority' => PackageCategory::where('delete_status', 0)->max('priority'),
             ], 200);
         } catch (Exception $e) {
             return response([
