@@ -11,5 +11,7 @@ btnPackage.forEach(element => {
 });
 
 function redirectPage(dataType) {
+  console.log(dataType)
+  // return false;
   location.href = `/prepaid_sim/package/${dataType}`
 }

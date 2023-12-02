@@ -1,33 +1,63 @@
 // active สินค้า
 // สร้าง event listener สำหรับแต่ละกล่อง
-for (let i = 1; i <= 8; i++) {
-    const box = document.getElementById('box' + i);
-    box.addEventListener('click', function() {
-        handleBoxClick(this);
-    });
-}
+const box = document.querySelectorAll('#box');
+
+box.forEach(element => {
+  element.addEventListener('click', function() {
+    handleBoxClick(this);
+  });
+});
 
 let lastClickedBox = null;
 
 function handleBoxClick(box) {
+  // ถ้ากล่องถูกคลิกมีสถานะ active อยู่แล้ว
+  if (box.classList.contains('active')) {
+    box.classList.remove('border-gray-500', 'active');
+    box.classList.add('border-gray-10');
+    // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
+    const checkbox = box.querySelector('.check-box');
+    checkbox.src = '/images/check-one.png';
+  } else {
+    // ถ้ากล่องถูกคลิกไม่มีสถานะ active
     if (lastClickedBox) {
-        lastClickedBox.classList.remove('border-gray-500');
-        lastClickedBox.classList.add('border-gray-10');
-        // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
-        const checkbox = lastClickedBox.querySelector('.check-box');
-        checkbox.src = '/images/check-one.png';
+      lastClickedBox.classList.remove('border-gray-500', 'active');
+      lastClickedBox.classList.add('border-gray-10');
+      // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
+      const checkbox = lastClickedBox.querySelector('.check-box');
+      checkbox.src = '/images/check-one.png';
     }
 
-    if (box !== lastClickedBox) {
-        box.classList.remove('border-gray-10');
-        box.classList.add('border-gray-500');
-        // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
-        const checkbox = box.querySelector('.check-box');
-        checkbox.src = '/images/check-one-active.png';
-        lastClickedBox = box;
-    } else {
-        lastClickedBox = null;
+    // กำหนดสถานะ active และแก้ไขรูปภาพ checkbox เป็นรูปภาพ active
+    box.classList.remove('border-gray-10');
+    box.classList.add('border-gray-500', 'active');
+    const checkbox = box.querySelector('.check-box');
+    checkbox.src = '/images/check-one-active.png';
+    
+    lastClickedBox = box;
+  }
+}
+
+
+const btn_moveform = document.querySelector('#btn-move-form');
+
+btn_moveform.addEventListener('click', () => {
+  const data_id = btn_moveform.getAttribute('data-id');
+  getMoveForm(data_id)
+});
+
+function getMoveForm(data_id) {
+  let option = null;
+  box.forEach(element => {
+    if (element.classList.contains('active')) {
+      option = element.getAttribute('data-option');
     }
+  });
+  let source = "";
+  if(option && option !== null) {
+    source += `/?opt=${option}`;
+  }
+  location.href = `/movenow/form/${data_id}${source}`;
 }
 
 

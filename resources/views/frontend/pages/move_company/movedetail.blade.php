@@ -9,7 +9,7 @@
 
                 <div class="bg-white w-full 2xl:h-[500px]  items-center px-4 lg:px-1 mb-6 relative">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2">
-                        <img id="featured" src="/images/Rectangle1282.png" alt=""
+                        <img id="featured" src="/{{$move_product->thumbnail_link}}" alt=""
                             class="max-ex:w-[250px] max-ex:h-[250px]  w-[340px] cursor-pointer pb-4 lg:pb-12 xl:pb-[1.5rem] ">
                     </div>
                     <div id="slide-wrapper" class="flex items-center">
@@ -43,35 +43,43 @@
                 </div>
 
                 <div class="col-span-2 space-y-6 text-left mx-3">
-                    <p class=" font-medium 2xl:text-2xl text-xl ">ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399</p>
+                    <p class=" font-medium 2xl:text-2xl text-xl ">{{$move_product->title}}</p>
 
                     <div class="flex justify-center border-l border border-gray-500 text-center  rounded-full px-2">
                     </div>
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
+                    
+                    @php 
+                        $package_option = explode(',', $move_product->package_options);
+                        // dd($package_option);
+                    @endphp
                     <div
                         class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
-                        @for ($i = 1; $i <= 8; $i++)
-                            <div id="box{{ $i }}"
+                        @foreach ($package_option as $option)
+                            @php 
+                                $array_opt = explode(':', $option);
+                                // dd($option)
+                            @endphp
+                            <div id="box" data-option="{{$array_opt[1]}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                                 <div class="flex mb-2 ">
                                     <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px]">
-                                    <p class="text-lg font-medium ml-3 ">4Mbps</p>
+                                    <p class="text-lg font-medium ml-3 ">{{$array_opt[0]}} {{$array_opt[1]}}</p>
                                 </div>
                                 <div class="flex items-center">
                                     <img src="/images/check-one.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
 
                                     <p
-                                        class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">
-                                        150 </p>
+                                        class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$array_opt[1]}}</p>
                                     <p class="2xl:text-lg font-medium ml-2">บาท</p>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                     <div class="w-[100%] mt-0 flex justify-start max-lg:justify-center">
-                        <a class=" bg-red-600 w-[200px] h-[30] text-center rounded-[15px] p-2 text-white text-[16px] "
-                            href="/move/movenow/form">ติดต่อเจ้าหน้าที่</a>
+                        <button id="btn-move-form" data-id="{{$move_product->id}}" class=" bg-red-600 w-[200px] h-[30] text-center rounded-[15px] p-2 text-white text-[16px] "
+                            href="/move/movenow/form">ติดต่อเจ้าหน้าที่</button>
                     </div>
                 </div>
 
@@ -91,8 +99,8 @@
             </div>
             {{-- content detail --}}
             <div id="box-package"
-                class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
-                <img src="/images/Intersect.png" alt="" class="bottom-0 right-0 absolute">
+                class="h-[200px] text-left p-2 overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
+                {{-- <img src="/images/Intersect.png" alt="" class="bottom-0 right-0 absolute">
                 <div class="flex justify-center p-10">
                     <img src="/images/Rectangle 1669.png" alt="" class="w-[800px]">
                 </div>
@@ -118,7 +126,8 @@
                     <p class="text-[16px]">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล
                         Facebook, Line, instagram, TikTok</p>
 
-                </div>
+                </div> --}}
+                {!!$move_product->details_content!!}
                 <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
                     <button class="text-center text-[#EC1F25]" id="show">แสดงเพิ่มเติม ˅</button>
                 </div>
@@ -127,7 +136,7 @@
             {{-- content condition --}}
             <div id="box-condition"
                 class="hidden bg-[#F8F9FA] text-left min-h-[300px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium  rounded-r-[10px] rounded-bl-[10px]">
-                เงื่อนไขการได้รับสิทธิพิเศษ ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน
+                {!!$move_product->terms_content!!}
             </div>
 
         </div>

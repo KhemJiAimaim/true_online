@@ -21,7 +21,6 @@ class MoveController extends BaseController
 
             $moveCates = $this->getMoveCateAll();
 
-
             return response([
                 'message' => 'ok',
                 'status' => true,
@@ -211,8 +210,8 @@ class MoveController extends BaseController
                     'moveCates' => $moveCates,
                     'moveProducts' => $moveProducts,
                     'benefits' => $benefits,
+                    'maxPriority' => MoveProduct::where('delete_status', 0)->max('priority'),
                 ],
-                'maxPriority' => MoveCategory::where('delete_status', 0)->max('priority'),
             ], 200);
         } catch (Exception $e) {
             return response([
@@ -267,6 +266,99 @@ class MoveController extends BaseController
         }
     }
 
+    public function createMoveProduct(Request $request)
+    {
+        $this->getAuthUser();
+        $files = $request->allFiles();
+        $params = $request->all();
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'string|required',
+            'details' => 'string|nullable',
+            'call_minutes' => 'string|required',
+            'internet_volume' => 'string|required',
+            'sim_gen' => 'string|required',
+            'terms_content' => 'string|nullable',
+            'details_content' => 'string|nullable',
+            'package_options' => 'string|nullable',
+            'language' => 'string|nullable',
+            'benefit_ids' => 'string|nullable',
+
+            'discount' => 'nullable',
+            'move_cate_id' => 'numeric|required',
+            'price' => 'numeric|required',
+            'priority' => 'numeric|required',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
+
+            /* Upload Thumbnail */
+            $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", $params['thumbnail_name']) : "";
+
+            $this->updatePriority("move_products", $params['priority']);
+
+            $moveCreate = MoveProduct::create([
+                "title" => $params['title'],
+                "details" => $params['details'],
+                "call_minutes" => $params['call_minutes'],
+                "internet_volume" => $params['internet_volume'],
+                "sim_gen" => $params['sim_gen'],
+                "terms_content" => $params['terms_content'],
+                "details_content" => $params['details_content'],
+                "package_options" => $params['package_options'],
+                "benefit_ids" => $params['benefit_ids'],
+                "price" => $params['price'],
+                "discount" => $params['discount'],
+                "move_cate_id" => $params['move_cate_id'],
+                "thumbnail_link" => $thumbnail,
+                "thumbnail_title" => $params['thumbnail_title'],
+                "thumbnail_alt" => $params['thumbnail_alt'],
+                "priority" => $params['priority'],
+                "language" => ($params['language']),
+
+                "unlimited_wifi" => boolval($params['unlimited_wifi']),
+                "display" => boolval($params['display']),
+                "recommended" => boolval($params['recommended']),
+                "voice_hd" => boolval($params['voice_hd']),
+            ]);
+
+            if (isset($params['Images'])) {
+                $uploadMoreImage = array();
+                foreach ($files['Images'] as $key => $val) {
+                    array_push($uploadMoreImage, [
+                        "move_id" => $moveCreate->id,
+                        "image_link" => $this->uploadImage($newFolder, $files['Images'][$key], "", "", $params['ImagesName'][$key]),
+                        "image_alt" => ($params['ImagesAlt'][$key]) ? $params['ImagesAlt'][$key] : "",
+                        "image_title" => ($params['ImagesTitle'][$key]) ? $params['ImagesTitle'][$key] : "",
+                        "language" => $params['language'],
+                    ]);
+                }
+                MoveImages::insert($uploadMoreImage);
+            }
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Move product has been created successfully',
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
     public function updateMoveProduct(Request $request, $id)
     {
         $this->getAuthUser();
@@ -286,10 +378,12 @@ class MoveController extends BaseController
             'benefit_ids' => 'string|nullable',
 
             'id' => 'numeric|required',
-            'discount' => 'numeric|nullable',
+            'discount' => 'nullable',
             'move_cate_id' => 'numeric|required',
             'price' => 'numeric|required',
             'priority' => 'numeric|required',
+            'unlimited_wifi' => 'numeric|required',
+            'voice_hd' => 'numeric|required',
         ]);
 
         if ($validator->fails()) {
@@ -303,13 +397,6 @@ class MoveController extends BaseController
             $uploadMoreImage = array();
             $addMoreImage = array();
             $idRemove = explode(',', $params['moreImageRemove']);
-
-            // return response([
-            //     'data' => $request->all(),
-            //     'all files' => $request->allFiles(),
-            //     'params' => $params,
-            //     'idRemove' => count($idRemove),
-            // ]);
 
             if (isset($params['EditImageLink'])) {
                 MoveImages::where('move_id', $params['id'])->where('language', $params['language'])->delete();
@@ -357,8 +444,6 @@ class MoveController extends BaseController
                     ->delete();
             }
 
-
-
             /* Upload Thumbnail */
             $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", $params['thumbnail_name']) : $params['thumbnail_link'];
 
@@ -384,6 +469,9 @@ class MoveController extends BaseController
                 "language" => $params['language'],
                 "priority" => $params['priority'],
 
+                "voice_hd" => boolval($params['voice_hd']),
+                "unlimited_wifi" => boolval($params['unlimited_wifi']),
+
                 "updated_at" => date('Y-m-d H:i:s')
             ];
 
@@ -391,15 +479,11 @@ class MoveController extends BaseController
 
             DB::table('move_products')->updateOrInsert($conditions, $values);
 
-            $moveProducts = $this->getMoveProductAll();
-
             DB::commit();
             return response([
                 'message' => 'ok',
                 'status' => true,
                 'description' => 'Move product has been updated successfully',
-                'moveProducts' => $moveProducts,
-                'maxPriority' => MoveProduct::where('delete_status', 0)->max('priority'),
             ], 200);
         } catch (Exception $e) {
             DB::rollBack();
@@ -410,6 +494,44 @@ class MoveController extends BaseController
             ], 501);
         }
     }
+
+    public function deleteMoveProduct(Request $request, $id)
+    {
+        try {
+
+            $product = MoveProduct::findOrFail($id);
+            $product->update(['delete_status' => 1]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Move product has been deleted successfully',
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
