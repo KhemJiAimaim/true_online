@@ -64,15 +64,6 @@
             margin-right: 60%;
             margin-top: 50%;
         }
-
-        .swiper-pagination-bullet {
-            background-color: #6E93f7;
-            opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-            background-color: #4070F4;
-        }
     </style>
 @endsection
 
@@ -128,13 +119,11 @@
                         @php
                             $productCount = 0;
                         @endphp
-                        <div class="swiper items-center mx-auto w-full flex">
-                            <div class="swiper-wrapper flex justify-center gap-x-6">
+                        <div class="swiper items-center mx-auto w-full ">
+                            <div class="swiper-wrapper ">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
-                                        
-                                        <div class="flex justify-center ">
-                                            <div class="swiper-slide flex justify-center items-center">
+                                            <div class="swiper-slide  flex justify-center ">
                                                 <div
                                                     class="drop-shadow-md 2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
                                                     <div
@@ -273,22 +262,20 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
                                             @php
-                                                $productCount++; // นับจำนวนรายการ
+                                                $productCount++; // เพิ่มจำนวนรายการ
                                             @endphp
-                                        
+                                       
                                     @endif
                                 @endforeach
                             </div>
                         </div>
-                        @if ($productCount > 3)
-                            <div class="swiper-button-next 2xl:right-[6%]"></div>
-                            <div class="swiper-button-prev 2xl:left-[6%]"></div>
-                            <div class="swiper-pagination"></div>
+                        @if ($productCount >= 3)
+                            <div class="swiper-button-next right-[6%]"></div>
+                            <div class="swiper-button-prev left-[6%]"></div>
                         @endif
                     </div>
-                    
                 </div>
                 {!! $circle2 !!}
             </section>
@@ -558,6 +545,4 @@
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @vite('resources/js/move/swiper.js')
-    
 @endsection
- 

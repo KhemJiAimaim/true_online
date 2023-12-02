@@ -38,9 +38,9 @@
                 @endforeach
             </div>
             <div class="pt-6 w-full">
-                <div class="max-w-[1536px] my-0 mx-auto flex justify-center px-4">
+                <div class="max-w-[1536px] my-0 mx-auto 2xl:grid 2xl:grid-cols-3 flex flex-wrap justify-center items-center  px-4 gap-x-6 gap-y-6">
                     @foreach($move_product as $product)
-                    <div class="drop-shadow-md flex justify-center ">
+                    <div class="drop-shadow-md ">
                         <div class="2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
                             <div
                                 class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
@@ -111,8 +111,8 @@
                                     @foreach($benefit_items as $item)
                                         @foreach($posts as $pos)
                                         @if($pos->id == $item)
-                                        <div class="flex items-start gap-2 px-4">
-                                            <div class="border-[1px]  border-orange-500 p-4 w-[30%]">
+                                        <div class="flex items-start gap-2 px-4 mb-2">
+                                            <div class="border-[1px] border-orange-500 p-4 w-[30%]  rounded-lg">
                                                 <img src="/{{$pos->thumbnail_link}}" alt="">
                                             </div>
         
@@ -150,6 +150,8 @@
                             </div>
                         </div>
                     </div>
+                    
+
                     @endforeach
                 </div>
             </div>

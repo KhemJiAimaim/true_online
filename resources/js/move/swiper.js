@@ -1,13 +1,10 @@
-var swiper = new Swiper(".swiper", {
-    slidesPerView:3,
-    spaceBetween: 25,
-    loop: true,
-    centerSlide: "true",
-    fade: "true",
-    grabCursor: "true",
+var swiper = new Swiper('.swiper', {
+    slidesPerView: 3,
+    spaceBetween: 0,
+    // direction: getDirection(),
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
     breakpoints: {
         340: {
@@ -23,6 +20,10 @@ var swiper = new Swiper(".swiper", {
             spaceBetween: 40,
         },
         1024: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+        },
+        1280: {
             slidesPerView: 2,
             spaceBetween: 50,
         },
