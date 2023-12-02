@@ -10,7 +10,8 @@ use App\Models\PackageProduct;
 class SimController extends Controller
 {
     public function prepaid_sim() {
-        return view("frontend.pages.prepaid_sim.home_sim");
+        $package = PackageProduct::where('recommended', true)->where('display', true)->where('delete_status', false)->take(4)->get();
+        return view("frontend.pages.prepaid_sim.home_sim", compact('package'));
     }
     
     public function buy_sim() {
@@ -38,7 +39,7 @@ class SimController extends Controller
         return view("frontend.pages.prepaid_sim.package", compact('cate_package', 'package_product', 'css_btnMonth','css_btnPaysim'));
     }
     public function buy_package($id) {
-        $product = PackageProduct::find($id)->where('display', true)->where('delete_status', false)->first();
+        $product = PackageProduct::where('id', $id)->where('display', true)->where('delete_status', false)->first();
         return view("frontend.pages.prepaid_sim.buy_package",compact('product'));
     }
 }

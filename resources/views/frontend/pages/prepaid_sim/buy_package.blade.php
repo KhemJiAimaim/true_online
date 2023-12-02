@@ -52,7 +52,6 @@
 
                         <p class="text-[18px] max-es:text-[16px] mt-4 ">เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p> --}}
                     </div>
-
                     <div class="border-l border border-[#838383] text-center rounded-full mx-6 "></div>
                     
                     <div class="py-4 p-6">
