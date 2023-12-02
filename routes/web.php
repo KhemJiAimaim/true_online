@@ -68,8 +68,9 @@ Route::get('/howtobuy/{cate}', [HowToBuyController::class, "howtobuyPage"]);
 
 //ย้ายค่าย
 Route::get('/move', [MoveController::class, "move"]);
-Route::get('/move/fixxynolimit', [MoveController::class, "move_fixxy"]);
-Route::get('/move/5GTogether+', [MoveController::class, "move_together"]);
-Route::get('/move/5GSuperSmart', [MoveController::class, "moveSupersmart"]);
-Route::get('/move/movenow', [MoveController::class, "movenow"]);
+Route::get('/move/{id}', [MoveController::class, "category_move"]);
+// Route::get('/move/fixxynolimit', [MoveController::class, "move_fixxy"]);
+// Route::get('/move/5GTogether+', [MoveController::class, "move_together"]);
+// Route::get('/move/5GSuperSmart', [MoveController::class, "moveSupersmart"]);
+Route::get('/movedetail', [MoveController::class, "movenow"]);
 Route::get('/move/movenow/form', [MoveController::class, "formMove"]);

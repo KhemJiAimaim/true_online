@@ -17,7 +17,7 @@
 
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
-                        <div id="slider" class="flex items-center gap-4 overflow-x-hidden mx-4 ">
+                        <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
                             {{-- @for ($i = 1; $i <= 6; $i++)  --}}
                             <img src="/images/Rectangle 1281.png" alt=""
                                 class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
@@ -87,7 +87,8 @@
                 </div>
                 {{-- content detail --}}
                 <div id="box-package"
-                    class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px]">
+                    class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
+                    <img src="/images/Intersect.png" alt="" class="bottom-0 right-0 absolute">
                     <div class="w-full lg:w-[400px] ml-3 text-left">
                         <p class="text-[16px] font-medium mt-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย
                             True
