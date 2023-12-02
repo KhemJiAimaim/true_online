@@ -10,29 +10,10 @@
                 @foreach($cate_home as $cate)
                 <a href="#{{$cate->cate_url}}"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="{{$cate->cate_thumbnail}}" alt="">
+                    <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/{{$cate->cate_thumbnail}}" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{$cate->cate_title}}</p>
                 </a>
                 @endforeach
-                {{-- <a
-                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-3" src="/images/icon-park-outline_sim-card.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์มงคล</p>
-                </a>
-
-
-                <a href="#sim"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[40px]" src="/images/system-uicons_box-add1.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">แพ็กเกจเน็ตซิมเทพ</p>
-                </a>
-
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/images/solar_wi-fi-router-linear.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">ซิมท่องเที่ยว</p>
-                </a> --}}
-
             </div>
         </div>
 

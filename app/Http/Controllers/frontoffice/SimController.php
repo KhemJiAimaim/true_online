@@ -10,7 +10,8 @@ use App\Models\PackageProduct;
 class SimController extends Controller
 {
     public function prepaid_sim() {
-        return view("frontend.pages.prepaid_sim.home_sim");
+        $package = PackageProduct::where('recommended', true)->where('display', true)->where('delete_status', false)->take(4)->get();
+        return view("frontend.pages.prepaid_sim.home_sim", compact('package'));
     }
     
     public function buy_sim() {
@@ -24,21 +25,21 @@ class SimController extends Controller
     public function package($type = null) {
         $cate_package = PackageCategory::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
 
-        $css_btnMonth = "bg-[#4f4f4f] hover:bg-[#666] hover:text-white";
-        $css_btnPaysim = "bg-[#4f4f4f] hover:bg-[#666] hover:text-white";
+        $css_btnMonth = false;
+        $css_btnPaysim = false;
         if($type == "month") {
             $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'รายเดือน')->get();
-            $css_btnMonth = "bg-gradient-to-r from-[#ED4312] to-[#F6911D] hover:bg-gradient-to-br active";
+            $css_btnMonth = true;
         } else if ($type == "paysim") {
             $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'เติมเงิน')->get();
-            $css_btnPaysim = "bg-gradient-to-r from-[#ED4312] to-[#F6911D] hover:bg-gradient-to-br active";
+            $css_btnPaysim = true;
         } else {
             $package_product = PackageProduct::where('display', true)->where('delete_status', false)->get();
         }
         return view("frontend.pages.prepaid_sim.package", compact('cate_package', 'package_product', 'css_btnMonth','css_btnPaysim'));
     }
     public function buy_package($id) {
-        $product = PackageProduct::find($id)->where('display', true)->where('delete_status', false)->first();
+        $product = PackageProduct::where('id', $id)->where('display', true)->where('delete_status', false)->first();
         return view("frontend.pages.prepaid_sim.buy_package",compact('product'));
     }
 }
