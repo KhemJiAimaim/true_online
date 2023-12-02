@@ -17,20 +17,18 @@ class MoveController extends Controller
             ->where('display', true)
             ->where('delete_status', false)->get();
             
-        $posts = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
-            ->where('status_display', true)
-            ->orderBy('priority')
-            ->get();
+        $posts = $this->getPostBenefits();
             // dd($post_benefits);
         return view('frontend.pages.move_company.home_move', compact('data_category', 'move_product', 'posts'));
     }
     
-    public function category_move($id) {
-        $data_category = $this->getCategoryMove($id);
-        $move_product = MoveProduct::find($id)->where('move_cate_id', $id)
+    public function category_move($cate_id) {
+        $data_category = $this->getCategoryMove($cate_id);
+        $move_product = MoveProduct::where('move_cate_id', $cate_id)
             ->where('display', true)
             ->where('delete_status', false)->get();
-        return view('frontend.pages.move_company.move_by_category',compact('data_category', 'move_product'));
+        $posts = $this->getPostBenefits();
+        return view('frontend.pages.move_company.move_by_category',compact('data_category', 'move_product', 'posts'));
     }
 
     public function move_together() {
@@ -41,12 +39,22 @@ class MoveController extends Controller
         return view('frontend.pages.move_company.5GSuperSmart');
     }
 
-    public function movenow() {
-        return view('frontend.pages.move_company.movenow');
+    public function movenow($id) {
+
+        $move_product = MoveProduct::where('id', $id)
+            ->where('display', true)
+            ->where('delete_status', false)->first();
+
+        return view('frontend.pages.move_company.movedetail',compact('move_product'));
     }
 
-    public function formMove() {
-        return view('frontend.pages.move_company.Formmove');
+    public function formMove(Request $request, $id) {
+$pass_data['id'] = $id; 
+        if($request->input('opt') && $request->input('opt') != '') {
+            $pass_data['option'] = $request->input('opt');
+        }
+
+        return view('frontend.pages.move_company.Formmove', compact('pass_data'));
     }
 
 
@@ -55,5 +63,13 @@ class MoveController extends Controller
         $data_cate['move_cate'] = $move_cate;
         $data_cate['cate_id'] = $id = ($id != '')?$id: "";
         return $data_cate;
+    }
+
+    private function getPostBenefits() {
+        $posts = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
+            ->where('status_display', true)
+            ->orderBy('priority')
+            ->get();
+        return $posts;
     }
 }
