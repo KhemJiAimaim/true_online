@@ -382,6 +382,150 @@ return new class extends Migration
                 'terms_content' => '',
                 'unlimited_wifi' => true,
                 'voice_hd' => true,
+                'recommended' => false,
+
+                'priority' => 3,
+                'language' => 'th',
+            ],
+            [
+                'move_cate_id' => 3,
+                'title' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'details' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'benefit_ids' => ',5,',
+                'price' => 99,
+                'discount' => 0,
+                'call_minutes' => '100',  // นาที
+                'internet_volume' => '40', // GB
+                'sim_gen' => '5G',
+                'package_options' => 'Fixxy No Limited:399, Fixxy No Limited:499', // package option 1:price, package option 2:price
+                'thumbnail_link' => 'images/Rectangle1282.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'terms_content' => '',
+                'unlimited_wifi' => true,
+                'voice_hd' => true,
+                'recommended' => false,
+
+                'priority' => 3,
+                'language' => 'th',
+            ],
+            [
+                'move_cate_id' => 3,
+                'title' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'details' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'benefit_ids' => ',5,',
+                'price' => 99,
+                'discount' => 0,
+                'call_minutes' => '100',  // นาที
+                'internet_volume' => '40', // GB
+                'sim_gen' => '5G',
+                'package_options' => 'Fixxy No Limited:399, Fixxy No Limited:499', // package option 1:price, package option 2:price
+                'thumbnail_link' => 'images/Rectangle1282.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'terms_content' => '',
+                'unlimited_wifi' => true,
+                'voice_hd' => true,
+                'recommended' => false,
+
+                'priority' => 3,
+                'language' => 'th',
+            ],
+            [
+                'move_cate_id' => 3,
+                'title' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'details' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'benefit_ids' => ',5,',
+                'price' => 99,
+                'discount' => 0,
+                'call_minutes' => '100',  // นาที
+                'internet_volume' => '40', // GB
+                'sim_gen' => '5G',
+                'package_options' => 'Fixxy No Limited:399, Fixxy No Limited:499', // package option 1:price, package option 2:price
+                'thumbnail_link' => 'images/Rectangle1282.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'terms_content' => '',
+                'unlimited_wifi' => true,
+                'voice_hd' => true,
+                'recommended' => false,
+
+                'priority' => 3,
+                'language' => 'th',
+            ],
+            [
+                'move_cate_id' => 3,
+                'title' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'details' => 'ย้ายค่ายเบอร์เดิมแพ็กแกจ Fixxy Nolimit 399',
+                'benefit_ids' => ',5,',
+                'price' => 99,
+                'discount' => 0,
+                'call_minutes' => '100',  // นาที
+                'internet_volume' => '40', // GB
+                'sim_gen' => '5G',
+                'package_options' => 'Fixxy No Limited:399, Fixxy No Limited:499', // package option 1:price, package option 2:price
+                'thumbnail_link' => 'images/Rectangle1282.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'details_content' => '<p><strong>เน็ต 1GB<br />
+                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+
+                                        <ul>
+                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
+                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
+                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
+                                            <li>WiFi ไม่อั้น</li>
+                                        </ul>
+
+                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
+                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
+                                        <br />
+                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                'terms_content' => '',
+                'unlimited_wifi' => true,
+                'voice_hd' => true,
                 'recommended' => true,
 
                 'priority' => 3,
