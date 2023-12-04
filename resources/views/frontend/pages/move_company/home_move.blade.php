@@ -20,7 +20,7 @@
         }
 
         .swiper {
-            max-width: 1536px;
+            /* max-width: 1536px; */
             height: 100%;
 
         }
@@ -28,12 +28,12 @@
         .swiper-wrapper {
             position: relative;
             width: 100%;
+
         }
 
         .swiper-slide {
             text-align: center;
             font-size: 18px;
-            background: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,6 +63,63 @@
             font-size: 25px;
             margin-right: 60%;
             margin-top: 50%;
+        }
+        .swiper-button-prev:after {
+            font-size: 25px;
+            margin-right: 300%;
+            margin-top: 50%;
+        }
+        @media only screen and (min-width: 1280px) {
+            .swiper-button-next:after {
+                margin-left: 360% !important;
+            }
+
+            .swiper-button-prev:after {
+                margin-right: 360% !important;
+
+            }
+        }
+        
+        @media only screen and (max-width: 1024px) {
+            .swiper-button-next:after {
+                margin-left: 200% !important;
+            }
+
+            .swiper-button-prev:after {
+                margin-right: 200% !important;
+
+            }
+        }
+        @media only screen and (max-width: 820px) {
+            .swiper-button-next:after {
+                margin-left: 280% !important;
+            }
+
+            .swiper-button-prev:after {
+                margin-right: 280% !important;
+
+            }
+        }
+      
+        @media only screen and (min-width: 360px) {
+            .swiper-button-next:after {
+                margin-left: 150% !important;
+            }
+
+            .swiper-button-prev:after {
+                margin-right: 150% !important;
+
+            }
+        }
+        @media only screen and (min-width: 768px) {
+            .swiper-button-next:after {
+                margin-left: 250% !important;
+            }
+
+            .swiper-button-prev:after {
+                margin-right: 250% !important;
+
+            }
         }
     </style>
 @endsection
@@ -108,24 +165,24 @@
                 $i++;
             @endphp
 
-            <section class="{{ $bg }} py-6 relative z-0 px-3 max-md:px-4">
+            <section class="{{ $bg }} py-6 relative z-0 px-3 max-md:px-[1.5rem] md:px-[1.5rem]">
                 {!! $circle1 !!}
-                <div class="">
+                <div class="py-10">
                     <p class="text-[#000]   2xl:text-[2rem] xl:text-[25px] text-[22px]">{{ $cate->title }}</p>
                     <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">{{ $cate->details }}</p>
                 </div>
-                <div class="pt-6 w-full">
-                    <div class="max-w-[1536px] my-0 mx-auto flex justify-center px-4 gr ">
+                <div class="py-6 w-full">
+                    <div class="max-w-[1548px]  mx-auto flex justify-center">
                         @php
                             $productCount = 0;
                         @endphp
-                        <div class="swiper items-center mx-auto w-full ">
-                            <div class="swiper-wrapper ">
+                        <div class="swiper flex justify-center items-center mx-auto w-full ">
+                            <div class="swiper-wrapper  flex 2xl:justify-center xl:justify-center items-center">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
-                                            <div class="swiper-slide  flex justify-center ">
-                                                <div
-                                                    class="drop-shadow-md 2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
+                                       
+                                            <div class="swiper-slide flex justify-center items-center">
+                                                <div class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[350px] h-[100%] ">
                                                     <div
                                                         class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                                         <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
@@ -211,7 +268,7 @@
                                                             @foreach ($benefit_items as $item)
                                                                 @foreach ($posts as $pos)
                                                                     @if ($pos->id == $item)
-                                                                        <div class="flex items-start gap-2 px-4">
+                                                                        <div class="flex items-start gap-2 px-4 mb-2">
                                                                             <div
                                                                                 class="border-[1px] rounded-lg border-orange-500 p-4 w-[30%]">
                                                                                 <img src="{{ $pos->thumbnail_link }}"
@@ -235,7 +292,7 @@
                                                     <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                                         <img class=" absolute left-0 top-0 h-[100%]"
                                                             src="/images/circle/Intersect (2).png" alt="">
-                                                        <div class="flex items-center justify-between py-6 px-2">
+                                                        <div class="flex items-center justify-between py-6 px-4">
 
                                                             <p class="text-white text-left text-[18px] max-md:text-[16px] ">
                                                                 ราคา
@@ -252,28 +309,27 @@
                                                     </div>
 
                                                     <div
-                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 gap-3">
+                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 ss:px-2 gap-3">
 
                                                         <a href="#"
-                                                            class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
+                                                            class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
                                                         <a href="/movedetail"
-                                                            class="cursor-pointer py-2 max-md:px-10 px-16 ss:px-6  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
+                                                            class="cursor-pointer py-2 md:px-10 2xl:px-16 px-16 ss:px-[1.8rem] xs:  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            @php
-                                                $productCount++; // เพิ่มจำนวนรายการ
-                                            @endphp
-                                       
+                                        
+                                        @php
+                                            $productCount++; // เพิ่มจำนวนรายการ
+                                        @endphp
                                     @endif
                                 @endforeach
                             </div>
                         </div>
                         @if ($productCount >= 3)
-                            <div class="swiper-button-next right-[6%]"></div>
-                            <div class="swiper-button-prev left-[6%]"></div>
+                            <div class="swiper-button-next "></div>
+                            <div class="swiper-button-prev "></div>
                         @endif
                     </div>
                 </div>
