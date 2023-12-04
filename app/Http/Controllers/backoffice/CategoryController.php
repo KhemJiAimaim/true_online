@@ -71,6 +71,7 @@ class CategoryController extends BaseController
             'is_main_page' => 'required|numeric',
             'is_product_cate' => 'required|numeric',
             'is_menu' => 'required|numeric',
+            'cate_status_display' => 'required|numeric',
             'is_bottomside' => 'required|numeric',
             'cate_priority' => 'required|numeric',
             'language' => 'required|string',
@@ -124,6 +125,7 @@ class CategoryController extends BaseController
             $creating->is_main_page = $params['is_main_page'];
             $creating->is_product_cate = $params['is_product_cate'];
             $creating->is_menu = $params['is_menu'] ;
+            $creating->cate_status_display = $params['cate_status_display'] ;
             $creating->is_topside = $params['is_menu'] ;
             $creating->is_bottomside = $params['is_bottomside'] ;
             $creating->cate_redirect = "";
@@ -168,6 +170,7 @@ class CategoryController extends BaseController
             'is_main_page' => 'required|numeric',
             'is_product_cate' => 'required|numeric',
             'is_menu' => 'required|numeric',
+            'cate_status_display' => 'required|numeric',
             'is_bottomside' => 'required|numeric',
             'cate_priority' => 'required|numeric',
             'language' => 'required|string',
@@ -199,11 +202,14 @@ class CategoryController extends BaseController
             /* Update Position */
             // $position = (int)$params['cate_position'];
             // $this->priorityCategoryUpdate(99999999,$position, $params['language'], "cate_position");
-            
-            $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
+
+            $thumbnail_link = "";
             if(isset($files['Image'])) {
                 /* Upload Image */
-                $categoryArr["cate_thumbnail"] = $this->uploadImage($newFolder, $files['Image'], "", "", $params['ImageName']);
+                $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
+                $thumbnail_link = $this->uploadImage($newFolder, $files['Image'], "", "", $params['ImageName']);
+            } else {
+                $thumbnail_link = $params['thumbnail_link'];
             }
 
             $conditions  = ['id' => $params['id'], 'language' => $params['language']];
@@ -211,7 +217,7 @@ class CategoryController extends BaseController
                 "cate_priority" => $priority,
                 "cate_position" => (int)$params['cate_position'],
                 "cate_root_id" => $params['cate_root_id'],
-                "cate_thumbnail" => $newFolder . $params['ImageName'],
+                "cate_thumbnail" => $thumbnail_link,
                 "cate_thumbnail_title" => $params['cate_thumbnail_title'],
                 "cate_thumbnail_alt" => $params['cate_thumbnail_alt'],
                 "cate_parent_id" => $params['cate_parent_id'],
@@ -226,6 +232,7 @@ class CategoryController extends BaseController
                 "is_menu" => $params['is_menu'] ,
                 "is_topside" => $params['is_menu'] ,
                 "is_bottomside" => $params['is_bottomside'] ,
+                "cate_status_display" => $params['cate_status_display'] ,
                 "updated_at" => date('Y-m-d H:i:s'),
             ];
 

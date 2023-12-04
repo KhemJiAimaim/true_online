@@ -120,11 +120,9 @@
 
                             </div>
 
-
-
                             <div class="bg-[#F8F9FA] flex flex-col justify-center items-center py-2  h-[150px]">
                                 <p class="text-[18px]">เน็ต</p>
-                                <p class="text-[30px] font-medium">{{$pack->title}}/{{$pack->lifetime}}วัน</p>
+                                <p class="text-[30px] font-medium">{{$pack->title}} / {{$pack->lifetime}}วัน</p>
                             </div>
 
                             <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
