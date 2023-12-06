@@ -246,10 +246,6 @@ class BerLuckyMonthlyController extends Controller
         return view('frontend.pages.bermonthly_lucky.fortune_ber', compact('tel', 'data_sumber', 'data_fortune', 'score'));
     }
 
-    public function cartproduct_page($ber_id) {
-        return view('frontend.pages.bermonthly_lucky.cart_product', compact('ber_id'));
-    }
-
     // ทำนายเบอร์โทร
     public function fortune_tel($tel) {
         $sub_tel = substr($tel, 3, 7);

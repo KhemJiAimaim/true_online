@@ -64,10 +64,13 @@ addtocart.forEach(element => {
   })
 });
 
+// สั่งซื้อสินค้าเลย
 buynow.forEach(element => {
   element.addEventListener('click', () => {
     let ber_id = element.getAttribute('data-id')
-    buyProductNow(ber_id)
+    console.log('buyproduct now' + ber_id)
+    // return false;
+    location.href = `/cartproduct/?ber=${ber_id}`
   })
 });
 
@@ -92,13 +95,6 @@ function fortuneber() {
 // เพิ่มสินค้าลงตะกร้า
 function addProductTocart(ber_id) {
   console.log('addtocart' + ber_id)
-}
-
-// สั่งซื้อสินค้าเลย
-function buyProductNow(ber_id) {
-  console.log('buyproduct now' + ber_id)
-  // เก็บเบอร์ใน session แล้ว return ber ส่งไปหน้า cart
-  location.href = `/cartproduct/0933501625`
 }
 
 

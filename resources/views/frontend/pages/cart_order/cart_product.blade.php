@@ -165,5 +165,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/bermonthly_lucky/cartproduct.js')
+    @vite('resources/js/cart_order/cartproduct.js')
 @endsection
