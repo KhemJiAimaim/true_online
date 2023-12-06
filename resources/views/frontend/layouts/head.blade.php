@@ -109,7 +109,8 @@
             </ul>
         </li>
 
-        <li class="bg-gray-100"><a href="{{ url('/bermonthly') }}"
+        <li class="bg-gray-100">
+            <a href="{{ url('/bermonthly') }}"
                 class="block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 font-medium">เบอร์มงคลรายเดือน</a>
         </li>
 
@@ -178,7 +179,6 @@
                         class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
                 </li> {{-- </div> --}}
             </ul>
-
         </li>
     </ul>
 </nav>
