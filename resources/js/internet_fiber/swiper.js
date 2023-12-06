@@ -1,12 +1,13 @@
 var swiper = new Swiper('.swiper', {
     slidesPerView: 4,
     spaceBetween: 0,
+    grabCursor: 'true',
     // direction: getDirection(),
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    grabCursor: 'true',
+   
     breakpoints: {
         340: {
             slidesPerView: 1,

@@ -83,12 +83,14 @@
         }
 
         @media only screen and (min-width: 360px) {
-            .swiper-button-next:after {
-                margin-left: 150% !important;
+            .swiper-button-prev:after,.swiper-button-next:after {
+                font-size: 18px;
             }
-
-            .swiper-button-prev:after {
-                margin-right: 150% !important;
+            .swiper-button-next {
+                right: 9% !important;
+            } 
+            .swiper-button-prev {
+                left: 9% !important;
 
             }
         }
@@ -155,13 +157,13 @@
                         @php
                             $productCount = 0;
                         @endphp
-                        <div class="swiper flex justify-center items-center mx-auto">
-                            <div class="swiper-wrapper flex items-center">
+                        <div class="swiper flex justify-center items-center mx-auto w-full">
+                            <div class="swiper-wrapper flex items-center ">
                                 @foreach ($fiber_products as $product)
                                     @if ($product->fiber_cate_id == $cate->id)
-                                        @for ($i = 1; $i <= 5; $i++)
+                                        {{-- @for ($i = 1; $i <= 5; $i++) --}}
                                             <div class="swiper-slide flex justify-center items-center">
-                                                <div class="drop-shadow-md w-[350px] h-[100%]">
+                                                <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
                                                     <div
                                                         class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
@@ -287,7 +289,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endfor
+                                        {{-- @endfor --}}
                                     @endif
                                     @php
                                         $productCount++; // เพิ่มจำนวนรายการ

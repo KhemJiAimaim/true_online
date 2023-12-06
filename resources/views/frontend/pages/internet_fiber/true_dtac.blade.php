@@ -1,8 +1,8 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class="2xl:my-16">
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 px-3">
+    <div class="2xl:my-16 px-3">
+        <div class="overflow-x-scroll 2xl:overflow-hidden overflow-hidden py-2">
             <div class="grid grid-cols-7 px-3 py-6 se:w-[1000px] ss:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
                 @foreach($cate_fiber as $cate)
                 <a href="{{url('/fiber/true_dtac/'.$cate->cate_url)}}"
@@ -28,13 +28,15 @@
 
             <div class="2xl:my-16 my-6 z-2">
                 <div
-                    class="2xl:w-[1536px] xl:w-[1200px]  w-full grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-4 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2    xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
+                    class="max-w-[1536px] my-0 mx-auto grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  grid-cols-1  justify-center items-center gap-x-6 gap-y-6">
                     @foreach ($fiber_products as $product)
-                        <div class="drop-shadow-md">
+                    {{-- @for($i=1;$i<=10;$i++) --}}
+                        <div class="drop-shadow-md flex justify-center">
+                            <div class=" w-[350px] xl:w-[350px] lg:w-[310px] h-[100%] ">
                             <div
                                 class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
-                                <p class="text-white text-left text-[18px]">{{$product->details}}</p>
+                                <p class="text-white text-left text-[16px]">{{$product->details}}</p>
                                 <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                             </div>
 
@@ -66,7 +68,7 @@
                                             <div class="blue-plate-textboxS"></div>
                                         </div>
                                         <div class="blue-plate-textboxC">
-                                            <p class="blue-plate-text text-white text-[18px]">รับทันที</p>
+                                            <p class="blue-plate-text text-white text-[16px]">รับทันที</p>
                                         </div>
                                         <div class="blue-plate-box-e">
                                             <div class="blue-plate-textboxE"></div>
@@ -113,9 +115,9 @@
                             <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
                                 <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                 <div class="grid grid-cols-3 items-center">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem]  ">ราคา</p>
+                                    <p class="text-white text-left  text-[16px]  ">ราคา</p>
                                     <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format($product->price_per_month) }}</p>
-                                    <p class="text-white text-right text-[1rem] 2xl:text-[18px] ">บาท<br>/เดือน</p>
+                                    <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
 
                                 </div>
                             </div>
@@ -125,6 +127,8 @@
                                     class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
                             </div>
                         </div>
+                        </div>
+                        {{-- @endfor --}}
                     @endforeach
                 </div>
 

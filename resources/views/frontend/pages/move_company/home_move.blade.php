@@ -64,60 +64,64 @@
             margin-right: 60%;
             margin-top: 50%;
         }
+
         .swiper-button-prev:after {
             font-size: 25px;
             margin-right: 300%;
             margin-top: 50%;
         }
+
         @media only screen and (min-width: 1280px) {
-            .swiper-button-next:after {
-                margin-left: 360% !important;
+            .swiper-button-next {
+                right: 3% !important;
             }
 
-            .swiper-button-prev:after {
-                margin-right: 360% !important;
+            .swiper-button-prev {
+                left: 3% !important;
 
             }
         }
-        
+
         @media only screen and (max-width: 1024px) {
-            .swiper-button-next:after {
-                margin-left: 200% !important;
+            .swiper-button-next {
+                right: 5% !important;
             }
 
-            .swiper-button-prev:after {
-                margin-right: 200% !important;
+            .swiper-button-prev {
+                left: 5% !important;
 
             }
         }
+
         @media only screen and (max-width: 820px) {
-            .swiper-button-next:after {
-                margin-left: 280% !important;
+            . .swiper-button-next {
+                right: 5% !important;
             }
 
-            .swiper-button-prev:after {
-                margin-right: 280% !important;
+            .swiper-button-prev {
+                left: 5% !important;
 
             }
         }
-      
+
         @media only screen and (min-width: 360px) {
-            .swiper-button-next:after {
-                margin-left: 150% !important;
+            .swiper-button-next {
+                right: 10% !important;
             }
 
-            .swiper-button-prev:after {
-                margin-right: 150% !important;
+            .swiper-button-prev {
+                left: 10% !important;
 
             }
         }
+
         @media only screen and (min-width: 768px) {
-            .swiper-button-next:after {
-                margin-left: 250% !important;
+            .swiper-button-next {
+                right: 1% !important;
             }
 
-            .swiper-button-prev:after {
-                margin-right: 250% !important;
+            .swiper-button-prev {
+                left: 5% !important;
 
             }
         }
@@ -177,10 +181,10 @@
                             $productCount = 0;
                         @endphp
                         <div class="swiper flex justify-center items-center mx-auto w-full ">
-                            <div class="swiper-wrapper  flex 2xl:justify-center xl:justify-center items-center">
+                            <div class="swiper-wrapper  flex 2xl:justify-center items-center">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
-                                       
+                                        {{-- @for ($i = 1; $i <= 2; $i++) --}}
                                             <div class="swiper-slide flex justify-center items-center">
                                                 <div class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[350px] h-[100%] ">
                                                     <div
@@ -319,7 +323,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        
+                                        {{-- @endfor --}}
                                         @php
                                             $productCount++; // เพิ่มจำนวนรายการ
                                         @endphp
