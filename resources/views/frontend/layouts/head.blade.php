@@ -1,15 +1,15 @@
 <!-- nav goes here -->
 
 <nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed w-full top-0 z-50 ">
-    <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto">
+    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] px-8 mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">
+
                 <!-- logo -->
                 <div class="hidden xl:flex">
                     <a href="/" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                         <img src="{{ asset('/images/Rectangle 11.png') }}" alt="lago">
                     </a>
-                    
                 </div>
 
                 <!-- primary nav -->
@@ -51,7 +51,7 @@
                 </a>
 
 
-                <div class="mobile-menu-button xl:hidden">
+                <div class="mobile-menu-button lg:hidden xl:hidden">
                     <div class="ham-line1"></div>
                     <div class="ham-line2"></div>
                     <div class="ham-line3"></div>
@@ -68,12 +68,12 @@
 
     <!-- mobile menu -->
     <ul
-        class="Mitr mobile-menu hidden xl:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto  ">
+        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto  ">
         <li class=" bg-gray-100 w-full">
-            <button id="menufiber" onclick="dropClick()"
-                class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">
+            <a id="menufiber" onclick="dropClick()"
+                class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">อินเตอร์เน็ตไฟเบอร์
                 <img id="flip" class="flip w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">
-            </button>
+            </a>
             <ul id="myDropdown" class="dropdow-conten bg-white ">
                 <li><a href="/fiber"
                         class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เมนูหลัก</a>
@@ -114,11 +114,10 @@
         </li>
 
         <li class="bg-gray-100">
-            <button
-                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
+            <a class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick2()">เติมเงิน
                 <img id="flip2" class=" w-[20px] flip2 mr-5" src="/images/icon/down-arrow.png" alt="">
-            </button>
+            </a>
             <ul id="myDropdown2" class="dropdow-conten bg-white">
                 <li><a href="/prepaid_sim"
                         class=" block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">เมนูหลัก</a></li>
@@ -136,11 +135,10 @@
         </li>
 
         <li class="bg-gray-100">
-            <button
-                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
+            <a class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick3()">ซิมท่องเที่ยว
                 <img id="flip3" class=" flip3 w-[20px]  mr-5" src="/images/icon/down-arrow.png" alt="">
-            </button>
+            </a>
             <ul id="myDropdown3" class="dropdow-conten bg-white">
                 {{-- <div class="col-start-5"> --}}
                 <li> <a href="/travel_sim"
@@ -156,11 +154,10 @@
         </li>
 
         <li class="bg-gray-100">
-            <button
-                class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
+            <a class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
                 onclick="dropClick4()">วิธีการสั่งซื้อ
                 <img id="flip4" class=" flip4 w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">
-            </button>
+            </a>
             <ul id="myDropdown4" class="dropdow-conten bg-white">
                 {{-- <div class="col-start-6"> --}}
                 <li> <a href="#"
@@ -187,24 +184,118 @@
 
 
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
-    <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
+    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] lg:w-full px-8 mx-auto xl:mt-4 py-2 z-50 max-lg:hidden lg:py-4">
         <ul class="hidden lg:flex 2xl:flex relative">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
-            @foreach($main_cate as $m_cate)
             <li class="group z-[99] basis-[260px] ">
-                <a href="{{url($m_cate->cate_redirect)}}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{$m_cate->cate_title}}</a>
-                @foreach($sub_cate as $s_cate)
-                @if($s_cate->cate_parent_id == $m_cate->id)
+                <a href="/fiber"
+                    class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
                 <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4">
-                    <li>
-                        <a href="{{url('/'.$s_cate->cate_redirect)}}" class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{$s_cate->cate_title}}</a>
+
+                    <li><a href="/fiber/true_dtac"
+                            class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                            สำหรับทรูและดีแทค</a>
+                    </li>
+                    <li><a href="/fiber/internet_basic"
+                            class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                            สำหรับใช้งานพื้นฐาน</a>
+                    </li>
+                    <li><a href="/fiber/home_fiber_guarantee"
+                            class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                            พร้อมประกัน</a>
+                    </li>
+                    <li><a href="/fiber/true_visions"
+                            class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                            พร้อมทรูวิชั่นส์</a>
+                    </li>
+                    <li><a href="/fiber/router_fiber"
+                            class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                            เลือกเราเตอร์เอง</a>
+                    </li>
+                    <li><a href="/fiber/internet_game"
+                            class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                            สำหรับเกมเมอร์</a>
+                    </li>
+                    <li><a href="/fiber/SME_fiber"
+                            class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
+                            สำหรับธุรกิจ SME</a>
                     </li>
                 </ul>
-                @endif
-                @endforeach
             </li>
-            @endforeach
 
+            {{-- เบอร์มงคลรายเดือน --}}
+            <li class="group z-[99] basis-[230px] ">
+                <a href="/bermonthly"
+                    class=" py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
+
+            </li>
+
+            {{-- เติมเงิน --}}
+            <li class="group z-[99] basis-[160px] ">
+                <a href="/prepaid_sim" class=" py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">เติมเงิน</a>
+                <ul
+                    class="submenu hidden mt-4 mx-auto w-full h-[350px] top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    <div class= "flex flex-col ">
+                        {{-- <div class="col-start-4  "> --}}
+                        <li><a href="/prepaid_sim/sim_includ"
+                                class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
+                        </li>
+                        <li><a href="/prepaid_sim/package"
+                                class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">แพ็กเกจเสริม</a>
+                        </li>
+                        {{-- </div> --}}
+                    </div>
+                </ul>
+            </li>
+
+            {{-- ย้ายค่าย --}}
+            <li class="group z-[99] basis-[160px]">
+                <a href="/move" class=" py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ย้ายค่าย</a>
+            </li>
+
+            {{-- ซิมท่องเที่ยว --}}
+            <li class="group z-[99] basis-[200px]">
+                <a href="/travel_sim"
+                    class=" py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
+                <ul
+                    class="submenu hidden mt-4 mx-auto w-full h-[350px] top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+                    <div class= "flex flex-col">
+                        {{-- <div class="col-start-5"> --}}
+                        <li><a href="/travel_sim/travelling"
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เดินทางไปต่างประเทศ</a>
+                        </li>
+                        <li><a href="/travel_sim/visiting"
+                                class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">มาเที่ยวในไทย</a>
+                        </li>
+                        {{-- </div> --}}
+                    </div>
+                </ul>
+            </li>
+
+            {{-- วิธีการสั่งซื้อ --}}
+            <li class="group z-[99] basis-[230px]">
+                <a href="#"
+                    class="py-2  2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">วิธีการสั่งซื้อ</a>
+                <ul
+                    class="submenu hidden mt-4 mx-auto w-full h-[350px] top-[3rem] left-0 space-y-2 bg-white bg-opacity-[90%] group-hover:block z-50">
+
+                    <div class= "flex flex-col">
+                        {{-- <div class="col-start-6"> --}}
+                        <li><a href="/howtobuy/fiber"
+                                class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
+                        </li>
+                        <li><a href="/howtobuy/month"
+                                class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
+                        </li>
+                        <li><a href="/howtobuy/paysim"
+                                class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
+                        </li>
+                        <li><a href="/howtobuy/travelsim"
+                                class="block py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
+                        </li> {{-- </div> --}}
+                    </div>
+                </ul>
+            </li>
         </ul>
         </li>
     </div>
