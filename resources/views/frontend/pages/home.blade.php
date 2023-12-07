@@ -379,10 +379,11 @@
 
                                 </div>
                             </div>
-                            @if ($productCount >= 4)
+                            {{-- @if ($productCount >= 4)
                                 <div class="swiper-button-next "></div>
-                                {{-- <div class="swiper-button-prev "></div> --}}
-                            @endif
+                                <div class="swiper-button-prev "></div>
+                            @endif --}}
+                            
                             {{-- เน็ตไฟเบอร์ --}}
 
                             {{-- เบอร์มงคลรายเดือน --}}
@@ -467,10 +468,10 @@
                                     @endforeach
                                 </div>
                             </div>
-                            @if ($productCount >= 4)
+                            {{-- @if ($productCount >= 4)
                                 <div class="swiper-button-next "></div>
-                                {{-- <div class="swiper-button-prev "></div> --}}
-                            @endif
+                                <div class="swiper-button-prev "></div>
+                            @endif --}}
                             {{-- เบอร์มงคลรายเดือน --}}
 
                             {{-- ซิมเติมเงิน --}}
@@ -545,10 +546,10 @@
                                     @endfor
                                 </div>
                             </div>
-                            @if ($productCount >= 4)
+                            {{-- @if ($productCount >= 4)
                                 <div class="swiper-button-next z-50 "></div>
-                                {{-- <div class="swiper-button-prev z-50"></div> --}}
-                            @endif
+                                <div class="swiper-button-prev z-50"></div>
+                            @endif --}}
                             {{-- ซิมเติมเงิน --}}
 
                             {{-- ซิมท่องเที่ยว --}}
@@ -626,10 +627,10 @@
                                     @endfor
                                 </div>
                             </div>
-                            @if ($productCount >= 4)
+                            {{-- @if ($productCount >= 4)
                                 <div class="swiper-button-next "></div>
-                                {{-- <div class="swiper-button-prev "></div> --}}
-                            @endif
+                                <div class="swiper-button-prev "></div>
+                            @endif --}}
                             {{-- ซิมท่องเที่ยว --}}
                         @endif
                     </div>
