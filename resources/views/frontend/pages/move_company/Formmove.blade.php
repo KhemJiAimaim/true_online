@@ -1,12 +1,23 @@
 @extends('frontend.layouts.main')
+@section('style')
+    <style>
+        .main {
+            height: auto;
+            min-height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            /* overflow-y: auto; */
+        }
+    </style>
+@endsection
 @section('content')
-<div class="2xl:mt-16  mt-[1rem]">
+<div class="2xl:mt-16  mt-[2rem] mx-3">
     <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
-    <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
+    <p class="text-[18px] font-blod mb-10">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
     <div class="plate-line max-w-[200px]"></div>
 
-    <div class="max-w-[1200px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-6 px-3">
+    <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-10 py-4">
         <div class="grid 2xl:grid-cols-2 xl:grid-cols-2  lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-10 items-center">
             <div class="flex justify-between items-center">
                 <label for="first-name"

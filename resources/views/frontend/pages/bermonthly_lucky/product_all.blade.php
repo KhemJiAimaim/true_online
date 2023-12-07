@@ -357,7 +357,7 @@
         @if (count($berproducts) > 0)
             <div class="px-3">
                 <div
-                    class="2xl:w-[1536px] xl:w-[1200px] w-full grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-4 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2  xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4 ">
+                    class="2xl:w-[1536px] xl:w-[1200px] w-full grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-4 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4 ">
                     @foreach ($berproducts as $product)
                         <div class="drop-shadow-md">
                             <div

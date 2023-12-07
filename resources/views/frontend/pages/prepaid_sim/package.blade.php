@@ -47,7 +47,7 @@
                     @foreach ($package_product as $product)
                         @if($cate->id == $product->package_cate_id)
                         <div
-                            class="item flex justify-between 2xl:px-40  px-2 py-2 2xl:py-8 dm:px-4 xs:px-2  2xl:8items-center">
+                            class="item flex justify-between 2xl:px-40  px-2 py-2 2xl:py-8 dm:px-4 xs:px-2  2xl:items-center">
                             <div class="text-left">
                                 <p class="2xl:text-lg md:text-[18px] xs:text-[16px] text-[14px] font-medium">{{$product->title}}</p>
                                 <p class="2xl:text-lg  md:text-[18px] xs:text-[16px] text-[14px] font-medium">{{$product->details}}</p>

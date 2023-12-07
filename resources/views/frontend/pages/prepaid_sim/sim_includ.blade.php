@@ -21,14 +21,14 @@
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
-                            <p class="text-white text-left ml-3 text-[18px] max-es:text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น
+                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น
                                 ใช้ได้ไม่จำกัด</p>
                             <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             {{-- </div> --}}
 
                         </div>
 
-                        <div class="bg-white"">
+                        <div class="bg-white">
                             <div class="flex justify-center py-4 ">
                                 <img src="/images/Rectangle 98.png" alt=""
                                     class="max-ex:w-[120px] max-ex:h-[120px]">
@@ -45,11 +45,11 @@
                         <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
                             <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png" alt="">
                             <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[18px] max-es:text-[16px] ">ราคา <br>
+                                <p class="text-white text-left text-[16px] ">ราคา <br>
                                     เริ่มต้น</p>
                                 <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
                                     150</p>
-                                <p class="text-white text-right text-[18px] max-es:text-[16px]">บาท <br>
+                                <p class="text-white text-right text-[16px]">บาท <br>
                                     /เดือน</p>
 
                             </div>

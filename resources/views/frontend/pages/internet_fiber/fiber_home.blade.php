@@ -1,23 +1,122 @@
 @extends('frontend.layouts.main')
 
+
+@section('style')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            /* max-width: 1536px; */
+            height: 100%;
+
+        }
+
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-button-next {
+            right: 5%;
+            position: absolute;
+            color: #000;
+            top:auto;
+            height: 30rem;
+
+        }
+
+        .swiper-button-prev {
+            left: 5%;
+            position: absolute;
+            color: #000;
+            widows: 50px;
+            height: 30rem;
+            top:auto;
+
+        }
+
+        .swiper-button-next:after {
+            font-size: 25px;
+            margin-left: 300%;
+            margin-top: 50%;
+        }
+
+        .swiper-button-prev:after {
+            font-size: 25px;
+            margin-right: 300%;
+            margin-top: 50%;
+        }
+
+        @media only screen and (max-width: 1280px) {
+            .swiper-button-next {
+                right: 2% !important;
+            }
+
+            .swiper-button-prev {
+                left: 2% !important;
+
+            }
+        }
+
+        @media only screen and (min-width: 360px) {
+            .swiper-button-prev:after,.swiper-button-next:after {
+                font-size: 18px;
+            }
+            .swiper-button-next {
+                right: 9% !important;
+            } 
+            .swiper-button-prev {
+                left: 9% !important;
+
+            }
+        }
+
+    </style>
+@endsection
+
 @section('content')
     <div class="2xl:mt-16">
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
             <div class="grid grid-cols-7 py-6 se:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
-                @foreach($cate_fiber as $cate)
-                <a href="{{url('/fiber/true_dtac/'.$cate->cate_url)}}"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                    <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{$cate->cate_thumbnail}}" alt="">
-                    @foreach(explode(' ', $cate->cate_title) as $word)
-                        <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
-                    @endforeach
-                </a>
+                @foreach ($cate_fiber as $cate)
+                    <a href="{{ url('/fiber/true_dtac/' . $cate->cate_url) }}"
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
+                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
+                            alt="">
+                        @foreach (explode(' ', $cate->cate_title) as $word)
+                            <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
+                        @endforeach
+                    </a>
                 @endforeach
             </div>
         </div>
 
-         {{-- มหัศจรรย์ --}}
-         <div class="title-plate-container py-4 px-3">
+        {{-- มหัศจรรย์ --}}
+        <div class="title-plate-container py-4 px-3">
             <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
                 <div class="title-plate-line"></div>
             </div>
@@ -27,7 +126,8 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู ออนไลน์ อันดับ 1 เน็ตบ้านไฟเบอร์อัจฉริยะ</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู ออนไลน์ อันดับ 1
+                        เน็ตบ้านไฟเบอร์อัจฉริยะ</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -37,146 +137,191 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        @foreach($cate_fiber as $cate)
-        @php
-            $style1 = ($loop->last) ? "bg-gray-100 relative" : "";
-            $circle1 = ($loop->last) ? '<img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png">' : "";
-            $circle2 = ($loop->last) ? '<img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png">' : "";
-        @endphp
-        <section id="fiber" class="py-6 z-0 px-3 {{ $style1 }}">
-            {!!$circle1!!}
-            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">{{$cate->cate_keyword}}</p>
-            {{-- <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000</p> --}}
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">{{$cate->cate_description}}</p>
+        @foreach ($cate_fiber as $cate)
+            @php
+                $style1 = $loop->last ? 'bg-gray-100 relative' : '';
+                $circle1 = $loop->last ? '<img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png">' : '';
+                $circle2 = $loop->last ? '<img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png">' : '';
+            @endphp
+            <section id="fiber" class="py-6 z-0 px-3 {{ $style1 }}">
+                {!! $circle1 !!}
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">
+                    {{ $cate->cate_keyword }}</p>
+                {{-- <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000</p> --}}
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
+                    {{ $cate->cate_description }}</p>
 
 
-            <div class=" overflow-x-scroll 2xl:overflow-hidden 2xl:my-16 my-4 z-2">
+                <div class="2xl:my-16 my-4 z-2 w-full">
+                    <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
+                        @php
+                            $productCount = 0;
+                        @endphp
+                        <div class="swiper flex justify-center items-center mx-auto w-full">
+                            <div class="swiper-wrapper flex items-center ">
+                                @foreach ($fiber_products as $product)
+                                    @if ($product->fiber_cate_id == $cate->id)
+                                        {{-- @for ($i = 1; $i <= 5; $i++) --}}
+                                            <div class="swiper-slide flex justify-center items-center">
+                                                <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
+                                                    <div
+                                                        class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
 
-                <div
-                    class="2xl:w-[1536px] lg:w-[1350px] xl:w-[1200px] w-[1400px] dm:w[1380px] grid grid-cols-4 justify-center xl:gap-3 2xl:gap-6 gap-4 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4">
-                    @foreach($fiber_products as $product)
-                        @if($product->fiber_cate_id == $cate->id)
-                        <div class="drop-shadow-md overflow-hidden">
-                            <div
-                                class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                                                        <p class="text-white text-left text-[16px]">{{ $product->details }}
+                                                        </p>
+                                                        {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
+                                                        <img class="absolute top-0 right-0" src="/images/Intersect2.png"
+                                                            alt="">
+                                                    </div>
 
-                                <p class="text-white text-left text-[16px]">{{$product->details}}</p>
-                                {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
-                                <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
-                            </div>
+                                                    <div class="bg-[#F8F9FA]">
+                                                        <div class="">
+                                                            <p class="py-3 text-[20px]">{{ $product->title }}</p>
+                                                        </div>
+                                                    </div>
+                                                    @php
+                                                        $download = $product->download_speed >= 1000 ? $product->download_speed / 1000 : $product->download_speed;
+                                                        $unit_download = $product->download_speed >= 1000 ? 'Gbps' : 'Mbps';
 
-                            <div class="bg-[#F8F9FA]">
-                                <div class="">
-                                    <p class="py-3 text-[20px]">{{$product->title}}</p>
-                                </div>
-                            </div>
-                            @php 
-                                $download = ($product->download_speed >= 1000) ? ($product->download_speed / 1000) : $product->download_speed;
-                                $unit_download = ($product->download_speed >= 1000) ? "Gbps" : "Mbps";
+                                                        $upload = $product->upload_speed >= 1000 ? $product->upload_speed / 1000 : $product->upload_speed;
+                                                        $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
+                                                    @endphp
+                                                    <div class="bg-white">
+                                                        <div class="flex justify-center py-6 ml-12">
+                                                            <p class="text-[35px] text-center font-medium">
+                                                                {{ $download }}
+                                                            </p>
+                                                            <div
+                                                                class="border-l border border-gray-500 text-center mx-6 rounded-full">
+                                                            </div>
+                                                            <p class="text-lg text-left text-[16px]">
+                                                                {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
+                                                            </p>
+                                                        </div>
 
-                                $upload = ($product->upload_speed >= 1000) ? ($product->upload_speed / 1000) : $product->upload_speed;
-                                $unit_upload = ($product->upload_speed >= 1000) ? "Gbps" : "Mbps";
-                            @endphp
-                            <div class="bg-white">
-                                <div class="flex justify-center py-6 ml-12">
-                                    <p class="text-[35px] text-center font-medium">{{$download}}</p>
-                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
-                                    <p class="text-lg text-left text-[16px]">{{$unit_download}}<br>/{{$upload}}{{$unit_upload}}</p>
-                                </div>
+                                                        <div class="blue-plate-container">
+                                                            <div class="blue-plate-line"></div>
+                                                            <div class="blue-plate-group">
+                                                                <div class="blue-plate-box-s">
+                                                                    <div class="blue-plate-circleS"></div>
+                                                                    <div class="blue-plate-textboxS"></div>
+                                                                </div>
+                                                                <div class="blue-plate-textboxC">
+                                                                    <p class="blue-plate-text text-white text-[18px]">
+                                                                        รับทันที
+                                                                    </p>
+                                                                </div>
+                                                                <div class="blue-plate-box-e">
+                                                                    <div class="blue-plate-textboxE"></div>
+                                                                    <div class="blue-plate-circleE"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @php
+                                                            $benefit_ids = explode(',', $product->benefit_ids);
+                                                            $post_ids = $post_benefits->pluck('id')->toArray();
 
-                                <div class="blue-plate-container">
-                                    <div class="blue-plate-line"></div>
-                                    <div class="blue-plate-group">
-                                        <div class="blue-plate-box-s">
-                                            <div class="blue-plate-circleS"></div>
-                                            <div class="blue-plate-textboxS"></div>
-                                        </div>
-                                        <div class="blue-plate-textboxC">
-                                            <p class="blue-plate-text text-white text-[18px]">รับทันที</p>
-                                        </div>
-                                        <div class="blue-plate-box-e">
-                                            <div class="blue-plate-textboxE"></div>
-                                            <div class="blue-plate-circleE"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @php 
-                                    $benefit_ids = explode(',', $product->benefit_ids);
-                                    $post_ids = $post_benefits->pluck('id')->toArray();
+                                                            // หาค่าที่เหมือนกัน
+                                                            $same_benefit = array_intersect($benefit_ids, $post_ids);
+                                                            $benefit_items = array_slice($same_benefit, 0, 3);
+                                                        @endphp
+                                                        {{-- <div class="flex justify-center py-6">
+                                                                    @foreach ($benefit_items as $item)
+                                                                        @foreach ($post_benefits as $post)
+                                                                            @if ($post->id == $item)
+                                                                                <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
+                                                                                <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    @endforeach
+                                                                </div> --}}
+                                                        <div class="flex justify-center py-6">
+                                                            @php
+                                                                $showDivider = false;
+                                                            @endphp
 
-                                    // หาค่าที่เหมือนกัน
-                                    $same_benefit = array_intersect($benefit_ids, $post_ids);
-                                    $benefit_items = array_slice($same_benefit, 0, 3);
-                                @endphp
-                                {{-- <div class="flex justify-center py-6">
-                                    @foreach($benefit_items as $item)
-                                        @foreach($post_benefits as $post)
-                                            @if($post->id == $item)
-                                                <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
-                                                <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
-                                            @endif
-                                        @endforeach
-                                    @endforeach
-                                </div> --}}
-                                <div class="flex justify-center py-6">
+                                                            @foreach ($benefit_items as $item)
+                                                                @foreach ($post_benefits as $post)
+                                                                    @if ($post->id == $item)
+                                                                        <img class="w-20"
+                                                                            src="/{{ $post->thumbnail_link }}"
+                                                                            alt="">
+                                                                        @php
+                                                                            $showDivider = true;
+                                                                        @endphp
+                                                                    @endif
+                                                                @endforeach
+
+                                                                {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
+                                                                @if ($showDivider && !$loop->last)
+                                                                    <div
+                                                                        class="border-l border border-gray-500 text-center mx-3 rounded-full">
+                                                                    </div>
+                                                                    @php
+                                                                        $showDivider = false;
+                                                                    @endphp
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                    <div
+                                                        class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
+                                                        <img class="absolute bottom-0 left-0"
+                                                            src="/images/Intersect (1).png" alt="">
+                                                        <div class="grid grid-cols-3 items-center">
+                                                            <p class="text-white text-left text-[16px]  ">ราคา</p>
+                                                            <p
+                                                                class="text-white font-medium text-center 2xl:text-3xl text-2xl">
+                                                                {{ number_format($product->price_per_month) }}</p>
+                                                            <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div
+                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
+                                                        <a href="{{ url('/fiber/detail_true_dtac/' . $product->id) }}"
+                                                            class="py-2 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">สมัครเลย</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{-- @endfor --}}
+                                    @endif
                                     @php
-                                        $showDivider = false;
+                                        $productCount++; // เพิ่มจำนวนรายการ
                                     @endphp
-                                
-                                    @foreach($benefit_items as $item)
-                                        @foreach($post_benefits as $post)
-                                            @if($post->id == $item)
-                                                <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
-                                                @php
-                                                    $showDivider = true;
-                                                @endphp
-                                            @endif
-                                        @endforeach
-                                
-                                        {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
-                                        @if($showDivider && !$loop->last)
-                                            <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
-                                            @php
-                                                $showDivider = false;
-                                            @endphp
-                                        @endif
-                                    @endforeach
-                                </div>
-                                
-                                
-                                
+                                @endforeach
                             </div>
-
-                            <div class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
-                                <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
-                                <div class="grid grid-cols-3 items-center">
-                                    <p class="text-white text-left text-[16px]  ">ราคา</p>
-                                    <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format($product->price_per_month) }}</p>
-                                    <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
-
-                                </div>
-                            </div>
-
-                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
-                                <a href="{{url('/fiber/detail_true_dtac/'.$product->id)}}"
-                                    class="py-2 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
-                            </div>
-                        </div>
+                           
+                        </div> 
+                        @if ($productCount >= 4)
+                            <div class="swiper-button-next "></div>
+                            <div class="swiper-button-prev "></div>
                         @endif
-                    @endforeach
+                        
+                    </div>
                 </div>
 
-            </div>
+                <div class="items-center mx-auto mt-4 pt-6">
+                    <a href="{{ url('/fiber/true_dtac/' . $cate->cate_url) }}"
+                        class="py-2.5 px-5 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
+                </div>
 
-            <div class="items-center mx-auto mt-4 pt-6">
-                <a href="{{url('/fiber/true_dtac/'.$cate->cate_url)}}"
-                class="py-2.5 px-5 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ดูทั้งหมด</a>
-            </div>
-            {!! $circle2 !!}
-        </section>
+                {!! $circle2 !!}
+            </section>
         @endforeach
         {{-- --- --}}
 
     </div>
     @include('frontend.pages.internet_fiber.footer_fiber')
+@endsection
+
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    @vite('resources/js/internet_fiber/swiper.js')
 @endsection

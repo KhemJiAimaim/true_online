@@ -2,7 +2,7 @@
 @section('content')
 <div class="text-left mt-[120px] max-xl:mt-[74px]">
   <div class="p-8 h-20" style="background: var(--RP-GD, linear-gradient(180deg, #EC1F25 0%, #CD1A70 100%));">
-    <h1 class=" text-white text-center 2xl:text-[22px]  xl:text-[18px] text-[16px] font-medium">วิธีการสั่งซื้อ</h1>
+    <h1 class=" text-white text-center text-[22px] font-medium">วิธีการสั่งซื้อ</h1>
   </div>
   <div class="w-full mt-4 mx-auto max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%]">
     @php
