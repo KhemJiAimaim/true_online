@@ -106,7 +106,7 @@
 
         @media only screen and (min-width: 360px) {
             .swiper-button-next {
-                right: 10% !important;
+                right: 3% !important;
             }
 
             .swiper-button-prev {

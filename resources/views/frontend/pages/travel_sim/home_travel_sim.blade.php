@@ -85,6 +85,37 @@
             margin-top: 50%;
         }
 
+        .swiper-button-next1 {
+            right: 5%;
+            position: absolute;
+            color: #000;
+            top: 110%;
+            height: 30rem;
+
+        }
+
+        .swiper-button-prev1 {
+            left: 5%;
+            position: absolute;
+            color: #000;
+            widows: 50px;
+            height: 30rem;
+            top: 110%;
+
+        }
+
+        .swiper-button-next1:after {
+            font-size: 25px;
+            margin-left: 300%;
+            margin-top: 50%;
+        }
+
+        .swiper-button-prev1:after {
+            font-size: 25px;
+            margin-right: 300%;
+            margin-top: 50%;
+        }
+
         @media only screen and (width: 1280px) {
             .swiper-button-next {
                 right: 3% !important;
@@ -368,9 +399,9 @@
 
             <div class="2xl:my-16 my-4 z-2 w-full">
                 <div class="max-w-[1548px] my-0 mx-auto flex justify-center">
-                    @php
+                    {{-- @php
                         $productCount = 0;
-                    @endphp
+                    @endphp --}}
                     <div class="swiper flex justify-center items-center mx-auto w-full">
                         <div class="swiper-wrapper flex items-center ">
                             @for ($i = 1; $i <= 4; $i++)
@@ -382,7 +413,7 @@
                                             <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">8 DAYS 449
                                                 BAHT</p>
                                         </div>
-                                        {{-- <div
+                                            {{-- <div
                                                 class="">
                                                 <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
                                             </div> --}}
@@ -522,16 +553,17 @@
                                     </div>
                                 </div>
 
-                                @php
+                                {{-- @php
                                     $productCount++; // เพิ่มจำนวนรายการ
-                                @endphp
+                                @endphp --}}
                             @endfor
                         </div>
+                        <div class="swiper-button-next1 "></div>
+                        <div class="swiper-button-prev1 "></div>
                     </div>
-                    @if ($productCount >= 3)
-                        <div class="swiper-button-next "></div>
-                        <div class="swiper-button-prev "></div>
-                    @endif
+                    {{-- @if ($productCount >= 3) --}}
+                        
+                    {{-- @endif --}}
                 </div>
             </div>
 

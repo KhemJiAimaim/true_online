@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <div class="2xl:mt-16 mt-[5rem]">
+    <div class="2xl:mt-36 mt-[5rem]">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
@@ -53,7 +53,7 @@
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
+                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
                         @for ($i = 1; $i <= 10; $i++)
                             <div id="box{{ $i }}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8rem] cursor-pointer">
@@ -87,10 +87,10 @@
                 </div>
                 {{-- content detail --}}
                 <div id="box-package"
-                    class="h-[200px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
-                    <img src="/images/Intersect.png" alt="" class="bottom-0 right-0 absolute">
-                    <div class="w-full lg:w-[400px] ml-3 text-left">
-                        <p class="text-[16px] font-medium mt-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย
+                    class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
+                    
+                    <div class="w-full lg:w-[400px] ml-3 text-left Z-[99]">
+                        <p class="text-[16px] font-medium mt-3  mx-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย
                             True
                         </p>
 
@@ -116,13 +116,15 @@
                                 เดือนต่อไป
                                 เติมเงิน 150 บาท (รวมภาษีแล้ว)</li>
                         </ol>
-                        <p class="text-[16px]">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล Facebook, Line,
+                        <p class="text-[16px]  mx-3">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล Facebook, Line,
                             instagram, TikTok</p>
 
                     </div>
+                    <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
                     <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
                         <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
                     </div>
+                    
                 </div>
 
                 {{-- content condition --}}
@@ -187,5 +189,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/buy_sim/buy_sim.js')
+    @vite('resources/js/prepaid_sim/buy_sim.js')
 @endsection

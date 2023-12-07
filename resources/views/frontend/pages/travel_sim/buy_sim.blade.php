@@ -90,9 +90,9 @@
             {{-- content detail --}}
             <div id="box-package"
                 class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
-                <img src="/images/Intersect.png" alt="" class="bottom-0 right-0 absolute">
+                <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
                 <div class="w-full lg:w-[400px] ml-3 text-left">
-                    <p class="text-[16px] font-medium mt-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย
+                    <p class="text-[16px] font-medium mt-3  mx-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย
                         ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย True
                     </p>
 
@@ -110,7 +110,7 @@
                         <li class="text-[16px]">True ความเร็ว 4Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps)
                             "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 150 บาท (รวมภาษีแล้ว)</li>
                     </ol>
-                    <p class="text-[16px]">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล
+                    <p class="text-[16px]  mx-3">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล
                         Facebook, Line, instagram, TikTok</p>
 
                 </div>

@@ -381,7 +381,7 @@
                             </div>
                             @if ($productCount >= 4)
                                 <div class="swiper-button-next "></div>
-                                <div class="swiper-button-prev "></div>
+                                {{-- <div class="swiper-button-prev "></div> --}}
                             @endif
                             {{-- เน็ตไฟเบอร์ --}}
 
@@ -469,7 +469,7 @@
                             </div>
                             @if ($productCount >= 4)
                                 <div class="swiper-button-next "></div>
-                                <div class="swiper-button-prev "></div>
+                                {{-- <div class="swiper-button-prev "></div> --}}
                             @endif
                             {{-- เบอร์มงคลรายเดือน --}}
 
@@ -547,7 +547,7 @@
                             </div>
                             @if ($productCount >= 4)
                                 <div class="swiper-button-next z-50 "></div>
-                                <div class="swiper-button-prev z-50"></div>
+                                {{-- <div class="swiper-button-prev z-50"></div> --}}
                             @endif
                             {{-- ซิมเติมเงิน --}}
 
@@ -628,7 +628,7 @@
                             </div>
                             @if ($productCount >= 4)
                                 <div class="swiper-button-next "></div>
-                                <div class="swiper-button-prev "></div>
+                                {{-- <div class="swiper-button-prev "></div> --}}
                             @endif
                             {{-- ซิมท่องเที่ยว --}}
                         @endif

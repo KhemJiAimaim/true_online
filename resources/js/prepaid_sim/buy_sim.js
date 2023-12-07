@@ -132,11 +132,11 @@ show_more.addEventListener('click', () => {
 })
 
 function showMore_boxPackage() {
-  if (box_package.classList.contains('h-[200px]')) {
-    box_package.classList.remove('h-[200px]');
+  if (box_package.classList.contains('h-[300px]')) {
+    box_package.classList.remove('h-[300px]');
     box_package.classList.add('h-auto');
   } else {
-    box_package.classList.add('h-[200px]');
+    box_package.classList.add('h-[300px]');
     box_package.classList.remove('h-auto');
   }
 }

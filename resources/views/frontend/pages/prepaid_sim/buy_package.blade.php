@@ -24,8 +24,8 @@
         <div class="plate-line max-w-[200px] "></div>
 
         {{-- มหัศจรรย์ --}}
-        <section class="flex justify-center items-center my-10 ">
-            <div class="drop-shadow-md w-[500px] max-sm:w-[350px] pb-3 mx-6">
+        <section class="flex justify-center items-center my-10 mx-3">
+            <div class="drop-shadow-md w-[500px] max-sm:w-[335px] mx-6">
                 <div
                     class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3">
                     <p class="text-white text-left ml-3 text-[18px] max-es:text-[16px]">แพ็กเสริม 5G แม็กซ์ สปีด</p>
@@ -91,7 +91,7 @@
                     <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D] flex justify-between p-6 items-center">
                         <p class="text-[18px] max-es:text-[16px] font-medium text-white" >รวม ราคา</p>
                         <div class="flex gap-2 items-center">
-                            <p class="2xl:text-[2rem] md:text-[18px] xs:text-[16px] text-[13px] text-white font-bold">{{$product->total_price}}</p>
+                            <p class="2xl:text-[2rem] text-[20px] text-white font-bold">{{$product->total_price}}</p>
                             <p class="text-[18px] max-es:text-[16px] text-white">บาท</p>
                         </div>
                     </div>

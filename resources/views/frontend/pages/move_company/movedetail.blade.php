@@ -1,9 +1,18 @@
 @extends('frontend.layouts.main')
-
-
+@section('style')
+    <style>
+        .main {
+            height: auto;
+            min-height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            /* overflow-y: auto; */
+        }
+    </style>
+@endsection
 
 @section('content')
-    <div class="2xl:mt-16 mt-[5rem]">
+    <div class="2xl:mt-16 mt-[1rem]">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
