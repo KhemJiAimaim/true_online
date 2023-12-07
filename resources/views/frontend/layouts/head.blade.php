@@ -84,12 +84,12 @@
             }
         @endphp
         <li class=" bg-gray-100 w-full">
-            <a id="menufiber" {{ $href = (!$matching_cate) ?"href=$m_cate->cate_redirect":""}} onclick="dropClick()"
+            <a id="menufiber" {{ $href = (!$matching_cate) ?"href=$m_cate->cate_redirect":""}}
                 class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">{{$m_cate->cate_title}}
                 {!! $flip = $matching_cate ? '<img id="flip" class="flip w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">' : '' !!}
             </a>
-            @if($matching_cate)
-            <ul id="myDropdown" class="dropdow-conten bg-white ">
+            {{-- @if($matching_cate) --}}
+            <ul id="myDropdown" class="dropdow-conten bg-white">
                 {!! $main_list !!}
                 @foreach($sub_cate as $s_cate)
                 @if($s_cate->cate_parent_id == $m_cate->id)
@@ -98,104 +98,11 @@
                 </li>
                 @endif
                 @endforeach
-                {{-- <li><a href="/fiber/true_dtac"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เน็ตบ้าน
-                        สำหรับทรูและดีแทค</a>
-                </li>
-                <li><a href="/fiber/internet_basic"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เน็ตบ้าน
-                        สำหรับใช้งานพื้นฐาน</a>
-                </li>
-                <li><a href="/fiber/home_fiber_guarantee"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">เน็ตบ้าน
-                        พร้อมประกัน</a>
-                </li>
-                <li><a href="/fiber/true_visions"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
-                        พร้อมทรูวิชั่นส์</a>
-                </li>
-                <li><a href="/fiber/router_fiber"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
-                        เลือกเราเตอร์เอง</a>
-                </li>
-                <li><a href="/fiber/internet_game"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
-                        สำหรับเกมเมอร์</a>
-                </li>
-                <li><a href="/fiber/SME_fiber"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เน็ตบ้าน
-                        สำหรับธุรกิจ SME</a>
-                </li> --}}
             </ul>
-            @endif
+            {{-- @endif --}}
         </li>
         @endforeach
 
-        {{-- <li class="bg-gray-100">
-            <a href="{{ url('/bermonthly') }}"
-                class="block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 font-medium">เบอร์มงคลรายเดือน</a>
-        </li>
-
-        <li class="bg-gray-100">
-            <a class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
-                onclick="dropClick2()">เติมเงิน
-                <img id="flip2" class=" w-[20px] flip2 mr-5" src="/images/icon/down-arrow.png" alt="">
-            </a>
-            <ul id="myDropdown2" class="dropdow-conten bg-white">
-                <li><a href="/prepaid_sim"
-                        class=" block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">เมนูหลัก</a></li>
-                <li><a href="/prepaid_sim/sim_includ"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
-                </li>
-                <li><a href="/prepaid_sim/package"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">แพ็กเกจเสริม</a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="bg-gray-100"> <a href="/move"
-                class=" block py-2 ml-5 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 font-medium">ย้ายค่าย</a>
-        </li>
-
-        <li class="bg-gray-100">
-            <a class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
-                onclick="dropClick3()">ซิมท่องเที่ยว
-                <img id="flip3" class=" flip3 w-[20px]  mr-5" src="/images/icon/down-arrow.png" alt="">
-            </a>
-            <ul id="myDropdown3" class="dropdow-conten bg-white">
-                <li> <a href="/travel_sim"
-                        class=" block py-2 ml-5 2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">เมนูหลัก</a></li>
-                <li><a href="/travel_sim/travelling"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เดินทางไปต่างประเทศ</a>
-                </li>
-                <li><a href="/travel_sim/visiting"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">มาเที่ยวในไทย</a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="bg-gray-100">
-            <a class="dropbtn w-[95%] flex items-center justify-between  py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium"
-                onclick="dropClick4()">วิธีการสั่งซื้อ
-                <img id="flip4" class=" flip4 w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">
-            </a>
-            <ul id="myDropdown4" class="dropdow-conten bg-white">
-                <li> <a href="#"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem]  hover:text-[#EC1F25]">เมนูหลัก</a></li>
-                <li><a href="/howtobuy/fiber"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">อินเตอร์เน็ตไฟเบอร์</a>
-                </li>
-                <li><a href="/howtobuy/month"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">เบอร์มงคลรายเดือน</a>
-                </li>
-                <li><a href="/howtobuy/paysim"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมเติมเงิน</a>
-                </li>
-                <li><a href="/howtobuy/travelsim"
-                        class="block py-2 ml-5 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">ซิมท่องเที่ยว</a>
-                </li>
-            </ul>
-        </li> --}}
     </ul>
 </nav>
 
@@ -252,83 +159,34 @@
             item.querySelector('.group-hover\\:block').classList.add('hidden');
         });
     });
+                
+    const menufiber = document.querySelectorAll('#menufiber');
+    const myDropdown = document.querySelectorAll('#myDropdown');
 
-    function dropClick() {
-        let drop = document.getElementById("myDropdown");
-        let flip = document.getElementById("flip");
-        flip.classList.toggle("flipdow");
-        if (flip.classList.contains('flipdow')) {
-            flip.classList.remove('flip')
-            drop.classList.toggle("show")
-        } else {
-            flip.classList.add('flip')
-            drop.classList.remove("show")
-        }
-    }
-
-    // Close the dropdown if the user clicks outside of it
-
-    function dropClick2() {
-        let drop = document.getElementById("myDropdown2");
-        let flip = document.getElementById("flip2");
-        flip.classList.toggle("flipdow");
-        if (flip.classList.contains('flipdow')) {
-            flip.classList.remove('flip2')
-            drop.classList.toggle("show")
-        } else {
-            flip.classList.add('flip2')
-            drop.classList.remove("show")
-        }
-    }
-
-
-
-
-    function dropClick3() {
-        let drop = document.getElementById("myDropdown3");
-        let flip = document.getElementById("flip3");
-        flip.classList.toggle("flipdow");
-        if (flip.classList.contains('flipdow')) {
-            flip.classList.remove('flip3')
-            drop.classList.toggle("show")
-        } else {
-            flip.classList.add('flip3')
-            drop.classList.remove("show")
-        }
-    }
-
-
-
-
-    function dropClick4() {
-        let drop = document.getElementById("myDropdown4");
-        let flip = document.getElementById("flip4");
-        flip.classList.toggle("flipdow");
-        if (flip.classList.contains('flipdow')) {
-            flip.classList.remove('flip4')
-            drop.classList.toggle("show")
-        } else {
-            flip.classList.add('flip4')
-            drop.classList.remove("show")
-        }
-    }
-    // window.onclick = function(event) {
-    //     if (!event.target.matches('.dropbtn')) {
-    //         var dropdowns = document.getElementsByClassName("dropdow-conten");
-    //         var i;
-    //         for (i = 0; i < dropdowns.length; i++) {
-    //             var openDropdown = dropdowns[i];
-    //             if (openDropdown.classList.contains('show')) {
-    //                 openDropdown.classList.remove('show');
-
-    //             }
-    //         }
-    //     }
-    // }
-
-
-
-    // function chnangTog(e) {
-    //     e.classList.toggle("change");
-    // }
+    menufiber.forEach((element, index) => {
+        let drop = document.getElementById('myDropdown');
+        let flip = document.getElementById('flip');
+        let show = false;
+            
+        element.addEventListener('click', () => {
+            // dropClick(index);
+            if (show === false) {
+                myDropdown[index].classList.add('show') 
+                flip.classList.add('flipdow');
+                
+                show = true; // เปลี่ยนเป็น true เมื่อคลิกเพื่อแสดงเนื้อหา
+            } else {
+                myDropdown[index].classList.remove('show')
+                flip.classList.remove('flipdow');
+                show = false; // เปลี่ยนเป็น false เมื่อคลิกเพื่อซ่อนเนื้อหา
+            }
+            // if (flip.classList.contains('flipdow')) {
+            //     flip.classList.remove('flip');
+            //     drop.classList.toggle("show");
+            // } else {
+            //     flip.classList.add('flip');
+            //     drop.classList.remove("show");
+            // }
+        });
+    });
 </script>

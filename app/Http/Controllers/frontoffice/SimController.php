@@ -40,6 +40,7 @@ class SimController extends Controller
     }
     public function buy_package($id) {
         $product = PackageProduct::where('id', $id)->where('display', true)->where('delete_status', false)->first();
+        dd($product);
         return view("frontend.pages.prepaid_sim.buy_package",compact('product'));
     }
 }
