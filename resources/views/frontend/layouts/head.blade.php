@@ -1,7 +1,7 @@
 <!-- nav goes here -->
 
 <nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed w-full top-0 z-50 ">
-    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] px-8 mx-auto">
+    <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">
 

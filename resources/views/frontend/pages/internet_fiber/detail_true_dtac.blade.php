@@ -1,68 +1,6 @@
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper {
-            max-width: 1536px;
-            height: 100%;
-
-        }
-
-        .swiper-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-button-next {
-            position: absolute;
-            right: 0%;
-            color: #000;
-        }
-
-        .swiper-button-prev {
-            position: absolute;
-            left: 0%;
-            color: #000;
-            widows: 40px;
-            height: 40px;
-        }
-
-        .swiper-button-next:after {
-            font-size: 20px;
-            margin-left: 60%;
-            margin-top: 50%;
-        }
-
-        .swiper-button-prev:after {
-            font-size: 20px;
-            margin-right: 60%;
-            margin-top: 50%;
-        }
-    </style>
+    @vite('resources/css/fiber.css')
 @endsection
 
 @extends('frontend.layouts.main')
@@ -163,32 +101,33 @@
         </section>
         {{-- --- --}}
 
-        <section class="py-16 px-3">
+        <section class="py-16 px-3 max-2xl:mx-6">
             <p class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
-            <!-- Swiper -->
-            <div class="swiper items-center mx-auto ">
-                <div class="swiper-wrapper ">
-                    @foreach ($posts as $pos)
-                        @for ($i = 1; $i <= 10; $i++)
-                            <div
-                                class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
-                                <img src="/{{ $pos->thumbnail_link }}" alt=""
-                                    class="w-[171px] h-[150px] se:w-[150px] block ">
-                                <p class="se:text-[16px]">{{ $pos->title }}</p>
-                            </div>
-                        @endfor
-                    @endforeach
+            <div class="max-w-[1536px] mx-auto">
+                <!-- Swiper -->
+                <div class="swiper items-center ">
+                    <div class="swiper-wrapper ">
+                        @foreach ($posts as $pos)
+                            @for ($i = 1; $i <= 10; $i++)
+                                <div
+                                    class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
+                                    <img src="/{{ $pos->thumbnail_link }}" alt=""
+                                        class="w-[171px] h-[150px] se:w-[150px] block ">
+                                    <p class="se:text-[16px]">{{ $pos->title }}</p>
+                                </div>
+                            @endfor
+                        @endforeach
+                    </div>
                 </div>
                 <div class="swiper-button-next "></div>
-            <div class="swiper-button-prev"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            
     </div>
     </section>
 
     <section class="py-16 ">
         <div class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">สิทธิพิเศษ</div>
-        <div class="flex justify-center mt-2">
+        <div class="flex justify-center mt-2 ">
             <div class="flex flex-col justify-center w-[550px] gap-4 px-3 text-left ">
                 @foreach ($privilege as $previl)
                     <div class="flex items-center">
@@ -216,39 +155,5 @@
 @section('scripts')
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper('.swiper', {
-            slidesPerView: 6,
-            spaceBetween: 0,
-            // direction: getDirection(),
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                340: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                },
-                1024: {
-                    slidesPerView: 5,
-                    spaceBetween: 50,
-                },
-                1536: {
-                    slidesPerView: 6,
-                    spaceBetween: 50,
-                },
-            },
-        });
-    </script>
+    @vite('resources/js/fiber/swiper.js')
 @endsection

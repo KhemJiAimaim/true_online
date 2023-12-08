@@ -259,7 +259,7 @@
                             @php
                                 $productCount = 0;
                             @endphp
-                            <div class="swiper  flex justify-center items-center mx-auto">
+                            <div class="swiper swiper1 flex justify-center items-center mx-auto">
                                 <div class="swiper-wrapper flex 2xl:justify-center items-center">
 
                                     @foreach ($product_fiber as $fiber)
@@ -379,10 +379,10 @@
 
                                 </div>
                             </div>
-                            {{-- @if ($productCount >= 4)
-                                <div class="swiper-button-next "></div>
-                                <div class="swiper-button-prev "></div>
-                            @endif --}}
+                            @if ($productCount >= 4)
+                                <div class="swiper-button-next swiper-button-next1 "></div>
+                                <div class="swiper-button-prev swiper-button-prev1 "></div>
+                            @endif
                             
                             {{-- เน็ตไฟเบอร์ --}}
 
@@ -391,7 +391,7 @@
                             @php
                                 $productCount = 0;
                             @endphp
-                            <div class="swiper  flex justify-center items-center mx-auto">
+                            <div class="swiper swiper2  flex justify-center items-center mx-auto">
                                 <div class="swiper-wrapper flex 2xl:justify-center items-center">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
@@ -468,10 +468,10 @@
                                     @endforeach
                                 </div>
                             </div>
-                            {{-- @if ($productCount >= 4)
-                                <div class="swiper-button-next "></div>
-                                <div class="swiper-button-prev "></div>
-                            @endif --}}
+                            @if ($productCount >= 4)
+                                <div class="swiper-button-next swiper-button-next2 "></div>
+                                <div class="swiper-button-prev swiper-button-prev2 "></div>
+                            @endif
                             {{-- เบอร์มงคลรายเดือน --}}
 
                             {{-- ซิมเติมเงิน --}}
@@ -479,7 +479,7 @@
                             @php
                                 $productCount = 0;
                             @endphp
-                            <div class="swiper  flex justify-center items-center mx-auto">
+                            <div class="swiper swiper3  flex justify-center items-center mx-auto">
                                 <div class="swiper-wrapper flex 2xl:justify-center items-center">
                                     @for ($i = 1; $i <= 4; $i++)
                                         <div class="swiper-slide flex justify-center items-center">
@@ -546,10 +546,10 @@
                                     @endfor
                                 </div>
                             </div>
-                            {{-- @if ($productCount >= 4)
-                                <div class="swiper-button-next z-50 "></div>
-                                <div class="swiper-button-prev z-50"></div>
-                            @endif --}}
+                            @if ($productCount >= 4)
+                                <div class="swiper-button-next swiper-button-next3"></div>
+                                <div class="swiper-button-prev swiper-button-prev3"></div>
+                            @endif
                             {{-- ซิมเติมเงิน --}}
 
                             {{-- ซิมท่องเที่ยว --}}
@@ -557,7 +557,7 @@
                             @php
                                 $productCount = 0;
                             @endphp
-                            <div class="swiper  flex justify-center items-center mx-auto">
+                            <div class="swiper swiper4  flex justify-center items-center mx-auto">
                                 <div class="swiper-wrapper flex 2xl:justify-center items-center">
                                     @for ($i = 1; $i <= 4; $i++)
                                         <div class="swiper-slide flex justify-center items-center">
@@ -605,7 +605,7 @@
                                                     <div
                                                         class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100 hover:scale-125">
                                                     </div>
                                                     <div
                                                         class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
@@ -627,10 +627,10 @@
                                     @endfor
                                 </div>
                             </div>
-                            {{-- @if ($productCount >= 4)
-                                <div class="swiper-button-next "></div>
-                                <div class="swiper-button-prev "></div>
-                            @endif --}}
+                            @if ($productCount >= 4)
+                                <div class="swiper-button-next swiper-button-next4 "></div>
+                                <div class="swiper-button-prev swiper-button-prev4 "></div>
+                            @endif
                             {{-- ซิมท่องเที่ยว --}}
                         @endif
                     </div>
