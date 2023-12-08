@@ -20,15 +20,15 @@ var swiper = new Swiper('.swiper', {
         },
         1024: {
             slidesPerView: 2,
-            centerSlide: true,
+            // centerSlide: true,
         },
         1280: {
             slidesPerView: 3,
-            centerSlide: true,
+            // centerSlide: true,
         },
         1536: {
             slidesPerView: 3,
-            centerSlide: true,
+            // centerSlide: true,
         },
     },
 });

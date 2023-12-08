@@ -136,13 +136,16 @@
             </div>
         </div>
         {{-- มหัศจรรย์ --}}
-
+ 
+        @php $j = 1; @endphp
         @foreach ($cate_fiber as $cate)
+           
             @php
                 $style1 = $loop->last ? 'bg-gray-100 relative' : '';
                 $circle1 = $loop->last ? '<img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png">' : '';
                 $circle2 = $loop->last ? '<img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png">' : '';
             @endphp
+            
             <section id="fiber" class="py-6 z-0 px-3 {{ $style1 }}">
                 {!! $circle1 !!}
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">
@@ -151,17 +154,17 @@
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
                     {{ $cate->cate_description }}</p>
 
-
+                    
                 <div class="2xl:my-16 my-4 z-2 w-full">
                     <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
                         @php
                             $productCount = 0;
                         @endphp
-                        <div class="swiper flex justify-center items-center mx-auto w-full">
+                        <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full">
                             <div class="swiper-wrapper flex items-center ">
                                 @foreach ($fiber_products as $product)
                                     @if ($product->fiber_cate_id == $cate->id)
-                                        {{-- @for ($i = 1; $i <= 5; $i++) --}}
+                                        @for ($i = 1; $i <= 5; $i++)
                                             <div class="swiper-slide flex justify-center items-center">
                                                 <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
                                                     <div
@@ -289,20 +292,19 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        {{-- @endfor --}}
+                                        @endfor
                                     @endif
                                     @php
                                         $productCount++; // เพิ่มจำนวนรายการ
                                     @endphp
                                 @endforeach
                             </div>
-                           
                         </div> 
                         @if ($productCount >= 4)
-                            <div class="swiper-button-next "></div>
-                            <div class="swiper-button-prev "></div>
+                            <div class="swiper-button-next swiper-button-next{{$j}} "></div>
+                            <div class="swiper-button-prev swiper-button-prev{{$j}} "></div>
                         @endif
-                        
+                        @php $j++; @endphp
                     </div>
                 </div>
 

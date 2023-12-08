@@ -1,0 +1,63 @@
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    max-width: 1536px;
+    height: 100%;
+
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-next {
+    position: absolute;
+    right: 5%;
+    color: #000;
+    top:128%
+}
+
+.swiper-button-prev {
+    position: absolute;
+    left:5%;
+    color: #000;
+    widows: 40px;
+    height: 40px;
+    top:128%
+}
+
+.swiper-button-next:after {
+    font-size: 25px;
+    margin-left: 60%;
+    margin-top: 50%;
+}
+
+.swiper-button-prev:after {
+    font-size: 25px;
+    margin-right: 60%;
+    margin-top: 50%;
+}
