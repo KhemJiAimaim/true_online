@@ -40,13 +40,13 @@
         }
 
         .swiper-button-next {
-            right: 5%;
+            right: 7%;
             position: absolute;
             color: #000;
         }
 
         .swiper-button-prev {
-            left: 5%;
+            left: 7%;
             position: absolute;
             color: #000;
             widows: 50px;
@@ -65,63 +65,46 @@
             margin-top: 50%;
         }
 
-        .swiper-button-prev:after {
-            font-size: 25px;
-            margin-right: 300%;
-            margin-top: 50%;
-        }
-
-        @media only screen and (min-width: 1280px) {
+        @media only screen and (max-width: 1280px) {
             .swiper-button-next {
-                right: 3% !important;
+                right: 1% !important;
             }
 
             .swiper-button-prev {
-                left: 3% !important;
+                left: 1% !important;
 
             }
         }
 
         @media only screen and (max-width: 1024px) {
             .swiper-button-next {
-                right: 5% !important;
+                right: 4% !important;
             }
 
             .swiper-button-prev {
-                left: 5% !important;
+                left: 4% !important;
+
+            }
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .swiper-button-next {
+                right: 4% !important;
+            }
+
+            .swiper-button-prev {
+                left: 4% !important;
 
             }
         }
 
         @media only screen and (max-width: 820px) {
-            . .swiper-button-next {
-                right: 5% !important;
-            }
-
-            .swiper-button-prev {
-                left: 5% !important;
-
-            }
-        }
-
-        @media only screen and (min-width: 360px) {
-            .swiper-button-next {
-                right: 3% !important;
-            }
-
-            .swiper-button-prev {
-                left: 10% !important;
-
-            }
-        }
-
-        @media only screen and (min-width: 768px) {
             .swiper-button-next {
                 right: 1% !important;
             }
 
             .swiper-button-prev {
-                left: 5% !important;
+                left: 1% !important;
 
             }
         }
@@ -155,18 +138,18 @@
 
         @include('frontend.pages.move_company.tabmenu')
 
-        @php $i = 1; @endphp
+        @php $j = 1; @endphp
         @foreach ($data_category['move_cate'] as $cate)
             @php
                 $bg = '';
                 $circle1 = '';
                 $circle2 = '';
-                if ($i % 2 == 0) {
+                if ($j % 2 == 0) {
                     $bg = 'bg-[#F8F9FA]';
                     $circle1 = '<img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">';
                     $circle2 = '<img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">';
                 }
-                $i++;
+                // $i++;
             @endphp
 
             <section class="{{ $bg }} py-6 relative z-0 px-3 max-md:px-[1.5rem] md:px-[1.5rem]">
@@ -177,16 +160,14 @@
                 </div>
                 <div class="py-6 w-full">
                     <div class="max-w-[1548px]  mx-auto flex justify-center">
-                        @php
-                            $productCount = 0;
-                        @endphp
-                        <div class="swiper flex justify-center items-center mx-auto w-full ">
-                            <div class="swiper-wrapper  flex 2xl:justify-center items-center">
+                        <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full ">
+                            <div class="swiper-wrapper items-center">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
-                                        {{-- @for ($i = 1; $i <= 2; $i++) --}}
+                                        {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                             <div class="swiper-slide flex justify-center items-center">
-                                                <div class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[350px] h-[100%] ">
+                                                <div
+                                                    class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[350px] h-[100%] ">
                                                     <div
                                                         class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                                         <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
@@ -324,17 +305,16 @@
                                                 </div>
                                             </div>
                                         {{-- @endfor --}}
-                                        @php
-                                            $productCount++; // เพิ่มจำนวนรายการ
-                                        @endphp
                                     @endif
                                 @endforeach
                             </div>
                         </div>
-                        @if ($productCount >= 3)
-                            <div class="swiper-button-next "></div>
-                            <div class="swiper-button-prev "></div>
-                        @endif
+
+
+                        <div class="swiper-button-next swiper-button-next{{$j}}"></div>
+                        <div class="swiper-button-prev swiper-button-prev{{$j}}"></div>
+                        @php $j++; @endphp
+
                     </div>
                 </div>
                 {!! $circle2 !!}
