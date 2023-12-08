@@ -3,131 +3,7 @@
 
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper {
-            /* max-width: 1536px; */
-            height: 100%;
-
-        }
-
-        .swiper-wrapper {
-            position: relative;
-            width: 100%;
-
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-button-next {
-            right: 5%;
-            position: absolute;
-            color: #000;
-            top: auto;
-            height: 30rem;
-
-        }
-
-        .swiper-button-prev {
-            left: 5%;
-            position: absolute;
-            color: #000;
-            widows: 50px;
-            height: 30rem;
-            top: auto;
-
-        }
-
-        .swiper-button-next:after {
-            font-size: 25px;
-            margin-left: 300%;
-            margin-top: 50%;
-        }
-
-        .swiper-button-prev:after {
-            font-size: 25px;
-            margin-right: 300%;
-            margin-top: 50%;
-        }
-
-        @media only screen and (max-width: 1280px) {
-            .swiper-button-next {
-                right: 4% !important;
-            }
-
-            .swiper-button-prev {
-                left: 4% !important;
-
-            }
-        }
-
-        /* @media only screen and (min-width: 820px) {
-                        .swiper-button-prev:after,.swiper-button-next:after {
-                            font-size: 22px;
-                        }
-                        .swiper-button-next {
-                            right: 5% !important;
-                        }
-                        .swiper-button-prev {
-                            left: 5% !important;
-
-                        }
-                    } */
-        @media only screen and (max-width: 786px) {
-
-            .swiper-button-prev:after,
-            .swiper-button-next:after {
-                font-size: 22px;
-            }
-
-            .swiper-button-next {
-                right: 5% !important;
-            }
-
-            .swiper-button-prev {
-                left: 5% !important;
-
-            }
-        }
-
-        @media only screen and (max-width: 414px) {
-
-            .swiper-button-prev:after,
-            .swiper-button-next:after {
-                font-size: 18px;
-            }
-
-            .swiper-button-next {
-                right: 9% !important;
-            }
-
-            .swiper-button-prev {
-                left: 9% !important;
-
-            }
-        }
-    </style>
+    @vite('resources/css/prepaid_sim.css')
 @endsection
 
 
@@ -167,7 +43,7 @@
                     @php
                         $productCount = 0;
                     @endphp
-                    <div class="swiper flex justify-center items-center mx-auto w-full">
+                    <div class="swiper swiper1 flex justify-center items-center mx-auto w-full">
                         <div class="swiper-wrapper flex items-center">
                             @for ($i = 1; $i <= 5; $i++)
                                 <div class="swiper-slide flex justify-center items-center">
@@ -234,8 +110,8 @@
                         </div>
                     </div>
                     @if ($productCount >= 4)
-                        <div class="swiper-button-next  "></div>
-                        <div class="swiper-button-prev "></div>
+                        <div class="swiper-button-next  swiper-button-next1"></div>
+                        <div class="swiper-button-prev swiper-button-prev1"></div>
                     @endif
                 </div>
 
@@ -261,64 +137,67 @@
                     @php
                         $productCount = 0;
                     @endphp
-                    <div class="swiper flex justify-center items-center mx-auto w-full">
+                    <div class="swiper swiper2 flex justify-center items-center mx-auto w-full">
                         <div class="swiper-wrapper flex items-center">
                             @foreach ($package as $pack)
-                                <div class="swiper-slide flex justify-center items-center">
-                                    <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
-                                        <div
-                                            class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                                            {{-- <div class="flex justify-start items-center"> --}}
-                                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ
-                                                เล่นเน็ตไม่อั้น
-                                                ใช้ได้ไม่จำกัด</p>
-                                            <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png"
-                                                alt="">
-                                            {{-- </div> --}}
+                                @for ($i = 1; $i <= 2; $i++)
+                                    <div class="swiper-slide flex justify-center items-center">
+                                        <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
+                                            <div
+                                                class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                                {{-- <div class="flex justify-start items-center"> --}}
+                                                <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ
+                                                    เล่นเน็ตไม่อั้น
+                                                    ใช้ได้ไม่จำกัด</p>
+                                                <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png"
+                                                    alt="">
+                                                {{-- </div> --}}
 
-                                        </div>
+                                            </div>
 
-                                        <div class="bg-[#F8F9FA] flex flex-col justify-center items-center py-2  h-[150px]">
-                                            <p class="text-[18px]">เน็ต</p>
-                                            <p class="text-[30px] font-medium">{{ $pack->title }} /
-                                                {{ $pack->lifetime }}วัน</p>
-                                        </div>
+                                            <div
+                                                class="bg-[#F8F9FA] flex flex-col justify-center items-center py-2  h-[150px]">
+                                                <p class="text-[18px]">เน็ต</p>
+                                                <p class="text-[30px] font-medium">{{ $pack->title }} /
+                                                    {{ $pack->lifetime }}วัน</p>
+                                            </div>
 
-                                        <div
-                                            class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
-                                            <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
-                                                alt="">
-                                            <div class="grid grid-cols-3 items-center">
-                                                <p class="text-white text-left text-[16px] ">ราคา</p>
-                                                <p
-                                                    class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                                    {{ number_format($pack->price) }}</p>
-                                                <p class="text-white text-right text-[16px]">บาท <br>
-                                                    แบบรายครั้ง</p>
+                                            <div
+                                                class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
+                                                <img class=" absolute left-0 bottom-0"
+                                                    src="/images/circle/Intersect (2).png" alt="">
+                                                <div class="grid grid-cols-3 items-center">
+                                                    <p class="text-white text-left text-[16px] ">ราคา</p>
+                                                    <p
+                                                        class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
+                                                        {{ number_format($pack->price) }}</p>
+                                                    <p class="text-white text-right text-[16px]">บาท <br>
+                                                        แบบรายครั้ง</p>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
+
+                                                <a href="{{ url('/prepaid_sim/buy_package/' . $pack->id) }}"
+                                                    class="cursor-pointer py-2 px-6 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                <a href="tel:{{ $pack->package_code }}"
+                                                    class="cursor-pointer py-2 px-10 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+
                                             </div>
                                         </div>
-
-                                        <div
-                                            class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
-
-                                            <a href="{{ url('/prepaid_sim/buy_package/' . $pack->id) }}"
-                                                class="cursor-pointer py-2 px-6 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                            <a href="tel:{{ $pack->package_code }}"
-                                                class="cursor-pointer py-2 px-10 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-
-                                        </div>
                                     </div>
-                                </div>
-                                @php
-                                    $productCount++; // เพิ่มจำนวนรายการ
-                                @endphp
+                                    @php
+                                        $productCount++; // เพิ่มจำนวนรายการ
+                                    @endphp
+                                @endfor
                             @endforeach
                         </div>
 
                     </div>
                     @if ($productCount >= 4)
-                        <div class="swiper-button-next  "></div>
-                        <div class="swiper-button-prev "></div>
+                        <div class="swiper-button-next swiper-button-next2 "></div>
+                        <div class="swiper-button-prev swiper-button-prev2 "></div>
                     @endif
                 </div>
 
