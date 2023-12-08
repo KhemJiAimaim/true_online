@@ -5,19 +5,13 @@
 @section('content')
     <div class="mt-16">
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
-            <a href="/travel_sim/travelling"
+            @foreach($cates as $cate)
+            <a href="/{{$cate->cate_redirect}}"
                 class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear.png" alt="">
-                <p class="text-[1rem]">เดินทาง ไปต่างประเทศ</p>
+                <img class="w-30 h-30 mb-2" src="/{{$cate->cate_thumbnail}}" alt="">
+                <p class="text-[1rem]">{{$cate->cate_title}}</p>
             </a>
-
-            <a
-                href="/travel_sim/visiting"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 " src="/images/travel/icon-park_elephant.png" alt="">
-                <p class="text-[1rem]">มาเที่ยว
-                    ประเทศไทย</p>
-            </a>
-
+            @endforeach
         </div>
 
         {{-- มหัศจรรย์ --}}

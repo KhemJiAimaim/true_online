@@ -84,9 +84,9 @@
             }
         @endphp
         <li class=" bg-gray-100 w-full">
-            <a id="menufiber" {{ $href = (!$matching_cate) ?"href=$m_cate->cate_redirect":""}}
+            <a id="menufiber" {{ $href = (!$matching_cate) ?"href=/$m_cate->cate_redirect":""}}
                 class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">{{$m_cate->cate_title}}
-                {!! $flip = $matching_cate ? '<img id="flip" class="flip w-[20px] mr-5" src="/images/icon/down-arrow.png" alt="">' : '' !!}
+                <img id="flip" class="flip w-[20px] mr-5" {!! $flip = $matching_cate ? 'src="/images/icon/down-arrow.png"' : '' !!} alt="">
             </a>
             {{-- @if($matching_cate) --}}
             <ul id="myDropdown" class="dropdow-conten bg-white">
@@ -94,7 +94,7 @@
                 @foreach($sub_cate as $s_cate)
                 @if($s_cate->cate_parent_id == $m_cate->id)
                 <li>
-                    <a href="/fiber" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{$s_cate->cate_title}}</a>
+                    <a href="{{$s_cate->cate_redirect}}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{$s_cate->cate_title}}</a>
                 </li>
                 @endif
                 @endforeach
@@ -160,33 +160,32 @@
         });
     });
                 
-    const menufiber = document.querySelectorAll('#menufiber');
-    const myDropdown = document.querySelectorAll('#myDropdown');
+    const menufiber = document.querySelectorAll('.dropbtn');
+    const myDropdown = document.querySelectorAll('.dropdow-conten');
+    const flip = document.querySelectorAll('.flip');
 
     menufiber.forEach((element, index) => {
-        let drop = document.getElementById('myDropdown');
-        let flip = document.getElementById('flip');
         let show = false;
-            
+
         element.addEventListener('click', () => {
-            // dropClick(index);
-            if (show === false) {
-                myDropdown[index].classList.add('show') 
-                flip.classList.add('flipdow');
-                
-                show = true; // เปลี่ยนเป็น true เมื่อคลิกเพื่อแสดงเนื้อหา
+            if (!show) {
+                myDropdown[index].classList.add('show');
+                flip[index].classList.add('flipdow');
             } else {
-                myDropdown[index].classList.remove('show')
-                flip.classList.remove('flipdow');
-                show = false; // เปลี่ยนเป็น false เมื่อคลิกเพื่อซ่อนเนื้อหา
+                myDropdown[index].classList.remove('show');
+                flip[index].classList.remove('flipdow');
             }
-            // if (flip.classList.contains('flipdow')) {
+
+            // สลับสถานะ show
+            show = !show;
+        });
+    });
+
+    // if (flip.classList.contains('flipdow')) {
             //     flip.classList.remove('flip');
             //     drop.classList.toggle("show");
             // } else {
             //     flip.classList.add('flip');
             //     drop.classList.remove("show");
             // }
-        });
-    });
 </script>

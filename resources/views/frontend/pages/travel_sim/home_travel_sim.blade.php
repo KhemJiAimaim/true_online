@@ -223,19 +223,13 @@
 @section('content')
     <div class="2xl:mt-12 mt-6 ">
         <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-4">
-            <a href="/travel_sim/travelling"
+            @foreach($cates as $cate)
+            <a href="/{{$cate->cate_redirect}}"
                 class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear.png" alt="">
-                <p class="text-[1rem]">เดินทาง ไปต่างประเทศ</p>
+                <img class="w-30 h-30 mb-2" src="/{{$cate->cate_thumbnail}}" alt="">
+                <p class="text-[1rem]">{{$cate->cate_title}}</p>
             </a>
-
-            <a
-                href="/travel_sim/visiting"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 " src="/images/travel/icon-park_elephant.png" alt="">
-                <p class="text-[1rem]">มาเที่ยว
-                    ประเทศไทย</p>
-            </a>
-
+            @endforeach
         </div>
 
         {{-- มหัศจรรย์ --}}
@@ -261,12 +255,11 @@
         {{-- มหัศจรรย์ --}}
 
 
+        @foreach($cates as $cate)
         <section id="travel" class="bg-white py-6 2xl:mt-16 px-3">
             <div class="">
-                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px]">Thailand Tourist infinite sim
-                </p>
-                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
-                    ซิมสำหรับท่องเที่ยวในประเทศไทย เชื่อมต่อได้ไม่มีสะดุด</p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px]">{{$cate->cate_keyword}}</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">{{$cate->cate_description}}</p>
             </div>
 
             <div class="2xl:my-16 my-4 z-2 w-full">
@@ -369,7 +362,7 @@
 
                                             <a href="#"
                                                 class="cursor-pointer flex items-center lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                            <a href="/travel_sim/buy"
+                                            <a href="/travel_sim_buy"
                                                 class="cursor-pointer flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                                         </div>
 
@@ -388,9 +381,10 @@
                 </div>
             </div>
         </section>
+        @endforeach
 
 
-        <section id="travel_thai" class="bg-white pb-6 2xl:mt-16 px-3">
+        {{-- <section id="travel_thai" class="bg-white pb-6 2xl:mt-16 px-3">
             <div class="">
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] ">Thailand Tourist sim</p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
@@ -399,9 +393,6 @@
 
             <div class="2xl:my-16 my-4 z-2 w-full">
                 <div class="max-w-[1548px] my-0 mx-auto flex justify-center">
-                    {{-- @php
-                        $productCount = 0;
-                    @endphp --}}
                     <div class="swiper flex justify-center items-center mx-auto w-full">
                         <div class="swiper-wrapper flex items-center ">
                             @for ($i = 1; $i <= 4; $i++)
@@ -413,10 +404,6 @@
                                             <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">8 DAYS 449
                                                 BAHT</p>
                                         </div>
-                                            {{-- <div
-                                                class="">
-                                                <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                                            </div> --}}
 
                                         <div class="bg-white">
                                             <div class="flex justify-center py-4 ">
@@ -553,21 +540,15 @@
                                     </div>
                                 </div>
 
-                                {{-- @php
-                                    $productCount++; // เพิ่มจำนวนรายการ
-                                @endphp --}}
                             @endfor
                         </div>
                         <div class="swiper-button-next1 "></div>
                         <div class="swiper-button-prev1 "></div>
                     </div>
-                    {{-- @if ($productCount >= 3) --}}
-                        
-                    {{-- @endif --}}
                 </div>
             </div>
 
-        </section>
+        </section> --}}
 
 
 

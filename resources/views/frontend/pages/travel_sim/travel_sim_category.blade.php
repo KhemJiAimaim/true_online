@@ -5,19 +5,13 @@
 @section('content')
     <div class="mt-16">
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
-            <a href="/travel_sim/travelling"
+            @foreach($cates as $cate)
+            <a href="/{{$cate->cate_redirect}}"
                 class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 mb-2" src="/images/solar_wi-fi-router-linear.png" alt="">
-                <p class="text-[1rem]">เดินทาง ไปต่างประเทศ</p>
+                <img class="w-30 h-30 mb-2" src="/{{$cate->cate_thumbnail}}" alt="">
+                <p class="text-[1rem]">{{$cate->cate_title}}</p>
             </a>
-
-            <a
-                href="/travel_sim/visiting"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 " src="/images/travel/icon-park_elephant.png" alt="">
-                <p class="text-[1rem]">มาเที่ยว
-                    ประเทศไทย</p>
-            </a>
-
+            @endforeach
         </div>
 
         {{-- มหัศจรรย์ --}}
@@ -121,7 +115,7 @@
 
                                     <a href="#"
                                         class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                    <a href="/travel_sim/buy"
+                                    <a href="/travel_sim_buy"
                                         class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                                 </div>
                             </div>
