@@ -57,7 +57,6 @@ Route::get("/thankyou ", [HomeController::class, "thankyou"]);
 Route::get('/bermonthly', [BerLuckyMonthlyController::class, "get_product_all"]);
 Route::get('/fortune/{tel}', [BerLuckyMonthlyController::class, "fortune_page"]);
 Route::get('/detailber/{tel}', [BerLuckyMonthlyController::class, "detailber_page"]);
-Route::get('/cartproduct', [CartController::class, "cartproduct_page"]);
 
 Route::get('/testexcel', [BerLuckyMonthlyController::class, "form_test_import"]);
 Route::post('/readexcel', [BerLuckyMonthlyController::class, "import_by_excel"]);
@@ -74,3 +73,8 @@ Route::get('/move/{id}', [MoveController::class, "category_move"]);
 // Route::get('/move/5GSuperSmart', [MoveController::class, "moveSupersmart"]);
 Route::get('/movedetail/{id}', [MoveController::class, "movenow"]);
 Route::get('/movenow/form/{id}', [MoveController::class, "formMove"]);
+
+// ตระกร้าสินค้า
+Route::get('/cartproduct', [CartController::class, "cartproduct_page"]);
+
+Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"]);
