@@ -1,5 +1,5 @@
 var swiper = new Swiper('.swiper1', {
-    slidesPerView: 3,
+    slidesPerView: 6,
     spaceBetween: 20,
     grabCursor: 'true',
     // direction: getDirection(),

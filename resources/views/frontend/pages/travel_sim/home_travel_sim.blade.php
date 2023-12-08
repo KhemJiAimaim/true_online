@@ -254,7 +254,7 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-
+        @php $j = 1; @endphp
         @foreach($cates as $cate)
         <section id="travel" class="bg-white py-6 2xl:mt-16 px-3">
             <div class="">
@@ -267,9 +267,9 @@
                     @php
                         $productCount = 0;
                     @endphp
-                    <div class="swiper flex justify-center items-center mx-auto w-full">
+                    <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full">
                         <div class="swiper-wrapper flex items-center ">
-                            @for ($i = 1; $i <= 4; $i++)
+                            @for ($i = 1; $i <= 6 ; $i++)
                                 <div class="swiper-slide flex justify-center items-center">
                                     <div
                                         class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] xs:w-[415px] w-[350px] max-md:w-[350px] h-[100%] ss:px-3">
@@ -374,184 +374,16 @@
                             @endfor
                         </div>
                     </div>
-                    @if ($productCount >= 3)
-                        <div class="swiper-button-next "></div>
-                        <div class="swiper-button-prev "></div>
-                    @endif
+                   
+                    
+                        <div class="swiper-button-next swiper-button-next{{$j}}"></div>
+                        <div class="swiper-button-prev swiper-button-prev{{$j}}"></div>
+                       
+                        @php $j++; @endphp
                 </div>
             </div>
         </section>
         @endforeach
-
-
-        {{-- <section id="travel_thai" class="bg-white pb-6 2xl:mt-16 px-3">
-            <div class="">
-                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] ">Thailand Tourist sim</p>
-                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
-                    ซิมสำหรับท่องเที่ยวต่างประเทศ เชื่อมต่อได้ไม่มีสะดุด</p>
-            </div>
-
-            <div class="2xl:my-16 my-4 z-2 w-full">
-                <div class="max-w-[1548px] my-0 mx-auto flex justify-center">
-                    <div class="swiper flex justify-center items-center mx-auto w-full">
-                        <div class="swiper-wrapper flex items-center ">
-                            @for ($i = 1; $i <= 4; $i++)
-                                <div class="swiper-slide flex justify-center items-center">
-                                    <div
-                                        class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] xs:w-[415px] w-[350px] max-md:w-[350px] h-[100%] ss:px-3">
-                                        <div
-                                            class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                            <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">8 DAYS 449
-                                                BAHT</p>
-                                        </div>
-
-                                        <div class="bg-white">
-                                            <div class="flex justify-center py-4 ">
-                                                <img src="/images/Rectangle 179.png" alt=""
-                                                    class="max-es:w-[150px]">
-                                            </div>
-                                        </div>
-
-                                        <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 h-[550px] ">
-                                            <div class=" flex gap-4">
-                                                <img src="/images/travel/majesticons_sim-card-line.png" alt=""
-                                                    class="h-[30px]">
-                                                <p class="text-left text-[16px] 2xl:text-[18px] ">Thailand Tourist infinite
-                                                    sim</p>
-                                            </div>
-                                            <div class=" flex gap-4">
-                                                <img src="/images/travel/quill_calendar.png" alt=""
-                                                    class="w-[26px] h-[26px]">
-                                                <p class="text-left text-[16px] 2xl:text-[18px] ">8 Days</p>
-                                            </div>
-                                            <div class=" flex gap-4">
-                                                <img src="/images/travel/tabler_world.png" alt=""
-                                                    class="w-[26px] h-[26px]">
-                                                <div class="flex flex-col">
-                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">Free 8 Days</p>
-                                                    <p class="text-left text-[16px] "> NON-STOP INTERNET for 50GB at 5G/4G MAX SPEED
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class=" flex gap-4 ">
-                                                <img src="/images/travel/majesticons_coins-line.png" alt=""
-                                                    class="w-[26px] h-[26px]">
-                                                <div class="flex flex-col">
-                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">100 Baht call credit
-                                                    </p>
-                                                    <p class="text-left text-[16px]"> for local and international calls</p>
-                                                </div>
-                                            </div>
-                                            <div class=" flex gap-4">
-                                                <img src="/images/travel/icon-park-outline_phone-call.png" alt=""
-                                                    class="w-[26px] h-[26px]">
-                                                <div class="flex flex-col">
-                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">Free</p>
-                                                    <p class="text-left"> among TrueMove H numbers</p>
-                                                </div>
-                                            </div>
-                                            <div class=" flex gap-4">
-                                                <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
-                                                    class="w-[26px] h-[26px]">
-                                                <p class="text-left text-[16px] 2xl:text-[18px] ">Free WiFi</p>
-                                            </div>
-                                            <div class=" flex gap-4">
-                                                <img src="/images/travel/arcticons_tiktok.png" alt=""
-                                                    class="w-[26px] h-[26px]">
-                                                <div class="flex flex-col">
-                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">Free 10 GB</p>
-                                                    <p> for TikTok and Douyin</p>
-                                                </div>
-                                            </div>
-                                            <div class=" flex gap-4">
-                                                <img src="/images/travel/like-thumb-hand.png" alt=""
-                                                    class="w-[26px] h-[26px]">
-                                                <div class="flex flex-col">
-                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">Free 14 social apps
-                                                    </p>
-                                                    <p class="text-left">(no data charges)</p>
-                                                </div>
-                                            </div>
-                                            <div class="flex mt-4">
-                                                <div class="w-[40px]"></div>
-                                                <div class="grid grid-cols-7 gap-x-8 gap-y-4">
-                                                    <img src="/images/travel/social/facebook icon.png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector.png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Group 6.png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (1).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Group 7.png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (2).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (3).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (4).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (5).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (6).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (7).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (8).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (9).png" alt=""
-                                                        class="max-w-[20px]">
-                                                    <img src="/images/travel/social/Vector (10).png" alt=""
-                                                        class="max-w-[20px]">
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
-                                            <div class="grid grid-cols-3">
-                                                <p class="text-white text-left text-[18px] max-es:text-[16px] mt-2">ราคา
-                                                </p>
-                                                <p class="text-white font-medium text-center text-3xl">499</p>
-                                                <p class="text-white text-right text-[18px] max-es:text-[16px]  mt-2">บาท
-                                                </p>
-
-                                            </div>
-                                        </div>
-
-                                        <div
-                                            class="bg-white rounded-bl-[10px] rounded-br-[10px]   flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
-                                            <div
-                                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
-                                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                            </div>
-                                            <div
-                                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                            </div>
-
-                                            <a href="#"
-                                                class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                            <a href="/travel_sim/buy"
-                                                class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            @endfor
-                        </div>
-                        <div class="swiper-button-next1 "></div>
-                        <div class="swiper-button-prev1 "></div>
-                    </div>
-                </div>
-            </div>
-
-        </section> --}}
-
-
-
     </div>
 
     @include('frontend.pages.travel_sim.footer_sim')

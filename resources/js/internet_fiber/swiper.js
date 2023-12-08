@@ -1,5 +1,5 @@
 var swiper = new Swiper('.swiper1', {
-    slidesPerView: 1,
+    slidesPerView: 8,
     spaceBetween: 0,
     grabCursor: 'true',
     // direction: getDirection(),
@@ -38,7 +38,7 @@ var swiper = new Swiper('.swiper1', {
 });
 
 var swiper = new Swiper('.swiper2', {
-    slidesPerView: 1,
+    slidesPerView: 8,
     spaceBetween: 0,
     grabCursor: 'true',
     // direction: getDirection(),
@@ -78,7 +78,7 @@ var swiper = new Swiper('.swiper2', {
 
 
 var swiper = new Swiper('.swiper3', {
-    slidesPerView: 1,
+    slidesPerView: 8,
     spaceBetween: 0,
     grabCursor: 'true',
     // direction: getDirection(),
@@ -117,7 +117,7 @@ var swiper = new Swiper('.swiper3', {
 });
 
 var swiper = new Swiper('.swiper4', {
-    slidesPerView: 1,
+    slidesPerView: 8,
     spaceBetween: 0,
     grabCursor: 'true',
     // direction: getDirection(),
@@ -156,7 +156,7 @@ var swiper = new Swiper('.swiper4', {
 });
 
 var swiper = new Swiper('.swiper5', {
-    slidesPerView: 1,
+    slidesPerView: 8,
     spaceBetween: 0,
     grabCursor: 'true',
     // direction: getDirection(),
@@ -195,7 +195,7 @@ var swiper = new Swiper('.swiper5', {
 });
 
 var swiper = new Swiper('.swiper6', {
-    slidesPerView: 1,
+    slidesPerView: 8,
     spaceBetween: 0,
     grabCursor: 'true',
     // direction: getDirection(),
@@ -234,7 +234,7 @@ var swiper = new Swiper('.swiper6', {
 });
 
 var swiper = new Swiper('.swiper7', {
-    slidesPerView: 1,
+    slidesPerView: 8,
     spaceBetween: 0,
     grabCursor: 'true',
     // direction: getDirection(),
