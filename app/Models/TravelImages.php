@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TravelSim extends Model
+class TravelImages extends Model
 {
     use HasFactory;
 
-    protected $table = "travel_sims";
+    protected $table = "travel_images";
     protected $primaryKey = "id";
     protected $guarded = [];
 
-    public function images() {
-        return $this->hasMany(TravelImages::class, 'travel_id', 'id')->orderBy('defaults', 'DESC');
+    public function moveProduct() {
+        return $this->belongsTo(TravelSim::class);
     }
-
 }
