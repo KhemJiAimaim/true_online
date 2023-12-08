@@ -51,7 +51,7 @@
                 </a>
 
 
-                <div class="mobile-menu-button lg:hidden xl:hidden">
+                <div class="mobile-menu-button">
                     <div class="ham-line1"></div>
                     <div class="ham-line2"></div>
                     <div class="ham-line3"></div>
@@ -68,7 +68,7 @@
 
     <!-- mobile menu -->
     <ul
-        class="Mitr mobile-menu hidden xl:hidden lg:hidden bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto  ">
+        class="Mitr mobile-menu hidden xl:hidden  bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto  ">
         @foreach($main_cate as $m_cate)
         @php 
             $main_list = '';
