@@ -30,22 +30,22 @@ return new class extends Migration
             [
                 'travel_id' => 1,
                 'image_link' => 'images/Rectangle1282.png',
-                'image_alt' => 'move_img1',
-                'image_title' => 'move_img1',
+                'image_alt' => 'travel_img1',
+                'image_title' => 'travel_img1',
                 'language' => 'th',
             ],
             [
                 'travel_id' => 2,
                 'image_link' => 'images/Rectangle1282.png',
-                'image_alt' => 'move_img1',
-                'image_title' => 'move_img1',
+                'image_alt' => 'travel_img1',
+                'image_title' => 'travel_img1',
                 'language' => 'th',
             ],
             [
                 'travel_id' => 3,
                 'image_link' => 'images/Rectangle1282.png',
-                'image_alt' => 'move_img1',
-                'image_title' => 'move_img1',
+                'image_alt' => 'travel_img1',
+                'image_title' => 'travel_img1',
                 'language' => 'th',
             ],
         ]);

@@ -27,7 +27,7 @@ class TravelController extends BaseController
                     'travelCates' => $travelCates,
                     'travelsims' => $travelsims,
                     'benefits' => $benefits,
-                    // 'maxPriority' => TravelSim::where('delete_status', 0)->max('priority'),
+                    'maxPriority' => TravelSim::where('delete_status', 0)->max('priority'),
                 ],
             ], 200);
         } catch (Exception $e) {
