@@ -132,5 +132,18 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::post('product/update/{id}', [MoveController::class, 'updateMoveProduct']);
             Route::delete('product/delete/{id}', [MoveController::class, 'deleteMoveProduct']);
         });
+
+        // Travel
+        Route::prefix('travel/')->group(function () {
+
+            //Sim
+            Route::get('data', [TravelController::class, 'index']);
+            Route::post('create', [TravelController::class, 'createTravelSim']);
+            Route::post('update/{id}', [TravelController::class, 'updateTravelSim']);
+            Route::patch('updaterec/{id}', [TravelController::class, 'updateRecProduct']);
+            Route::patch('updatedisplay/{id}', [TravelController::class, 'updateDisplayProduct']);
+            Route::delete('delete/{id}', [TravelController::class, 'deleteTravelSim']);
+
+        });
     });
 });
