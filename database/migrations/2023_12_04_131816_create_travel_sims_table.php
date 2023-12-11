@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('price')->default(0)->comment('ราคาขาย/บาท');
             $table->integer('lifetime')->default(0)->comment('อายุการใช้งาน/วัน');
             $table->string('internet_details')->nullable();
-            $table->integer('call_credit')->default(0)->comment('เครดิตการโทร/บาท');
+            $table->string('call_credit')->default(0)->comment('เครดิตการโทร/บาท');
             $table->string('call_credit_details')->nullable();
             $table->string('free_call')->nullable()->comment('Free,Unlimited call');
             $table->string('free_call_details')->nullable();
@@ -59,7 +59,7 @@ return new class extends Migration
                 'price' => 299,
                 'lifetime' => 10,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
-                'call_credit' => '100 Baht call credit',
+                'call_credit' => 100,
                 'call_credit_details' => 'for local and international calls',
                 'free_call' => 'free',
                 'free_call_details' => 'among TrueMove H numbers',
@@ -69,7 +69,7 @@ return new class extends Migration
                 'free_tiktok' => true,
                 'free_socials' => true,
                 'benefit_ids' => '',
-                'package_options' => 'ซิมปกติ (Physical SIM):299, ซิมพิเศษ (Spacial SIM):399', // package option 1:price, package option 2:price
+                'package_options' => ',299,399,', // package option 1:price, package option 2:price
                 'thumbnail_link' => 'images/travel/Rectangle 723.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -77,20 +77,23 @@ return new class extends Migration
                 'priority' => 1,
                 'language' => 'th',
 
-                'details_content' => '<p><strong>เน็ต 1GB<br />
-                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+                'details_content' => '<p>ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย  ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก  โปรโมชั่นเครือข่าย True </p>
 
-                                        <ul>
-                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
-                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
-                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
-                                            <li>WiFi ไม่อั้น</li>
-                                        </ul>
+                                    <p>1. True ความเร็ว 10Mbps (ไม่ลดสปีด) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 210 บาท (รวมภาษีแล้ว) </p>
 
-                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
-                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
-                                        <br />
-                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                                    <p>2. True ความเร็ว 20Mbps (ไม่มีโทรฟรี)  เล่นเน็ตไม่อั้น 70GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว) </p>
+
+                                    <p>3. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 80GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 300 บาท (รวมภาษีแล้ว) </p>
+
+                                    <p>4. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 55GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 250 บาท (รวมภาษีแล้ว)</p>
+
+                                    <p> 5. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 30GB (FUP 384Kbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว)</p>
+
+                                    <p> 6. True ความเร็ว 4Mbps (ไม่มีโทรฟรี)  เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 150 บาท (รวมภาษีแล้ว) </p>
+
+                                    <p>** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้<br />
+                                    เล่นโซเชียล Facebook, Line, instagram, TikTok</p>',
+
                 'terms_content' => '<p><strong>ข้อกำหนดและเงื่อนไขรายการส่งเสริมการขาย Fixxy No Limit สำหรับย้ายค่ายแบบรายเดือน</strong></p>
 
                                         <p>1.รายการส่งเสริมการขายนี้ สำหรับผู้สมัครใช้บริการย้ายค่ายเบอร์เดิมมาใช้ ทรูมูฟ เอช (&ldquo;ผู้ใช้บริการ&rdquo;) ของบริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด (&ldquo;บริษัท&rdquo;) แบบระบบรายเดือน ในนามบุคคลธรรมดา ตั้งแต่วันที่ 22 กันยายน 2566 &nbsp;ถึง 30 พฤศจิกายน 2566 หรือจนกว่าจะมีการเปลี่ยนแปลง</p>
@@ -129,7 +132,7 @@ return new class extends Migration
                 'price' => 399,
                 'lifetime' => 15,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
-                'call_credit' => '100 Baht call credit',
+                'call_credit' => 100,
                 'call_credit_details' => 'for local and international calls',
                 'free_call' => 'free',
                 'free_call_details' => 'among TrueMove H numbers',
@@ -139,7 +142,7 @@ return new class extends Migration
                 'free_tiktok' => true,
                 'free_socials' => true,
                 'benefit_ids' => '',
-                'package_options' => 'ซิมปกติ (Physical SIM):399,', // package option 1:price, package option 2:price
+                'package_options' => ',399,', // package option 1:price, package option 2:price
                 'thumbnail_link' => 'images/travel/Rectangle 709.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -147,20 +150,23 @@ return new class extends Migration
                 'priority' => 2,
                 'language' => 'th',
 
-                'details_content' => '<p><strong>เน็ต 1GB<br />
-                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+                'details_content' => '<p>ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย  ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก  โปรโมชั่นเครือข่าย True </p>
 
-                                        <ul>
-                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
-                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
-                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
-                                            <li>WiFi ไม่อั้น</li>
-                                        </ul>
+                                        <p>1. True ความเร็ว 10Mbps (ไม่ลดสปีด) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 210 บาท (รวมภาษีแล้ว) </p>
 
-                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
-                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
-                                        <br />
-                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                                        <p>2. True ความเร็ว 20Mbps (ไม่มีโทรฟรี)  เล่นเน็ตไม่อั้น 70GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว) </p>
+
+                                        <p>3. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 80GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 300 บาท (รวมภาษีแล้ว) </p>
+
+                                        <p>4. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 55GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 250 บาท (รวมภาษีแล้ว)</p>
+
+                                        <p> 5. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 30GB (FUP 384Kbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว)</p>
+
+                                        <p> 6. True ความเร็ว 4Mbps (ไม่มีโทรฟรี)  เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 150 บาท (รวมภาษีแล้ว) </p>
+
+                                        <p>** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้<br />
+                                        เล่นโซเชียล Facebook, Line, instagram, TikTok</p>',
+
                 'terms_content' => '<p><strong>ข้อกำหนดและเงื่อนไขรายการส่งเสริมการขาย Fixxy No Limit สำหรับย้ายค่ายแบบรายเดือน</strong></p>
 
                                         <p>1.รายการส่งเสริมการขายนี้ สำหรับผู้สมัครใช้บริการย้ายค่ายเบอร์เดิมมาใช้ ทรูมูฟ เอช (&ldquo;ผู้ใช้บริการ&rdquo;) ของบริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด (&ldquo;บริษัท&rdquo;) แบบระบบรายเดือน ในนามบุคคลธรรมดา ตั้งแต่วันที่ 22 กันยายน 2566 &nbsp;ถึง 30 พฤศจิกายน 2566 หรือจนกว่าจะมีการเปลี่ยนแปลง</p>
@@ -199,7 +205,7 @@ return new class extends Migration
                 'price' => 499,
                 'lifetime' => 15,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
-                'call_credit' => '100 Baht call credit',
+                'call_credit' => 100,
                 'call_credit_details' => 'for local and international calls',
                 'free_call' => 'Unlimited call',
                 'free_call_details' => 'among TrueMove H numbers',
@@ -209,28 +215,31 @@ return new class extends Migration
                 'free_tiktok' => true,
                 'free_socials' => true,
                 'benefit_ids' => '',
-                'package_options' => 'ซิมปกติ (Physical SIM):499,', // package option 1:price, package option 2:price
+                'package_options' => ',499,', // package option 1:price, package option 2:price
                 'thumbnail_link' => 'images/travel/Rectangle 709.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
                 'recommended' => false,
-                'priority' => 3 ,
+                'priority' => 3,
                 'language' => 'th',
 
-                'details_content' => '<p><strong>เน็ต 1GB<br />
-                                        ประกันอุบัติเหตุ 100,000 บ.</strong></p>
+                'details_content' => '<p>ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย  ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก  โปรโมชั่นเครือข่าย True </p>
 
-                                        <ul>
-                                            <li>เปิดเบอร์ใหม่ ใช้ฟรีทันที 5 วัน</li>
-                                            <li>เน็ตเร็ว 15Mbps 5GB (FUP 384KBps)</li>
-                                            <li>โทรฟรีทุกเครือข่าย 30 นาที</li>
-                                            <li>WiFi ไม่อั้น</li>
-                                        </ul>
+                                        <p>1. True ความเร็ว 10Mbps (ไม่ลดสปีด) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 210 บาท (รวมภาษีแล้ว) </p>
 
-                                        <p>จากนั้น ทุกๆ 5 วัน ระบบจะทำการหักค่าบริการอัตโนมัติโดยคิดค่าบริการ<br />
-                                        49 บาท (ราคาดังกล่าวรวมภาษีมูลค่าเพิ่มแล้ว)<br />
-                                        <br />
-                                        เริ่ม 11 ต.ค. 66 - 31 ต.ค. 66</p>',
+                                        <p>2. True ความเร็ว 20Mbps (ไม่มีโทรฟรี)  เล่นเน็ตไม่อั้น 70GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว) </p>
+
+                                        <p>3. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 80GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 300 บาท (รวมภาษีแล้ว) </p>
+
+                                        <p>4. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 55GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 250 บาท (รวมภาษีแล้ว)</p>
+
+                                        <p> 5. True ความเร็ว 15Mbps +โทรฟรีทุกค่าย  เล่นเน็ตไม่อั้น 30GB (FUP 384Kbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว)</p>
+
+                                        <p> 6. True ความเร็ว 4Mbps (ไม่มีโทรฟรี)  เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps) &quot;ฟรีเดือนแรก&quot;  เดือนต่อไป เติมเงิน 150 บาท (รวมภาษีแล้ว) </p>
+
+                                        <p>** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้<br />
+                                        เล่นโซเชียล Facebook, Line, instagram, TikTok</p>',
+
                 'terms_content' => '<p><strong>ข้อกำหนดและเงื่อนไขรายการส่งเสริมการขาย Fixxy No Limit สำหรับย้ายค่ายแบบรายเดือน</strong></p>
 
                                         <p>1.รายการส่งเสริมการขายนี้ สำหรับผู้สมัครใช้บริการย้ายค่ายเบอร์เดิมมาใช้ ทรูมูฟ เอช (&ldquo;ผู้ใช้บริการ&rdquo;) ของบริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด (&ldquo;บริษัท&rdquo;) แบบระบบรายเดือน ในนามบุคคลธรรมดา ตั้งแต่วันที่ 22 กันยายน 2566 &nbsp;ถึง 30 พฤศจิกายน 2566 หรือจนกว่าจะมีการเปลี่ยนแปลง</p>
