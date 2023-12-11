@@ -11,6 +11,7 @@
     <title>True Online | @yield('title')</title>
     <meta name="description" content="คำอธิบายเนื้อหาเว็บไซต์">
     <meta name="keywords" content="true,true online,เบอร์มงคล,fiber">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('style')
 </head>
 

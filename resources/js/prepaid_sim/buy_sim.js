@@ -141,3 +141,8 @@ function showMore_boxPackage() {
   }
 }
 
+const btn_buynow = document.querySelector('#buynow');
+
+buynow.addEventListener('click', function() {
+  location.href = '/cartproduct'
+})

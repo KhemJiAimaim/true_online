@@ -150,9 +150,8 @@
                         class="bg-white hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer border  border-[#838383]">
                         <span class="m-auto 2xl:text-2xl">−</span>
                     </button>
-                    <input type=""
-                        class="text-center font-bold w-full bg-white hover:text-black focus:text-black  2xl:text-2xl cursor-default flex items-center text-gray-700 border  border-t-[#838383]  border-b-[#838383] outline-none"
-                        name="custom-input-number" value="0"></input>
+                    <input type="text" class="text-center font-bold w-full bg-white hover:text-black focus:text-black  2xl:text-2xl cursor-default flex items-center text-gray-700 border  border-t-[#838383]  border-b-[#838383] outline-none"
+                        name="custom-input-number" value="0">
                     <button data-action="increment"
                         class="bg-white text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer border border-[#838383]">
                         <span class="m-auto 2xl:text-2xl">+</span>

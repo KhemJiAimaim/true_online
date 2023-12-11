@@ -9,6 +9,12 @@
     scroll-behavior: smooth;
 }
 
+@layer base {
+    ul, ol {
+      list-style: revert;
+    }
+}
+
 .mobile-menu-button{
     width:30px;
     display: flex;
