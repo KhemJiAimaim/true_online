@@ -33,6 +33,7 @@ return new class extends Migration
 
         DB::table('travel_categories')->insert([
             [
+                'id' => '22',
                 'title' => 'เดินทางไปต่างประเทศ',
                 'details' => 'Thailand Tourist infinite sim',
                 'description' => 'ซิมท่องเที่ยว เดินทางไปต่างประเทศ',
@@ -40,6 +41,7 @@ return new class extends Migration
                 'language' => 'th',
             ],
             [
+                'id' => '23',
                 'title' => 'มาเที่ยวประเทศไทย',
                 'details' => 'Thailand Tourist infinite sim',
                 'description' => 'ซิมท่องเที่ยว มาเที่ยวประเทศไทย',
