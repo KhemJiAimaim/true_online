@@ -31,6 +31,9 @@ return new class extends Migration
             $table->timestamp('updated_at')->useCurrent();
         });
 
+        DB::statement('ALTER TABLE `move_categories` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`, `language`) USING BTREE');
+
+
         DB::table('move_categories')->insert([
             [
                 'title' => 'Fixxy No Limit',
