@@ -26,6 +26,8 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        DB::statement('ALTER TABLE `move_images` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`, `language`) USING BTREE');
+
         DB::table('move_images')->insert([
             [
                 'move_id' => 1,

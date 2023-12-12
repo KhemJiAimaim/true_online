@@ -30,6 +30,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
+        DB::statement('ALTER TABLE `travel_categories` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`, `language`) USING BTREE');
 
         DB::table('travel_categories')->insert([
             [
