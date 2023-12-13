@@ -14,14 +14,15 @@ use Exception;
 
 class PostController extends BaseController
 {
-    public function index(Request $req){
+    public function index(Request $req)
+    {
         try {
             $data = $this->getPostData($req->language);
             return response([
                 'message' => 'ok',
                 'data' => $data,
             ], 200);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             return response([
                 'message' => 'error',
                 'description' => 'Something went wrong.',
@@ -30,7 +31,8 @@ class PostController extends BaseController
         }
     }
 
-    public function createContent(Request $req) {
+    public function createContent(Request $req)
+    {
         $this->getAuthUser();
         $files = $req->allFiles();
         $params = $req->all();
@@ -39,7 +41,7 @@ class PostController extends BaseController
             'Thumbnail' => "mimes:jpg,png,jpeg,pdf|max:5000|nullable",
             // 'slug' => "string|required|unique:posts",
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendErrorValidators('Invalid params', $validator->errors());
         }
 
@@ -53,8 +55,8 @@ class PostController extends BaseController
         }
 
         /* Upload Thumbnail */
-        $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
-        $thumbnail = (isset($files['Thumbnail']))? $this->uploadImage($newFolder, $files['Thumbnail'], "", "", $params['ThumbnailName']):"";
+        $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
+        $thumbnail = (isset($files['Thumbnail'])) ? $this->uploadImage($newFolder, $files['Thumbnail'], "", "", $params['ThumbnailName']) : "";
 
         try {
 
@@ -82,14 +84,14 @@ class PostController extends BaseController
             ], Response::HTTP_CREATED);
 
             /* Upload Images */
-            if(isset($files['Images'])) {
+            if (isset($files['Images'])) {
                 $images = array();
-                foreach($files['Images'] as $key => $val){
+                foreach ($files['Images'] as $key => $val) {
                     array_push($images, [
                         "post_id" => $postCreated->id,
                         "image_link" => $this->uploadImage($newFolder, $files['Images'][$key], "", "", $params['ImagesName'][$key]),
-                        "title" =>  ($params['ImagesTitle'][$key])?$params['ImagesTitle'][$key]:"",
-                        "alt" =>  ($params['ImagesAlt'][$key])?$params['ImagesAlt'][$key]:"",
+                        "title" => ($params['ImagesTitle'][$key]) ? $params['ImagesTitle'][$key] : "",
+                        "alt" => ($params['ImagesAlt'][$key]) ? $params['ImagesAlt'][$key] : "",
                         "position" => $key + 1,
                         "language" => $params['language'],
                         "defaults" => 1
@@ -114,33 +116,34 @@ class PostController extends BaseController
         }
     }
 
-    public function updateContent(Request $req) {
+    public function updateContent(Request $req)
+    {
         $this->getAuthUser();
         $files = $req->allFiles();
         $params = $req->all();
         $validator = Validator::make($req->all(), [
             'Thumbnail' => "mimes:jpg,png,jpeg,pdf|max:5000|nullable",
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendErrorValidators('Invalid params', $validator->errors());
         }
 
         try {
             DB::beginTransaction();
-            $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
+            $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
             $uploadMoreImage = array();
             $addMoreImage = array();
             $idRemove = explode(',', $params['moreImageRemove']);
 
-            if(isset($params['EditImageLink'])) {
+            if (isset($params['EditImageLink'])) {
                 PostImage::where('post_id', $params['id'])->where('language', $params['language'])->delete();
                 $numb = count($params['EditImageLink']);
-                for($ii = 0; $ii < $numb; $ii++) {
+                for ($ii = 0; $ii < $numb; $ii++) {
                     array_push($addMoreImage, [
                         "post_id" => $params['id'],
                         "language" =>  $params['language'],
-                        "title" => ($params['EditImageTitle'][$ii])?$params['EditImageTitle'][$ii]:"",
-                        "alt" => ($params['EditImageAlt'][$ii])?$params['EditImageAlt'][$ii]:"",
+                        "title" => ($params['EditImageTitle'][$ii]) ? $params['EditImageTitle'][$ii] : "",
+                        "alt" => ($params['EditImageAlt'][$ii]) ? $params['EditImageAlt'][$ii] : "",
                         "image_link" =>   $params['EditImageLink'][$ii],
                         "position" => $ii + 1,
                     ]);
@@ -148,13 +151,13 @@ class PostController extends BaseController
                 PostImage::insert($addMoreImage);
             }
 
-            if(isset($params['Images'])) {
-                foreach($files['Images'] as $key => $val){
+            if (isset($params['Images'])) {
+                foreach ($files['Images'] as $key => $val) {
                     array_push($uploadMoreImage, [
                         "post_id" => $params['id'],
                         "image_link" => $this->uploadImage($newFolder, $files['Images'][$key], "", "", $params['ImagesName'][$key]),
-                        "alt" =>  ($params['ImagesAlt'][$key])?$params['ImagesAlt'][$key]:"",
-                        "title" =>  ($params['ImagesTitle'][$key])?$params['ImagesTitle'][$key]:"",
+                        "alt" => ($params['ImagesAlt'][$key]) ? $params['ImagesAlt'][$key] : "",
+                        "title" => ($params['ImagesTitle'][$key]) ? $params['ImagesTitle'][$key] : "",
                         "position" => $params['ImagesPosition'][$key],
                         "language" => $params['language'],
                     ]);
@@ -164,15 +167,15 @@ class PostController extends BaseController
 
             /* ยังขาด function สำหรับลบ image ออกจาก frontend! */
             PostImage::where('post_id', $params['id'])
-                    ->where('language', $params['language'])
-                    ->whereIn('id', $idRemove)
-                    ->delete();
+                ->where('language', $params['language'])
+                ->whereIn('id', $idRemove)
+                ->delete();
 
             /* Upload Thumbnail */
-            $thumbnail = (isset($files['Thumbnail']))? $this->uploadImage($newFolder, $files['Thumbnail'], "", "", $params['ThumbnailName']):$params['ThumbnailLink'];
+            $thumbnail = (isset($files['Thumbnail'])) ? $this->uploadImage($newFolder, $files['Thumbnail'], "", "", $params['ThumbnailName']) : $params['ThumbnailLink'];
 
 
-            $this->priorityPostUpdate($params['old_priority'], $params['priority'] , $params['language'], "priority");
+            $this->priorityPostUpdate($params['old_priority'], $params['priority'], $params['language'], "priority");
 
             $conditions  = ['id' => $params['id'], 'language' => $params['language']];
             $values = [
@@ -214,17 +217,18 @@ class PostController extends BaseController
         }
     }
 
-    public function deleteContent($language , $id) {
+    public function deleteContent($language, $id)
+    {
         try {
 
             $post = Post::where('id', $id)->where('language', $language)->get()->first();
-            if(!$post) {
+            if (!$post) {
                 return response([
                     'message' => 'error',
                     'description' => 'Token is invalid!'
                 ], 422);
             }
-            if($post->is_maincontent === 1) {
+            if ($post->is_maincontent === 1) {
                 $this->getAuthUser(1);
             } else {
                 $this->getAuthUser();
@@ -232,7 +236,7 @@ class PostController extends BaseController
 
             DB::beginTransaction();
 
-            $this->priorityPostUpdate($post->priority, 99999999 , $post->language, "priority");
+            $this->priorityPostUpdate($post->priority, 99999999, $post->language, "priority");
             Post::where('id', $id)->where('language', $language)->delete();
             PostImage::where('post_id', $id)->where('language', $language)->delete();
             DB::commit();
@@ -241,7 +245,6 @@ class PostController extends BaseController
                 'message' => 'ok',
                 'description' => 'Delete successful'
             ], 200);
-
         } catch (Exception $e) {
             DB::rollback();
             return response([
@@ -250,11 +253,11 @@ class PostController extends BaseController
                 'errorsMessage' => $e->getMessage()
             ], 501);
         }
-
     }
 
     /* Private function  */
-    private function getPostData($language) {
+    private function getPostData($language)
+    {
 
         $sql = "SELECT posts.*,
                         GROUP_CONCAT(post_images.id) imgId,
@@ -273,17 +276,18 @@ class PostController extends BaseController
                     LEFT JOIN (SELECT * FROM post_images WHERE post_images.language = ? OR defaults = 1 ORDER BY defaults ASC) as post_images ON posts.id = post_images.post_id
                     GROUP BY posts.id
                     ORDER BY updated_at DESC";
+        DB::statement("SET SESSION group_concat_max_len = 100000000000000");
         return DB::select($sql, [$language, $language]);
     }
 
-    private function priorityPostUpdate( $current, $new, $language, $column ){
-        $setOp = ($new <= $current)? ["<",">="] : [">","<="];
-        $updating = Post::where($column,$setOp[0], $current)->where($column, $setOp[1], $new)->where('language', $language);
-        if($new <= $current) {
+    private function priorityPostUpdate($current, $new, $language, $column)
+    {
+        $setOp = ($new <= $current) ? ["<", ">="] : [">", "<="];
+        $updating = Post::where($column, $setOp[0], $current)->where($column, $setOp[1], $new)->where('language', $language);
+        if ($new <= $current) {
             return $updating->increment($column, 1);
         } else {
             return $updating->decrement($column, 1);
         }
     }
-
 }
