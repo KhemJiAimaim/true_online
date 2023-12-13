@@ -58,7 +58,7 @@
                             <div class="swiper-wrapper items-center">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
-                                        @for ($i = 1; $i <= 4; $i++)
+                                        {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                             <div class="swiper-slide flex justify-center items-center">
                                                 <div
                                                     class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[350px] h-[100%] ">
@@ -198,7 +198,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endfor
+                                        {{-- @endfor --}}
                                     @endif
                                 @endforeach
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontoffice;
 
 use App\Http\Controllers\Controller;
+use App\Models\BerproductMonthly;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -17,20 +18,39 @@ class CartController extends Controller
         //     // dd($item);
         //     $data['index'] = $item;
         // }
-        foreach ($cartList['items'] as $typeProduct => $items) {
-            // ทำสิ่งที่คุณต้องการกับ $typeProduct และ $items ที่ได้
-            // $typeProduct คือ index ของ type_product
-            // dd($items);
-            // $items คือ array ที่มี 'items', 'amount' เป็น key
-            $itemsArray[$typeProduct] = $items; // เข้าถึง array 'items'
+        // foreach ($cartList['items'] as $typeProduct => $items) {
+        //     // ทำสิ่งที่คุณต้องการกับ $typeProduct และ $items ที่ได้
+        //     // $typeProduct คือ index ของ type_product
+        //     // dd($items);
+        //     // $items คือ array ที่มี 'items', 'amount' เป็น key
+        //     $itemsArray[$typeProduct] = $items; // เข้าถึง array 'items'
             
-            // ทำสิ่งที่คุณต้องการกับ $itemsArray
-            // เช่น แยกต่าง index 6 กับ 3
-            
+        //     // ทำสิ่งที่คุณต้องการกับ $itemsArray
+        //     // เช่น แยกต่าง index 6 กับ 3
+        // }
+        $berMonthlys = [];
+        foreach($cartList as $list){
+            // dd($list[3]);
+            if (isset($list[3])) {
+                $id = array_column($list[3], 'id');
+                // dd($id);
+                // dd($list[3]);
+                // $fiberProducts = DB::table('fiber_product')
+                //     ->whereIn('id', array_column($cartList[3], 'id'))
+                //     ->get();
+                $berMonthlys = BerproductMonthly::whereIn('product_id', $id)->get();
+                // dd($berMonthly);
+            } 
+            if (isset($list[4])){
+                $id = array_column($list[4], 'id');
+                // dd($id);
+                // dd($list[4]);
+            }
         }
-        // dd($itemsArray);
-        // if($request->inpu)
-        return view('frontend.pages.cart_order.cart_product');
+        
+            
+        // dd($cartList['items']);
+        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys'));
     }
 
     public function addproduct_to_cart(Request $request, $id) {

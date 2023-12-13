@@ -17,17 +17,20 @@ class TravelController extends Controller
         return view("frontend.pages.travel_sim.home_travel_sim", compact('cates', 'travel_sim'));
     }
     public function travel_sim_byCategory(Request $request) {
+        $cates = $this->getCategory();
         $path = $request->path(); 
-        $cates = $this->getCategory();
-        return view("frontend.pages.travel_sim.travel_sim_category", compact('cates'));
+        $category = $cates->firstWhere('cate_redirect', $path);
+        // dd($category);
+        $travel_sim = TravelSim::where('travel_cate_id', $category->id)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
+        return view("frontend.pages.travel_sim.travel_sim_category", compact('cates', 'travel_sim'));
     }
-    public function travel_sim_visiting() {
-        $cates = $this->getCategory();
-        return view("frontend.pages.travel_sim.thai_visiting", compact('cates'));
-    }
+    // public function travel_sim_visiting() {
+    //     $cates = $this->getCategory();
+    //     return view("frontend.pages.travel_sim.thai_visiting", compact('cates'));
+    // }
     
     public function travel_sim_buy($id) {
-        $travel_sim = TravelSim::where('id', $id)->where('display', true)->where('delete_status', false)->get();
+        $travel_sim = TravelSim::where('id', $id)->where('display', true)->where('delete_status', false)->first();
         return view("frontend.pages.travel_sim.buy_sim", compact('travel_sim'));
     }
 

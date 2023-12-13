@@ -1,14 +1,12 @@
 
 
 
-// active สินค้า
-// สร้าง event listener สำหรับแต่ละกล่อง
-for (let i = 1; i <= 8; i++) {
-    const box = document.getElementById('box' + i);
-    box.addEventListener('click', function() {
-        handleBoxClick(this);
-    });
-}
+const box = document.querySelectorAll('#box');
+box.forEach(element => {
+  element.addEventListener('click', () => {
+    handleBoxClick(element);
+  })
+});
 
 let lastClickedBox = null;
 
@@ -20,7 +18,7 @@ function handleBoxClick(box) {
         const checkbox = lastClickedBox.querySelector('.check-box');
         checkbox.src = '/images/check-one.png';
     }
-
+  
     if (box !== lastClickedBox) {
         box.classList.remove('border-gray-10');
         box.classList.add('border-gray-500');
@@ -103,7 +101,7 @@ let btn_package = document.querySelector('#btn-package');  // ปุ่มรา
 let btn_condition = document.querySelector('#btn-condition');  // ปุ่มเงื่อนไข
 let box_package = document.querySelector('#box-package');
 let box_condition = document.querySelector('#box-condition');
-let show_more = document.querySelector('#show-more');
+let show_more = document.querySelector('#show');
 
 // ฟังก์ชัน package and condition content
 btn_package.addEventListener('click', () => {

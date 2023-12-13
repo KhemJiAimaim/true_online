@@ -78,4 +78,4 @@ Route::get('/movenow/form/{id}', [MoveController::class, "formMove"]);
 Route::get('/cartproduct', [CartController::class, "cartproduct_page"]);
 
 Route::get('/clearcart', [CartController::class, "clearCart"]);
-Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"]);
+Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"])->middleware('web');

@@ -34,22 +34,22 @@
                 <div
                     class="max-w-[1536px] my-0 mx-auto 2xl:grid 2xl:grid-cols-3 flex flex-wrap justify-center items-center  px-4 gap-x-6 gap-y-6">
 
-                    @for ($i = 1; $i <= 10; $i++)
-                        <div class="drop-shadow-md">
-                            <div class="2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
+                    @foreach ($travel_sim as $sim)
+                        <div class="swiper-slide flex justify-center items-center">
+                            <div
+                                class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] xs:w-[415px] w-[350px] max-md:w-[350px] h-[100%] ss:px-3">
                                 <div
-                                    class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                    <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">8 DAYS 449 BAHT</p>
-                                    <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
-                                </div>
-                                {{-- <div
-                        class="">
-                        <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                        </div> --}}
+                                    class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0 ">
 
-                                <div class="bg-white"">
+                                    <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">{{$sim->lifetime}} DAYS {{$sim->price}} BAHT</p>
+                                    <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png"
+                                        alt="">
+                                </div>
+
+                                <div class="bg-white">
                                     <div class="flex justify-center py-4 ">
-                                        <img src="/images/Rectangle 179.png" alt="" class="max-es:w-[150px]">
+                                        <img src="/images/Rectangle 179.png" alt=""
+                                            class="max-es:w-[150px]">
                                     </div>
                                 </div>
 
@@ -57,44 +57,131 @@
                                     <div class=" flex gap-4">
                                         <img src="/images/travel/majesticons_sim-card-line.png" alt=""
                                             class=" w-[26px]">
-                                        <p class="text-left text-[16px] 2xl:text-[18px] ">Thailand Tourist infinite sim</p>
+                                        <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->title}}</p>
                                     </div>
                                     <div class=" flex gap-4">
                                         <img src="/images/travel/quill_calendar.png" alt=""
                                             class="w-[26px] h-[26px]">
-                                        <p class="text-left text-[16px] 2xl:text-[18px] ">8 Days</p>
+                                        <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->lifetime}} Days</p>
                                     </div>
-                                    <div class=" flex gap-4">
-                                        <img src="/images/travel/tabler_world.png" alt="" class="w-[26px] h-[26px]">
-                                        <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited 5G Internet</p>
-                                    </div>
-                                    <div class=" flex gap-4">
-                                        <img src="/images/travel/majesticons_coins-line.png" alt=""
-                                            class="w-[26px] h-[26px]">
-                                        <p class="text-left text-[16px] 2xl:text-[18px] ">100 THB calling credit for
-                                            international
-                                            call</p>
-                                    </div>
-                                    <div class=" flex gap-4">
-                                        <img src="/images/travel/icon-park-outline_phone-call.png" alt=""
-                                            class="w-[26px] h-[26px]">
-                                        <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited call to all network in
-                                            Thailand
-                                        </p>
-                                    </div>
-                                    <div class=" flex gap-4">
-                                        <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
-                                            class="w-[26px] h-[26px]">
-                                        <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited WiFi</p>
-                                    </div>
+                                    @if($sim->unlimited_5g == true)
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/tabler_world.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited 5G Internet</p>
+                                        </div>
+                                    @else
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/tabler_world.png" alt="" class="w-[26px] h-[26px]">
+                                            <div class="flex flex-col">
+                                                <p class="text-left text-[16px] 2xl:text-[18px] ">Free {{$sim->lifetime}} Days</p>
+                                                <p class="text-left text-sm">{{$sim->internet_details}}</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if($sim->travel_cate_id == 23)
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/majesticons_coins-line.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}} THB calling credit for international call</p>
+                                        </div>
+                                    @else
+                                        <div class=" flex gap-4 ">
+                                            <img src="/images/travel/majesticons_coins-line.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <div class="flex flex-col">
+                                                <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}} Baht call credit</p>
+                                                <p class="text-sm">for local and international calls</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if($sim->travel_cate_id == 23)
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/icon-park-outline_phone-call.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->free_call}}</p>
+                                        </div>
+                                    @else
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/icon-park-outline_phone-call.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <div class="flex flex-col">
+                                                <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->free_call}}</p>
+                                                <p class="text-sm">{{$sim->free_call_details}}</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if($sim->travel_cate_id == 23)
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited WiFi</p>
+                                        </div>
+                                    @else
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <p class="text-left text-[16px] 2xl:text-[18px] ">Free WiFi</p>
+                                        </div>
+                                    @endif
+                                    @if($sim->free_tiktok)
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/arcticons_tiktok.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <div class="flex flex-col">
+                                                <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->free_tiktok_details}}</p>
+                                                <p class="text-sm"> for TikTok and Douyin</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if($sim->free_socials)
+                                        <div class=" flex gap-4">
+                                            <img src="/images/travel/like-thumb-hand.png" alt=""
+                                                class="w-[26px] h-[26px]">
+                                            <div class="flex flex-col">
+                                                <p class="text-left text-[16px] 2xl:text-[18px] ">Free 14 social apps</p>
+                                                <p class="text-left">(no data charges)</p>
+                                                <div class="mt-1 grid grid-cols-7 gap-x-2 gap-y-2">
+                                                    <img src="/images/travel/social/facebook icon.png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector.png" alt="" class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Group 6.png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (1).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Group 7.png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (2).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (3).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (4).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (5).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (6).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (7).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (8).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (9).png" alt=""
+                                                        class="max-w-[20px]">
+                                                    <img src="/images/travel/social/Vector (10).png" alt=""
+                                                        class="max-w-[20px]">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
 
                                 </div>
 
                                 <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2 relative">
                                     <div class="grid grid-cols-3">
                                         <p class="text-white text-left text-[18px] max-es:text-[16px] mt-2">ราคา</p>
-                                        <p class="text-white font-medium text-center text-3xl">499</p>
-                                        <p class="text-white text-right text-[18px] max-es:text-[16px]  mt-2">บาท</p>
+                                        <p class="text-white font-medium text-center text-3xl">{{$sim->price}}</p>
+                                        <p class="text-white text-right text-[18px] max-es:text-[16px]  mt-2">บาท
+                                        </p>
 
                                     </div>
                                     <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png">
@@ -113,14 +200,15 @@
                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                     </div>
 
-                                    <a href="#"
-                                        class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                    <a href="/travel_sim_buy"
-                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                    <a href="{{url('/travel_sim_buy/'.$sim->id)}}"
+                                        class="cursor-pointer flex items-center lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                    <a href="#buynow"
+                                        class="cursor-pointer flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
                                 </div>
+
                             </div>
                         </div>
-                    @endfor
+                            @endforeach
                 </div>
         </section>
 

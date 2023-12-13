@@ -22,7 +22,37 @@
                     </div>
                 </div>
 
-                @for($i = 1; $i <= 5 ;$i++)
+                @if(count($berMonthlys) > 0)
+                    @foreach($berMonthlys as $month)
+                    <div class="">
+                        <div class="max-ex:p-2 p-4 flex justify-between items-center">
+                            <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
+                                <figure>
+                                    <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/icons/category/imgcart.png" alt="">
+                                </figure>
+                                <div class="">
+                                    <p class="font-semibold">เบอร์มงคล</p>
+                                    <p>หมายเลขเบอร์ <br>{{$month->product_phone}}</p>
+                                <div class="max-ex:hidden"> <p>เกรด {{$month->product_grade}}</p>
+                                    <p>{{$month->product_comment}}</p></div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($month->product_price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($month->product_price)}}</p>
+                                <figure class="flex justify-center items-center cursor-pointer">
+                                    <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    @endforeach
+                @endif
+
+                @for($i = 1; $i <= 2 ;$i++)
                 {{-- cart items list --}}
                 <div class="">
                     <div class="max-ex:p-2 p-4 flex justify-between items-center">
@@ -52,6 +82,7 @@
                 </div>
                 <hr>
                 @endfor
+                
 
                 {{-- total price --}}
                 <div class="max-ex:p-2 p-4 max-ex:my-4 my-8 bg-white border border-[1px]-[#D9D9D9] rounded-[10px]">

@@ -137,7 +137,6 @@
                                             <img src="/images/travel/social/Vector (10).png" alt=""
                                                 class="max-w-[20px]">
                                         </div>
-
                                     </div>
                                 </div>
 

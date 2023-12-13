@@ -364,6 +364,55 @@
                                                     <p class="text-left text-[16px] 2xl:text-[18px] ">Free WiFi</p>
                                                 </div>
                                             @endif
+                                            @if($sim->free_tiktok)
+                                                <div class=" flex gap-4">
+                                                    <img src="/images/travel/arcticons_tiktok.png" alt=""
+                                                        class="w-[26px] h-[26px]">
+                                                    <div class="flex flex-col">
+                                                        <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->free_tiktok_details}}</p>
+                                                        <p class="text-sm"> for TikTok and Douyin</p>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            @if($sim->free_socials)
+                                                <div class=" flex gap-4">
+                                                    <img src="/images/travel/like-thumb-hand.png" alt=""
+                                                        class="w-[26px] h-[26px]">
+                                                    <div class="flex flex-col">
+                                                        <p class="text-left text-[16px] 2xl:text-[18px] ">Free 14 social apps</p>
+                                                        <p class="text-left">(no data charges)</p>
+                                                        <div class="mt-1 grid grid-cols-7 gap-x-2 gap-y-2">
+                                                            <img src="/images/travel/social/facebook icon.png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector.png" alt="" class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Group 6.png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (1).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Group 7.png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (2).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (3).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (4).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (5).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (6).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (7).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (8).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (9).png" alt=""
+                                                                class="max-w-[20px]">
+                                                            <img src="/images/travel/social/Vector (10).png" alt=""
+                                                                class="max-w-[20px]">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
 
                                         </div>
 
