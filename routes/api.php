@@ -150,18 +150,23 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::prefix('prepaidcate/')->group(function () {
 
             Route::get('data', [PrepaidController::class, 'cateIndex']);
+            Route::post('create', [PrepaidController::class, 'createPrepaidCate']);
+            Route::post('update/{id}', [PrepaidController::class, 'updatePrepaidCate']);
             Route::patch('updatepin/{id}', [PrepaidController::class, 'updatePinCate']);
             Route::patch('updatedisplay/{id}', [PrepaidController::class, 'updateDisplayCate']);
             Route::delete('delete/{id}', [PrepaidController::class, 'deletePrepaidCate']);
-
-            Route::post('create', [PrepaidController::class, 'createTravelSim']);
-            Route::post('update/{id}', [PrepaidController::class, 'updateTravelSim']);
-
         });
 
         // Prepaid sim
         Route::prefix('prepaidsim/')->group(function () {
             Route::get('data', [PrepaidController::class, 'simIndex']);
+
+            Route::post('create', [PrepaidController::class, 'createPrepaidSim']);
+            Route::post('update/{id}', [PrepaidController::class, 'updatePrepaidSim']);
+
+            Route::patch('updaterec/{id}', [PrepaidController::class, 'updateRecProduct']);
+            Route::patch('updatedisplay/{id}', [PrepaidController::class, 'updateDisplaySim']);
+            Route::delete('delete/{id}', [PrepaidController::class, 'deletePrepaidSim']);
 
         });
     });

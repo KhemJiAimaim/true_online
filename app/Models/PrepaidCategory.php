@@ -13,7 +13,4 @@ class PrepaidCategory extends Model
     protected $primaryKey = "id";
     protected $guarded = [];
 
-    public function images() {
-        return $this->hasMany(PrepaidCategoryImage::class, 'prepaid_cate_id', 'id')->orderBy('defaults', 'DESC');
-    }
 }
