@@ -1,4 +1,6 @@
 
+
+
 const box = document.querySelectorAll('#box');
 box.forEach(element => {
   element.addEventListener('click', () => {
@@ -99,7 +101,7 @@ let btn_package = document.querySelector('#btn-package');  // ปุ่มรา
 let btn_condition = document.querySelector('#btn-condition');  // ปุ่มเงื่อนไข
 let box_package = document.querySelector('#box-package');
 let box_condition = document.querySelector('#box-condition');
-let show_more = document.querySelector('#show-more');
+let show_more = document.querySelector('#show');
 
 // ฟังก์ชัน package and condition content
 btn_package.addEventListener('click', () => {

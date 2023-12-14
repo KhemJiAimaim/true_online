@@ -64,9 +64,7 @@
                                                     class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[350px] h-[100%] ">
                                                     <div
                                                         class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
-                                                        <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
-                                                            ซิมเทพ
-                                                            เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                                                        <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]"> ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
                                                         <img class=" absolute top-0 right-0"
                                                             src="/images/circle/Intersect.png" alt="">
                                                     </div>

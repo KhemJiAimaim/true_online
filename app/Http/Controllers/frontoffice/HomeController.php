@@ -24,6 +24,8 @@ use App\Models\LeaveMessage;
 use App\Models\User;
 use App\Models\BerproductMonthly;
 use App\Models\FiberProduct;
+use App\Models\PrepaidCategory;
+use App\Models\TravelSim;
 use Illuminate\Support\Facades\Mail;
 use stdClass;
 
@@ -41,7 +43,15 @@ class HomeController extends Controller
             ->where('status_display', true)
             ->orderBy('priority')
             ->get();
-        return view('frontend.pages.home',compact('cate_home','berproducts', 'product_fiber','post_benefits'));
+        $prepaid_cate = PrepaidCategory::select('*', 
+            DB::raw("(SELECT MIN(price) FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false) as price"))
+            ->where('display', true)
+            ->where('delete_status', false)
+            ->orderBy('priority')
+            ->get();
+        $travel_sim = TravelSim::where('travel_cate_id', 23)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
+        // dd($prepaid_cate);
+        return view('frontend.pages.home',compact('cate_home','berproducts', 'product_fiber','post_benefits', 'prepaid_cate','travel_sim'));
     }
 
     public function thankyou()

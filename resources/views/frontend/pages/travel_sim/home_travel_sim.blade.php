@@ -274,12 +274,10 @@
                                 <div class="swiper-slide flex justify-center items-center">
                                     <div
                                         class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] xs:w-[415px] w-[350px] max-md:w-[350px] h-[100%] ss:px-3">
-                                        <div
-                                            class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0 ">
+                                        <div class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0 ">
 
                                             <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">{{$sim->lifetime}} DAYS {{$sim->price}} BAHT</p>
-                                            <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png"
-                                                alt="">
+                                            <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                                         </div>
                                         {{-- <div
                                         class="">

@@ -285,8 +285,8 @@ return new class extends Migration
                 'free_tiktok_details' => 'Free 10 GB',
                 'unlimited_5g' => true,
                 'free_wifi' => true,
-                'free_tiktok' => true,
-                'free_socials' => true,
+                'free_tiktok' => false,
+                'free_socials' => false,
                 'benefit_ids' => '',
                 'package_options' => ',399,', // package option 1:price, package option 2:price
                 'thumbnail_link' => 'images/travel/Rectangle 709.png',
@@ -358,8 +358,8 @@ return new class extends Migration
                 'free_tiktok_details' => 'Free 10 GB',
                 'unlimited_5g' => true,
                 'free_wifi' => true,
-                'free_tiktok' => true,
-                'free_socials' => true,
+                'free_tiktok' => false,
+                'free_socials' => false,
                 'benefit_ids' => '',
                 'package_options' => ',499,', // package option 1:price, package option 2:price
                 'thumbnail_link' => 'images/travel/Rectangle 709.png',
@@ -431,8 +431,8 @@ return new class extends Migration
                 'free_tiktok_details' => 'Free 10 GB',
                 'unlimited_5g' => true,
                 'free_wifi' => true,
-                'free_tiktok' => true,
-                'free_socials' => true,
+                'free_tiktok' => false,
+                'free_socials' => false,
                 'benefit_ids' => '',
                 'package_options' => ',399,', // package option 1:price, package option 2:price
                 'thumbnail_link' => 'images/travel/Rectangle 709.png',
@@ -504,8 +504,8 @@ return new class extends Migration
                 'free_tiktok_details' => 'Free 10 GB',
                 'unlimited_5g' => true,
                 'free_wifi' => true,
-                'free_tiktok' => true,
-                'free_socials' => true,
+                'free_tiktok' => false,
+                'free_socials' => false,
                 'benefit_ids' => '',
                 'package_options' => ',399,', // package option 1:price, package option 2:price
                 'thumbnail_link' => 'images/travel/Rectangle 709.png',

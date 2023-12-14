@@ -94,7 +94,7 @@
                 @foreach($sub_cate as $s_cate)
                 @if($s_cate->cate_parent_id == $m_cate->id)
                 <li>
-                    <a href="{{$s_cate->cate_redirect}}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{$s_cate->cate_title}}</a>
+                    <a href="/{{$s_cate->cate_redirect}}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{$s_cate->cate_title}}</a>
                 </li>
                 @endif
                 @endforeach

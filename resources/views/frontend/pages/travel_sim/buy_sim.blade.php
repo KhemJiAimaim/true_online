@@ -126,5 +126,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/prepaid_sim/buy_sim.js')
+    @vite('resources/js/travel/buy_sim.js')
 @endsection

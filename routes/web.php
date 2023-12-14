@@ -38,7 +38,7 @@ Route::get("/fiber/form_true_dtac/{id}", [FiberController::class, "form_true_dta
 
 //ซิมเติมเงิน
 Route::get("/prepaid_sim", [SimController::class, "prepaid_sim"]);
-Route::get("/prepaid_sim/buy_sim", [SimController::class, "buy_sim"]);
+Route::get("/prepaid_sim/buy_sim/{id}", [SimController::class, "buy_sim"]);
 Route::get("/prepaid_sim/sim_includ", [SimController::class, "sim_includ"]);
 //package
 Route::get("/prepaid_sim/package/{type?}", [SimController::class, "package"]);

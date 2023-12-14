@@ -111,6 +111,30 @@ return new class extends Migration
                 'priority' => 6,
                 'language' => 'th',
             ],
+            [
+                'prepaid_cate_id' => 4,
+                'title' => '10Mbps ไม่ลดสปีด',
+                'details' => '10Mbps ไม่ลดสปีด',
+                'price' => 199,
+                'thumbnail_link' => 'images/Rectangle 1297.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'recommended' => false,
+                'priority' => 7,
+                'language' => 'th',
+            ],
+            [
+                'prepaid_cate_id' => 4,
+                'title' => '15Mbps+โทรฟรี (55GB) Free Wifi 100min call',
+                'details' => '15Mbps+โทรฟรี (55GB) Free Wifi 100min call',
+                'price' => 299,
+                'thumbnail_link' => 'images/Rectangle 107.png',
+                'thumbnail_title' => '',
+                'thumbnail_alt' => '',
+                'recommended' => false,
+                'priority' => 8,
+                'language' => 'th',
+            ],
         ]);
 
     }
