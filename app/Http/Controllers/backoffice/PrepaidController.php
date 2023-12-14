@@ -221,15 +221,6 @@ class PrepaidController extends BaseController
         }
     }
 
-
-
-
-
-
-
-
-
-
     //sim
     public function simIndex(Request $request)
     {
