@@ -32,7 +32,8 @@ return new class extends Migration
             $table->string('default_cate');
             $table->enum('product_display', ['yes', 'no'])->default('yes');
             $table->string('monthly_status', 10);
-            
+            $table->boolean('delete_status')->default(false);
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

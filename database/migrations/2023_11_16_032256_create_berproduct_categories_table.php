@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('bercate_name');
             $table->string('bercate_title', 100);
             $table->string('thumbnail');
-            $table->string('bercate_needful')->comment('เลขที่ต้องการ');
-            $table->string('bercate_needless')->comment('เลขที่ไม่ต้องการ');
+            $table->text('bercate_needful')->comment('เลขที่ต้องการ');
+            $table->text('bercate_needless')->comment('เลขที่ไม่ต้องการ');
             $table->integer('priority')->length(10);
             $table->integer('bercate_total')->length(10);
             $table->integer('bercate_discount')->length(3);
@@ -36,6 +36,7 @@ return new class extends Migration
             $table->text('bercate_content')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
+            $table->boolean('delete_status')->default(false);
             $table->timestamps();
         });
 
@@ -44,7 +45,7 @@ return new class extends Migration
                 'bercate_id' =>  '1',
                 'bercate_name' =>  'เบอร์มงคลแนะนำ',
                 'bercate_title' =>  'แนะนำ',
-                'thumbnail' =>  '/icons/category/icon-money.png',
+                'thumbnail' =>  'icons/category/icon-money.png',
                 'bercate_needful' =>  '',
                 'bercate_needless' =>  '',
                 'priority' =>  '3',
@@ -67,7 +68,7 @@ return new class extends Migration
                 'bercate_id' =>  '2',
                 'bercate_name' =>  'เบอร์หงส์ เสริมโชคลาภ เงินทอง',
                 'bercate_title' =>  'เบอร์หงส์ ',
-                'thumbnail' =>  '/icons/category/icon-swarn.png',
+                'thumbnail' =>  'icons/category/icon-swarn.png',
                 'bercate_needful' =>  '289,982,782,287',
                 'bercate_needless' =>  '',
                 'priority' =>  '4',

@@ -82,11 +82,22 @@ Route::prefix('backoffice/v1')->group(function () {
 
         Route::post('config/upload/manual', [ConfigController::class, 'uploadManual']);
 
-
         /* Utility */
         Route::post('ckeditor/upload/image', [UtilController::class, 'ckeditorUploadImage']);
 
         /* ProductController */
+
+        Route::prefix('berluckycate/')->group(function () {
+            Route::get('data', [BerLuckyController::class, 'index']);
+            Route::post('create', [BerLuckyController::class, 'createBerluckyCate']);
+            Route::post('update/{id}', [BerLuckyController::class, 'updateBerluckyCate']);
+            Route::patch('updatestatus/{id}', [BerLuckyController::class, 'updateStatusCate']);
+            Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinCate']);
+            Route::patch('updatedisplay/{id}', [BerLuckyController::class, 'updateDisplayCate']);
+            Route::delete('delete/{id}', [BerLuckyController::class, 'deleteBerluckyCate']);
+
+        });
+
         // Fiber
         Route::prefix('fiber/')->group(function () {
             Route::get('data', [FiberController::class, 'fiberData']);
@@ -163,7 +174,6 @@ Route::prefix('backoffice/v1')->group(function () {
 
             Route::post('create', [PrepaidController::class, 'createPrepaidSim']);
             Route::post('update/{id}', [PrepaidController::class, 'updatePrepaidSim']);
-
             Route::patch('updaterec/{id}', [PrepaidController::class, 'updateRecProduct']);
             Route::patch('updatedisplay/{id}', [PrepaidController::class, 'updateDisplaySim']);
             Route::delete('delete/{id}', [PrepaidController::class, 'deletePrepaidSim']);
