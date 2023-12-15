@@ -50,7 +50,7 @@
                         class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
                         @php $i = 1; @endphp
                         @foreach ($prepaid_sim as $sim)
-                            <div id="box"
+                            <div id="box" data-price="{{$sim->price}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8rem] cursor-pointer">
                                 <div class="flex ">
                                     <img src="/{{$sim->thumbnail_link}}" alt="" class="w-16">
@@ -98,19 +98,19 @@
     <div class="bg-white drop-shadow-md items-center w-full" style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
         <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
             <p class="2xl:text-lg">ราคา</p>
-            <p class="2xl:text-2xl text-xl font-bold">0</p>
+            <p id="result-price" class="2xl:text-2xl text-xl font-bold">0</p>
             <p class="2xl:text-lg">บาท</p>
             <p class="2xl:text-2xl font-bold text-xl">X</p>
 
             <div class="custom-number-input w-32">
                 <div class="flex flex-row 2xl:h-10 w-full rounded-2xl relative bg-transparent mt-1 ">
-                    <button data-action="decrement"
+                    <button id="decrement" data-action="decrement"
                         class="bg-white hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer border  border-[#838383]">
                         <span class="m-auto 2xl:text-2xl">−</span>
                     </button>
                     <input type="text" class="text-center font-bold w-full bg-white hover:text-black focus:text-black  2xl:text-2xl cursor-default flex items-center text-gray-700 border  border-t-[#838383]  border-b-[#838383] outline-none"
                         name="custom-input-number" value="0">
-                    <button data-action="increment"
+                    <button id="increment" data-action="increment"
                         class="bg-white text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer border border-[#838383]">
                         <span class="m-auto 2xl:text-2xl">+</span>
                     </button>

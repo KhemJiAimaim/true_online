@@ -1,5 +1,4 @@
-
-
+import '../global_js/hide_banner.js';
 
 const box = document.querySelectorAll('#box');
 box.forEach(element => {

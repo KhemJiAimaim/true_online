@@ -83,3 +83,7 @@
 </div>
     @include('frontend.pages.move_company.move_footer')
 @endsection
+
+@section('scripts')
+    @vite('resources/js/move/movenow_form.js')
+@endsection

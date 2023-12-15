@@ -1,4 +1,6 @@
+import '../global_js/hide_banner.js';
 
+const result_price = document.querySelector('#result-price');
 const box = document.querySelectorAll('#box');
 box.forEach(element => {
   element.addEventListener('click', () => {
@@ -18,6 +20,8 @@ function handleBoxClick(box) {
     }
   
     if (box !== lastClickedBox) {
+        console.log(box);
+        result_price.innerHTML = box.getAttribute('data-price');
         box.classList.remove('border-gray-10');
         box.classList.add('border-gray-500');
         // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
@@ -32,33 +36,42 @@ function handleBoxClick(box) {
 
 // ปุ่มบวก_ลบจำนวนสินค้า
 function decrement(e) {
-  const btn = e.target.parentNode.querySelector('button[data-action="decrement"]');
-  const target = btn.nextElementSibling;
-  let value = Number(target.value);
-  if (value > 0) {
-    value--;
-    target.value = value;
+  const btn = e.target.closest('#decrement');
+  if (btn) {
+    const target = btn.nextElementSibling;
+    let value = Number(target.value);
+    if (value > 0) {
+      value--;
+      target.value = value;
+    }
   }
 }
 
 function increment(e) {
-  const btn = e.target.parentNode.querySelector('button[data-action="increment"]');
-  const target = btn.previousElementSibling;
-  let value = Number(target.value);
-  value++;
-  target.value = value;
+  const btn = e.target.closest('#increment');
+  if (btn) {
+    const target = btn.previousElementSibling;
+    let value = Number(target.value);
+    value++;
+    target.value = value;
+  }
 }
 
-const decrementButtons = document.querySelectorAll(`button[data-action="decrement"]`);
-const incrementButtons = document.querySelectorAll(`button[data-action="increment"]`);
+const decrementButtons = document.querySelector('#decrement');
+const incrementButtons = document.querySelector('#increment');
 
-decrementButtons.forEach(btn => {
-  btn.addEventListener("click", decrement);
-});
+decrementButtons.addEventListener("click", decrement);
+incrementButtons.addEventListener("click", increment);
+// const decrementButtons = document.querySelectorAll(`button[data-action="decrement"]`);
+// const incrementButtons = document.querySelectorAll(`button[data-action="increment"]`);
 
-incrementButtons.forEach(btn => {
-  btn.addEventListener("click", increment);
-});
+// decrementButtons.forEach(btn => {
+//   btn.addEventListener("click", decrement);
+// });
+
+// incrementButtons.forEach(btn => {
+//   btn.addEventListener("click", increment);
+// });
 
 
 

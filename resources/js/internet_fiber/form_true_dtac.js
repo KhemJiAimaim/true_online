@@ -1,4 +1,5 @@
 console.log('use form_true_dtac.js')
+import '../global_js/hide_banner.js';
 
 let save_form = document.querySelector('#save-form-data');
 const phone = document.querySelector('#phone');

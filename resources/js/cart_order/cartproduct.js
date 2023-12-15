@@ -1,4 +1,4 @@
-import '../bermonthly_lucky/fortune_ber.js';
+// import '../bermonthly_lucky/fortune_ber.js';
 
 console.log("use cartproduct.js")
 
