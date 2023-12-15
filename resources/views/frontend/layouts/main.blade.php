@@ -21,11 +21,13 @@
     @include('frontend.layouts.head')
 
 
-    @if (Request::path() != 'fiber/form_true_dtac' &&
-            Request::path() != 'thankyou' &&
-            Request::path() != 'prepaid_sim/buy_sim')
-        @include('frontend.layouts.banner')
-    @endif
+    @php
+        $array_path = ['thankyou', 'prepaid_sim/buy_sim', 'cartproduct'];
+        
+        if (!in_array(Request::path(), $array_path)) {
+            echo view('frontend.layouts.banner');
+        }
+    @endphp
 
 
 

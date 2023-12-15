@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BerproductMonthly;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Arr;
 
 class CartController extends Controller
 {
@@ -29,6 +30,9 @@ class CartController extends Controller
         //     // เช่น แยกต่าง index 6 กับ 3
         // }
         $berMonthlys = [];
+        $prepaid_sim = [];
+        $travel_sim = [];
+
         foreach($cartList as $list){
             // dd($list[3]);
             if (isset($list[3])) {
@@ -41,55 +45,77 @@ class CartController extends Controller
                 $berMonthlys = BerproductMonthly::whereIn('product_id', $id)->get();
                 // dd($berMonthly);
             } 
+
             if (isset($list[4])){
                 $id = array_column($list[4], 'id');
                 // dd($id);
                 // dd($list[4]);
+                $prepaid_sim = $list[4];
+            }
+
+            if (isset($list[6])){
+                $id = array_column($list[6], 'id');
+                // dd($id);
+                // dd($list[4]);
+                $travel_sim = $list[6];
             }
         }
         
             
         // dd($cartList['items']);
-        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys'));
+        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_sim','travel_sim'));
     }
 
     public function addproduct_to_cart(Request $request, $id) {
         $typeProduct = $request->input('type_product');
         $cartList = Session::get('cart_list', []);
     
-
         // ตรวจสอบว่ามี index สำหรับ type_product หรือไม่
         if (!isset($cartList['items'][$typeProduct])) {
             $cartList['items'][$typeProduct] = [];
         }
     
         // ตรวจสอบว่า $id นี้มีอยู่ใน items หรือไม่
-        if (!in_array($id, array_column($cartList['items'][$typeProduct], 'id'))) {
-            // เพิ่ม $id เข้าไปใน index ของ type_product นั้น
-            $cartList['items'][$typeProduct][] = [
-                'id' => $id,
-                'quantity' => 1,
-                'option' => 0,
-            ];
+        $existingProductKey = array_search($id, array_column($cartList['items'][$typeProduct], 'id'));
     
-            // เพิ่มจำนวนสินค้าใน type_product นั้น
-            $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + 1 : 1;
+        if ($existingProductKey !== false) {
+            // กรณีที่ $id นี้มีอยู่แล้ว
+            if ($typeProduct != 3) {
+                // เพิ่มจำนวนสินค้าใน type_product นั้น
+                $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
     
-            // อัปเดต session ด้วยข้อมูลใหม่
-            Session::put('cart_list', $cartList);
+                // เพิ่ม amount ทั้งหมด
+                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + 1 : 1;
+    
+                // อัปเดต session ด้วยข้อมูลใหม่
+                Session::put('cart_list', $cartList);
+            }
     
             return response()->json([
                 'status' => 'success',
                 'data' => $cartList
             ], 200);
-        }
+        } 
+        
+        // เพิ่ม $id เข้าไปใน index ของ type_product นั้น
+        $cartList['items'][$typeProduct][] = [
+            'id' => $id,
+            'quantity' => 1,
+            'option' => 0,
+        ];
     
-        // กรณีที่ $id นี้มีอยู่แล้ว
+        // เพิ่มจำนวนสินค้าใน type_product นั้น
+        $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + 1 : 1;
+    
+        // อัปเดต session ด้วยข้อมูลใหม่
+        Session::put('cart_list', $cartList);
+    
         return response()->json([
             'status' => 'success',
             'data' => $cartList
         ], 200);
     }
+    
 
     public function clearCart(Request $request) {
         // ลบข้อมูล session ทั้งหมด

@@ -1,3 +1,5 @@
+import '../global_js/hide_banner.js';
+
 // active สินค้า
 // สร้าง event listener สำหรับแต่ละกล่อง
 const box = document.querySelectorAll('#box');

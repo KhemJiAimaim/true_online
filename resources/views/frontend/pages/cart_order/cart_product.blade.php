@@ -28,7 +28,7 @@
                         <div class="max-ex:p-2 p-4 flex justify-between items-center">
                             <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
                                 <figure>
-                                    <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/icons/category/imgcart.png" alt="">
+                                    <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/images/cart/dragon.png" alt="">
                                 </figure>
                                 <div class="">
                                     <p class="font-semibold">เบอร์มงคล</p>
@@ -52,8 +52,67 @@
                     @endforeach
                 @endif
 
-                @for($i = 1; $i <= 2 ;$i++)
-                {{-- cart items list --}}
+                @if(count($prepaid_sim) > 0)
+                    @foreach($prepaid_sim as $prepaid)
+                    <div class="">
+                        <div class="max-ex:p-2 p-4 flex justify-between items-center">
+                            <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
+                                <figure>
+                                    <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/icons/category/imgcart.png" alt="">
+                                </figure>
+                                <div class="">
+                                    <p class="font-semibold">ซิมเติมเงิน</p>
+                                    <p>หมายเลขเบอร์ <br>{{$prepaid->product_phone}}</p>
+                                <div class="max-ex:hidden"> <p>เกรด {{$prepaid->product_grade}}</p>
+                                    <p>{{$prepaid->product_comment}}</p></div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->product_price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->product_price)}}</p>
+                                <figure class="flex justify-center items-center cursor-pointer">
+                                    <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    @endforeach
+                @endif
+
+                @if(count($travel_sim) > 0)
+                    @foreach($travel_sim as $travel)
+                    <div class="">
+                        <div class="max-ex:p-2 p-4 flex justify-between items-center">
+                            <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
+                                <figure>
+                                    <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/images/cart/travelsim.png" alt="">
+                                </figure>
+                                <div class="">
+                                    <p class="font-semibold">ซิมท่องเที่ยว</p>
+                                    <p>หมายเลขเบอร์ <br>0933501625</p>
+                                <div class="max-ex:hidden"> <p>เกรด F</p>
+                                    <p>dasdasdasdadadad</p></div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(35000)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(35000)}}</p>
+                                <figure class="flex justify-center items-center cursor-pointer">
+                                    <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    @endforeach
+                @endif
+
+                {{-- @for($i = 1; $i <= 2 ;$i++)
                 <div class="">
                     <div class="max-ex:p-2 p-4 flex justify-between items-center">
                         <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
@@ -81,7 +140,7 @@
 
                 </div>
                 <hr>
-                @endfor
+                @endfor --}}
                 
 
                 {{-- total price --}}
