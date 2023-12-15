@@ -98,6 +98,18 @@ Route::prefix('backoffice/v1')->group(function () {
 
         });
 
+        Route::prefix('berlucky/')->group(function () {
+            Route::get('data', [BerLuckyController::class, 'productIndex']);
+
+            Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinProduct']);
+            Route::patch('updatesold/{id}', [BerLuckyController::class, 'updateSoldProduct']);
+            Route::patch('updatedisplay/{id}', [BerLuckyController::class, 'updateDisplayProduct']);
+
+            /* Excel */
+            Route::post('importexcel', [ExcelController::class, 'excelImportBer']);
+            Route::get('exportexcel', [ExcelController::class, 'excelExportBer']);
+        });
+
         // Fiber
         Route::prefix('fiber/')->group(function () {
             Route::get('data', [FiberController::class, 'fiberData']);

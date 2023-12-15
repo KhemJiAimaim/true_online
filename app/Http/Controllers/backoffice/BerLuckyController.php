@@ -17,7 +17,7 @@ class BerLuckyController extends BaseController
     {
 
         $bercates = $this->getBerluckyCateAll();
-        $berproduct = BerproductMonthly::get()->all();
+        $berproduct = $this->getBerluckyProductAll();
 
         if ($bercates) {
             foreach ($bercates as $cate) {
@@ -250,7 +250,14 @@ class BerLuckyController extends BaseController
     /* Product */
     public function productIndex(Request $request)
     {
+        $bercates = $this->getBerluckyCateAll();
+        $benefits = $this->getBenefits();
         $products = $this->getBerluckyProductAll();
+
+        foreach ($products as $product) {
+            $default_cate = explode(",", $product->default_cate);
+            $product->default_cate = $default_cate;
+        }
 
         return response([
             'message' => 'ok',
@@ -258,8 +265,79 @@ class BerLuckyController extends BaseController
             'description' => 'Get Lucky ber success',
             'data' => [
                 'products' => $products,
+                'cates' => $bercates,
+                'benefits' => $benefits,
             ]
         ], 200);
+    }
+
+    public function updateSoldProduct(Request $request, $id)
+    {
+        try {
+
+            $product = BerproductMonthly::where('product_id', $id)->update([
+                'product_sold' => $request->product_sold ? 'yes' : 'no'
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update product sold successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updatePinProduct(Request $request, $id)
+    {
+        try {
+
+            $product = BerproductMonthly::where('product_id', $id)->update([
+                'product_pin' => $request->product_pin ? 'yes' : 'no'
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update pin product successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updateDisplayProduct(Request $request, $id)
+    {
+        try {
+
+            $product = BerproductMonthly::where('product_id', $id)->update([
+                'product_display' => $request->product_display ? 'yes' : 'no'
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update display product successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
     }
 
 
@@ -281,7 +359,6 @@ class BerLuckyController extends BaseController
     {
         $data = BerproductMonthly::where('delete_status', 0)
             ->orderBy('updated_at', 'DESC')
-            ->orderBy('priority', 'ASC')
             ->get();
 
         return $data;
