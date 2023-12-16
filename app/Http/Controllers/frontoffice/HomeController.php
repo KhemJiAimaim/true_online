@@ -43,14 +43,15 @@ class HomeController extends Controller
             ->where('status_display', true)
             ->orderBy('priority')
             ->get();
-        $prepaid_cate = PrepaidCategory::select('*', 
+        $prepaid_cate = PrepaidCategory::select('*',
+            DB::raw("(SELECT id FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false ORDER BY price ASC LIMIT 1) as prepaid_sim_id"),
             DB::raw("(SELECT MIN(price) FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false) as price"))
             ->where('display', true)
             ->where('delete_status', false)
             ->orderBy('priority')
             ->get();
-        $travel_sim = TravelSim::where('travel_cate_id', 23)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
         // dd($prepaid_cate);
+        $travel_sim = TravelSim::where('travel_cate_id', 23)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
         return view('frontend.pages.home',compact('cate_home','berproducts', 'product_fiber','post_benefits', 'prepaid_cate','travel_sim'));
     }
 

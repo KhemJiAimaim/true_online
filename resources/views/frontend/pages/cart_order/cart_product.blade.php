@@ -1,5 +1,9 @@
 @extends('frontend.layouts.main')
 @section('content')
+@php 
+    $sum_price = 0;
+    $total_price = 0;
+@endphp
     <div class="text-left 2xl:mt-32 xl:mt-32 mt-16">
         <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
             <div class="text-center">
@@ -62,16 +66,16 @@
                                 </figure>
                                 <div class="">
                                     <p class="font-semibold">ซิมเติมเงิน</p>
-                                    <p>หมายเลขเบอร์ <br>{{$prepaid->product_phone}}</p>
-                                <div class="max-ex:hidden"> <p>เกรด {{$prepaid->product_grade}}</p>
-                                    <p>{{$prepaid->product_comment}}</p></div>
+                                    <p>หมายเลขเบอร์ <br>0933501625</p>
+                                <div class="max-ex:hidden"> <p>เกรด F</p>
+                                    <p>สินค้าซิมเติมเงิน</p></div>
                                 </div>
                             </div>
 
                             <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->product_price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(3500)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->product_price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(3500)}}</p>
                                 <figure class="flex justify-center items-center cursor-pointer">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
@@ -82,8 +86,8 @@
                     @endforeach
                 @endif
 
-                @if(count($travel_sim) > 0)
-                    @foreach($travel_sim as $travel)
+                @if(count($travelSims) > 0)
+                    @foreach($travelSims as $travel)
                     <div class="">
                         <div class="max-ex:p-2 p-4 flex justify-between items-center">
                             <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
@@ -92,16 +96,18 @@
                                 </figure>
                                 <div class="">
                                     <p class="font-semibold">ซิมท่องเที่ยว</p>
-                                    <p>หมายเลขเบอร์ <br>0933501625</p>
-                                <div class="max-ex:hidden"> <p>เกรด F</p>
-                                    <p>dasdasdasdadadad</p></div>
+                                    <p>{{$travel->title}}</p>
+                                    <p>ตัวเลือก {{$travel->option}}</p>
+                                    <div class="max-ex:hidden"> 
+                                        <p>{{$travel->internet_details}}</p>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(35000)}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(35000)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($travel->price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{$travel->quantity}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($travel->price * $travel->quantity)}}</p>
                                 <figure class="flex justify-center items-center cursor-pointer">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
@@ -148,25 +154,25 @@
                     <div class="flex justify-between">
                         <p class="text-[16px] max-ex:text-[14px] font-semibold ">ยอดรวม สินค้า</p>
                         <div class="flex gap-4 ">
-                            <div class="text-[16px] font-semibold">334,799</div>
+                            <div class="text-[16px] font-semibold">{{ number_format($sum_price)}}</div>
                             <p class="text-[#838383] max-ex:text-[14px]">บาท</p>
                         </div>
                     </div>
                     <div class="flex justify-between ">
                         <div class="flex justify-center items-center gap-2 max-ex:grid max-ex:grid-row-2">
                             <p class="text-[16px] max-ex:text-[14px] font-semibold">ค่าจัดส่ง</p>
-                            <p class="text-[12px] max-ex:text-[10px] text-[#838383] text-center">***จัดส่งฟรีเมื่อยอดสั่งซื้อขั้นต่ำมากว่า 1,000,000 บาท
+                            <p class="text-[12px] max-ex:text-[10px] text-[#838383] text-center">***จัดส่งฟรีเมื่อยอดสั่งซื้อขั้นต่ำมากว่า 1,500 บาท
                             </p>
                         </div>
                         <div class="flex gap-4">
-                            <div class="text-[16px] font-semibold ">334,799</div>
+                            <div class="text-[16px] font-semibold ">{{$shipping_cost = ($sum_price <= 1500)?50:0}}</div>
                             <p class="text-[#838383]">บาท</p>
                         </div>
                     </div>
                     <div class="flex justify-between">
                         <h1 class="text-lg text-[#EC1F25] max-ex:text-[14px]">ยอดรวมทั้งหมด</h1>
                         <div class="flex items-end gap-4">
-                            <p class="text-[16px] font-semibold text-[#EC1F25]">334,799</p>
+                            <p class="text-[16px] font-semibold text-[#EC1F25]">{{number_format($total_price = $sum_price + $shipping_cost)}}</p>
                             <p class="text-[#838383] max-ex:text-[14px]">บาท</p>
                         </div>
                     </div>

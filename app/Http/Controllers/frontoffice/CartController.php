@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\frontoffice;
 
 use App\Http\Controllers\Controller;
-use App\Models\BerproductMonthly;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Arr;
+use App\Models\BerproductMonthly;
+use App\Models\TravelSim;
 
 class CartController extends Controller
 {
@@ -31,19 +32,12 @@ class CartController extends Controller
         // }
         $berMonthlys = [];
         $prepaid_sim = [];
-        $travel_sim = [];
+        $travelSims = [];
 
         foreach($cartList as $list){
-            // dd($list[3]);
             if (isset($list[3])) {
                 $id = array_column($list[3], 'id');
-                // dd($id);
-                // dd($list[3]);
-                // $fiberProducts = DB::table('fiber_product')
-                //     ->whereIn('id', array_column($cartList[3], 'id'))
-                //     ->get();
                 $berMonthlys = BerproductMonthly::whereIn('product_id', $id)->get();
-                // dd($berMonthly);
             } 
 
             if (isset($list[4])){
@@ -55,29 +49,41 @@ class CartController extends Controller
 
             if (isset($list[6])){
                 $id = array_column($list[6], 'id');
-                // dd($id);
-                // dd($list[4]);
-                $travel_sim = $list[6];
+                $travelSims = TravelSim::whereIn('id', $id)->get();
+                foreach ($travelSims as $travelSim) {
+                    $id = $travelSim->id;
+                
+                    // ค้นหาข้อมูลที่ตรงกับ $id ใน $list[6]
+                    $matchingItem = collect($list[6])->firstWhere('id', $id);
+                
+                    // ถ้ามีข้อมูลที่ตรงกัน
+                    if ($matchingItem) {
+                        // เพิ่มข้อมูลใน $list[6] เข้ากับ $travelSim
+                        $travelSim->option = $matchingItem['option'];
+                        $travelSim->quantity = $matchingItem['quantity'];
+                    }
+                }
+
             }
         }
         
             
-        // dd($cartList['items']);
-        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_sim','travel_sim'));
+        // dd($prepaid_sim);
+        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_sim','travelSims'));
     }
 
     public function addproduct_to_cart(Request $request, $id) {
         $typeProduct = $request->input('type_product');
         $cartList = Session::get('cart_list', []);
-    
+        
         // ตรวจสอบว่ามี index สำหรับ type_product หรือไม่
         if (!isset($cartList['items'][$typeProduct])) {
             $cartList['items'][$typeProduct] = [];
         }
-    
+        
         // ตรวจสอบว่า $id นี้มีอยู่ใน items หรือไม่
         $existingProductKey = array_search($id, array_column($cartList['items'][$typeProduct], 'id'));
-    
+        
         if ($existingProductKey !== false) {
             // กรณีที่ $id นี้มีอยู่แล้ว
             if ($typeProduct != 3) {
