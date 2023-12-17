@@ -271,6 +271,51 @@ class BerLuckyController extends BaseController
         ], 200);
     }
 
+    public function updateBerlucky(Request $request, $id)
+    {
+        $this->getAuthUser();
+
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'numeric|required',
+            'product_price' => 'numeric|required',
+            'product_discount' => 'numeric|nullable',
+            'product_phone' => 'string|required',
+            'product_comment' => 'string|nullable',
+            'product_package' => 'string|nullable',
+
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            BerproductMonthly::where('product_id', $id)->update([
+                'product_phone' => $request->product_phone,
+                'product_price' => $request->product_price,
+                'product_comment' => $request->product_comment,
+                'product_discount' => $request->product_discount,
+                'product_package' => $request->product_package,
+            ]);
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Berlucky has been updated successfully',
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
     public function updateSoldProduct(Request $request, $id)
     {
         try {
@@ -330,6 +375,26 @@ class BerLuckyController extends BaseController
                 'status' => true,
                 'description' => 'update display product successfully',
                 'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function deleteBerlucky(Request $request, $id)
+    {
+        try {
+
+            $product = BerproductMonthly::where('product_id', $id)->update(['delete_status' => 1]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Berlucky has been deleted successfully',
             ], 200);
         } catch (Exception $e) {
             return response([

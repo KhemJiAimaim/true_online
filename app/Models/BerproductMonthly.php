@@ -9,23 +9,9 @@ class BerproductMonthly extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'product_id', 
-        'product_phone', 
-        'product_sumber', 
-        'product_price', 
-        'product_category', 
-        'product_improve', 
-        'product_pin',
-        'product_sold', 
-        'product_new', 
-        'product_comment', 
-        'product_package', 
-        'product_hot', 
-        'product_discount', 
-        'product_grade', 
-        'default_cate',
-        'product_display',
-        'monthly_status'
-    ];
+    protected $table = "berproduct_monthlies";
+
+    protected $primaryKey = "product_id";
+
+    protected $guarded = [];
 }
