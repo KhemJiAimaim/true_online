@@ -101,10 +101,13 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::prefix('berlucky/')->group(function () {
             Route::get('data', [BerLuckyController::class, 'productIndex']);
 
+            Route::post('create', [BerLuckyController::class, 'createBerlucky']);
+
             Route::post('update/{id}', [BerLuckyController::class, 'updateBerlucky']);
             Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinProduct']);
             Route::patch('updatesold/{id}', [BerLuckyController::class, 'updateSoldProduct']);
             Route::patch('updatedisplay/{id}', [BerLuckyController::class, 'updateDisplayProduct']);
+            Route::patch('updatemonthlystatus/{id}', [BerLuckyController::class, 'updateMonthlyStatus']);
             Route::delete('delete/{id}', [BerLuckyController::class, 'deleteBerlucky']);
 
             /* Excel */

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('prophecy_desc');
             $table->float('prophecy_percent');
             $table->string('prophecy_color');
+
+            $table->index('prophecy_numb');
             $table->timestamps();
         });
 

@@ -271,17 +271,20 @@ class BerLuckyController extends BaseController
         ], 200);
     }
 
-    public function updateBerlucky(Request $request, $id)
+    public function createBerlucky(Request $request)
     {
         $this->getAuthUser();
 
         $validator = Validator::make($request->all(), [
-            'product_id' => 'numeric|required',
             'product_price' => 'numeric|required',
+            'product_sumber' => 'numeric|required',
             'product_discount' => 'numeric|nullable',
             'product_phone' => 'string|required',
             'product_comment' => 'string|nullable',
             'product_package' => 'string|nullable',
+            'default_cate' => 'string|nullable',
+            'product_pin' => 'string|required',
+            'monthly_status' => 'string|required',
 
         ]);
 
@@ -292,13 +295,90 @@ class BerLuckyController extends BaseController
         try {
             DB::beginTransaction();
 
-            BerproductMonthly::where('product_id', $id)->update([
+            $generated = $this->generateBer($request->all());
+
+            $newProduct = BerproductMonthly::create([
                 'product_phone' => $request->product_phone,
                 'product_price' => $request->product_price,
+                'product_sumber' => $request->product_sumber,
+                'default_cate' => $request->default_cate,
                 'product_comment' => $request->product_comment,
                 'product_discount' => $request->product_discount,
                 'product_package' => $request->product_package,
+                'product_display' => $request->product_display,
+                'product_pin' => $request->product_pin,
+                'monthly_status' => $request->monthly_status,
+
+                'product_category' => $generated['product_category'],
+                'product_grade' => $generated['product_grade'],
+                'product_improve' => $generated['product_improve'],
+                'product_new' => 'yes',
             ]);
+
+            // generate product_category
+            $this->getProductByCategory($newProduct);
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Berlucky has been created successfully',
+                'newProduct' => $newProduct,
+                'generated' => $generated,
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
+    public function updateBerlucky(Request $request, $id)
+    {
+        $this->getAuthUser();
+
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'numeric|required',
+            'product_price' => 'numeric|required',
+            'product_sumber' => 'numeric|required',
+            'product_discount' => 'numeric|nullable',
+            'product_phone' => 'string|required',
+            'product_comment' => 'string|nullable',
+            'product_package' => 'string|nullable',
+            'default_cate' => 'string|nullable',
+
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $generated = $this->generateBer($request->all());
+
+            BerproductMonthly::where('product_id', $id)->update([
+                'product_phone' => $request->product_phone,
+                'product_price' => $request->product_price,
+                'default_cate' => $request->default_cate,
+                'product_sumber' => $request->product_sumber,
+                'product_comment' => $request->product_comment,
+                'product_discount' => $request->product_discount,
+                'product_package' => $request->product_package,
+
+                'product_category' => $generated['product_category'],
+                'product_grade' => $generated['product_grade'],
+                'product_improve' => $generated['product_improve'],
+            ]);
+
+            $updated = BerproductMonthly::where('product_id', $id)->first();
+
+            // generate product_category
+            $this->getProductByCategory($updated);
 
             DB::commit();
             return response([
@@ -384,12 +464,34 @@ class BerLuckyController extends BaseController
             ], 500);
         }
     }
+    public function updateMonthlyStatus(Request $request, $id)
+    {
+        try {
+
+            $product = BerproductMonthly::where('product_id', $id)->update([
+                'monthly_status' => $request->monthly_status ? 'yes' : 'no'
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update monthly status successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
 
     public function deleteBerlucky(Request $request, $id)
     {
         try {
 
-            $product = BerproductMonthly::where('product_id', $id)->update(['delete_status' => 1]);
+            $product = BerproductMonthly::where('product_id', $id)->delete();
 
             return response([
                 'message' => 'ok',
@@ -422,9 +524,7 @@ class BerLuckyController extends BaseController
 
     private function getBerluckyProductAll()
     {
-        $data = BerproductMonthly::where('delete_status', 0)
-            ->orderBy('updated_at', 'DESC')
-            ->get();
+        $data = BerproductMonthly::orderBy('updated_at', 'DESC')->get();
 
         return $data;
     }
