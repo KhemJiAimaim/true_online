@@ -76,6 +76,7 @@ Route::get('/movenow/form/{id}', [MoveController::class, "formMove"]);
 
 // ตระกร้าสินค้า
 Route::get('/cartproduct', [CartController::class, "cartproduct_page"]);
+Route::post('/remove-item', [CartController::class, "removeItem"]);
 
 Route::get('/clearcart', [CartController::class, "clearCart"]);
 Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"])->middleware('web');
