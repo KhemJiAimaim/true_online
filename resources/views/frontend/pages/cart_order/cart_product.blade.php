@@ -3,6 +3,9 @@
 @php 
     $sum_price = 0;
     $total_price = 0;
+    $total_month = 0; 
+    $total_prepaid = 0; 
+    $total_travel = 0; 
 @endphp
     <div class="text-left 2xl:mt-32 xl:mt-32 mt-16">
         <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
@@ -45,19 +48,20 @@
                             <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($month->product_price)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($month->product_price)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer">
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_month = $month->product_price)}}</p>
+                                <figure class="flex justify-center items-center cursor-pointer" id="remove-item" data-type="3" data-id="{{$month->product_id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
                             </div>
                         </div>
                     </div>
                     <hr>
+                    @php $total_month += $sum_month @endphp
                     @endforeach
                 @endif
 
-                @if(count($prepaid_sim) > 0)
-                    @foreach($prepaid_sim as $prepaid)
+                @if(count($prepaid_cate) > 0)
+                    @foreach($prepaid_cate as $prepaid)
                     <div class="">
                         <div class="max-ex:p-2 p-4 flex justify-between items-center">
                             <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
@@ -66,23 +70,25 @@
                                 </figure>
                                 <div class="">
                                     <p class="font-semibold">ซิมเติมเงิน</p>
-                                    <p>หมายเลขเบอร์ <br>0933501625</p>
-                                <div class="max-ex:hidden"> <p>เกรด F</p>
-                                    <p>สินค้าซิมเติมเงิน</p></div>
+                                    <p>{{$prepaid->prepaid_sim->title}}</p>
+                                    <div class="max-ex:hidden">
+                                        <p>{{$prepaid->details}}</p>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(3500)}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format(3500)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer">
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->prepaid_sim->price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{$prepaid->quantity}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_prepaid = $prepaid->prepaid_sim->price * $prepaid->quantity)}}</p>
+                                <figure class="flex justify-center items-center cursor-pointer" id="remove-item" data-type="4" data-id="{{$prepaid->id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
                             </div>
                         </div>
                     </div>
                     <hr>
+                    @php $total_prepaid += $sum_prepaid @endphp
                     @endforeach
                 @endif
 
@@ -107,53 +113,26 @@
                             <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($travel->price)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{$travel->quantity}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($travel->price * $travel->quantity)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer">
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_travel = $travel->price * $travel->quantity)}}</p>
+                                <figure class="flex justify-center items-center cursor-pointer" id="remove-item" data-type="6" data-id="{{$travel->id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
                             </div>
                         </div>
                     </div>
                     <hr>
+                    @php $total_travel += $sum_travel @endphp
                     @endforeach
                 @endif
-
-                {{-- @for($i = 1; $i <= 2 ;$i++)
-                <div class="">
-                    <div class="max-ex:p-2 p-4 flex justify-between items-center">
-                        <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
-                            <figure>
-                                <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/icons/category/imgcart.png" alt="">
-                            </figure>
-                            <div class="">
-                                <p class="font-semibold">เบอร์มงคล</p>
-                                <p>หมายเลขเบอร์ <br> 096-554-6995</p>
-                               <div class="max-ex:hidden"> <p>เกรด A+</p>
-                                <p>เน็ต Unlimited + โทร 1700 Mins</p></div>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                            <p class="flex justify-center items-center text-[16px] font-semibold">333,850</p>
-                            <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
-                            <p class="flex justify-center items-center text-[16px] font-semibold">333,850</p>
-                            <figure class="flex justify-center items-center cursor-pointer">
-                                <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
-                            </figure>
-                        </div>
-
-                    </div>
-
-                </div>
-                <hr>
-                @endfor --}}
-                
 
                 {{-- total price --}}
                 <div class="max-ex:p-2 p-4 max-ex:my-4 my-8 bg-white border border-[1px]-[#D9D9D9] rounded-[10px]">
                     <div class="flex justify-between">
                         <p class="text-[16px] max-ex:text-[14px] font-semibold ">ยอดรวม สินค้า</p>
                         <div class="flex gap-4 ">
+                            @php 
+                                $sum_price = $total_month + $total_prepaid + $total_travel;
+                            @endphp
                             <div class="text-[16px] font-semibold">{{ number_format($sum_price)}}</div>
                             <p class="text-[#838383] max-ex:text-[14px]">บาท</p>
                         </div>

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Arr;
 use App\Models\BerproductMonthly;
+use App\Models\PrepaidCategory;
+use App\Models\PrepaidSim;
 use App\Models\TravelSim;
 
 class CartController extends Controller
@@ -14,24 +16,9 @@ class CartController extends Controller
     //
     public function cartproduct_page(Request $request) {
         $cartList = Session::get('cart_list', []);
-        // dd($cartList['items']);
-        // $data = array();
-        // foreach($cartList['items'] as $item) {
-        //     // dd($item);
-        //     $data['index'] = $item;
-        // }
-        // foreach ($cartList['items'] as $typeProduct => $items) {
-        //     // ทำสิ่งที่คุณต้องการกับ $typeProduct และ $items ที่ได้
-        //     // $typeProduct คือ index ของ type_product
-        //     // dd($items);
-        //     // $items คือ array ที่มี 'items', 'amount' เป็น key
-        //     $itemsArray[$typeProduct] = $items; // เข้าถึง array 'items'
-            
-        //     // ทำสิ่งที่คุณต้องการกับ $itemsArray
-        //     // เช่น แยกต่าง index 6 กับ 3
-        // }
+        // dd($cartList);
         $berMonthlys = [];
-        $prepaid_sim = [];
+        $prepaid_cate = [];
         $travelSims = [];
 
         foreach($cartList as $list){
@@ -41,10 +28,33 @@ class CartController extends Controller
             } 
 
             if (isset($list[4])){
-                $id = array_column($list[4], 'id');
-                // dd($id);
-                // dd($list[4]);
-                $prepaid_sim = $list[4];
+                $id_cate = array_column($list[4], 'id');
+                $prepaid_id = array_column($list[4], 'prepaid_id');
+
+                $prepaid_cate = PrepaidCategory::select('*')
+                    ->whereIn('id', $id_cate)
+                    ->where('display', true)
+                    ->where('delete_status', false)
+                    ->orderBy('priority')
+                    ->get();
+                $prepaidSims = PrepaidSim::whereIn('id', $prepaid_id)
+                    ->where('display', true)
+                    ->where('delete_status', false)
+                    ->get();
+
+                foreach($prepaid_cate as $prepaid) {
+                    $id = $prepaid->id;
+                    $matchingItem = collect($list[4])->firstWhere('id', $id);
+                    if ($matchingItem) {
+                        $prepaid->quantity = $matchingItem['quantity'];
+                        foreach($prepaidSims as $item) {
+                            if($matchingItem['prepaid_id'] == $item->id){
+                                $prepaid->prepaid_sim = $item;
+                            }
+                        }
+                    }
+                }
+                // dd($prepaid_cate);
             }
 
             if (isset($list[6])){
@@ -56,9 +66,7 @@ class CartController extends Controller
                     // ค้นหาข้อมูลที่ตรงกับ $id ใน $list[6]
                     $matchingItem = collect($list[6])->firstWhere('id', $id);
                 
-                    // ถ้ามีข้อมูลที่ตรงกัน
                     if ($matchingItem) {
-                        // เพิ่มข้อมูลใน $list[6] เข้ากับ $travelSim
                         $travelSim->option = $matchingItem['option'];
                         $travelSim->quantity = $matchingItem['quantity'];
                     }
@@ -67,9 +75,7 @@ class CartController extends Controller
             }
         }
         
-            
-        // dd($prepaid_sim);
-        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_sim','travelSims'));
+        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_cate','travelSims'));
     }
 
     public function addproduct_to_cart(Request $request, $id) {
@@ -92,8 +98,6 @@ class CartController extends Controller
     
                 // เพิ่ม amount ทั้งหมด
                 $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + 1 : 1;
-    
-                // อัปเดต session ด้วยข้อมูลใหม่
                 Session::put('cart_list', $cartList);
             }
     
@@ -104,16 +108,26 @@ class CartController extends Controller
         } 
         
         // เพิ่ม $id เข้าไปใน index ของ type_product นั้น
-        $cartList['items'][$typeProduct][] = [
-            'id' => $id,
-            'quantity' => 1,
-            'option' => 0,
-        ];
+        if ($typeProduct == 3) {
+            $cartList['items'][$typeProduct][] = [
+                'id' => $id,
+                'quantity' => 1,
+            ];
+        } else if ($typeProduct == 4) {
+            $cartList['items'][$typeProduct][] = [
+                'id' => $id,
+                'quantity' => 1,
+                'prepaid_id' => $request->input('data_prepaid'),
+            ];
+        } else if ($typeProduct == 6) {
+            $cartList['items'][$typeProduct][] = [
+                'id' => $id,
+                'quantity' => 1,
+                'option' => 0,
+            ];
+        }
     
-        // เพิ่มจำนวนสินค้าใน type_product นั้น
         $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + 1 : 1;
-    
-        // อัปเดต session ด้วยข้อมูลใหม่
         Session::put('cart_list', $cartList);
     
         return response()->json([
@@ -122,6 +136,37 @@ class CartController extends Controller
         ], 200);
     }
     
+    public function removeItem(Request $request) {
+        $data_id = $request->input('data_id');
+        $data_type = $request->input('data_type');
+        $cartList = Session::get('cart_list', []);
+        // dd($cartList['items'][$data_type]);
+
+        foreach ($cartList['items'][$data_type] as $index => &$type) {
+            // ถ้าเจอ data_id ที่ต้องการลบ
+            if ($type['id'] === $data_id) {
+                // ลบ item ที่ต้องการ
+                unset($cartList['items'][$data_type][$index]);
+        
+                // ถ้าหลังจากลบ item แล้วไม่มี item อยู่แล้ว
+                if (empty($cartList['items'][$data_type])) {
+                    // ลบ data_type ทั้งหมดออก
+                    unset($cartList['items'][$data_type]);
+                }
+        
+                // ออกจากลูปเมื่อเจอ item และทำการลบ
+                break;
+            }
+        }
+        // dd($cartList['items'][$data_type]);
+        // วนลูป items ใน cartList
+        Session::put('cart_list', $cartList);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'item has remove successfully'
+        ], 200);
+    }
 
     public function clearCart(Request $request) {
         // ลบข้อมูล session ทั้งหมด

@@ -40,9 +40,14 @@ btn_buyNow.forEach(element => {
   element.addEventListener('click', () => {
     const ber_id = element.getAttribute('data-id');
     const type_product = element.getAttribute('data-type');
+    const data_prepaid = element.getAttribute('data-prepaid');
 
     let param = {
       "type_product" : type_product
+    }
+
+    if (data_prepaid) {
+      param.data_prepaid = data_prepaid;
     }
 
     addSessionProduct(ber_id, param).then(response => {
@@ -55,7 +60,7 @@ btn_buyNow.forEach(element => {
           showConfirmButton: false,
           timer: 1000
         }).then(() => {
-          location.href = "/cartproduct"
+          // location.href = "/cartproduct"
         })
       }
     })
