@@ -11,7 +11,7 @@ let lastClickedBox = null;
 
 function handleBoxClick(box) {
     if (lastClickedBox) {
-        lastClickedBox.classList.remove('border-gray-500');
+        lastClickedBox.classList.remove('border-gray-500', 'activate');
         lastClickedBox.classList.add('border-gray-10');
         // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
         const checkbox = lastClickedBox.querySelector('.check-box');
@@ -20,7 +20,7 @@ function handleBoxClick(box) {
   
     if (box !== lastClickedBox) {
         box.classList.remove('border-gray-10');
-        box.classList.add('border-gray-500');
+        box.classList.add('border-gray-500', 'activate');
         // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
         const checkbox = box.querySelector('.check-box');
         checkbox.src = '/images/check-one-active.png';
@@ -125,10 +125,6 @@ btn_condition.addEventListener('click', () => {
 })
 
 show_more.addEventListener('click', () => {
-  showMore_boxPackage()
-})
-
-function showMore_boxPackage() {
   if (box_package.classList.contains('h-[300px]')) {
     box_package.classList.remove('h-[300px]');
     box_package.classList.add('h-auto');
@@ -136,10 +132,60 @@ function showMore_boxPackage() {
     box_package.classList.add('h-[300px]');
     box_package.classList.remove('h-auto');
   }
-}
-
-const btn_buynow = document.querySelector('#buynow');
-
-buynow.addEventListener('click', function() {
-  location.href = '/cartproduct'
 })
+
+const btn_buynow = document.querySelector('#buyProductNow');
+btn_buynow.addEventListener('click', async () => {
+  let response = await addProductSession(btn_buynow);
+  if(response.data.status == "success") {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+      location.href = "/cartproduct"
+    })
+  }
+})
+
+const addtocart = document.querySelector('#addtocart')
+addtocart.addEventListener('click', async () => {
+  let response = await addProductSession(btn_buynow);
+  console.log(response);
+  if(response.data.status == "success") {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+})
+
+
+async function addProductSession(element) {
+  const data_type = element.getAttribute('data-type');
+  const data_id =  element.getAttribute('data-id');
+  
+  let param = {
+    "type_product" : data_type,
+  };
+
+  box.forEach(element => {
+    if(element.classList.contains('activate')) {
+      param.option = element.getAttribute('data-option');
+    }
+  });
+  // console.log(param)
+  // return false;
+
+  try {
+    const response = await axios.post(`/addproduct/${data_id}`, param);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+}

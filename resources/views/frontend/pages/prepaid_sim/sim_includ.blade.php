@@ -23,7 +23,6 @@
                             <p class="text-white text-left ml-3 text-[16px]">{{$prepaid->title}}</p>
                             <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             {{-- </div> --}}
-
                         </div>
 
                         <div class="bg-white">
@@ -43,7 +42,6 @@
                                 <p class="text-white text-left text-[16px] ">ราคา <br> เริ่มต้น</p>
                                 <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">{{ $price = ($prepaid->price)?number_format($prepaid->price):0;}}</p>
                                 <p class="text-white text-right text-[16px]">บาท <br> /เดือน</p>
-
                             </div>
                         </div>
 
@@ -51,22 +49,17 @@
 
                             <a href="{{ url('/prepaid_sim/buy_sim/'.$prepaid->id)}}"
                                 class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                            <a href="#" data-price=""
-                                class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
-
+                            <button id="buyProductNow" data-id="{{$prepaid->id}}" data-type="4" data-prepaid="{{$prepaid->prepaid_sim_id}}"
+                                class="py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
                         </div>
                     </div>
                 @endforeach
-
-
             </div>
-
         </section>
         {{-- --- --}}
-
-
     </div>
-
-
     @include('frontend.pages.prepaid_sim.footer_sim')
+@endsection
+@section('scripts')
+@vite('resources/js/global_js/add_cart_product.js')
 @endsection

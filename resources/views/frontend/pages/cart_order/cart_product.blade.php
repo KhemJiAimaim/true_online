@@ -49,7 +49,7 @@
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($month->product_price)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_month = $month->product_price)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer" id="remove-item" data-type="3" data-id="{{$month->product_id}}">
+                                <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]" id="remove-item" data-type="3" data-id="{{$month->product_id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
                             </div>
@@ -81,7 +81,7 @@
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->prepaid_sim->price)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{$prepaid->quantity}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_prepaid = $prepaid->prepaid_sim->price * $prepaid->quantity)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer" id="remove-item" data-type="4" data-id="{{$prepaid->id}}">
+                                <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]" id="remove-item" data-type="4" data-id="{{$prepaid->id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
                             </div>
@@ -114,7 +114,7 @@
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($travel->price)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{$travel->quantity}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_travel = $travel->price * $travel->quantity)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer" id="remove-item" data-type="6" data-id="{{$travel->id}}">
+                                <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]" id="remove-item" data-type="6" data-id="{{$travel->id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
                             </div>

@@ -23,19 +23,6 @@
                             @foreach($prepaid_sim as $prepaid)
                             <img src="/{{$prepaid->thumbnail_link}}" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
                             @endforeach
-                            {{-- <img src="/images/Rectangle 1283.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                            <img src="/images/Rectangle 1284.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                            <img src="/images/Rectangle 1285.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                            <img src="/images/Rectangle 1281.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 "> --}}
-
-                            {{-- @endfor --}}
                         </div>
                         <img id="slideRight" class="arrow absolute right-0 cursor-pointer" src="/images/next.png">
 
@@ -50,7 +37,7 @@
                         class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
                         @php $i = 1; @endphp
                         @foreach ($prepaid_sim as $sim)
-                            <div id="box" data-price="{{$sim->price}}"
+                            <div id="box" data-prepaid="{{$sim->id}}" data-price="{{$sim->price}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8rem] cursor-pointer">
                                 <div class="flex ">
                                     <img src="/{{$sim->thumbnail_link}}" alt="" class="w-16">
@@ -108,8 +95,8 @@
                         class="bg-white hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer border  border-[#838383]">
                         <span class="m-auto 2xl:text-2xl">−</span>
                     </button>
-                    <input type="text" class="text-center font-bold w-full bg-white hover:text-black focus:text-black  2xl:text-2xl cursor-default flex items-center text-gray-700 border  border-t-[#838383]  border-b-[#838383] outline-none"
-                        name="custom-input-number" value="0">
+                    <input type="text" id="quantity-product" class="text-center font-bold w-full bg-white hover:text-black focus:text-black  2xl:text-2xl cursor-default flex items-center text-gray-700 border  border-t-[#838383]  border-b-[#838383] outline-none"
+                        name="custom-input-number" value="1">
                     <button id="increment" data-action="increment"
                         class="bg-white text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer border border-[#838383]">
                         <span class="m-auto 2xl:text-2xl">+</span>
@@ -121,10 +108,10 @@
             <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
 
             <div class="flex gap-2 ">
-                <button id="buynow" data-id="0933501625"
+                <button id="buyProductNow" data-id="{{$prepaid_cate->id}}" data-type="4"
                     class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                 
-                <button id="addtocart" data-id="0933501625"
+                <button id="addtocart" data-id="{{$prepaid_cate->id}}" data-type="4"
                     class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">

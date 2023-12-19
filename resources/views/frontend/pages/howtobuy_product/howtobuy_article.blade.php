@@ -8,29 +8,29 @@
     @php
     switch ($cate) {
       case 'fiber':
-        $image = "/images/howtobuy/fiber.png";
+        $image_thumbnail = "/images/howtobuy/fiber.png";
         $header = "วิธีสั่งซื้อ เน็ตบ้านไฟเบอร์";
         break;
       case 'bermonth':
-        $image = "/images/howtobuy/bermonthly.png";
+        $image_thumbnail = "/images/howtobuy/bermonthly.png";
         $header = "วิธีสั่งซื้อ เบอร์มงคล";
         break;
       case 'paysim':
-        $image = "/images/howtobuy/paysim.png";
+        $image_thumbnail = "/images/howtobuy/paysim.png";
         $header = "วิธีสั่งซื้อ ซิมเต็มเงินแพ็กเกจเสริม";
         break;
       case 'travelsim':
-        $image = "/images/howtobuy/travelsim.png";
+        $image_thumbnail = "/images/howtobuy/travelsim.png";
         $header = "วิธีสั่งซื้อ ซิมท่องเที่ยงในประเทศ และต่างประเทศ";
         break;
       default:
-        $image = "/images/howtobuy/fiber.png";
+        $image_thumbnail = "/images/howtobuy/fiber.png";
         $header = "หาหน้าไม่เจอ";
         break;
     }
     @endphp
     <figure>
-      <img class="w-[1305px] h-[653px] max-lg:h-[350px] max-xs:h-[240px] mx-auto" src="{{$image}}" alt="">
+      <img class="w-[1305px] h-[653px] max-lg:h-[350px] max-xs:h-[240px] mx-auto" src="{{$image_thumbnail}}" alt="">
     </figure>
     <h1 class="mt-8 mb-16 text-center 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">{{$header}}</h1>
 

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-\Artisan::call('cache:clear');
+// \Artisan::call('cache:clear');
 // \Artisan::call('route:clear');
 
 // Route::get('/config/clear', function () {
