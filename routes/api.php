@@ -86,7 +86,6 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::post('ckeditor/upload/image', [UtilController::class, 'ckeditorUploadImage']);
 
         /* ProductController */
-
         Route::prefix('berluckycate/')->group(function () {
             Route::get('data', [BerLuckyController::class, 'index']);
             Route::post('create', [BerLuckyController::class, 'createBerluckyCate']);
@@ -95,14 +94,12 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinCate']);
             Route::patch('updatedisplay/{id}', [BerLuckyController::class, 'updateDisplayCate']);
             Route::delete('delete/{id}', [BerLuckyController::class, 'deleteBerluckyCate']);
-
         });
 
+        /* ber lucky */
         Route::prefix('berlucky/')->group(function () {
             Route::get('data', [BerLuckyController::class, 'productIndex']);
-
             Route::post('create', [BerLuckyController::class, 'createBerlucky']);
-
             Route::post('update/{id}', [BerLuckyController::class, 'updateBerlucky']);
             Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinProduct']);
             Route::patch('updatesold/{id}', [BerLuckyController::class, 'updateSoldProduct']);
@@ -114,6 +111,22 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::post('importexcel', [ExcelController::class, 'excelImportBer']);
             Route::get('exportexcel', [ExcelController::class, 'excelExportBer']);
         });
+
+
+
+
+        /* predict number cate */
+        Route::prefix('predict/')->group(function () {
+            Route::get('numbcate/data', [BerpredictController::class, 'numbCateIndex']);
+            Route::post('numbcate/create', [BerpredictController::class, 'createPredictNumbCate']);
+
+            Route::post('numbcate/update/{id}', [BerpredictController::class, 'updatePredictNumbCate']);
+            Route::patch('numbcate/updatedisplay/{id}', [BerpredictController::class, 'updateDisplayNumbCate']);
+            Route::delete('numbcate/delete/{id}', [BerpredictController::class, 'deletePredictNumbCate']);
+        });
+
+
+
 
         // Fiber
         Route::prefix('fiber/')->group(function () {
@@ -171,7 +184,6 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::patch('updaterec/{id}', [TravelController::class, 'updateRecProduct']);
             Route::patch('updatedisplay/{id}', [TravelController::class, 'updateDisplayProduct']);
             Route::delete('delete/{id}', [TravelController::class, 'deleteTravelSim']);
-
         });
 
         // Prepaid cate
@@ -194,7 +206,6 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::patch('updaterec/{id}', [PrepaidController::class, 'updateRecProduct']);
             Route::patch('updatedisplay/{id}', [PrepaidController::class, 'updateDisplaySim']);
             Route::delete('delete/{id}', [PrepaidController::class, 'deletePrepaidSim']);
-
         });
     });
 });

@@ -87,6 +87,8 @@ class BerLuckyController extends BaseController
 
             BerproductCategory::create($data);
 
+            $this->generateCateByLuckyCate();
+
             DB::commit();
             return response([
                 'message' => 'ok',
@@ -127,6 +129,9 @@ class BerLuckyController extends BaseController
         try {
             DB::beginTransaction();
 
+            $luckyCate = BerproductCategory::where('bercate_id', $id)->first();
+            $luckyChange = false;
+
             /* Upload Thumbnail */
             $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
             $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", time()) : $params['thumbnail_link'];
@@ -148,11 +153,18 @@ class BerLuckyController extends BaseController
 
             DB::table('berproduct_categories')->updateOrInsert($conditions, $values);
 
+            if ($luckyCate->bercate_needful != $params['bercate_needful'] || $luckyCate->bercate_needless != $params['bercate_needless']) {
+                $luckyChange = true;
+                $this->generateCateByLuckyCate();
+            }
+
+
             DB::commit();
             return response([
                 'message' => 'ok',
                 'status' => true,
                 'description' => 'Berlucky cate has been updated successfully',
+                'luckyChange' => $luckyChange,
             ], 200);
         } catch (Exception $e) {
             DB::rollBack();

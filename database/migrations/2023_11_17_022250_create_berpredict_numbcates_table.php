@@ -36,7 +36,7 @@ return new class extends Migration
                 'numbcate_unwant' => "00,01,02,03,07,08,10,11,12,13,18,20,21,27,30,31,33,34,37,38,43,48,57,67,70,72,73,75,76,77,80,81,83,84",
                 'numbcate_pin' => "1",
                 'numbcate_display' => "1",
-                'thumbnail' => "/icons/category/icon-money.png",
+                'thumbnail' => "icons/category/icon-money.png",
                 'numbcate_priority' => "1",
             ],
             [
@@ -47,7 +47,7 @@ return new class extends Migration
                 'numbcate_unwant' => "00,01,02,03,07,08,10,11,12,13,18,20,21,27,30,31,33,34,37,38,43,48,57,67,70,72,73,75,76,77,80,81,83,84",
                 'numbcate_pin' => "1",
                 'numbcate_display' => "1",
-                'thumbnail' => "/icons/category/icon-speak.png",
+                'thumbnail' => "icons/category/icon-speak.png",
                 'numbcate_priority' => "2",
             ],
             [
@@ -58,7 +58,7 @@ return new class extends Migration
                 'numbcate_unwant' => "00,01,02,03,06,07,08,10,11,12,13,18,20,21,27,30,31,33,34,37,38,43,48,57,58,60,67,68,70,72,73,75,76,77,80,81,83,84,85,86,88",
                 'numbcate_pin' => "1",
                 'numbcate_display' => "1",
-                'thumbnail' => "/icons/category/icon-heart.png",
+                'thumbnail' => "icons/category/icon-heart.png",
                 'numbcate_priority' => "3",
             ]
         ]);
