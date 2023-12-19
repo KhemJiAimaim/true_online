@@ -1,5 +1,6 @@
 import axios from "axios";
 import { forEach } from "lodash";
+import '../global_js/add_cart_product.js'
 
 console.log("use js all product")
 
@@ -7,8 +8,6 @@ let input_fortune = document.querySelector('#input-fortune');
 let fortune_ber = document.querySelector('#fortune-ber'); 
 let search_product = document.querySelector('#search-product');
 let reset_search = document.querySelector('#reset-search');
-let addtocart = document.querySelectorAll('#addtocart');
-let buynow = document.querySelectorAll('#buynow');
 
 let search_num = document.querySelectorAll('#search-num')
 search_num.forEach(inputElement => {
@@ -54,25 +53,13 @@ input_fortune.addEventListener('input', function() {
 
 
 fortune_ber.addEventListener('click', () => {
-  fortuneber()
+  let input_ber = input_fortune.value
+  if(input_ber.length == 10) {
+    location.href = `/fortune/${input_ber}`;
+  } else {
+    console.log(input_ber.length)
+  }
 })
-
-addtocart.forEach(element => {
-  element.addEventListener('click', () => {
-    let ber_id = element.getAttribute('data-id')
-    addProductTocart(ber_id)
-  })
-});
-
-// สั่งซื้อสินค้าเลย
-buynow.forEach(element => {
-  element.addEventListener('click', () => {
-    let ber_id = element.getAttribute('data-id')
-    console.log('buyproduct now' + ber_id)
-    // return false;
-    location.href = `/cartproduct/?ber=${ber_id}`
-  })
-});
 
 search_product.addEventListener('click', () => {
   product_search()
@@ -80,21 +67,6 @@ search_product.addEventListener('click', () => {
 
 reset_search.onclick = () => {
   location.href = "/bermonthly?"
-}
-
-// ทำนายเบอร์
-function fortuneber() {
-  let input_ber = input_fortune.value
-  if(input_ber.length == 10) {
-    location.href = `/fortune/${input_ber}`;
-  } else {
-    console.log(input_ber.length)
-  }
-}
-
-// เพิ่มสินค้าลงตะกร้า
-function addProductTocart(ber_id) {
-  console.log('addtocart' + ber_id)
 }
 
 

@@ -80,6 +80,7 @@ class CartController extends Controller
 
     public function addproduct_to_cart(Request $request, $id) {
         $typeProduct = $request->input('type_product');
+        $quantity = ($request->input('quantity')) ? $request->input('quantity') : 1;
         $cartList = Session::get('cart_list', []);
         
         // ตรวจสอบว่ามี index สำหรับ type_product หรือไม่
@@ -97,7 +98,7 @@ class CartController extends Controller
                 $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
     
                 // เพิ่ม amount ทั้งหมด
-                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + 1 : 1;
+                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
                 Session::put('cart_list', $cartList);
             }
     
@@ -116,18 +117,19 @@ class CartController extends Controller
         } else if ($typeProduct == 4) {
             $cartList['items'][$typeProduct][] = [
                 'id' => $id,
-                'quantity' => 1,
+                'quantity' => $quantity,
                 'prepaid_id' => $request->input('data_prepaid'),
             ];
         } else if ($typeProduct == 6) {
+            $option = ($request->input('option'))?$request->input('option'):0;
             $cartList['items'][$typeProduct][] = [
                 'id' => $id,
                 'quantity' => 1,
-                'option' => 0,
+                'option' => $option,
             ];
         }
     
-        $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + 1 : 1;
+        $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : $quantity;
         Session::put('cart_list', $cartList);
     
         return response()->json([

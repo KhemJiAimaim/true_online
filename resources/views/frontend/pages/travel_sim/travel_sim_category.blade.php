@@ -1,7 +1,5 @@
 @extends('frontend.layouts.main')
 
-
-
 @section('content')
     <div class="mt-16">
         <div class="flex flex-wrap justify-center gap-x-20 gap-y-5 mb-16">
@@ -186,12 +184,9 @@
                                     <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png">
                                 </div>
 
-                                <div
-                                    class="bg-white rounded-bl-[10px] rounded-br-[10px]   flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
-                                    <div
-                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
-                                        <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
+                                    <div id="addBerToCart" data-id="{{$sim->id}}" data-type="6" class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                        <img src="/images/mdi_cart-arrow-down.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                     </div>
                                     <div
                                         class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
@@ -201,17 +196,20 @@
 
                                     <a href="{{url('/travel_sim_buy/'.$sim->id)}}"
                                         class="cursor-pointer flex items-center lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                    <a href="#buynow"
-                                        class="cursor-pointer flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                    <button data-id="{{$sim->id}}" data-type="6" id="buyProductNow"
+                                        class="flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                 </div>
 
                             </div>
                         </div>
-                            @endforeach
+                    @endforeach
                 </div>
         </section>
 
     </div>
 
     @include('frontend.pages.travel_sim.footer_sim')
+@endsection
+@section('scripts')
+    @vite('resources/js/global_js/add_cart_product.js')
 @endsection

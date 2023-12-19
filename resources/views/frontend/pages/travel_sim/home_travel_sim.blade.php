@@ -279,10 +279,6 @@
                                             <p class="text-white mr-2 text-left text-[18px] max-es:text-[16px]">{{$sim->lifetime}} DAYS {{$sim->price}} BAHT</p>
                                             <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                                         </div>
-                                        {{-- <div
-                                        class="">
-                                        <  p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</>
-                                        </div> --}}
 
                                         <div class="bg-white">
                                             <div class="flex justify-center py-4 ">
@@ -425,23 +421,18 @@
                                             <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png">
                                         </div>
 
-                                        <div
-                                            class="bg-white rounded-bl-[10px] rounded-br-[10px]   flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
-                                            <div
-                                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
-                                                <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                        <div class="bg-white rounded-bl-[10px] rounded-br-[10px]   flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
+                                            <div id="addBerToCart" data-id="{{$sim->id}}" data-type="6" class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                                <img src="/images/mdi_cart-arrow-down.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                             </div>
-                                            <div
-                                                class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                                <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                                    class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                            <div class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
+                                                <img src="/images/icons8-line-app (1) 9.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                             </div>
 
                                             <a href="{{url('/travel_sim_buy/'.$sim->id)}}"
                                                 class="cursor-pointer flex items-center lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                            <a href="#buynow"
-                                                class="cursor-pointer flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                            <button data-id="{{$sim->id}}" data-type="6" id="buyProductNow"
+                                                class="cursor-pointer flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                         </div>
 
                                     </div>
@@ -472,4 +463,5 @@
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @vite('resources/js/travel/swiper.js')
+    @vite('resources/js/global_js/add_cart_product.js')
 @endsection

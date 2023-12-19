@@ -17,7 +17,7 @@
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
-                            @for ($i = 1; $i <= 6; $i++)
+                            @for ($i = 1; $i <= 3; $i++)
                                 <img src="/images/travel/Rectangle 1281 (1).png" alt=""
                                     class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
                             @endfor
@@ -40,7 +40,7 @@
                         class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] xl:h-[350px] lg:h-[225px] h-[280px] w-full">
                         
                         @foreach($data_option as $option)
-                            <div id="box"
+                            <div id="box" data-option="{{$option}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                                 <div class="flex mb-2 ">
                                     <img src="/images/travel/Rectangle 1281 (1).png" alt=""
@@ -49,7 +49,6 @@
                                 </div>
                                 <div class="flex items-center">
                                     <img src="/images/check-one.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
-
                                     <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$option}}</p>
                                     <p class="2xl:text-lg font-medium ml-2">บาท</p>
                                 </div>
@@ -103,10 +102,10 @@
             <div class="border-l border border-[#838383] text-center py-8 mx-4 rounded-full max-xs:hidden"></div>
 
             <div class="flex gap-2 ">
-                <button id="buynow" data-id="0933501625"
+                <button id="buyProductNow" data-type="6" data-id="{{$travel_sim->id}}"
                     class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
-                <button id="addtocart" data-id="0933501625"
+                <button id="addtocart" data-type="6" data-id="{{$travel_sim->id}}"
                     class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
