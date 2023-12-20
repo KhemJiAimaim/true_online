@@ -20,7 +20,7 @@
 
             <!-- secondary nav -->
             <div class="hidden xl:flex items-center space-x-1 ">
-                <span id="num-cart" class="bg-[#EC1F25] text-white rounded-full px-2 py-1">99</span>
+                <span id="num-cart" class="bg-[#EC1F25] text-white rounded-full px-2 py-1">{{$amount}}</span>
                 <a href="{{url('/cartproduct')}}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <img src="/images/ph_shopping-cart.png" class="w-6 mr-1 hover:scale-125" />
                 </a>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="flex items-center gap-2 ">
-                <span class="bg-[#EC1F25] text-white rounded-full px-1 py-0  ">99</span>
+                <span class="bg-[#EC1F25] text-white rounded-full px-1 py-0  ">{{ isset($amount)?$amount:0 }}</span>
                 <a href="{{url('/cartproduct')}}" class="flex items-center py-5 text-gray-700 hover:text-gray-900 w-[30px]">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6  mr-1 text-white w-full" width="20"
                         height="20" viewBox="0 0 20 20" fill="none">

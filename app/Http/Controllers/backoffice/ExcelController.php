@@ -118,5 +118,35 @@ class ExcelController extends Controller
                 ]);
             }
         }
+
+        $this->updateProductTotal();
+    }
+
+    public function updateProductTotal() {
+        // อัปเดตค่าสำหรับ default_cate_id
+        DB::table('berproduct_categories')
+            ->where('bercate_id', 1)
+            ->update([
+                'bercate_total' => DB::table('berproduct_monthlies')
+                    ->where('product_sold', '!=', 'yes')
+                    ->count()
+            ]);
+        // ดึงข้อมูลทุก cate_id
+        $cates = DB::table('berproduct_categories')
+            ->where('bercate_id', '!=', 1)
+            ->pluck('bercate_id');
+    
+        foreach ($cates as $cate_id) {
+            // อัปเดตค่าสำหรับแต่ละ cate_id
+            DB::table('berproduct_categories')
+                ->where('bercate_id', $cate_id)
+                ->update([
+                    'bercate_total' => DB::table('berproduct_monthlies')
+                        ->whereRaw('FIND_IN_SET(?, product_category) > 0', [$cate_id])
+                        ->where('product_sold', '!=', 'yes')
+                        ->count()
+                ]);
+        }
+    
     }
 }
