@@ -6,6 +6,7 @@
     $total_month = 0; 
     $total_prepaid = 0; 
     $total_travel = 0; 
+    $price_option = null;
 @endphp
     <div class="text-left 2xl:mt-32 xl:mt-32 mt-16">
         <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
@@ -103,7 +104,11 @@
                                 <div class="">
                                     <p class="font-semibold">ซิมท่องเที่ยว</p>
                                     <p>{{$travel->title}}</p>
-                                    <p>ตัวเลือก {{$travel->option}}</p>
+                                    @if($travel->option)
+                                    <p>ตัวเลือก <span class="font-semibold">{{$price_option = $travel->option}}</span></p>
+                                    @else 
+                                    <p>ตัวเลือก <span class="font-semibold">ซิมปกติ (Physical SIM)</span></p>
+                                    @endif
                                     <div class="max-ex:hidden"> 
                                         <p>{{$travel->internet_details}}</p>
                                     </div>
@@ -111,9 +116,9 @@
                             </div>
 
                             <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($travel->price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($price_travel = ($travel->option)?$travel->option:$travel->price)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{$travel->quantity}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_travel = $travel->price * $travel->quantity)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_travel = $price_travel * $travel->quantity)}}</p>
                                 <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]" id="remove-item" data-type="6" data-id="{{$travel->id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>

@@ -3,7 +3,7 @@
 @php 
     $data_option = array_filter(explode(',' , $travel_sim->package_options));
 @endphp
-    <div class="2xl:mt-16 mt-[2rem]">
+    <div class="mt-[125px] max-xl:mt-[74px]">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
@@ -17,10 +17,10 @@
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
-                            @for ($i = 1; $i <= 3; $i++)
-                                <img src="/images/travel/Rectangle 1281 (1).png" alt=""
-                                    class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-                            @endfor
+                            <img src="/images/travel/Rectangle 1281 (1).png" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
+                            @foreach($data_option as $option)
+                                <img src="/images/travel/Rectangle 1281 (1).png" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
+                            @endforeach
 
                         </div>
                         <img id="slideRight" class="arrow absolute right-0 cursor-pointer" src="/images/next.png">
@@ -36,11 +36,22 @@
                     </div>
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
-                    <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] xl:h-[350px] lg:h-[225px] h-[280px] w-full">
-                        
+                    <div class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] xl:h-[350px] lg:h-[225px] h-[280px] w-full">
+                        <div id="box" data-price="{{$travel_sim->price}}"
+                            class="boxdefault border border-gray-500 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer activate">
+                            <div class="flex mb-2 ">
+                                <img src="/images/travel/Rectangle 1281 (1).png" alt=""
+                                    class="w-20 max-ex:w-[70px]">
+                                <p class="text-lg font-medium ml-3 ">ซิมปกติ (Physical SIM)</p>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="/images/check-one-active.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
+                                <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$travel_sim->price}}</p>
+                                <p class="2xl:text-lg font-medium ml-2">บาท</p>
+                            </div>
+                        </div>
                         @foreach($data_option as $option)
-                            <div id="box" data-option="{{$option}}"
+                            <div id="box" data-option="{{$option}}" data-price="{{$option}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                                 <div class="flex mb-2 ">
                                     <img src="/images/travel/Rectangle 1281 (1).png" alt=""
@@ -96,7 +107,7 @@
         <div class="flex items-center justify-center max-xs:justify-between  p-2 w-full flex-wrap ">
             <div class="flex gap-4 items-center ">
                 <p class="2xl:text-lg text-[16px]">ราคา</p>
-                <p class="2xl:text-2xl text-[18px] font-bold">{{$travel_sim->price}}</p>
+                <p id="total-price" class="2xl:text-2xl text-[18px] font-bold">{{$travel_sim->price}}</p>
                 <p class="2xl:text-lg text-[16px]">บาท</p>
             </div>
             <div class="border-l border border-[#838383] text-center py-8 mx-4 rounded-full max-xs:hidden"></div>

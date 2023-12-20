@@ -1,69 +1,45 @@
 import '../global_js/hide_banner.js';
 
+let lastClickedBox = null;
 const box = document.querySelectorAll('#box');
 box.forEach(element => {
+  if(element.classList.contains('boxdefault')){
+    lastClickedBox = element;
+  }
   element.addEventListener('click', () => {
     handleBoxClick(element);
   })
 });
 
-let lastClickedBox = null;
 
 function handleBoxClick(box) {
-    if (lastClickedBox) {
-        lastClickedBox.classList.remove('border-gray-500', 'activate');
-        lastClickedBox.classList.add('border-gray-10');
-        // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
-        const checkbox = lastClickedBox.querySelector('.check-box');
-        checkbox.src = '/images/check-one.png';
-    }
-  
-    if (box !== lastClickedBox) {
-        box.classList.remove('border-gray-10');
-        box.classList.add('border-gray-500', 'activate');
-        // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
-        const checkbox = box.querySelector('.check-box');
-        checkbox.src = '/images/check-one-active.png';
-        lastClickedBox = box;
-    } else {
-        lastClickedBox = null;
-    }
-}
-
-
-// ปุ่มบวก_ลบจำนวนสินค้า
-function decrement(e) {
-  const btn = e.target.parentNode.querySelector('button[data-action="decrement"]');
-  const target = btn.nextElementSibling;
-  let value = Number(target.value);
-  if (value > 0) {
-    value--;
-    target.value = value;
+  // console.log(lastClickedBox)
+  if (lastClickedBox) {
+    // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
+    lastClickedBox.classList.remove('border-gray-500', 'activate');
+    lastClickedBox.classList.add('border-gray-10');
+    const checkbox = lastClickedBox.querySelector('.check-box');
+    checkbox.src = '/images/check-one.png';
   }
+
+  if (box !== lastClickedBox) {
+    // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
+    box.classList.remove('border-gray-10');
+    box.classList.add('border-gray-500', 'activate');
+    const checkbox = box.querySelector('.check-box');
+    checkbox.src = '/images/check-one-active.png';
+    lastClickedBox = box;
+  } else {
+    lastClickedBox = null;
+  }
+  inserPrice(box)
 }
 
-function increment(e) {
-  const btn = e.target.parentNode.querySelector('button[data-action="increment"]');
-  const target = btn.previousElementSibling;
-  let value = Number(target.value);
-  value++;
-  target.value = value;
+function inserPrice(box) {
+  const price = box.getAttribute('data-price')
+  let data_price = document.querySelector('#total-price').innerText = price
+  console.log(data_price)
 }
-
-const decrementButtons = document.querySelectorAll(`button[data-action="decrement"]`);
-const incrementButtons = document.querySelectorAll(`button[data-action="increment"]`);
-
-decrementButtons.forEach(btn => {
-  btn.addEventListener("click", decrement);
-});
-
-incrementButtons.forEach(btn => {
-  btn.addEventListener("click", increment);
-});
-
-
-
-
 
 // รูป slider
 
@@ -71,25 +47,25 @@ let thumbnails = document.getElementsByClassName('thumnail');
 let activeImages = document.getElementsByClassName('active');
 
 for (var i = 0; i < thumbnails.length; i++) {
-    thumbnails[i].addEventListener('mouseover', function () {
-        if (activeImages.length > 0) {
-            activeImages[0].classList.remove('active');
-        }
+  thumbnails[i].addEventListener('mouseover', function () {
+    if (activeImages.length > 0) {
+      activeImages[0].classList.remove('active');
+    }
 
-        this.classList.add('active');
-        document.getElementById('featured').src = this.src;
-    });
+    this.classList.add('active');
+    document.getElementById('featured').src = this.src;
+  });
 }
 
 let buttonRight = document.getElementById('slideRight');
 let buttonLeft = document.getElementById('slideLeft');
 
 buttonLeft.addEventListener('click', function () {
-    document.getElementById('slider').scrollLeft -= 180;
+  document.getElementById('slider').scrollLeft -= 180;
 });
 
 buttonRight.addEventListener('click', function () {
-    document.getElementById('slider').scrollLeft += 180;
+  document.getElementById('slider').scrollLeft += 180;
 });
 
 
@@ -179,8 +155,16 @@ async function addProductSession(element) {
       param.option = element.getAttribute('data-option');
     }
   });
-  // console.log(param)
-  // return false;
+
+  if (!Array.from(box).some(element => element.classList.contains('activate'))) {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "please select option!",
+      showConfirmButton: true,
+    });
+    return false;
+  }
 
   try {
     const response = await axios.post(`/addproduct/${data_id}`, param);

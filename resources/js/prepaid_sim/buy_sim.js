@@ -192,7 +192,6 @@ async function addProductSession(element) {
   });
 
   if(param.data_prepaid == null) {
-    console.log("gogogo")
       Swal.fire({
         position: "center",
         icon: "error",
