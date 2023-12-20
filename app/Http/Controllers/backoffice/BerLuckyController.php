@@ -149,7 +149,10 @@ class BerLuckyController extends BaseController
                 "updated_at" => date('Y-m-d H:i:s')
             ];
 
-            $this->updatePriority("berproduct_categories", $params['priority']);
+            if ($luckyCate->priority != $params['priority']) {
+                $this->updatePriority("berproduct_categories", $params['priority']);
+            }
+
 
             DB::table('berproduct_categories')->updateOrInsert($conditions, $values);
 

@@ -280,7 +280,11 @@ class TravelController extends BaseController
                 "updated_at" => date('Y-m-d H:i:s')
             ];
 
-            $this->updatePriority("travel_sims", $params['priority']);
+            $simUpdate = TravelSim::findOrFail($id);
+
+            if ($simUpdate->priority != $params['priority']) {
+                $this->updatePriority("travel_sims", $params['priority']);
+            }
 
             DB::table('travel_sims')->updateOrInsert($conditions, $values);
 

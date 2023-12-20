@@ -115,14 +115,23 @@ Route::prefix('backoffice/v1')->group(function () {
 
 
 
-        /* predict number cate */
+        /* Prediction */
         Route::prefix('predict/')->group(function () {
+            /* number cate */
             Route::get('numbcate/data', [BerpredictController::class, 'numbCateIndex']);
             Route::post('numbcate/create', [BerpredictController::class, 'createPredictNumbCate']);
-
             Route::post('numbcate/update/{id}', [BerpredictController::class, 'updatePredictNumbCate']);
             Route::patch('numbcate/updatedisplay/{id}', [BerpredictController::class, 'updateDisplayNumbCate']);
             Route::delete('numbcate/delete/{id}', [BerpredictController::class, 'deletePredictNumbCate']);
+
+            /* number cate */
+            Route::get('grade/data', [BerpredictController::class, 'gradeIndex']);
+            Route::post('grade/update/{id}', [BerpredictController::class, 'updatePredictGrade']);
+
+            /* number cate */
+            Route::get('ber/data', [BerpredictController::class, 'berIndex']);
+            Route::post('ber/update/{id}', [BerpredictController::class, 'updatePredictBer']);
+
         });
 
 

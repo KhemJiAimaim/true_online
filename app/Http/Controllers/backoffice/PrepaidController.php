@@ -116,6 +116,8 @@ class PrepaidController extends BaseController
         try {
             DB::beginTransaction();
 
+            $cateUpdate = PrepaidCategory::findOrFail($id);
+
             /* Upload Thumbnail */
             $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
             $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", $params['thumbnail_name']) : $params['thumbnail_link'];
@@ -136,7 +138,9 @@ class PrepaidController extends BaseController
                 "updated_at" => date('Y-m-d H:i:s')
             ];
 
-            $this->updatePriority("prepaid_categories", $params['priority']);
+            if ($cateUpdate->priority != $params['priority']) {
+                $this->updatePriority("prepaid_categories", $params['priority']);
+            }
 
             DB::table('prepaid_categories')->updateOrInsert($conditions, $values);
 
@@ -324,6 +328,8 @@ class PrepaidController extends BaseController
         try {
             DB::beginTransaction();
 
+            $simUpdate = PrepaidSim::findOrFail($id);
+
             /* Upload Thumbnail */
             $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
             $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", $params['thumbnail_name']) : $params['thumbnail_link'];
@@ -343,7 +349,9 @@ class PrepaidController extends BaseController
                 "updated_at" => date('Y-m-d H:i:s')
             ];
 
-            $this->updatePriority("prepaid_sims", $params['priority']);
+            if ($simUpdate->priority != $params['priority']) {
+                $this->updatePriority("prepaid_sims", $params['priority']);
+            }
 
             DB::table('prepaid_sims')->updateOrInsert($conditions, $values);
 

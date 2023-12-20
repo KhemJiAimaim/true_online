@@ -141,9 +141,12 @@ class MoveController extends BaseController
         try {
             DB::beginTransaction();
 
-            $this->updatePriority("move_categories", $request->priority);
-
             $cateUpdate = MoveCategory::findOrFail($id);
+
+            if ($cateUpdate->priority != $request->priority) {
+                $this->updatePriority("move_categories", $request->priority);
+            }
+
             $data = $request->only(['title', 'priority', 'details', 'description']);
             $cateUpdate->update($data);
 
@@ -475,7 +478,11 @@ class MoveController extends BaseController
                 "updated_at" => date('Y-m-d H:i:s')
             ];
 
-            $this->updatePriority("move_products", $params['priority']);
+            $productUpdate = MoveProduct::findOrFail($id);
+
+            if ($productUpdate->priority != $params['priority']) {
+                $this->updatePriority("move_products", $params['priority']);
+            }
 
             DB::table('move_products')->updateOrInsert($conditions, $values);
 

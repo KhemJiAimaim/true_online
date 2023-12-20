@@ -80,6 +80,20 @@ class BaseController extends Controller
         }
     }
 
+    public function updatePriorityWODelete($table, $priority, $column = 'priority') // ไม่มี delete_status
+    {
+        $duplicatePriority = DB::table($table)
+            ->where($column, '=', $priority)
+            ->first();
+
+        if ($duplicatePriority) {
+            // update priority
+            DB::table($table)
+                ->where($column, '>=', $priority)
+                ->increment($column, 1);
+        }
+    }
+
     public function getBenefits()
     {
         $benefits = Post::where('category', 'LIKE', '%' . ',8,' . '%')
