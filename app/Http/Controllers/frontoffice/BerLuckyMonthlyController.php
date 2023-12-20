@@ -80,7 +80,6 @@ class BerLuckyMonthlyController extends Controller
 
         ];
         $berproduct_cates = BerproductCategory::where('bercate_display', 1)
-        ->where('bercate_pin', 1)
         ->orderBy('priority')
         ->get();
         

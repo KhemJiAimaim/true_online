@@ -142,12 +142,13 @@ class CartController extends Controller
         $data_id = $request->input('data_id');
         $data_type = $request->input('data_type');
         $cartList = Session::get('cart_list', []);
-        // dd($cartList['items'][$data_type]);
+        // dd($cartList);
 
         foreach ($cartList['items'][$data_type] as $index => &$type) {
             // ถ้าเจอ data_id ที่ต้องการลบ
             if ($type['id'] === $data_id) {
                 // ลบ item ที่ต้องการ
+                $cartList['amount'] -= $type['quantity'];
                 unset($cartList['items'][$data_type][$index]);
         
                 // ถ้าหลังจากลบ item แล้วไม่มี item อยู่แล้ว

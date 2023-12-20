@@ -50,10 +50,14 @@
 
 <swiper-container class="mySwiper 2xl:mt-28 mt-16 lg:mt-[4.5rem] cursor-pointer" pagination="true" pagination-dynamic-bullets="true" loop="true"
     autoplay-delay="2000">
-    <swiper-slide ><img src="{{ asset('images/13.webp') }}" alt=""></swiper-slide>
-    <swiper-slide ><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide>
+    @if($slide_image)
+    @foreach($slide_image as $image) 
+        <swiper-slide ><img src="/{{ $image->ad_image }}" alt=""></swiper-slide>
+    @endforeach
+    @endif
+    {{-- <swiper-slide ><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide>
     <swiper-slide><img src="{{ asset('images/13.webp') }}" alt=""></swiper-slide>
-    <swiper-slide><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide>
+    <swiper-slide><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide> --}}
 </swiper-container>
 
 

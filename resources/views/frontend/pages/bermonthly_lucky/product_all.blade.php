@@ -312,14 +312,8 @@
                     <div class="flex flex-col">
                         <p class="mb-2">หมวดหมู่เบอร์</p>
                         <div class="flex flex-wrap gap-3">
-                            {{-- <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
-              <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-swarn.png" alt="">
-              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                  <img class="scale-150" src="/icons/category/union.png" alt="">
-                  <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
-              </div>
-            </button> --}}
                             @foreach ($berproduct_cates as $bercate)
+                                @if($bercate->bercate_pin == true)
                                 @php
                                     $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
@@ -332,6 +326,7 @@
                                         <p class="w-full text-xs absolute top-1 left-0">{{ $bercate->bercate_title }}</p>
                                     </div>
                                 </button>
+                                @endif
                             @endforeach
                         </div>
                     </div>
