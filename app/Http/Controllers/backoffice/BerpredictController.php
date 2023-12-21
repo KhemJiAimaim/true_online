@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backoffice;
 use App\Http\Controllers\Controller;
 use App\Models\BerpredictNumbcate;
 use App\Models\BerpredictProphecy;
+use App\Models\BerpredictSum;
 use App\Models\BerproductGrade;
 use App\Models\BerproductMonthly;
 use Exception;
@@ -293,7 +294,6 @@ class BerpredictController extends BaseController
         }
     }
 
-
     /* Predict Ber */
     public function berIndex()
     {
@@ -365,6 +365,89 @@ class BerpredictController extends BaseController
         }
     }
 
+    /* Predict Sum Ber */
+    public function sumberIndex()
+    {
+        $sumbers = BerpredictSum::orderBy('predict_id', 'ASC')->get();
+
+        return response([
+            'message' => 'ok',
+            'status' => true,
+            'description' => 'Get predict sum ber success',
+            'data' => [
+                'sumbers' => $sumbers,
+            ]
+        ], 200);
+    }
+
+    public function updatePredictSumber(Request $request, $id)
+    {
+        $this->getAuthUser();
+        $params = $request->all();
+
+        $validator = Validator::make($request->all(), [
+            'predict_id' => 'numeric|required',
+            'predict_sum' => 'numeric|required',
+            'predict_name' => 'string|required',
+            'predict_description' => 'string|required',
+
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $conditions  = ['predict_id' => $params['predict_id']];
+            $values = [
+                "predict_id" => $params['predict_id'],
+                "predict_name" => $params['predict_name'],
+                "predict_sum" => $params['predict_sum'],
+                "predict_description" => $params['predict_description'],
+            ];
+
+            DB::table('berpredict_sums')->updateOrInsert($conditions, $values);
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Predict sum ber has been updated successfully',
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
+    public function updatePinSumber(Request $request, $id)
+    {
+        try {
+
+            $product = BerpredictSum::where('predict_id', $id)->update([
+                'predict_pin' => $request->predict_pin ? 'yes' : 'no'
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update pin sum ber successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
 
 
 

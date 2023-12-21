@@ -124,13 +124,18 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::patch('numbcate/updatedisplay/{id}', [BerpredictController::class, 'updateDisplayNumbCate']);
             Route::delete('numbcate/delete/{id}', [BerpredictController::class, 'deletePredictNumbCate']);
 
-            /* number cate */
+            /* grade */
             Route::get('grade/data', [BerpredictController::class, 'gradeIndex']);
             Route::post('grade/update/{id}', [BerpredictController::class, 'updatePredictGrade']);
 
-            /* number cate */
+            /* predict ber */
             Route::get('ber/data', [BerpredictController::class, 'berIndex']);
             Route::post('ber/update/{id}', [BerpredictController::class, 'updatePredictBer']);
+
+            /* predict ber */
+            Route::get('sumber/data', [BerpredictController::class, 'sumberIndex']);
+            Route::patch('sumber/updatepin/{id}', [BerpredictController::class, 'updatePinSumber']);
+            Route::post('sumber/update/{id}', [BerpredictController::class, 'updatePredictSumber']);
 
         });
 
