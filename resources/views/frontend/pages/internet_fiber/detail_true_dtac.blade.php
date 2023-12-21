@@ -108,19 +108,22 @@
                 <div class="swiper items-center ">
                     <div class="swiper-wrapper ">
                         @foreach ($posts as $pos)
-                            @for ($i = 1; $i <= 10; $i++)
+                            @for ($i = 1; $i <= 2; $i++)
                                 <div
-                                    class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
+                                    class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-2">
                                     <img src="/{{ $pos->thumbnail_link }}" alt=""
-                                        class="w-[171px] h-[150px] se:w-[150px] block ">
+                                        class="w-[171px] h-[150px] se:w-[150px] block ml-2 ">
                                     <p class="se:text-[16px]">{{ $pos->title }}</p>
                                 </div>
                             @endfor
                         @endforeach
                     </div>
+
                 </div>
-                <div class="swiper-button-next "></div>
-                <div class="swiper-button-prev"></div>
+                <div class="mx-3">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
     </div>
     </section>
@@ -155,5 +158,5 @@
 @section('scripts')
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    @vite('resources/js/fiber/swiper.js')
+    @vite('resources/js/internet_fiber/swiper_detail.js')
 @endsection
