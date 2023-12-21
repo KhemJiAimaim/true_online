@@ -16,8 +16,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[16px]  text-[16px] p-4">ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช
-                        พร้อมรับส่วนลดสุดคุ้มที่นี่</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[16px]  text-[16px] p-4">ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช พร้อมรับส่วนลดสุดคุ้มที่นี่</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -33,7 +32,7 @@
                 @foreach($data_category['move_cate'] as $cate)
                 @if($cate->id == $data_category['cate_id'])
                     <p class="text-[#000]   2xl:text-[2rem] xl:text-[25px] text-[22px]">{{$cate->title}}</p>
-                    <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">ซิมเติมเงิน พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ</p>
+                    <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">{{$cate->details}}</p>
                 @endif
                 @endforeach
             </div>
@@ -44,7 +43,7 @@
                         <div class="2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
                             <div
                                 class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
-                                <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                                <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">{{$product->details}}</p>
                                 <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
 
                             </div>
@@ -74,11 +73,13 @@
                                     <p class="font-bold 2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">จำกัดการใช้ WiFi</p>
                                     @endif
                                 </div>
+                                @if($product->voice_hd == true)
                                 <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                 <div class="flex items-center flex-col justify-center">
                                     <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">4G HD Voice</p>
                                     <p class="2xl:text-[1.2rem] text-[14px]">เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ 4G</p>
                                 </div>
+                                @endif
                             </div>
                             <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden ">
                                 <div class="orange-plate-container pb-2">

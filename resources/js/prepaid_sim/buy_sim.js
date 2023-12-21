@@ -1,29 +1,29 @@
+import '../global_js/hide_banner.js';
 
-
-
-// active สินค้า
-// สร้าง event listener สำหรับแต่ละกล่อง
-for (let i = 1; i <= 8; i++) {
-    const box = document.getElementById('box' + i);
-    box.addEventListener('click', function() {
-        handleBoxClick(this);
-    });
-}
+const result_price = document.querySelector('#result-price');
+const box = document.querySelectorAll('#box');
+box.forEach(element => {
+  element.addEventListener('click', () => {
+    handleBoxClick(element);
+  })
+});
 
 let lastClickedBox = null;
 
 function handleBoxClick(box) {
     if (lastClickedBox) {
-        lastClickedBox.classList.remove('border-gray-500');
+        lastClickedBox.classList.remove('border-gray-500', 'activate');
         lastClickedBox.classList.add('border-gray-10');
         // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
         const checkbox = lastClickedBox.querySelector('.check-box');
         checkbox.src = '/images/check-one.png';
     }
-
+  
     if (box !== lastClickedBox) {
+        console.log(box);
+        result_price.innerHTML = box.getAttribute('data-price');
         box.classList.remove('border-gray-10');
-        box.classList.add('border-gray-500');
+        box.classList.add('border-gray-500', 'activate');
         // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
         const checkbox = box.querySelector('.check-box');
         checkbox.src = '/images/check-one-active.png';
@@ -36,33 +36,32 @@ function handleBoxClick(box) {
 
 // ปุ่มบวก_ลบจำนวนสินค้า
 function decrement(e) {
-  const btn = e.target.parentNode.querySelector('button[data-action="decrement"]');
-  const target = btn.nextElementSibling;
-  let value = Number(target.value);
-  if (value > 0) {
-    value--;
-    target.value = value;
+  const btn = e.target.closest('#decrement');
+  if (btn) {
+    const target = btn.nextElementSibling;
+    let value = Number(target.value);
+    if (value > 0) {
+      value--;
+      target.value = value;
+    }
   }
 }
 
 function increment(e) {
-  const btn = e.target.parentNode.querySelector('button[data-action="increment"]');
-  const target = btn.previousElementSibling;
-  let value = Number(target.value);
-  value++;
-  target.value = value;
+  const btn = e.target.closest('#increment');
+  if (btn) {
+    const target = btn.previousElementSibling;
+    let value = Number(target.value);
+    value++;
+    target.value = value;
+  }
 }
 
-const decrementButtons = document.querySelectorAll(`button[data-action="decrement"]`);
-const incrementButtons = document.querySelectorAll(`button[data-action="increment"]`);
+const decrementButtons = document.querySelector('#decrement');
+const incrementButtons = document.querySelector('#increment');
 
-decrementButtons.forEach(btn => {
-  btn.addEventListener("click", decrement);
-});
-
-incrementButtons.forEach(btn => {
-  btn.addEventListener("click", increment);
-});
+decrementButtons.addEventListener("click", decrement);
+incrementButtons.addEventListener("click", increment);
 
 
 
@@ -107,7 +106,7 @@ let show_more = document.querySelector('#show-more');
 
 // ฟังก์ชัน package and condition content
 btn_package.addEventListener('click', () => {
-  console.log("button box package")
+  // console.log("button box package")
   box_package.classList.remove('hidden')
   box_condition.classList.add('hidden')
 
@@ -117,7 +116,7 @@ btn_package.addEventListener('click', () => {
 })
 
 btn_condition.addEventListener('click', () => {
-  console.log("button box condition")
+  // console.log("button box condition")
   box_package.classList.add('hidden')
   box_condition.classList.remove('hidden')
 
@@ -128,10 +127,6 @@ btn_condition.addEventListener('click', () => {
 })
 
 show_more.addEventListener('click', () => {
-  showMore_boxPackage()
-})
-
-function showMore_boxPackage() {
   if (box_package.classList.contains('h-[300px]')) {
     box_package.classList.remove('h-[300px]');
     box_package.classList.add('h-auto');
@@ -139,5 +134,77 @@ function showMore_boxPackage() {
     box_package.classList.add('h-[300px]');
     box_package.classList.remove('h-auto');
   }
-}
+})
 
+const quantity_product = document.querySelector('#quantity-product');
+quantity_product.addEventListener('input', () => {
+  const regex = /^[0-9]*$/;
+  if (!regex.test(quantity_product.value)) {
+    quantity_product.value = quantity_product.value.replace(/[^0-9]/g, '');
+  }
+});
+
+const btn_buynow = document.querySelector('#buyProductNow');
+btn_buynow.addEventListener('click', async () => {
+  let response = await addProductSession(btn_buynow);
+  if(response.data.status == "success") {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+      location.href = "/cartproduct"
+    })
+  }
+})
+
+const addtocart = document.querySelector('#addtocart')
+addtocart.addEventListener('click', async () => {
+  let response = await addProductSession(btn_buynow);
+  console.log(response);
+  if(response.data.status == "success") {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+})
+
+async function addProductSession(element) {
+  const data_type = element.getAttribute('data-type');
+  const data_id =  element.getAttribute('data-id');
+  const quantity = quantity_product.value;
+  
+  let param = {
+    "type_product" : data_type,
+    "quantity" : quantity
+  };
+
+  box.forEach(element => {
+    if(element.classList.contains('activate')) {
+      param.data_prepaid = element.getAttribute('data-prepaid');
+    }
+  });
+
+  if(param.data_prepaid == null) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "please select option!",
+        showConfirmButton: true,
+      });
+      return false;
+  }
+
+  try {
+    const response = await axios.post(`/addproduct/${data_id}`, param);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+}

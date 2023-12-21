@@ -24,15 +24,16 @@ return new class extends Migration
             $table->enum('product_pin', ['yes', 'no'])->default('no');
             $table->enum('product_sold', ['yes', 'no'])->default('no');
             $table->enum('product_new', ['yes', 'no'])->default('no');
-            $table->text('product_comment');
-            $table->string('product_package');
+            $table->text('product_comment')->nullable();
+            $table->string('product_package')->nullable();
             $table->enum('product_hot', ['yes', 'no']);
-            $table->integer('product_discount')->length(4);
+            $table->integer('product_discount')->default(0)->length(4);
             $table->string('product_grade', 4);
             $table->string('default_cate');
             $table->enum('product_display', ['yes', 'no'])->default('yes');
             $table->string('monthly_status', 10);
-            
+            $table->boolean('delete_status')->default(false);
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

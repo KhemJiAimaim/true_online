@@ -7,6 +7,8 @@ export default defineConfig({
             input: ['resources/css/app.css', 
                     'resources/js/app.js',
                     
+                    'resources/js/global_js/add_cart_product.js.js',
+                    'resources/js/global_js/hide_banner.js',
                     'resources/js/home_true/home.js',
 
                     'resources/js/bermonthly_lucky/allproduct.js',

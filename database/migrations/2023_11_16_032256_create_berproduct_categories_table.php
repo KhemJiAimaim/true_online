@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('bercate_name');
             $table->string('bercate_title', 100);
             $table->string('thumbnail');
-            $table->string('bercate_needful')->comment('เลขที่ต้องการ');
-            $table->string('bercate_needless')->comment('เลขที่ไม่ต้องการ');
+            $table->text('bercate_needful')->nullable()->comment('เลขที่ต้องการ');
+            $table->text('bercate_needless')->nullable()->comment('เลขที่ไม่ต้องการ');
             $table->integer('priority')->length(10);
             $table->integer('bercate_total')->length(10);
             $table->integer('bercate_discount')->length(3);
@@ -36,18 +36,42 @@ return new class extends Migration
             $table->text('bercate_content')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
+            $table->boolean('delete_status')->default(false);
             $table->timestamps();
         });
 
         DB::table('berproduct_categories')->insert([
             [
                 'bercate_id' =>  '1',
-                'bercate_name' =>  'เบอร์มงคลแนะนำ',
-                'bercate_title' =>  'แนะนำ',
-                'thumbnail' =>  '/icons/category/icon-money.png',
+                'bercate_name' =>  'เบอร์ทั้งหมด',
+                'bercate_title' =>  'เบอร์ทั้งหมด',
+                'thumbnail' =>  '',
                 'bercate_needful' =>  '',
                 'bercate_needless' =>  '',
-                'priority' =>  '3',
+                'priority' =>  '1',
+                'bercate_total' =>  '0',
+                'bercate_discount' =>  '0',
+                'discount_begin' =>  '0000-00-00 00:00:00 ',
+                'discount_expire' =>  '0000-00-00 00:00:00 ',
+                'status' =>  'false',
+                'bercate_pin' =>  '0',
+                'allow_edit' =>  '1',
+                'bercate_display' =>  '1',
+                'update_by' =>  '0',
+                'bercate_h1' =>  '',
+                'bercate_h2' =>  '',
+                'bercate_content' =>  '',
+                'meta_title' =>  '',
+                'meta_description' =>  '',
+            ],
+            [
+                'bercate_id' =>  '2',
+                'bercate_name' =>  'เบอร์มงคลแนะนำ',
+                'bercate_title' =>  'แนะนำ',
+                'thumbnail' =>  'icons/category/icon-money.png',
+                'bercate_needful' =>  '',
+                'bercate_needless' =>  '',
+                'priority' =>  '2',
                 'bercate_total' =>  '0',
                 'bercate_discount' =>  '0',
                 'discount_begin' =>  '0000-00-00 00:00:00 ',
@@ -64,13 +88,13 @@ return new class extends Migration
                 'meta_description' =>  '',
             ],
             [
-                'bercate_id' =>  '2',
+                'bercate_id' =>  '3',
                 'bercate_name' =>  'เบอร์หงส์ เสริมโชคลาภ เงินทอง',
                 'bercate_title' =>  'เบอร์หงส์ ',
-                'thumbnail' =>  '/icons/category/icon-swarn.png',
+                'thumbnail' =>  'icons/category/icon-swarn.png',
                 'bercate_needful' =>  '289,982,782,287',
                 'bercate_needless' =>  '',
-                'priority' =>  '4',
+                'priority' =>  '3',
                 'bercate_total' =>  '0',
                 'bercate_discount' =>  '0',
                 'discount_begin' =>  '0000-00-00 00:00:00',

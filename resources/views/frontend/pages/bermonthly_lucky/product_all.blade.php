@@ -312,14 +312,8 @@
                     <div class="flex flex-col">
                         <p class="mb-2">หมวดหมู่เบอร์</p>
                         <div class="flex flex-wrap gap-3">
-                            {{-- <button class="relative p-2 bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[5px] group">
-              <img style="filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);" src="/icons/category/icon-swarn.png" alt="">
-              <div class="w-10 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                  <img class="scale-150" src="/icons/category/union.png" alt="">
-                  <p class="w-full text-xs absolute top-0 left-0 text-center">การงาน</p>
-              </div>
-            </button> --}}
                             @foreach ($berproduct_cates as $bercate)
+                                @if($bercate->bercate_pin == true)
                                 @php
                                     $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
@@ -332,6 +326,7 @@
                                         <p class="w-full text-xs absolute top-1 left-0">{{ $bercate->bercate_title }}</p>
                                     </div>
                                 </button>
+                                @endif
                             @endforeach
                         </div>
                     </div>
@@ -403,15 +398,13 @@
                                 </div>
                             </div>
 
-                            <div
-                                class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
-                                <div
-                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                                <div id="addBerToCart" data-id="{{$product->product_id}}" data-type="3" class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
                                 <div
-                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
+                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/icons8-line-app (1) 9.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
@@ -420,7 +413,7 @@
                                     class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
 
 
-                                <button id="buynow" data-id="{{$product->product_id}}"
+                                <button id="buyProductNow" data-id="{{$product->product_id}}" data-type="3"
                                     class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
                             </div>

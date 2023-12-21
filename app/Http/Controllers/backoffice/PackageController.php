@@ -85,9 +85,12 @@ class PackageController extends BaseController
         try {
             DB::beginTransaction();
 
-            $this->updatePriority("package_categories", $request->priority);
-
             $cateUpdate = PackageCategory::findOrFail($id);
+
+            if ($cateUpdate->priority != $request->priority) {
+                $this->updatePriority("package_categories", $request->priority);
+            }
+
             $data = $request->only(['title', 'priority']);
             $cateUpdate->update($data);
 

@@ -82,11 +82,61 @@ Route::prefix('backoffice/v1')->group(function () {
 
         Route::post('config/upload/manual', [ConfigController::class, 'uploadManual']);
 
-
         /* Utility */
         Route::post('ckeditor/upload/image', [UtilController::class, 'ckeditorUploadImage']);
 
         /* ProductController */
+        Route::prefix('berluckycate/')->group(function () {
+            Route::get('data', [BerLuckyController::class, 'index']);
+            Route::post('create', [BerLuckyController::class, 'createBerluckyCate']);
+            Route::post('update/{id}', [BerLuckyController::class, 'updateBerluckyCate']);
+            Route::patch('updatestatus/{id}', [BerLuckyController::class, 'updateStatusCate']);
+            Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinCate']);
+            Route::patch('updatedisplay/{id}', [BerLuckyController::class, 'updateDisplayCate']);
+            Route::delete('delete/{id}', [BerLuckyController::class, 'deleteBerluckyCate']);
+        });
+
+        /* ber lucky */
+        Route::prefix('berlucky/')->group(function () {
+            Route::get('data', [BerLuckyController::class, 'productIndex']);
+            Route::post('create', [BerLuckyController::class, 'createBerlucky']);
+            Route::post('update/{id}', [BerLuckyController::class, 'updateBerlucky']);
+            Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinProduct']);
+            Route::patch('updatesold/{id}', [BerLuckyController::class, 'updateSoldProduct']);
+            Route::patch('updatedisplay/{id}', [BerLuckyController::class, 'updateDisplayProduct']);
+            Route::patch('updatemonthlystatus/{id}', [BerLuckyController::class, 'updateMonthlyStatus']);
+            Route::delete('delete/{id}', [BerLuckyController::class, 'deleteBerlucky']);
+
+            /* Excel */
+            Route::post('importexcel', [ExcelController::class, 'excelImportBer']);
+            Route::get('exportexcel', [ExcelController::class, 'excelExportBer']);
+        });
+
+
+
+
+        /* Prediction */
+        Route::prefix('predict/')->group(function () {
+            /* number cate */
+            Route::get('numbcate/data', [BerpredictController::class, 'numbCateIndex']);
+            Route::post('numbcate/create', [BerpredictController::class, 'createPredictNumbCate']);
+            Route::post('numbcate/update/{id}', [BerpredictController::class, 'updatePredictNumbCate']);
+            Route::patch('numbcate/updatedisplay/{id}', [BerpredictController::class, 'updateDisplayNumbCate']);
+            Route::delete('numbcate/delete/{id}', [BerpredictController::class, 'deletePredictNumbCate']);
+
+            /* number cate */
+            Route::get('grade/data', [BerpredictController::class, 'gradeIndex']);
+            Route::post('grade/update/{id}', [BerpredictController::class, 'updatePredictGrade']);
+
+            /* number cate */
+            Route::get('ber/data', [BerpredictController::class, 'berIndex']);
+            Route::post('ber/update/{id}', [BerpredictController::class, 'updatePredictBer']);
+
+        });
+
+
+
+
         // Fiber
         Route::prefix('fiber/')->group(function () {
             Route::get('data', [FiberController::class, 'fiberData']);
@@ -131,6 +181,40 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::post('product/create', [MoveController::class, 'createMoveProduct']);
             Route::post('product/update/{id}', [MoveController::class, 'updateMoveProduct']);
             Route::delete('product/delete/{id}', [MoveController::class, 'deleteMoveProduct']);
+        });
+
+        // Travel
+        Route::prefix('travel/')->group(function () {
+
+            //Sim
+            Route::get('data', [TravelController::class, 'index']);
+            Route::post('create', [TravelController::class, 'createTravelSim']);
+            Route::post('update/{id}', [TravelController::class, 'updateTravelSim']);
+            Route::patch('updaterec/{id}', [TravelController::class, 'updateRecProduct']);
+            Route::patch('updatedisplay/{id}', [TravelController::class, 'updateDisplayProduct']);
+            Route::delete('delete/{id}', [TravelController::class, 'deleteTravelSim']);
+        });
+
+        // Prepaid cate
+        Route::prefix('prepaidcate/')->group(function () {
+
+            Route::get('data', [PrepaidController::class, 'cateIndex']);
+            Route::post('create', [PrepaidController::class, 'createPrepaidCate']);
+            Route::post('update/{id}', [PrepaidController::class, 'updatePrepaidCate']);
+            Route::patch('updatepin/{id}', [PrepaidController::class, 'updatePinCate']);
+            Route::patch('updatedisplay/{id}', [PrepaidController::class, 'updateDisplayCate']);
+            Route::delete('delete/{id}', [PrepaidController::class, 'deletePrepaidCate']);
+        });
+
+        // Prepaid sim
+        Route::prefix('prepaidsim/')->group(function () {
+            Route::get('data', [PrepaidController::class, 'simIndex']);
+
+            Route::post('create', [PrepaidController::class, 'createPrepaidSim']);
+            Route::post('update/{id}', [PrepaidController::class, 'updatePrepaidSim']);
+            Route::patch('updaterec/{id}', [PrepaidController::class, 'updateRecProduct']);
+            Route::patch('updatedisplay/{id}', [PrepaidController::class, 'updateDisplaySim']);
+            Route::delete('delete/{id}', [PrepaidController::class, 'deletePrepaidSim']);
         });
     });
 });

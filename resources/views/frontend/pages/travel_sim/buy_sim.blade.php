@@ -1,9 +1,9 @@
 @extends('frontend.layouts.main')
-
-
-
 @section('content')
-    <div class="2xl:mt-16 mt-[2rem]">
+@php 
+    $data_option = array_filter(explode(',' , $travel_sim->package_options));
+@endphp
+    <div class="mt-[125px] max-xl:mt-[74px]">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
@@ -17,22 +17,10 @@
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
-                            @for ($i = 1; $i <= 6; $i++)
-                                <img src="/images/travel/Rectangle 1281 (1).png" alt=""
-                                    class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                                {{-- <img src="/images/Rectangle 1283.png" alt=""
-                            class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                        <img src="/images/Rectangle 1284.png" alt=""
-                            class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                        <img src="/images/Rectangle 1285.png" alt=""
-                            class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                        <img src="/images/Rectangle 1281.png" alt=""
-                            class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 "> --}}
-                            @endfor
+                            <img src="/images/travel/Rectangle 1281 (1).png" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
+                            @foreach($data_option as $option)
+                                <img src="/images/travel/Rectangle 1281 (1).png" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
+                            @endforeach
 
                         </div>
                         <img id="slideRight" class="arrow absolute right-0 cursor-pointer" src="/images/next.png">
@@ -42,34 +30,41 @@
                 </div>
 
                 <div class="col-span-2 space-y-6 text-left mx-3">
-                    <p class=" font-medium 2xl:text-2xl text-xl ">Thailand Tourist Infinite SIM 8 Days (Special offer from
-                        normal 8 Days) 449 Baht
-                        Unlimited 5G Internet Unlimited call to all network in Thailand</p>
+                    <p class=" font-medium 2xl:text-2xl text-xl ">{{$travel_sim->details}}</p>
 
                     <div class="flex justify-center border-l border border-gray-500 text-center  rounded-full px-2">
                     </div>
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
-                    <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] xl:h-[350px] lg:h-[225px] h-[280px] w-full">
-                        @for ($i = 1; $i <= 8; $i++)
-                            <div id="box{{ $i }}"
+                    <div class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] xl:h-[350px] lg:h-[225px] h-[280px] w-full">
+                        <div id="box" data-price="{{$travel_sim->price}}"
+                            class="boxdefault border border-gray-500 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer activate">
+                            <div class="flex mb-2 ">
+                                <img src="/images/travel/Rectangle 1281 (1).png" alt=""
+                                    class="w-20 max-ex:w-[70px]">
+                                <p class="text-lg font-medium ml-3 ">ซิมปกติ (Physical SIM)</p>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="/images/check-one-active.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
+                                <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$travel_sim->price}}</p>
+                                <p class="2xl:text-lg font-medium ml-2">บาท</p>
+                            </div>
+                        </div>
+                        @foreach($data_option as $option)
+                            <div id="box" data-option="{{$option}}" data-price="{{$option}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                                 <div class="flex mb-2 ">
                                     <img src="/images/travel/Rectangle 1281 (1).png" alt=""
                                         class="w-20 max-ex:w-[70px]">
-                                    <p class="text-lg font-medium ml-3 ">4Mbps</p>
+                                    <p class="text-lg font-medium ml-3 ">ซิมปกติ (Physical SIM)</p>
                                 </div>
                                 <div class="flex items-center">
                                     <img src="/images/check-one.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
-
-                                    <p
-                                        class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">
-                                        150 </p>
+                                    <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$option}}</p>
                                     <p class="2xl:text-lg font-medium ml-2">บาท</p>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
 
@@ -82,8 +77,7 @@
 
             <div class="flex">
                 <button id="btn-package"
-                    class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
-                    แพ็กเกจ</button>
+                    class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด แพ็กเกจ</button>
                 <button id="btn-condition"
                     class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
             </div>
@@ -92,27 +86,7 @@
                 class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
                 <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
                 <div class="w-full lg:w-[400px] ml-3 text-left">
-                    <p class="text-[16px] font-medium mt-3  mx-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย
-                        ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย True
-                    </p>
-
-                    <ol class="mx-6">
-                        <li class="text-[16px]">True ความเร็ว 10Mbps (ไม่ลดสปีด) "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 210 บาท
-                            (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 20Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 70GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 80GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 300 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 55GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 250 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 30GB (FUP 384Kbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 4Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 150 บาท (รวมภาษีแล้ว)</li>
-                    </ol>
-                    <p class="text-[16px]  mx-3">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล
-                        Facebook, Line, instagram, TikTok</p>
-
+                    {!! $travel_sim->details_content !!}
                 </div>
                 <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
                     <button class="text-center text-[#EC1F25]" id="show">แสดงเพิ่มเติม ˅</button>
@@ -122,7 +96,7 @@
             {{-- content condition --}}
             <div id="box-condition"
                 class="hidden bg-[#F8F9FA] text-left min-h-[300px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium  rounded-r-[10px] rounded-bl-[10px]">
-                เงื่อนไขการได้รับสิทธิพิเศษ ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน
+                {!!$travel_sim->terms_content!!}
             </div>
 
         </div>
@@ -133,16 +107,16 @@
         <div class="flex items-center justify-center max-xs:justify-between  p-2 w-full flex-wrap ">
             <div class="flex gap-4 items-center ">
                 <p class="2xl:text-lg text-[16px]">ราคา</p>
-                <p class="2xl:text-2xl text-[18px] font-bold">150</p>
+                <p id="total-price" class="2xl:text-2xl text-[18px] font-bold">{{$travel_sim->price}}</p>
                 <p class="2xl:text-lg text-[16px]">บาท</p>
             </div>
             <div class="border-l border border-[#838383] text-center py-8 mx-4 rounded-full max-xs:hidden"></div>
 
             <div class="flex gap-2 ">
-                <button id="buynow" data-id="0933501625"
+                <button id="buyProductNow" data-type="6" data-id="{{$travel_sim->id}}"
                     class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
-                <button id="addtocart" data-id="0933501625"
+                <button id="addtocart" data-type="6" data-id="{{$travel_sim->id}}"
                     class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -162,5 +136,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/travel/detail_ber.js')
+    @vite('resources/js/travel/buy_sim.js')
 @endsection

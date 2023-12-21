@@ -1,12 +1,30 @@
-import '../bermonthly_lucky/fortune_ber.js';
+// import '../bermonthly_lucky/fortune_ber.js';
 
 console.log("use cartproduct.js")
 
-let submitBuy = document.querySelector('#submit-buy');
+const btn_removeItem = document.querySelectorAll('#remove-item');
+btn_removeItem.forEach(element => {
+  element.addEventListener('click', () => {
+    const data_type = element.getAttribute('data-type');
+    const data_id = element.getAttribute('data-id');
 
-submitBuy.addEventListener('click', buyProduct)
+    const param = {
+      "data_type" : data_type,
+      "data_id" : data_id
+    }
+    
+    axios.post(`/remove-item`,param).then((response) => {
+      if(response.data.status == 'success') {
+        location.reload();
+      }
+    })
+  })
+});
 
-function buyProduct() {
+
+const submitBuy = document.querySelector('#submit-buy');
+
+submitBuy.addEventListener('click', () => {
   let name = document.querySelector('#name').value;
   let last_name = document.querySelector('#last-name').value;
   let customer_tel = document.querySelector('#customer-tel').value;
@@ -29,5 +47,4 @@ function buyProduct() {
     post_code : post_code.value
   }; 
   console.log(param)
-  
-}
+})

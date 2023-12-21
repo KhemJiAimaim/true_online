@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-\Artisan::call('cache:clear');
-// \Artisan::call('route:clear');
-
 // Route::get('/config/clear', function () {
 //     \Artisan::call('cache:clear');
 //     \Artisan::call('config:clear');
@@ -38,7 +35,7 @@ Route::get("/fiber/form_true_dtac/{id}", [FiberController::class, "form_true_dta
 
 //ซิมเติมเงิน
 Route::get("/prepaid_sim", [SimController::class, "prepaid_sim"]);
-Route::get("/prepaid_sim/buy_sim", [SimController::class, "buy_sim"]);
+Route::get("/prepaid_sim/buy_sim/{id}", [SimController::class, "buy_sim"]);
 Route::get("/prepaid_sim/sim_includ", [SimController::class, "sim_includ"]);
 //package
 Route::get("/prepaid_sim/package/{type?}", [SimController::class, "package"]);
@@ -47,8 +44,8 @@ Route::get("/prepaid_sim/buy_package/{id}", [SimController::class, "buy_package"
 //travel
 Route::get("/travel_sim", [TravelController::class, "travel_sim"]);
 Route::get("/travel_sim/{cate}", [TravelController::class, "travel_sim_byCategory"]);
-// Route::get("/travel_sim/menu/{cate}", [TravelController::class, "travel_sim_visiting"]);
-Route::get("/travel_sim_buy", [TravelController::class, "travel_sim_buy"]);
+Route::get("/travel_sim/menu/{cate}", [TravelController::class, "travel_sim_visiting"]);
+Route::get("/travel_sim_buy/{id}", [TravelController::class, "travel_sim_buy"]);
 
 //ขอบคุณ
 Route::get("/thankyou ", [HomeController::class, "thankyou"]);
@@ -76,5 +73,7 @@ Route::get('/movenow/form/{id}', [MoveController::class, "formMove"]);
 
 // ตระกร้าสินค้า
 Route::get('/cartproduct', [CartController::class, "cartproduct_page"]);
+Route::post('/remove-item', [CartController::class, "removeItem"]);
 
-Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"]);
+Route::get('/clearcart', [CartController::class, "clearCart"]);
+Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"])->middleware('web');

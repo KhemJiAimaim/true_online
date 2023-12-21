@@ -31,13 +31,16 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <section id="sim" class="bg-white  py-6 px-3">
+        @php $j = 1 @endphp
+        @foreach($cates as $cate)
+        <section id="sim" class="py-6 px-3 {!!$bg = ($j % 2 == 0)?'bg-gray-100 relative':'bg-white';!!}">
+            {!!$circle1 = ($j % 2 == 0)?'<img class="absolute right-0 top-0 z-[1]" src="/images/circle/ci1.png" alt="">':'';!!}
+
             <div class="mb-10">
-                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px] font-medium">ซิมเติมเงิน</p>
-                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมเติมเงิน
-                    พร้อมแพ็กเกจเสริม ที่คุณอาจสนใจ
-                </p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px] font-medium">{{$cate->cate_title}}</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">{{$cate->cate_description}}</p>
             </div>
+            @if($cate->id == 17)
             <div class="2xl:my-16 my-4 z-2 w-full">
                 <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
                     @php
@@ -45,15 +48,13 @@
                     @endphp
                     <div class="swiper swiper1 flex justify-center items-center mx-auto w-full">
                         <div class="swiper-wrapper flex items-center">
-                            @for ($i = 1; $i <= 5; $i++)
+                            @foreach ($prepaid_cate as $prepaid)
                                 <div class="swiper-slide flex justify-center items-center">
                                     <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
                                         <div
                                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                             {{-- <div class="flex justify-start items-center"> --}}
-                                            <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ
-                                                เล่นเน็ตไม่อั้น
-                                                ใช้ได้ไม่จำกัด</p>
+                                            <p class="text-white text-left ml-3 text-[16px]">{{$prepaid->title}}</p>
                                             <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png"
                                                 alt="">
                                             {{-- </div> --}}
@@ -62,17 +63,14 @@
 
                                         <div class="bg-white">
                                             <div class="flex justify-center py-4 ">
-                                                <img src="/images/Rectangle 98.png" alt=""
+                                                <img src="/{{$prepaid->thumbnail_link}}" alt=""
                                                     class="max-ex:w-[120px] max-ex:h-[120px]">
                                             </div>
                                         </div>
 
                                         <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
                                             <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                                            <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">(
-                                                เล่นฟรีเดือนแรก )
-                                                เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
-                                                True wifi max speed แบบไม่จำกัด)</p>
+                                            <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">{{$prepaid->details}}</p>
                                         </div>
 
                                         <div
@@ -80,24 +78,19 @@
                                             <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                                 alt="">
                                             <div class="grid grid-cols-3">
-                                                <p class="text-white text-left text-[16px] ">ราคา <br>
-                                                    เริ่มต้น</p>
-                                                <p
-                                                    class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                                    150</p>
-                                                <p class="text-white text-right text-[16px]">บาท <br>
-                                                    /เดือน</p>
-
+                                                <p class="text-white text-left text-[16px] ">ราคา <br> เริ่มต้น</p> 
+                                                <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">{{ $price = ($prepaid->price)? number_format($prepaid->price): 0;}}</p>
+                                                <p class="text-white text-right text-[16px]">บาท <br> /เดือน</p>
                                             </div>
                                         </div>
 
                                         <div
                                             class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                                            <a href="/prepaid_sim/buy_sim"
+                                            <a href="{{url('/prepaid_sim/buy_sim/'.$prepaid->id)}}"
                                                 class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                            <a href="#"
-                                                class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                            <button id="buyProductNow" data-id="{{$prepaid->id}}" data-type="4" data-prepaid="{{$prepaid->prepaid_sim_id}}"
+                                                class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
 
                                         </div>
                                     </div>
@@ -105,33 +98,17 @@
                                 @php
                                     $productCount++; // เพิ่มจำนวนรายการ
                                 @endphp
-                            @endfor
-
+                            @endforeach
                         </div>
+                        
                     </div>
                     @if ($productCount >= 4)
                         <div class="swiper-button-next  swiper-button-next1"></div>
                         <div class="swiper-button-prev swiper-button-prev1"></div>
                     @endif
                 </div>
-
             </div>
-            <div class="items-center mx-auto mt-4 pt-6">
-                <a href="#"
-                    class="py-2.5 px-5 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
-            </div>
-        </section>
-        {{-- --- --}}
-
-        <section id="sim" class="bg-gray-100 py-6 relative z-0 px-3">
-            <img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">
-
-            <div class="mb-10">
-                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px] font-medium">แพ็กเกจเสริม</p>
-                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมเติมเงิน พร้อมแพ็กเกจเสริม
-                    ที่คุณอาจสนใจ
-                </p>
-            </div>
+            @else
             <div class="2xl:my-16 my-4 z-2 w-full">
                 <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
                     @php
@@ -200,15 +177,15 @@
                         <div class="swiper-button-prev swiper-button-prev2 "></div>
                     @endif
                 </div>
-
             </div>
+            @endif
             <div class="items-center mx-auto mt-4 pt-6">
-                <a href="{{ url('/prepaid_sim/package') }}"
-                    class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
+                <a href="{{url('/'.$cate->cate_redirect)}}" class="py-2.5 px-5 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
             </div>
-            <img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png" alt="">
-
+            {!!$circle2 = ($j % 2 == 0)?'<img class=" absolute left-0 bottom-0 " src="/images/circle/ci2.png" alt="">':'';!!}
         </section>
+        @php $j++; @endphp
+        @endforeach
         {{-- --- --}}
 
     </div>
@@ -218,4 +195,5 @@
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @vite('resources/js/prepaid_sim/swiper.js')
+    @vite('resources/js/global_js/add_cart_product.js')
 @endsection

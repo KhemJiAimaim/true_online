@@ -456,8 +456,8 @@
 
                                                     <a href="{{ url('/detailber/' . $ber->product_phone) }}"
                                                         class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <a href="{{url('/cartproduct/?ber=' . $ber->product_id)}}"
-                                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                                    <button id="buyProductNow" data-id="{{$ber->product_id}}" data-type="{{$cate->id}}"
+                                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
                                             </div>
@@ -478,17 +478,17 @@
                         @elseif($cate->id == 4)
                             @php
                                 $productCount = 0;
+                                $i = 1;
                             @endphp
                             <div class="swiper swiper3  flex justify-center items-center mx-auto">
                                 <div class="swiper-wrapper flex 2xl:justify-center items-center">
-                                    @for ($i = 1; $i <= 4; $i++)
+                                    @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
-                                                    <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ เล่นเน็ตไม่อั้น
-                                                        ใช้ได้ไม่จำกัด</p>
+                                                    <p class="text-white text-left ml-3 text-[16px]">{{$prepaid->title}}</p>
                                                     <img class=" absolute right-0 top-0"
                                                         src="/images/circle/Intersect.png" alt="">
                                                     {{-- </div> --}}
@@ -503,10 +503,7 @@
 
                                                 <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
                                                     <img src="images/Ellipse 6.png" alt="" class="px-4">
-                                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">(
-                                                        เล่นฟรีเดือนแรก )
-                                                        เล่นเน็ตไม่อั้น ความเร็ว 4Mbps (พร้อมใช้ฟรี
-                                                        True wifi max speed แบบไม่จำกัด)</p>
+                                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">{{$prepaid->details}}</p>
                                                 </div>
 
                                                 <div
@@ -514,36 +511,28 @@
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา
-                                                            <br>
-                                                            เริ่มต้น
-                                                        </p>
-                                                        <p
-                                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                                            150</p>
-                                                        <p class="text-white text-right text-[1rem] 2xl:text-[16px]">บาท
-                                                            <br>
-                                                            /เดือน
-                                                        </p>
-
+                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา <br> เริ่มต้น </p>
+                                                        <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">{{$price = ($prepaid->price)?number_format($prepaid->price):0;}}</p>
+                                                        <p class="text-white text-right text-[1rem] 2xl:text-[16px]">บาท <br> /เดือน </p>
                                                     </div>
                                                 </div>
 
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                                                    <a href="#"
+                                                    <a href="{{url('/prepaid_sim/buy_sim/'.$prepaid->id)}}"
                                                         class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <a href="#"
-                                                        class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                                    <button data-id="{{$i}}" data-type="{{$cate->id}}" data-prepaid="{{$prepaid->prepaid_sim_id}}" id="buyProductNow"
+                                                        class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
 
                                                 </div>
                                             </div>
                                         </div>
                                         @php
                                             $productCount++; // เพิ่มจำนวนรายการ
+                                            $i++;
                                         @endphp
-                                    @endfor
+                                    @endforeach
                                 </div>
                             </div>
                             @if ($productCount >= 4)
@@ -556,15 +545,16 @@
                         @elseif($cate->id == 6)
                             @php
                                 $productCount = 0;
+                                $i = 1;
                             @endphp
                             <div class="swiper swiper4  flex justify-center items-center mx-auto">
                                 <div class="swiper-wrapper flex 2xl:justify-center items-center">
-                                    @for ($i = 1; $i <= 4; $i++)
+                                    @foreach ($travel_sim as $sim)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                                    <p class="text-white mr-2 text-left text-[16px]">8 DAYS 449 BAHT</p>
+                                                    <p class="text-white mr-2 text-left text-[16px]">{{$sim->lifetime}} DAYS {{$sim->price}} BAHT</p>
                                                     <img class=" absolute right-0 top-0"
                                                         src="/images/circle/Intersect.png" alt="">
                                                 </div>
@@ -582,27 +572,24 @@
                                                 <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
                                                     <img src="/images/travel/majesticons_sim-card-line.png" alt=""
                                                         class="px-4">
-                                                    <p class="text-left text-[16px] py-1 col-span-4">Thailand Tourist
-                                                        infinite sim</p>
+                                                    <p class="text-left text-[16px] py-1 col-span-4">{{$sim->title}}</p>
                                                 </div>
 
                                                 <div
-                                                    class=" relative bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
+                                                    class="relative bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา
-                                                        </p>
-                                                        <p class="text-white font-medium text-center text-3xl">499</p>
-                                                        <p class="text-white text-right 2xl:text-[18px] text-[16px] ">บาท
-                                                        </p>
+                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา</p>
+                                                        <p class="text-white font-medium text-center text-3xl">{{$sim->price}}</p>
+                                                        <p class="text-white text-right 2xl:text-[18px] text-[16px] ">บาท</p>
 
                                                     </div>
                                                 </div>
 
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
-                                                    <div
+                                                    <div id="addBerToCart" data-id="{{$sim->id}}" data-type="{{$cate->id}}"
                                                         class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
@@ -613,18 +600,19 @@
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                     </div>
 
-                                                    <a href="#"
+                                                    <a href="{{url('/travel_sim_buy/'.$sim->id)}}"
                                                         class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <a href="#"
-                                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                                    <button data-id="{{$sim->id}}" data-type="{{$cate->id}}" id="buyProductNow"
+                                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
                                             </div>
                                         </div>
                                         @php
                                             $productCount++; // เพิ่มจำนวนรายการ
+                                            $i++;
                                         @endphp
-                                    @endfor
+                                    @endforeach
                                 </div>
                             </div>
                             @if ($productCount >= 4)

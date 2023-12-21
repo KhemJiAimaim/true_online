@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('predict_name');
             $table->text('predict_description');
             $table->enum('predict_pin', ['yes', 'no']);
+
+            $table->index('predict_sum');
             $table->timestamps();
         });
 

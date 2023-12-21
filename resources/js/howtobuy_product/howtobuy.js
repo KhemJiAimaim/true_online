@@ -1,4 +1,4 @@
-import '../bermonthly_lucky/fortune_ber.js'
+import '../global_js/hide_banner.js'
 
 console.log("use js how to buy")
 

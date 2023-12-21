@@ -19,8 +19,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[16px]  text-[16px] p-4">ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช
-                        พร้อมรับส่วนลดสุดคุ้มที่นี่</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[16px]  text-[16px] p-4">ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช พร้อมรับส่วนลดสุดคุ้มที่นี่</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -58,15 +57,13 @@
                             <div class="swiper-wrapper items-center">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
-                                        @for ($i = 1; $i <= 4; $i++)
+                                        {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                             <div class="swiper-slide flex justify-center items-center">
                                                 <div
                                                     class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[350px] h-[100%] ">
                                                     <div
                                                         class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
-                                                        <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
-                                                            ซิมเทพ
-                                                            เล่นเน็ตไม่อั้น ใช้ได้ไม่จำกัด</p>
+                                                        <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">{{ $product->details }}</p>
                                                         <img class=" absolute top-0 right-0"
                                                             src="/images/circle/Intersect.png" alt="">
                                                     </div>
@@ -74,19 +71,15 @@
                                                     <div class="bg-white flex items-center justify-center flex-col p-4 ">
                                                         <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
                                                         <div class="flex justify-center items-baseline gap-10">
-                                                            <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต
-                                                            </p>
-                                                            <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">
-                                                                {{ $product->internet_volume }}</p>
-                                                            <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">GB
-                                                            </p>
+                                                            <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต </p>
+                                                            <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">{{ $product->internet_volume }}</p>
+                                                            <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]"> GB</p>
 
                                                         </div>
                                                         <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                                         <div class="flex justify-center items-baseline gap-10">
                                                             <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
-                                                            <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">
-                                                                {{ $product->call_minutes }}</p>
+                                                            <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] "> {{ $product->call_minutes }} </p>
                                                             <p class="2xl:text-[1.5rem] text-[1rem]">GB</p>
 
                                                         </div>
@@ -96,23 +89,18 @@
                                                             <img src="/images/arcticons_wifianalyzer (1).png"
                                                                 alt="">
                                                             @if ($product->unlimited_wifi == true)
-                                                                <p
-                                                                    class="font-bold 2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">
-                                                                    WiFi ไม่จำกัด</p>
+                                                                <p class="font-bold 2xl:text-[1.5rem] text-[18px] max-md:text-[16px]"> WiFi ไม่จำกัด</p>
                                                             @else
-                                                                <p
-                                                                    class="font-bold 2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">
-                                                                    จำกัดการใช้ WiFi</p>
+                                                                <p class="font-bold 2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">จำกัดการใช้ WiFi</p>
                                                             @endif
                                                         </div>
+                                                        @if($product->voice_hd == true)
                                                         <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                                         <div class="flex items-center flex-col justify-center">
-                                                            <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">4G HD Voice
-                                                            </p>
-                                                            <p class="2xl:text-[1.2rem] text-[14px]">
-                                                                เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ
-                                                                4G</p>
+                                                            <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">4G HD Voice</p>
+                                                            <p class="2xl:text-[1.2rem] text-[14px]"> เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ 4G</p>
                                                         </div>
+                                                        @endif
                                                     </div>
                                                     <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden ">
                                                         <div class="orange-plate-container pb-2">
@@ -123,10 +111,7 @@
                                                                     <div class="orange-plate-textboxS"></div>
                                                                 </div>
                                                                 <div class="orange-plate-textboxC">
-                                                                    <p
-                                                                        class="orange-plate-text text-white text-[18px] max-md:text-[16px]">
-                                                                        รับทันที
-                                                                    </p>
+                                                                    <p class="orange-plate-text text-white text-[18px] max-md:text-[16px]">รับทันที</p>
                                                                 </div>
                                                                 <div class="orange-plate-box-e">
                                                                     <div class="orange-plate-textboxE"></div>
@@ -173,17 +158,10 @@
                                                             src="/images/circle/Intersect (2).png" alt="">
                                                         <div class="flex items-center justify-between py-6 px-4">
 
-                                                            <p class="text-white text-left text-[18px] max-md:text-[16px] ">
-                                                                ราคา
-                                                            </p>
+                                                            <p class="text-white text-left text-[18px] max-md:text-[16px]">ราคา</p>
                                                             <p class="text-white font-medium text-center text-3xl">
                                                                 {{ number_format($product->price) }}</p>
-                                                            <p
-                                                                class="text-white text-right text-[18px] max-md:text-[16px]  ">
-                                                                บาท
-                                                                <br> /เดือน
-                                                            </p>
-
+                                                            <p class="text-white text-right text-[18px] max-md:text-[16px]">บาท <br> /เดือน </p>
                                                         </div>
                                                     </div>
 
@@ -192,13 +170,13 @@
 
                                                         <a href="#"
                                                             class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
-                                                        <a href="/movedetail"
+                                                        <a href="{{url('/movedetail/'.$product->id)}}"
                                                             class="cursor-pointer py-2 md:px-10 2xl:px-16 px-16 ss:px-[1.8rem] xs:  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endfor
+                                        {{-- @endfor --}}
                                     @endif
                                 @endforeach
                             </div>
