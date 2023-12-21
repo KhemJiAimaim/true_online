@@ -34,18 +34,18 @@
                     <div class="flex justify-center border-l border border-gray-500 text-center  rounded-full px-2"></div>
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
+                        class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
                         @php $i = 1; @endphp
                         @foreach ($prepaid_sim as $sim)
                             <div id="box" data-prepaid="{{$sim->id}}" data-price="{{$sim->price}}"
-                                class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8rem] cursor-pointer">
+                                class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8.5rem] w-[] cursor-pointer">
                                 <div class="flex ">
-                                    <img src="/{{$sim->thumbnail_link}}" alt="" class="w-16">
+                                    <img src="/{{$sim->thumbnail_link}}" alt="" class="w-20 max-ex:w-[70px]">
                                     <p class="text-lg font-medium ml-2">{{$sim->title}}</p>
                                 </div>
                                 <div class="flex items-center">
                                     <img src="/images/check-one.png" alt="" class="check-box w-10">
-                                    <p class="text-xl 2xl:text-[2rem] font-bold ml-10 text-red-600">{{$sim->price}}</p>
+                                    <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] text-red-600">{{$sim->price}}</p>
                                     <p class="2xl:text-lg font-medium ml-2">บาท</p>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    @vite('resources/css/fiber.css')
+    @vite('resources/css/fiber_detail.css')
 @endsection
 
 @extends('frontend.layouts.main')
@@ -22,24 +22,24 @@
             <div class="max-w-[1536px] gap-4 m-auto p-4 mt-10 ">
 
                 <div class="flex flex-wrap justify-center gap-4 mx-auto">
-                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4">
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4 px-1">
                         <p
                             class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
                             {{ $fiber_products->title }}
                         </p>
-                        <div class="grid grid-cols-3 px-10 ss:px-[1.5rem] mt-4">
-                            <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
+                        <div class="grid grid-cols-3 px-10 ss:px-[1.5rem] mt-6">
+                            <p class="text-black font-medium text-[16px] pt-[26px] ">ราคา</p>
                             <p
                                 class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-4xl pt-3">
                                 {{ number_format($fiber_products->price_per_month) }}
                             </p>
-                            <p class="text-black font-medium text-[1rem]">บาท<br>/เดือน</p>
+                            <p class="text-black font-medium text-[16px]">บาท<br>/เดือน</p>
                         </div>
-                        <p class="text-md mt-2">ระยะสัญญา {{ $fiber_products->duration }} เดือน</p>
+                        <p class="text-md mt-4">ระยะสัญญา {{ $fiber_products->duration }} เดือน</p>
                     </div>
 
                     @if ($fiber_products->fiber_cate_id == 10)
-                        <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
+                        <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
                             <div class="orange-plate-container">
                                 <div class="orange-plate-group">
                                     <div class="orange-plate-box-s">
@@ -57,11 +57,11 @@
                             </div>
 
                             <p class="mt-4 font-medium text-[18px]">สำหรับลูกค้าดีแทค และ ทรูมูฟ เอช รายเดือน</p>
-                            <div class="grid grid-cols-3 px-10 mt-3">
-                                <p class="text-black font-medium text-[1rem] pt-[26px] ">ราคา</p>
+                            <div class="grid grid-cols-3 px-10 mt-6 items-center">
+                                <p class="text-black font-medium text-[16px] pt-[26px] ">ราคา</p>
                                 <p class="font-bold text-center text-4xl pt-3">
                                     {{ number_format($fiber_products->special_price) }}</p>
-                                <p class="text-black font-medium text-[1rem] ">บาท<br>/เดือน</p>
+                                <p class="text-black font-medium text-[16px] ">บาท<br>/เดือน</p>
                             </div>
                         </div>
                     @endif
@@ -73,7 +73,7 @@
                         $upload = $fiber_products->upload_speed >= 1000 ? $fiber_products->upload_speed / 1000 : $fiber_products->upload_speed;
                         $unit_upload = $fiber_products->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                     @endphp
-                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
                         <div class="grid grid-cols-2 mt-6">
                             <div class="flex justify-center">
                                 <img src="/images/Rectangle 1233.png" alt="" class="w-[7rem] h-[7rem]">
@@ -85,11 +85,11 @@
                                 <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
                                 <div class="flex justify-start py-6 ">
                                     <p
-                                        class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-4xl">
+                                        class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[3rem]">
                                         {{ $download }}
                                     </p>
                                     <div class="border-l border border-gray-500 text-center mx-6 rounded-full "></div>
-                                    <p class="text-md text-md text-left font-medium">
+                                    <p class="text-[16px] text-md text-left font-medium">
                                         {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}</p>
                                 </div>
                             </div>
@@ -108,19 +108,22 @@
                 <div class="swiper items-center ">
                     <div class="swiper-wrapper ">
                         @foreach ($posts as $pos)
-                            @for ($i = 1; $i <= 10; $i++)
+                            @for ($i = 1; $i <= 2; $i++)
                                 <div
-                                    class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center">
+                                    class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-2">
                                     <img src="/{{ $pos->thumbnail_link }}" alt=""
-                                        class="w-[171px] h-[150px] se:w-[150px] block ">
+                                        class="w-[171px] h-[150px] se:w-[150px] block ml-2 ">
                                     <p class="se:text-[16px]">{{ $pos->title }}</p>
                                 </div>
                             @endfor
                         @endforeach
                     </div>
+
                 </div>
-                <div class="swiper-button-next "></div>
-                <div class="swiper-button-prev"></div>
+                <div class="mx-3">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
     </div>
     </section>
@@ -155,5 +158,5 @@
 @section('scripts')
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    @vite('resources/js/fiber/swiper.js')
+    @vite('resources/js/internet_fiber/swiper_detail.js')
 @endsection
