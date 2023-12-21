@@ -170,11 +170,11 @@ body {
         font-size: 18px;
     }
     .swiper-button-next {
-        right: 12% !important;
+      
         top: 104%;
     } 
     .swiper-button-prev {
-        left: 12% !important;
+       
         top: 104%;
     }
 }
@@ -184,12 +184,12 @@ body {
         font-size: 18px;
     }
     .swiper-button-next {
-        right: 12% !important;
-        top: 132%;
+       
+        top: 140%;
     } 
     .swiper-button-prev {
-        left: 12% !important;
-        top: 132%;
+       
+        top: 140%;
     }
 }
 

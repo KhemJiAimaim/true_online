@@ -22,7 +22,7 @@
             <div class="max-w-[1536px] gap-4 m-auto p-4 mt-10 ">
 
                 <div class="flex flex-wrap justify-center gap-4 mx-auto">
-                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4">
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4 px-1">
                         <p
                             class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
                             {{ $fiber_products->title }}
@@ -39,7 +39,7 @@
                     </div>
 
                     @if ($fiber_products->fiber_cate_id == 10)
-                        <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
+                        <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
                             <div class="orange-plate-container">
                                 <div class="orange-plate-group">
                                     <div class="orange-plate-box-s">
@@ -73,7 +73,7 @@
                         $upload = $fiber_products->upload_speed >= 1000 ? $fiber_products->upload_speed / 1000 : $fiber_products->upload_speed;
                         $unit_upload = $fiber_products->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                     @endphp
-                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
                         <div class="grid grid-cols-2 mt-6">
                             <div class="flex justify-center">
                                 <img src="/images/Rectangle 1233.png" alt="" class="w-[7rem] h-[7rem]">
