@@ -226,8 +226,8 @@
             @foreach($cates as $cate)
             <a href="/{{$cate->cate_redirect}}"
                 class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
-                <img class="w-30 h-30 mb-2" src="/{{$cate->cate_thumbnail}}" alt="">
-                <p class="text-[1rem]">{{$cate->cate_title}}</p>
+                <img class="w-[54px] h-[54px] mb-2" src="/{{$cate->cate_thumbnail}}" alt="">
+                <p class="text-[18px] se:text-[16px]">{{$cate->cate_title}}</p>
             </a>
             @endforeach
         </div>
