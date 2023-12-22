@@ -9,9 +9,87 @@
             /* overflow-y: auto; */
         }
     </style>
+    {{-- &callback=initMap --}}
+    <script async src="http://maps.googleapis.com/maps/api/js?key={{ $key_map }}&callback=initMap"></script>
+    <script>
+      var map;
+      var geocoder;
+      var currentMarker; // ประกาศตัวแปร currentMarker เพื่อเก็บ reference ของ Marker ปัจจุบัน
+      var keyMap = @json($key_map);
+    
+      function initMap() {
+        var mapProp = {
+          center: new google.maps.LatLng(16.487383, 102.835130),
+          zoom: 18,
+          mapTypeId: google.maps.MapTypeId.MAP
+        };
+    
+        map = new google.maps.Map(document.querySelector('#gMap'), mapProp);
+        
+    
+        google.maps.event.addListener(map, 'click', function (event) {
+          // ตรวจสอบว่ามี Marker เก่าอยู่หรือไม่
+          if (currentMarker) {
+            // ถ้ามี Marker เก่าอยู่, ให้ลบออกจากแผนที่
+            currentMarker.setMap(null);
+          }
+    
+          // สร้าง Marker ใหม่
+          currentMarker = new google.maps.Marker({
+            position: event.latLng,
+            map: map,
+          });
+    
+          var info = new google.maps.InfoWindow({
+            content: "<button onclick='selectLo()'>Choose this location</button>"
+          });
+    
+          info.open(map, currentMarker);
+        });
+    
+        geocoder = new google.maps.Geocoder();
+      }
+    
+      function searchLocation() {
+        var address = document.getElementById('search').value;
+    
+        geocoder.geocode({ 'address': address }, function (results, status) {
+          if (status === 'OK') {
+            var location = results[0].geometry.location;
+            map.setCenter(location);
+    
+            // var marker = new google.maps.Marker({
+            //   map: map,
+            //   position: location
+            // });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    
+      function selectLo() {
+        if (currentMarker) {
+            let customer_location = currentMarker.getPosition().lat().toString() + ',' + currentMarker.getPosition().lng().toString();
+            // console.log(customer_location)
+
+            const input_pin = document.querySelector('#input-pin');
+            input_pin.value = customer_location; 
+
+            const show_map = document.querySelector('#show-map'); 
+            show_map.classList.remove('hidden');
+            show_map.src = `https://www.google.com/maps/embed/v1/place?key=${keyMap}&q=${customer_location}&zoom=18`;
+            document.querySelector('#modal').classList.add('hidden')
+        } else {
+          console.log("No marker available.");
+        }
+      }
+    
+      window.onload = initMap;
+    </script>
 @endsection
 @section('content')
-    <div class="2xl:mt-16  mt-[1rem]">
+    <div class="mt-[120px] max-xl:mt-[74px]">
         <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
         <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
@@ -113,29 +191,40 @@
                 </div>
             </div>
 
-            <div class="flex 2xl:justify-between max-ex:flex-col 2xl:items-center gap-y-2 mt-4">
+            <div class="flex 2xl:justify-between max-ex:flex-col 2xl:items-start gap-y-2 mt-4">
                 <label for="name"
                     class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">ปักหมุดที่อยู่</label>
-                <div class="flex-1">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.766488826179!2d102.83253007514489!3d16.487357484254442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228ae99b598b43%3A0x56b4538d2ace7037!2sWYNNSOFT%20SOLUTION%20CO%2CLTD.!5e0!3m2!1sth!2sth!4v1698401473715!5m2!1sth!2sth"
-                        class="w-full rounded-lg" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="flex flex-col gap-4 flex-1">
+                    <div class="relative">
+                        <input required type="text" id="input-pin" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent" placeholder="16.408917,102.773789">
+                        <button id="pin_address" class="bg-gray-300 p-1 rounded-full absolute right-0 top-[50%] translate-x-[-50%] translate-y-[-50%]"><img src="/icons/addressicon.png" alt=""></button>
+                    </div>
+                    <iframe id="show-map" class="w-full rounded-lg hidden" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="" allowfullscreen=""></iframe>
+
                 </div>
             </div>
 
-
             <p class="text-[1rem] text-[#838383] 2xl:mt-6 mt-10">ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที</p>
         </div>
+    </div>
 
+    {{-- modal google map --}}
+    <div id="modal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10 hidden">
+        <div class="flex items-center justify-center h-full">
+          <div class="bg-white p-2 rounded-[10px] shadow-lg w-[1100px] h-[600px] max-ex:h-[80%] max-ex:w-[95%] relative">
+            <div id="close-modal" class="cursor-pointer text-gray-600 text-[60px] absolute top-[-5%] right-2">&times;</div>
+            <div class="w-96 mx-auto flex gap-4 my-4">
+              <input type="text" id="search" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+              <button onclick="searchLocation()" class="bg-blue-500 text-white py-2 px-4 rounded">Search</button>
+            </div>
+            <div id="gMap" style="width: 100%;height:500px"></div>
+          </div>
+        </div>
     </div>
 
     <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 gap-y-2 mt-4 2xl:gap-4 mb-10 px-3">
-        <a href="{{ url('/fiber') }}"
-            class="py-2.5 px-12  mb-2 mt-2  text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
-        <button id="save-form-data"
-            class="py-2.5 px-5  mb-2 mt-2 text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>
-
+        <a href="{{ url('/fiber') }}" class="py-2.5 px-12  mb-2 mt-2  text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
+        <button id="save-form-data" class="py-2.5 px-5  mb-2 mt-2 text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>
     </div>
     @include('frontend.pages.internet_fiber.footer_fiber')
 @endsection
@@ -143,6 +232,7 @@
 @section('scripts')
 <script>
     let data = @json($product);
+    console.log(data)
 </script>
 @vite('resources/js/internet_fiber/form_true_dtac.js')
 @endsection

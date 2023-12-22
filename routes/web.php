@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/config/clear', function () {
-//     \Artisan::call('cache:clear');
+    // \Artisan::call('cache:clear');
 //     \Artisan::call('config:clear');
 //     \Artisan::call('route:clear');
 //     return response([
@@ -32,7 +32,7 @@ Route::get("/fiber", [FiberController::class, "homePage"]);
 Route::get("/fiber/true_dtac/{cate_url}", [FiberController::class, "true_dtac"]);
 Route::get("/fiber/detail_true_dtac/{id}", [FiberController::class, "detail_true_dtac"]);
 Route::get("/fiber/form_true_dtac/{id}", [FiberController::class, "form_true_dtac"]);
-
+Route::get('/map', [FiberController::class, "getMap"]);
 //ซิมเติมเงิน
 Route::get("/prepaid_sim", [SimController::class, "prepaid_sim"]);
 Route::get("/prepaid_sim/buy_sim/{id}", [SimController::class, "buy_sim"]);
