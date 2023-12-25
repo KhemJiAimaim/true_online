@@ -49,7 +49,7 @@ class MoveController extends Controller
     }
 
     public function formMove(Request $request, $id) {
-$pass_data['id'] = $id; 
+        $pass_data['id'] = $id; 
         if($request->input('opt') && $request->input('opt') != '') {
             $pass_data['option'] = $request->input('opt');
         }

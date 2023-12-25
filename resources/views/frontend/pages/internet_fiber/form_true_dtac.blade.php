@@ -41,7 +41,7 @@
           });
     
           var info = new google.maps.InfoWindow({
-            content: "<button onclick='selectLo()'>Choose this location</button>"
+            content: "<button onclick='selectLo()' class='bg-blue-500 p-1 rounded-[5px] text-white'>Choose this location</button>"
           });
     
           info.open(map, currentMarker);
