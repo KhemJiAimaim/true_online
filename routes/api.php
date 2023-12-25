@@ -85,6 +85,10 @@ Route::prefix('backoffice/v1')->group(function () {
         /* Utility */
         Route::post('ckeditor/upload/image', [UtilController::class, 'ckeditorUploadImage']);
 
+        /* Mail box */
+        Route::get('mail/data', [MailInboxController::class, 'index']);
+        Route::patch('mail/updatepin/{id}', [MailInboxController::class, 'updatePin']);
+
         /* ProductController */
         Route::prefix('berluckycate/')->group(function () {
             Route::get('data', [BerLuckyController::class, 'index']);
@@ -112,9 +116,6 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::get('exportexcel', [ExcelController::class, 'excelExportBer']);
         });
 
-
-
-
         /* Prediction */
         Route::prefix('predict/')->group(function () {
             /* number cate */
@@ -138,9 +139,6 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::post('sumber/update/{id}', [BerpredictController::class, 'updatePredictSumber']);
 
         });
-
-
-
 
         // Fiber
         Route::prefix('fiber/')->group(function () {
@@ -190,7 +188,6 @@ Route::prefix('backoffice/v1')->group(function () {
 
         // Travel
         Route::prefix('travel/')->group(function () {
-
             //Sim
             Route::get('data', [TravelController::class, 'index']);
             Route::post('create', [TravelController::class, 'createTravelSim']);
@@ -214,7 +211,6 @@ Route::prefix('backoffice/v1')->group(function () {
         // Prepaid sim
         Route::prefix('prepaidsim/')->group(function () {
             Route::get('data', [PrepaidController::class, 'simIndex']);
-
             Route::post('create', [PrepaidController::class, 'createPrepaidSim']);
             Route::post('update/{id}', [PrepaidController::class, 'updatePrepaidSim']);
             Route::patch('updaterec/{id}', [PrepaidController::class, 'updateRecProduct']);
