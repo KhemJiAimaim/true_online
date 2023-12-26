@@ -21,6 +21,7 @@ const btnSavedata = document.querySelector('#save-form-data');
 btnSavedata.addEventListener('click', () => {
   const first_name = document.querySelector('#first-name').value;
   const last_name = document.querySelector('#last-name').value;
+  const email = document.querySelector('#email').value;
   const line_id = document.querySelector('#line-id').value;
   const phone = el_phone.value;
   const phone_to_move = el_phone_to_move.value;
@@ -37,6 +38,7 @@ btnSavedata.addEventListener('click', () => {
     "first_name" : first_name,
     "last_name" : last_name,
     "phone_number" : phone,
+    "email" : email,
     "line_id" : line_id,
   }
 
