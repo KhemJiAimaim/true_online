@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontoffice;
 
 use App\Http\Controllers\backoffice\BookingController;
+use App\Http\Controllers\frontapi\ContactAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,3 +78,7 @@ Route::post('/remove-item', [CartController::class, "removeItem"]);
 
 Route::get('/clearcart', [CartController::class, "clearCart"]);
 Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"])->middleware('web');
+
+/* Send FormData Controller */
+Route::post('/sendformfiber', [ContactAdminController::class, "sendFormFiber"]); /* Fiber */
+Route::post('/sendformmove', [ContactAdminController::class, "sendFormMove"]); /* Move */
