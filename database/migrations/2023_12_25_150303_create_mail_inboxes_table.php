@@ -18,10 +18,11 @@ return new class extends Migration
     {
         Schema::create('mail_inboxes', function (Blueprint $table) {
             $table->id();
+            $table->integer('type_id')->nullable()->comment('1 คือ fiber, 2 คือ ย้ายค่าย');
             $table->integer('fiber_id')->nullable();
             $table->integer('move_id')->nullable();
-            $table->integer('type_id')->nullable()->comment('1 คือ fiber, 2 คือ ย้ายค่าย');
             $table->string('move_option')->nullable()->comment('option เสริมของย้ายค่าย');
+            $table->string('phone_move')->nullable()->comment('เบอร์ที่ต้องการย้าย');
 
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
@@ -43,10 +44,11 @@ return new class extends Migration
 
         DB::table('mail_inboxes')->insert([
             [
+                'type_id' => 1,
                 'fiber_id' => 1,
                 'move_id' => NULL,
-                'type_id' => 1,
                 'move_option' => '',
+                'phone_move' => NULL,
                 'firstname' => 'First1',
                 'lastname' => 'Last1',
                 'phone_number' => '0999900999',
@@ -62,9 +64,10 @@ return new class extends Migration
                 'pin' => false,
             ],
             [
+                'type_id' => 2,
                 'fiber_id' => NULL,
                 'move_id' => 1,
-                'type_id' => 2,
+                'phone_move' => '0888899888',
                 'move_option' => '399',
                 'firstname' => 'First2',
                 'lastname' => 'Last2',
@@ -81,10 +84,11 @@ return new class extends Migration
                 'pin' => false,
             ],
             [
+                'type_id' => 1,
                 'fiber_id' => 2,
                 'move_id' => NULL,
-                'type_id' => 1,
                 'move_option' => '',
+                'phone_move' => NULL,
                 'firstname' => 'First3',
                 'lastname' => 'Last3',
                 'phone_number' => '0966685588',
