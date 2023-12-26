@@ -89,7 +89,7 @@
     </script>
 @endsection
 @section('content')
-    <div class="mt-[120px] max-xl:mt-[74px]">
+    <div class="mt-[120px] max-xl:mt-[74px] mx-3">
         <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
         <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
