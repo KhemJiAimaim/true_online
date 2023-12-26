@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
 use App\Models\Category;
+use App\Models\Province;
+use App\Models\District;
+use App\Models\SubDistrict;
 use stdClass;
 
 class Controller extends BaseController
@@ -178,6 +181,20 @@ class Controller extends BaseController
             }
         }
         return ($resultData)?$resultData[0]:null;
+    }
+
+    
+
+    public function getProvinceData() {
+        return Province::all();
+    }
+    
+    public function getDistrictData() {
+        return District::all();
+    }
+
+    public function getSubDistrictData() {
+        return SubDistrict::all();
     }
 
 }

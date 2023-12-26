@@ -20,6 +20,50 @@ btn_removeItem.forEach(element => {
     })
   })
 });
+const zip_code = document.querySelector('#zip-code');
+const province = document.querySelector('#province');
+const districtSelect  = document.querySelector('#district');
+const sub_districtSelect = document.querySelector('#sub-district');
+province.addEventListener('change', () => {
+    const selectedOption = province.options[province.selectedIndex];
+    const provinceId = selectedOption.getAttribute('data-id');
+    console.log(provinceId)
+    getDistrictData(provinceId)
+})
+
+districtSelect.addEventListener('change', () => {
+    const selectedOption = districtSelect.options[districtSelect.selectedIndex];
+    const districtId = selectedOption.getAttribute('data-id');
+    // console.log(districtId)
+    getSubDistrictData(districtId)
+})
+
+sub_districtSelect.addEventListener('change', () => {
+    const selectedOption = sub_districtSelect.options[sub_districtSelect.selectedIndex];
+    const data_zip = selectedOption.getAttribute('data-zip');
+    // console.log(data_zip)
+    zip_code.value = data_zip;
+})
+
+function getDistrictData(provinceId) {
+    const filteredDistricts = district_data.filter(dis => dis.province_code == provinceId);
+    let option = '<option value="">เลือกอำเภอ</option>';
+    filteredDistricts.forEach(data => {
+        option += `<option data-id="${data.code}" value="${data.name_th}">${data.name_th}</option>`
+    });
+    districtSelect.innerHTML = option
+}
+
+function getSubDistrictData(districtId){
+    console.log(districtId)
+    const filteredSubDistricts = subdistricts_data.filter(subDis => subDis.district_code == districtId);
+    console.log(filteredSubDistricts)
+    let option = '<option value="">เลือกตำบล</option>';
+    filteredSubDistricts.forEach(data => {
+        option += `<option data-id="${data.code}" data-zip="${data.zip_code}" value="${data.name_th}">${data.name_th}</option>`
+    });
+    sub_districtSelect.innerHTML = option
+}
 
 
 const submitBuy = document.querySelector('#submit-buy');
@@ -44,7 +88,7 @@ submitBuy.addEventListener('click', () => {
     sub_district : sub_district,
     district : district,
     province : province,
-    post_code : post_code.value
+    zip_code : zip_code.value
   }; 
   console.log(param)
 })

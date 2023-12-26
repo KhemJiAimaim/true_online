@@ -74,8 +74,12 @@ class CartController extends Controller
 
             }
         }
+
+        $provinces = $this->getProvinceData();
+        $districts = $this->getDistrictData();
+        $subdistricts = $this->getSubDistrictData();
         
-        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_cate','travelSims'));
+        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_cate','travelSims', 'provinces', 'districts', 'subdistricts'));
     }
 
     public function addproduct_to_cart(Request $request, $id) {
