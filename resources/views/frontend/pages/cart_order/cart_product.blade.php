@@ -196,32 +196,37 @@
                             </div>
                             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
                                 <div class="grid grid-cols-[80px,1fr] gap-4">
-                                    <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
+                                    <label class="text-end" for="province">จังหวัด*</label>
                                     <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
-                                        name="sub-district" id="sub-district">
-                                        <option value="ศิลา">ศิลา</option>
+                                        name="province" id="province">
+                                        <option value="">เลือกจังหวัด</option>
+                                        @foreach($provinces as $province)
+                                        <option data-id="{{$province->code}}" value="{{$province->name_th}}">{{$province->name_th}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
+
                                 <div class="grid grid-cols-[80px,1fr] gap-4">
                                     <label class="text-end" for="district">อำเภอ/เขต*</label>
                                     <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
                                         name="district" id="district">
-                                        <option value="ในเมือง">ในเมือง</option>
+                                        <option value="">เลือกอำเภอ</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
                                 <div class="grid grid-cols-[80px,1fr] gap-4">
-                                    <label class="text-end" for="province">จังหวัด*</label>
+                                    <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
                                     <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
-                                        name="province" id="province">
-                                        <option value="ขอนแก่น">ขอนแก่น</option>
+                                        name="sub-district" id="sub-district">
+                                        <option value="">เลือกตำบล</option>
                                     </select>
                                 </div>
+
                                 <div class="grid grid-cols-[80px,1fr] gap-4">
-                                    <label class="text-end" for="post-code">รหัสไปรษณี*</label>
+                                    <label class="text-end" for="zip-code">รหัสไปรษณี*</label>
                                     <input class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
-                                        type="text" name="post-code" id="post-code" maxlength="5">
+                                        type="text" name="zip-code" id="zip-code" maxlength="5">
                                 </div>
                             </div>
                         </div>
@@ -245,5 +250,9 @@
 @endsection
 
 @section('scripts')
+    <script>
+        let district_data = @json($districts);
+        let subdistricts_data = @json($subdistricts);
+    </script>
     @vite('resources/js/cart_order/cartproduct.js')
 @endsection

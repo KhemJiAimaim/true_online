@@ -86,7 +86,11 @@ class FiberController extends Controller
     {
         $key_map = 'AIzaSyDYXs0euMCEZ7Um37NqJfu8r9RkT5qlYk8';
         $product = FiberProduct::find($id);
-        return view("frontend.pages.internet_fiber.form_true_dtac", compact('product', 'key_map'));
+
+        $provinces = $this->getProvinceData();
+        $districts = $this->getDistrictData();
+        $subdistricts = $this->getSubDistrictData();
+        return view("frontend.pages.internet_fiber.form_true_dtac", compact('product', 'key_map', 'provinces', 'districts', 'subdistricts'));
     }
 
     public function getMap() {

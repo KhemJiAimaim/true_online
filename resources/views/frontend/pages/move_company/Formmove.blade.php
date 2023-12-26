@@ -32,8 +32,7 @@
                 <label for="last-name"
                     class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700 text-[16px]">นามสกุล</label>
                 <div class="flex-1">
-                    <input required type="text" id="last-name"
-                        class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                    <input required type="text" id="last-name" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
                 </div>
             </div>
         </div>
@@ -43,16 +42,14 @@
                 <label for="phone"
                     class="w-32  text-right max-ex:text-left pr-2 font-medium text-gray-700 text-[16px]">เบอร์โทรติดต่อ</label>
                 <div class="flex-1">
-                    <input required type="text" id="phone"
-                        class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent" maxlength="10">
+                    <input required type="text" id="phone" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent" maxlength="10">
                 </div>
             </div>
             <div class="flex justify-between items-center">
                 <label for="phone-to-move"
                     class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700 text-[16px]">เบอร์ที่ต้องการย้าย</label>
                 <div class="flex-1">
-                    <input required type="text" id="phone-to-move" maxlength="10"
-                        class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                    <input required type="text" id="phone-to-move" maxlength="10" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
                 </div>
             </div>
         </div>
@@ -62,11 +59,9 @@
                 <label for="line-id"
                     class="w-32  text-right max-ex:text-left pr-2 font-medium text-gray-700 text-[16px]">ไลน์ไอดี</label>
                 <div class="flex-1">
-                    <input required type="text" id="line-id"
-                        class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                    <input required type="text" id="line-id" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
                 </div>
             </div>
-            
         </div>
 
         <p class="text-[1rem] text-[#838383] 2xl:mt-6 mt-10">ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที</p>

@@ -144,40 +144,34 @@
 
             <div class="grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center mt-4">
                 <div
-                    class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
-                    <label for="sub-district"
-                        class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700">ตำบล/แขวง</label>
-                    <select id="sub-district" name="sub-district"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
-                        <option>ศิลา</option>
-                        <option>ในเมือง</option>
-                        <option>Chile</option>
+                    class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500 ">
+                    <label for="province"
+                        class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">จังหวัด</label>
+                    <select id="province" name="province" class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        <option value="">เลือกจังหวัด</option>
+                        @foreach($provinces as $province)
+                        <option data-id="{{$province->code}}" value="{{$province->name_th}}">{{$province->name_th}}</option>
+                        @endforeach
                     </select>
                 </div>
 
-                <div
-                    class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                <div class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
                     <label for="district"
                         class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">อำเภอ/เขต</label>
                     <select id="district" name="district" class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
-                        <option value="ชุมแพ">ชุมแพ</option>
-                        <option value="สึชมพู">สึชมพู</option>
-                        <option value="ภูเวียง">ภูเวียง</option>
+                        <option value="">เลือกอำเภอ</option>
                     </select>
                 </div>
             </div>
 
 
             <div class="grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center mt-4">
-                <div
-                    class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500 ">
-                    <label for="province"
-                        class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">จังหวัด</label>
-                    <select id="province" name="province"
-                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
-                        <option value="ขอนแก่น">ขอนแก่น</option>
-                        <option value="อุดร">อุดร</option>
-                        <option value="หนองคาย">หนองคาย</option>
+                <div class="flex justify-start items-center focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                    <label for="sub-district"
+                        class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">ตำบล/แขวง</label>
+                    <select id="sub-district" name="sub-district"
+                        class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[14rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                        <option value="">เลือกตำบล</option>
                     </select>
                 </div>
 
@@ -200,7 +194,6 @@
                         <button id="pin_address" class="bg-gray-300 p-1 rounded-full absolute right-0 top-[50%] translate-x-[-50%] translate-y-[-50%]"><img src="/icons/addressicon.png" alt=""></button>
                     </div>
                     <iframe id="show-map" class="w-full rounded-lg hidden" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="" allowfullscreen=""></iframe>
-
                 </div>
             </div>
 
@@ -231,8 +224,9 @@
 
 @section('scripts')
 <script>
-    let data = @json($product);
-    console.log(data)
+    let fiber_product = @json($product);
+    let district_data = @json($districts);
+    let subdistricts_data = @json($subdistricts);
 </script>
 @vite('resources/js/internet_fiber/form_true_dtac.js')
 @endsection

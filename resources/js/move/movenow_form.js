@@ -31,13 +31,13 @@ btnSavedata.addEventListener('click', () => {
   }
 
   let params = {
+    "move_id" : data.id,
+    "move_option" : (data.option > 0) ? data.option : 0,
+    "phone_move" : phone_to_move,
     "first_name" : first_name,
     "last_name" : last_name,
+    "phone_number" : phone,
     "line_id" : line_id,
-    "phone" : phone,
-    "phone_to_move" : phone_to_move,
-    "id_move" : data.id,
-    "option" : (data.option > 0) ? data.option : 0,
   }
 
   console.log(params);
