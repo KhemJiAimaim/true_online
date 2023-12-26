@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix('backoffice/v1')->group(function () {
-
     Route::post('login', [AuthBackOfficeController::class, 'loginAccount']);
     Route::post('register', [AuthBackOfficeController::class, 'registerAccount']);
     Route::post('forget-password', [AuthBackOfficeController::class, 'onSubmitForgetPassword']);
@@ -88,6 +87,7 @@ Route::prefix('backoffice/v1')->group(function () {
         /* Mail box */
         Route::get('mail/data', [MailInboxController::class, 'index']);
         Route::patch('mail/updatepin/{id}', [MailInboxController::class, 'updatePin']);
+        Route::delete('mail/delete/{id}', [MailInboxController::class, 'deleteMail']);
 
         /* ProductController */
         Route::prefix('berluckycate/')->group(function () {

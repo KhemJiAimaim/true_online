@@ -33,9 +33,9 @@
 .change .ham-line1 {
     transform: translate(0, 11px) rotate(-45deg);
   }
-  
+
   .change .ham-line2 {opacity: 0;}
-  
+
   .change .ham-line3 {
     transform: translate(0, -11px) rotate(45deg);
   }
@@ -444,22 +444,21 @@ ol {
     width: 1px;
     height: 5px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
-    
+
     border-radius: 10px;
   }
-   
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(207, 207, 207); 
+    background: rgb(207, 207, 207);
     border-radius: 10px;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #9b9b9b; 
+    background: #9b9b9b;
   }
-  
-  
+
