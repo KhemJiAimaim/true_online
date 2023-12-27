@@ -107,7 +107,7 @@
                                                             <div class="orange-plate-line"></div>
                                                             <div class="orange-plate-group">
                                                                 <div class="orange-plate-box-s">
-                                                                    <div class="orange-plate-circleS"></div>
+                                                                    <div class="orange-plate-circleSM"></div>
                                                                     <div class="orange-plate-textboxS"></div>
                                                                 </div>
                                                                 <div class="orange-plate-textboxC">
@@ -115,7 +115,7 @@
                                                                 </div>
                                                                 <div class="orange-plate-box-e">
                                                                     <div class="orange-plate-textboxE"></div>
-                                                                    <div class="orange-plate-circleE"></div>
+                                                                    <div class="orange-plate-circleEM"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -168,8 +168,8 @@
                                                     <div
                                                         class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 ss:px-2 gap-3">
 
-                                                        <a href="#"
-                                                            class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</a>
+                                                        <button id="btn-termOfService" data-id="{{$product->id}}"
+                                                            class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</button>
                                                         <a href="{{url('/movedetail/'.$product->id)}}"
                                                             class="cursor-pointer py-2 md:px-10 2xl:px-16 px-16 ss:px-[1.8rem] xs:  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
@@ -192,7 +192,22 @@
                 {!! $circle2 !!}
             </section>
         @endforeach 
-
+        
+        {{-- box manual --}}
+        <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10" id="modal-container">
+            <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-lg:p-2 p-4 bg-white rounded-[10px]">
+                <div class="w-full flex justify-end">
+                    <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close-modal">
+                </div>
+                <div class="text-center flex flex-col items-center gap-3">
+                    <h1 class="text-xl font-bold mb-4">ข้อกำหนดและเงื่อนไข</h1>
+                </div>
+                <div id="modal-content" class="text-left h-[calc(100%-68px)] overflow-auto">
+                    
+                </div>
+            </div>
+        </div>
+        {{-- box manual --}}
     </div>
 
     @include('frontend.pages.move_company.move_footer')
@@ -201,4 +216,5 @@
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @vite('resources/js/move/swiper.js')
+    @vite('resources/js/move/modal_termservice.js')
 @endsection

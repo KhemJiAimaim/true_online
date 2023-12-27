@@ -86,6 +86,7 @@ save_form.addEventListener('click',  () => {
     'lat_lng' : input_pin,
     }
     
+    // validate data
     for (const key in params) {
         if (params.hasOwnProperty(key) && params[key] === '') {
             console.log("error: " + key + " is empty");
