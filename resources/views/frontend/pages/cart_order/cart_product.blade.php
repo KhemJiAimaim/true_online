@@ -233,6 +233,7 @@
                     </div>
                 </div>
             </div>
+            <div class="g-recaptcha" data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" data-callback='onSubmit' data-action='submit'></div>
 
             {{-- btn submit --}}
             <div class="mt-5 flex justify-center gap-4">
@@ -250,6 +251,17 @@
 @endsection
 
 @section('scripts')
+<script>
+    function onClick(e) {
+      e.preventDefault();
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_', {action: 'submit'}).then(function(token) {
+            // Add your logic to submit to your backend server here.
+        });
+      });
+    }
+</script>
+
     <script>
         let bermonthly_data = @json($berMonthlys);
         let prepaidCate_data = @json($prepaid_cate);
