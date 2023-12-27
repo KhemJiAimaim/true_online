@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('testapi/')->group(function () {
-    Route::post('createorder', [TestAPIController::class, 'testCreateOrder']);
+    // Route::post('createorder', [TestAPIController::class, 'testCreateOrder']);
 });
 
 Route::prefix('backoffice/v1')->group(function () {
