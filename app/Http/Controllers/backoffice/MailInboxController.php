@@ -13,7 +13,7 @@ class MailInboxController extends Controller
 {
     public function index(Request $request)
     {
-        $data = MailInbox::get();
+        $data = MailInbox::orderBy('created_at', 'DESC')->get();
 
         if ($data) {
             foreach ($data as $d) {
