@@ -19,13 +19,20 @@ function fillerTel(element) {
 
 const btnSavedata = document.querySelector("#save-form-data");
 btnSavedata.addEventListener("click", () => {
-    const first_name = document.querySelector("#first-name").value;
-    const last_name = document.querySelector("#last-name").value;
+    const firstname = document.querySelector("#first-name").value;
+    const lastname = document.querySelector("#last-name").value;
     const line_id = document.querySelector("#line-id").value;
+    const email = document.querySelector("#email");
     const phone = el_phone.value;
     const phone_to_move = el_phone_to_move.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!first_name || !last_name || !phone || !phone_to_move) {
+    if (!emailRegex.test(email.value)) {
+        console.log("Invalid Email");
+        return false;
+    }
+
+    if (!firstname || !lastname || !phone || !phone_to_move) {
         console.log("error");
         return false;
     }
@@ -34,18 +41,40 @@ btnSavedata.addEventListener("click", () => {
         move_id: data.id,
         move_option: data.option > 0 ? data.option : "",
         phone_move: phone_to_move,
-        first_name: first_name,
-        last_name: last_name,
+        firstname: firstname,
+        lastname: lastname,
         phone_number: phone,
         line_id: line_id,
+        email: email.value,
     };
 
     axios.post("/sendformmove", formData).then(
         (res) => {
-            console.log(res);
+            if (res.status === 201) {
+                Swal.fire({
+                    icon: "success",
+                    title: "ส่งข้อความสำเร็จ",
+                    text: "ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที",
+                    showConfirmButton: false,
+                    timer: 2500,
+                }).then(() => window.location.reload());
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Something went wrong.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            }
         },
         (err) => {
             console.error(err);
+            Swal.fire({
+                icon: "error",
+                title: "Something went wrong.",
+                showConfirmButton: false,
+                timer: 1500,
+            });
         }
     );
 });
