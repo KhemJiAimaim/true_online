@@ -251,6 +251,12 @@
 
 @section('scripts')
     <script>
+        let bermonthly_data = @json($berMonthlys);
+        let prepaidCate_data = @json($prepaid_cate);
+        let travelSims_data = @json($travelSims);
+        let shipping_cost = @json($shipping_cost);
+        let total_price = @json($total_price);
+        
         let district_data = @json($districts);
         let subdistricts_data = @json($subdistricts);
     </script>

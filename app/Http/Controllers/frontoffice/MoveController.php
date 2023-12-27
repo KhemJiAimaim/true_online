@@ -72,4 +72,14 @@ class MoveController extends Controller
             ->get();
         return $posts;
     }
+    
+
+
+    public function getTermContent($id_move) {
+        $termcontent = MoveProduct::select('terms_content')->where('id',$id_move)->first();
+        return response()->json([
+            'status' => 'success',
+            'data' => $termcontent,
+        ], 200);
+    }
 }
