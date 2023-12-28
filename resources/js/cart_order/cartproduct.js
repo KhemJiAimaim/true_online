@@ -85,8 +85,8 @@ function getSubDistrictData(districtId){
 const submitBuy = document.querySelector('#submit-buy');
 
 submitBuy.addEventListener('click', () => {
-  const name = document.querySelector('#name').value;
-  const last_name = document.querySelector('#last-name').value;
+  const firstname = document.querySelector('#name').value;
+  const lastname = document.querySelector('#last-name').value;
   const customer_tel = document.querySelector('#customer-tel').value;
   const customer_email = document.querySelector('#customer-email').value;
   const customer_address = document.querySelector('#customer-address').value;
@@ -99,17 +99,20 @@ submitBuy.addEventListener('click', () => {
   // console.log(bermonthly_data)
   
   let params = {
-    name : name, 
-    last_name : last_name,
-    customer_tel : customer_tel,
-    customer_email : customer_email,
-    customer_address : customer_address,
-    sub_district : sub_district,
+    firstname : firstname, 
+    lastname : lastname,
+    phone_number : customer_tel,
+    email : customer_email,
     district : district,
+    subdistrict : sub_district,
     province : province,
     zip_code : zip_code.value,
+    address : customer_address,
     total_price : total_price,
-    shipping_cost : shipping_cost
+    shipping_cost : shipping_cost,
+    bermonthly: (bermonthly_data.length > 0) ? bermonthly_data : [],
+    prepaid_cate: (prepaidCate_data.length > 0) ? prepaidCate_data : [],
+    travel_sim:  (travelSims_data.length > 0) ? travelSims_data : []
   }; 
 
   // validate data
@@ -120,15 +123,34 @@ submitBuy.addEventListener('click', () => {
     }
   }
 
-  if(bermonthly_data.length > 0) {
-    params.bermonthly = bermonthly_data
+  // if(bermonthly_data.length > 0) {
+  //   params.bermonthly = bermonthly_data
+  // }
+  // if(prepaidCate_data.length > 0) {
+  //   params.prepaid_cate = prepaidCate_data
+  // }
+  // if(travelSims_data.length > 0) {
+  //   params.travel_sim = travelSims_data
+  // }
+  // console.log(params)
+
+  axios.post(`/confirmorder`,params).then((response) => {
+    if (response.status === 201) {
+      Swal.fire({
+        icon: "success",
+        title: "ส่งข้อความสำเร็จ",
+        text: "ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที",
+        showConfirmButton: false,
+        timer: 2500,
+      }).then(() => window.location.reload());
+  } else {
+      Swal.fire({
+        icon: "error",
+        title: "Something went wrong.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
   }
-  if(prepaidCate_data.length > 0) {
-    params.prepaid_cate = prepaidCate_data
-  }
-  if(travelSims_data.length > 0) {
-    params.travel_sim = travelSims_data
-  }
-  console.log(params)
+  })
 
 })
