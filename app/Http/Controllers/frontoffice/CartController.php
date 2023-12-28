@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontoffice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use App\Models\BerproductMonthly;
 use App\Models\PrepaidCategory;
@@ -24,7 +25,9 @@ class CartController extends Controller
         foreach($cartList as $list){
             if (isset($list[3])) {
                 $id = array_column($list[3], 'id');
-                $berMonthlys = BerproductMonthly::whereIn('product_id', $id)->get();
+                $berMonthlys = BerproductMonthly::whereIn('product_id', $id)
+                ->select('*', DB::raw('3 as type_cate'))
+                ->get();
             } 
 
             if (isset($list[4])){

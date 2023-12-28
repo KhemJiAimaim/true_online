@@ -15,18 +15,21 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number');
+            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
 
             $table->integer('type_id');
             $table->string('travel_option')->nullable();
             $table->integer('product_cate_id')->nullable();
             $table->integer('product_id');
             $table->float('product_price');
+            $table->integer('quantity');
             $table->float('discount')->nullable();
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
+
+
     }
 
     /**
