@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('details')->nullable();
             $table->integer('price')->default(0)->comment('ราคาขาย/บาท');
+            $table->integer('quantity')->default(0)->comment('จำนวน');
+            $table->integer('quantity_sold')->nullable()->default(0)->comment('จำนวนที่ขายไป');
             $table->integer('lifetime')->default(0)->comment('อายุการใช้งาน/วัน');
             $table->string('internet_details')->nullable();
             $table->string('call_credit')->default(0)->comment('เครดิตการโทร/บาท');
@@ -57,6 +59,7 @@ return new class extends Migration
                 'title' => 'Thailand Tourist sim',
                 'details' => 'Thailand Tourist sim',
                 'price' => 299,
+                'quantity' => 50,
                 'lifetime' => 10,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
                 'call_credit' => 100,
@@ -130,6 +133,7 @@ return new class extends Migration
                 'title' => 'Thailand Tourist sim',
                 'details' => 'Thailand Tourist sim',
                 'price' => 499,
+                'quantity' => 50,
                 'lifetime' => 10,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
                 'call_credit' => 100,
@@ -203,6 +207,7 @@ return new class extends Migration
                 'title' => 'Thailand Tourist sim',
                 'details' => 'Thailand Tourist sim',
                 'price' => 699,
+                'quantity' => 50,
                 'lifetime' => 10,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
                 'call_credit' => 100,
@@ -276,6 +281,7 @@ return new class extends Migration
                 'title' => 'Thailand Tourist sim',
                 'details' => 'Thailand Tourist sim',
                 'price' => 399,
+                'quantity' => 50,
                 'lifetime' => 15,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
                 'call_credit' => 100,
@@ -349,6 +355,7 @@ return new class extends Migration
                 'title' => 'Thailand Tourist sim',
                 'details' => 'Thailand Tourist sim',
                 'price' => 499,
+                'quantity' => 50,
                 'lifetime' => 15,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
                 'call_credit' => 100,
@@ -422,6 +429,7 @@ return new class extends Migration
                 'title' => 'Thailand Tourist sim',
                 'details' => 'Thailand Tourist sim',
                 'price' => 699,
+                'quantity' => 50,
                 'lifetime' => 15,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
                 'call_credit' => 100,
@@ -495,6 +503,7 @@ return new class extends Migration
                 'title' => 'Thailand Tourist sim',
                 'details' => 'Thailand Tourist sim',
                 'price' => 899,
+                'quantity' => 50,
                 'lifetime' => 15,
                 'internet_details' => 'NON-STOP INTERNET for 15GB at 5G/4G MAX SPEED',
                 'call_credit' => 100,

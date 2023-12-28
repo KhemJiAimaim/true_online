@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('details')->nullable();
             $table->string('description')->nullable();
             $table->integer('price')->default(0)->comment('ราคาขาย/บาท');
+            $table->integer('quantity')->default(0)->comment('จำนวน');
+            $table->integer('quantity_sold')->nullable()->default(0)->comment('จำนวนที่ขายไป');
             $table->string('thumbnail_link')->nullable();
             $table->string('thumbnail_title')->nullable();
             $table->string('thumbnail_alt')->nullable();
@@ -44,6 +46,7 @@ return new class extends Migration
                 'title' => '4Mbps',
                 'details' => '4Mbps',
                 'price' => 150,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 98.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -56,6 +59,7 @@ return new class extends Migration
                 'title' => '15Mbps+โทรฟรี(30GB)',
                 'details' => '15Mbps+โทรฟรี(30GB)',
                 'price' => 200,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 1283.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -68,6 +72,7 @@ return new class extends Migration
                 'title' => '15Mbps+โทรฟรี(55GB) Free Wifi 100min call',
                 'details' => '15Mbps+โทรฟรี(55GB) Free Wifi 100min call',
                 'price' => 250,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 125.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -80,6 +85,7 @@ return new class extends Migration
                 'title' => '100Mbps',
                 'details' => '100Mbps',
                 'price' => 300,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 107.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -92,6 +98,7 @@ return new class extends Migration
                 'title' => '10Mbps ไม่ลดสปีด',
                 'details' => '10Mbps ไม่ลดสปีด',
                 'price' => 210,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 1297.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -104,6 +111,7 @@ return new class extends Migration
                 'title' => '15Mbps+โทรฟรี (55GB) Free Wifi 100min call',
                 'details' => '15Mbps+โทรฟรี (55GB) Free Wifi 100min call',
                 'price' => 250,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 107.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -116,6 +124,7 @@ return new class extends Migration
                 'title' => '10Mbps ไม่ลดสปีด',
                 'details' => '10Mbps ไม่ลดสปีด',
                 'price' => 199,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 1297.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',
@@ -128,6 +137,7 @@ return new class extends Migration
                 'title' => '15Mbps+โทรฟรี (55GB) Free Wifi 100min call',
                 'details' => '15Mbps+โทรฟรี (55GB) Free Wifi 100min call',
                 'price' => 299,
+                'quantity' => 20,
                 'thumbnail_link' => 'images/Rectangle 107.png',
                 'thumbnail_title' => '',
                 'thumbnail_alt' => '',

@@ -15,6 +15,6 @@ class OrderItem extends Model
 
     public function order()
     {
-        return $this->belongsTo(Order::class, 'order_number', 'order_number');
+        return $this->belongsTo(Order::class, 'id', 'order_id');
     }
 }

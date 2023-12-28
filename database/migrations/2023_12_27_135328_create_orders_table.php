@@ -41,11 +41,46 @@ return new class extends Migration
             $table->timestamp('updated_at')->useCurrent();
         });
 
-        // DB::table('orders')->insert([
-        //     [
-
-        //     ],
-        // ]);
+        DB::table('orders')->insert([
+            [
+                'order_number' => 'TRUEONLINE-1',
+                'firstname' => 'Customer1',
+                'lastname' => 'Customer1',
+                'phone_number' => '0909900999',
+                'email' => 'cus1@gmail.com',
+                'district' => 'เมือง',
+                'subdistrict' => 'ในเมือง',
+                'province' => 'ขอนแก่น',
+                'zip_code' => '40000',
+                'address' => '123/12 xxx xxxx',
+                'order_status' => 'success',
+                'order_date' => '2023-12-28 13:00:00',
+                'shipping_date' => '2023-12-29 13:00:00',
+                'order_carrier' => 'Kerry',
+                'tracking_number' => 'TH-1231231231',
+                'total_price' => 1999.00,
+                'shipping_cost' => 100,
+            ],
+            [
+                'order_number' => 'TRUEONLINE-2',
+                'firstname' => 'Customer2',
+                'lastname' => 'Customer2',
+                'phone_number' => '0908800888',
+                'email' => 'cus2@gmail.com',
+                'district' => 'เมือง',
+                'subdistrict' => 'ในเมือง',
+                'province' => 'ขอนแก่น',
+                'zip_code' => '40000',
+                'address' => '123/13 xxx xxxx',
+                'order_status' => 'pending',
+                'order_date' => '2023-12-28 13:00:00',
+                'shipping_date' => '',
+                'order_carrier' => '',
+                'tracking_number' => '',
+                'total_price' => 150.00,
+                'shipping_cost' => 100,
+            ],
+        ]);
     }
 
     /**
