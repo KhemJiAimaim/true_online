@@ -61,8 +61,8 @@
                     @endforeach
                 @endif
 
-                @if(count($prepaid_cate) > 0)
-                    @foreach($prepaid_cate as $prepaid)
+                @if(count($prepaid_cateArr) > 0)
+                    @foreach($prepaid_cateArr as $prepaid)
                     <div class="">
                         <div class="max-ex:p-2 p-4 flex justify-between items-center">
                             <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
@@ -268,7 +268,7 @@
 
     <script>
         let bermonthly_data = @json($berMonthlys);
-        let prepaidCate_data = @json($prepaid_cate);
+        let prepaidCate_data = @json($prepaid_cateArr);
         let travelSims_data = @json($travelSims);
         let shipping_cost = @json($shipping_cost);
         let total_price = @json($total_price);
