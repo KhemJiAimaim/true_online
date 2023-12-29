@@ -81,7 +81,7 @@
                                 </div>
                                 @endif
                             </div>
-                            <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden ">
+                            <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden p-4">
                                 <div class="orange-plate-container pb-2">
                                     <div class="orange-plate-line"></div>
                                     <div class="orange-plate-group">

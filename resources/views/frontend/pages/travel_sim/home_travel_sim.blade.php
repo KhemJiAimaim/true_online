@@ -1,223 +1,8 @@
 @extends('frontend.layouts.main')
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <style>
-        .title-plate-textboxC {
-            width: auto;
-            height: 60px;
-
-        }
-
-        .plate-box-e,
-        .detail-plate-box-e {
-            bottom: 22px;
-        }
-
-        .plate-box-s,
-        .detail-plate-box-s {
-            bottom: 20px;
-        }
-
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper {
-            /* max-width: 1536px; */
-            height: 100%;
-
-        }
-
-        .swiper-wrapper {
-            position: relative;
-            width: 100%;
-
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-button-next {
-            right: 5%;
-            position: absolute;
-            color: #000;
-            top: 110%;
-            height: 30rem;
-
-        }
-
-        .swiper-button-prev {
-            left: 5%;
-            position: absolute;
-            color: #000;
-            widows: 50px;
-            height: 30rem;
-            top: 110%;
-
-        }
-
-        .swiper-button-next:after {
-            font-size: 25px;
-            margin-left: 300%;
-            margin-top: 50%;
-        }
-
-        .swiper-button-prev:after {
-            font-size: 25px;
-            margin-right: 300%;
-            margin-top: 50%;
-        }
-
-        .swiper-button-next1 {
-            right: 5%;
-            position: absolute;
-            color: #000;
-            top: 110%;
-            height: 30rem;
-
-        }
-
-        .swiper-button-prev1 {
-            left: 5%;
-            position: absolute;
-            color: #000;
-            widows: 50px;
-            height: 30rem;
-            top: 110%;
-
-        }
-
-        .swiper-button-next1:after {
-            font-size: 25px;
-            margin-left: 300%;
-            margin-top: 50%;
-        }
-
-        .swiper-button-prev1:after {
-            font-size: 25px;
-            margin-right: 300%;
-            margin-top: 50%;
-        }
-
-        @media only screen and (width: 1280px) {
-            .swiper-button-next {
-                right: 3% !important;
-                top: 95%;
-            }
-
-            .swiper-button-prev {
-                left: 3% !important;
-                top: 95%;
-
-            }
-        }
-
-        @media only screen and (width: 1024px) and (height: 600px) {
-            .swiper-button-next {
-                top: 114%;
-                right: 6% !important;
-            }
-
-            .swiper-button-prev {
-                top: 114%;
-                left: 6% !important;
-            }
-        }
-
-        @media only screen and (width: 1024px) and (height: 1366px) {
-            .swiper-button-next {
-                top: 50%;
-                right: 6% !important;
-            }
-
-            .swiper-button-prev {
-                top: 50%;
-                left: 6% !important;
-            }
-        }
-
-        @media only screen and (max-width:912px) {
-
-            .swiper-button-next {
-                right: 5% !important;
-                top: 55%;
-            }
-
-            .swiper-button-prev {
-                left: 5% !important;
-                top: 55%;
-            }
-        }
-
-        @media only screen and (max-width:768px) {
-
-            .swiper-button-next {
-                right: 5% !important;
-                top: 60%;
-            }
-
-            .swiper-button-prev {
-                left: 5% !important;
-                top: 60%;
-            }
-        }
-
-        @media only screen and (max-width:540px) {
-
-            .swiper-button-next {
-                right: 14% !important;
-                top: 75%;
-            }
-
-            .swiper-button-prev {
-                left: 14% !important;
-                top: 75%;
-            }
-        }
-
-        @media only screen and (max-width:430px) {
-
-            .swiper-button-next {
-                right: 10% !important;
-                top: 60%;
-            }
-
-            .swiper-button-prev {
-                left: 10% !important;
-                top: 60%;
-            }
-        }
-
-        @media only screen and (max-width:414px) {
-
-            .swiper-button-next {
-                right: 10% !important;
-                top: 75%;
-            }
-
-            .swiper-button-prev {
-                left: 10% !important;
-                top: 75%;
-            }
-        }
-    </style>
+    @vite('resources/css/travel.css')
+    
 @endsection
 
 @section('content')
@@ -264,13 +49,11 @@
 
             <div class="2xl:my-16 my-4 z-2 w-full">
                 <div class="max-w-[1548px] my-0 mx-auto flex justify-center">
-                    @php
-                        $productCount = 0;
-                    @endphp
                     <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full">
                         <div class="swiper-wrapper flex items-center ">
                             @foreach ($travel_sim as $sim)
                                 @if($sim->travel_cate_id == $cate->id)
+                              
                                 <div class="swiper-slide flex justify-center items-center">
                                     <div
                                         class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] xs:w-[415px] w-[350px] max-md:w-[350px] h-[100%] ss:px-3">
@@ -430,16 +213,14 @@
                                             </div>
 
                                             <a href="{{url('/travel_sim_buy/'.$sim->id)}}"
-                                                class="cursor-pointer flex items-center lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                class="cursor-pointer flex items-center  lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                             <button data-id="{{$sim->id}}" data-type="6" id="buyProductNow"
-                                                class="cursor-pointer flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                                class="cursor-pointer flex items-center  lg:px-4  xl:px-6 ss:px-4 2xl:px-6 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                         </div>
 
                                     </div>
                                 </div>
-                                @php
-                                    $productCount++; // เพิ่มจำนวนรายการ
-                                @endphp
+                                
                                 @endif
                             @endforeach
                         </div>

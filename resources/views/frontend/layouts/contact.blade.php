@@ -1,5 +1,5 @@
 <div class="fixed sm:bottom-10 bottom-[0] right-5 z-50" id="contact">
-    <div class="relative md:bottom-[8rem] 2xl:bottom-0 xl:bottom-0">
+    <div class="relative md:bottom-[7.7rem] 2xl:bottom-0 ">
 
         <div id="close" class="flex justify-end lg:hidden ">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"

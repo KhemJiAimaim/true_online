@@ -14,7 +14,8 @@ module.exports = {
         xs: "480px",
         ex: "540px",
         xx: "820px",
-        dm: "912px"
+        dm: "912px",
+        uu: "1920px"
       },
 
       scale: {
