@@ -61,8 +61,8 @@
                     @endforeach
                 @endif
 
-                @if(count($prepaid_cate) > 0)
-                    @foreach($prepaid_cate as $prepaid)
+                @if(count($prepaid_cateArr) > 0)
+                    @foreach($prepaid_cateArr as $prepaid)
                     <div class="">
                         <div class="max-ex:p-2 p-4 flex justify-between items-center">
                             <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
@@ -165,39 +165,40 @@
                 {{-- customer contact --}}
                 <div class="max-ex:p-2 p-4 bg-white border border-[1px]-[#D9D9D9] rounded-[10px]">
                     <h1 class="text-lg font-semibold">กรอกที่อยู่ในการจัดส่ง</h1>
-                    <div class="grid grid-cols-2 max-lg:grid-cols-1 gap-10 max-lg:gap-2 pt-2">
+                    <div class="grid grid-cols-2 max-lg:grid-cols-1 gap-4 max-lg:gap-2 pt-2">
                         <div class="flex flex-col gap-2">
-                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="name">ชื่อ*</label>
                                 <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
                                     name="name" id="name">
                             </div>
-                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="last-name">นามสกุล*</label>
                                 <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
                                     name="last-name" id="last-name">
                             </div>
-                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                            <div class="grid grid-cols-[62px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="customer-tel">เบอร์โทร*</label>
                                 <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
                                     name="customer-tel" id="customer-tel" maxlength="10">
                             </div>
-                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[80px,1fr] gap-4">
+                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="customer-email">อีเมล*</label>
                                 <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
                                     name="customer-email" id="customer-email">
                             </div>
                         </div>
+
                         <div class="flex flex-col gap-2">
-                            <div class="grid grid-cols-[80px,1fr] gap-4">
+                            <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                 <label class="text-end" for="customer-address">ที่อยู่*</label>
                                 <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="customer-address"
                                     id="customer-address" cols="30" rows="3"></textarea>
                             </div>
                             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
-                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                     <label class="text-end" for="province">จังหวัด*</label>
-                                    <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                    <select class=" bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
                                         name="province" id="province">
                                         <option value="">เลือกจังหวัด</option>
                                         @foreach($provinces as $province)
@@ -206,16 +207,16 @@
                                     </select>
                                 </div>
 
-                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4 ">
                                     <label class="text-end" for="district">อำเภอ/เขต*</label>
-                                    <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                    <select class="px-1   bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
                                         name="district" id="district">
                                         <option value="">เลือกอำเภอ</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
-                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                     <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
                                     <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
                                         name="sub-district" id="sub-district">
@@ -223,7 +224,7 @@
                                     </select>
                                 </div>
 
-                                <div class="grid grid-cols-[80px,1fr] gap-4">
+                                <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                     <label class="text-end" for="zip-code">รหัสไปรษณี*</label>
                                     <input class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
                                         type="text" name="zip-code" id="zip-code" maxlength="5">
@@ -268,7 +269,7 @@
 
     <script>
         let bermonthly_data = @json($berMonthlys);
-        let prepaidCate_data = @json($prepaid_cate);
+        let prepaidCate_data = @json($prepaid_cateArr);
         let travelSims_data = @json($travelSims);
         let shipping_cost = @json($shipping_cost);
         let total_price = @json($total_price);
