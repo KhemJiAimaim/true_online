@@ -90,6 +90,11 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::patch('mail/updatepin/{id}', [MailInboxController::class, 'updatePin']);
         Route::delete('mail/delete/{id}', [MailInboxController::class, 'deleteMail']);
 
+        Route::prefix('order/')->group(function () {
+            Route::get('data', [OrderController::class, 'index']);
+
+        });
+
         /* ProductController */
         Route::prefix('berluckycate/')->group(function () {
             Route::get('data', [BerLuckyController::class, 'index']);

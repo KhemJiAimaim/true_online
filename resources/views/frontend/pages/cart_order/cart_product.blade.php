@@ -234,7 +234,11 @@
                     </div>
                 </div>
             </div>
-            <div class="g-recaptcha" data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" data-callback='onSubmit' data-action='submit'></div>
+            {{-- <div class="g-recaptcha" data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" data-callback='onSubmit' data-action='submit'></div> --}}
+            <button class="g-recaptcha" 
+                data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" 
+                data-callback='onSubmit' 
+                data-action='submit'>Submit</button>
 
             {{-- btn submit --}}
             <div class="mt-5 flex justify-center gap-4">
