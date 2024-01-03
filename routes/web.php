@@ -86,3 +86,6 @@ Route::post('/sendformfiber', [ContactAdminController::class, "sendFormFiber"]);
 Route::post('/sendformmove', [ContactAdminController::class, "sendFormMove"]); /* Move */
 
 Route::post('/confirmorder', [CartOrderController::class, "confirmOrder"]);
+
+//สถานะส่งพัสดุ
+Route::get('/delivery', [DeliveryController::class, "dalivery"]);

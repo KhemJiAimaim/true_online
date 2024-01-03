@@ -97,6 +97,7 @@ submitBuy.addEventListener('click', () => {
   // console.log(travelSims_data)
   // console.log(prepaidCate_data)
   // console.log(bermonthly_data)
+  // return false;
   
   let params = {
     firstname : firstname, 
@@ -111,7 +112,7 @@ submitBuy.addEventListener('click', () => {
     total_price : total_price,
     shipping_cost : shipping_cost,
     bermonthly: (bermonthly_data.length > 0) ? bermonthly_data : [],
-    prepaid_cate: (prepaidCate_data.length > 0) ? prepaidCate_data : [],
+    prepaid_sim: (prepaidCate_data.length > 0) ? prepaidCate_data : [],
     travel_sim:  (travelSims_data.length > 0) ? travelSims_data : []
   }; 
 
@@ -123,16 +124,8 @@ submitBuy.addEventListener('click', () => {
     }
   }
 
-  // if(bermonthly_data.length > 0) {
-  //   params.bermonthly = bermonthly_data
-  // }
-  // if(prepaidCate_data.length > 0) {
-  //   params.prepaid_cate = prepaidCate_data
-  // }
-  // if(travelSims_data.length > 0) {
-  //   params.travel_sim = travelSims_data
-  // }
   // console.log(params)
+  // return false;
 
   axios.post(`/confirmorder`,params).then((response) => {
     if (response.status === 201) {

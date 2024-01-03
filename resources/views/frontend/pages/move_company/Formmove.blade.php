@@ -72,6 +72,14 @@
             </div>
         </div>
 
+        <div class="grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-10 items-center mt-4">
+            <div class="flex justify-between items-center">
+                <div class="w-36"></div>
+                <div class="g-recaptcha w-full" data-sitekey="6Lf8IkQpAAAAAEmJz3cct0ng28I3wxN3CCUQh6iy"></div>
+            </div>
+
+        </div>
+
         <p class="text-[1rem] text-[#838383] 2xl:mt-6 mt-10">ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที</p>
     </div>
 

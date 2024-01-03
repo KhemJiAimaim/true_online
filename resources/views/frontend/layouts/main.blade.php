@@ -8,10 +8,14 @@
     {{-- <link rel="stylesheet" href="resources/css/app.css"> --}}
     {{-- <link rel="stylesheet" href="/public/css/home.css"> --}}
     @vite('resources/css/app.css', 'resources/js/app.js')
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>True Online | @yield('title')</title>
     <meta name="description" content="คำอธิบายเนื้อหาเว็บไซต์">
     <meta name="keywords" content="true,true online,เบอร์มงคล,fiber">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     @yield('style')
 </head>
 
@@ -38,6 +42,13 @@
     @include('frontend.layouts.contact')
 
     <div class="sticky top-[100vh]">
+        {{-- @if(Request::is(url('/fiber/form_true_dtac/' . $fiber_products->id)))
+        <footer>
+            @include('frontend.pages.internet_fiber.footer_fiber')
+        </footer>
+    @endif --}}
+    
+
         @if (Request::is('/'))
             @include('frontend.layouts.banner_footer')
         @endif
@@ -49,9 +60,10 @@
     {{-- <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYXs0euMCEZ7Um37NqJfu8r9RkT5qlYk8&callback=initMap">
     </script> --}}
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script>
+        AOS.init();
+      </script>
 </body>
 </html>

@@ -165,7 +165,8 @@ async function addProductSession(element) {
     });
     return false;
   }
-
+  // console.log(param)
+  // return false; 
   try {
     const response = await axios.post(`/addproduct/${data_id}`, param);
     return response;
