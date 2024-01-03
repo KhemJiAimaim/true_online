@@ -102,15 +102,15 @@ class CartOrderController extends Controller
             }
         }
 
-        if($params['prepaid_cate'] > 0){
-            foreach ($params['prepaid_cate'] as $prepaid) {
+        if($params['prepaid_sim'] > 0){
+            foreach ($params['prepaid_sim'] as $prepaid) {
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => 4,
                     'travel_option' => null,
-                    'product_cate_id' => $prepaid['id'],
-                    'product_id' => $prepaid['prepaid_sim']['id'],
-                    'product_price' => $prepaid['prepaid_sim']['price'],
+                    'product_cate_id' => $prepaid['prepaid_cate_id']['id'],
+                    'product_id' => $prepaid['id'],
+                    'product_price' => $prepaid['price'],
                     'quantity' => $prepaid['quantity'],
                     'discount' => 0,
                 ];

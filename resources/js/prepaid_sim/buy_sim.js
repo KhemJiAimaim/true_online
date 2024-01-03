@@ -177,8 +177,8 @@ addtocart.addEventListener('click', async () => {
 
 async function addProductSession(element) {
   const data_type = element.getAttribute('data-type');
-  const data_id =  element.getAttribute('data-id');
   const quantity = quantity_product.value;
+  let data_id =  null;
   
   let param = {
     "type_product" : data_type,
@@ -188,6 +188,7 @@ async function addProductSession(element) {
   box.forEach(element => {
     if(element.classList.contains('activate')) {
       param.data_prepaid = element.getAttribute('data-prepaid');
+      data_id = element.getAttribute('data-prepaid');
     }
   });
 

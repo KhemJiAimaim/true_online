@@ -49,7 +49,7 @@
 
                             <a href="{{ url('/prepaid_sim/buy_sim/'.$prepaid->id)}}"
                                 class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                            <button id="buyProductNow" data-id="{{$prepaid->id}}" data-type="4" data-prepaid="{{$prepaid->prepaid_sim_id}}"
+                            <button id="buyProductNow" data-id="{{$prepaid->prepaid_sim_id}}" data-type="4" data-prepaid="{{$prepaid->prepaid_sim_id}}"
                                 class="py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
                         </div>
                     </div>

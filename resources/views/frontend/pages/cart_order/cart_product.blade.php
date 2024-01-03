@@ -61,8 +61,8 @@
                     @endforeach
                 @endif
 
-                @if(count($prepaid_cateArr) > 0)
-                    @foreach($prepaid_cateArr as $prepaid)
+                @if(count($prepaidSims) > 0)
+                    @foreach($prepaidSims as $prepaid)
                     <div class="">
                         <div class="max-ex:p-2 p-4 flex justify-between items-center">
                             <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
@@ -71,17 +71,17 @@
                                 </figure>
                                 <div class="">
                                     <p class="font-semibold">ซิมเติมเงิน</p>
-                                    <p>{{$prepaid->prepaid_sim->title}}</p>
+                                    <p>ตัวเลือก {{$prepaid->title}}</p>
                                     <div class="max-ex:hidden">
-                                        <p>{{$prepaid->details}}</p>
+                                        <p>{{$prepaid->prepaid_cate_id->details}}</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->prepaid_sim->price)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->price)}}</p>
                                 <p class="flex justify-center items-center text-[16px] font-semibold">{{$prepaid->quantity}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_prepaid = $prepaid->prepaid_sim->price * $prepaid->quantity)}}</p>
+                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_prepaid = $prepaid->price * $prepaid->quantity)}}</p>
                                 <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]" id="remove-item" data-type="4" data-id="{{$prepaid->id}}">
                                     <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
                                 </figure>
@@ -231,14 +231,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
+                            <div class="max-xs:hidden"></div>
+                            <div class="g-recaptcha w-full" data-sitekey="6Lf8IkQpAAAAAEmJz3cct0ng28I3wxN3CCUQh6iy"></div>
+                            {{-- <button class="g-recaptcha" 
+                        data-sitekey="6LcDGUQpAAAAAANdgkDVR605YR2oIfTnBQkKc3ob" 
+                        data-callback='onSubmit' 
+                        data-action='submit'>Submit</button> --}}
+                        </div>
                     </div>
                 </div>
             </div>
-            {{-- <div class="g-recaptcha" data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" data-callback='onSubmit' data-action='submit'></div> --}}
-            <button class="g-recaptcha" 
-                data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" 
-                data-callback='onSubmit' 
-                data-action='submit'>Submit</button>
+           
 
             {{-- btn submit --}}
             <div class="mt-5 flex justify-center gap-4">
@@ -257,19 +262,14 @@
 
 @section('scripts')
 <script>
-    function onClick(e) {
-      e.preventDefault();
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_', {action: 'submit'}).then(function(token) {
-            // Add your logic to submit to your backend server here.
-        });
-      });
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
     }
-</script>
+  </script>
 
     <script>
         let bermonthly_data = @json($berMonthlys);
-        let prepaidCate_data = @json($prepaid_cateArr);
+        let prepaidCate_data = @json($prepaidSims);
         let travelSims_data = @json($travelSims);
         let shipping_cost = @json($shipping_cost);
         let total_price = @json($total_price);

@@ -197,6 +197,10 @@
                 </div>
             </div>
 
+            <div class="flex 2xl:justify-center 2xl:items-start gap-y-2 mt-4">
+                <div class="g-recaptcha mx-auto" data-sitekey="6Lf8IkQpAAAAAEmJz3cct0ng28I3wxN3CCUQh6iy"></div>
+            </div>
+
             <p class="text-[1rem] text-[#838383] 2xl:mt-6 mt-10">ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที</p>
         </div>
     </div>
