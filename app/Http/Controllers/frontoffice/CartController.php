@@ -19,7 +19,7 @@ class CartController extends Controller
         $cartList = Session::get('cart_list', []);
         // dd($cartList);
         $berMonthlys = [];
-        $prepaid_cate = [];
+        $prepaidSims = [];
         $travelSims = [];
 
         foreach($cartList as $list){
@@ -31,49 +31,55 @@ class CartController extends Controller
             } 
 
             if (isset($list[4])){
-                $id_cate = array_column($list[4], 'id');
-                $prepaid_id = array_column($list[4], 'prepaid_id');
-
-                $prepaid_cate = PrepaidCategory::select('*')
-                    ->whereIn('id', $id_cate)
-                    ->where('display', true)
-                    ->where('delete_status', false)
-                    ->orderBy('priority')
-                    ->get();
+                $prepaid_id = array_column($list[4], 'id');
+                // $prepaid_id = array_column($list[4], 'prepaid_id');
+                
                 $prepaidSims = PrepaidSim::whereIn('id', $prepaid_id)
                     ->where('display', true)
                     ->where('delete_status', false)
                     ->get();
 
-                foreach($prepaid_cate as $prepaid) {
-                    $id = $prepaid->id;
+                foreach($prepaidSims as $sim) {
+                    $id = $sim->id;
+                    $prepaid_cate = PrepaidCategory::select('*')
+                        ->where('id', $sim->prepaid_cate_id)
+                        ->where('display', true)
+                        ->where('delete_status', false)
+                        ->orderBy('priority')
+                        ->first();
                     $matchingItem = collect($list[4])->firstWhere('id', $id);
                     if ($matchingItem) {
-                        $prepaid->quantity = $matchingItem['quantity'];
-                        foreach($prepaidSims as $item) {
-                            if($matchingItem['prepaid_id'] == $item->id){
-                                $prepaid->prepaid_sim = $item;
-                            }
-                        }
+                        $sim->quantity = $matchingItem['quantity'];
+                        $sim->prepaid_cate_id = $prepaid_cate;
                     }
-                }
-                // dd($prepaid_cate);
+                } 
             }
 
             if (isset($list[6])){
-                $id = array_column($list[6], 'id');
-                $travelSims = TravelSim::whereIn('id', $id)->get();
-                foreach ($travelSims as $travelSim) {
-                    $id = $travelSim->id;
+                $ids = array_column($list[6], 'id');
+
+                foreach ($ids as $id) {
+                    $sim = TravelSim::find($id);
                 
-                    // ค้นหาข้อมูลที่ตรงกับ $id ใน $list[6]
-                    $matchingItem = collect($list[6])->firstWhere('id', $id);
+                    if ($sim) {
+                        // หากพบ TravelSim จาก id
+                        $data_matching = current(array_filter($list[6], function ($item) use ($id) {
+                            return $item['id'] == $id;
+                        }));
                 
-                    if ($matchingItem) {
-                        $travelSim->option = $matchingItem['option'];
-                        $travelSim->quantity = $matchingItem['quantity'];
+                        // dd($data_matching);
+                        if ($data_matching) {
+                            // นำข้อมูลจาก $data_matching ไปกำหนดค่าให้ $sim
+                            $sim->option = $data_matching['option'];
+                            $sim->quantity = $data_matching['quantity'];
+                
+                            // เพิ่ม $sim เข้าไปใน $travelSims
+                            $travelSims[] = $sim;
+                        }
                     }
                 }
+                // dd($travelSims);
+
 
             }
         }
@@ -82,12 +88,14 @@ class CartController extends Controller
         $districts = $this->getDistrictData();
         $subdistricts = $this->getSubDistrictData();
         
-        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaid_cate','travelSims', 'provinces', 'districts', 'subdistricts'));
+        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaidSims','travelSims', 'provinces', 'districts', 'subdistricts'));
     }
 
     public function addproduct_to_cart(Request $request, $id) {
+        // dd($request->all());
         $typeProduct = $request->input('type_product');
         $quantity = ($request->input('quantity')) ? $request->input('quantity') : 1;
+        $option = ($request->input('option'))?$request->input('option'):0;
         $cartList = Session::get('cart_list', []);
         
         // ตรวจสอบว่ามี index สำหรับ type_product หรือไม่
@@ -97,17 +105,43 @@ class CartController extends Controller
         
         // ตรวจสอบว่า $id นี้มีอยู่ใน items หรือไม่
         $existingProductKey = array_search($id, array_column($cartList['items'][$typeProduct], 'id'));
-        
+        // dd($existingProductKey);
         if ($existingProductKey !== false) {
             // กรณีที่ $id นี้มีอยู่แล้ว
-            if ($typeProduct != 3) {
+            if ($typeProduct == 4) {
+                // dd($cartList['items'][$typeProduct][$existingProductKey]['id'] == $id);
+                if ($cartList['items'][$typeProduct][$existingProductKey]['id'] == $id) {
+                    // เพิ่มจำนวนสินค้าใน type_product นั้น
+                    $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
+                } 
+                // else {
+                //     $cartList['items'][$typeProduct][] = [
+                //         'id' => $id,
+                //         'quantity' => $quantity,
+                //         'prepaid_id' => $request->input('data_prepaid'),
+                //     ];
+                // }
+
+                // เพิ่ม amount ทั้งหมด
+                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
+                Session::put('cart_list', $cartList);
+            } else if($typeProduct == 6) {
                 // เพิ่มจำนวนสินค้าใน type_product นั้น
-                $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
+                // dd($cartList['items'][$typeProduct][$existingProductKey]);
+                if($cartList['items'][$typeProduct][$existingProductKey]['option'] == $option) {
+                    $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
+                } else {
+                    $cartList['items'][$typeProduct][] = [
+                        'id' => $id,
+                        'quantity' => 1,
+                        'option' => $option,
+                    ];
+                }
     
                 // เพิ่ม amount ทั้งหมด
                 $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
                 Session::put('cart_list', $cartList);
-            }
+            } 
     
             return response()->json([
                 'status' => 'success',
@@ -125,10 +159,8 @@ class CartController extends Controller
             $cartList['items'][$typeProduct][] = [
                 'id' => $id,
                 'quantity' => $quantity,
-                'prepaid_id' => $request->input('data_prepaid'),
             ];
         } else if ($typeProduct == 6) {
-            $option = ($request->input('option'))?$request->input('option'):0;
             $cartList['items'][$typeProduct][] = [
                 'id' => $id,
                 'quantity' => 1,
@@ -144,7 +176,7 @@ class CartController extends Controller
             'data' => $cartList
         ], 200);
     }
-    
+
     public function removeItem(Request $request) {
         $data_id = $request->input('data_id');
         $data_type = $request->input('data_type');

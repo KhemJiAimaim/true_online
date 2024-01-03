@@ -6,14 +6,13 @@ btn_addProductToCart.forEach(element => {
   element.addEventListener('click', function() {
     const data_id = element.getAttribute('data-id');
     const type_product = element.getAttribute('data-type');
-    const data_prepaid = element.getAttribute('data-prepaid');
+    const prepaid_id = element.getAttribute('prepaid_id');
 
     let param = {
       "type_product" : type_product
     }
-
-    if (data_prepaid) {
-      param.data_prepaid = data_prepaid;
+    if (prepaid_id) {
+      param.prepaid_id = prepaid_id;
     }
 
     addSessionProduct(data_id, param).then(response => {
@@ -42,13 +41,13 @@ btn_buyNow.forEach(element => {
   element.addEventListener('click', () => {
     const data_id = element.getAttribute('data-id');
     const type_product = element.getAttribute('data-type');
-    const data_prepaid = element.getAttribute('data-prepaid');
+    const prepaid_id = element.getAttribute('prepaid_id');
 
     let param = {
       "type_product" : type_product
     }
-    if (data_prepaid) {
-      param.data_prepaid = data_prepaid;
+    if (prepaid_id) {
+      param.prepaid_id = prepaid_id;
     }
 
     addSessionProduct(data_id, param).then(response => {

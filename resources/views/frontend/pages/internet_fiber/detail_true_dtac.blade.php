@@ -108,14 +108,12 @@
                 <div class="swiper items-center ">
                     <div class="swiper-wrapper ">
                         @foreach ($posts as $pos)
-                            @for ($i = 1; $i <= 2; $i++)
-                                <div
-                                    class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-2">
-                                    <img src="/{{ $pos->thumbnail_link }}" alt=""
-                                        class="w-[171px] h-[150px] se:w-[150px] block ml-2 ">
-                                    <p class="se:text-[16px]">{{ $pos->title }}</p>
-                                </div>
-                            @endfor
+                            <div
+                                class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-2">
+                                <img src="/{{ $pos->thumbnail_link }}" alt=""
+                                    class="w-[171px] h-[150px] se:w-[150px] block ml-2 ">
+                                <p class="se:text-[16px]">{{ $pos->title }}</p>
+                            </div>
                         @endforeach
                     </div>
 
