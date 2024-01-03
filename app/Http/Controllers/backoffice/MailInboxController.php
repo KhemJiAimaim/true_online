@@ -14,15 +14,21 @@ class MailInboxController extends Controller
     public function index(Request $request)
     {
         $data = MailInbox::orderBy('created_at', 'DESC')->get();
+        $contactMs = array();
+        $mails = array();
 
         if ($data) {
             foreach ($data as $d) {
                 if ($d->type_id === 1) {
                     $fiber = FiberProduct::where('id', $d->fiber_id)->first();
                     $d->product = $fiber;
-                } else {
+                    $mails[] = $d;
+                } else if ($d->type_id === 2) {
                     $move = MoveProduct::where('id', $d->move_id)->first();
                     $d->product = $move;
+                    $mails[] = $d;
+                } else if ($d->type_id === 0) {
+                    $contactMs[] = $d;
                 }
             }
         }
@@ -30,7 +36,8 @@ class MailInboxController extends Controller
         return response([
             'message' => 'ok',
             'status' => true,
-            'mails' => $data,
+            'mails' => $mails,
+            'contactMs' => $contactMs,
         ], 200);
     }
 

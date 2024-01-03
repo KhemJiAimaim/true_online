@@ -18,7 +18,7 @@ return new class extends Migration
     {
         Schema::create('mail_inboxes', function (Blueprint $table) {
             $table->id();
-            $table->integer('type_id')->nullable()->comment('1 คือ fiber, 2 คือ ย้ายค่าย');
+            $table->integer('type_id')->nullable()->comment('0 คือข้อความติดต่อ, 1 คือ fiber, 2 คือ ย้ายค่าย');
             $table->integer('fiber_id')->nullable();
             $table->integer('move_id')->nullable();
             $table->string('move_option')->nullable()->comment('option เสริมของย้ายค่าย');
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('email')->nullable();
             $table->string('line_id')->nullable();
+            $table->text('messages')->nullable();
             $table->string('district')->nullable();
             $table->string('subdistrict')->nullable();
             $table->string('province')->nullable();
@@ -44,6 +45,69 @@ return new class extends Migration
 
         DB::table('mail_inboxes')->insert([
             [
+                'type_id' => 0,
+                'fiber_id' => NULL,
+                'move_id' => NULL,
+                'move_option' => '',
+                'phone_move' => NULL,
+                'firstname' => 'contactMs1',
+                'lastname' => '',
+                'phone_number' => '0989988999',
+                'email' => 'contact1@gmail.com',
+                'line_id' => '',
+                'messages' => 'This is Contact Message 1',
+                'district' => '',
+                'subdistrict' => '',
+                'province' => '',
+                'zip_code' => '',
+                'address' => '',
+                'lat_lng' => '',
+                'readed' => false,
+                'pin' => false,
+            ],
+            [
+                'type_id' => 0,
+                'fiber_id' => NULL,
+                'move_id' => NULL,
+                'move_option' => '',
+                'phone_move' => NULL,
+                'firstname' => 'contactMs1',
+                'lastname' => '',
+                'phone_number' => '0989988999',
+                'email' => 'contact2@gmail.com',
+                'line_id' => '',
+                'messages' => 'This is Contact Message 2',
+                'district' => '',
+                'subdistrict' => '',
+                'province' => '',
+                'zip_code' => '',
+                'address' => '',
+                'lat_lng' => '',
+                'readed' => false,
+                'pin' => false,
+            ],
+            [
+                'type_id' => 0,
+                'fiber_id' => NULL,
+                'move_id' => NULL,
+                'move_option' => '',
+                'phone_move' => NULL,
+                'firstname' => 'contactMs1',
+                'lastname' => '',
+                'phone_number' => '0989988999',
+                'email' => 'contact3@gmail.com',
+                'line_id' => '',
+                'messages' => 'This is Contact Message 3',
+                'district' => '',
+                'subdistrict' => '',
+                'province' => '',
+                'zip_code' => '',
+                'address' => '',
+                'lat_lng' => '',
+                'readed' => false,
+                'pin' => false,
+            ],
+            [
                 'type_id' => 1,
                 'fiber_id' => 1,
                 'move_id' => NULL,
@@ -54,6 +118,7 @@ return new class extends Migration
                 'phone_number' => '0999900999',
                 'email' => 'first1@gmail.com',
                 'line_id' => '',
+                'messages' => '',
                 'district' => 'เมืองขอนแก่น',
                 'subdistrict' => 'ในเมือง',
                 'province' => 'ขอนแก่น',
@@ -74,6 +139,7 @@ return new class extends Migration
                 'phone_number' => '0888899888',
                 'email' => 'first2@gmail.com',
                 'line_id' => '',
+                'messages' => '',
                 'district' => 'เมืองขอนแก่น',
                 'subdistrict' => 'ในเมือง',
                 'province' => 'ขอนแก่น',
@@ -94,6 +160,7 @@ return new class extends Migration
                 'phone_number' => '0966685588',
                 'email' => 'first3@gmail.com',
                 'line_id' => '',
+                'messages' => '',
                 'district' => 'เมืองขอนแก่น',
                 'subdistrict' => 'ในเมือง',
                 'province' => 'ขอนแก่น',

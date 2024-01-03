@@ -43,6 +43,17 @@ return new class extends Migration
 
             ],
             [
+                'order_id' =>  1,
+                'type_id' => 4,
+                'travel_option' => null,
+                'product_cate_id' => 1,
+                'product_id' => 2,
+                'product_price' => 200.00,
+                'quantity' => 1,
+                'discount' => null,
+
+            ],
+            [
                 'order_id' =>  2,
                 'type_id' => 4,
                 'travel_option' => null,

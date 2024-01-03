@@ -58,7 +58,7 @@ return new class extends Migration
                 'shipping_date' => '2023-12-29 13:00:00',
                 'order_carrier' => 'Kerry',
                 'tracking_number' => 'TH-1231231231',
-                'total_price' => 1999.00,
+                'total_price' => 2199.00,
                 'shipping_cost' => 100,
             ],
             [
