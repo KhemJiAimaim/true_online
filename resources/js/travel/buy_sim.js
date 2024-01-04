@@ -117,7 +117,7 @@ btn_buynow.addEventListener('click', async () => {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Your work has been saved",
+      title: "กำลังนำท่านไปยังตะกร้าสินค้า",
       showConfirmButton: false,
       timer: 1000
     }).then(() => {
@@ -134,7 +134,7 @@ addtocart.addEventListener('click', async () => {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Your work has been saved",
+      title: "เพิ่มสินค้าลงตะกร้าสำเร็จ",
       showConfirmButton: false,
       timer: 1000
     })
@@ -160,7 +160,7 @@ async function addProductSession(element) {
     Swal.fire({
       position: "center",
       icon: "error",
-      title: "please select option!",
+      title: "กรุณาเลือกสินค้า",
       showConfirmButton: true,
     });
     return false;

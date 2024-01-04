@@ -57,6 +57,12 @@ fortune_ber.addEventListener('click', () => {
   if(input_ber.length == 10) {
     location.href = `/fortune/${input_ber}`;
   } else {
+    Swal.fire({
+      icon: "error",
+      title: "กรุณาใส่เบอร์โทรให้ถูกต้อง",
+      showConfirmButton: false,
+      timer: 2500,
+  }).then();
     console.log(input_ber.length)
   }
 })

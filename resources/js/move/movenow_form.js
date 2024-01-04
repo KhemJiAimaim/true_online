@@ -27,13 +27,26 @@ btnSavedata.addEventListener("click", () => {
     const phone_to_move = el_phone_to_move.value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(email.value)) {
-        console.log("Invalid Email");
-        return false;
-    }
+    
 
     if (!firstname || !lastname || !phone || !phone_to_move) {
+        Swal.fire({
+            icon: "error",
+            title: "กรุณากรอกข้อมูลให้ครบทุกช่อง",
+            showConfirmButton: false,
+            timer: 2500,
+        }).then();
         console.log("error");
+        return false;
+    }
+    if (!emailRegex.test(email.value)) {
+        Swal.fire({
+            icon: "error",
+            title: "กรุณากรอก E-mail ให้ถูกต้อง",
+            showConfirmButton: false,
+            timer: 2500,
+        }).then();
+        console.log("Invalid Email");
         return false;
     }
 

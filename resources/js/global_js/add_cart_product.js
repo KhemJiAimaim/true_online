@@ -23,9 +23,9 @@ btn_addProductToCart.forEach(element => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Your work has been saved",
+          title: "เพิ่มสินค้าลงตะกร้าสำเร็จ",
           showConfirmButton: false,
-          timer: 1000
+          timer: 1500
         });
       }
     })
@@ -55,9 +55,9 @@ btn_buyNow.forEach(element => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Your work has been saved",
+          title: "กำลังนำท่านไปยังตะกร้าสินค้า",
           showConfirmButton: false,
-          timer: 1000
+          timer: 1500
         }).then(() => {
           location.href = "/cartproduct"
         })

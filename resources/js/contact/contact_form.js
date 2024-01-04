@@ -49,13 +49,27 @@ function fillerTel(element) {
     const phone = el_phone.value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(email.value)) {
-        console.log("Invalid Email");
-        return false;
-    }
+  
 
     if (!firstname || !email || !phone || !contact_message) {
+        Swal.fire({
+            icon: "error",
+            title: "กรุณากรอกข้อมูลให้ครบทุกช่อง",
+            showConfirmButton: false,
+            timer: 2500,
+        }).then();
+
         console.log("error");
+        return false;
+    }
+    if (!emailRegex.test(email.value)) {
+        Swal.fire({
+            icon: "error",
+            title: "กรุณากรอก E-mail ให้ถูกต้อง",
+            showConfirmButton: false,
+            timer: 2500,
+        }).then();
+        console.log("Invalid Email");
         return false;
     }
 

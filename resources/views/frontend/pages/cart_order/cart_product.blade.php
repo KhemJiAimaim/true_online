@@ -28,7 +28,7 @@
                     </div>
                     <div class="w-[30%]  max-xs:w-[60%]">
                         <div
-                            class="flex justify-between pr-[8rem] max-2xl:pr-[5.5rem] md:pr-[2.2rem] lg:pr-[4.2rem] ss:pr-8">
+                            class="flex justify-between pr-[8rem] max-2xl:pr-[5.5rem] max-md:pr-[2.2rem] max-xl:pr-[4.2rem] max-ss:pr-8">
                             <p class="text-center 2xl:text-[18px] text-[16px]">ราคา</p>
                             <p class="text-center 2xl:text-[18px] text-[16px]">จำนวน</p>
                             <p class="text-center 2xl:text-[18px] text-[16px] ">ราคารวม</p>
@@ -38,37 +38,42 @@
 
                 @if (count($berMonthlys) > 0)
                     @foreach ($berMonthlys as $month)
-                        <div class="">
-                            <div class="max-ex:p-2 p-4 flex justify-between items-center">
-                                <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
-                                    <figure>
-                                        <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
-                                            src="/images/cart/dragon.png" alt="">
-                                    </figure>
-                                    <div class="">
-                                        <p class="font-semibold">เบอร์มงคล</p>
-                                        <p>หมายเลขเบอร์ <br>{{ $month->product_phone }}</p>
-                                        <div class="max-ex:hidden">
-                                            <p>เกรด {{ $month->product_grade }}</p>
-                                            <p>{{ $month->product_comment }}</p>
+                        <div class="flex justify-center items-center">
+                            <div class="w-[70%]  max-xs:w-[40%] ">
+                                <div class="max-ex:p-2 p-4 flex justify-between items-center">
+                                    <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
+                                        <figure>
+                                            <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
+                                                src="/images/cart/dragon.png" alt="">
+                                        </figure>
+                                        <div class="">
+                                            <p class="font-semibold">เบอร์มงคล</p>
+                                            <p>หมายเลขเบอร์ <br>{{ $month->product_phone }}</p>
+                                            <div class="max-ex:hidden">
+                                                <p>เกรด {{ $month->product_grade }}</p>
+                                                <p>{{ $month->product_comment }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div
-                                    class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
+                            <div class="w-[30%]  max-xs:w-[60%]">
+                                <div class="flex justify-between">
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($month->product_price) }}</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($sum_month = $month->product_price) }}</p>
-                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]"
+                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110"
+                                    title="ลบรายการสินค้า"
                                         id="remove-item" data-type="3" data-id="{{ $month->product_id }}">
                                         <img src="/icons/cart_trash.png" alt=""
                                             class="max-ex:w-[20px] max-ex:h-[20px]">
                                     </figure>
                                 </div>
                             </div>
+
                         </div>
                         <hr>
                         @php $total_month += $sum_month @endphp

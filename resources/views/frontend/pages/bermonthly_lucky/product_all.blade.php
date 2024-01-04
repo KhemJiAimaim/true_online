@@ -3,16 +3,16 @@
     <div class=" text-left">
 
         <div class="h-[158px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
-            <div class="flex max-xs:flex-col gap-4">
+            <div class="flex max-xs:flex-col gap-8">
                 <a href="/bermonthly?sim=month"
-                    class="bg-white flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
+                    class="bg-white flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
                     <img id="system-sim" data-sim="month"
                         class="{{ isset($_GET['sim']) && $_GET['sim'] == 'month' ? 'selected' : 'invisible' }}"
                         src="/icons/check.png" alt="">
-                    <p class="text-[#CE090E] text-[17px]">เบอร์มงคลระบบรายเดือน</p>
+                    <p class="text-[#CE090E] text-[17px] ">เบอร์มงคลระบบรายเดือน</p>
                 </a>
                 <a href="/bermonthly?sim=paysim"
-                    class="bg-black flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
+                    class="bg-black flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
                     <img id="system-sim" data-sim="paysim"
                         class="{{ isset($_GET['sim']) && $_GET['sim'] == 'paysim' ? 'selected' : 'invisible' }}"
                         src="/icons/check.png" alt="">

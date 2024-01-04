@@ -14,7 +14,7 @@
 
         <div id="social"
             class="lg:hidden  bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg w-[120px] mb-2 py-2 px-1 flex justify-center gap-2 md:bottom-10 ">
-            <div class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125 " title="LINE">
+            <a href="https://line.me/ti/p/~@berhoro" target="_blank" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125 " title="LINE">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 15 14" fill="none"
                     class="">
                     <path
@@ -28,8 +28,9 @@
                         </linearGradient>
                     </defs>
                 </svg>
-            </div>
-            <div class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125" title="เบอร์โทรติดต่อ">
+            </a>
+            
+            <a href="tel:0645695656" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125" title="เบอร์โทรติดต่อ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
                     fill="none">
                     <path d="M10.625 6.37435L13.4583 3.54102M13.4583 3.54102V5.66602M13.4583 3.54102H11.3333"
@@ -50,7 +51,7 @@
                         </linearGradient>
                     </defs>
                 </svg>
-            </div>
+            </a>
 
             <div id="contact-staff" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125"
                 title="ติดต่อเจ้าหน้าที่">

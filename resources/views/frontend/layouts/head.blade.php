@@ -20,8 +20,11 @@
 
             <!-- secondary nav -->
             <div class="hidden xl:flex items-center space-x-1 ">
-                <span id="num-cart" class="bg-[#EC1F25] text-white rounded-full px-2 py-1">{{$amount}}</span>
-                <a href="{{url('/cartproduct')}}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
+                <div class="flex justify-center w-[33px] h-[33px]">
+                    <span id="num-cart"
+                        class="bg-[#EC1F25] text-white rounded-full px-2 py-1 w-full text-center text-[16px] items-center">{{ $amount }}</span>
+                </div>
+                <a href="{{ url('/cartproduct') }}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <img src="/images/ph_shopping-cart.png" class="w-6 mr-1 hover:scale-125" />
                 </a>
             </div>
@@ -40,8 +43,11 @@
             </div>
 
             <div class="flex items-center gap-2 ">
-                <span class="bg-[#EC1F25] text-white rounded-full px-1 py-0  ">{{ isset($amount)?$amount:0 }}</span>
-                <a href="{{url('/cartproduct')}}" class="flex items-center py-5 text-gray-700 hover:text-gray-900 w-[30px]">
+                <div class="flex justify-center w-[33px] h-[33px]">
+                <span class="bg-[#EC1F25] text-white rounded-full px-1 py-1 w-full text-center text-[16px] items-center">{{ isset($amount) ? $amount : 0 }}</span>
+                </div>
+                <a href="{{ url('/cartproduct') }}"
+                    class="flex items-center py-5 text-gray-700 hover:text-gray-900 w-[30px]">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6  mr-1 text-white w-full" width="20"
                         height="20" viewBox="0 0 20 20" fill="none">
                         <path
@@ -69,38 +75,42 @@
     <!-- mobile menu -->
     <ul
         class="Mitr mobile-menu hidden xl:hidden  bg-white absolute z-99 bg-opacity-[90%] w-full h-[100vh] transition divide-y-2 overflow-y-auto list-none">
-        @foreach($main_cate as $m_cate)
-        @php 
-            $main_list = '';
-            $matching_cate = false;
-            foreach($sub_cate as $s_cate){
-                if($s_cate->cate_parent_id == $m_cate->id){
-                    $matching_cate = true;
-                    $main_list = '<li>
-                                    <a href="/'.$m_cate->cate_redirect.'" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">หน้าหลัก</a>
+        @foreach ($main_cate as $m_cate)
+            @php
+                $main_list = '';
+                $matching_cate = false;
+                foreach ($sub_cate as $s_cate) {
+                    if ($s_cate->cate_parent_id == $m_cate->id) {
+                        $matching_cate = true;
+                        $main_list =
+                            '<li>
+                                    <a href="/' .
+                            $m_cate->cate_redirect .
+                            '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">หน้าหลัก</a>
                                 </li>';
-                break;
+                        break;
+                    }
                 }
-            }
-        @endphp
-        <li class=" bg-gray-100 w-full">
-            <a id="menufiber" {{ $href = (!$matching_cate) ?"href=/$m_cate->cate_redirect":""}}
-                class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">{{$m_cate->cate_title}}
-                <img id="flip" class="flip w-[20px] mr-5" {!! $flip = $matching_cate ? 'src="/images/icon/down-arrow.png"' : '' !!} alt="">
-            </a>
-            {{-- @if($matching_cate) --}}
-            <ul id="myDropdown" class="dropdow-conten bg-white list-none">
-                {!! $main_list !!}
-                @foreach($sub_cate as $s_cate)
-                @if($s_cate->cate_parent_id == $m_cate->id)
-                <li>
-                    <a href="/{{$s_cate->cate_redirect}}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{$s_cate->cate_title}}</a>
-                </li>
-                @endif
-                @endforeach
-            </ul>
-            {{-- @endif --}}
-        </li>
+            @endphp
+            <li class=" bg-gray-100 w-full">
+                <a id="menufiber" {{ $href = !$matching_cate ? "href=/$m_cate->cate_redirect" : '' }}
+                    class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">{{ $m_cate->cate_title }}
+                    <img id="flip" class="flip w-[20px] mr-5" {!! $flip = $matching_cate ? 'src="/images/icon/down-arrow.png"' : '' !!} alt="">
+                </a>
+                {{-- @if ($matching_cate) --}}
+                <ul id="myDropdown" class="dropdow-conten bg-white list-none">
+                    {!! $main_list !!}
+                    @foreach ($sub_cate as $s_cate)
+                        @if ($s_cate->cate_parent_id == $m_cate->id)
+                            <li>
+                                <a href="/{{ $s_cate->cate_redirect }}"
+                                    class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+                {{-- @endif --}}
+            </li>
         @endforeach
 
     </ul>
@@ -111,19 +121,22 @@
     <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
         <ul class="hidden lg:flex 2xl:flex relative list-none">
             {{-- อินเตอร์เน็ตไฟเบอร์ --}}
-            @foreach($main_cate as $m_cate)
-            <li class="group z-[99] basis-[260px] ">
-                <a href="{{url($m_cate->cate_redirect)}}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{$m_cate->cate_title}}</a>
-                @foreach($sub_cate as $s_cate)
-                @if($s_cate->cate_parent_id == $m_cate->id)
-                <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
-                    <li>
-                        <a href="{{url('/'.$s_cate->cate_redirect)}}" class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{$s_cate->cate_title}}</a>
-                    </li>
-                </ul>
-                @endif
-                @endforeach
-            </li>
+            @foreach ($main_cate as $m_cate)
+                <li class="group z-[99] basis-[260px] ">
+                    <a href="{{ url($m_cate->cate_redirect) }}"
+                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
+                    @foreach ($sub_cate as $s_cate)
+                        @if ($s_cate->cate_parent_id == $m_cate->id)
+                            <ul
+                                class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
+                                <li>
+                                    <a href="{{ url('/' . $s_cate->cate_redirect) }}"
+                                        class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                </li>
+                            </ul>
+                        @endif
+                    @endforeach
+                </li>
             @endforeach
 
         </ul>
@@ -157,7 +170,7 @@
             item.querySelector('.group-hover\\:block').classList.add('hidden');
         });
     });
-                
+
     const menufiber = document.querySelectorAll('.dropbtn');
     const myDropdown = document.querySelectorAll('.dropdow-conten');
     const flip = document.querySelectorAll('.flip');
@@ -180,10 +193,10 @@
     });
 
     // if (flip.classList.contains('flipdow')) {
-            //     flip.classList.remove('flip');
-            //     drop.classList.toggle("show");
-            // } else {
-            //     flip.classList.add('flip');
-            //     drop.classList.remove("show");
-            // }
+    //     flip.classList.remove('flip');
+    //     drop.classList.toggle("show");
+    // } else {
+    //     flip.classList.add('flip');
+    //     drop.classList.remove("show");
+    // }
 </script>
