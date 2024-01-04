@@ -88,4 +88,4 @@ Route::post('/sendformmove', [ContactAdminController::class, "sendFormMove"]); /
 Route::post('/confirmorder', [CartOrderController::class, "confirmOrder"]);
 
 //สถานะส่งพัสดุ
-Route::get('/delivery', [DeliveryController::class, "dalivery"]);
+Route::get('/delivery/{search?}', [DeliveryController::class, "dalivery"]);

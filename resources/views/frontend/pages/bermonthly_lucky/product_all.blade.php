@@ -328,6 +328,14 @@
                                 </button>
                                 @endif
                             @endforeach
+                            <button id="cate-ber" data-id="vip"
+                                class="relative p-2 bg-white rounded-[5px] group {{ $aus_selected }}">
+                                <img src="/icons/category/vip.png" alt="" style="{{ $img_selected }}">
+                                <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                    <img class="scale-150" src="/icons/category/union.png" alt="">
+                                    <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </div>

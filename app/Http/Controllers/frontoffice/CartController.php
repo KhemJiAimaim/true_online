@@ -56,31 +56,16 @@ class CartController extends Controller
             }
 
             if (isset($list[6])){
-                $ids = array_column($list[6], 'id');
-
-                foreach ($ids as $id) {
-                    $sim = TravelSim::find($id);
-                
+                foreach($list[6] as $item) {
+                    $sim = TravelSim::find($item['id']);
                     if ($sim) {
-                        // หากพบ TravelSim จาก id
-                        $data_matching = current(array_filter($list[6], function ($item) use ($id) {
-                            return $item['id'] == $id;
-                        }));
-                
-                        // dd($data_matching);
-                        if ($data_matching) {
-                            // นำข้อมูลจาก $data_matching ไปกำหนดค่าให้ $sim
-                            $sim->option = $data_matching['option'];
-                            $sim->quantity = $data_matching['quantity'];
-                
-                            // เพิ่ม $sim เข้าไปใน $travelSims
-                            $travelSims[] = $sim;
-                        }
+                        $sim->option = $item['option'];
+                        $sim->quantity = $item['quantity'];
+                        $travelSims[] = $sim;
                     }
                 }
+                
                 // dd($travelSims);
-
-
             }
         }
 
@@ -92,17 +77,16 @@ class CartController extends Controller
     }
 
     public function addproduct_to_cart(Request $request, $id) {
-        // dd($request->all());
         $typeProduct = $request->input('type_product');
         $quantity = ($request->input('quantity')) ? $request->input('quantity') : 1;
         $option = ($request->input('option'))?$request->input('option'):0;
         $cartList = Session::get('cart_list', []);
         
-        // ตรวจสอบว่ามี index สำหรับ type_product หรือไม่
         if (!isset($cartList['items'][$typeProduct])) {
             $cartList['items'][$typeProduct] = [];
         }
-        
+        // dd($cartList['items'][$typeProduct]);
+
         // ตรวจสอบว่า $id นี้มีอยู่ใน items หรือไม่
         $existingProductKey = array_search($id, array_column($cartList['items'][$typeProduct], 'id'));
         // dd($existingProductKey);
@@ -126,11 +110,17 @@ class CartController extends Controller
                 $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
                 Session::put('cart_list', $cartList);
             } else if($typeProduct == 6) {
-                // เพิ่มจำนวนสินค้าใน type_product นั้น
-                // dd($cartList['items'][$typeProduct][$existingProductKey]);
-                if($cartList['items'][$typeProduct][$existingProductKey]['option'] == $option) {
-                    $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
-                } else {
+                $found = false;
+
+                foreach ($cartList['items'][$typeProduct] as &$item) {
+                    if ($item['id'] == $id && $item['option'] == $option) {
+                        $item['quantity'] += 1;
+                        $found = true;
+                        break;
+                    }
+                }
+
+                if (!$found) {
                     $cartList['items'][$typeProduct][] = [
                         'id' => $id,
                         'quantity' => 1,
@@ -138,7 +128,6 @@ class CartController extends Controller
                     ];
                 }
     
-                // เพิ่ม amount ทั้งหมด
                 $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
                 Session::put('cart_list', $cartList);
             } 
@@ -149,7 +138,6 @@ class CartController extends Controller
             ], 200);
         } 
         
-        // เพิ่ม $id เข้าไปใน index ของ type_product นั้น
         if ($typeProduct == 3) {
             $cartList['items'][$typeProduct][] = [
                 'id' => $id,
@@ -181,27 +169,23 @@ class CartController extends Controller
         $data_id = $request->input('data_id');
         $data_type = $request->input('data_type');
         $cartList = Session::get('cart_list', []);
-        // dd($cartList);
 
         foreach ($cartList['items'][$data_type] as $index => &$type) {
             // ถ้าเจอ data_id ที่ต้องการลบ
+            // ลบ item ที่ต้องการ
             if ($type['id'] === $data_id) {
-                // ลบ item ที่ต้องการ
                 $cartList['amount'] -= $type['quantity'];
                 unset($cartList['items'][$data_type][$index]);
         
                 // ถ้าหลังจากลบ item แล้วไม่มี item อยู่แล้ว
+                // ลบ data_type ทั้งหมดออก
                 if (empty($cartList['items'][$data_type])) {
-                    // ลบ data_type ทั้งหมดออก
                     unset($cartList['items'][$data_type]);
                 }
-        
-                // ออกจากลูปเมื่อเจอ item และทำการลบ
                 break;
             }
         }
-        // dd($cartList['items'][$data_type]);
-        // วนลูป items ใน cartList
+        
         Session::put('cart_list', $cartList);
 
         return response()->json([
