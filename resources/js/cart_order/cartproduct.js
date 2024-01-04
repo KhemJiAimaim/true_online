@@ -3,23 +3,58 @@
 console.log("use cartproduct.js")
 
 const btn_removeItem = document.querySelectorAll('#remove-item');
-btn_removeItem.forEach(element => {
-  element.addEventListener('click', () => {
-    const data_type = element.getAttribute('data-type');
-    const data_id = element.getAttribute('data-id');
 
-    const param = {
-      "data_type" : data_type,
-      "data_id" : data_id
-    }
-    
-    axios.post(`/remove-item`,param).then((response) => {
-      if(response.data.status == 'success') {
-        location.reload();
-      }
-    })
-  })
+btn_removeItem.forEach(element => {
+    element.addEventListener('click', () => {
+        const data_type = element.getAttribute('data-type');
+        const data_id = element.getAttribute('data-id');
+
+        // Use SweetAlert to confirm deletion
+        Swal.fire({
+            title: 'คุณต้องการลบรายการสินค้า?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ยืนยัน',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            // If the user clicks on "Yes, delete it!"
+            if (result.isConfirmed) {
+                // Proceed with the deletion
+                const param = {
+                    "data_type": data_type,
+                    "data_id": data_id
+                };
+
+                axios.post(`/remove-item`, param)
+                    .then((response) => {
+                        if (response.data.status === 'success') {
+                            // If deletion is successful, reload the page
+                            Swal.fire({
+                              icon: "success",
+                              title: "ลบรายการสินค้าสำเร็จ",
+                              showConfirmButton: false,
+                              timer: 1500,
+                          }
+                            ).then(() => {
+                                location.reload();
+                            });
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting item:', error);
+                        Swal.fire(
+                            'Error!',
+                            'An error occurred while deleting the item.',
+                            'error'
+                        );
+                    });
+            }
+        });
+    });
 });
+
 
 const customer_tel = document.querySelector('#customer-tel');
 const zip_code = document.querySelector('#zip-code');
@@ -93,11 +128,35 @@ submitBuy.addEventListener('click', () => {
   const sub_district = document.querySelector('#sub-district').value;
   const district = document.querySelector('#district').value;
   const province = document.querySelector('#province').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   // console.log(travelSims_data)
   // console.log(prepaidCate_data)
   // console.log(bermonthly_data)
   // return false;
+
+ // Check if any required field is empty
+  const requiredFields = [firstname, lastname, customer_tel, customer_email, customer_address, sub_district, district, province];
+  if (requiredFields.some(field => !field.trim())) {
+    Swal.fire({
+      icon: 'error',
+      title: 'กรุณากรอกข้อมูลให้ครบทุกช่อง',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    return;
+  }
+
+  if (!emailRegex.test(customer_email.value)) {
+    Swal.fire({
+        icon: "error",
+        title: "กรุณากรอก E-mail ให้ถูกต้อง",
+        showConfirmButton: false,
+        timer: 2500,
+    }).then();
+    console.log("Invalid Email");
+    return false;
+}
   
   let params = {
     firstname : firstname, 
@@ -124,6 +183,7 @@ submitBuy.addEventListener('click', () => {
     }
   }
 
+ 
   // console.log(params)
   // return false;
 
@@ -131,15 +191,15 @@ submitBuy.addEventListener('click', () => {
     if (response.status === 201) {
       Swal.fire({
         icon: "success",
-        title: "ส่งข้อความสำเร็จ",
-        text: "ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที",
+        title: "สั่งซื้อสำเร็จ",
+        // text: "ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที",
         showConfirmButton: false,
-        timer: 2500,
+        timer: 1500,
       }).then(() => window.location.reload());
   } else {
       Swal.fire({
         icon: "error",
-        title: "Something went wrong.",
+        title: "มีบางอย่างผิดพลาด",
         showConfirmButton: false,
         timer: 1500,
       });

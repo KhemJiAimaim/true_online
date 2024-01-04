@@ -1,133 +1,19 @@
 @extends('frontend.layouts.main')
 
 @section('style')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper {
-            /* max-width: 1536px; */
-            height: 100%;
-
-        }
-
-        .swiper-wrapper {
-            position: relative;
-            width: 100%;
-
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .swiper-button-next {
-            right: 5%;
-            position: absolute;
-            color: #000;
-        }
-
-        .swiper-button-prev {
-            left: 5%;
-            position: absolute;
-            color: #000;
-            widows: 50px;
-            height: 50px;
-        }
-
-        .swiper-button-next:after {
-            font-size: 25px;
-            margin-left: 300%;
-            margin-top: 50%;
-        } 
-        .swiper-button-prev:after {
-            font-size: 25px;
-            margin-right: 300%;
-            margin-top: 50%;
-        }
-
-        @media only screen and (max-width: 1024px) {
-            .swiper-button-next {
-                right: 5% !important;
-            }
-
-            .swiper-button-prev {
-                left: 5%!important;
-
-            }
-        }
-
-        @media only screen and (min-width: 414px) {
-            .swiper-button-next {
-                right: 4% !important;
-            }
-
-            .swiper-button-prev {
-                left: 4%!important;
-
-            }
-        }
-      
-        @media only screen and (min-width:360px) {
-            .swiper-button-next {
-                right: 10% !important;
-            }
-
-            .swiper-button-prev {
-                left: 10%!important;
-
-            }
-        }
-        @media only screen and (min-width:768px) {
-            .swiper-button-next {
-                right: 5% !important;
-            }
-
-            .swiper-button-prev {
-                left: 5%!important;
-
-            }
-        }
-        @media only screen and (min-width:1024px) {
-            .swiper-button-next {
-                right: 4% !important;
-            }
-
-            .swiper-button-prev {
-                left: 4%!important;
-
-            }
-        }
-
-    </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+@vite('resources/css/home.css')
+ 
 @endsection
 
 @section('content')
     <div class="2xl:my-12">
 
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3" >
             <div class="grid grid-cols-4 py-6 w-[500px] 2xl:w-[800px] items-center mx-auto">
                 @foreach ($cate_home as $cate)
-                    <a href="#{{ $cate->cate_url }}"
-                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    <a href="#{{ $cate->cate_url }} " 
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                         <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
                         <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
                     </a>

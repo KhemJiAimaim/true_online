@@ -1,41 +1,64 @@
 import axios from "axios";
-import "../global_js/hide_banner.js";
 
-console.log("use movenow_form.js");
+console.log("use contact_form.js");
+ 
+// console.log(data);
 
-console.log(data);
+// Get the modal element
+var modal = document.querySelector("#contact-Modal");
+
+// Get the button that opens the modal
+var chargeBtn = document.querySelector("#contact-staff");
+
+// Get the <span> element that closes the modal
+var closeModal = document.querySelector("#closeModal");
+
+// When the user clicks the button, open the modal
+chargeBtn.onclick = function() {
+    modal.classList.remove("hidden");
+};
+
+// When the user clicks on <span> (x), close the modal
+closeModal.onclick = function() {
+    modal.classList.add("hidden");
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.classList.add("hidden");
+    }
+};
+
 const el_phone = document.querySelector("#phone");
-const el_phone_to_move = document.querySelector("#phone-to-move");
+
 el_phone.addEventListener("input", () => {
     el_phone.value = fillerTel(el_phone);
-});
-el_phone_to_move.addEventListener("input", () => {
-    el_phone_to_move.value = fillerTel(el_phone_to_move);
 });
 
 function fillerTel(element) {
     return element.value.replace(/[^0-9+]/g, "");
 }
 
-const btnSavedata = document.querySelector("#save-form-data");
-btnSavedata.addEventListener("click", () => {
+
+ var btnSavedata = document.querySelector("#save-form-data");
+ btnSavedata.addEventListener("click", () => {
     const firstname = document.querySelector("#first-name").value;
-    const lastname = document.querySelector("#last-name").value;
-    const line_id = document.querySelector("#line-id").value;
     const email = document.querySelector("#email");
+    const contact_message = document.querySelector("#messages").value;
     const phone = el_phone.value;
-    const phone_to_move = el_phone_to_move.value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    
+  
 
-    if (!firstname || !lastname || !phone || !phone_to_move) {
+    if (!firstname || !email || !phone || !contact_message) {
         Swal.fire({
             icon: "error",
             title: "กรุณากรอกข้อมูลให้ครบทุกช่อง",
             showConfirmButton: false,
             timer: 2500,
         }).then();
+
         console.log("error");
         return false;
     }
@@ -51,17 +74,13 @@ btnSavedata.addEventListener("click", () => {
     }
 
     let formData = {
-        move_id: data.id,
-        move_option: data.option > 0 ? data.option : "",
-        phone_move: phone_to_move,
         firstname: firstname,
-        lastname: lastname,
         phone_number: phone,
-        line_id: line_id,
         email: email.value,
+        messages:contact_message,
     };
 
-    axios.post("/sendformmove", formData).then(
+    axios.post("/sendformcontact", formData).then(
         (res) => {
             if (res.status === 201) {
                 Swal.fire({

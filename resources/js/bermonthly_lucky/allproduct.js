@@ -57,6 +57,12 @@ fortune_ber.addEventListener('click', () => {
   if(input_ber.length == 10) {
     location.href = `/fortune/${input_ber}`;
   } else {
+    Swal.fire({
+      icon: "error",
+      title: "กรุณาใส่เบอร์โทรให้ถูกต้อง",
+      showConfirmButton: false,
+      timer: 2500,
+  }).then();
     console.log(input_ber.length)
   }
 })
@@ -137,6 +143,23 @@ cate_ber.forEach(element => {
     }
   });
 });
+
+let btn_vip = document.querySelector('#btn-vip');
+btn_vip.addEventListener('click', () => {
+  console.log("ggg")
+  if (btn_vip.classList.contains('bg-gradient-to-r')) {
+    // ถ้ามี class ที่เราต้องการเอาออก
+    btn_vip.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'selected');
+    const img = btn_vip.querySelector('img');
+    img.style.filter = '';
+  } else {
+    // ถ้ายังไม่มี class, เพิ่ม class และ style เข้าไป
+    btn_vip.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+    const img = btn_vip.querySelector('img');
+    img.style.filter = 'invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%)';
+  }
+})
+
 
 let like = document.querySelectorAll('#like');
 let dislike = document.querySelectorAll('#dislike');
@@ -284,10 +307,14 @@ function product_search() {
   if(auspicious.length > 0) {
     source += "&auspicious="+auspicious
   }
+
+  if(btn_vip.classList.contains("selected")){
+    source += "&pin=yes"
+  }
   
   source = source.replace("&&", "&");  
   source = source.replace("?&", "?"); 
-  console.log(source);
+  // console.log(source);
   // return false;
   location.href = `/bermonthly${source}`;
   

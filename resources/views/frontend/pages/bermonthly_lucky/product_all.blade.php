@@ -3,16 +3,16 @@
     <div class=" text-left">
 
         <div class="h-[158px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
-            <div class="flex max-xs:flex-col gap-4">
+            <div class="flex max-xs:flex-col gap-8">
                 <a href="/bermonthly?sim=month"
-                    class="bg-white flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
+                    class="bg-white flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
                     <img id="system-sim" data-sim="month"
                         class="{{ isset($_GET['sim']) && $_GET['sim'] == 'month' ? 'selected' : 'invisible' }}"
                         src="/icons/check.png" alt="">
-                    <p class="text-[#CE090E] text-[17px]">เบอร์มงคลระบบรายเดือน</p>
+                    <p class="text-[#CE090E] text-[17px] ">เบอร์มงคลระบบรายเดือน</p>
                 </a>
                 <a href="/bermonthly?sim=paysim"
-                    class="bg-black flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px]">
+                    class="bg-black flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
                     <img id="system-sim" data-sim="paysim"
                         class="{{ isset($_GET['sim']) && $_GET['sim'] == 'paysim' ? 'selected' : 'invisible' }}"
                         src="/icons/check.png" alt="">
@@ -24,38 +24,38 @@
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3 2xl:mt-6">
             <div class="grid grid-cols-6 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
                 <a href="#fiber"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/icons/category/icon-money-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์การเงิน</p>
                 </a>
 
                 <a
-                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-3" src="/icons/category/icon-work-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์การงาน</p>
                 </a>
 
 
                 <a href="#sim"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[40px] mb-3" src="/icons/category/icon-swarn-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์หงส์</p>
                 </a>
 
                 <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-dragon-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์มังกร</p>
                 </a>
 
                 <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-god-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์กวนอู</p>
                 </a>
 
                 <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-healt-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">สุขภาพดี</p>
                 </a>
@@ -328,6 +328,14 @@
                                 </button>
                                 @endif
                             @endforeach
+                            <button id="btn-vip" data-id="vip"
+                                class="relative p-2 bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
+                                <img src="/icons/category/vip.png" alt="" style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : ''}}">
+                                <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                    <img class="scale-150" src="/icons/category/union.png" alt="">
+                                    <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </div>

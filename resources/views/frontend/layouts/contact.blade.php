@@ -14,7 +14,7 @@
 
         <div id="social"
             class="lg:hidden  bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg w-[120px] mb-2 py-2 px-1 flex justify-center gap-2 md:bottom-10 ">
-            <div class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125 ">
+            <a href="https://line.me/ti/p/~@berhoro" target="_blank" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125 " title="LINE">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 15 14" fill="none"
                     class="">
                     <path
@@ -28,8 +28,9 @@
                         </linearGradient>
                     </defs>
                 </svg>
-            </div>
-            <div class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125">
+            </a>
+            
+            <a href="tel:0645695656" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125" title="เบอร์โทรติดต่อ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
                     fill="none">
                     <path d="M10.625 6.37435L13.4583 3.54102M13.4583 3.54102V5.66602M13.4583 3.54102H11.3333"
@@ -50,8 +51,10 @@
                         </linearGradient>
                     </defs>
                 </svg>
-            </div>
-            <div class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125">
+            </a>
+
+            <div id="contact-staff" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125"
+                title="ติดต่อเจ้าหน้าที่">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
                     fill="none">
                     <path d="M13.4583 3.54102L10.625 6.37435M10.625 6.37435V4.24935M10.625 6.37435H12.75"
@@ -78,27 +81,60 @@
 
         <div id="contact_button" class="cursor-pointer md:flex justify-center ">
             <img src="/images/Ellipse 33.png" alt=""
-                 class="bg-white rounded-full md:flex justify-center mx-auto relative hidden ">
-            <p class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg max-sm:text-sm text-center md:absolute md:top-[90%] mb-2">
+                class="bg-white rounded-full md:flex justify-center mx-auto relative hidden ">
+            <p
+                class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg max-sm:text-sm text-center md:absolute md:top-[90%] mb-2">
                 ติดต่อ
             </p>
         </div>
-
-        
-
     </div>
 </div>
 
-<script>
-    document.getElementById("contact_button").addEventListener("click", function() {
-        document.getElementById("close").style.display = "flex";
-        document.getElementById("social").style.display = "flex";
-    });
+<!-- Modal -->
+<div id="contact-Modal"
+    class="modal hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="modal-content bg-white max-uu:w-4/12 max-xl:w-[60%] max-xx:w-[95%] p-8 rounded-lg">
+        <div class="flex justify-end items-center mb-1">
+            <img src="images/cross-round-svgrepo-com.png" alt="" id="closeModal"
+                class="close w-8 cursor-pointer hover:scale-110 ">
+        </div>
 
-    document.getElementById("close").addEventListener("click", function() {
-        document.getElementById("close").style.display = "none";
-        document.getElementById("social").style.display = "none";
-    });
 
-   
-</script>
+        <h1 class="text-lg font-semibold text-center items-center ">กรุณากรอกข้อมูล
+            <br>เพื่อให้เจ้าหน้าที่ติดต่อกลับ
+        </h1>
+
+
+        <div class="flex flex-col gap-2 my-6">
+            <div class="flex gap-4 text-[16px]">
+                <label class="text-end w-32" for="first-name">ชื่อ*</label>
+                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]  w-full outline-none" type="text"
+                    name="first-name" id="first-name">
+            </div>
+            <div class="flex gap-4 text-[16px]">
+                <label class="text-end w-32" for="phone">เบอร์โทรศัพท์*</label>
+                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]  w-full outline-none" type="text"
+                    name="phone" id="phone" maxlength="10">
+            </div>
+            <div class="flex gap-4 text-[16px]">
+                <label class="text-end w-32" for="email">E-mail*</label>
+                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full outline-none" type="text"
+                    name="email" id="email">
+            </div>
+            <div class="flex gap-4 text-[16px]">
+                <label class="text-end w-32" for="messages">ข้อความ*</label>
+                <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full outline-none" type="text" name="messages"
+                    id="messages" cols="30" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="flex justify-center">
+            <button id="save-form-data"
+                class="bg-red-500 rounded-full border border-red-500 hover:bg-red-700 text-white py-2 text-center text-[16px] px-6">ส่งข้อมูลให้ติดต่อกลับ</button>
+        </div>
+    </div>
+</div>
+
+
+@vite('resources/js/contact/contact_form.js')
+@vite('resources/js/contact/contact_button.js')

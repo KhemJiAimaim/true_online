@@ -130,4 +130,53 @@ class ContactAdminController extends Controller
             ], 501);
         }
     }
+
+
+    public function sendFormContact(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone_number' => 'string|required',
+            'email' => 'string|required',
+            'firstname' => 'string|required',
+            'messages' => 'string|required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Invalid params',
+                'errorMessage' => $validator->errors()
+            ], 422);
+        }
+
+        $params = $request->all();
+
+        try {
+            DB::beginTransaction();
+
+            MailInbox::create([
+                'type_id' => 0,
+                // 'fiber_id' => null,
+                // 'move_id' => null,
+                'email' => $params['email'],
+                'firstname' => $params['firstname'],
+                'phone_number' => $params['phone_number'],
+                'messages' => $params['messages'],
+            ]);
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Send form contact successfully',
+            ], 201);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
 }
