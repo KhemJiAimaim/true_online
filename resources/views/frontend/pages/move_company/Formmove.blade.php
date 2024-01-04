@@ -11,13 +11,13 @@
     </style>
 @endsection
 @section('content')
-<div class="mt-[120px] max-xl:mt-[74px] mx-3">
+<div class="mt-[10%] max-xl:mt-[12%] mx-3">
     <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
     <p class="text-[18px] font-blod mb-10">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
     <div class="plate-line max-w-[200px]"></div>
 
-    <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-10 py-4">
+    <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-10 py-4 px-4">
         <div class="grid 2xl:grid-cols-2 xl:grid-cols-2  lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-10 items-center">
             <div class="flex justify-between items-center">
                 <label for="first-name"

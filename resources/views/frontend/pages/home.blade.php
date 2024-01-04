@@ -123,11 +123,11 @@
 @section('content')
     <div class="2xl:my-12">
 
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3" >
             <div class="grid grid-cols-4 py-6 w-[500px] 2xl:w-[800px] items-center mx-auto">
                 @foreach ($cate_home as $cate)
-                    <a href="#{{ $cate->cate_url }}"
-                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    <a href="#{{ $cate->cate_url }} " 
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                         <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
                         <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
                     </a>

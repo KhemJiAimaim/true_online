@@ -13,7 +13,7 @@
             <div class="grid grid-cols-7 py-6 se:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
                 @foreach ($cate_fiber as $cate)
                     <a href="{{ url('/fiber/true_dtac/' . $cate->cate_url) }}"
-                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                         <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
                             alt="">
                         @foreach (explode(' ', $cate->cate_title) as $word)
