@@ -36,99 +36,81 @@
                     </div>
                 </div>
 
-<<<<<<< HEAD
                 @if (count($berMonthlys) > 0)
                     @foreach ($berMonthlys as $month)
-                        <div class="flex justify-center items-center">
-                            <div class="w-[70%]  max-xs:w-[40%]">
-                                <div class="max-ex:p-2 p-4 flex justify-between items-center">
-                                    <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
-                                        <figure>
-                                            <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
-                                                src="/images/cart/dragon.png" alt="">
-                                        </figure>
-                                        <div class="">
-                                            <p class="font-semibold">เบอร์มงคล</p>
-                                            <p>หมายเลขเบอร์ <br>{{ $month->product_phone }}</p>
-                                            <div class="max-ex:hidden">
-                                                <p>เกรด {{ $month->product_grade }}</p>
-                                                <p>{{ $month->product_comment }}</p>
-                                            </div>
+                        <div class="">
+                            <div class="max-ex:p-2 p-4 flex justify-between items-center">
+                                <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
+                                    <figure>
+                                        <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
+                                            src="/images/cart/dragon.png" alt="">
+                                    </figure>
+                                    <div class="">
+                                        <p class="font-semibold">เบอร์มงคล</p>
+                                        <p>หมายเลขเบอร์ <br>{{ $month->product_phone }}</p>
+                                        <div class="max-ex:hidden">
+                                            <p>เกรด {{ $month->product_grade }}</p>
+                                            <p>{{ $month->product_comment }}</p>
                                         </div>
-=======
-                @if(count($berMonthlys) > 0)
-                    @foreach($berMonthlys as $month)
-                    <div class="">
-                        <div class="max-ex:p-2 p-4 flex justify-between items-center">
-                            <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
-                                <figure>
-                                    <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/images/cart/dragon.png" alt="">
-                                </figure>
-                                <div class="">
-                                    <p class="font-semibold">เบอร์มงคล</p>
-                                    <p>หมายเลขเบอร์ <br>{{$month->product_phone}}</p>
-                                <div class="max-ex:hidden"> <p>เกรด {{$month->product_grade}}</p>
-                                    <p>{{$month->product_comment}}</p></div>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($month->product_price)}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_month = $month->product_price)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]" id="remove-item" data-type="3" data-id="{{$month->product_id}}">
-                                    <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    @php $total_month += $sum_month @endphp
-                    @endforeach
-                @endif
-
-                @if(count($prepaidSims) > 0)
-                    @foreach($prepaidSims as $prepaid)
-                    <div class="">
-                        <div class="max-ex:p-2 p-4 flex justify-between items-center">
-                            <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
-                                <figure>
-                                    <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max" src="/icons/category/imgcart.png" alt="">
-                                </figure>
-                                <div class="">
-                                    <p class="font-semibold">ซิมเติมเงิน</p>
-                                    <p>ตัวเลือก {{$prepaid->title}}</p>
-                                    <div class="max-ex:hidden">
-                                        <p>{{$prepaid->prepaid_cate_id->details}}</p>
->>>>>>> 9c80b77bcf968bc3b6a811f35fc486a6a1648785
                                     </div>
                                 </div>
-                            </div>
 
-<<<<<<< HEAD
-                            <div class="w-[30%]  max-xs:w-[60%]">
                                 <div
-                                    class="flex justify-between ">
+                                    class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($month->product_price) }}</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($sum_month = $month->product_price) }}</p>
-                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110" title="ลบรายการสินค้า"
+                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]"
                                         id="remove-item" data-type="3" data-id="{{ $month->product_id }}">
                                         <img src="/icons/cart_trash.png" alt=""
                                             class="max-ex:w-[20px] max-ex:h-[20px]">
                                     </figure>
                                 </div>
-=======
-                            <div class="flex justify-between 2xl:gap-[5.8rem] xl:gap-[5rem] lg:gap-[4.8rem] md:gap-[4rem] es:gap-[1rem] pr-6 es:pr-0  items-center max-ex:pr-0 max-ex:gap-[1.6rem] ">
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($prepaid->price)}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{$prepaid->quantity}}</p>
-                                <p class="flex justify-center items-center text-[16px] font-semibold">{{number_format($sum_prepaid = $prepaid->price * $prepaid->quantity)}}</p>
-                                <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]" id="remove-item" data-type="4" data-id="{{$prepaid->id}}">
-                                    <img src="/icons/cart_trash.png" alt="" class="max-ex:w-[20px] max-ex:h-[20px]">
-                                </figure>
->>>>>>> 9c80b77bcf968bc3b6a811f35fc486a6a1648785
+                            </div>
+                        </div>
+                        <hr>
+                        @php $total_month += $sum_month @endphp
+                    @endforeach
+                @endif
+
+                @if (count($prepaidSims) > 0)
+                    @foreach ($prepaidSims as $prepaid)
+                        <div class="flex justify-center items-center">
+                            <div class="w-[70%]  max-xs:w-[40%] ">
+                                <div class="max-ex:p-2 p-4 flex justify-between items-center">
+                                    <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
+                                        <figure>
+                                            <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
+                                                src="/icons/category/imgcart.png" alt="">
+                                        </figure>
+                                        <div class="">
+                                            <p class="font-semibold">ซิมเติมเงิน</p>
+                                            <p>ตัวเลือก {{ $prepaid->title }}</p>
+                                            <div class="max-ex:hidden">
+                                                <p>{{ $prepaid->prepaid_cate_id->details }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="w-[30%]  max-xs:w-[60%]">
+                                <div class="flex justify-between">
+                                    <p class="flex justify-center items-center text-[16px] font-semibold">
+                                        {{ number_format($prepaid->price) }}</p>
+                                    <p class="flex justify-center items-center text-[16px] font-semibold">
+                                        {{ $prepaid->quantity }}</p>
+                                    <p class="flex justify-center items-center text-[16px] font-semibold">
+                                        {{ number_format($sum_prepaid = $prepaid->price * $prepaid->quantity) }}</p>
+                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]"
+                                        id="remove-item" data-type="4" data-id="{{ $prepaid->id }}">
+                                        <img src="/icons/cart_trash.png" alt=""
+                                            class="max-ex:w-[20px] max-ex:h-[20px]">
+                                    </figure>
+                                </div>
                             </div>
                         </div>
 
@@ -160,8 +142,7 @@
                             </div>
 
                             <div class="w-[30%]  max-xs:w-[60%]">
-                                <div
-                                    class="flex justify-between  ">
+                                <div class="flex justify-between  ">
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($prepaid->prepaid_sim->price) }}</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
@@ -169,8 +150,10 @@
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($sum_prepaid = $prepaid->prepaid_sim->price * $prepaid->quantity) }}
                                     </p>
-                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110" title="ลบรายการสินค้า"
-                                        id="remove-item" data-type="4" data-id="{{ $prepaid->id }}">
+                                    <figure
+                                        class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110"
+                                        title="ลบรายการสินค้า" id="remove-item" data-type="4"
+                                        data-id="{{ $prepaid->id }}">
                                         <img src="/icons/cart_trash.png" alt=""
                                             class="max-ex:w-[20px] max-ex:h-[20px]">
                                     </figure>
@@ -202,7 +185,8 @@
                                                 </p>
                                             @else
                                                 <p class="max-ex:hidden">ตัวเลือก <span class="font-semibold">ซิมปกติ
-                                                        (Physical SIM)</span></p>
+                                                        (Physical SIM)
+                                                    </span></p>
                                             @endif
                                             <div class="max-ex:hidden">
                                                 <p>{{ $travel->internet_details }}</p>
@@ -213,8 +197,7 @@
                             </div>
 
                             <div class="w-[30%]  max-xs:w-[60%]">
-                                <div
-                                    class="flex justify-between">
+                                <div class="flex justify-between">
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($price_travel = $travel->option ? $travel->option : $travel->price) }}
                                     </p>
@@ -222,8 +205,10 @@
                                         {{ $travel->quantity }}</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($sum_travel = $price_travel * $travel->quantity) }}</p>
-                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4  hover:scale-110" title="ลบรายการสินค้า"
-                                        id="remove-item" data-type="6" data-id="{{ $travel->id }}">
+                                    <figure
+                                        class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4  hover:scale-110"
+                                        title="ลบรายการสินค้า" id="remove-item" data-type="6"
+                                        data-id="{{ $travel->id }}">
                                         <img src="/icons/cart_trash.png" alt=""
                                             class="max-ex:w-[20px] max-ex:h-[20px]">
                                     </figure>
@@ -354,17 +339,12 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            {{-- <div class="g-recaptcha" data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" data-callback='onSubmit' data-action='submit'></div> --}}
-            <button class="g-recaptcha" data-sitekey="6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_" data-callback='onSubmit'
-                data-action='submit'>Submit</button>
-=======
-           
->>>>>>> 9c80b77bcf968bc3b6a811f35fc486a6a1648785
+
 
             {{-- btn submit --}}
             <div class="mt-5 flex justify-center gap-4 mb-4">
-                <a class="px-6 py-2 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] hover:bg-gray-500 text-[16px] hover:text-white rounded-[15px] shadow-sm">กลับหน้าหลัก</a>
+                <a
+                    class="px-6 py-2 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] hover:bg-gray-500 text-[16px] hover:text-white rounded-[15px] shadow-sm">กลับหน้าหลัก</a>
                 <button class="px-3 py-2 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700 text-[16px] shadow-sm"
                     id="submit-buy">ยืนยันการสั่งซื้อ</button>
             </div>
@@ -378,26 +358,11 @@
 @endsection
 
 @section('scripts')
-<<<<<<< HEAD
     <script>
-        function onClick(e) {
-            e.preventDefault();
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6LeSmT0pAAAAALh2ZPTkt0JXr7P_QGedTD3AmCR_', {
-                    action: 'submit'
-                }).then(function(token) {
-                    // Add your logic to submit to your backend server here.
-                });
-            });
+        function onSubmit(token) {
+            document.getElementById("demo-form").submit();
         }
     </script>
-=======
-<script>
-    function onSubmit(token) {
-      document.getElementById("demo-form").submit();
-    }
-  </script>
->>>>>>> 9c80b77bcf968bc3b6a811f35fc486a6a1648785
 
     <script>
         let bermonthly_data = @json($berMonthlys);
