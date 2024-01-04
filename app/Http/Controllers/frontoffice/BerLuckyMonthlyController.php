@@ -96,7 +96,6 @@ class BerLuckyMonthlyController extends Controller
     }
 
     public function product_prepare_variable($request) {
-   
         $sql = "";  #WHERE
         $sql2 =  ""; #HAVING
 
@@ -203,6 +202,10 @@ class BerLuckyMonthlyController extends Controller
         if(isset($request['cate']) && $request['cate'] != 0){
             $cate = filter_var($request['cate'], FILTER_SANITIZE_NUMBER_INT);
             $sql .=  " AND( product_category LIKE '%,".$cate.",%' ) ";
+        }
+
+        if(isset($request['pin']) && $request['pin'] == "yes") {
+            $sql .= " AND product_pin = 'yes' ";
         }
 
         if(!empty($request['auspicious'])){
