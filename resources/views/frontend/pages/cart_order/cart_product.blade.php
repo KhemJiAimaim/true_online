@@ -79,50 +79,6 @@
                     @foreach ($prepaidSims as $prepaid)
                         <div class="flex justify-center items-center">
                             <div class="w-[70%]  max-xs:w-[40%] ">
-                                <div class="max-ex:p-2 p-4 flex justify-between items-center">
-                                    <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
-                                        <figure>
-                                            <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
-                                                src="/icons/category/imgcart.png" alt="">
-                                        </figure>
-                                        <div class="">
-                                            <p class="font-semibold">ซิมเติมเงิน</p>
-                                            <p>ตัวเลือก {{ $prepaid->title }}</p>
-                                            <div class="max-ex:hidden">
-                                                <p>{{ $prepaid->prepaid_cate_id->details }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="w-[30%]  max-xs:w-[60%]">
-                                <div class="flex justify-between">
-                                    <p class="flex justify-center items-center text-[16px] font-semibold">
-                                        {{ number_format($prepaid->price) }}</p>
-                                    <p class="flex justify-center items-center text-[16px] font-semibold">
-                                        {{ $prepaid->quantity }}</p>
-                                    <p class="flex justify-center items-center text-[16px] font-semibold">
-                                        {{ number_format($sum_prepaid = $prepaid->price * $prepaid->quantity) }}</p>
-                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px]"
-                                        id="remove-item" data-type="4" data-id="{{ $prepaid->id }}">
-                                        <img src="/icons/cart_trash.png" alt=""
-                                            class="max-ex:w-[20px] max-ex:h-[20px]">
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-
-                        <hr>
-                        @php $total_month += $sum_month @endphp
-                    @endforeach
-                @endif
-
-                @if (count($prepaid_cate) > 0)
-                    @foreach ($prepaid_cate as $prepaid)
-                        <div class="flex justify-center items-center">
-                            <div class="w-[70%]  max-xs:w-[40%] ">
                                 <div class="max-ex:p-2 p-4 flex justify-between items-center ">
 
                                     <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
@@ -132,9 +88,9 @@
                                         </figure>
                                         <div class="">
                                             <p class="font-semibold">ซิมเติมเงิน</p>
-                                            <p>{{ $prepaid->prepaid_sim->title }}</p>
+                                            <p>{{ $prepaid->title }}</p>
                                             <div class="max-ex:hidden">
-                                                <p>{{ $prepaid->details }}</p>
+                                                <p>{{ $prepaid->prepaid_cate_id->details }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -144,11 +100,11 @@
                             <div class="w-[30%]  max-xs:w-[60%]">
                                 <div class="flex justify-between  ">
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
-                                        {{ number_format($prepaid->prepaid_sim->price) }}</p>
+                                        {{ number_format($prepaid->price) }}</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ $prepaid->quantity }}</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
-                                        {{ number_format($sum_prepaid = $prepaid->prepaid_sim->price * $prepaid->quantity) }}
+                                        {{ number_format($sum_prepaid = $prepaid->price * $prepaid->quantity) }}
                                     </p>
                                     <figure
                                         class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110"
