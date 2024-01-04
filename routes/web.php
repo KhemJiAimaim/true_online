@@ -84,6 +84,7 @@ Route::post('/addproduct/{id}', [CartController::class, "addproduct_to_cart"])->
 /* Send FormData Controller */
 Route::post('/sendformfiber', [ContactAdminController::class, "sendFormFiber"]); /* Fiber */
 Route::post('/sendformmove', [ContactAdminController::class, "sendFormMove"]); /* Move */
+Route::post('/sendformcontact', [ContactAdminController::class, "sendFormContact"]); /* contact */
 
 Route::post('/confirmorder', [CartOrderController::class, "confirmOrder"]);
 

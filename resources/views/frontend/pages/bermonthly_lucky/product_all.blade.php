@@ -24,38 +24,38 @@
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3 2xl:mt-6">
             <div class="grid grid-cols-6 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
                 <a href="#fiber"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/icons/category/icon-money-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์การเงิน</p>
                 </a>
 
                 <a
-                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-3" src="/icons/category/icon-work-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์การงาน</p>
                 </a>
 
 
                 <a href="#sim"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[40px] mb-3" src="/icons/category/icon-swarn-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์หงส์</p>
                 </a>
 
                 <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-dragon-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์มังกร</p>
                 </a>
 
                 <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-god-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์กวนอู</p>
                 </a>
 
                 <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-125 transition-all duration-500 ease-in-out">
+                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                     <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-healt-menu.png" alt="">
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">สุขภาพดี</p>
                 </a>
