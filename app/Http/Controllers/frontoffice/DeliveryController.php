@@ -10,17 +10,17 @@ class DeliveryController extends Controller
 {
     //
     public function dalivery($search = null) {
-        // dd($search);
         if ($search) {
             $orders = Order::where('order_status', 'pending')
                 ->where(function ($query) use ($search) {
                     $query->where('firstname', 'LIKE', "%$search%")
                         ->orWhere('lastname', 'LIKE', "%$search%")
+                        ->orWhere('tracking_number', 'LIKE', "%$search%")
                         ->orWhere('phone_number', 'LIKE', "%$search%");
                 })
-                ->paginate(2); // กำหนดจำนวนรายการต่อหน้าที่ต้องการแสดง
+                ->paginate(10);
         } else {
-            $orders = Order::where('order_status', 'pending')->paginate(2);
+            $orders = Order::where('order_status', 'pending')->paginate(10);
         }
     
         return view('frontend.pages.delivery_status_order.delivery_status', compact('orders'));

@@ -70,18 +70,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="mt-4 flex items-center gap-4">
-                            @if ($orders->lastPage() > 1)
-                                {{-- @if ($orders->previousPageUrl()) --}}
-                                    <a href="{{ $orders->previousPageUrl() }}" class="px-2 py-1 border rounded hover:bg-gray-200">Previous</a>
-                                {{-- @endif --}}
-                                {{-- @dd($orders->currentPage()) --}}
-                                <span class="mr-2">Page {{ $orders->currentPage() }} of {{ $orders->lastPage() }}</span>
-                        
-                                @if ($orders->hasMorePages())
-                                    <a href="{{ $orders->nextPageUrl() }}" class="px-2 py-1 border rounded hover:bg-gray-200">Next</a>
-                                @endif
-                            @endif
+                        <div class="mt-4 flex justify-end items-center gap-4">
+                            <a href="{{ $orders->previousPageUrl() }}" class="px-2 py-1 border rounded hover:bg-gray-200">Previous</a>
+                            <span class="mr-2">Page {{ $orders->currentPage() }} of {{ $orders->lastPage() }}</span>
+                            <a href="{{ $orders->nextPageUrl() }}" class="px-2 py-1 border rounded hover:bg-gray-200">Next</a>  
                         </div>
                     </div>
                 </div>

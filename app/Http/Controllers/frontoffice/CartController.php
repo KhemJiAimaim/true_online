@@ -64,7 +64,6 @@ class CartController extends Controller
                         $travelSims[] = $sim;
                     }
                 }
-                
                 // dd($travelSims);
             }
         }
@@ -85,17 +84,13 @@ class CartController extends Controller
         if (!isset($cartList['items'][$typeProduct])) {
             $cartList['items'][$typeProduct] = [];
         }
-        // dd($cartList['items'][$typeProduct]);
 
         // ตรวจสอบว่า $id นี้มีอยู่ใน items หรือไม่
         $existingProductKey = array_search($id, array_column($cartList['items'][$typeProduct], 'id'));
-        // dd($existingProductKey);
         if ($existingProductKey !== false) {
             // กรณีที่ $id นี้มีอยู่แล้ว
             if ($typeProduct == 4) {
-                // dd($cartList['items'][$typeProduct][$existingProductKey]['id'] == $id);
                 if ($cartList['items'][$typeProduct][$existingProductKey]['id'] == $id) {
-                    // เพิ่มจำนวนสินค้าใน type_product นั้น
                     $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
                 } 
                 // else {
