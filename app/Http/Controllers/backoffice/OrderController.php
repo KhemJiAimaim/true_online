@@ -43,6 +43,7 @@ class OrderController extends Controller
                             }
 
                             $cate = Category::where('id', $type)->first();
+                            $product[0]->item_id = $i->id;
                             $product[0]->cate_name = $cate->cate_title;
                             $product[0]->type_id = $type;
                             $product[0]->discount = $i->discount;
