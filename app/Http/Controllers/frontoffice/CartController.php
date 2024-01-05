@@ -93,17 +93,9 @@ class CartController extends Controller
                 if ($cartList['items'][$typeProduct][$existingProductKey]['id'] == $id) {
                     $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
                 } 
-                // else {
-                //     $cartList['items'][$typeProduct][] = [
-                //         'id' => $id,
-                //         'quantity' => $quantity,
-                //         'prepaid_id' => $request->input('data_prepaid'),
-                //     ];
-                // }
 
-                // เพิ่ม amount ทั้งหมด
-                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
-                Session::put('cart_list', $cartList);
+                // $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
+                // Session::put('cart_list', $cartList);
             } else if($typeProduct == 6) {
                 $found = false;
 
@@ -123,9 +115,11 @@ class CartController extends Controller
                     ];
                 }
     
-                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
-                Session::put('cart_list', $cartList);
+                // $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
+                // Session::put('cart_list', $cartList);
             } 
+            $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
+            Session::put('cart_list', $cartList);
     
             return response()->json([
                 'status' => 'success',

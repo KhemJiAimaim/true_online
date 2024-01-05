@@ -1,5 +1,9 @@
 @extends('frontend.layouts.main')
 
+@section('title')
+ตรวจสอบสถานะการจัดส่งสินค้า
+@endsection
+
 @section('style')
 @endsection
 
@@ -7,11 +11,11 @@
     <div class="text-left mt-8">
         <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] pb-6 mx-auto">
             <div class="text-center flex flex-col justify-center">
-                <h1 class="2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium ">ตรวจสอบสถานะ</h1>
+                <h1 class="2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium ">ตรวจสอบสถานะการจัดส่งสินค้า</h1>
                 <!-- Search input -->
-                <div class="flex justify-center py-4">
+                <div class="flex justify-center py-4 ">
                     <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only ">ค้นหาด้วยชื่อ หรือ เบอร์โทร</label>
-                    <div class="relative w-[20rem]">
+                    <div class="relative w-[20rem] shadow-md">
                         <input type="search" id="search-data" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-100 rounded-lg outline-none text-[20px]" placeholder="ค้นหาด้วยชื่อ หรือ เบอร์โทร" required>
                         <button type="submit" id="submit_search" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg  hover:bg-blue-800 focus:ring-4 focus:outline-none">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -86,11 +90,11 @@
 
 @section('scripts')
 <script>
-    const search_data = document.querySelector('#search-data');
     submit_search.onclick = () => {
-
-        location.href = `/delivery/${search_data.value}`
-        console.log(search_data.value)
+        const search_data = document.querySelector('#search-data').value;
+        if(search_data) {
+            location.href = `/delivery/${search_data}`
+        }
     }
 </script>
 @endsection

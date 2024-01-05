@@ -1,7 +1,7 @@
 <div class="fixed sm:bottom-10 bottom-[0] right-5 z-50" id="contact">
     <div class="relative md:bottom-[7.7rem] 2xl:bottom-0 ">
 
-        <div id="close" class="flex justify-end lg:hidden ">
+        <div id="close" class="flex justify-end hidden ">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
                 class="mb-2 cursor-pointer">
                 <path
@@ -13,7 +13,7 @@
 
 
         <div id="social"
-            class="lg:hidden  bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg w-[120px] mb-2 py-2 px-1 flex justify-center gap-2 md:bottom-10 ">
+            class="hidden bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg w-[120px] mb-2 py-2 px-1 flex justify-center gap-2 md:bottom-10 ">
             <a href="https://line.me/ti/p/~@berhoro" target="_blank" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125 " title="LINE">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 15 14" fill="none"
                     class="">
@@ -81,9 +81,9 @@
 
         <div id="contact_button" class="cursor-pointer md:flex justify-center ">
             <img src="/images/Ellipse 33.png" alt=""
-                class="bg-white rounded-full md:flex justify-center mx-auto relative hidden ">
+            class="bg-white rounded-full md:flex justify-center mx-auto relative hidden ">
             <p
-                class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg max-sm:text-sm text-center md:absolute md:top-[90%] mb-2">
+                class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg  w-[120px]max-sm:text-sm text-center md:absolute md:top-[90%] mb-2">
                 ติดต่อ
             </p>
         </div>
@@ -129,7 +129,7 @@
         </div>
 
         <div class="flex justify-center">
-            <button id="save-form-data"
+            <button id="save-btn"
                 class="bg-red-500 rounded-full border border-red-500 hover:bg-red-700 text-white py-2 text-center text-[16px] px-6">ส่งข้อมูลให้ติดต่อกลับ</button>
         </div>
     </div>

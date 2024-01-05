@@ -1,4 +1,7 @@
 @extends('frontend.layouts.main')
+@section('title')
+ติดต่อเจ้าหน้าที่
+@endsection
 @section('style')
     <style>
         .main {
@@ -100,7 +103,7 @@
 
         <div class="plate-line max-w-[200px]"></div>
 
-        <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-6 px-3">
+        <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-6 py-4 px-4">
             <div
                 class="grid 2xl:grid-cols-2 xl:grid-cols-2  lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center">
                 <div class="flex justify-between items-center">
@@ -135,7 +138,7 @@
                 </div>
                 <div class="flex justify-between items-center">
                     <label for="line-id"
-                        class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700">ไลน์ไอดี</label>
+                        class="w-32  text-right max-ex:text-left pr-4 font-medium text-gray-700">ไลน์ไอดี (ถ้ามี)</label>
                     <div class="flex-1">
                         <input required type="text" id="line-id"
                             class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
@@ -247,10 +250,13 @@
         class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 gap-y-2 mt-4 2xl:gap-4 mb-10 px-3">
         <a href="{{ url('/fiber') }}"
             class="py-2.5 px-12  mb-2 mt-2  text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
-        <button id="save-form-data"
+        <button id="save-fiber"
             class="py-2.5 px-5  mb-2 mt-2 text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>
     </div>
 </div>
+
+
+
     <footer>
         @include('frontend.pages.internet_fiber.footer_fiber')
     </footer>

@@ -1,18 +1,21 @@
 @extends('frontend.layouts.main')
 
+@section('title')
+    ทรู คอร์ปอเรชั่น
+@endsection
+
 @section('style')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-@vite('resources/css/home.css')
- 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    @vite('resources/css/home.css')
 @endsection
 
 @section('content')
     <div class="2xl:my-12">
 
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3" >
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
             <div class="grid grid-cols-4 py-6 w-[500px] 2xl:w-[800px] items-center mx-auto">
                 @foreach ($cate_home as $cate)
-                    <a href="#{{ $cate->cate_url }} " 
+                    <a href="#{{ $cate->cate_url }} "
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                         <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
                         <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
@@ -269,7 +272,7 @@
                                 <div class="swiper-button-next swiper-button-next1 "></div>
                                 <div class="swiper-button-prev swiper-button-prev1 "></div>
                             @endif
-                            
+
                             {{-- เน็ตไฟเบอร์ --}}
 
                             {{-- เบอร์มงคลรายเดือน --}}
@@ -329,7 +332,8 @@
 
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
-                                                    <button id="addBerToCart" data-id="{{$ber->product_id}}" data-type="{{$cate->id}}"
+                                                    <button id="addBerToCart" data-id="{{ $ber->product_id }}"
+                                                        data-type="{{ $cate->id }}"
                                                         class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -342,7 +346,8 @@
 
                                                     <a href="{{ url('/detailber/' . $ber->product_phone) }}"
                                                         class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button id="buyProductNow" data-id="{{$ber->product_id}}" data-type="{{$cate->id}}"
+                                                    <button id="buyProductNow" data-id="{{ $ber->product_id }}"
+                                                        data-type="{{ $cate->id }}"
                                                         class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
@@ -374,7 +379,8 @@
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
-                                                    <p class="text-white text-left ml-3 text-[16px]">{{$prepaid->title}}</p>
+                                                    <p class="text-white text-left ml-3 text-[16px]">{{ $prepaid->title }}
+                                                    </p>
                                                     <img class=" absolute right-0 top-0"
                                                         src="/images/circle/Intersect.png" alt="">
                                                     {{-- </div> --}}
@@ -389,7 +395,8 @@
 
                                                 <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
                                                     <img src="images/Ellipse 6.png" alt="" class="px-4">
-                                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">{{$prepaid->details}}</p>
+                                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">
+                                                        {{ $prepaid->details }}</p>
                                                 </div>
 
                                                 <div
@@ -397,18 +404,25 @@
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา <br> เริ่มต้น </p>
-                                                        <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">{{$price = ($prepaid->price)?number_format($prepaid->price):0;}}</p>
-                                                        <p class="text-white text-right text-[1rem] 2xl:text-[16px]">บาท <br> /เดือน </p>
+                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา
+                                                            <br> เริ่มต้น </p>
+                                                        <p
+                                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
+                                                            {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}
+                                                        </p>
+                                                        <p class="text-white text-right text-[1rem] 2xl:text-[16px]">บาท
+                                                            <br> /เดือน </p>
                                                     </div>
                                                 </div>
 
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                                                    <a href="{{url('/prepaid_sim/buy_sim/'.$prepaid->id)}}"
+                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}"
                                                         class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button data-id="{{$i}}" data-type="{{$cate->id}}" data-prepaid="{{$prepaid->prepaid_sim_id}}" id="buyProductNow"
+                                                    <button data-id="{{ $i }}"
+                                                        data-type="{{ $cate->id }}"
+                                                        data-prepaid="{{ $prepaid->prepaid_sim_id }}" id="buyProductNow"
                                                         class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
 
                                                 </div>
@@ -440,7 +454,8 @@
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
-                                                    <p class="text-white mr-2 text-left text-[16px]">{{$sim->lifetime}} DAYS {{$sim->price}} BAHT</p>
+                                                    <p class="text-white mr-2 text-left text-[16px]">{{ $sim->lifetime }}
+                                                        DAYS {{ $sim->price }} BAHT</p>
                                                     <img class=" absolute right-0 top-0"
                                                         src="/images/circle/Intersect.png" alt="">
                                                 </div>
@@ -458,7 +473,8 @@
                                                 <div class="bg-[#F8F9FA] grid grid-cols-5 py-2">
                                                     <img src="/images/travel/majesticons_sim-card-line.png" alt=""
                                                         class="px-4">
-                                                    <p class="text-left text-[16px] py-1 col-span-4">{{$sim->title}}</p>
+                                                    <p class="text-left text-[16px] py-1 col-span-4">{{ $sim->title }}
+                                                    </p>
                                                 </div>
 
                                                 <div
@@ -466,16 +482,20 @@
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา</p>
-                                                        <p class="text-white font-medium text-center text-3xl">{{$sim->price}}</p>
-                                                        <p class="text-white text-right 2xl:text-[18px] text-[16px] ">บาท</p>
+                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา
+                                                        </p>
+                                                        <p class="text-white font-medium text-center text-3xl">
+                                                            {{ $sim->price }}</p>
+                                                        <p class="text-white text-right 2xl:text-[18px] text-[16px] ">บาท
+                                                        </p>
 
                                                     </div>
                                                 </div>
 
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
-                                                    <div id="addBerToCart" data-id="{{$sim->id}}" data-type="{{$cate->id}}"
+                                                    <div id="addBerToCart" data-id="{{ $sim->id }}"
+                                                        data-type="{{ $cate->id }}"
                                                         class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
@@ -486,9 +506,10 @@
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                     </div>
 
-                                                    <a href="{{url('/travel_sim_buy/'.$sim->id)}}"
+                                                    <a href="{{ url('/travel_sim_buy/' . $sim->id) }}"
                                                         class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button data-id="{{$sim->id}}" data-type="{{$cate->id}}" id="buyProductNow"
+                                                    <button data-id="{{ $sim->id }}"
+                                                        data-type="{{ $cate->id }}" id="buyProductNow"
                                                         class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 

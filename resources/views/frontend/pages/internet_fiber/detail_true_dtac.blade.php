@@ -4,6 +4,11 @@
 @endsection
 
 @extends('frontend.layouts.main')
+@section('title')
+    {{ $fiber_products->title }}
+@endsection
+@section('title')
+@endsection
 @section('content')
     <div class="2xl:my-16">
         <section class="py-2 px-3">
@@ -141,11 +146,11 @@
     </section>
 
 
-    <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center">
+    <div class="bg-white rounded-bl-[10px] my-4 rounded-br-[10px] flex justify-center">
         <a href="{{ url('/fiber/form_true_dtac/' . $fiber_products->id) }}"
             class="py-2.5 px-5 mr-2 mb-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
     </div>
-    <a href="" class="text-[#838383] text-[16px]">ข้อกำหนดและเงื่อนไข</a>
+    <a href="" class="text-[#838383] text-[16px] underline">ข้อกำหนดและเงื่อนไข</a>
 
 
     </div>

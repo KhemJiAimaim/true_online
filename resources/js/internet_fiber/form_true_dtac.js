@@ -1,7 +1,7 @@
 console.log("use form_true_dtac.js");
 import { forEach } from "lodash";
 import "../global_js/hide_banner.js";
-
+// const axi = require('axios')
 const phone = document.querySelector("#phone");
 const zip_code = document.querySelector("#zip-code");
 phone.addEventListener("input", () => {
@@ -63,8 +63,8 @@ function getSubDistrictData(districtId) {
     sub_districtSelect.innerHTML = option;
 }
 
-let save_form = document.querySelector("#save-form-data");
-save_form.addEventListener("click", () => {
+let save_form_fiber = document.querySelector("#save-fiber");
+save_form_fiber.addEventListener("click", () => {
     const fisrtname = document.querySelector("#first-name").value;
     const lastname = document.querySelector("#last-name").value;
     const line_id = document.querySelector("#line-id").value;
@@ -95,6 +95,13 @@ save_form.addEventListener("click", () => {
             params[key] === "" &&
             key !== "line_id"
         ) {
+
+            Swal.fire({
+                icon: "error",
+                title: "กรุณากรอกข้อมูลให้ครบทุกช่อง",
+                showConfirmButton: false,
+                timer: 2500,
+            }).then();
             console.log("error: " + key + " is empty");
             return false;
         }

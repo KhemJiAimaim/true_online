@@ -1,4 +1,9 @@
 @extends('frontend.layouts.main')
+
+@section('title')
+วิธีการสั่งซื้อ
+@endsection
+
 @section('content')
 <div class="text-left mt-[120px] max-xl:mt-[74px]">
   <div class="p-8 h-20" style="background: var(--RP-GD, linear-gradient(180deg, #EC1F25 0%, #CD1A70 100%));">

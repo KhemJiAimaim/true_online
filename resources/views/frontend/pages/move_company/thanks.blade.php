@@ -1,4 +1,7 @@
 @extends('frontend.layouts.main')
+@section('title')
+ขอบคุณ
+@endsection
 @section('content')
     <div class="my-16">
 

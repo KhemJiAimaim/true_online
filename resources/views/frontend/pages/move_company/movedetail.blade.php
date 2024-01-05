@@ -1,4 +1,7 @@
 @extends('frontend.layouts.main')
+@section('title')
+{{$move_product->title}}
+@endsection
 @section('style')
     <style>
         .main {
@@ -86,8 +89,8 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="w-[100%] mt-0 flex justify-start max-lg:justify-center">
-                        <button id="btn-move-form" data-id="{{$move_product->id}}" class=" bg-red-600 w-[200px] h-[30] text-center rounded-[15px] p-2 text-white text-[16px] "
+                    <div class="w-[100%] mt-0 flex justify-start max-lg:justify-center items-center">
+                        <button id="btn-move-form" data-id="{{$move_product->id}}" class=" bg-red-500  hover:bg-red-700 w-[200px] text-center rounded-full py-2 text-white text-[16px] "
                             href="/move/movenow/form">ติดต่อเจ้าหน้าที่</button>
                     </div>
                 </div>
@@ -108,7 +111,7 @@
             </div>
             {{-- content detail --}}
             <div id="box-package"
-                class="h-[200px] text-left p-2 overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
+                class="h-[200px] text-left p-2 overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                 {{-- <img src="/images/Intersect.png" alt="" class="bottom-0 right-0 absolute">
                 <div class="flex justify-center p-10">
                     <img src="/images/Rectangle 1669.png" alt="" class="w-[800px]">
@@ -136,7 +139,8 @@
                         Facebook, Line, instagram, TikTok</p>
 
                 </div> --}}
-                {!!$move_product->details_content!!}
+                <div class="m-4">
+                {!!$move_product->details_content!!}</div>
                 <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
                     <button class="text-center text-[#EC1F25]" id="show">แสดงเพิ่มเติม ˅</button>
                 </div>

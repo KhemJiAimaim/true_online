@@ -39,6 +39,7 @@ class CartOrderController extends Controller
         }
 
         $params = $request->all();
+        // dd($params);
 
         try {
             DB::beginTransaction();
@@ -96,8 +97,8 @@ class CartOrderController extends Controller
                     'product_cate_id' => null,
                     'product_id' => $bermonthly['product_id'],
                     'product_price' => $bermonthly['product_price'],
+                    'discount' => $bermonthly['product_discount'],
                     'quantity' => 1,
-                    'discount' => 0,
                 ];
             }
         }
@@ -111,8 +112,8 @@ class CartOrderController extends Controller
                     'product_cate_id' => $prepaid['prepaid_cate_id']['id'],
                     'product_id' => $prepaid['id'],
                     'product_price' => $prepaid['price'],
-                    'quantity' => $prepaid['quantity'],
                     'discount' => 0,
+                    'quantity' => $prepaid['quantity'],
                 ];
             }
         }
@@ -126,8 +127,8 @@ class CartOrderController extends Controller
                     'product_cate_id' => null,
                     'product_id' => $travel_sim['id'],
                     'product_price' => $travel_sim['price'],
-                    'quantity' => $travel_sim['quantity'],
                     'discount' => 0,
+                    'quantity' => $travel_sim['quantity'],
                 ];
             }
         }

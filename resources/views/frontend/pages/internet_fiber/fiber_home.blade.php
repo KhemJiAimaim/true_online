@@ -1,5 +1,16 @@
 @extends('frontend.layouts.main')
 
+@section('title')
+    เน็ตบ้านไฟเบอร์อัจฉริยะ
+@endsection
+
+@section('description')
+    
+@endsection
+
+@section('keywords')
+    
+@endsection
 
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />

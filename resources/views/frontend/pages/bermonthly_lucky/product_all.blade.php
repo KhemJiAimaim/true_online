@@ -1,4 +1,9 @@
 @extends('frontend.layouts.main')
+
+@section('title')
+เบอร์มงคล
+@endsection
+
 @section('content')
     <div class=" text-left">
 
@@ -265,7 +270,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 {{-- border center --}}
