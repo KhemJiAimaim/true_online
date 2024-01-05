@@ -1,5 +1,9 @@
 @extends('frontend.layouts.main')
 
+@section('title')
+ซิมเติมเงิน
+@endsection
+
 @section('content')
     <div class="2xl:mt-16">
         <section class="">
