@@ -86,11 +86,11 @@
 
 @section('scripts')
 <script>
-    const search_data = document.querySelector('#search-data');
     submit_search.onclick = () => {
-
-        location.href = `/delivery/${search_data.value}`
-        console.log(search_data.value)
+        const search_data = document.querySelector('#search-data').value;
+        if(search_data) {
+            location.href = `/delivery/${search_data}`
+        }
     }
 </script>
 @endsection

@@ -15,7 +15,7 @@
     <meta name="keywords" content="true,true online,เบอร์มงคล,fiber">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    {{-- <script src="https://www.google.com/recaptcha/api.js"></script> --}}
     @yield('style')                                                                                                                                                               
 </head>
 

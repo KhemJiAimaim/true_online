@@ -1,5 +1,3 @@
-// import '../bermonthly_lucky/fortune_ber.js';
-
 console.log("use cartproduct.js")
 
 const btn_removeItem = document.querySelectorAll('#remove-item');
@@ -108,7 +106,7 @@ function getDistrictData(provinceId) {
 function getSubDistrictData(districtId){
   console.log(districtId)
   const filteredSubDistricts = subdistricts_data.filter(subDis => subDis.district_code == districtId);
-  console.log(filteredSubDistricts)
+  // console.log(filteredSubDistricts)
   let option = '<option value="">เลือกตำบล</option>';
   filteredSubDistricts.forEach(data => {
       option += `<option data-id="${data.code}" data-zip="${data.zip_code}" value="${data.name_th}">${data.name_th}</option>`
@@ -181,26 +179,53 @@ submitBuy.addEventListener('click', () => {
     }
   }
 
- 
-  // console.log(params)
-  // return false;
-
   axios.post(`/confirmorder`,params).then((response) => {
     if (response.status === 201) {
       Swal.fire({
         icon: "success",
         title: "สั่งซื้อสำเร็จ",
-        // text: "ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที",
+        text: "กำลังจะนำท่านสู่หน้าชำระสินค้า",
         showConfirmButton: false,
         timer: 1500,
-      }).then(() => window.location.reload('/'));
-  } else {
-      Swal.fire({
-        icon: "error",
-        title: "มีบางอย่างผิดพลาด",
-        showConfirmButton: false,
-        timer: 1500,
+      }).then(() => {
+
+        let formData = new FormData();
+        formData.append("refno", '123456789')
+        formData.append("merchantid", '13745519')
+        formData.append("customeremail", customer_email)
+        formData.append("cc", '00')
+        formData.append("productdetail", 'สินค้าเบอร์ true')
+        formData.append("total", total_price)
+        formData.append("lang", 'TH')
+
+        let form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://payment.paysolutions.asia/epaylink/payment.aspx';
+
+        formData.forEach(function(value, key) {
+            let input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            form.appendChild(input);
+        });
+
+        document.body.appendChild(form);
+        form.submit();
+
+        for (var pair of formData.entries()) {
+          console.log(pair[0] + ': ' + pair[1]);
+        }
+        return false;
+        // window.location.reload('/')
       });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "มีบางอย่างผิดพลาด",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   }
   })
 
