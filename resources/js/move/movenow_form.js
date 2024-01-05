@@ -25,9 +25,7 @@ btnSavedata.addEventListener("click", () => {
     const email = document.querySelector("#email");
     const phone = el_phone.value;
     const phone_to_move = el_phone_to_move.value;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
 
     if (!firstname || !lastname || !phone || !phone_to_move) {
         Swal.fire({
@@ -39,6 +37,7 @@ btnSavedata.addEventListener("click", () => {
         console.log("error");
         return false;
     }
+    
     if (!emailRegex.test(email.value)) {
         Swal.fire({
             icon: "error",

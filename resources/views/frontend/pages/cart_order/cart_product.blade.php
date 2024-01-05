@@ -1,5 +1,18 @@
 @extends('frontend.layouts.main')
+@section('style')
+    <style>
+       .main {
+            height: auto;
+            min-height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* overflow-y: auto; */
+        }
+    </style>
+@endsection
 @section('content')
+
     @php
         $sum_price = 0;
         $total_price = 0;
@@ -8,7 +21,7 @@
         $total_travel = 0;
         $price_option = null;
     @endphp
-    <div class="text-left 2xl:mt-32 xl:mt-32 mt-16">
+    <div class="text-left 2xl:mt-32 xl:mt-32 mt-16 ">
         <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
             <div class="text-center">
                 <h1 class="2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium ">ตระกร้าสินค้า</h1>
@@ -65,9 +78,10 @@
                                     <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">
                                         {{ number_format($sum_month = $month->product_price) }}</p>
-                                    <figure class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110"
-                                    title="ลบรายการสินค้า"
-                                        id="remove-item" data-type="3" data-id="{{ $month->product_id }}">
+                                    <figure
+                                        class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110"
+                                        title="ลบรายการสินค้า" id="remove-item" data-type="3"
+                                        data-id="{{ $month->product_id }}">
                                         <img src="/icons/cart_trash.png" alt=""
                                             class="max-ex:w-[20px] max-ex:h-[20px]">
                                     </figure>
@@ -225,23 +239,23 @@
                         <div class="flex flex-col gap-2">
                             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="name">ชื่อ*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
-                                    name="name" id="name">
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                    type="text" name="name" id="name">
                             </div>
                             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="last-name">นามสกุล*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
-                                    name="last-name" id="last-name">
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                    type="text" name="last-name" id="last-name">
                             </div>
                             <div class="grid grid-cols-[62px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="customer-tel">เบอร์โทร*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
-                                    name="customer-tel" id="customer-tel" maxlength="10">
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                    type="text" name="customer-tel" id="customer-tel" maxlength="10">
                             </div>
                             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="customer-email">อีเมล*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" type="text"
-                                    name="customer-email" id="customer-email">
+                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                    type="text" name="customer-email" id="customer-email">
                             </div>
                         </div>
 
@@ -311,11 +325,15 @@
             </div>
 
         </div>
+        
     </div>
 
 
     <!-- end box product -->
-    @include('frontend.pages.bermonthly_lucky.footer_bermonthly_lucky')
+    <footer class="lg:mt-[170px]">
+        @include('frontend.pages.bermonthly_lucky.footer_bermonthly_lucky')
+    </footer>
+
 @endsection
 
 @section('scripts')

@@ -118,7 +118,6 @@ function getSubDistrictData(districtId){
 
 
 const submitBuy = document.querySelector('#submit-buy');
-
 submitBuy.addEventListener('click', () => {
   const firstname = document.querySelector('#name').value;
   const lastname = document.querySelector('#last-name').value;
@@ -135,7 +134,7 @@ submitBuy.addEventListener('click', () => {
   // console.log(bermonthly_data)
   // return false;
 
- // Check if any required field is empty
+//  Check if any required field is empty
   const requiredFields = [firstname, lastname, customer_tel, customer_email, customer_address, sub_district, district, province];
   if (requiredFields.some(field => !field.trim())) {
     Swal.fire({
@@ -147,16 +146,15 @@ submitBuy.addEventListener('click', () => {
     return;
   }
 
-  if (!emailRegex.test(customer_email.value)) {
+  if (!emailRegex.test(customer_email)) {
     Swal.fire({
-        icon: "error",
-        title: "กรุณากรอก E-mail ให้ถูกต้อง",
-        showConfirmButton: false,
-        timer: 2500,
-    }).then();
-    console.log("Invalid Email");
-    return false;
-}
+      icon: 'error',
+      title: 'กรุณากรอก E-mail ที่ถูกต้อง',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    return;
+  }
   
   let params = {
     firstname : firstname, 
@@ -195,7 +193,7 @@ submitBuy.addEventListener('click', () => {
         // text: "ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที",
         showConfirmButton: false,
         timer: 1500,
-      }).then(() => window.location.reload());
+      }).then(() => window.location.reload('/'));
   } else {
       Swal.fire({
         icon: "error",

@@ -41,8 +41,8 @@ function fillerTel(element) {
 }
 
 
- var btnSavedata = document.querySelector("#save-form-data");
- btnSavedata.addEventListener("click", () => {
+ var btnSavecontact = document.querySelector("#save-btn");
+ btnSavecontact.addEventListener("click", () => {
     const firstname = document.querySelector("#first-name").value;
     const email = document.querySelector("#email");
     const contact_message = document.querySelector("#messages").value;
