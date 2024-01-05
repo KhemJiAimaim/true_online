@@ -588,9 +588,9 @@ return new class extends Migration
             [
                 'id' => 24,
                 'cate_url' => 'howtobuy/fiber',
-                'cate_title' => 'อินเตอร์เน็ตไฟเบอร์',
+                'cate_title' => 'วิธีการสั่งซื้ออินเตอร์เน็ตไฟเบอร์',
                 'cate_keyword' => 'อินเตอร์เน็ตไฟเบอร์',
-                'cate_description' => 'การสั่งซื้ออินเตอร์เน็ตไฟเบอร์',
+                'cate_description' => 'วิธีการสั่งซื้ออินเตอร์เน็ตไฟเบอร์',
                 'cate_redirect' => 'howtobuy/fiber',
                 'is_menu' => true,
                 'is_product_cate' => true,
@@ -598,7 +598,7 @@ return new class extends Migration
                 'is_bottomside' => true,
                 'is_main_page' => false,
                 'cate_position' => 1,
-                'cate_parent_id' => 7, // ซิมท่องเที่ยว
+                'cate_parent_id' => 7, // วิธีการสั่งซื้อ
                 'cate_level' => 1,
                 'language' => 'th',
                 'defaults' => true,
@@ -611,9 +611,9 @@ return new class extends Migration
             [
                 'id' => 25,
                 'cate_url' => 'howtobuy/month',
-                'cate_title' => 'เบอร์มงคลรายเดือน',
+                'cate_title' => 'วิธีการสั่งซื้อเบอร์มงคลรายเดือน',
                 'cate_keyword' => 'เบอร์มงคลรายเดือน',
-                'cate_description' => 'การสั่งซื้อเบอร์มงคลรายเดือน',
+                'cate_description' => 'วิธีการสั่งซื้อเบอร์มงคลรายเดือน',
                 'cate_redirect' => 'howtobuy/month',
                 'is_menu' => true,
                 'is_product_cate' => true,
@@ -621,7 +621,7 @@ return new class extends Migration
                 'is_bottomside' => true,
                 'is_main_page' => false,
                 'cate_position' => 1,
-                'cate_parent_id' => 7, // ซิมท่องเที่ยว
+                'cate_parent_id' => 7, // วิธีการสั่งซื้อ
                 'cate_level' => 1,
                 'language' => 'th',
                 'defaults' => true,
@@ -634,9 +634,9 @@ return new class extends Migration
             [
                 'id' => 26,
                 'cate_url' => 'howtobuy/paysim',
-                'cate_title' => 'ซิมเติมเงิน',
+                'cate_title' => 'วิธีการสั่งซื้อซิมเติมเงิน',
                 'cate_keyword' => 'ซิมเติมเงิน',
-                'cate_description' => 'การสั่งซื้อซิมเติมเงิน',
+                'cate_description' => 'วิธีการสั่งซื้อซิมเติมเงิน',
                 'cate_redirect' => 'howtobuy/paysim',
                 'is_menu' => true,
                 'is_product_cate' => true,
@@ -644,7 +644,7 @@ return new class extends Migration
                 'is_bottomside' => true,
                 'is_main_page' => false,
                 'cate_position' => 1,
-                'cate_parent_id' => 7, // ซิมท่องเที่ยว
+                'cate_parent_id' => 7, // วิธีการสั่งซื้อ
                 'cate_level' => 1,
                 'language' => 'th',
                 'defaults' => true,
@@ -657,9 +657,9 @@ return new class extends Migration
             [
                 'id' => 27,
                 'cate_url' => 'howtobuy/travelsim',
-                'cate_title' => 'ซิมท่องเที่ยว',
+                'cate_title' => 'วิธีการสั่งซื้อซิมท่องเที่ยว',
                 'cate_keyword' => 'ซิมท่องเที่ยว',
-                'cate_description' => 'การสั่งซื้อซิมท่องเที่ยว',
+                'cate_description' => 'วิธีการสั่งซื้อซิมท่องเที่ยว',
                 'cate_redirect' => 'howtobuy/travelsim',
                 'is_menu' => true,
                 'is_product_cate' => true,
@@ -667,7 +667,7 @@ return new class extends Migration
                 'is_bottomside' => true,
                 'is_main_page' => false,
                 'cate_position' => 1,
-                'cate_parent_id' => 7, // ซิมท่องเที่ยว
+                'cate_parent_id' => 7, // วิธีการสั่งซื้อ
                 'cate_level' => 1,
                 'language' => 'th',
                 'defaults' => true,
