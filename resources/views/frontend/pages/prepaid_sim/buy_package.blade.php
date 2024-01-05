@@ -1,5 +1,8 @@
 @extends('frontend.layouts.main')
 
+@section('title')
+แพ็กเสริม 5G แม็กซ์ สปีด
+@endsection
 
 @section('style')
     <style>

@@ -1,6 +1,8 @@
 @extends('frontend.layouts.main')
+@section('title')
+    รายละเอียดเบอร์มงคล
+@endsection
 @section('style')
-    
 @endsection
 @section('content')
     <div class="text-left 2xl:mt-32 xl:mt-32 mt-16">
@@ -232,10 +234,10 @@
                 <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
 
                 <div class="flex gap-2 ">
-                    <button id="buyProductNow" data-id="{{$berproduct->product_id}}" data-type="3"
+                    <button id="buyProductNow" data-id="{{ $berproduct->product_id }}" data-type="3"
                         class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
-                    <button id="addBerToCart" data-id="{{$berproduct->product_id}}" data-type="3"
+                    <button id="addBerToCart" data-id="{{ $berproduct->product_id }}" data-type="3"
                         class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">

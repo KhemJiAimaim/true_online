@@ -1,4 +1,7 @@
 @extends('frontend.layouts.main')
+@section('title')
+    ตระกร้าสินค้า
+@endsection
 @section('style')
     <style>
        .main {

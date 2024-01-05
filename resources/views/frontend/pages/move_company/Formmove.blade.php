@@ -1,4 +1,9 @@
 @extends('frontend.layouts.main')
+
+@section('title')
+    ติดต่อเจ้าหน้าที่
+@endsection
+
 @section('style')
     <style>
         .main {

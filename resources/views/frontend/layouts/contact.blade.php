@@ -1,7 +1,7 @@
 <div class="fixed sm:bottom-10 bottom-[0] right-5 z-50" id="contact">
     <div class="relative md:bottom-[7.7rem] 2xl:bottom-0 ">
 
-        <div id="close" class="flex justify-end lg:hidden max-md:hidden ">
+        <div id="close" class="flex justify-end hidden ">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
                 class="mb-2 cursor-pointer">
                 <path
@@ -13,7 +13,7 @@
 
 
         <div id="social"
-            class="lg:hidden max-md:hidden bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg w-[120px] mb-2 py-2 px-1 flex justify-center gap-2 md:bottom-10 ">
+            class="hidden bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-lg w-[120px] mb-2 py-2 px-1 flex justify-center gap-2 md:bottom-10 ">
             <a href="https://line.me/ti/p/~@berhoro" target="_blank" class="bg-white rounded-full py-1 px-1 cursor-pointer hover:scale-125 " title="LINE">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 15 14" fill="none"
                     class="">

@@ -1,6 +1,8 @@
 @extends('frontend.layouts.main')
 
-
+@section('title')
+{{$prepaid_cate->details}}
+@endsection
 
 @section('content')
     <div class=" max-xs:mt-[15%] max-uu:mt-[10%] max-xl:mt-[10%] mx-3">
@@ -63,8 +65,8 @@
                     <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
                 </div>
                 {{-- content detail --}}
-                <div id="box-package" class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
-                    <div class="w-full lg:w-[400px] ml-3 text-left Z-[99]">
+                <div id="box-package" class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                    <div class="w-full lg:w-[400px] text-left Z-[99] my-4 ml-4">
                         {!! $prepaid_cate->details_content !!}
                     </div>
                     <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">

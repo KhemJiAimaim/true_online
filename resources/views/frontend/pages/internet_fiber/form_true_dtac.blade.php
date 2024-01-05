@@ -1,4 +1,7 @@
 @extends('frontend.layouts.main')
+@section('title')
+ติดต่อเจ้าหน้าที่
+@endsection
 @section('style')
     <style>
         .main {
@@ -100,7 +103,7 @@
 
         <div class="plate-line max-w-[200px]"></div>
 
-        <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-6 px-3">
+        <div class="max-w-[1000px] bg-[#F8F9FA] rounded-lg mx-auto p-2 2xl:mt-10 mt-6 py-4 px-4">
             <div
                 class="grid 2xl:grid-cols-2 xl:grid-cols-2  lg:grid-cols-2 dm:grid-cols-2 md:grid-cols-2 gap-y-4 items-center">
                 <div class="flex justify-between items-center">
