@@ -74,6 +74,30 @@ class OrderController extends BaseController
         }
     }
 
+    public function shippingData(Request $request)
+    {
+        try {
+
+            $adminAccount = $this->getAuthUser();
+            $shippingData = Order::where('order_status', 'success')->orderBy('updated_at', 'DESC')->get();
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Get shipping data success.',
+                'shippingData' => $shippingData,
+                'order_pending' => Order::where('order_status', 'pending')->count(),
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'status' => false,
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
     public function updateOrderAdmin(Request $request, $order_id)
     {
 
@@ -153,6 +177,31 @@ class OrderController extends BaseController
                 'description' => 'Update order success.',
                 'updated' => $updated,
             ], 201);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'status' => false,
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
+
+    public function deleteOrder($order_id)
+    {
+        try {
+
+            $adminAccount = $this->getAuthUser();
+
+            Order::where('id', $order_id)->delete();
+            OrderItem::where('order_id', $order_id)->delete();
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Order has been deleted successfully.',
+            ], 200);
         } catch (Exception $e) {
             return response([
                 'message' => 'server error',
