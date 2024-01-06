@@ -76,11 +76,22 @@
 
                             <div class="w-[30%]  max-xs:w-[60%]">
                                 <div class="flex justify-between">
-                                    <p class="flex justify-center items-center text-[16px] font-semibold">
-                                        {{ number_format($month->product_price) }}</p>
+                                    <p class="flex flex-col justify-center items-center">
+                                        @if($month->product_discount)
+                                        <span class="text-[14px] text-gray-400 line-through">{{ number_format($month->product_price) }}</span>
+                                        @endif
+                                        <span class="text-[16px] font-semibold">{{ number_format($month->product_price - (($month->product_price * $month->product_discount) / 100)) }}</span>
+                                    </p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
-                                    <p class="flex justify-center items-center text-[16px] font-semibold">
-                                        {{ number_format($sum_month = $month->product_price) }}</p>
+                                    <p class="flex flex-col justify-center items-center">
+                                        @if($month->product_discount)
+                                        <span class="text-[14px] text-gray-400 line-through">{{ number_format($sum_month = $month->product_price) }}</span>
+                                        @endif
+                                        @php 
+                                            $sum_month = ceil($month->product_price - (($month->product_price * $month->product_discount) / 100))
+                                        @endphp
+                                        <span class="text-[16px] font-semibold">{{ number_format($sum_month) }}</span>
+                                    </p>
                                     <figure
                                         class="flex justify-center items-center cursor-pointer w-[27px] h-[27px] mr-4 hover:scale-110"
                                         title="ลบรายการสินค้า" id="remove-item" data-type="3"

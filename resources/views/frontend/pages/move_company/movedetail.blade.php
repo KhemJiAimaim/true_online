@@ -110,35 +110,7 @@
                     class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
             </div>
             {{-- content detail --}}
-            <div id="box-package"
-                class="h-[200px] text-left p-2 overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                {{-- <img src="/images/Intersect.png" alt="" class="bottom-0 right-0 absolute">
-                <div class="flex justify-center p-10">
-                    <img src="/images/Rectangle 1669.png" alt="" class="w-[800px]">
-                </div>
-                <div class="w-full lg:w-[400px] ml-3 text-left">
-                    <p class="text-[16px] font-medium mt-3">ซิมเทพ เล่นเน็ตไม่อั้น +โทรฟรีทุกค่าย
-                        ลูกค้าจะได้เล่นเน็ตไม่จำกัด ฟรีเดือนแรก โปรโมชั่นเครือข่าย True
-                    </p>
-
-                    <ol class="mx-6">
-                        <li class="text-[16px]">True ความเร็ว 10Mbps (ไม่ลดสปีด) "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 210 บาท
-                            (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 20Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 70GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 80GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 300 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 55GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 250 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 15Mbps +โทรฟรีทุกค่าย เล่นเน็ตไม่อั้น 30GB (FUP 384Kbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 200 บาท (รวมภาษีแล้ว)</li>
-                        <li class="text-[16px]">True ความเร็ว 4Mbps (ไม่มีโทรฟรี) เล่นเน็ตไม่อั้น 30GB (FUP 1Mbps)
-                            "ฟรีเดือนแรก" เดือนต่อไป เติมเงิน 150 บาท (รวมภาษีแล้ว)</li>
-                    </ol>
-                    <p class="text-[16px]">** ทำไมถึงต้องเลือกทรู ตอบ เล่นได้ทุกแอพ เน็ตไม่มีหมด 8 แอพดังนี้ เล่นโซเชียล
-                        Facebook, Line, instagram, TikTok</p>
-
-                </div> --}}
+            <div id="box-package" class="h-[200px] text-left p-2 overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                 <div class="m-4">
                 {!!$move_product->details_content!!}</div>
                 <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
