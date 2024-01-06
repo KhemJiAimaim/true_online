@@ -20,7 +20,7 @@ class DeliveryController extends Controller
                 })
                 ->paginate(10);
         } else {
-            $orders = Order::where('order_status', 'pending')->paginate(10);
+            $orders = Order::where('order_status', 'success')->paginate(10);
         }
     
         return view('frontend.pages.delivery_status_order.delivery_status', compact('orders'));
