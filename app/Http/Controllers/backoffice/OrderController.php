@@ -11,6 +11,7 @@ use App\Models\PrepaidSim;
 use App\Models\TravelSim;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends BaseController
@@ -64,6 +65,58 @@ class OrderController extends BaseController
                 'status' => true,
                 'orders' => $orders,
                 'order_pending' => Order::where('order_status', 'pending')->count(),
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function getProductData(Request $request)
+    {
+        try {
+
+            $berlucky = BerproductMonthly::where('product_sold', 'no')->orderBy('product_price', 'ASC')->get();
+            $travelsim = TravelSim::whereColumn('quantity', '>', 'quantity_sold')->orderBy('price', 'ASC')->get();
+            $prepaidsim = PrepaidSim::whereColumn('quantity', '>', 'quantity_sold')->orderBy('price', 'ASC')->get();
+
+            if ($berlucky) {
+                foreach ($berlucky as $ber) {
+                    $ber->id = $ber->product_id;
+                    $ber->title = $ber->product_phone;
+                    $ber->price = $ber->product_price;
+                    $ber->discount = $ber->product_discount;
+                    $ber->p_cate_id = NULL;
+                }
+            }
+
+            if ($travelsim) {
+                foreach ($travelsim as $ber) {
+                    $ber->title = $ber->title . " " . $ber->price;
+                    $ber->p_cate_id = $ber->travel_cate_id;
+                    $ber->discount = 0;
+                }
+            }
+
+            if ($prepaidsim) {
+                foreach ($prepaidsim as $ber) {
+                    $ber->title = $ber->title . " " . $ber->price;
+                    $ber->p_cate_id = $ber->prepaid_cate_id;
+                    $ber->discount = 0;
+                }
+            }
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'productData' => [
+                    'berlucky' => $berlucky,
+                    'travelsim' => $travelsim,
+                    'prepaidsim' => $prepaidsim,
+                ],
             ], 200);
         } catch (Exception $e) {
             return response([
