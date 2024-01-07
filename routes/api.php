@@ -93,6 +93,7 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::prefix('order/')->group(function () {
             Route::get('data', [OrderController::class, 'index']);
             Route::get('getproductdata', [OrderController::class, 'getProductData']);
+            Route::post('createorder', [OrderController::class, 'createOrderAdmin']);
             Route::get('shippingdata', [OrderController::class, 'shippingData']);
             Route::put('update/{order_id}', [OrderController::class, 'updateOrderAdmin']);
             Route::delete('delete/{order_id}', [OrderController::class, 'deleteOrder']);

@@ -75,6 +75,86 @@ class OrderController extends BaseController
         }
     }
 
+    public function createOrderAdmin(Request $request)
+    {
+
+        try {
+            DB::beginTransaction();
+
+            $adminAccount = $this->getAuthUser();
+            $params = $request->all();
+
+            $newOrder = Order::create([
+                'firstname' => $params['name'],
+                'lastname' => "",
+                'email' => $params['email'],
+                'phone_number' => $params['phone'],
+                'zip_code' => $params['zipcode'],
+                'district' => $params['district'],
+                'subdistrict' => $params['subdistrict'],
+                'province' => $params['province'],
+                'address' => $params['address'],
+                'tracking_number' => $params['tracking_number'],
+                'order_carrier' => $params['order_carrier'],
+                'total_price' => $params['total_price'],
+                'shipping_cost' => $params['shipping_cost'] || 0,
+                'order_status' => $params['order_status'],
+                'update_by' => $adminAccount->account_id, // เก็บ ID Admin ที่ Update
+            ]);
+
+            $newOrder->update([
+                'order_number' => 'TRUEONLINE-' . $newOrder->id,
+            ]);
+
+            $product_values = [];
+            if ($params['product_items']) {
+                foreach ($params['product_items'] as $item) {
+                    $value = [
+                        'order_id' => $newOrder->id,
+                        'type_id' => $item["type_id"],
+                        'product_cate_id' => $item["product_cate_id"],
+                        'product_id' => $item["product_id"],
+                        'product_price' => $item["product_price"],
+                        'quantity' => $item["quantity"],
+                        'discount' => $item["discount"],
+                    ];
+
+                    $product_values[] = $value;
+
+                    if ($newOrder->order_status === "success") {
+                        if ($item['type_id'] === 3) {
+                            BerproductMonthly::where('product_id', $item['product_id'])->update([
+                                'product_sold' => $request->order_status === "success" ? 'yes' : 'no',
+                            ]);
+                        } else if ($item['type_id'] === 4) {
+                            PrepaidSim::where('id', $item['product_id'])->increment('quantity_sold', $item['quantity']);
+                        } else if ($item['type_id'] === 6) {
+                            TravelSim::where('id', $item['product_id'])->increment('quantity_sold', $item['quantity']);
+                        }
+                    }
+                }
+            }
+
+            OrderItem::insert($product_values);
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Create order success.',
+                'newOrder' => $newOrder,
+            ], 201);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'status' => false,
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
     public function getProductData(Request $request)
     {
         try {
@@ -155,6 +235,8 @@ class OrderController extends BaseController
     {
 
         try {
+            DB::beginTransaction();
+
             $adminAccount = $this->getAuthUser();
             $product_items = $request->product_items;
             $order = Order::where('id', $order_id)->first();
@@ -224,6 +306,7 @@ class OrderController extends BaseController
 
             $updated = Order::where('id', $order_id)->with('orderItems')->first();
 
+            DB::commit();
             return response([
                 'message' => 'ok',
                 'status' => true,
@@ -231,6 +314,7 @@ class OrderController extends BaseController
                 'updated' => $updated,
             ], 201);
         } catch (Exception $e) {
+            DB::rollBack();
             return response([
                 'message' => 'server error',
                 'status' => false,
@@ -244,18 +328,40 @@ class OrderController extends BaseController
     public function deleteOrder($order_id)
     {
         try {
+            DB::beginTransaction();
 
             $adminAccount = $this->getAuthUser();
+
+            $order = Order::where('id', $order_id)->with("orderItems")->first();
+
+            if ($order->order_status === "success") {
+
+                foreach ($order->orderItems as $item) {
+                    if ($item->type_id === 3) {
+                        BerproductMonthly::where('product_id', $item->product_id)->update([
+                            'product_sold' => 'no',
+                        ]);
+                    } else if ($item->type_id === 4) {
+                        PrepaidSim::where('id', $item->product_id)->decrement('quantity_sold', $item->quantity);
+                        PrepaidSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
+                    } else if ($item->type_id === 6) {
+                        TravelSim::where('id', $item->product_id)->decrement('quantity_sold', $item->quantity);
+                        PrepaidSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
+                    }
+                }
+            }
 
             Order::where('id', $order_id)->delete();
             OrderItem::where('order_id', $order_id)->delete();
 
+            DB::commit();
             return response([
                 'message' => 'ok',
                 'status' => true,
                 'description' => 'Order has been deleted successfully.',
             ], 200);
         } catch (Exception $e) {
+            DB::rollBack();
             return response([
                 'message' => 'server error',
                 'status' => false,
