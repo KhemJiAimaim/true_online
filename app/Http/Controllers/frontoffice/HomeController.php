@@ -32,6 +32,8 @@ use stdClass;
 class HomeController extends Controller
 {
     public function homePage() {
+        $menus = Post::where('category', 'LIKE', '%1%')->where('status_display', true)->OrderBy('priority')->get();
+        // dd($menus);
         $cate_home = Category::whereIn('id', [2, 3, 4, 6])
             ->where('cate_status_display', true)
             ->orderBy('cate_priority')
@@ -50,9 +52,8 @@ class HomeController extends Controller
             ->where('delete_status', false)
             ->orderBy('priority')
             ->get();
-        // dd($prepaid_cate);
         $travel_sim = TravelSim::where('travel_cate_id', 23)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
-        return view('frontend.pages.home',compact('cate_home','berproducts', 'product_fiber','post_benefits', 'prepaid_cate','travel_sim'));
+        return view('frontend.pages.home',compact('cate_home','menus', 'berproducts', 'product_fiber','post_benefits', 'prepaid_cate','travel_sim'));
     }
 
     public function thankyou()

@@ -61,11 +61,6 @@
                     <div class="ham-line1"></div>
                     <div class="ham-line2"></div>
                     <div class="ham-line3"></div>
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg> --}}
                 </div>
             </div>
         </div>
@@ -84,10 +79,8 @@
                         $matching_cate = true;
                         $main_list =
                             '<li>
-                                    <a href="/' .
-                            $m_cate->cate_redirect .
-                            '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">หน้าหลัก</a>
-                                </li>';
+                                <a href="/' . $m_cate->cate_redirect . '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">หน้าหลัก</a>
+                            </li>';
                         break;
                     }
                 }
@@ -103,8 +96,7 @@
                     @foreach ($sub_cate as $s_cate)
                         @if ($s_cate->cate_parent_id == $m_cate->id)
                             <li>
-                                <a href="/{{ $s_cate->cate_redirect }}"
-                                    class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                <a href="/{{ $s_cate->cate_redirect }}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
                             </li>
                         @endif
                     @endforeach
@@ -120,27 +112,21 @@
 <div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
     <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
         <ul class="hidden lg:flex 2xl:flex relative list-none">
-            {{-- อินเตอร์เน็ตไฟเบอร์ --}}
             @foreach ($main_cate as $m_cate)
                 <li class="group z-[99] basis-[260px] ">
-                    <a href="{{ url($m_cate->cate_redirect) }}"
-                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
+                    <a href="{{ url($m_cate->cate_redirect) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
                     @foreach ($sub_cate as $s_cate)
                         @if ($s_cate->cate_parent_id == $m_cate->id)
-                            <ul
-                                class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
+                            <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
                                 <li>
-                                    <a href="{{ url('/' . $s_cate->cate_redirect) }}"
-                                        class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                    <a href="{{ url('/' . $s_cate->cate_redirect) }}" class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
                                 </li>
                             </ul>
                         @endif
                     @endforeach
                 </li>
             @endforeach
-
         </ul>
-        </li>
     </div>
 </div>
 
