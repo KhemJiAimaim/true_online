@@ -32,7 +32,7 @@ use stdClass;
 class HomeController extends Controller
 {
     public function homePage() {
-        $menus = Post::where('category', 'LIKE', '%1%')->where('status_display', true)->OrderBy('priority')->get();
+        $menus = Post::where('category', 'LIKE', '%1%')->where('pin', true)->where('status_display', true)->OrderBy('priority')->get();
         // dd($menus);
         $cate_home = Category::whereIn('id', [2, 3, 4, 6])
             ->where('cate_status_display', true)

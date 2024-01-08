@@ -70,7 +70,8 @@ class CartOrderController extends Controller
             return response([
                 'message' => 'ok',
                 'status' => true,
-                'description' => 'Send form fiber successfully',
+                'ref_order' => $newOrder->order_number
+                // 'description' => 'Send form fiber successfully',
             ], 201);
         } catch (Exception $e) {
             DB::rollBack();
