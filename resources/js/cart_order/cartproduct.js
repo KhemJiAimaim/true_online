@@ -188,9 +188,8 @@ submitBuy.addEventListener('click', () => {
         showConfirmButton: false,
         timer: 1500,
       }).then(() => {
-
         let formData = new FormData();
-        formData.append("refno", '123456789')
+        formData.append("refno", response.data.ref_order)
         formData.append("merchantid", '13745519')
         formData.append("customeremail", customer_email)
         formData.append("cc", '00')

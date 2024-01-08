@@ -9,9 +9,9 @@
 
             @if (Request::is('/') || Request::is('prepaid_sim'))
                 <div class="  md:flex lg:flex 2xl:flex md:justify-between lg:justify-between 2xl:justify-between gap-6 items-left grid grid-rows-3 gap-y-2">
-                    <p class="text-white sm:text-lg text-md 2xl:text-[20px] text-[16px] text-center">ความปลอดภัย</p>
-                    <p class="text-white sm:text-lg text-md 2xl:text-[20px] text-[16px] text-center">ความเป็นส่วนตัว</p>
-                    <p class="text-white sm:text-lg text-md 2xl:text-[20px] text-[16px] text-center">ปัญหาร้องเรียน</p>
+                    @foreach($menu_footer as $footer)
+                    <a href="/{{$footer->cate_redirect}}"><p class="text-white sm:text-lg text-md 2xl:text-[20px] text-[16px] text-center">{{$footer->cate_title}}</p></a>
+                    @endforeach
                 </div>
             @endif
 
