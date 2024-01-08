@@ -17,8 +17,8 @@ class DashboardController extends BaseController
         try {
 
             $orders = Order::orderBy('created_at', 'DESC')->limit(5)->get();
-            $mailService = MailInbox::orderBy('created_at', 'DESC')->limit(5)->get();
-            $mailContact = MailInbox::orderBy('created_at', 'DESC')->limit(5)->get();
+            $mailService = MailInbox::where('type_id', '<>', 0)->orderBy('created_at', 'DESC')->limit(5)->get();
+            $mailContact = MailInbox::where('type_id', 0)->orderBy('created_at', 'DESC')->limit(5)->get();
 
             return response([
                 'message' => 'ok',
