@@ -26,8 +26,9 @@ class SendOrderDetail extends Mailable
 
     public function build() 
     {
+        $iamgeLogo = env('APP_URL').'/images/email/true5g.png';
         return $this->subject('หมายเลขการสั่งซื้อเลขที่ '.$this->dataCustomer->order_number)
-            ->markdown('frontend.mail.formorder');
+            ->markdown('frontend.mail.formorder', compact('iamgeLogo'));
     }
 
     /**

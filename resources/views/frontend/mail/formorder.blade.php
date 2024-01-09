@@ -189,7 +189,7 @@
                                                               <tr>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
                                                                   <span>
-                                                                    <img src="/images/email/true5g.png" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px" class="CToWUd" data-bit="iit">
+                                                                    <img src="{{asset('../images/email/true5g.png')}}" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px" class="CToWUd" data-bit="iit">
                                                                   </span>
                                                                 </td>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
@@ -230,11 +230,11 @@
                                       <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:14px;color:#000000;width:100%">
                                           <tbody>
                                               <tr>
-                                                  <td  style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;text-align:right;line-height:150%;padding-top:8px;padding-bottom:4px">
+                                                  <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;text-align:right;line-height:150%;padding-top:8px;padding-bottom:4px">
                                                       <span>ค่าบริการจัดส่ง</span>
                                                   </td>
                                                   <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:150px;min-width:150px;text-align:right;line-height:150%;padding-top:8px;padding-bottom:4px">
-                                                      <span>50</span>
+                                                      <span>{{$dataCustomer->shipping_cost}}</span>
                                                       <span style="font-size:10px">บาท</span>
                                                   </td>
                                               </tr>
