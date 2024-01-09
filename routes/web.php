@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\frontoffice;
 
-use App\Http\Controllers\backoffice\BookingController;
 use App\Http\Controllers\frontapi\CartOrderController;
 use App\Http\Controllers\frontapi\ContactAdminController;
 use Illuminate\Support\Facades\Route;

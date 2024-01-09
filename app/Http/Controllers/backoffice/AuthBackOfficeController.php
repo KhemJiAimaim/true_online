@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\AdminAccount;
-use App\Models\BookingSetting;
 use App\Models\Category;
 use App\Models\LanguageAvailable;
 use Carbon\Carbon;

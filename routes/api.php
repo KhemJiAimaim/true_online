@@ -1,15 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\backoffice;
-
-use App\Http\Controllers\TestAPIController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
-
-Route::prefix('testapi/')->group(function () {
-    // Route::post('createorder', [TestAPIController::class, 'testCreateOrder']);
-});
 
 Route::prefix('backoffice/v1')->group(function () {
     Route::post('login', [AuthBackOfficeController::class, 'loginAccount']);
