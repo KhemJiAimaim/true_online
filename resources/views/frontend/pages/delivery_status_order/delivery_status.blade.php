@@ -52,12 +52,19 @@
                                 <tbody class="text-[16px] ">
                                     @foreach ($orders as $order)
                                         @php
-
+                                            $carrier = '';
+                                            if($order->order_carrier == 'EMS'){
+                                                $carrier = "/images/tracking/ems.jpg";
+                                            } else if ($order->order_carrier == 'Kerry') {
+                                                $carrier = "/images/tracking/k.png";
+                                            } else {
+                                                $carrier = "/images/tracking/logotrue.png";
+                                            }
                                         @endphp
                                         <tr class="border-b dark:border-neutral-500">
                                             <td class="whitespace-nowrap  px-6 py-4 font-medium">{{$order->firstname}} {{$order->lastname}}</td>
                                             <td class="whitespace-nowrap  w-28">
-                                                <img src="/images/k.png" alt="" class="w-full">
+                                                <img src="{{$carrier}}" alt="" class="w-full {{(!$order->order_carrier)? "bg-red-600 p-1": ""}}">
                                             </td>
                                             <td class="whitespace-nowrap  px-6 py-4"> 
                                                 @if($order->tracking_number)
@@ -90,10 +97,11 @@
 
 @section('scripts')
 <script>
-    const search_data = document.querySelector('#search-data');
     submit_search.onclick = () => {
-        location.href = `/delivery/${search_data.value}`
-        console.log(search_data.value)
+        const search_data = document.querySelector('#search-data').value;
+        if(search_data) {
+            location.href = `/delivery/${search_data}`
+        }
     }
 </script>
 @endsection

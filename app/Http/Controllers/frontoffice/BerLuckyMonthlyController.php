@@ -40,13 +40,11 @@ class BerLuckyMonthlyController extends Controller
         // Set the current page from the request or default to 1
         $current_page = request('page', 1);
         $current_page = (filter_var($current_page, FILTER_SANITIZE_NUMBER_INT) == "")? 1: $current_page;
-        // dd($current_page);
         // Set the number of items per page
         $perPage = 60;
 
         // Calculate the offset based on the current page and items per page
         $offset = ($current_page - 1) * $perPage;
-        // dd($getpost['sql']);
         $limit = null;
         $sql = "SELECT *, MID(product_phone, 4, 7) AS pp
                     FROM berproduct_monthlies 
@@ -199,7 +197,7 @@ class BerLuckyMonthlyController extends Controller
         }
 
         $cate_val = null;
-        if(isset($request['cate']) && $request['cate'] != 0){
+        if(isset($request['cate']) && $request['cate'] != 1){
             $cate = filter_var($request['cate'], FILTER_SANITIZE_NUMBER_INT);
             $sql .=  " AND( product_category LIKE '%,".$cate.",%' ) ";
         }

@@ -23,7 +23,6 @@ class ShareDataMiddleware
         $query_main_cate = Category::where('id', "!=", 1)->where('is_menu', true)->where('is_topside', true)->where('cate_parent_id', 0)->where('cate_status_display', true)->OrderBy('cate_priority')->get();
         $main_cate['id_main'] = $query_main_cate->pluck('id')->toArray();
         $query_sub_cate = Category::whereIn('cate_parent_id', $main_cate['id_main'])->where('is_menu', true)->where('is_topside', true)->where('cate_status_display', true)->OrderBy('cate_priority')->get();
-        // dd($query_sub_cate);
         $slide_image = AdSlide::where('ad_type', 1)->where('ad_position_id', 2)->where('is_footer', false)->where('ad_status_display', true)->OrderBy('ad_priority')->get();
 
         $amount = 0; 
@@ -31,11 +30,12 @@ class ShareDataMiddleware
         if($cartList){
             $amount = $cartList['amount'];
         }
-
-        // dd($slide_image);
+        $menu_footer = Category::where('cate_parent_id', '0')->where('cate_status_display', true)->where('is_bottomside', true)->OrderBy('cate_priority')->get();
+        
         // Sharing is caring
         View::share('main_cate', $query_main_cate);
         View::share('sub_cate', $query_sub_cate);
+        View::share('menu_footer', $menu_footer);
         View::share('slide_image', $slide_image);
         View::share('amount', $amount);
 

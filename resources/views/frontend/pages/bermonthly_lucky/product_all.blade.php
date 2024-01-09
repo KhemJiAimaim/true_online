@@ -178,7 +178,7 @@
                             <label for="txt_favorite">ค้นหาเลขชุดที่ชอบ</label>
                             <input
                                 class="w-80 max-xl:w-32 max-lg:w-64 max-xs:w-full h-7 border border-[#838383] rounded-[3px] p-2"
-                                type="text" name="txt_favorite" id="txt_favorite" maxlength="10"
+                                type="text" name="txt_favorite" id="txt_favorite" maxlength="10" placeholder="ชุดเลขที่ชอบ 42,25 หรือ 55*56"
                                 value="{{ isset($_GET['fav']) ? $_GET['fav'] : '' }}">
                         </div>
                     </div>
@@ -224,10 +224,10 @@
                             <label for="txt_favorite">ช่วงราคา</label>
                             <div class="flex gap-4 w-80 max-xl:w-40 max-lg:w-64 max-xs:w-full ">
                                 <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input p-2" type="text"
-                                    name="price-min" id="price-min"
+                                    name="price-min" id="price-min" placeholder="999"
                                     value="{{ isset($_GET['min']) ? number_format($_GET['min']) : '' }}">
                                 <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input p-2" type="text"
-                                    name="price-max" id="price-max"
+                                    name="price-max" id="price-max" placeholder="999,999"
                                     value="{{ isset($_GET['max']) ? number_format($_GET['max']) : '' }}">
                             </div>
                         </div>
@@ -270,7 +270,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 {{-- border center --}}

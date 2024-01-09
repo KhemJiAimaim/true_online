@@ -70,7 +70,6 @@ buttonRight.addEventListener('click', function () {
 
 
 //รายละเอียด
-console.log("use detail_ber.js")
 
 let btn_package = document.querySelector('#btn-package');  // ปุ่มรายละเอียด
 let btn_condition = document.querySelector('#btn-condition');  // ปุ่มเงื่อนไข
@@ -169,6 +168,8 @@ async function addProductSession(element) {
   // return false; 
   try {
     const response = await axios.post(`/addproduct/${data_id}`, param);
+    const num_cart = document.querySelector('#num-cart');
+    num_cart.innerText = response.data.data.amount
     return response;
   } catch (error) {
     console.error(error);

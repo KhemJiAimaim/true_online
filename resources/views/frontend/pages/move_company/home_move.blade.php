@@ -199,7 +199,7 @@
         
         {{-- box manual --}}
         <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10" id="modal-container">
-            <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-lg:p-2 p-4 bg-white rounded-[10px]">
+            <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-es:h-[500px] max-lg:p-2 p-4 bg-white rounded-[10px]">
                 <div class="w-full flex justify-end">
                     <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close-modal">
                 </div>

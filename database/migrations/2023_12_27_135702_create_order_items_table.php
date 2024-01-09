@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('product_id');
             $table->float('product_price');
             $table->integer('quantity');
-            $table->float('discount')->nullable();
+            $table->float('discount')->nullable()->default(0);
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-ซิมท่องเที่ยว
-@endsection
+@section('title') ซิมท่องเที่ยว @endsection
 
 @section('content')
     <div class="mt-16">
@@ -26,9 +24,8 @@
 
         <section id="travel" class="bg-white py-6 2xl:mt-16 px-3">
             <div class="">
-                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px]">Thailand Tourist infinite sim
-                </p>
-                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">ซิมสำหรับท่องเที่ยวในประเทศไทย เชื่อมต่อได้ไม่มีสะดุด</p>
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px]">{{$category->cate_keyword}}</p>
+                <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">{{$category->cate_description}}</p>
             </div>
 
             <div class="pt-6 w-full">

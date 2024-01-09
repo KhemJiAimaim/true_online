@@ -24,10 +24,7 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::post('account/token/invoke/all', [AuthBackOfficeController::class, 'revokeAllToken']);
 
         /* Dashboard Page */
-        Route::get('booking/data', [BookingController::class, 'index']);
-        Route::patch('booking/approve', [BookingController::class, 'bookingApprove']);
-        Route::delete('booking/delete/{id}', [BookingController::class, 'bookingDelete']);
-        Route::post('bookingsetting/create', [BookingController::class, 'createBookingSetting']);
+        Route::get('dashboard/data', [DashboardController::class, 'index']);
 
         /* Slide Page */
         Route::get('slide/data', [SlideController::class, 'index']);
@@ -92,6 +89,11 @@ Route::prefix('backoffice/v1')->group(function () {
 
         Route::prefix('order/')->group(function () {
             Route::get('data', [OrderController::class, 'index']);
+            Route::get('getproductdata', [OrderController::class, 'getProductData']);
+            Route::post('createorder', [OrderController::class, 'createOrderAdmin']);
+            Route::get('shippingdata', [OrderController::class, 'shippingData']);
+            Route::put('update/{order_id}', [OrderController::class, 'updateOrderAdmin']);
+            Route::delete('delete/{order_id}', [OrderController::class, 'deleteOrder']);
 
         });
 

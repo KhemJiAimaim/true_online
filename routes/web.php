@@ -62,7 +62,7 @@ Route::post('/readexcel', [BerLuckyMonthlyController::class, "import_by_excel"])
 Route::get('/exportexcel', [BerLuckyMonthlyController::class, "export_excel"]);
 
 // วิธีสั่งซื้อ
-Route::get('/howtobuy/{cate}', [HowToBuyController::class, "howtobuyPage"]);
+Route::get('/article/{cate}', [ArticleController::class, "articlePage"]);
 
 //ย้ายค่าย
 Route::get('/move', [MoveController::class, "move"]);

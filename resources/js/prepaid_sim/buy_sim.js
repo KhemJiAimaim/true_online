@@ -20,7 +20,7 @@ function handleBoxClick(box) {
     }
   
     if (box !== lastClickedBox) {
-        console.log(box);
+        // console.log(box);
         result_price.innerHTML = box.getAttribute('data-price');
         box.classList.remove('border-gray-10');
         box.classList.add('border-gray-500', 'activate');
@@ -171,7 +171,7 @@ addtocart.addEventListener('click', async () => {
       title: "เพิ่มสินค้าลงตกร้าสำเร็จ",
       showConfirmButton: false,
       timer: 1000
-    }).then(() => window.location.reload());
+    });
   }
 })
 
@@ -204,6 +204,8 @@ async function addProductSession(element) {
 
   try {
     const response = await axios.post(`/addproduct/${data_id}`, param);
+    const num_cart = document.querySelector('#num-cart');
+    num_cart.innerText = response.data.data.amount
     return response;
   } catch (error) {
     console.error(error);

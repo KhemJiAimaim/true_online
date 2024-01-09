@@ -1,6 +1,7 @@
 console.log("use addproduct_cart.js")
 
 const btn_addProductToCart = document.querySelectorAll('#addBerToCart');
+const numCart = document.querySelector('#num-cart');
 
 btn_addProductToCart.forEach(element => {
   element.addEventListener('click', function() {
@@ -16,7 +17,6 @@ btn_addProductToCart.forEach(element => {
     }
 
     addSessionProduct(data_id, param).then(response => {
-      const numCart = document.querySelector('#num-cart');
       numCart.innerText = response.data.data.amount;
       
       if(response.data.status == "success") {
@@ -51,6 +51,7 @@ btn_buyNow.forEach(element => {
     }
 
     addSessionProduct(data_id, param).then(response => {
+      numCart.innerText = response.data.data.amount;
       if(response.data.status == "success") {
         Swal.fire({
           position: "center",
