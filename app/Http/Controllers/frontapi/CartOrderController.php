@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Mail\SendOrderDetail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Carbon\Carbon;
@@ -63,6 +65,8 @@ class CartOrderController extends Controller
             $newOrder->update(['order_number' => "TRUEONLINE-" . $newOrder->id]);
 
             $this->saveOrderitem($params, $newOrder->id);
+            
+            $this->sendOrderMail($newOrder);
 
             Session::flush();
 
@@ -70,11 +74,12 @@ class CartOrderController extends Controller
             return response([
                 'message' => 'ok',
                 'status' => true,
-                'ref_order' => $newOrder->order_number
+                'ref_order' => $newOrder->id
                 // 'description' => 'Send form fiber successfully',
             ], 201);
         } catch (Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return response([
                 'message' => 'server error',
                 'description' => 'Something went wrong.',
@@ -153,5 +158,9 @@ class CartOrderController extends Controller
             ], 501);
         }
 
+    }
+
+    public function sendOrderMail($newOrder) {
+        Mail::to($newOrder->email)->send(new SendOrderDetail($newOrder));
     }
 }

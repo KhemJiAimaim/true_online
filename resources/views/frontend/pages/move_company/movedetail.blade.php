@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-    <div class=" mt-[120px] max-xl:mt-[74px]">
+    <div class="mt-[10%] max-xs:mt-[20%]  mx-3">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
@@ -30,21 +30,11 @@
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
+                            <img src="/images/Rectangle1282.png" alt=""
+                                    class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
                             @for ($i = 1; $i <= 4; $i++)
                                 <img src="/images/Rectangle1282.png" alt=""
-                                    class="thumnail active  w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                                {{-- <img src="/images/Rectangle 1283.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                            <img src="/images/Rectangle 1284.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                            <img src="/images/Rectangle 1285.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-
-                            <img src="/images/Rectangle 1281.png" alt=""
-                                class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 "> --}}
+                                    class="thumnail   w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100">
                             @endfor
 
                         </div>
@@ -67,7 +57,7 @@
                         // dd($package_option);
                     @endphp
                     <div
-                        class="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
+                        class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
                         @foreach ($package_option as $option)
                             @php 
                                 $array_opt = explode(':', $option);
@@ -76,7 +66,7 @@
                             <div id="box" data-option="{{$array_opt[1]}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                                 <div class="flex mb-2 ">
-                                    <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px]">
+                                    <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
                                     <p class="text-lg font-medium ml-3 ">{{$array_opt[0]}} {{$array_opt[1]}}</p>
                                 </div>
                                 <div class="flex items-center">

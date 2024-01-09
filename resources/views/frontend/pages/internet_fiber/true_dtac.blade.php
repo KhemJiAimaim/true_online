@@ -27,12 +27,10 @@
             <div class="plate-line max-w-[200px] "></div>
         </div>
         {{-- มหัศจรรย์ --}}
-
+{{-- @dd($current_cate) --}}
         <section id="fiber" class="py-10  z-0 px-3">
-            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">
-                {{ $current_cate['keyword'] }}</p>
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
-                {{ $current_cate['description'] }}</p>
+            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">{{ $current_cate['keyword'] }}</p>
+            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">{{ $current_cate['description'] }}</p>
 
             <div class="2xl:my-16 my-6 z-2">
                 <div

@@ -29,6 +29,7 @@ class FiberController extends Controller
     // สินค้า Fiber เฉพาะหมวดหมู่
     public function true_dtac($cate_url)
     {
+        // dd($cate_url);
         $cate_fiber = $this->get_fiberProduct();
 
         $current_cate = [];
