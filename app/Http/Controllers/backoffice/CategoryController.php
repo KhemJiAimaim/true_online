@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends BaseController
 {
-    public function index(Request $req) {
+    public function index(Request $req)
+    {
         $menuList = $this->categoryCreateList($req->language);
         $cateData = $this->getCategory($req->language);
         try {
             return response([
-                'message'=> 'ok',
+                'message' => 'ok',
                 'data' => $cateData,
                 'menu' => $menuList,
             ]);
@@ -31,7 +32,8 @@ class CategoryController extends BaseController
         }
     }
 
-    public function getCateMenu(Request $req){
+    public function getCateMenu(Request $req)
+    {
         try {
             $menuList = $this->categoryCreateList($req->language);
             $cateList =  $this->getCategory($req->language);
@@ -42,7 +44,7 @@ class CategoryController extends BaseController
                 'menu' => $menuList,
                 'category' => $cateList
             ], 200);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             return response([
                 'message' => 'error',
                 'description' => 'Something went wrong.',
@@ -52,7 +54,8 @@ class CategoryController extends BaseController
     }
 
 
-    public function createCategory(Request $req) {
+    public function createCategory(Request $req)
+    {
         $this->getAuthUser();
         $files = $req->allFiles();
         $params = $req->all();
@@ -75,38 +78,41 @@ class CategoryController extends BaseController
             'is_bottomside' => 'required|numeric',
             'cate_priority' => 'required|numeric',
             'language' => 'required|string',
-             // 'cate_h1' => 'string|nullable',
-            // 'cate_h2' => 'string|nullable',
+            'cate_h1' => 'string|nullable',
+            'cate_h2' => 'string|nullable',
+            'meta_title' => 'string|nullable',
+            'meta_description' => 'string|nullable',
+            'meta_keyword' => 'string|nullable',
             // 'cate_dateDisplay' => 'string|nullable',
             // 'cate_dateHidden' => 'string|nullable',
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendErrorValidators('Invalid params', $validator->errors());
         }
 
         try {
             $checkURL = Category::where("language", "!==", $params['language'])
-                                ->where('cate_url', $params['cate_url'])
-                                ->get()
-                                ->first();
-            if($checkURL) {
+                ->where('cate_url', $params['cate_url'])
+                ->get()
+                ->first();
+            if ($checkURL) {
                 return response([
-                   'message' => 'error',
-                   'description' => 'Duplicate URLs'
+                    'message' => 'error',
+                    'description' => 'Duplicate URLs'
                 ], 422);
             }
 
             /* Update Position */
             $priority = (int)$params['cate_priority'];
-            $this->priorityCategoryUpdate(99999999,$priority, $params['language'], "cate_priority");
+            $this->priorityCategoryUpdate(99999999, $priority, $params['language'], "cate_priority");
 
             /* Update Position */
             $position = (int)$params['cate_position'];
-            $this->priorityCategoryUpdate(99999999,$position, $params['language'], "cate_position");
+            $this->priorityCategoryUpdate(99999999, $position, $params['language'], "cate_position");
 
             /* Upload Image */
-            $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
-            $imgSrc = (isset($files['Image']))? $this->uploadImage($newFolder, $files['Image'], "", "", $params['ImageName']):"";
+            $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
+            $imgSrc = (isset($files['Image'])) ? $this->uploadImage($newFolder, $files['Image'], "", "", $params['ImageName']) : "";
 
 
             $creating = new Category();
@@ -124,16 +130,21 @@ class CategoryController extends BaseController
             $creating->cate_description = $params['cate_description'];
             $creating->is_main_page = $params['is_main_page'];
             $creating->is_product_cate = $params['is_product_cate'];
-            $creating->is_menu = $params['is_menu'] ;
-            $creating->cate_status_display = $params['cate_status_display'] ;
-            $creating->is_topside = $params['is_menu'] ;
-            $creating->is_bottomside = $params['is_bottomside'] ;
+            $creating->is_menu = $params['is_menu'];
+            $creating->cate_status_display = $params['cate_status_display'];
+            $creating->is_topside = $params['is_menu'];
+            $creating->is_bottomside = $params['is_bottomside'];
             $creating->cate_redirect = "";
             $creating->language = $params['language'];
+            $creating->cate_h1 = $params['cate_h1'];
+            $creating->cate_h2 = $params['cate_h2'];
+            $creating->meta_title = $params['meta_title'];
+            $creating->meta_description = $params['meta_description'];
+            $creating->meta_keyword = $params['meta_keyword'];
             $creating->defaults = 1;
             $creating->save();
             /* ถ้า ROOT ID = 0 ให้ใช้ Id ตัวเองเป็น ROOT */
-            if($params['cate_root_id'] === 0){
+            if ($params['cate_root_id'] === 0) {
                 Category::find($creating->id)->update([
                     "cate_root_id" => $creating->id
                 ]);
@@ -143,7 +154,7 @@ class CategoryController extends BaseController
                 'message' => 'ok',
                 'description' => 'success'
             ]);
-        }  catch (Exception $e) {
+        } catch (Exception $e) {
             return response([
                 'message' => 'error',
                 'description' => 'Something went wrong.',
@@ -151,7 +162,8 @@ class CategoryController extends BaseController
             ], 501);
         }
     }
-    public function updateCategory(Request $req) {
+    public function updateCategory(Request $req)
+    {
         $this->getAuthUser();
         $files = $req->allFiles();
         $params = $req->all();
@@ -174,22 +186,25 @@ class CategoryController extends BaseController
             'is_bottomside' => 'required|numeric',
             'cate_priority' => 'required|numeric',
             'language' => 'required|string',
-             // 'cate_h1' => 'string|nullable',
-            // 'cate_h2' => 'string|nullable',
+            'cate_h1' => 'string|nullable',
+            'cate_h2' => 'string|nullable',
+            'meta_title' => 'string|nullable',
+            'meta_description' => 'string|nullable',
+            'meta_keyword' => 'string|nullable',
             // 'cate_dateDisplay' => 'string|nullable',
             // 'cate_dateHidden' => 'string|nullable',
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendErrorValidators('Invalid params', $validator->errors());
         }
 
         try {
 
             $checkURL = Category::where('id', '<>', $params['id'])->where('cate_url', $params['cate_url'])->get()->first();
-            if($checkURL) {
+            if ($checkURL) {
                 return response([
-                   'message' => 'error',
-                   'description' => 'Duplicate URLs'
+                    'message' => 'error',
+                    'description' => 'Duplicate URLs'
                 ], 422);
             }
 
@@ -197,16 +212,16 @@ class CategoryController extends BaseController
 
             /* Update Position */
             $priority = (int)$params['cate_priority'];
-            $this->priorityCategoryUpdate(99999999,$priority, $params['language'], "cate_priority");
+            $this->priorityCategoryUpdate(99999999, $priority, $params['language'], "cate_priority");
 
             /* Update Position */
             // $position = (int)$params['cate_position'];
             // $this->priorityCategoryUpdate(99999999,$position, $params['language'], "cate_position");
 
             $thumbnail_link = "";
-            if(isset($files['Image'])) {
+            if (isset($files['Image'])) {
                 /* Upload Image */
-                $newFolder = "upload/".date('Y')."/".date('m')."/".date('d')."/";
+                $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
                 $thumbnail_link = $this->uploadImage($newFolder, $files['Image'], "", "", $params['ImageName']);
             } else {
                 $thumbnail_link = $params['thumbnail_link'];
@@ -229,10 +244,15 @@ class CategoryController extends BaseController
                 "cate_redirect" => $params['cate_redirect'],
                 "is_main_page" => $params['is_main_page'],
                 "is_product_cate" => $params['is_product_cate'],
-                "is_menu" => $params['is_menu'] ,
-                "is_topside" => $params['is_menu'] ,
-                "is_bottomside" => $params['is_bottomside'] ,
-                "cate_status_display" => $params['cate_status_display'] ,
+                "is_menu" => $params['is_menu'],
+                "is_topside" => $params['is_menu'],
+                "is_bottomside" => $params['is_bottomside'],
+                "cate_status_display" => $params['cate_status_display'],
+                "cate_h1" => $params['cate_h1'],
+                "cate_h2" => $params['cate_h2'],
+                "meta_title" => $params['meta_title'],
+                "meta_description" => $params['meta_description'],
+                "meta_keyword" => $params['meta_keyword'],
                 "updated_at" => date('Y-m-d H:i:s'),
             ];
 
@@ -242,24 +262,23 @@ class CategoryController extends BaseController
                 'message' => 'success',
                 'description' => 'Updated successfully'
             ]);
-
         } catch (Exception $e) {
             DB::rollback();
             return response([
                 'message' => 'error',
                 'description' => 'Something went wrong',
                 'errorsMessage' => $e->getMessage()
-            ],501);
+            ], 501);
         }
-
     }
-    public function deleteCategory($language , $id) {
+    public function deleteCategory($language, $id)
+    {
         $this->getAuthUser();
 
         try {
 
             $cate = Category::where('id', $id)->where('language', $language)->get()->first();
-            if(!$cate) {
+            if (!$cate) {
                 return response([
                     'message' => 'error',
                     'description' => 'Token is invalid!'
@@ -267,7 +286,7 @@ class CategoryController extends BaseController
             }
 
             $isCateParent = Category::where('cate_parent_id', $id)->where('language', $language)->get()->first();
-            if($isCateParent) {
+            if ($isCateParent) {
                 return response([
                     'message' => 'error',
                     'description' => 'The Category has relate to another category.'
@@ -275,15 +294,15 @@ class CategoryController extends BaseController
             }
 
             $isPostParent = Post::where('category', 'LIKE', "%,{$id},%")->where('language', $language)->get()->first();
-            if($isPostParent) {
+            if ($isPostParent) {
                 return response([
                     'message' => 'error',
                     'description' => 'The Category has relate to another Post.'
                 ], 422);
             }
 
-            $this->priorityCategoryUpdate($cate->cate_priority, 99999999 , $cate->language, "cate_priority");
-            $this->priorityCategoryUpdate($cate->cate_position, 99999999 , $cate->language, "cate_position");
+            $this->priorityCategoryUpdate($cate->cate_priority, 99999999, $cate->language, "cate_priority");
+            $this->priorityCategoryUpdate($cate->cate_position, 99999999, $cate->language, "cate_position");
 
             Category::where('id', $id)->where('language', $language)->delete();
 
@@ -292,7 +311,6 @@ class CategoryController extends BaseController
                 'message' => 'ok',
                 'description' => 'Delete successful'
             ], 200);
-
         } catch (Exception $e) {
             return response([
                 'message' => 'error',
@@ -303,7 +321,8 @@ class CategoryController extends BaseController
     }
 
     /* Private function */
-    private function getCategory($language) {
+    private function getCategory($language)
+    {
         $sql = "SELECT * FROM (
             SELECT * FROM `categories`
             WHERE language = :lang OR defaults = 1
@@ -312,15 +331,14 @@ class CategoryController extends BaseController
         return DB::select($sql, [':lang' => $language]);
     }
 
-    private function priorityCategoryUpdate( $current, $new, $language, $column ){
-        $setOp = ($new <= $current)? ["<",">="] : [">","<="];
-        $updating = Category::where($column,$setOp[0], $current)->where($column, $setOp[1], $new)->where('language', $language);
-        if($new <= $current) {
+    private function priorityCategoryUpdate($current, $new, $language, $column)
+    {
+        $setOp = ($new <= $current) ? ["<", ">="] : [">", "<="];
+        $updating = Category::where($column, $setOp[0], $current)->where($column, $setOp[1], $new)->where('language', $language);
+        if ($new <= $current) {
             return $updating->increment($column, 1);
         } else {
             return $updating->decrement($column, 1);
         }
     }
-
-
 }

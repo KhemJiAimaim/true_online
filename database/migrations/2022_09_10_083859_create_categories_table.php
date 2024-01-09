@@ -23,12 +23,17 @@ return new class extends Migration
             $table->string('cate_thumbnail')->nullable();
             $table->string('cate_thumbnail_title')->nullable();
             $table->string('cate_thumbnail_alt')->nullable();
+            /* Web SEO */
             $table->string('cate_url')->nullable();
-            $table->string('cate_topic')->nullable();
             $table->string('cate_h1')->nullable();
             $table->string('cate_h2')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
+            $table->string('cate_topic')->nullable();
             $table->string('cate_freetag')->nullable();
             $table->string('cate_attr')->nullable();
+            /*End Web SEO */
             $table->string('cate_redirect')->nullable();
             $table->integer('cate_parent_id')->default(0);
             $table->integer('cate_root_id')->default(0);
@@ -49,7 +54,7 @@ return new class extends Migration
             $table->string('language');
             $table->boolean('defaults')->default(false);
             $table->timestamps();
-            $table->unique(['language','cate_url']);
+            $table->unique(['language', 'cate_url']);
         });
         DB::statement('ALTER TABLE `categories` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`, `language`) USING BTREE');
 
@@ -78,6 +83,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => 'ทรู คอร์ปอเรชั่น ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร',
+                'cate_h2' => 'ค้นหาเบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่',
+                'meta_title' => 'Trueonline | เบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่',
+                'meta_description' => 'เบอร์มงคล แพ็กเกจเสริม อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 2,
@@ -101,6 +111,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/30/wifi.png',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 3,
@@ -124,6 +139,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/30/simcard.png',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 4,
@@ -147,6 +167,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/30/box.png',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 5,
@@ -170,6 +195,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 6,
@@ -193,6 +223,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/30/pilot.png',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 7,
@@ -216,6 +251,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 8,
@@ -239,6 +279,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 9,
@@ -262,6 +307,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 10,
@@ -285,6 +335,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/22/trueanddtac.png',
                 'cate_thumbnail_title' => 'true and dtac',
                 'cate_thumbnail_alt' => 'true and dtac',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 11,
@@ -308,6 +363,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/22/standard.png',
                 'cate_thumbnail_title' => 'standard',
                 'cate_thumbnail_alt' => 'standard',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 12,
@@ -331,6 +391,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/22/waranty.png',
                 'cate_thumbnail_title' => 'waranty',
                 'cate_thumbnail_alt' => 'waranty',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 13,
@@ -354,6 +419,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/22/truevision.png',
                 'cate_thumbnail_title' => 'truevision',
                 'cate_thumbnail_alt' => 'truevision',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 14,
@@ -377,6 +447,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/22/selectroute.png',
                 'cate_thumbnail_title' => 'select router',
                 'cate_thumbnail_alt' => 'select router',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 15,
@@ -400,6 +475,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/22/gaming.png',
                 'cate_thumbnail_title' => 'gaming',
                 'cate_thumbnail_alt' => 'gaming',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 16,
@@ -423,6 +503,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/11/22/sme.png',
                 'cate_thumbnail_title' => 'sme',
                 'cate_thumbnail_alt' => 'sme',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 17,
@@ -446,6 +531,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 18,
@@ -469,6 +559,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 19,
@@ -492,6 +587,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 20,
@@ -515,6 +615,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 21,
@@ -538,6 +643,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 22,
@@ -561,6 +671,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/12/08/icon-park_elephant.png',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 23,
@@ -584,6 +699,11 @@ return new class extends Migration
                 'cate_thumbnail' => 'upload/2023/12/08/pilot.png',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 24,
@@ -607,6 +727,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 25,
@@ -630,6 +755,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 26,
@@ -653,6 +783,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 27,
@@ -676,6 +811,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 28,
@@ -699,6 +839,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 29,
@@ -722,6 +867,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 30,
@@ -745,6 +895,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
             [
                 'id' => 31,
@@ -768,6 +923,11 @@ return new class extends Migration
                 'cate_thumbnail' => '',
                 'cate_thumbnail_title' => '',
                 'cate_thumbnail_alt' => '',
+                'cate_h1' => '',
+                'cate_h2' => '',
+                'meta_title' => '',
+                'meta_description' => '',
+                'meta_keyword' => '',
             ],
         ]);
     }
