@@ -420,20 +420,20 @@ return new class extends Migration
                 'info_iframe' => '',
                 'info_attribute' => ''
             ],
-            [
-                'info_id' => 28,
-                'info_type' => 4,
-                'info_param' => "footer_social",
-                'info_title' => "social",
-                'info_priority' => 1,
-                'admin_level' => 3,
-                'language' => "th",
-                'defaults' => 1,
-                'info_value' => 'social',
-                'info_link' => '',
-                'info_iframe' => '',
-                'info_attribute' => ''
-            ],
+            // [
+            //     'info_id' => 28,
+            //     'info_type' => 4,
+            //     'info_param' => "footer_social",
+            //     'info_title' => "social",
+            //     'info_priority' => 1,
+            //     'admin_level' => 3,
+            //     'language' => "th",
+            //     'defaults' => 1,
+            //     'info_value' => 'social',
+            //     'info_link' => '',
+            //     'info_iframe' => '',
+            //     'info_attribute' => ''
+            // ],
         ]);
     }
 

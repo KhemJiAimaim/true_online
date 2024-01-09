@@ -72,271 +72,271 @@ class HomeController extends Controller
         return redirect()->route('home', ['language' => $defaultLanguage]);
     }
 
-    public function mainContent(Request $request)
-    {
-        try {
-            $pathname = $request->segments();
-            $cate = Category::where('language', $pathname[0])->orWhere('cate_url', null)->first();
-            if (!isset($cate)) {
-                return view('errors.404');
-            }
-            $lang_config = LanguageConfig::where(['language' => $pathname[0], 'page_control' => $cate->id])
-                ->get();
-            $lang_config_setting = new stdClass();
-            if (!empty($lang_config)) {
-                foreach ($lang_config as $key => $data) {
-                    $name = $data->param;
-                    $lang_config_setting->$name = $data->title;
-                }
-            }
-            $ad_slide = AdSlide::where(['page_id' => $cate->id, 'language' => $pathname[0], 'ad_status_display' => true])
-                ->orderBy('ad_priority', 'ASC')
-                ->get();
-            $main_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => true])
-                ->where('category', 'LIKE', "%,{$cate->id},%")
-                ->where(DB::raw('lower(slug)'), "!=", 'ourstory')
-                ->orderBy('priority', 'ASC')
-                ->first();
-            if (!isset($main_content)) {
-                return view('errors.404');
-            }
-            $page_story = [];
-            $page_story[0] = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
-                ->where('category', 'LIKE', "%,{$cate->id},%")
-                ->where(DB::raw('lower(slug)'), 'ourstory')
-                // ->orwhere(DB::raw('lower(slug)'), 'ourstory2')
-                ->orderBy("priority", 'ASC')
-                ->first();
-            $page_story[1] = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
-                ->where('category', 'LIKE', "%,{$cate->id},%")
-                // ->where(DB::raw('lower(slug)'), 'ourstory')
-                ->where(DB::raw('lower(slug)'), 'ourstory2')
-                ->orderBy("priority", 'ASC')
-                ->first();
-            $post = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
-                ->where('category', 'LIKE', "%,{$cate->id},%")
-                ->where(DB::raw('lower(keyword)'), 'contentmore')
-                ->first();
-            $page_content = null;
-            if ($post) {
-                $page_content = PostImage::where(['language' => $pathname[0], 'post_id' => $post->id])
-                    ->orderBy('position', 'ASC')
-                    ->get();
-            }
-            $infos = $this->getWebInfo('', $pathname[0]);
-            $webInfo = $this->infoSetting($infos);
-            return view('frontend.pages.index', [
-                'ad_slide' => $ad_slide,
-                'main_content' => $main_content,
-                'page_story' => $page_story,
-                'page_content' => $page_content,
-                'web_info' => $webInfo,
-                'lang_config' => $lang_config_setting
-            ]);
-        } catch (Exception $e) {
-            return view('frontend.error.404', [
-                'error' => $e
-            ]);
-        }
-    }
+    // public function mainContent(Request $request)
+    // {
+    //     try {
+    //         $pathname = $request->segments();
+    //         $cate = Category::where('language', $pathname[0])->orWhere('cate_url', null)->first();
+    //         if (!isset($cate)) {
+    //             return view('errors.404');
+    //         }
+    //         $lang_config = LanguageConfig::where(['language' => $pathname[0], 'page_control' => $cate->id])
+    //             ->get();
+    //         $lang_config_setting = new stdClass();
+    //         if (!empty($lang_config)) {
+    //             foreach ($lang_config as $key => $data) {
+    //                 $name = $data->param;
+    //                 $lang_config_setting->$name = $data->title;
+    //             }
+    //         }
+    //         $ad_slide = AdSlide::where(['page_id' => $cate->id, 'language' => $pathname[0], 'ad_status_display' => true])
+    //             ->orderBy('ad_priority', 'ASC')
+    //             ->get();
+    //         $main_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => true])
+    //             ->where('category', 'LIKE', "%,{$cate->id},%")
+    //             ->where(DB::raw('lower(slug)'), "!=", 'ourstory')
+    //             ->orderBy('priority', 'ASC')
+    //             ->first();
+    //         if (!isset($main_content)) {
+    //             return view('errors.404');
+    //         }
+    //         $page_story = [];
+    //         $page_story[0] = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
+    //             ->where('category', 'LIKE', "%,{$cate->id},%")
+    //             ->where(DB::raw('lower(slug)'), 'ourstory')
+    //             // ->orwhere(DB::raw('lower(slug)'), 'ourstory2')
+    //             ->orderBy("priority", 'ASC')
+    //             ->first();
+    //         $page_story[1] = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
+    //             ->where('category', 'LIKE', "%,{$cate->id},%")
+    //             // ->where(DB::raw('lower(slug)'), 'ourstory')
+    //             ->where(DB::raw('lower(slug)'), 'ourstory2')
+    //             ->orderBy("priority", 'ASC')
+    //             ->first();
+    //         $post = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
+    //             ->where('category', 'LIKE', "%,{$cate->id},%")
+    //             ->where(DB::raw('lower(keyword)'), 'contentmore')
+    //             ->first();
+    //         $page_content = null;
+    //         if ($post) {
+    //             $page_content = PostImage::where(['language' => $pathname[0], 'post_id' => $post->id])
+    //                 ->orderBy('position', 'ASC')
+    //                 ->get();
+    //         }
+    //         $infos = $this->getWebInfo('', $pathname[0]);
+    //         $webInfo = $this->infoSetting($infos);
+    //         return view('frontend.pages.index', [
+    //             'ad_slide' => $ad_slide,
+    //             'main_content' => $main_content,
+    //             'page_story' => $page_story,
+    //             'page_content' => $page_content,
+    //             'web_info' => $webInfo,
+    //             'lang_config' => $lang_config_setting
+    //         ]);
+    //     } catch (Exception $e) {
+    //         return view('frontend.error.404', [
+    //             'error' => $e
+    //         ]);
+    //     }
+    // }
 
-    public function contentMore(Request $request)
-    {
-        $pathname = $request->segments();
-        $cate = Category::where(['cate_url' => $pathname[1], 'language' => $pathname[0]])->first();
-        if (!isset($cate)) {
-            return view('errors.404');
-        }
-        switch ($cate->id) {
-            case (2):
-                $pageName = 'frontend.pages.menu';
-                break;
+    // public function contentMore(Request $request)
+    // {
+    //     $pathname = $request->segments();
+    //     $cate = Category::where(['cate_url' => $pathname[1], 'language' => $pathname[0]])->first();
+    //     if (!isset($cate)) {
+    //         return view('errors.404');
+    //     }
+    //     switch ($cate->id) {
+    //         case (2):
+    //             $pageName = 'frontend.pages.menu';
+    //             break;
 
-            case (3):
-                $pageName = 'frontend.pages.catering';
-                break;
+    //         case (3):
+    //             $pageName = 'frontend.pages.catering';
+    //             break;
 
-            case (4):
-                $pageName = 'frontend.pages.gallery';
-                break;
+    //         case (4):
+    //             $pageName = 'frontend.pages.gallery';
+    //             break;
 
-            default:
-                $pageName = 'errors.404';
-                return view($pageName);
-        }
-        $banner = AdSlide::where(['page_id' => $cate->id, 'language' => $pathname[0], 'ad_status_display' => true])
-            ->orderBy('ad_priority', 'ASC')
-            ->first();
-        $main_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => true])
-            ->where('category', 'LIKE', "%,{$cate->id},%")
-            ->orderBy('priority', 'ASC')
-            ->first();
-        if (!isset($main_content)) {
-            return view('errors.404');
-        }
-        $food_pdf = [];
-        if ($cate->id !== 2) {
-            $post = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
-                ->where('category', 'LIKE', "%,{$cate->id},%")
-                ->where(DB::raw('lower(keyword)'), 'contentmore')
-                ->first();
-            $page_content = null;
-            if ($post) {
-                $page_content = PostImage::where(['language' => $pathname[0], 'post_id' => $post->id])
-                    ->orderBy('position', 'ASC')
-                    ->get();
-            }
-        } else {
-            $post = null;
-            $page_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
-                ->where('category', 'LIKE', "%,{$cate->id},%")
-                ->where(DB::raw('lower(keyword)'), 'product')
-                ->orderBy('pin', 'DESC')
-                ->get();
-            $food_pdf = Post::where(['language' => $pathname[0]])
-                ->where('category', 'LIKE', "%,16,%")
-                ->get();
-        }
-        $infos = $this->getWebInfo('', $pathname[0]);
-        $webInfo = $this->infoSetting($infos);
-        return view($pageName, [
-            'banner' => $banner,
-            'main_content' => $main_content,
-            'page_content' => $page_content,
-            'web_info' => $webInfo,
-            'food_pdf' => $food_pdf
-        ]);
-    }
+    //         default:
+    //             $pageName = 'errors.404';
+    //             return view($pageName);
+    //     }
+    //     $banner = AdSlide::where(['page_id' => $cate->id, 'language' => $pathname[0], 'ad_status_display' => true])
+    //         ->orderBy('ad_priority', 'ASC')
+    //         ->first();
+    //     $main_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => true])
+    //         ->where('category', 'LIKE', "%,{$cate->id},%")
+    //         ->orderBy('priority', 'ASC')
+    //         ->first();
+    //     if (!isset($main_content)) {
+    //         return view('errors.404');
+    //     }
+    //     $food_pdf = [];
+    //     if ($cate->id !== 2) {
+    //         $post = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
+    //             ->where('category', 'LIKE', "%,{$cate->id},%")
+    //             ->where(DB::raw('lower(keyword)'), 'contentmore')
+    //             ->first();
+    //         $page_content = null;
+    //         if ($post) {
+    //             $page_content = PostImage::where(['language' => $pathname[0], 'post_id' => $post->id])
+    //                 ->orderBy('position', 'ASC')
+    //                 ->get();
+    //         }
+    //     } else {
+    //         $post = null;
+    //         $page_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
+    //             ->where('category', 'LIKE', "%,{$cate->id},%")
+    //             ->where(DB::raw('lower(keyword)'), 'product')
+    //             ->orderBy('pin', 'DESC')
+    //             ->get();
+    //         $food_pdf = Post::where(['language' => $pathname[0]])
+    //             ->where('category', 'LIKE', "%,16,%")
+    //             ->get();
+    //     }
+    //     $infos = $this->getWebInfo('', $pathname[0]);
+    //     $webInfo = $this->infoSetting($infos);
+    //     return view($pageName, [
+    //         'banner' => $banner,
+    //         'main_content' => $main_content,
+    //         'page_content' => $page_content,
+    //         'web_info' => $webInfo,
+    //         'food_pdf' => $food_pdf
+    //     ]);
+    // }
 
-    public function contentSingle(Request $request)
-    {
-        $pathname = $request->segments();
-        $cate = Category::where(['cate_url' => $pathname[1], 'language' => $pathname[0]])->first();
-        if (!isset($cate)) {
-            return view('errors.404');
-        }
-        switch ($cate->id) {
-            case (5):
-                $pageName = 'frontend.pages.delivery';
-                $keyword = 'select-menu';
-                break;
+    // public function contentSingle(Request $request)
+    // {
+    //     $pathname = $request->segments();
+    //     $cate = Category::where(['cate_url' => $pathname[1], 'language' => $pathname[0]])->first();
+    //     if (!isset($cate)) {
+    //         return view('errors.404');
+    //     }
+    //     switch ($cate->id) {
+    //         case (5):
+    //             $pageName = 'frontend.pages.delivery';
+    //             $keyword = 'select-menu';
+    //             break;
 
-            case (6):
-                $pageName = 'frontend.pages.aboutus';
-                $keyword = 'story-show';
-                break;
+    //         case (6):
+    //             $pageName = 'frontend.pages.aboutus';
+    //             $keyword = 'story-show';
+    //             break;
 
-            case (7):
-                $pageName = 'frontend.pages.our-location';
-                $keyword = '';
-                break;
+    //         case (7):
+    //             $pageName = 'frontend.pages.our-location';
+    //             $keyword = '';
+    //             break;
 
-            case (8):
-                $pageName = 'frontend.pages.contact-us';
-                $keyword = '';
-                break;
+    //         case (8):
+    //             $pageName = 'frontend.pages.contact-us';
+    //             $keyword = '';
+    //             break;
 
-            case (9):
-                $pageName = 'frontend.pages.booking';
-                $keyword = '';
-                break;
+    //         case (9):
+    //             $pageName = 'frontend.pages.booking';
+    //             $keyword = '';
+    //             break;
 
-            default:
-                $pageName = 'errors.404';
-                return view($pageName);
-        }
-        $banner = AdSlide::where(['page_id' => $cate->id, 'language' => $pathname[0], 'ad_status_display' => true])
-            ->orderBy('ad_priority', 'ASC')
-            ->first();
-        $main_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => true])
-            ->where('category', 'LIKE', "%,{$cate->id},%")
-            ->orderBy('priority', 'ASC')
-            ->first();
-        if (!isset($main_content)) {
-            return view('errors.404');
-        }
-        $page_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
-            ->where('category', 'LIKE', "%,{$cate->id},%")
-            ->where(DB::raw('lower(keyword)'), $keyword)
-            ->orderBy('priority', 'ASC')
-            ->get();
-        $booking_setting = BookingSetting::orderBy('created_at', 'DESC')->first();
-        $infos = $this->getWebInfo('', $pathname[0]);
-        $webInfo = $this->infoSetting($infos);
-        return view($pageName, [
-            'banner' => $banner,
-            'main_content' => $main_content,
-            'page_content' => $page_content,
-            'web_info' => $webInfo,
-            'booking_setting' => $booking_setting ? $booking_setting : null
-        ]);
-    }
+    //         default:
+    //             $pageName = 'errors.404';
+    //             return view($pageName);
+    //     }
+    //     $banner = AdSlide::where(['page_id' => $cate->id, 'language' => $pathname[0], 'ad_status_display' => true])
+    //         ->orderBy('ad_priority', 'ASC')
+    //         ->first();
+    //     $main_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => true])
+    //         ->where('category', 'LIKE', "%,{$cate->id},%")
+    //         ->orderBy('priority', 'ASC')
+    //         ->first();
+    //     if (!isset($main_content)) {
+    //         return view('errors.404');
+    //     }
+    //     $page_content = Post::where(['language' => $pathname[0], 'status_display' => true, 'is_mainContent' => false])
+    //         ->where('category', 'LIKE', "%,{$cate->id},%")
+    //         ->where(DB::raw('lower(keyword)'), $keyword)
+    //         ->orderBy('priority', 'ASC')
+    //         ->get();
+    //     $booking_setting = BookingSetting::orderBy('created_at', 'DESC')->first();
+    //     $infos = $this->getWebInfo('', $pathname[0]);
+    //     $webInfo = $this->infoSetting($infos);
+    //     return view($pageName, [
+    //         'banner' => $banner,
+    //         'main_content' => $main_content,
+    //         'page_content' => $page_content,
+    //         'web_info' => $webInfo,
+    //         'booking_setting' => $booking_setting ? $booking_setting : null
+    //     ]);
+    // }
 
-    public function booking(Request $request)
-    {
-        $validated = Validator::make($request->all(), [
-            'firstname' => 'required',
-            'surname' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email',
-            'people_number' => 'required',
-            'time_selected' => 'required',
-        ]);
-        if ($validated->fails()) {
-            return response()->json([
-                'message' => 'input had invalid.'
-            ], 400);
-        }
-        try {
-            $book = Booking::create([
-                'firstname' => $request->input('firstname'),
-                'surname' => $request->input('surname'),
-                'email' => $request->input('email'),
-                'specific_request' => $request->input('request'),
-                'forgroup' => $request->input('forgroup'),
-                'people_number' => (int)$request->input('people_number'),
-                'phone' => $request->input('phone'),
-                'time_booking' => date('Y-m-d H:i:s', strtotime($request->input('time_selected'))),
-                'status' => 'reserve',
-            ]);
-            $this->sendmail($book);
-            return response()->json([
-                'message' => 'successfully booked'
-            ], 201);
-        } catch (Exception $e) {
-            return response()->json([
-                'message' => 'something went wrong.'
-            ], 500);
-        }
-    }
+    // public function booking(Request $request)
+    // {
+    //     $validated = Validator::make($request->all(), [
+    //         'firstname' => 'required',
+    //         'surname' => 'required',
+    //         'phone' => 'required',
+    //         'email' => 'required|email',
+    //         'people_number' => 'required',
+    //         'time_selected' => 'required',
+    //     ]);
+    //     if ($validated->fails()) {
+    //         return response()->json([
+    //             'message' => 'input had invalid.'
+    //         ], 400);
+    //     }
+    //     try {
+    //         $book = Booking::create([
+    //             'firstname' => $request->input('firstname'),
+    //             'surname' => $request->input('surname'),
+    //             'email' => $request->input('email'),
+    //             'specific_request' => $request->input('request'),
+    //             'forgroup' => $request->input('forgroup'),
+    //             'people_number' => (int)$request->input('people_number'),
+    //             'phone' => $request->input('phone'),
+    //             'time_booking' => date('Y-m-d H:i:s', strtotime($request->input('time_selected'))),
+    //             'status' => 'reserve',
+    //         ]);
+    //         $this->sendmail($book);
+    //         return response()->json([
+    //             'message' => 'successfully booked'
+    //         ], 201);
+    //     } catch (Exception $e) {
+    //         return response()->json([
+    //             'message' => 'something went wrong.'
+    //         ], 500);
+    //     }
+    // }
 
-    public function sendContact(Request $request)
-    {
-        $validated = Validator::make($request->all(), [
-            'email' => 'required|email',
-        ]);
-        if ($validated->fails()) {
-            return response()->json([
-                'message' => 'input had invalid.'
-            ]);
-        }
-        try {
-            $message = LeaveMessage::create([
-                'fullname' => $request->input('name'),
-                'email' => $request->input('email'),
-                'phone_number' => $request->input('phone'),
-                'message' => $request->input('message'),
-                'language' => '',
-            ]);
-            return response()->json([
-                'message' => 'successfully'
-            ], 201);
-        } catch (Exception $e) {
-            return response()->json([
-                'message' => 'something went wrong.'
-            ], 500);
-        }
-    }
+    // public function sendContact(Request $request)
+    // {
+    //     $validated = Validator::make($request->all(), [
+    //         'email' => 'required|email',
+    //     ]);
+    //     if ($validated->fails()) {
+    //         return response()->json([
+    //             'message' => 'input had invalid.'
+    //         ]);
+    //     }
+    //     try {
+    //         $message = LeaveMessage::create([
+    //             'fullname' => $request->input('name'),
+    //             'email' => $request->input('email'),
+    //             'phone_number' => $request->input('phone'),
+    //             'message' => $request->input('message'),
+    //             'language' => '',
+    //         ]);
+    //         return response()->json([
+    //             'message' => 'successfully'
+    //         ], 201);
+    //     } catch (Exception $e) {
+    //         return response()->json([
+    //             'message' => 'something went wrong.'
+    //         ], 500);
+    //     }
+    // }
 
     public function sendmail($book)
     {
