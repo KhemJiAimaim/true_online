@@ -310,6 +310,20 @@ return new class extends Migration
             ],
             [
                 'info_id' => 20,
+                'info_type' => 2,
+                'info_param' => "phone_true",
+                'info_title' => "เบอร์โทรศัพท์ True",
+                'info_priority' => 1,
+                'admin_level' => 3,
+                'language' => "th",
+                'defaults' => 1,
+                'info_value' => '',
+                'info_link' => '/icons/Call-online.png',
+                'info_iframe' => '',
+                'info_attribute' => 'Call contact'
+            ],
+            [
+                'info_id' => 21,
                 'info_type' => 4,
                 'info_param' => "terms_of_service",
                 'info_title' => "Terms of service",
@@ -323,7 +337,7 @@ return new class extends Migration
                 'info_attribute' => ''
             ],
             [
-                'info_id' => 21,
+                'info_id' => 22,
                 'info_type' => 4,
                 'info_param' => "privacy_policy",
                 'info_title' => "Privacy Policy",
@@ -337,7 +351,7 @@ return new class extends Migration
                 'info_attribute' => ''
             ],
             [
-                'info_id' => 22,
+                'info_id' => 23,
                 'info_type' => 4,
                 'info_param' => "copy_right",
                 'info_title' => "copy right",
@@ -351,7 +365,7 @@ return new class extends Migration
                 'info_attribute' => ''
             ],
             [
-                'info_id' => 23,
+                'info_id' => 24,
                 'info_type' => 3,
                 'info_param' => "working_hours",
                 'info_title' => "เวลาทำการ",
@@ -365,7 +379,7 @@ return new class extends Migration
                 'info_attribute' => 'Working hours'
             ],
             [
-                'info_id' => 24,
+                'info_id' => 25,
                 'info_type' => 4,
                 'info_param' => "footer_menu",
                 'info_title' => "menu",
@@ -379,7 +393,7 @@ return new class extends Migration
                 'info_attribute' => ''
             ],
             [
-                'info_id' => 25,
+                'info_id' => 26,
                 'info_type' => 4,
                 'info_param' => "footer_more_info",
                 'info_title' => "more info",
@@ -393,7 +407,7 @@ return new class extends Migration
                 'info_attribute' => ''
             ],
             [
-                'info_id' => 26,
+                'info_id' => 27,
                 'info_type' => 4,
                 'info_param' => "footer_term_privacy",
                 'info_title' => "term privacy",
@@ -407,7 +421,7 @@ return new class extends Migration
                 'info_attribute' => ''
             ],
             [
-                'info_id' => 27,
+                'info_id' => 28,
                 'info_type' => 4,
                 'info_param' => "footer_social",
                 'info_title' => "social",
@@ -420,20 +434,20 @@ return new class extends Migration
                 'info_iframe' => '',
                 'info_attribute' => ''
             ],
-            // [
-            //     'info_id' => 28,
-            //     'info_type' => 4,
-            //     'info_param' => "footer_social",
-            //     'info_title' => "social",
-            //     'info_priority' => 1,
-            //     'admin_level' => 3,
-            //     'language' => "th",
-            //     'defaults' => 1,
-            //     'info_value' => 'social',
-            //     'info_link' => '',
-            //     'info_iframe' => '',
-            //     'info_attribute' => ''
-            // ],
+            [
+                'info_id' => 29,
+                'info_type' => 4,
+                'info_param' => "footer_phone",
+                'info_title' => "phone",
+                'info_priority' => 1,
+                'admin_level' => 3,
+                'language' => "th",
+                'defaults' => 1,
+                'info_value' => 'phone',
+                'info_link' => '',
+                'info_iframe' => '',
+                'info_attribute' => ''
+            ],
         ]);
     }
 
