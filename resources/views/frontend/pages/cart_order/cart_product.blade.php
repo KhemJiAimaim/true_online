@@ -4,7 +4,7 @@
 @endsection
 @section('style')
     <style>
-       .main {
+        .main {
             height: auto;
             min-height: 100% !important;
             display: flex;
@@ -12,10 +12,66 @@
             justify-content: space-between;
             /* overflow-y: auto; */
         }
+
+
+        #loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background-color: #c9c8c898;
+          
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .wrapper {
+            
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ball {
+            --size: 16px;
+            width: var(--size);
+            height: var(--size);
+            border-radius: 11px;
+            margin: 0 10px;
+
+            animation: 2s bounce ease infinite;
+        }
+
+        .blue {
+            background-color: #4285f5;
+        }
+
+        .red {
+            background-color: #ea4436;
+            animation-delay: 0.25s;
+        }
+
+        .yellow {
+            background-color: #fbbd06;
+            animation-delay: 0.5s;
+        }
+
+        .green {
+            background-color: #34a952;
+            animation-delay: 0.75s;
+        }
+
+        @keyframes bounce {
+            50% {
+                transform: translateY(25px);
+            }
+        }
     </style>
 @endsection
 @section('content')
-
     @php
         $sum_price = 0;
         $total_price = 0;
@@ -24,6 +80,17 @@
         $total_travel = 0;
         $price_option = null;
     @endphp
+
+    <div id="loader" style="display: none;">
+        <div class="wrapper">
+            <div class="blue ball"></div>
+            <div class="red ball"></div>
+            <div class="yellow ball"></div>
+            <div class="green ball"></div>
+        </div>
+
+    </div>
+
     <div class="text-left 2xl:mt-32 xl:mt-32 mt-16 ">
         <div class="w-full max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%] py-10 mx-auto">
             <div class="text-center">
@@ -77,18 +144,21 @@
                             <div class="w-[30%]  max-xs:w-[60%]">
                                 <div class="flex justify-between">
                                     <p class="flex flex-col justify-center items-center">
-                                        @if($month->product_discount)
-                                        <span class="text-[14px] text-gray-400 line-through">{{ number_format($month->product_price) }}</span>
+                                        @if ($month->product_discount)
+                                            <span
+                                                class="text-[14px] text-gray-400 line-through">{{ number_format($month->product_price) }}</span>
                                         @endif
-                                        <span class="text-[16px] font-semibold">{{ number_format($month->product_price - (($month->product_price * $month->product_discount) / 100)) }}</span>
+                                        <span
+                                            class="text-[16px] font-semibold">{{ number_format($month->product_price - ($month->product_price * $month->product_discount) / 100) }}</span>
                                     </p>
                                     <p class="flex justify-center items-center text-[16px] font-semibold">1</p>
                                     <p class="flex flex-col justify-center items-center">
-                                        @if($month->product_discount)
-                                        <span class="text-[14px] text-gray-400 line-through">{{ number_format($sum_month = $month->product_price) }}</span>
+                                        @if ($month->product_discount)
+                                            <span
+                                                class="text-[14px] text-gray-400 line-through">{{ number_format($sum_month = $month->product_price) }}</span>
                                         @endif
-                                        @php 
-                                            $sum_month = ceil($month->product_price - (($month->product_price * $month->product_discount) / 100))
+                                        @php
+                                            $sum_month = ceil($month->product_price - ($month->product_price * $month->product_discount) / 100);
                                         @endphp
                                         <span class="text-[16px] font-semibold">{{ number_format($sum_month) }}</span>
                                     </p>
@@ -339,7 +409,7 @@
             </div>
 
         </div>
-        
+
     </div>
 
 

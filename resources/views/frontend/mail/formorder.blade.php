@@ -24,7 +24,7 @@
                                               </td>
                                               <td rowspan="3" style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:64px;line-height:0">
                                                   <div style="border-radius:8px;overflow:hidden">
-                                                      <img src="https://ci3.googleusercontent.com/meips/ADKq_Nag5caEhqHRbZt6yqG4voyXbgE1DnDXyL2gLfY75Qq_wB-PeWC_dbJThtRq3tcLJX1Rx_Zmbqa_jy1WmpLa2tHiedty2zVoupi57mZk7WXAevhS=s0-d-e1-ft#https://www.berhoro.com/upload/2020/07/5f0bfd733e194Ki0WC.png" style="outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#f6f8f9;font-size:28px;height:64px;border:2px solid;background:#fbfbfb;border-radius:8px;background:#f6f8f994" class="CToWUd" data-bit="iit">
+                                                      <img src="https://drive.google.com/uc?id=1eWm2tGbC9tokVfSJb8B59TxzkM6lKOhd" style="outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#f6f8f9;font-size:28px;height:64px;border:2px solid;background:#fbfbfb;border-radius:8px;background:#f6f8f994">
                                                   </div>
                                               </td>
                                               <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:243px;height:30px;vertical-align:top"></td>
@@ -75,72 +75,54 @@
                                       style="border-collapse:collapse">
                                       <tbody>
                                           <tr>
-                                              <td
-                                                  style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:42px;text-align:center;width:182px;border-right:2px #f0f2f3 solid">
-                                                  <div style="line-height:0">
-                                                      <img src="https://ci3.googleusercontent.com/meips/ADKq_NYvu9GUB_2ifpWrEQAJ60xfinLvFB74wr8AQr0DPYc5V31E7LIBawJ6uQEMg3xRSG1VyfCwDeuxditVC-SrHg=s0-d-e1-ft#https://www.berhoro.com//img/icon/bag.png"
-                                                          style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px"
-                                                          class="CToWUd" data-bit="iit">
-                                                  </div>
-                                                  <div
-                                                      style="font-weight:bold;font-size:16px;line-height:150%;color:#000000;padding-top:8px">
-                                                      <span>สถานะรายการสั่งซื้อ</span>
-                                                  </div>
-                                                  <div style="color:#7cc576"><a
-                                                          style="text-decoration:none;color:currentColor"
-                                                          href="https://pay.sn/berhoro/1049/0958979698"
-                                                          target="_blank"
-                                                          data-saferedirecturl="https://www.google.com/url?q=https://pay.sn/berhoro/1049/0958979698&amp;source=gmail&amp;ust=1704872806222000&amp;usg=AOvVaw1uGltrzH9sWdbVV8UXKjT_">รอชำระเงิน
-                                                      </a></div>
-                                                  <div style="font-size:12px;color:#9b9b9b">กรุณาชำระเงินค่าสินค้า
-                                                  </div>
-
-                                              </td>
+                                            <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:42px;text-align:center;width:182px;border-right:2px #f0f2f3 solid">
+                                                <div style="line-height:0">
+                                                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NYvu9GUB_2ifpWrEQAJ60xfinLvFB74wr8AQr0DPYc5V31E7LIBawJ6uQEMg3xRSG1VyfCwDeuxditVC-SrHg=s0-d-e1-ft#https://www.berhoro.com//img/icon/bag.png" style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
+                                                </div>
+                                                <div style="font-weight:bold;font-size:16px;line-height:150%;color:#000000;padding-top:8px">
+                                                    <span>สถานะรายการสั่งซื้อ</span>
+                                                </div>
+                                                <div style="color:#7cc576">
+                                                    <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/1049/0958979698" target="_blank" >รอชำระเงิน</a>
+                                                </div>
+                                                <div style="font-size:12px;color:#9b9b9b">กรุณาชำระเงินค่าสินค้า</div>
+                                            </td>
                                           </tr>
                                       </tbody>
                                   </table>
                                   <table align="left" border="0" cellpadding="0" cellspacing="0"
                                       style="border-collapse:collapse">
                                       <tbody>
-                                          <tr>
-                                              <td
-                                                  style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:42px;text-align:center;width:182px;border-right:2px #f0f2f3 solid">
-
-                                                  <div style="line-height:0"><img
-                                                          src="https://ci3.googleusercontent.com/meips/ADKq_NYFRPBXwEAY-L5cX7QnqMIlUUM6f-FVwQOxFZUrjBvgVX3qA4aKQ-1K6xjNw5TXLO-FWam7gnq-4RfQMWm2bHGU=s0-d-e1-ft#https://www.berhoro.com//img/icon/coins.png"
-                                                          style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px"
-                                                          class="CToWUd" data-bit="iit"></div>
-                                                  <div
-                                                      style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
-                                                      <a style="text-decoration:none;color:currentColor"
-                                                          href="https://pay.sn/berhoro/1049/0958979698"
-                                                          target="_blank"
-                                                          data-saferedirecturl="https://www.google.com/url?q=https://pay.sn/berhoro/1049/0958979698&amp;source=gmail&amp;ust=1704872806222000&amp;usg=AOvVaw1uGltrzH9sWdbVV8UXKjT_">จำนวนเงินที่ต้องชำระ</a>
-                                                  </div>
-                                                  <div
-                                                      style="font-weight:bold;font-size:14px;color:#ff8c00;padding:2px">
-                                                      1,049 บาท</div>
-                                                  <div style="font-size:12px;color:#9b9b9b"><span>ชำระผ่าน
-                                                          PaySolution</span></div>
-                                              </td>
-                                          </tr>
+                                        <tr>
+                                            <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:42px;text-align:center;width:182px;border-right:2px #f0f2f3 solid">
+                                            <div style="line-height:0">
+                                            <img src="https://ci3.googleusercontent.com/meips/ADKq_NYFRPBXwEAY-L5cX7QnqMIlUUM6f-FVwQOxFZUrjBvgVX3qA4aKQ-1K6xjNw5TXLO-FWam7gnq-4RfQMWm2bHGU=s0-d-e1-ft#https://www.berhoro.com//img/icon/coins.png"
+                                                    style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
+                                            </div>
+                                            <div style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
+                                                <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/{{$dataCustomer->total_price}}/'สินค้าเบอร์ทรู'" target="_blank">จำนวนเงินที่ต้องชำระ</a>
+                                            </div>
+                                            <div style="font-weight:bold;font-size:14px;color:#ff8c00;padding:2px">{{number_format($dataCustomer->total_price)}}</div>
+                                            <div style="font-size:12px;color:#9b9b9b"><span>ชำระผ่าน PaySolution</span></div>
+                                            </td>
+                                        </tr>
                                       </tbody>
                                   </table>
                                   <table align="left" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
                                       <tbody>
                                           <tr>
-                                              <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:20px;text-align:center;width:182px">
-                                                  <div style="line-height:0">
-                                                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NaPMSBlW8mzPuIUuvXs7nQkuyilj7Dz-QkHtCyOl1pWAsTrSag8PyZrQN6JVEzzRHumE_eKMv83cWQ2Wl2T1Q=s0-d-e1-ft#https://www.berhoro.com//img/icon/pay.png" style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px" class="CToWUd" data-bit="iit">
-                                                  </div>
-                                                  <div style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
-                                                      <span style="display:inline-block">
-                                                        <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/1049/0958979698" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://pay.sn/berhoro/1049/0958979698&amp;source=gmail&amp;ust=1704872806222000&amp;usg=AOvVaw1uGltrzH9sWdbVV8UXKjT_">กรุณาแจ้งชำระสินค้า</a>
-                                                      </span>
-                                                  </div>
-                                                  <div style="font-weight:bold;font-size:14px;color:#5674b9;padding:5px">ภายใน 1 วัน</div>
-                                                  <div style="font-size:12px;color:#9b9b9b"></div>
-                                              </td>
+                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:20px;text-align:center;width:182px">
+                                                    <div style="line-height:0">
+                                                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NaPMSBlW8mzPuIUuvXs7nQkuyilj7Dz-QkHtCyOl1pWAsTrSag8PyZrQN6JVEzzRHumE_eKMv83cWQ2Wl2T1Q=s0-d-e1-ft#https://www.berhoro.com//img/icon/pay.png" style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
+                                                    </div>
+                                                    <div style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
+                                                        <span style="display:inline-block">
+                                                        <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/1049/0958979698" target="_blank">กรุณาแจ้งชำระสินค้า</a>
+                                                        </span>
+                                                    </div>
+                                                    <div style="font-weight:bold;font-size:14px;color:#5674b9;padding:5px">ภายใน 1 วัน</div>
+                                                    <div style="font-size:12px;color:#9b9b9b"></div>
+                                                </td>
                                           </tr>
                                       </tbody>
                                   </table>
@@ -157,65 +139,119 @@
                         style="border-collapse:collapse;margin-left:auto;margin-right:auto;width:550px">
                         <tbody>
                             <tr>
-                                <td
-                                    style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:40px">
+                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:40px">
                                     <div>
-                                        <div style="font-size:18px;font-weight:bold;color:#000000;text-align:center">
-                                            รายการสินค้า</div>
-                                        <table border="0" cellpadding="0" cellspacing="0"
-                                            style="border-collapse:collapse;width:550px;margin-left:auto;margin-right:auto;margin-top:20px">
+                                        <div style="font-size:18px;font-weight:bold;color:#000000;text-align:center">รายการสินค้า</div>
+                                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:550px;margin-left:auto;margin-right:auto;margin-top:20px">
                                             <tbody>
                                                 <tr>
-                                                    <td
-                                                        style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
+                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
                                                         <span>สินค้า</span>
                                                     </td>
-                                                    <td align="right"
-                                                        style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:32px;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
+                                                    <td align="right" style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:32px;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
                                                         <span>จำนวน</span>
                                                     </td>
-                                                    <td align="right"
-                                                        style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:88px;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
+                                                    <td align="right" style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:88px;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
                                                         <span>ราคารวม (บาท)</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3" style="padding-top:10px"></td>
                                                 </tr>
-                                                <tr>
-                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
-                                                      <table border="0" cellpadding="0" cellspacing="0">
-                                                          <tbody>
-                                                              <tr>
-                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
-                                                                  <span>
-                                                                    <img src="{{asset('../images/email/true5g.png')}}" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px" class="CToWUd" data-bit="iit">
-                                                                  </span>
+
+                                                @foreach($orderItems as $item)
+                                                    @if($item->type_id == 3)
+                                                        @foreach($bermonthly as $ber)
+                                                            @if($item->product_id == $ber->product_id)
+                                                            <tr>
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
+                                                                            <span>
+                                                                                <img src="https://drive.google.com/uc?id=1eWm2tGbC9tokVfSJb8B59TxzkM6lKOhd" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                            </span>
+                                                                            </td>
+                                                                            <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
+                                                                            <div style="font-size:14px;line-height:120%">
+                                                                                <span style="color:#00aeef;text-decoration:none">เบอร์ {{$ber->product_phone}}</span>
+                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$ber->product_sumber}}</div>
+                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$ber->product_comment}}</div>
+                                                                            </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    </table>
                                                                 </td>
-                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
-                                                                  <div style="font-size:14px;line-height:120%">
-                                                                    <span style="color:#00aeef;text-decoration:none">เบอร์ 0958979698</span>
-                                                                    <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">
-                                                                        ผลรวมเบอร์: 70</div>
-                                                                    <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">
-                                                                        รายละเอียด: แพ็กเกจ 899 เล่นเน็ต 5G/4G
-                                                                        ไม่จำกัด (80GB) โทรฟรีทุกเครือข่าย
-                                                                        300นาที รับชมพรีเมียร์ลีกฟรีตลอดฤดูกาล
-                                                                        2023/24
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                                <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                                </td>
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
+                                                                <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                                </td>
+                                                            </tr>
+                                                            @endif
+                                                        @endforeach
+                                                    @elseif($item->type_id == 4)
+                                                    <tr>
+                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
+                                                                    <span>
+                                                                        <img src="https://drive.google.com/uc?id=1odX1zi12uPVt-_v4Fu9is00s5LhghdXQ" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                    </span>
+                                                                    </td>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
+                                                                    <div style="font-size:14px;line-height:120%">
+                                                                        <span style="color:#00aeef;text-decoration:none">{{$item->product_id}} ซิมเติมเงิน</span>
+                                                                        <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">รายละเอียดซิมเติมเงิน</div>
                                                                     </div>
-                                                                  </div>
-                                                                </td>
-                                                              </tr>
-                                                          </tbody>
-                                                        </table>
-                                                    </td>
-                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
-                                                      <span style="display:inline-block;vertical-align:middle">1</span>
-                                                    </td>
-                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
-                                                      <div>999 <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
-                                                    </td>
-                                                </tr>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                        <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                        </td>
+                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
+                                                        <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                        </td>
+                                                    </tr>
+                                                    @elseif($item->type_id == 6)
+                                                    <tr>
+                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
+                                                                    <span>
+                                                                        <img src="https://drive.google.com/uc?id=1fdwnwzhY7oileVxFbnItyirGFTEt_kZW" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                    </span>
+                                                                    </td>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
+                                                                    <div style="font-size:14px;line-height:120%">
+                                                                        <span style="color:#00aeef;text-decoration:none">{{$item->product_id}} ซิมท่องเที่ยว</span>
+                                                                        <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">รายละเอียดซิมท่องเที่ยว</div>
+                                                                    </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                        <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                        </td>
+                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
+                                                        <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                        </td>
+                                                    </tr>
+                                                    @endif
+                                                @endforeach
+
                                                 <tr>
                                                   <td colspan="3" style="padding-top:10px"></td>
                                                 </tr>
@@ -289,11 +325,11 @@
                                 <div style="text-align:center;padding:10px 0px;background:#f6f8f9;margin:0px 16px">
                                   <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
                                   <a href="tel:%3Ca%20href='tel:0809789289'%3E0809789289%3C/a%3E%20%3Ca%20href='tel:0645695656'%3E0645695656%3C/a%3E" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                    <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png" class="CToWUd" data-bit="iit"> </a>
+                                    <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> </a>
                                         <a href="tel:0809789289" target="_blank">0809789289</a> 
                                         <a href="tel:0645695656" target="_blank">0645695656</a>
                                   <a href="https://line.me/ti/p/~@berhoro" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                      <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png" class="CToWUd" data-bit="iit">
+                                      <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png">
                                     @berhoro </a>
                                 </div>
                               </td>
@@ -304,9 +340,7 @@
                                         <div>
                                             <div style="padding:5px 16px;font-weight:bold">ช่องทางการชำระเงิน</div>
                                             <div style="display:flex;border:1px solid gray;margin:16px;padding:7px 0px;margin-bottom:0px">
-                                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NbPNki_tldJaHHrUyIFHRPfmczFAcWI1YviXUllxnDfvPeGqq7SmM1Ac9KWSxub0YYfWi3nUFJkcafAddQeRpY1M11LDca57lJ6Pqqv5NodnevL3kNGOfgLD6rdk3aN=s0-d-e1-ft#https://www.berhoro.com//upload/bank/a96b3a133175049f51e2d63132b3b124.jpg"
-                                                    alt="รูปประกอบ-ธนาคารไทยพาณิชย์" style="width:130px;height:130px"
-                                                    class="CToWUd" data-bit="iit">
+                                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NbPNki_tldJaHHrUyIFHRPfmczFAcWI1YviXUllxnDfvPeGqq7SmM1Ac9KWSxub0YYfWi3nUFJkcafAddQeRpY1M11LDca57lJ6Pqqv5NodnevL3kNGOfgLD6rdk3aN=s0-d-e1-ft#https://www.berhoro.com//upload/bank/a96b3a133175049f51e2d63132b3b124.jpg" alt="รูปประกอบ-ธนาคารไทยพาณิชย์" style="width:130px;height:130px">
                                                 <div>
                                                     <p>ธนาคาร : ธนาคารไทยพาณิชย์</p>
                                                     <p>บัญชี : 4281463457</p>
@@ -330,7 +364,7 @@
                                                   </div>
                                                 </div>
                                                 <a rel="noopener" href="https://www.berhoro.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items='สินค้าเบอร์ true'&amp;netpay={{$dataCustomer->total_price}}" target="_blank" >
-                                                    <button style="color:white;background:red;padding:10px 20px;border-radius:5px;border:2px solid red;margin-top:10px" type="submit">
+                                                    <button style="color:white;background:red;padding:10px 20px;border-radius:5px;border:2px solid red;margin-top:10px; cursor: pointer;" type="submit">
                                                         <div style="font-weight:bold;text-align:center">ชำระผ่าน Pay Solution กดที่นี่</div>
                                                     </button>
                                                 </a>
@@ -339,11 +373,11 @@
                                         <div style="text-align:center;padding:10px 0px;background:#f6f8f9;margin:0px 16px">
                                             <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
                                             <a href="tel:%3Ca%20href='tel:0809789289'%3E0809789289%3C/a%3E%20%3Ca%20href='tel:0645695656'%3E0645695656%3C/a%3E" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                              <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png" class="CToWUd" data-bit="iit"> </a>
+                                              <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> </a>
                                               <a href="tel:0809789289" target="_blank">0809789289</a> 
                                               <a href="tel:0645695656" target="_blank">0645695656</a>
                                             <a href="https://line.me/ti/p/~@berhoro" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                              <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png" class="CToWUd" data-bit="iit">
+                                              <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png">
                                             @berhoro </a>
                                         </div>
                                     </div>

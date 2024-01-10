@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontoffice;
 
 use App\Http\Controllers\Controller;
+use App\Models\BerproductMonthly;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
@@ -20,9 +21,18 @@ class DeliveryController extends Controller
                 })
                 ->paginate(10);
         } else {
-            $orders = Order::where('order_status', 'success')->paginate(10);
+            $orders = Order::where('order_status', 'success')->with("orderItems")->paginate(10);
+            foreach($orders as $order){
+               foreach($order->orderItems as $item){
+                if($item['type_id'] === 3){
+                    $berlucky = BerproductMonthly::where('product_id' , $item['product_id'])->first();
+                    $item->product_detail=$berlucky;
+                }
+               }
+            }
+
         }
-    
+
         return view('frontend.pages.delivery_status_order.delivery_status', compact('orders'));
     }
 }
