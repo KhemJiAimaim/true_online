@@ -13,32 +13,52 @@ class MailInboxController extends Controller
 {
     public function index(Request $request)
     {
-        $data = MailInbox::orderBy('created_at', 'DESC')->get();
-        $contactMs = array();
-        $mails = array();
+        try {
+            // ใช้ Eager Loading เพื่อลดจำนวนครั้งที่ query ไปยัง FiberProduct และ MoveProduct
+            $data = MailInbox::with(['fiber', 'move'])
+                ->orderBy('created_at', 'DESC')
+                ->get();
 
-        if ($data) {
-            foreach ($data as $d) {
-                if ($d->type_id === 1) {
-                    $fiber = FiberProduct::where('id', $d->fiber_id)->first();
-                    $d->product = $fiber;
-                    $mails[] = $d;
-                } else if ($d->type_id === 2) {
-                    $move = MoveProduct::where('id', $d->move_id)->first();
-                    $d->product = $move;
-                    $mails[] = $d;
-                } else if ($d->type_id === 0) {
-                    $contactMs[] = $d;
+            // ใช้ Collection Map เพื่อทำการแปลงข้อมูล
+            $mails = $data->map(function ($d) {
+                if ($d->type_id === 1 && $d->fiber) {
+                    $d->product = $d->fiber;
+                    return $d;
+                } elseif ($d->type_id === 2 && $d->move) {
+                    $d->product = $d->move;
+                    return $d;
+                } elseif ($d->type_id === 0) {
+                    return $d;
                 }
-            }
-        }
+                return null; // กรณีที่ไม่ตรงเงื่อนไข
+            })->filter(); // กรองข้อมูลที่เป็น null ออก
 
-        return response([
-            'message' => 'ok',
-            'status' => true,
-            'mails' => $mails,
-            'contactMs' => $contactMs,
-        ], 200);
+            // แบ่งข้อมูลตามประเภท
+            $mailsObj = $mails->where('type_id', '!=', 0);
+            $contactMsObj = $mails->where('type_id', "=", 0);
+            $mailUnread = $mailsObj->where('readed', 0)->values()->all();
+            $contactUnread = $contactMsObj->where('readed', 0)->values()->all();
+
+            $contactMs = $mails->where('type_id', 0); //ไม่ต้องแปลงเป็น array
+            $mails = $mails->where('type_id', '!=', 0)->values()->all(); // แปลงเป็น array (ถ้ามี condition จะ return เป็น object)
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'mails' => $mails,
+                'contactMs' => $contactMs,
+                'unreadData' => [
+                    'mails' => $mailUnread,
+                    'contactMs' => $contactUnread,
+                ]
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function updatePin(Request $request, $id)
@@ -53,6 +73,29 @@ class MailInboxController extends Controller
                 'message' => 'ok',
                 'status' => true,
                 'description' => 'update pin mail successfully',
+                'updated' => $mail,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updateReaded(Request $request, $id)
+    {
+        try {
+
+            $mail = MailInbox::where('id', $id)->update([
+                'readed' => 1,
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update readed successfully',
                 'updated' => $mail,
             ], 200);
         } catch (Exception $e) {

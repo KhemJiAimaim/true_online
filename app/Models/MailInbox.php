@@ -14,4 +14,14 @@ class MailInbox extends Model
     protected $primaryKey = "id";
 
     protected $guarded = [];
+
+    public function fiber()
+    {
+        return $this->hasMany(FiberProduct::class, 'id', 'fiber_id');
+    }
+
+    public function move()
+    {
+        return $this->hasMany(MoveProduct::class, 'id', 'move_id');
+    }
 }

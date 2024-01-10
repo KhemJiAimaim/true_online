@@ -77,6 +77,7 @@ Route::prefix('backoffice/v1')->group(function () {
         /* Mail box */
         Route::get('mail/data', [MailInboxController::class, 'index']);
         Route::patch('mail/updatepin/{id}', [MailInboxController::class, 'updatePin']);
+        Route::patch('mail/updatereaded/{id}', [MailInboxController::class, 'updateReaded']);
         Route::delete('mail/delete/{id}', [MailInboxController::class, 'deleteMail']);
 
         Route::prefix('order/')->group(function () {
