@@ -59,6 +59,7 @@
                                     $upload = $product->upload_speed >= 1000 ? $product->upload_speed / 1000 : $product->upload_speed;
                                     $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                                 @endphp
+                                
                                 <div class="bg-white">
                                     <div class="flex justify-center py-6 ml-12">
                                         <p class="text-[35px] text-center font-medium">{{ $download }}</p>
