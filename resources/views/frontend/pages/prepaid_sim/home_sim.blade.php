@@ -50,7 +50,7 @@
                         $productCount = 0;
                     @endphp
                     <div class="swiper swiper1 flex justify-center items-center mx-auto w-full">
-                        <div class="swiper-wrapper flex items-center">
+                        <div class="swiper-wrapper flex items-center py-4">
                             @foreach ($prepaid_cate as $prepaid)
                                 <div class="swiper-slide flex justify-center items-center">
                                     <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
@@ -118,7 +118,7 @@
                         $productCount = 0;
                     @endphp
                     <div class="swiper swiper2 flex justify-center items-center mx-auto w-full">
-                        <div class="swiper-wrapper flex items-center">
+                        <div class="swiper-wrapper flex items-center py-4">
                             @foreach ($package as $pack)
                                 @for ($i = 1; $i <= 2; $i++)
                                     <div class="swiper-slide flex justify-center items-center">

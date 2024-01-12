@@ -54,7 +54,7 @@
                 <div class="2xl:my-16 my-4 z-2 w-full">
                     <div class="max-w-[1548px] my-0 mx-auto flex justify-center">
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
-                            <div class="swiper-wrapper flex items-center ">
+                            <div class="swiper-wrapper flex items-center py-4">
                                 @foreach ($travel_sim as $sim)
                                     @if ($sim->travel_cate_id == $cate->id)
                                         <div class="swiper-slide flex justify-center items-center">

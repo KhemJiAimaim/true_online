@@ -48,9 +48,9 @@ class SendOrderDetail extends Mailable
                     break;
             }
         }
-        // dd($bermonthly);
+        // dd($prepaid_sims);
         return $this->subject('หมายเลขการสั่งซื้อเลขที่ '.$dataCustomer->order_number)
-            ->markdown('frontend.mail.formorder', compact('orderItems', 'bermonthly'));
+            ->markdown('frontend.mail.formorder', compact('orderItems', 'bermonthly', 'prepaid_sims', 'travel_sims'));
     }
 
     /**

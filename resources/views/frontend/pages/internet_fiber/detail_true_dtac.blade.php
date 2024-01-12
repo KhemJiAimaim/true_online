@@ -43,7 +43,7 @@
                         <p class="text-md mt-4">ระยะสัญญา {{ $fiber_products->duration }} เดือน</p>
                     </div>
 
-                    @if ($fiber_products->fiber_cate_id == 10)
+                    @if ($fiber_products->special_price > 0)
                         <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
                             <div class="orange-plate-container">
                                 <div class="orange-plate-group">
@@ -121,7 +121,6 @@
                             </div>
                         @endforeach
                     </div>
-
                 </div>
                 <div class="mx-3">
                     <div class="swiper-button-next"></div>
@@ -136,7 +135,7 @@
         <div class="flex justify-center mt-2 ">
             <div class="flex flex-col justify-center w-[550px] gap-4 px-3 text-left ">
                 @foreach ($privilege as $previl)
-                    <div class="flex items-center">
+                    <div class="flex items-start">
                         <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
                         <p class="">{!! $previl->content !!}</p>
                     </div>

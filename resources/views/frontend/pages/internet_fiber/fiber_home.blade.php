@@ -69,10 +69,11 @@
             <section id="fiber" class="py-6 z-0 px-3 {{ $style1 }}">
                 {!! $circle1 !!}
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">
-                    {{ $cate->cate_keyword }}</p>
-                {{-- <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000</p> --}}
+                    {{ $cate->cate_keyword }}
+                </p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
-                    {{ $cate->cate_description }}</p>
+                    {{ $cate->cate_description }}
+                </p>
 
                     
                 <div class="2xl:my-16 my-4 z-2 w-full">
@@ -81,20 +82,16 @@
                             $productCount = 0;
                         @endphp
                         <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full">
-                            <div class="swiper-wrapper flex items-center ">
+                            <div class="swiper-wrapper flex items-center py-4">
                                 @foreach ($fiber_products as $product)
                                     @if ($product->fiber_cate_id == $cate->id)
                                         @for ($i = 1; $i <= 5; $i++)
                                             <div class="swiper-slide flex justify-center items-center">
                                                 <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
-                                                    <div
-                                                        class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
-
+                                                    <div class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                         <p class="text-white text-left text-[16px]">{{ $product->details }}
                                                         </p>
-                                                        {{-- <img class="bg-imag-head" src="/images/Intersect2.png" alt=""> --}}
-                                                        <img class="absolute top-0 right-0" src="/images/Intersect2.png"
-                                                            alt="">
+                                                        <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                                                     </div>
 
                                                     <div class="bg-[#F8F9FA]">
@@ -114,9 +111,7 @@
                                                             <p class="text-[35px] text-center font-medium">
                                                                 {{ $download }}
                                                             </p>
-                                                            <div
-                                                                class="border-l border border-gray-500 text-center mx-6 rounded-full">
-                                                            </div>
+                                                            <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
                                                             <p class="text-lg text-left text-[16px]">
                                                                 {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
                                                             </p>
