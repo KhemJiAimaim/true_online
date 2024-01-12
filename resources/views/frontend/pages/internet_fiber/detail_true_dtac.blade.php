@@ -90,10 +90,10 @@
                                 <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
                                 <div class="flex justify-start py-6 ">
                                     <p
-                                        class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[3rem]">
+                                        class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[3rem] max-ex:text-[2.5rem] max-ex:font-bold">
                                         {{ $download }}
                                     </p>
-                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full "></div>
+                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full max-ex:mx-3"></div>
                                     <p class="text-[16px] text-md text-left font-medium">
                                         {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}</p>
                                 </div>
