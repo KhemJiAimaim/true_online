@@ -50,7 +50,7 @@
                                 <p class="2xl:text-lg font-medium ml-2">บาท</p>
                             </div>
                         </div>
-                        @foreach($data_option as $option)
+                        {{-- @foreach($data_option as $option)
                             <div id="box" data-option="{{$option}}" data-price="{{$option}}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                                 <div class="flex mb-2 ">
@@ -64,7 +64,7 @@
                                     <p class="2xl:text-lg font-medium ml-2">บาท</p>
                                 </div>
                             </div>
-                        @endforeach
+                        @endforeach --}}
                     </div>
                 </div>
 

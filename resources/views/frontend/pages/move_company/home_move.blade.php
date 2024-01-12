@@ -174,7 +174,7 @@
 
                                                         <button id="btn-termOfService" data-id="{{$product->id}}"
                                                             class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</button>
-                                                        <a href="{{url('/movedetail/'.$product->id)}}"
+                                                        <a href="{{url('/movedetail/'.$product->move_cate_id.'/'.$product->id)}}"
                                                             class="cursor-pointer py-2 md:px-10 2xl:px-16 px-16 ss:px-[1.8rem] xs:  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                                     </div>

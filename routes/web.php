@@ -69,7 +69,7 @@ Route::get('/move/{id}', [MoveController::class, "category_move"]);
 // Route::get('/move/fixxynolimit', [MoveController::class, "move_fixxy"]);
 // Route::get('/move/5GTogether+', [MoveController::class, "move_together"]);
 // Route::get('/move/5GSuperSmart', [MoveController::class, "moveSupersmart"]);
-Route::get('/movedetail/{id}', [MoveController::class, "movenow"]);
+Route::get('/movedetail/{cate}/{id}', [MoveController::class, "movenow"]);
 Route::get('/movenow/form/{id}', [MoveController::class, "formMove"]);
 Route::get('/termcontent/{id}', [MoveController::class, "getTermContent"]);
 

@@ -111,12 +111,19 @@
             <div class="max-w-[1536px] mx-auto">
                 <!-- Swiper -->
                 <div class="swiper items-center ">
-                    <div class="swiper-wrapper ">
+                    @php
+                    $justify = 'justify-center max-xs:justify-start';
+                    if(count($posts) > 5) {
+                        $justify = 'justify-start';
+                    }
+                    @endphp
+                    {{-- @dd($justify) --}}
+                    <div class="swiper-wrapper {{$justify}}">
                         @foreach ($posts as $pos)
-                            <div
-                                class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-2">
-                                <img src="/{{ $pos->thumbnail_link }}" alt=""
-                                    class="w-[171px] h-[150px] se:w-[150px] block ml-2 ">
+                            <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-4">
+                                <div class="flex justify-center items-center w-[230px] h-[150px]">
+                                    <img src="/{{ $pos->thumbnail_link }}" alt="" class="">
+                                </div>
                                 <p class="se:text-[16px]">{{ $pos->title }}</p>
                             </div>
                         @endforeach

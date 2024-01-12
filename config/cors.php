@@ -20,8 +20,8 @@ return [
     'allowed_methods' => ['*'],
 
     // 'allowed_origins' => ['*'], // สำหรับ dev
-    // 'allowed_origins' => ['http://localhost:3000'], // สำหรับ production
-    'allowed_origins' => ['http://192.168.1.54:3000'], // สำหรับ production
+    'allowed_origins' => ['http://localhost:3000'], // สำหรับ production
+    // 'allowed_origins' => ['http://192.168.1.54:3000'], // สำหรับ production
 
     'allowed_origins_patterns' => [],
 

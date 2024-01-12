@@ -4,19 +4,27 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 
+            input: [
+                    'resources/css/app.css', 
+                    'resources/css/fiber_detail.css', 
+                    'resources/css/fiber.css', 
+                    'resources/css/home.css',
+                    'resources/css/move.css', 
+                    'resources/css/prepaid_sim.css', 
+                    'resources/css/travel.css', 
+                     
                     'resources/js/app.js',
                     'resources/js/bootstrap.js',
-                    'resources/js/contact.js',
+                    'resources/js/contacts.js',
                     
                     'resources/js/bermonthly_lucky/allproduct.js',
                     'resources/js/bermonthly_lucky/detail_ber.js',
                     'resources/js/bermonthly_lucky/fortune_ber.js',
 
-                    'resource/js/cart_order/cartproduct.js',
+                    'resources/js/cart_order/cartproduct.js',
                     
-                    'resource/js/contact/contact_button.js',
-                    'resource/js/contact/contact_form.js',
+                    'resources/js/contact/contact_button.js',
+                    'resources/js/contact/contact_form.js',
 
                     'resources/js/global_js/add_cart_product.js',
                     'resources/js/global_js/hide_banner.js',
