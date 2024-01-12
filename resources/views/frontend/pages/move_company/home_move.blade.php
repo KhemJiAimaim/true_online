@@ -58,7 +58,7 @@
                 <div class="py-6 w-full">
                     <div class="max-w-[1548px]  mx-auto flex justify-center">
                         <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full ">
-                            <div class="swiper-wrapper items-center">
+                            <div class="swiper-wrapper items-center py-4">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}

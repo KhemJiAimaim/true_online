@@ -56,56 +56,24 @@
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4 px-3">
             <div class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
                 @foreach($menus as $menu)
-                <a href="" class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{$menu->thumbnail_link}}"alt="">
+                    @foreach($menuImage as $image)
+                    @if($menu->id == $image->post_id)
+                    <a href="{{$menu->slug}}" class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
+                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{$menu->thumbnail_link}}"alt="">
 
-                    <div class="grid grid-cols-3 mb-2">
-                        <div class="flex justify-center items-center">
-                            <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
+                        <div class="grid grid-cols-3 mb-2">
+                            <div class="flex justify-center items-center">
+                                <img src="{{$image->image_link}}" class="w-14 h-14" alt="">
+                            </div>
+                            <div class="col-span-2">
+                                <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">{{$menu->title}}</p>
+                                <p class="text-white text-left text-[16px] ">{{$menu->description}}</p>
+                            </div>
                         </div>
-                        <div class="col-span-2">
-                            <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">{{$menu->title}}</p>
-                            <p class="text-white text-left text-[16px] ">{{$menu->description}}</p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                    @endif
+                    @endforeach
                 @endforeach
-                {{-- <a href=""
-                    class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px] se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="/images/mobile_cc0d791368.webp"
-                        alt="">
-                    <div class="grid grid-cols-3 mb-2">
-                        <div class="flex justify-center items-center">
-                            <img src="images/solar_sim-cards-linear.png" class="w-14 h-14" alt="">
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white text-left font-medium text-[20px] mt-2 mb-2">เบอร์มงคลรายเดือน</p>
-                            <p class="text-white text-left text-[16px]">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น
-                                เร็วสุด แรงสุด
-                            </p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href=""
-                    class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px] se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="/images/entertainment_3063ccb225.webp"
-                        alt="">
-                    <div class="grid grid-cols-3 mb-2">
-                        <div class="flex justify-center items-center">
-                            <img src="images/system-uicons_box-add.png" class="w-14 h-14" alt="">
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white text-left font-medium text-[20px] ss:text-[18px] mt-2 mb-2">แพ็กเกจเสริม
-                            </p>
-                            <p class="text-white text-left text-[16px]">
-                                เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น
-                                เร็วสุด แรงสุด
-                            </p>
-                        </div>
-                    </div>
-                </a> --}}
-
             </div>
         </div>
         {{-- --- --}}
@@ -137,14 +105,14 @@
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] text-[16px]">{{ $cate->cate_description }}</p>
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
+                    <div class="max-w-[1548px] mx-auto flex justify-center">
                         {{-- เน็ตไฟเบอร์ --}}
                         @if ($cate->id == 2)
                             @php
                                 $productCount = 0;
                             @endphp
                             <div class="swiper swiper1 flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
+                                <div class="swiper-wrapper flex 2xl:justify-center items-center py-4">
 
                                     @foreach ($product_fiber as $fiber)
                                         <div class="swiper-slide flex justify-center items-center">
@@ -211,8 +179,9 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($post_benefits as $post)
                                                                 @if ($post->id == $item)
-                                                                    <img class="w-20" src="/{{ $post->thumbnail_link }}"
-                                                                        alt="">
+                                                                    <div class="w-[6rem] h-[96px] flex justify-center items-center">
+                                                                        <img class="w-full" src="/{{ $post->thumbnail_link }}"alt="">
+                                                                    </div>
                                                                     @php
                                                                         $showDivider = true;
                                                                     @endphp
@@ -276,7 +245,7 @@
                                 $productCount = 0;
                             @endphp
                             <div class="swiper swiper2  flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
+                                <div class="swiper-wrapper flex 2xl:justify-center items-center py-4">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
@@ -367,7 +336,7 @@
                                 $i = 1;
                             @endphp
                             <div class="swiper swiper3  flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
+                                <div class="swiper-wrapper flex 2xl:justify-center items-center py-4">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
@@ -443,7 +412,7 @@
                                 $i = 1;
                             @endphp
                             <div class="swiper swiper4  flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
+                                <div class="swiper-wrapper flex 2xl:justify-center items-center py-4">
                                     @foreach ($travel_sim as $sim)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
