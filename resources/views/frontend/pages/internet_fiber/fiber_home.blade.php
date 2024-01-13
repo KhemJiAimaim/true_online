@@ -5,17 +5,14 @@
 @endsection
 
 @section('description')
-    
 @endsection
 
 @section('keywords')
-    
 @endsection
 
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite('resources/css/fiber.css')
-   
 @endsection
 
 @section('content')
@@ -56,16 +53,15 @@
             </div>
         </div>
         {{-- มหัศจรรย์ --}}
- 
+
         @php $j = 1; @endphp
         @foreach ($cate_fiber as $cate)
-           
             @php
                 $style1 = $loop->last ? 'bg-gray-100 relative' : '';
                 $circle1 = $loop->last ? '<img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png">' : '';
                 $circle2 = $loop->last ? '<img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png">' : '';
             @endphp
-            
+
             <section id="fiber" class="py-6 z-0 px-3 {{ $style1 }}">
                 {!! $circle1 !!}
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">
@@ -75,22 +71,37 @@
                     {{ $cate->cate_description }}
                 </p>
 
-                    
+
                 <div class="2xl:my-16 my-4 z-2 w-full">
                     <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
-                        @php
-                            $productCount = 0;
+
+                        <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
+                           
+                            @php
+                            $count = 0;
+                            $justify = 'justify-center max-xs:justify-start';
+                        
+                            foreach ($fiber_products as $product) {
+                                if ($product->fiber_cate_id == $cate->id) {
+                                    // ทำสิ่งที่คุณต้องการทำ
+                                    $count++;
+                                }
+                            }
+                            $justify = ($count > 4) ? 'justify-start' : $justify;
+                            // echo "Total count for fiber_cate_id  $justify";
                         @endphp
-                        <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full">
-                            <div class="swiper-wrapper flex items-center py-4">
+                            
+                            <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                 @foreach ($fiber_products as $product)
                                     @if ($product->fiber_cate_id == $cate->id)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
-                                                <div class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                                            <div class="drop-shadow-sm rounded-[10px] w-[350px] ss:w-[340px] h-[100%]">
+                                                <div
+                                                    class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                     <p class="text-white text-left text-[16px]">{{ $product->details }}
                                                     </p>
-                                                    <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
+                                                    <img class="absolute top-0 right-0" src="/images/Intersect2.png"
+                                                        alt="">
                                                 </div>
 
                                                 <div class="bg-[#F8F9FA]">
@@ -110,7 +121,9 @@
                                                         <p class="text-[35px] text-center font-medium">
                                                             {{ $download }}
                                                         </p>
-                                                        <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
+                                                        <div
+                                                            class="border-l border border-gray-500 text-center mx-6 rounded-full">
+                                                        </div>
                                                         <p class="text-lg text-left text-[16px]">
                                                             {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
                                                         </p>
@@ -160,8 +173,7 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($post_benefits as $post)
                                                                 @if ($post->id == $item)
-                                                                    <img class="w-20"
-                                                                        src="/{{ $post->thumbnail_link }}"
+                                                                    <img class="w-20" src="/{{ $post->thumbnail_link }}"
                                                                         alt="">
                                                                     @php
                                                                         $showDivider = true;
@@ -187,12 +199,11 @@
 
                                                 <div
                                                     class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
-                                                    <img class="absolute bottom-0 left-0"
-                                                        src="/images/Intersect (1).png" alt="">
+                                                    <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
+                                                        alt="">
                                                     <div class="grid grid-cols-3 items-center">
                                                         <p class="text-white text-left text-[16px]  ">ราคา</p>
-                                                        <p
-                                                            class="text-white font-medium text-center 2xl:text-3xl text-2xl">
+                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">
                                                             {{ number_format($product->price_per_month) }}</p>
                                                         <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
 
@@ -207,16 +218,14 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @php
-                                        $productCount++; // เพิ่มจำนวนรายการ
-                                    @endphp
                                 @endforeach
                             </div>
-                        </div> 
-                        @if ($productCount >= 4)
-                            <div class="swiper-button-next swiper-button-next{{$j}} "></div>
-                            <div class="swiper-button-prev swiper-button-prev{{$j}} "></div>
-                        @endif
+
+                        </div>
+                        <div class="items-center  mx-auto">
+                            <div class="swiper-button-next swiper-button-next{{ $j }} "></div>
+                            <div class="swiper-button-prev swiper-button-prev{{ $j }} "></div>
+                        </div>
                         @php $j++; @endphp
                     </div>
                 </div>

@@ -122,7 +122,7 @@
                         @foreach ($posts as $pos)
                             <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-4">
                                 <div class="flex justify-center items-center w-[230px] h-[150px]">
-                                    <img src="/{{ $pos->thumbnail_link }}" alt="" class="">
+                                    <img src="/{{ $pos->thumbnail_link }}" alt="" class="w-full h-full object-contain">
                                 </div>
                                 <p class="se:text-[16px]">{{ $pos->title }}</p>
                             </div>

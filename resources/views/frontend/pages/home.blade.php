@@ -54,26 +54,26 @@
 
         {{-- --- --}}
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4 px-3">
-            <div class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
-                @foreach($menus as $menu)
-                    @foreach($menuImage as $image)
-                    @if($menu->id == $image->post_id)
-                    <a href="{{$menu->slug}}" class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{$menu->thumbnail_link}}"alt="">
+            <div
+                class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
+                @foreach ($menus as $menu)
+                    <a href=""
+                        class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
+                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}"alt="">
 
                         <div class="grid grid-cols-3 mb-2">
                             <div class="flex justify-center items-center">
-                                <img src="{{$image->image_link}}" class="w-14 h-14" alt="">
+                                <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
                             </div>
                             <div class="col-span-2">
-                                <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">{{$menu->title}}</p>
-                                <p class="text-white text-left text-[16px] ">{{$menu->description}}</p>
+                                <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">{{ $menu->title }}</p>
+                                <p class="text-white text-left text-[16px] ">{{ $menu->description }}</p>
                             </div>
                         </div>
                     </a>
-                    @endif
-                    @endforeach
                 @endforeach
+
+
             </div>
         </div>
         {{-- --- --}}
@@ -106,7 +106,7 @@
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] text-[16px]">{{ $cate->cate_description }}</p>
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class="max-w-[1548px] mx-auto flex justify-center">
+                    <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
                         {{-- เน็ตไฟเบอร์ --}}
                         @if ($cate->id == 2)
                             <div class="swiper swiper1 items-center w-full mx-auto">
@@ -116,10 +116,10 @@
                                         $justify = 'justify-start';
                                     }
                                 @endphp
-                                <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
+                                <div class="swiper-wrapper items-center  mx-auto flex {{ $justify }}">
                                     @foreach ($product_fiber as $fiber)
-                                        <div class="swiper-slide flex justify-center items-center w-full">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%]">
+                                        <div class="swiper-slide flex justify-center items-center  ">
+                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
                                                 <div
                                                     class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                     <p class="text-white text-left text-[16px]">{{ $fiber->details }}</p>
@@ -194,7 +194,7 @@
                                                             {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
                                                             @if ($showDivider && !$loop->last)
                                                                 <div
-                                                                    class="border-l border border-gray-500 text-center mx-3 rounded-full">
+                                                                    class="border-l border border-gray-500 text-center mx-1 rounded-full">
                                                                 </div>
                                                                 @php
                                                                     $showDivider = false;
@@ -254,7 +254,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%]">
+                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                                     <div class="flex justify-start items-center gap-1 ">
@@ -346,7 +346,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%]">
+                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -423,7 +423,7 @@
                                     @foreach ($travel_sim as $sim)
                                    
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%]">
+                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
                                                     <p class="text-white mr-2 text-left text-[16px]">{{ $sim->lifetime }}
