@@ -210,13 +210,9 @@
                                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
                                                         alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left  2xl:text-[18px] text-[16px] ">ราคา
-                                                        </p>
-                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">
-                                                            {{ number_format($fiber->price_per_month) }}</p>
-                                                        <p class="text-white text-right  2xl:text-[18px] text-[16px]">
-                                                            บาท<br>/เดือน</p>
-
+                                                        <p class="text-white text-left  2xl:text-[18px] text-[16px] ">ราคา</p>
+                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format( ($fiber->special_price > 0)?$fiber->special_price : $fiber->price_per_month ) }}</p>
+                                                        <p class="text-white text-right  2xl:text-[18px] text-[16px]">บาท<br>/เดือน</p>
                                                     </div>
                                                 </div>
 

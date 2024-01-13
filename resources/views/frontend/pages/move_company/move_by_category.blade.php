@@ -42,7 +42,7 @@
             </div>
             <div class="pt-6 w-full">
                 <div
-                    class="max-w-[1536px] my-0 mx-auto 2xl:grid 2xl:grid-cols-3 flex flex-wrap justify-center items-center  px-4 gap-x-6 gap-y-6">
+                    class="max-w-[1536px] my-0 mx-auto 2xl:grid 2xl:grid-cols-3 flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
                     @foreach ($move_product as $product)
                         <div class="drop-shadow-md ">
                             <div class="2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
@@ -65,10 +65,10 @@
                                     </div>
                                     <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                     <div class="flex justify-center items-baseline gap-10">
-                                        <p class="2xl:text-[1.5rem] text-[1rem]">เน็ต</p>
+                                        <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
                                         <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">{{ $product->call_minutes }}
                                         </p>
-                                        <p class="2xl:text-[1.5rem] text-[1rem]">GB</p>
+                                        <p class="2xl:text-[1.5rem] text-[1rem]">Mins</p>
 
                                     </div>
                                 </div>
@@ -123,9 +123,9 @@
                                         @foreach ($benefit_items as $item)
                                             @foreach ($posts as $pos)
                                                 @if ($pos->id == $item)
-                                                    <div class="flex items-start gap-2 px-4 mb-2">
-                                                        <div class="border-[1px] border-orange-500 p-4 w-[30%]  rounded-lg">
-                                                            <img src="/{{ $pos->thumbnail_link }}" alt="">
+                                                    <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
+                                                        <div class="border-[1px] border-orange-500 p-1 w-[90px] h-[90px] rounded-lg">
+                                                            <img class="w-full h-full object-contain" src="/{{ $pos->thumbnail_link }}" alt="">
                                                         </div>
 
                                                         <p class="text-start text-[18px] max-md:text-[16px]">
@@ -136,9 +136,9 @@
                                         @endforeach
                                     </div>
 
-                                    <div class="px-4 text-start" id="content-ck">
+                                    {{-- <div class="px-4 text-start" id="content-ck">
                                         {!! $product->details_content !!}
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                                 <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
@@ -148,7 +148,7 @@
 
                                         <p class="text-white text-left text-[18px] max-md:text-[16px] ">ราคา</p>
                                         <p class="text-white font-medium text-center text-3xl">
-                                            {{ number_format($product->price) }}</p>
+                                            {{ number_format(($product->discount > 0)?$product->discount : $product->price ) }}</p>
                                         <p class="text-white text-right text-[18px] max-md:text-[16px]  ">บาท <br> /เดือน
                                         </p>
 

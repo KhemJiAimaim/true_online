@@ -357,7 +357,7 @@
         <div class="text-center py-6">
             <h1 class="2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">แหล่งรวมเบอร์มงคล</h1>
             <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
-            <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มังกร ที่ค้นพบ {{ count($totalCount) }} เบอร์</p>
+            <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ count($totalCount) }} เบอร์</p>
         </div>
 
         <!-- box all product -->
