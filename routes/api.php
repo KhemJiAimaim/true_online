@@ -179,7 +179,7 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::delete('cate/delete/{id}', [MoveController::class, 'deleteMoveCate']);
 
             //Product
-            Route::get('product/data', [Movecontroller::class, 'moveProductIndex']);
+            Route::get('product/data', [MoveController::class, 'moveProductIndex']);
             Route::patch('product/updaterec/{id}', [MoveController::class, 'updateRecProduct']);
             Route::patch('product/updatedisplay/{id}', [MoveController::class, 'updateDisplayProduct']);
             Route::post('product/create', [MoveController::class, 'createMoveProduct']);

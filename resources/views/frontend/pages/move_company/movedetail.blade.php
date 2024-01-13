@@ -30,12 +30,12 @@
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
-                            <img src="/images/Rectangle1282.png" alt=""
-                                    class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
-                            @for ($i = 1; $i <= 4; $i++)
-                                <img src="/images/Rectangle1282.png" alt=""
-                                    class="thumnail   w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100">
-                            @endfor
+                            <img src="/{{$move_product->thumbnail_link}}" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 ">
+                            @foreach ($moveRelates as $relate)
+                                @if($relate->id != $move_product->id)
+                                <img src="/{{$relate->thumbnail_link}}" alt="" class="thumnail   w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100">
+                                @endif
+                            @endforeach
 
                         </div>
                         <img id="slideRight" class="arrow absolute right-0 cursor-pointer" src="/images/next.png">
@@ -52,31 +52,34 @@
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     
-                    @php 
-                        $package_option = explode(',', $move_product->package_options);
-                        // dd($package_option);
-                    @endphp
-                    <div
-                        class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
-                        @foreach ($package_option as $option)
-                            @php 
-                                $array_opt = explode(':', $option);
-                                // dd($option)
-                            @endphp
-                            <div id="box" data-option="{{$array_opt[1]}}"
-                                class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
-                                <div class="flex mb-2 ">
-                                    <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
-                                    <p class="text-lg font-medium ml-3 ">{{$array_opt[0]}} {{$array_opt[1]}}</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <img src="/images/check-one.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
-
-                                    <p
-                                        class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$array_opt[1]}}</p>
-                                    <p class="2xl:text-lg font-medium ml-2">บาท</p>
-                                </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
+                        <div id="box" data-option="{{$move_product->id}}" class="box border border-gray-500 active hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
+                            <div class="flex mb-2">
+                                <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
+                                <p class="text-lg font-medium ml-3 ">{{$move_product->package_options}}</p>
                             </div>
+                            <div class="flex items-center">
+                                <img src="/images/check-one-active.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
+
+                                <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$move_product->price}}</p>
+                                <p class="2xl:text-lg font-medium ml-2">บาท</p>
+                            </div>
+                        </div>
+                        @foreach ($moveRelates as $relateOption)
+                            @if($relateOption->id != $move_product->id)
+                                <div id="box" data-option="{{$relateOption->id}}" class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
+                                    <div class="flex mb-2 ">
+                                        <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
+                                        <p class="text-lg font-medium ml-3 ">{{$relateOption->package_options}}</p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <img src="/images/check-one.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
+
+                                        <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{$relateOption->price}}</p>
+                                        <p class="2xl:text-lg font-medium ml-2">บาท</p>
+                                    </div>
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                     <div class="w-[100%] mt-0 flex justify-start max-lg:justify-center items-center">

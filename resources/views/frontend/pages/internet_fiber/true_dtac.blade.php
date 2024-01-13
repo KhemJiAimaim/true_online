@@ -39,16 +39,14 @@
                         {{-- @for ($i = 1; $i <= 10; $i++) --}}
                         <div class="drop-shadow-md flex justify-center">
                             <div class=" w-[350px] xl:w-[350px] lg:w-[310px] h-[100%] ">
-                                <div
-                                    class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
-
+                                <div class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                     <p class="text-white text-left text-[16px]">{{ $product->details }}</p>
                                     <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                                 </div>
 
                                 <div class="bg-[#F8F9FA]">
                                     <div class="">
-                                        <p class="py-3 text-[20px]">True Gigatex PRO Gold</p>
+                                        <p class="py-3 text-[20px]">{{$product->title}}</p>
                                     </div>
                                 </div>
 

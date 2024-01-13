@@ -194,61 +194,73 @@
                                                             @endif
                                                         @endforeach
                                                     @elseif($item->type_id == 4)
-                                                    <tr>
-                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
-                                                        <table border="0" cellpadding="0" cellspacing="0">
-                                                            <tbody>
+                                                        @if(count($prepaid_sims) > 0)
+                                                            @foreach($prepaid_sims as $prepaid)
+                                                            @if($item->product_id == $prepaid->id)
                                                                 <tr>
-                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
-                                                                    <span>
-                                                                        <img src="https://drive.google.com/uc?id=1odX1zi12uPVt-_v4Fu9is00s5LhghdXQ" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
-                                                                    </span>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
+                                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
+                                                                                <span>
+                                                                                    <img src="https://drive.google.com/uc?id=1odX1zi12uPVt-_v4Fu9is00s5LhghdXQ" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                                </span>
+                                                                                </td>
+                                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
+                                                                                <div style="font-size:14px;line-height:120%">
+                                                                                    <span style="color:#00aeef;text-decoration:none">ซิมเติมเงิน</span>
+                                                                                    <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$prepaid->title}}</div>
+                                                                                </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                        </table>
                                                                     </td>
-                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
-                                                                    <div style="font-size:14px;line-height:120%">
-                                                                        <span style="color:#00aeef;text-decoration:none">{{$item->product_id}} ซิมเติมเงิน</span>
-                                                                        <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">รายละเอียดซิมเติมเงิน</div>
-                                                                    </div>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                                    <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                                    </td>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
+                                                                    <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                     </td>
                                                                 </tr>
-                                                            </tbody>
-                                                            </table>
-                                                        </td>
-                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
-                                                        <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
-                                                        </td>
-                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
-                                                        <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
-                                                        </td>
-                                                    </tr>
+                                                            @endif
+                                                            @endforeach
+                                                        @endif
                                                     @elseif($item->type_id == 6)
-                                                    <tr>
-                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
-                                                        <table border="0" cellpadding="0" cellspacing="0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
-                                                                    <span>
-                                                                        <img src="https://drive.google.com/uc?id=1fdwnwzhY7oileVxFbnItyirGFTEt_kZW" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
-                                                                    </span>
-                                                                    </td>
-                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
-                                                                    <div style="font-size:14px;line-height:120%">
-                                                                        <span style="color:#00aeef;text-decoration:none">{{$item->product_id}} ซิมท่องเที่ยว</span>
-                                                                        <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">รายละเอียดซิมท่องเที่ยว</div>
-                                                                    </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                            </table>
-                                                        </td>
-                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
-                                                        <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
-                                                        </td>
-                                                        <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
-                                                        <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
-                                                        </td>
-                                                    </tr>
+                                                        @if(count($travel_sims) > 0)
+                                                            @foreach($travel_sims as $travel)
+                                                            @if($item->product_id == $travel->id)
+                                                            <tr>
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
+                                                                            <span>
+                                                                                <img src="https://drive.google.com/uc?id=1fdwnwzhY7oileVxFbnItyirGFTEt_kZW" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                            </span>
+                                                                            </td>
+                                                                            <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
+                                                                            <div style="font-size:14px;line-height:120%">
+                                                                                <span style="color:#00aeef;text-decoration:none">ซิมท่องเที่ยว</span>
+                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$travel->title}}</div>
+                                                                            </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    </table>
+                                                                </td>
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                                <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                                </td>
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
+                                                                <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                                </td>
+                                                            </tr>
+                                                            @endif
+                                                            @endforeach
+                                                        @endif
                                                     @endif
                                                 @endforeach
 

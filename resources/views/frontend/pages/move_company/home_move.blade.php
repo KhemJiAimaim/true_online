@@ -92,12 +92,111 @@
                                                         <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]"> GB</p>
 
                                                     </div>
-                                                    <div class="h-[1px] w-[90%] bg-gray-500 "></div>
-                                                    <div class="flex justify-center items-baseline gap-10">
-                                                        <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
-                                                        <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">
-                                                            {{ $product->call_minutes }} </p>
-                                                        <p class="2xl:text-[1.5rem] text-[1rem]">GB</p>
+
+                                                    <div class="bg-white flex items-center justify-center flex-col p-4 ">
+                                                        <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
+                                                        <div class="flex justify-center items-baseline gap-10">
+                                                            <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต </p>
+                                                            <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">{{ $product->internet_volume }}</p>
+                                                            <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]"> GB</p>
+
+                                                        </div>
+                                                        <div class="h-[1px] w-[90%] bg-gray-500 "></div>
+                                                        <div class="flex justify-center items-baseline gap-10">
+                                                            <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
+                                                            <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] "> {{ $product->call_minutes }} </p>
+                                                            <p class="2xl:text-[1.5rem] text-[1rem]">GB</p>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="bg-gray-100 p-4 flex flex-col items-center gap-3">
+                                                        <div class="flex items-center justify-center gap-2">
+                                                            <img src="/images/arcticons_wifianalyzer (1).png"
+                                                                alt="">
+                                                            @if ($product->unlimited_wifi == true)
+                                                                <p class="font-bold 2xl:text-[1.5rem] text-[18px] max-md:text-[16px]"> WiFi ไม่จำกัด</p>
+                                                            @else
+                                                                <p class="font-bold 2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">จำกัดการใช้ WiFi</p>
+                                                            @endif
+                                                        </div>
+                                                        @if($product->voice_hd == true)
+                                                        <div class="h-[1px] w-[90%] bg-gray-500 "></div>
+                                                        <div class="flex items-center flex-col justify-center">
+                                                            <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">4G HD Voice</p>
+                                                            <p class="2xl:text-[1.2rem] text-[14px]"> เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ 4G</p>
+                                                        </div>
+                                                        @endif
+                                                    </div>
+                                                    <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden p-4">
+                                                        <div class="orange-plate-container pb-2">
+                                                            <div class="orange-plate-line"></div>
+                                                            <div class="orange-plate-group">
+                                                                <div class="orange-plate-box-s">
+                                                                    <div class="orange-plate-circleSM"></div>
+                                                                    <div class="orange-plate-textboxS"></div>
+                                                                </div>
+                                                                <div class="orange-plate-textboxC">
+                                                                    <p class="orange-plate-text text-white text-[18px] max-md:text-[16px]">รับทันที</p>
+                                                                </div>
+                                                                <div class="orange-plate-box-e">
+                                                                    <div class="orange-plate-textboxE"></div>
+                                                                    <div class="orange-plate-circleEM"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @php
+                                                            $benefit_ids = explode(',', $product->benefit_ids);
+                                                            $post_ids = $posts->pluck('id')->toArray();
+
+                                                            // หาค่าที่เหมือนกัน
+                                                            $same_benefit = array_intersect($benefit_ids, $post_ids);
+                                                            $benefit_items = array_slice($same_benefit, 0, 3);
+                                                            // dd($benefit_items)
+                                                        @endphp
+                                                        <div>
+                                                            @foreach ($benefit_items as $item)
+                                                                @foreach ($posts as $pos)
+                                                                    @if ($pos->id == $item)
+                                                                        <div class="flex items-start gap-2 px-4 mb-2">
+                                                                            <div
+                                                                                class="border-[1px] rounded-lg border-orange-500 p-4 w-[30%]">
+                                                                                <img src="{{ $pos->thumbnail_link }}"
+                                                                                    alt="">
+                                                                            </div>
+
+                                                                            <p
+                                                                                class="text-start text-[18px] max-md:text-[16px]">
+                                                                                {{ $pos->title }}</p>
+                                                                        </div>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endforeach
+                                                        </div>
+
+                                                        <div class="px-4 text-start" id="content-ck">
+                                                            {!! $product->details_content !!}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                                        <img class=" absolute left-0 top-0 h-[100%]"
+                                                            src="/images/circle/Intersect (2).png" alt="">
+                                                        <div class="flex items-center justify-between py-6 px-4">
+
+                                                            <p class="text-white text-left text-[18px] max-md:text-[16px]">ราคา</p>
+                                                            <p class="text-white font-medium text-center text-3xl">
+                                                                {{ number_format($product->price) }}</p>
+                                                            <p class="text-white text-right text-[18px] max-md:text-[16px]">บาท <br> /เดือน </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div
+                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 ss:px-2 gap-3">
+
+                                                        <button id="btn-termOfService" data-id="{{$product->id}}"
+                                                            class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</button>
+                                                        <a href="{{url('/movedetail/'.$product->move_cate_id.'/'.$product->id)}}"
+                                                            class="cursor-pointer py-2 md:px-10 2xl:px-16 px-16 ss:px-[1.8rem] xs:  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                                     </div>
                                                 </div>

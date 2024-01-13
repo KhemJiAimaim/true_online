@@ -197,9 +197,7 @@
                     <label for="zip-code"
                         class="w-32 text-right max-ex:text-left pr-2 font-medium text-gray-700">รหัสไปรษณี</label>
                     <div class="flex-1">
-                        <input required type="text" id="zip-code"
-                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent"
-                            maxlength="5">
+                        <input required type="text" id="zip-code" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent" maxlength="5">
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@
             <div class="hidden xl:flex items-center space-x-1 ">
                 <div class="flex justify-center w-[33px] h-[33px]">
                     <span id="num-cart"
-                        class="bg-[#EC1F25] text-white rounded-full px-2 py-1 w-full text-center text-[16px] items-center">{{ $amount }}</span>
+                        class="bg-[#EC1F25] text-white rounded-full px-2 py-1 w-full text-center text-[16px] items-center">{{ isset($amount) ? $amount : 0 }}</span>
                 </div>
                 <a href="{{ url('/cartproduct') }}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
                     <img src="/images/ph_shopping-cart.png" class="w-6 mr-1 hover:scale-125" />
@@ -44,7 +44,7 @@
 
             <div class="flex items-center gap-2 ">
                 <div class="flex justify-center w-[33px] h-[33px]">
-                <span class="bg-[#EC1F25] text-white rounded-full px-1 py-1 w-full text-center text-[16px] items-center">{{ isset($amount) ? $amount : 0 }}</span>
+                <span id="mobile-num-cart" class="bg-[#EC1F25] text-white rounded-full px-1 py-1 w-full text-center text-[16px] items-center">{{ isset($amount) ? $amount : 0 }}</span>
                 </div>
                 <a href="{{ url('/cartproduct') }}"
                     class="flex items-center py-5 text-gray-700 hover:text-gray-900 w-[30px]">

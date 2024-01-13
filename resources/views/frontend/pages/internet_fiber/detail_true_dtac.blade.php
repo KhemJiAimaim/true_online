@@ -43,7 +43,7 @@
                         <p class="text-md mt-4">ระยะสัญญา {{ $fiber_products->duration }} เดือน</p>
                     </div>
 
-                    @if ($fiber_products->fiber_cate_id == 10)
+                    @if ($fiber_products->special_price > 0)
                         <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
                             <div class="orange-plate-container">
                                 <div class="orange-plate-group">
@@ -120,10 +120,10 @@
                     @endphp
                     <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                         @foreach ($posts as $pos)
-                            <div
-                                class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-2">
-                                <img src="/{{ $pos->thumbnail_link }}" alt=""
-                                    class="w-[171px] h-[150px] se:w-[150px] block ml-2 ">
+                            <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-4">
+                                <div class="flex justify-center items-center w-[230px] h-[150px]">
+                                    <img src="/{{ $pos->thumbnail_link }}" alt="" class="">
+                                </div>
                                 <p class="se:text-[16px]">{{ $pos->title }}</p>
                             </div>
                         @endforeach  
@@ -149,7 +149,7 @@
         <div class="flex justify-center mt-2 ">
             <div class="flex flex-col justify-center w-[550px] gap-4 px-3 text-left ">
                 @foreach ($privilege as $previl)
-                    <div class="flex items-center">
+                    <div class="flex items-start">
                         <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
                         <p class="">{!! $previl->content !!}</p>
                     </div>

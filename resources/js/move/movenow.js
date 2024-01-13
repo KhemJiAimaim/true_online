@@ -10,34 +10,26 @@ box.forEach(element => {
   });
 });
 
-let lastClickedBox = null;
+let lastClickedBox = box[0];
 
 function handleBoxClick(box) {
-  // ถ้ากล่องถูกคลิกมีสถานะ active อยู่แล้ว
-  if (box.classList.contains('active')) {
-    box.classList.remove('border-gray-500', 'active');
-    box.classList.add('border-gray-10');
-    // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
-    const checkbox = box.querySelector('.check-box');
-    checkbox.src = '/images/check-one.png';
-  } else {
-    // ถ้ากล่องถูกคลิกไม่มีสถานะ active
-    if (lastClickedBox) {
-      lastClickedBox.classList.remove('border-gray-500', 'active');
-      lastClickedBox.classList.add('border-gray-10');
-      // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
-      const checkbox = lastClickedBox.querySelector('.check-box');
-      checkbox.src = '/images/check-one.png';
-    }
 
-    // กำหนดสถานะ active และแก้ไขรูปภาพ checkbox เป็นรูปภาพ active
-    box.classList.remove('border-gray-10');
-    box.classList.add('border-gray-500', 'active');
-    const checkbox = box.querySelector('.check-box');
-    checkbox.src = '/images/check-one-active.png';
-    
-    lastClickedBox = box;
+  // ถ้ากล่องถูกคลิกไม่มีสถานะ active
+  if (lastClickedBox) {
+    lastClickedBox.classList.remove('border-gray-500', 'active');
+    lastClickedBox.classList.add('border-gray-10');
+    // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
+    const checkbox = lastClickedBox.querySelector('.check-box');
+    checkbox.src = '/images/check-one.png';
   }
+
+  // กำหนดสถานะ active และแก้ไขรูปภาพ checkbox เป็นรูปภาพ active
+  box.classList.remove('border-gray-10');
+  box.classList.add('border-gray-500', 'active');
+  const checkbox = box.querySelector('.check-box');
+  checkbox.src = '/images/check-one-active.png';
+
+  lastClickedBox = box;
 }
 
 
@@ -55,11 +47,7 @@ function getMoveForm(data_id) {
       option = element.getAttribute('data-option');
     }
   });
-  let source = "";
-  if(option && option !== null) {
-    source += `/?opt=${option}`;
-  }
-  location.href = `/movenow/form/${data_id}${source}`;
+  location.href = `/movenow/form/${option}`;
 }
 
 
@@ -103,14 +91,14 @@ let thumbnails = document.getElementsByClassName('thumnail');
 let activeImages = document.getElementsByClassName('active');
 
 for (var i = 0; i < thumbnails.length; i++) {
-    thumbnails[i].addEventListener('mouseover', function () {
-        if (activeImages.length > 0) {
-            activeImages[0].classList.remove('active');
-        }
+  thumbnails[i].addEventListener('mouseover', function () {
+    if (activeImages.length > 0) {
+      activeImages[0].classList.remove('active');
+    }
 
-        this.classList.add('active');
-        document.getElementById('featured').src = this.src;
-    });
+    this.classList.add('active');
+    document.getElementById('featured').src = this.src;
+  });
 }
 
 let buttonRight = document.getElementById('slideRight');
