@@ -124,8 +124,7 @@
                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                     <div class="grid grid-cols-3 items-center">
                                         <p class="text-white text-left  text-[16px]  ">ราคา</p>
-                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">
-                                            {{ number_format($product->price_per_month) }}</p>
+                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format( ($product->special_price > 0)?$product->special_price : $product->price_per_month ) }}</p>
                                         <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
 
                                     </div>

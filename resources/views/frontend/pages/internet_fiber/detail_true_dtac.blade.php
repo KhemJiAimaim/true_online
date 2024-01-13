@@ -61,8 +61,8 @@
                                 </div>
                             </div>
 
-                            <p class="mt-4 font-medium text-[18px]">สำหรับลูกค้าดีแทค และ ทรูมูฟ เอช รายเดือน</p>
-                            <div class="grid grid-cols-3 px-10 mt-6 items-center">
+                            <p class="mt-4 font-medium text-[18px]">{{$fiber_products->special_details}}</p>
+                            <div class="grid grid-cols-3 px-10 mt-4 items-center">
                                 <p class="text-black font-medium text-[16px] pt-[26px] ">ราคา</p>
                                 <p class="font-bold text-center text-4xl pt-3">
                                     {{ number_format($fiber_products->special_price) }}</p>
@@ -122,7 +122,7 @@
                         @foreach ($posts as $pos)
                             <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-4">
                                 <div class="flex justify-center items-center w-[230px] h-[150px]">
-                                    <img src="/{{ $pos->thumbnail_link }}" alt="" class="">
+                                    <img src="/{{ $pos->thumbnail_link }}" alt="" class="w-full h-full object-contain">
                                 </div>
                                 <p class="se:text-[16px]">{{ $pos->title }}</p>
                             </div>

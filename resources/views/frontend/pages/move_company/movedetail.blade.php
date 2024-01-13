@@ -103,7 +103,7 @@
                     class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
             </div>
             {{-- content detail --}}
-            <div id="box-package" class="h-[200px] text-left p-2 overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+            <div id="box-package" class="h-[300px] text-left p-2 overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                 <div class="m-4">
                 {!!$move_product->details_content!!}</div>
                 <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">

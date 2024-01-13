@@ -58,7 +58,7 @@
                 <div class="py-6 w-full">
                     <div class="max-w-[1548px]  mx-auto flex justify-center">
                         <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full ">
-                            <div class="swiper-wrapper items-center py-4">
+                            <div class="swiper-wrapper py-4">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
@@ -84,7 +84,7 @@
                                                         <div class="flex justify-center items-baseline gap-10">
                                                             <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
                                                             <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] "> {{ $product->call_minutes }} </p>
-                                                            <p class="2xl:text-[1.5rem] text-[1rem]">GB</p>
+                                                            <p class="2xl:text-[1.5rem] text-[1rem]">Mins</p>
 
                                                         </div>
                                                     </div>
@@ -136,24 +136,16 @@
                                                             @foreach ($benefit_items as $item)
                                                                 @foreach ($posts as $pos)
                                                                     @if ($pos->id == $item)
-                                                                        <div class="flex items-start gap-2 px-4 mb-2">
-                                                                            <div
-                                                                                class="border-[1px] rounded-lg border-orange-500 p-4 w-[30%]">
-                                                                                <img src="{{ $pos->thumbnail_link }}"
-                                                                                    alt="">
+                                                                        <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
+                                                                            <div class="border-[1px] rounded-lg border-orange-500 p-1 flex justify-center items-center w-[90px] h-[90px]">
+                                                                                <img class="w-full h-full object-contain" src="{{ $pos->thumbnail_link }}" alt="">
                                                                             </div>
 
-                                                                            <p
-                                                                                class="text-start text-[18px] max-md:text-[16px]">
-                                                                                {{ $pos->title }}</p>
+                                                                            <p class="text-start text-[18px] max-md:text-[16px]">{{ $pos->title }}</p>
                                                                         </div>
                                                                     @endif
                                                                 @endforeach
                                                             @endforeach
-                                                        </div>
-
-                                                        <div class="px-4 text-start" id="content-ck">
-                                                            {!! $product->details_content !!}
                                                         </div>
                                                     </div>
 
@@ -164,7 +156,7 @@
 
                                                             <p class="text-white text-left text-[18px] max-md:text-[16px]">ราคา</p>
                                                             <p class="text-white font-medium text-center text-3xl">
-                                                                {{ number_format($product->price) }}</p>
+                                                                {{ number_format(($product->discount > 0)?$product->discount : $product->price ) }}</p>
                                                             <p class="text-white text-right text-[18px] max-md:text-[16px]">บาท <br> /เดือน </p>
                                                         </div>
                                                     </div>
