@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var swiper1 = new Swiper(".swiper1", {
-        slidesPerView: 8,
+        slidesPerView: 4,
         spaceBetween: 20,
         // direction: getDirection(),
         navigation: {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     var swiper2 = new Swiper(".swiper2", {
-        slidesPerView: 8,
+        slidesPerView: 4,
         spaceBetween: 20,
         // direction: getDirection(),
         navigation: {
