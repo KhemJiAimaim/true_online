@@ -1,6 +1,6 @@
 var swiper = new Swiper('.swiper1', {
     slidesPerView: 4,
-    spaceBetween: 20,
+    // spaceBetween: 20,
     // direction: getDirection(),
     navigation: {
         nextEl: '.swiper-button-next1',
@@ -30,7 +30,7 @@ var swiper = new Swiper('.swiper1', {
         },
         1536: {
             slidesPerView: 4,
-            spaceBetween: 15 ,
+            // spaceBetween: 15 ,
         },
     },
 });

@@ -54,57 +54,25 @@
 
         {{-- --- --}}
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4 px-3">
-            <div class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
-                @foreach($menus as $menu)
-                <a href="" class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{$menu->thumbnail_link}}"alt="">
+            <div
+                class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
+                @foreach ($menus as $menu)
+                    <a href=""
+                        class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
+                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}"alt="">
 
-                    <div class="grid grid-cols-3 mb-2">
-                        <div class="flex justify-center items-center">
-                            <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
+                        <div class="grid grid-cols-3 mb-2">
+                            <div class="flex justify-center items-center">
+                                <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
+                            </div>
+                            <div class="col-span-2">
+                                <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">{{ $menu->title }}</p>
+                                <p class="text-white text-left text-[16px] ">{{ $menu->description }}</p>
+                            </div>
                         </div>
-                        <div class="col-span-2">
-                            <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">{{$menu->title}}</p>
-                            <p class="text-white text-left text-[16px] ">{{$menu->description}}</p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
                 @endforeach
-                {{-- <a href=""
-                    class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px] se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="/images/mobile_cc0d791368.webp"
-                        alt="">
-                    <div class="grid grid-cols-3 mb-2">
-                        <div class="flex justify-center items-center">
-                            <img src="images/solar_sim-cards-linear.png" class="w-14 h-14" alt="">
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white text-left font-medium text-[20px] mt-2 mb-2">เบอร์มงคลรายเดือน</p>
-                            <p class="text-white text-left text-[16px]">เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น
-                                เร็วสุด แรงสุด
-                            </p>
-                        </div>
-                    </div>
-                </a>
 
-                <a href=""
-                    class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px] se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
-                    <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="/images/entertainment_3063ccb225.webp"
-                        alt="">
-                    <div class="grid grid-cols-3 mb-2">
-                        <div class="flex justify-center items-center">
-                            <img src="images/system-uicons_box-add.png" class="w-14 h-14" alt="">
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white text-left font-medium text-[20px] ss:text-[18px] mt-2 mb-2">แพ็กเกจเสริม
-                            </p>
-                            <p class="text-white text-left text-[16px]">
-                                เต็มที่กับการท่องเว็บและสตรีมมิ่งอย่างราบรื่น
-                                เร็วสุด แรงสุด
-                            </p>
-                        </div>
-                    </div>
-                </a> --}}
 
             </div>
         </div>
@@ -129,6 +97,7 @@
                     $circle2 = '';
                 }
                 $j++;
+                $i=0;
             @endphp
             <section id="{{ $cate->cate_url }}" class="{{ $bg }} py-6 relative z-0 px-3 ss:px-6">
                 {!! $circle1 !!}
@@ -140,14 +109,16 @@
                     <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
                         {{-- เน็ตไฟเบอร์ --}}
                         @if ($cate->id == 2)
-                            @php
-                                $productCount = 0;
-                            @endphp
-                            <div class="swiper swiper1 flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
-
+                            <div class="swiper swiper1 items-center w-full mx-auto">
+                                @php
+                                    $justify = 'justify-center max-xs:justify-start';
+                                    if (count($product_fiber) > 3) {
+                                        $justify = 'justify-start';
+                                    }
+                                @endphp
+                                <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($product_fiber as $fiber)
-                                        <div class="swiper-slide flex justify-center items-center">
+                                        <div class="swiper-slide flex justify-center items-center w-full">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
                                                 <div
                                                     class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
@@ -211,8 +182,9 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($post_benefits as $post)
                                                                 @if ($post->id == $item)
-                                                                    <img class="w-20" src="/{{ $post->thumbnail_link }}"
-                                                                        alt="">
+                                                                <div class="w-[6rem] h-[96px] flex justify-center items-center">
+                                                                    <img class="w-full" src="/{{ $post->thumbnail_link }}"alt="">
+                                                                </div>
                                                                     @php
                                                                         $showDivider = true;
                                                                     @endphp
@@ -240,8 +212,7 @@
                                                     <div class="grid grid-cols-3 items-center">
                                                         <p class="text-white text-left  2xl:text-[18px] text-[16px] ">ราคา
                                                         </p>
-                                                        <p
-                                                            class="text-white font-medium text-center 2xl:text-3xl text-2xl">
+                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">
                                                             {{ number_format($fiber->price_per_month) }}</p>
                                                         <p class="text-white text-right  2xl:text-[18px] text-[16px]">
                                                             บาท<br>/เดือน</p>
@@ -256,27 +227,31 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @php
-                                            $productCount++; // เพิ่มจำนวนรายการ
-                                        @endphp
                                     @endforeach
-
                                 </div>
+                                
                             </div>
-                            @if ($productCount >= 4)
-                                <div class="swiper-button-next swiper-button-next1 "></div>
-                                <div class="swiper-button-prev swiper-button-prev1 "></div>
-                            @endif
+
+                            <div class="items-center  mx-auto">
+                                    <div class="swiper-button-next swiper-button-next1 "></div>
+                                    <div class="swiper-button-prev swiper-button-prev1 "></div>
+                            </div>
+
+
 
                             {{-- เน็ตไฟเบอร์ --}}
 
                             {{-- เบอร์มงคลรายเดือน --}}
                         @elseif($cate->id == 3)
-                            @php
-                                $productCount = 0;
-                            @endphp
-                            <div class="swiper swiper2  flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
+                           
+                            <div class="swiper swiper2 items-center  w-full mx-auto">
+                                @php
+                                    $justify = 'justify-center max-xs:justify-start';
+                                    if (count($berproducts ) > 3) {
+                                        $justify = 'justify-start';
+                                    }
+                                @endphp
+                                <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
@@ -348,26 +323,27 @@
 
                                             </div>
                                         </div>
-                                        @php
-                                            $productCount++; // เพิ่มจำนวนรายการ
-                                        @endphp
                                     @endforeach
                                 </div>
                             </div>
-                            @if ($productCount >= 4)
+
+                            <div class="items-center  mx-auto">
                                 <div class="swiper-button-next swiper-button-next2 "></div>
                                 <div class="swiper-button-prev swiper-button-prev2 "></div>
-                            @endif
+                            </div>
                             {{-- เบอร์มงคลรายเดือน --}}
 
                             {{-- ซิมเติมเงิน --}}
                         @elseif($cate->id == 4)
-                            @php
-                                $productCount = 0;
-                                $i = 1;
-                            @endphp
-                            <div class="swiper swiper3  flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
+                            
+                             <div class="swiper swiper3 items-center w-full mx-auto">
+                                @php
+                                    $justify = 'justify-center max-xs:justify-start';
+                                    if (count($prepaid_cate) > 3) {
+                                        $justify = 'justify-start';
+                                    }
+                                @endphp
+                                <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
@@ -400,13 +376,15 @@
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
                                                         <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา
-                                                            <br> เริ่มต้น </p>
+                                                            <br> เริ่มต้น
+                                                        </p>
                                                         <p
                                                             class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
                                                             {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}
                                                         </p>
                                                         <p class="text-white text-right text-[1rem] 2xl:text-[16px]">บาท
-                                                            <br> /เดือน </p>
+                                                            <br> /เดือน
+                                                        </p>
                                                     </div>
                                                 </div>
 
@@ -423,28 +401,27 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @php
-                                            $productCount++; // เพิ่มจำนวนรายการ
-                                            $i++;
-                                        @endphp
                                     @endforeach
                                 </div>
                             </div>
-                            @if ($productCount >= 4)
+                            <div class="items-center  mx-auto">
                                 <div class="swiper-button-next swiper-button-next3"></div>
                                 <div class="swiper-button-prev swiper-button-prev3"></div>
-                            @endif
+                            </div>
                             {{-- ซิมเติมเงิน --}}
 
                             {{-- ซิมท่องเที่ยว --}}
                         @elseif($cate->id == 6)
+                        <div class="swiper swiper4 items-center w-full mx-auto">
                             @php
-                                $productCount = 0;
-                                $i = 1;
+                                $justify = 'justify-center max-xs:justify-start';
+                                if (count($travel_sim) > 3) {
+                                    $justify = 'justify-start';
+                                }
                             @endphp
-                            <div class="swiper swiper4  flex justify-center items-center mx-auto">
-                                <div class="swiper-wrapper flex 2xl:justify-center items-center">
+                                <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($travel_sim as $sim)
+                                   
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  h-[100%]">
                                                 <div
@@ -510,17 +487,14 @@
 
                                             </div>
                                         </div>
-                                        @php
-                                            $productCount++; // เพิ่มจำนวนรายการ
-                                            $i++;
-                                        @endphp
+                                        
                                     @endforeach
                                 </div>
                             </div>
-                            @if ($productCount >= 4)
+                            <div class="items-center  mx-auto">
                                 <div class="swiper-button-next swiper-button-next4 "></div>
                                 <div class="swiper-button-prev swiper-button-prev4 "></div>
-                            @endif
+                            </div>
                             {{-- ซิมท่องเที่ยว --}}
                         @endif
                     </div>

@@ -93,7 +93,8 @@
                                         class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[3rem] max-ex:text-[2.5rem] max-ex:font-bold">
                                         {{ $download }}
                                     </p>
-                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full max-ex:mx-3"></div>
+                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full max-ex:mx-3">
+                                    </div>
                                     <p class="text-[16px] text-md text-left font-medium">
                                         {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}</p>
                                 </div>
@@ -108,10 +109,16 @@
 
         <section class="py-16 px-3 max-2xl:mx-6">
             <p class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
-            <div class="max-w-[1536px] mx-auto">
+            <div class="max-w-[1536px] mx-auto items-center">
                 <!-- Swiper -->
                 <div class="swiper items-center ">
-                    <div class="swiper-wrapper ">
+                    @php
+                        $justify = 'justify-center max-xs:justify-start';
+                        if (count($posts) > 5) {
+                            $justify = 'justify-start';
+                        }
+                    @endphp
+                    <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                         @foreach ($posts as $pos)
                             <div
                                 class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-2">
@@ -119,15 +126,21 @@
                                     class="w-[171px] h-[150px] se:w-[150px] block ml-2 ">
                                 <p class="se:text-[16px]">{{ $pos->title }}</p>
                             </div>
-                        @endforeach
-                    </div>
+                        @endforeach  
+                        
+                       
+                    </div> 
 
+                    <div class="mx-3 items-center">
+                        <div class="swiper-button-next "></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                  
                 </div>
-                <div class="mx-3">
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
+
+
             </div>
+
     </div>
     </section>
 
@@ -153,14 +166,15 @@
     <button id="modal-term-service" class="text-[#838383] text-[16px] underline">ข้อกำหนดและเงื่อนไข</button>
 
     {{-- box manual --}}
-    @php 
+    @php
         $terms_demo = '<p><strong>ข้อกำหนดและเงื่อนไขรายการส่งเสริมการขาย Fixxy No Limit สำหรับย้ายค่ายแบบรายเดือน</strong></p>
                         <p>1.รายการส่งเสริมการขายนี้ สำหรับผู้สมัครใช้บริการย้ายค่ายเบอร์เดิมมาใช้ ทรูมูฟ เอช (&ldquo;ผู้ใช้บริการ&rdquo;) ของบริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด (&ldquo;บริษัท&rdquo;) แบบระบบรายเดือน ในนามบุคคลธรรมดา ตั้งแต่วันที่ 22 กันยายน 2566 &nbsp;ถึง 30 พฤศจิกายน 2566 หรือจนกว่าจะมีการเปลี่ยนแปลง</p>
                         <p>2.รายละเอียดรายการส่งเสริมการขาย: อัตราค่าบริการยังไม่รวมภาษีมูลค่าเพิ่ม</p>
                         <p>2.1 รายการส่งเสริมการขาย Fixxy No Limit 399<br />
                         สิทธิตามแพ็กเกจปกติ:<br />
                         คิดอัตราค่าใช้บริการเหมาจ่ายขั้นต่ำรายเดือน 399 บาท ต่อเดือน ผู้ใช้บริการจะได้รับสิทธิใช้บริการ ดังนี้<br />
-                        (1)โทรทุกเครือข่ายเดือนละ 150 นาทีต่อรอบค่าบริการ&nbsp;<br />
+                        (1)
+โทรทุกเครือข่ายเดือนละ 150 นาทีต่อรอบค่าบริการ&nbsp;<br />
                         (2)บริการ 5G ที่ความเร็วสูงสุด 20 เมกะบิตต่อวินาที (Mbps) เป็นจำนวน 70 กิกะไบต์ (GB)หลังจากนั้น จะใช้ได้ไม่จำกัดปริมาณที่ความเร็วสูงสุด 1 เมกะบิตต่อวินาที (Mbps)<br />
                         (3)บริการ Wi-Fi ที่ความเร็วสูงสุด 1 กิกกะบิตต่อวินาที (Gbps) ไม่จำกัดปริมาณการใช้งาน<br />
                         (4)บริการ Voice Mail และ Miss Call Alert</p>
@@ -179,10 +193,12 @@
                         3. ค่าบริการส่วนเกินเหมาจ่าย คิดเพิ่มเติมจากค่าใช้บริการเหมาจ่ายรายเดือน ในอัตราดังนี้<br />
                         3.1 โทรทุกเครือข่าย นาทีละ 1.50 บาท คิดค่าบริการเป็นรายนาที เศษของนาทีนับเป็นหนึ่งนาที<br />
                         3.2 บริการส่งข้อความสั้น (SMS) ระหว่างโทรศัพท์เคลื่อนที่ที่ใช้และจดทะเบียนภายในประเทศ ข้อความละ 2.50 บาท<br />
-                        3.3 บริการส่งข้อความมัลติมีเดีย (MMS) ระหว่างโทรศัพท์เคลื่อนทีที่ใช้และจดทะเบียนภายในประเทศ ครั้งละ 4.50 บาท</p>'
+                        3.3 บริการส่งข้อความมัลติมีเดีย (MMS) ระหว่างโทรศัพท์เคลื่อนทีที่ใช้และจดทะเบียนภายในประเทศ ครั้งละ 4.50 บาท</p>';
     @endphp
-    <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10" id="modal-container">
-        <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-es:h-[500px] max-lg:p-2 p-4 bg-white rounded-[10px]">
+    <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10"
+        id="modal-container">
+        <div
+            class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-es:h-[500px] max-lg:p-2 p-4 bg-white rounded-[10px]">
             <div class="w-full flex justify-end">
                 <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close_modal">
             </div>

@@ -42,6 +42,12 @@
         {{-- มหัศจรรย์ --}}
 
         @php $j = 1; @endphp
+        @php
+        $justify = 'justify-center max-xs:justify-start';
+        if (count($cates) > 3) {
+            $justify = 'justify-start';
+        }
+    @endphp
         @foreach ($cates as $cate)
             <section id="travel" class="bg-white py-6 2xl:mt-16 px-3">
                 <div class="">
@@ -54,7 +60,7 @@
                 <div class="2xl:my-16 my-4 z-2 w-full">
                     <div class="max-w-[1548px] my-0 mx-auto flex justify-center">
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
-                            <div class="swiper-wrapper flex items-center ">
+                            <div class="swiper-wrapper flex items-center  {{ $justify}}">
                                 @foreach ($travel_sim as $sim)
                                     @if ($sim->travel_cate_id == $cate->id)
                                         <div class="swiper-slide flex justify-center items-center">
