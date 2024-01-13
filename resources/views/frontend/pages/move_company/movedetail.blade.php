@@ -55,7 +55,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
                         <div id="box" data-option="{{$move_product->id}}" class="box border border-gray-500 active hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                             <div class="flex mb-2">
-                                <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
+                                <img src="/{{$move_product->thumbnail_link}}" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
                                 <p class="text-lg font-medium ml-3 ">{{$move_product->package_options}}</p>
                             </div>
                             <div class="flex items-center">
@@ -69,7 +69,7 @@
                             @if($relateOption->id != $move_product->id)
                                 <div id="box" data-option="{{$relateOption->id}}" class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                                     <div class="flex mb-2 ">
-                                        <img src="/images/Rectangle1282.png" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
+                                        <img src="/{{$relateOption->thumbnail_link}}" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
                                         <p class="text-lg font-medium ml-3 ">{{$relateOption->package_options}}</p>
                                     </div>
                                     <div class="flex items-center">
