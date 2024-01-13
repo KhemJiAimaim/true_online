@@ -1,9 +1,9 @@
 <div class="fixed sm:bottom-10 bottom-[0] right-5 z-50" id="contact">
     <div class="relative md:bottom-[7.7rem] 2xl:bottom-0 ">
 
-        <div id="close" class="flex justify-end hidden ">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
-                class="mb-2 cursor-pointer">
+        <div id="close" class="flex justify-end hidden w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                class="mb-2 cursor-pointer w-6">
                 <path
                     d="M7.9987 1.33301C4.31203 1.33301 1.33203 4.31301 1.33203 7.99967C1.33203 11.6863 4.31203 14.6663 7.9987 14.6663C11.6854 14.6663 14.6654 11.6863 14.6654 7.99967C14.6654 4.31301 11.6854 1.33301 7.9987 1.33301ZM7.9987 13.333C5.0587 13.333 2.66536 10.9397 2.66536 7.99967C2.66536 5.05967 5.0587 2.66634 7.9987 2.66634C10.9387 2.66634 13.332 5.05967 13.332 7.99967C13.332 10.9397 10.9387 13.333 7.9987 13.333ZM10.392 4.66634L7.9987 7.05967L5.60536 4.66634L4.66536 5.60634L7.0587 7.99967L4.66536 10.393L5.60536 11.333L7.9987 8.93967L10.392 11.333L11.332 10.393L8.9387 7.99967L11.332 5.60634L10.392 4.66634Z"
                     fill="#EC1F25" />

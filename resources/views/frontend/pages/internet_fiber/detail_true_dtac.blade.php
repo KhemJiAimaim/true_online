@@ -79,7 +79,7 @@
                         $unit_upload = $fiber_products->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                     @endphp
                     <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
-                        <div class="grid grid-cols-2 mt-6">
+                        <div class="grid grid-cols-2 mt-6 p-2">
                             <div class="flex justify-center">
                                 <img src="/images/Rectangle 1233.png" alt="" class="w-[7rem] h-[7rem]">
                             </div>
@@ -88,14 +88,14 @@
                                     class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-2xl text-left">
                                     ความเร็ว</p>
                                 <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
-                                <div class="flex justify-start py-6 ">
+                                <div class="flex justify-start py-4 ">
                                     <p
-                                        class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[3rem] max-ex:text-[2.5rem] max-ex:font-bold">
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-4xl font-bold">
                                         {{ $download }}
                                     </p>
                                     <div class="border-l border border-gray-500 text-center mx-6 rounded-full max-ex:mx-3">
                                     </div>
-                                    <p class="text-[16px] text-md text-left font-medium">
+                                    <p class="text-[16px] max-xs:text-[13px] text-md text-left font-medium">
                                         {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}</p>
                                 </div>
                             </div>
