@@ -219,6 +219,36 @@ class FiberController extends BaseController
         }
     }
 
+    public function uploadTermsPDF(Request $request)
+    {
+        try {
+            $files = $request->allFiles();
+
+            /* Upload PDF */
+            $fileName = "termsfiber";
+            $newFolder = "upload/terms/";
+            $filePathName = $newFolder . $fileName . '.pdf';
+            if (file_exists($filePathName)) {
+                unlink($filePathName);
+            }
+            $imgSrc = $this->uploadImage($newFolder, $files['upload'], "", "", $fileName);
+
+            return response([
+                "uploaded" => 1,
+                "fileName" => $fileName,
+                "url" => config('app.url') . "/" .  $imgSrc
+            ], 201);
+        } catch (Exception $e) {
+            return response([
+                "message" => "error",
+                "uploaded" =>  0,
+                "error" =>  [
+                    "message" =>  $e->getMessage()
+                ]
+            ], 501);
+        }
+    }
+
 
     /* Private function */
     private function getFiberProduct()

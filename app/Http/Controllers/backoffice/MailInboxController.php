@@ -39,7 +39,7 @@ class MailInboxController extends Controller
             $mailUnread = $mailsObj->where('readed', 0)->values()->all();
             $contactUnread = $contactMsObj->where('readed', 0)->values()->all();
 
-            $contactMs = $mails->where('type_id', 0); //ไม่ต้องแปลงเป็น array
+            $contactMs = $mails->where('type_id', 0)->values()->all(); // แปลงเป็น array
             $mails = $mails->where('type_id', '!=', 0)->values()->all(); // แปลงเป็น array (ถ้ามี condition จะ return เป็น object)
 
             return response([

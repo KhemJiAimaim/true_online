@@ -22,7 +22,9 @@ return new class extends Migration
             $table->string('travel_option')->nullable();
             $table->integer('product_cate_id')->nullable();
             $table->integer('product_id');
+            $table->string('product_name')->nullable();
             $table->float('product_price');
+            $table->string('thumbnail')->nullable();
             $table->integer('quantity');
             $table->float('discount')->nullable()->default(0);
 
