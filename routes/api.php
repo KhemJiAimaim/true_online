@@ -82,6 +82,7 @@ Route::prefix('backoffice/v1')->group(function () {
 
         Route::prefix('order/')->group(function () {
             Route::get('data', [OrderController::class, 'index']);
+            Route::get('orderpending', [OrderController::class, 'orderPending']);
             Route::get('getproductdata', [OrderController::class, 'getProductData']);
             Route::post('createorder', [OrderController::class, 'createOrderAdmin']);
             Route::get('shippingdata', [OrderController::class, 'shippingData']);
@@ -146,6 +147,7 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::get('data', [FiberController::class, 'fiberData']);
             Route::put('product/update', [FiberController::class, 'updateFiberProduct']);
             Route::post('product/create', [FiberController::class, 'createFiberProduct']);
+            Route::post('product/uploadtermspdf', [FiberController::class, 'uploadTermsPDF']);
             Route::delete('product/delete/{id}', [FiberController::class, 'deleteFiberProduct']);
         });
 
