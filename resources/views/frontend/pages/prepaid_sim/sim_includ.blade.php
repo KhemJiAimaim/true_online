@@ -30,9 +30,8 @@
                         </div>
 
                         <div class="bg-white">
-                            <div class="flex justify-center py-4 ">
-                                <img src="/images/Rectangle 98.png" alt=""
-                                    class="max-ex:w-[120px] max-ex:h-[120px]">
+                            <div class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[120px] max-ex:h-[120px]">
+                                <img src="/{{$prepaid->thumbnail_link}}" alt="" class="w-full h-full object-contain">
                             </div>
                         </div>
 
@@ -51,10 +50,8 @@
 
                         <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                            <a href="{{ url('/prepaid_sim/buy_sim/'.$prepaid->id)}}"
-                                class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
-                            <button id="buyProductNow" data-id="{{$prepaid->prepaid_sim_id}}" data-type="4" data-prepaid="{{$prepaid->prepaid_sim_id}}"
-                                class="py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
+                            <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                            <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" data-id="{{ $prepaid->prepaid_sim_id }}" data-type="4" prepaid_id="{{ $prepaid->prepaid_sim_id }}" class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
                         </div>
                     </div>
                 @endforeach
