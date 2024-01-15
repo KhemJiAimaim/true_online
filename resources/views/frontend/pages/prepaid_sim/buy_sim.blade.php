@@ -4,6 +4,14 @@
         .thumnail {
             @apply opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out;
         }
+
+        .main {
+            height: auto;
+            min-height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            /* overflow-y: auto; */
+        }
     </style>
 @endsection
 @section('title')
@@ -11,7 +19,7 @@
 @endsection
 
 @section('content')
-    <div class=" mt-[8%] max-xs:mt-[15%]  mx-3">
+    <div class=" mt-[8%] max-xs:mt-[15%]  mx-3 lg:h-screen xl:h-auto">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
@@ -69,39 +77,41 @@
         </div>
 
         {{-- box package --}}
-        <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6 lg:mb-32">
-            <div class="">
-                <div class="flex">
-                    <button id="btn-package"
-                        class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
-                        แพ็กเกจ</button>
-                    <button id="btn-condition"
-                        class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
-                </div>
-                {{-- content detail --}}
-                <div id="box-package"
-                    class="h-[300px]  bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                    <div class="h-full overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
-                        <div class="w-full  text-left Z-[99] my-4 ml-4">
-                            {!! $prepaid_cate->details_content !!}
-                        </div>
+        <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6  ">
+
+            <div class="flex">
+                <button id="btn-package"
+                    class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
+                    แพ็กเกจ</button>
+                <button id="btn-condition"
+                    class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
+            </div>
+            {{-- content detail --}}
+            <div id="box-package"
+                class="h-[300px]  bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                <div class="h-full overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
+                    <div class="w-full max-lg:w-[290px] text-left Z-[99] my-4 ml-4 ">
+                        {!! $prepaid_cate->details_content !!}
                     </div>
                     <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
+
                     <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] absolute bottom-0 py-1">
                         <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
                     </div>
                 </div>
+            </div>
 
-                {{-- content condition --}}
-                <div id="box-condition"
-                    class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
-                    {!! $prepaid_cate->terms_content !!}
-                </div>
+            {{-- content condition --}}
+            <div id="box-condition"
+                class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
+                {!! $prepaid_cate->terms_content !!}
             </div>
         </div>
         {{-- box package --}}
-    </div>
 
+
+
+    </div>
     <div class="bg-white drop-shadow-md items-center w-full " style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
         <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
             <p class="2xl:text-lg">ราคา</p>
