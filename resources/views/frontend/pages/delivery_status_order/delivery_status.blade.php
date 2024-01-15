@@ -55,7 +55,7 @@
                                         <th scope="col" class=" px-4 py-4 max-xx:py-2">หมายเลขสินค้า</th>
                                     </tr>
                                 </thead>
-                                <tbody class="text-[16px] ">
+                                <tbody class="text-[16px] shadow-md  ">
                                     @foreach ($orders as $order)
                                         @php
                                             $carrier = '';
