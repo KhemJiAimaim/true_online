@@ -1,9 +1,8 @@
 
 var swiper = new Swiper('.swiper1', {
-    slidesPerView: 8,
+    slidesPerView: 4,
     spaceBetween: 0,
     grabCursor: 'true',
-    // direction: getDirection(),
     navigation: {
         nextEl: '.swiper-button-next1',
         prevEl: '.swiper-button-prev1',
@@ -36,12 +35,10 @@ var swiper = new Swiper('.swiper1', {
     },
 });
 
-
 var swiper = new Swiper('.swiper2', {
-    slidesPerView: 8,
+    slidesPerView: 4,
     spaceBetween: 0,
     grabCursor: 'true',
-    // direction: getDirection(),
     navigation: {
         nextEl: '.swiper-button-next2',
         prevEl: '.swiper-button-prev2',

@@ -58,7 +58,7 @@
                 <div class="py-6 w-full">
                     <div class="max-w-[1548px]  mx-auto flex justify-center">
                         <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full ">
-                            <div class="swiper-wrapper items-center py-4">
+                            <div class="swiper-wrapper py-4">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
@@ -84,7 +84,7 @@
                                                         <div class="flex justify-center items-baseline gap-10">
                                                             <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
                                                             <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] "> {{ $product->call_minutes }} </p>
-                                                            <p class="2xl:text-[1.5rem] text-[1rem]">GB</p>
+                                                            <p class="2xl:text-[1.5rem] text-[1rem]">Mins</p>
 
                                                         </div>
                                                     </div>
@@ -136,11 +136,9 @@
                                                             @foreach ($benefit_items as $item)
                                                                 @foreach ($posts as $pos)
                                                                     @if ($pos->id == $item)
-                                                                        <div class="flex items-start gap-2 px-4 mb-2">
-                                                                            <div
-                                                                                class="border-[1px] rounded-lg border-orange-500 p-4 w-[30%]">
-                                                                                <img src="{{ $pos->thumbnail_link }}"
-                                                                                    alt="">
+                                                                        <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
+                                                                            <div class="border-[1px] rounded-lg border-orange-500 p-1 w-[90px] h-[90px]">
+                                                                                <img class="w-full h-full object-contain" src="{{ $pos->thumbnail_link }}" alt="">
                                                                             </div>
 
                                                                             <p
@@ -152,9 +150,9 @@
                                                             @endforeach
                                                         </div>
 
-                                                        <div class="px-4 text-start" id="content-ck">
+                                                        {{-- <div class="px-4 text-start" id="content-ck">
                                                             {!! $product->details_content !!}
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
 
                                                     <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
@@ -173,8 +171,8 @@
                                                         class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 ss:px-2 gap-3">
 
                                                         <button id="btn-termOfService" data-id="{{$product->id}}"
-                                                            class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงือนไข</button>
-                                                        <a href="{{url('/movedetail/'.$product->id)}}"
+                                                            class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงื่อนไข</button>
+                                                            <a href="{{url('/movedetail/'.$product->move_cate_id.'/'.$product->id)}}"
                                                             class="cursor-pointer py-2 md:px-10 2xl:px-16 px-16 ss:px-[1.8rem] xs:  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                                     </div>

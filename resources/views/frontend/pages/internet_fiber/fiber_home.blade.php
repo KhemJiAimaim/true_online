@@ -5,17 +5,14 @@
 @endsection
 
 @section('description')
-    
 @endsection
 
 @section('keywords')
-    
 @endsection
 
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite('resources/css/fiber.css')
-   
 @endsection
 
 @section('content')
@@ -56,16 +53,15 @@
             </div>
         </div>
         {{-- มหัศจรรย์ --}}
- 
+
         @php $j = 1; @endphp
         @foreach ($cate_fiber as $cate)
-           
             @php
                 $style1 = $loop->last ? 'bg-gray-100 relative' : '';
                 $circle1 = $loop->last ? '<img class=" absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png">' : '';
                 $circle2 = $loop->last ? '<img class=" absolute left-0 bottom-0 z-[-1]" src="/images/circle/ci2.png">' : '';
             @endphp
-            
+
             <section id="fiber" class="py-6 z-0 px-3 {{ $style1 }}">
                 {!! $circle1 !!}
                 <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">
@@ -75,150 +71,159 @@
                     {{ $cate->cate_description }}
                 </p>
 
-                    
+
                 <div class="2xl:my-16 my-4 z-2 w-full">
                     <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
-                        @php
-                            $productCount = 0;
+
+                        <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
+                           
+                            @php
+                            $count = 0;
+                            $justify = 'justify-center max-xs:justify-start';
+                        
+                            foreach ($fiber_products as $product) {
+                                if ($product->fiber_cate_id == $cate->id) {
+                                    // ทำสิ่งที่คุณต้องการทำ
+                                    $count++;
+                                }
+                            }
+                            $justify = ($count > 4) ? 'justify-start' : $justify;
+                            // echo "Total count for fiber_cate_id  $justify";
                         @endphp
-                        <div class="swiper swiper{{$j}} flex justify-center items-center mx-auto w-full">
-                            <div class="swiper-wrapper flex items-center py-4">
+                            
+                            <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                 @foreach ($fiber_products as $product)
                                     @if ($product->fiber_cate_id == $cate->id)
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            <div class="swiper-slide flex justify-center items-center">
-                                                <div class="drop-shadow-md w-[350px] ss:w-[340px] h-[100%]">
-                                                    <div class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
-                                                        <p class="text-white text-left text-[16px]">{{ $product->details }}
+                                        <div class="swiper-slide flex justify-center items-center">
+                                            <div class="drop-shadow-sm rounded-[10px] w-[350px] ss:w-[340px] h-[100%]">
+                                                <div
+                                                    class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                                                    <p class="text-white text-left text-[16px]">{{ $product->details }}
+                                                    </p>
+                                                    <img class="absolute top-0 right-0" src="/images/Intersect2.png"
+                                                        alt="">
+                                                </div>
+
+                                                <div class="bg-[#F8F9FA]">
+                                                    <div class="">
+                                                        <p class="py-3 text-[20px]">{{ $product->title }}</p>
+                                                    </div>
+                                                </div>
+                                                @php
+                                                    $download = $product->download_speed >= 1000 ? $product->download_speed / 1000 : $product->download_speed;
+                                                    $unit_download = $product->download_speed >= 1000 ? 'Gbps' : 'Mbps';
+
+                                                    $upload = $product->upload_speed >= 1000 ? $product->upload_speed / 1000 : $product->upload_speed;
+                                                    $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
+                                                @endphp
+                                                <div class="bg-white">
+                                                    <div class="flex justify-center py-6 ml-12">
+                                                        <p class="text-[35px] text-center font-medium">
+                                                            {{ $download }}
                                                         </p>
-                                                        <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
+                                                        <div
+                                                            class="border-l border border-gray-500 text-center mx-6 rounded-full">
+                                                        </div>
+                                                        <p class="text-lg text-left text-[16px]">
+                                                            {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
+                                                        </p>
                                                     </div>
 
-                                                    <div class="bg-[#F8F9FA]">
-                                                        <div class="">
-                                                            <p class="py-3 text-[20px]">{{ $product->title }}</p>
+                                                    <div class="blue-plate-container">
+                                                        <div class="blue-plate-line"></div>
+                                                        <div class="blue-plate-group">
+                                                            <div class="blue-plate-box-s">
+                                                                <div class="blue-plate-circleS"></div>
+                                                                <div class="blue-plate-textboxS"></div>
+                                                            </div>
+                                                            <div class="blue-plate-textboxC">
+                                                                <p class="blue-plate-text text-white text-[18px]">
+                                                                    รับทันที
+                                                                </p>
+                                                            </div>
+                                                            <div class="blue-plate-box-e">
+                                                                <div class="blue-plate-textboxE"></div>
+                                                                <div class="blue-plate-circleE"></div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     @php
-                                                        $download = $product->download_speed >= 1000 ? $product->download_speed / 1000 : $product->download_speed;
-                                                        $unit_download = $product->download_speed >= 1000 ? 'Gbps' : 'Mbps';
+                                                        $benefit_ids = explode(',', $product->benefit_ids);
+                                                        $post_ids = $post_benefits->pluck('id')->toArray();
 
-                                                        $upload = $product->upload_speed >= 1000 ? $product->upload_speed / 1000 : $product->upload_speed;
-                                                        $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
+                                                        // หาค่าที่เหมือนกัน
+                                                        $same_benefit = array_intersect($benefit_ids, $post_ids);
+                                                        $benefit_items = array_slice($same_benefit, 0, 3);
                                                     @endphp
-                                                    <div class="bg-white">
-                                                        <div class="flex justify-center py-6 ml-12">
-                                                            <p class="text-[35px] text-center font-medium">
-                                                                {{ $download }}
-                                                            </p>
-                                                            <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
-                                                            <p class="text-lg text-left text-[16px]">
-                                                                {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
-                                                            </p>
-                                                        </div>
-
-                                                        <div class="blue-plate-container">
-                                                            <div class="blue-plate-line"></div>
-                                                            <div class="blue-plate-group">
-                                                                <div class="blue-plate-box-s">
-                                                                    <div class="blue-plate-circleS"></div>
-                                                                    <div class="blue-plate-textboxS"></div>
-                                                                </div>
-                                                                <div class="blue-plate-textboxC">
-                                                                    <p class="blue-plate-text text-white text-[18px]">
-                                                                        รับทันที
-                                                                    </p>
-                                                                </div>
-                                                                <div class="blue-plate-box-e">
-                                                                    <div class="blue-plate-textboxE"></div>
-                                                                    <div class="blue-plate-circleE"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @php
-                                                            $benefit_ids = explode(',', $product->benefit_ids);
-                                                            $post_ids = $post_benefits->pluck('id')->toArray();
-
-                                                            // หาค่าที่เหมือนกัน
-                                                            $same_benefit = array_intersect($benefit_ids, $post_ids);
-                                                            $benefit_items = array_slice($same_benefit, 0, 3);
-                                                        @endphp
-                                                        {{-- <div class="flex justify-center py-6">
-                                                                    @foreach ($benefit_items as $item)
-                                                                        @foreach ($post_benefits as $post)
-                                                                            @if ($post->id == $item)
-                                                                                <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
-                                                                                <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
-                                                                            @endif
-                                                                        @endforeach
+                                                    {{-- <div class="flex justify-center py-6">
+                                                                @foreach ($benefit_items as $item)
+                                                                    @foreach ($post_benefits as $post)
+                                                                        @if ($post->id == $item)
+                                                                            <img class="w-20" src="/{{$post->thumbnail_link}}" alt="">
+                                                                            <div class="border-l border border-gray-500 text-center mx-3 rounded-full"></div>
+                                                                        @endif
                                                                     @endforeach
-                                                                </div> --}}
-                                                        <div class="flex justify-center py-6">
-                                                            @php
-                                                                $showDivider = false;
-                                                            @endphp
-
-                                                            @foreach ($benefit_items as $item)
-                                                                @foreach ($post_benefits as $post)
-                                                                    @if ($post->id == $item)
-                                                                        <img class="w-20"
-                                                                            src="/{{ $post->thumbnail_link }}"
-                                                                            alt="">
-                                                                        @php
-                                                                            $showDivider = true;
-                                                                        @endphp
-                                                                    @endif
                                                                 @endforeach
+                                                            </div> --}}
+                                                    <div class="flex justify-center py-6">
+                                                        @php
+                                                            $showDivider = false;
+                                                        @endphp
 
-                                                                {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
-                                                                @if ($showDivider && !$loop->last)
-                                                                    <div
-                                                                        class="border-l border border-gray-500 text-center mx-3 rounded-full">
-                                                                    </div>
+                                                        @foreach ($benefit_items as $item)
+                                                            @foreach ($post_benefits as $post)
+                                                                @if ($post->id == $item)
+                                                                    <img class="w-20" src="/{{ $post->thumbnail_link }}"
+                                                                        alt="">
                                                                     @php
-                                                                        $showDivider = false;
+                                                                        $showDivider = true;
                                                                     @endphp
                                                                 @endif
                                                             @endforeach
-                                                        </div>
 
-
-
+                                                            {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
+                                                            @if ($showDivider && !$loop->last)
+                                                                <div
+                                                                    class="border-l border border-gray-500 text-center mx-3 rounded-full">
+                                                                </div>
+                                                                @php
+                                                                    $showDivider = false;
+                                                                @endphp
+                                                            @endif
+                                                        @endforeach
                                                     </div>
 
-                                                    <div
-                                                        class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
-                                                        <img class="absolute bottom-0 left-0"
-                                                            src="/images/Intersect (1).png" alt="">
-                                                        <div class="grid grid-cols-3 items-center">
-                                                            <p class="text-white text-left text-[16px]  ">ราคา</p>
-                                                            <p
-                                                                class="text-white font-medium text-center 2xl:text-3xl text-2xl">
-                                                                {{ number_format($product->price_per_month) }}</p>
-                                                            <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
 
-                                                        </div>
-                                                    </div>
 
-                                                    <div
-                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
-                                                        <a href="{{ url('/fiber/detail_true_dtac/' . $product->id) }}"
-                                                            class="py-2 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">สมัครเลย</a>
+                                                </div>
+
+                                                <div
+                                                    class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
+                                                    <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
+                                                        alt="">
+                                                    <div class="grid grid-cols-3 items-center">
+                                                        <p class="text-white text-left text-[16px]  ">ราคา</p>
+                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format( ($product->special_price > 0)?$product->special_price : $product->price_per_month ) }}</p>
+                                                        <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
                                                     </div>
                                                 </div>
+
+                                                <div
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
+                                                    <a href="{{ url('/fiber/detail_true_dtac/' . $product->id) }}"
+                                                        class="py-2 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">สมัครเลย</a>
+                                                </div>
                                             </div>
-                                        @endfor
+                                        </div>
                                     @endif
-                                    @php
-                                        $productCount++; // เพิ่มจำนวนรายการ
-                                    @endphp
                                 @endforeach
                             </div>
-                        </div> 
-                        @if ($productCount >= 4)
-                            <div class="swiper-button-next swiper-button-next{{$j}} "></div>
-                            <div class="swiper-button-prev swiper-button-prev{{$j}} "></div>
-                        @endif
+
+                        </div>
+                        <div class="items-center  mx-auto">
+                            <div class="swiper-button-next swiper-button-next{{ $j }} "></div>
+                            <div class="swiper-button-prev swiper-button-prev{{ $j }} "></div>
+                        </div>
                         @php $j++; @endphp
                     </div>
                 </div>

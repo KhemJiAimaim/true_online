@@ -1,6 +1,6 @@
 var swiper = new Swiper('.swiper', {
-    slidesPerView: 6,
-    spaceBetween: 10,
+    slidesPerView: 1,
+    // spaceBetween: 10,
     grabCursor: 'true',
     // direction: getDirection(),
     navigation: {
@@ -16,7 +16,7 @@ var swiper = new Swiper('.swiper', {
             slidesPerView: 2,
         },
         768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
         },
         1024: {
             slidesPerView: 3,

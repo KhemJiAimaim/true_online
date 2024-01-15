@@ -39,13 +39,19 @@ class MoveController extends Controller
         return view('frontend.pages.move_company.5GSuperSmart');
     }
 
-    public function movenow($id) {
+    public function movenow($cateId, $id) {
 
-        $move_product = MoveProduct::where('id', $id)
+        $moveRelates = MoveProduct::where('move_cate_id', $cateId)
             ->where('display', true)
-            ->where('delete_status', false)->first();
+            ->where('delete_status', false)->get();
 
-        return view('frontend.pages.move_company.movedetail',compact('move_product'));
+        $move_product = $moveRelates->firstWhere('id', $id);
+            // dd($moveRelates);
+
+        // $move_product = MoveProduct::where('id', $id)
+        //     ->where('display', true)
+        //     ->where('delete_status', false)->first();
+        return view('frontend.pages.move_company.movedetail',compact('moveRelates', 'move_product'));
     }
 
     public function formMove(Request $request, $id) {
