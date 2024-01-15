@@ -16,7 +16,7 @@
                 <div class="flex justify-center py-4 ">
                     <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only ">ค้นหาด้วยชื่อ หรือ
                         เบอร์โทร</label>
-                    <div class="relative w-[20rem] shadow-md">
+                    <div class="relative w-[20rem] shadow-md rounded-lg ">
                         <input type="search" id="search-data"
                             class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-100 rounded-lg outline-none text-[20px]"
                             placeholder="ค้นหาด้วยชื่อ หรือ เบอร์โทร" required>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="w-[201px] h-1 bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF]  mx-auto mt-6 "></div>
+                <div class="w-[201px] h-1 bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] rounded-lg mx-auto mt-6 "></div>
             </div>
 
         </div>
@@ -47,7 +47,7 @@
                         <div class="overflow-hidden rounded-lg shadow-md   ">
                             <table class="min-w-full text-center text-sm font-light ">
                                 <thead
-                                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] font-medium text-white text-[18px] max-xx:text-[16px]">
+                                    class="bg-[#EC1F25] font-medium text-white text-[18px] max-xx:text-[16px] outline-none">
                                     <tr>
                                         <th scope="col" class=" px-4 py-4 max-xx:py-2">ชื่อ</th>
                                         <th scope="col" class=" px-4 py-4 max-xx:py-2 ">รูปแบบ</th>
@@ -100,14 +100,14 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="mt-4 flex justify-end items-center gap-4">
-                            <a href="{{ $orders->previousPageUrl() }}"
-                                class="px-2 py-1 border rounded hover:bg-gray-200">Previous</a>
-                            <span class="mr-2">Page {{ $orders->currentPage() }} of {{ $orders->lastPage() }}</span>
-                            <a href="{{ $orders->nextPageUrl() }}"
-                                class="px-2 py-1 border rounded hover:bg-gray-200">Next</a>
-                        </div>
+
                     </div>
+                </div>
+                <div class="mt-4 flex justify-end items-center gap-4">
+                    <a href="{{ $orders->previousPageUrl() }}"
+                        class="px-2 py-1 border rounded hover:bg-gray-200">Previous</a>
+                    <span class="mr-2">Page {{ $orders->currentPage() }} of {{ $orders->lastPage() }}</span>
+                    <a href="{{ $orders->nextPageUrl() }}" class="px-2 py-1 border rounded hover:bg-gray-200">Next</a>
                 </div>
             </div>
 
