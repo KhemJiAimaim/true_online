@@ -20,7 +20,7 @@
             <div
                 class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 m-auto p-4 2xl:mt-16 mt-6 mb-10 ">
                 @foreach ($prepaid_cate as $prepaid)
-                    <div class="drop-shadow-md">
+                    <div class="drop-shadow-md w-[350px] ss:w-[300px] h-[100%] mx-auto">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}

@@ -13,6 +13,8 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use Carbon\Carbon;
 use App\Models\BerproductMonthly;
+use App\Models\PrepaidSim;
+use App\Models\TravelSim;
 use Exception;
 
 class CartOrderController extends Controller
@@ -66,7 +68,7 @@ class CartOrderController extends Controller
             $newOrder->update(['order_number' => "TRUEONLINE-" . $newOrder->id]);
 
             $this->saveOrderitem($params, $newOrder->id);
-            
+
             $this->sendOrderMail($newOrder);
 
             Session::flush();
@@ -91,17 +93,19 @@ class CartOrderController extends Controller
     }
 
     public function saveOrderitem($params, $id_order) {
-        
+
         $orderItems = [];
-        // dd($params);
 
         if($params['bermonthly'] > 0){
             foreach ($params['bermonthly'] as $bermonthly) {
+                $ber = BerproductMonthly::where('product_id', $bermonthly['product_id'])->first();
+
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => $bermonthly['type_cate'],
                     'travel_option' => null,
                     'product_cate_id' => null,
+                    'product_name' => $ber->product_phone,
                     'product_id' => $bermonthly['product_id'],
                     'product_price' => $bermonthly['product_price'],
                     'discount' => $bermonthly['product_discount'],
@@ -112,13 +116,17 @@ class CartOrderController extends Controller
 
         if($params['prepaid_sim'] > 0){
             foreach ($params['prepaid_sim'] as $prepaid) {
+                $prepaidsim = PrepaidSim::where('id', $prepaid['id'])->first();
+
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => 4,
                     'travel_option' => null,
                     'product_cate_id' => $prepaid['prepaid_cate_id']['id'],
+                    'product_name' => $prepaidsim->title,
                     'product_id' => $prepaid['id'],
                     'product_price' => $prepaid['price'],
+                    'thumbnail' => $prepaidsim->thumbnail_link,
                     'discount' => 0,
                     'quantity' => $prepaid['quantity'],
                 ];
@@ -127,13 +135,17 @@ class CartOrderController extends Controller
 
         if($params['travel_sim'] > 0){
             foreach ($params['travel_sim'] as $travel_sim) {
+                $travelsim = TravelSim::where('id', $travel_sim['id'])->first();
+
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => 6,
                     'travel_option' => $travel_sim['option'],
                     'product_cate_id' => null,
+                    'product_name' => $travelsim->title,
                     'product_id' => $travel_sim['id'],
                     'product_price' => $travel_sim['price'],
+                    'thumbnail' => $travelsim->thumbnail_link,
                     'discount' => 0,
                     'quantity' => $travel_sim['quantity'],
                 ];
@@ -141,7 +153,7 @@ class CartOrderController extends Controller
         }
         try {
             DB::beginTransaction();
-            
+
             OrderItem::insert($orderItems);
 
             DB::commit();

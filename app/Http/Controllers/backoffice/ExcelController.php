@@ -48,7 +48,6 @@ class ExcelController extends Controller
         try {
 
             return Excel::download(new BerproductMonthlyExport, 'exportproduct.xlsx');
-
         } catch (Exception $e) {
             return response([
                 'message' => 'server error',
@@ -122,7 +121,8 @@ class ExcelController extends Controller
         $this->updateProductTotal();
     }
 
-    public function updateProductTotal() {
+    public function updateProductTotal()
+    {
         // อัปเดตค่าสำหรับ default_cate_id
         DB::table('berproduct_categories')
             ->where('bercate_id', 1)
@@ -135,7 +135,7 @@ class ExcelController extends Controller
         $cates = DB::table('berproduct_categories')
             ->where('bercate_id', '!=', 1)
             ->pluck('bercate_id');
-    
+
         foreach ($cates as $cate_id) {
             // อัปเดตค่าสำหรับแต่ละ cate_id
             DB::table('berproduct_categories')
@@ -147,6 +147,5 @@ class ExcelController extends Controller
                         ->count()
                 ]);
         }
-    
     }
 }

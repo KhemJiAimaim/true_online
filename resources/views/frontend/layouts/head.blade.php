@@ -149,11 +149,10 @@
 
     menuItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            item.querySelector('.group-hover\\:block').classList.remove('hidden');
+            item.querySelector('.group-hover\\:block')?.classList.remove('hidden');
         });
-
         item.addEventListener('mouseleave', () => {
-            item.querySelector('.group-hover\\:block').classList.add('hidden');
+            item.querySelector('.group-hover\\:block')?.classList.add('hidden');
         });
     });
 

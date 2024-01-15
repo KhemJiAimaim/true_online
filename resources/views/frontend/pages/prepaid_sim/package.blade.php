@@ -39,7 +39,7 @@
 
         @foreach ($cate_package as $cate)
             <section class="flex justify-center items-center my-6 px-3">
-                <div class="drop-shadow-md w-[1536px] ">
+                <div class="drop-shadow-md w-[1536px] mx-auto">
                     <div
                         class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3 ">
                         <p class="text-white text-center ml-3 2xl:text-[20px] md:text-[18px] text-[16px]">

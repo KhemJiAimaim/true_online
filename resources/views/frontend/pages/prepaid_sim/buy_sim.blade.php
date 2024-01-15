@@ -26,13 +26,15 @@
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
-                            <img src="/{{$prepaid_cate->thumbnail_link}}" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            
-                            @foreach($prepaid_sim as $prepaid)
-                                <img src="/{{$prepaid->thumbnail_link}}" alt="" class="thumnail  w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                            <img src="/{{ $prepaid_cate->thumbnail_link }}" alt=""
+                                class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+
+                            @foreach ($prepaid_sim as $prepaid)
+                                <img src="/{{ $prepaid->thumbnail_link }}" alt=""
+                                    class="thumnail  w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             @endforeach
                         </div>
-                        
+
                         <img id="slideRight" class="arrow absolute right-0 cursor-pointer" src="/images/next.png">
 
                     </div>
@@ -49,7 +51,8 @@
                             <div id="box" data-prepaid="{{ $sim->id }}" data-price="{{ $sim->price }}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8.5rem]  cursor-pointer">
                                 <div class="flex ">
-                                    <img src="/{{ $sim->thumbnail_link }}" alt="" class="w-20 max-ex:w-[70px] mb-1 rounded-lg">
+                                    <img src="/{{ $sim->thumbnail_link }}" alt=""
+                                        class="w-20 max-ex:w-[70px] mb-1 rounded-lg">
                                     <p class="text-lg font-medium ml-2">{{ $sim->title }}</p>
                                 </div>
                                 <div class="flex items-center">
@@ -66,7 +69,7 @@
         </div>
 
         {{-- box package --}}
-        <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6">
+        <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6 lg:mb-32">
             <div class="">
                 <div class="flex">
                     <button id="btn-package"
@@ -77,12 +80,14 @@
                 </div>
                 {{-- content detail --}}
                 <div id="box-package"
-                    class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                    <div class="w-full lg:w-[400px] text-left Z-[99] my-4 ml-4">
-                        {!! $prepaid_cate->details_content !!}
+                    class="h-[300px]  bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                    <div class="h-full overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
+                        <div class="w-full  text-left Z-[99] my-4 ml-4">
+                            {!! $prepaid_cate->details_content !!}
+                        </div>
                     </div>
                     <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
-                    <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
+                    <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] absolute bottom-0 py-1">
                         <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
                     </div>
                 </div>
@@ -97,7 +102,7 @@
         {{-- box package --}}
     </div>
 
-    <div class="bg-white drop-shadow-md items-center w-full" style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
+    <div class="bg-white drop-shadow-md items-center w-full " style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
         <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
             <p class="2xl:text-lg">ราคา</p>
             <p id="result-price" class="2xl:text-2xl text-xl font-bold">0</p>
