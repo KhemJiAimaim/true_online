@@ -57,7 +57,7 @@
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
                             @php
                                 $count = 0;
-                                $justify = 'justify-center max-xs:justify-start';
+                                $justify = 'justify-center max-xl:justify-start';
 
                                 foreach ($travel_sim as $sim) {
                                     if ($sim->travel_cate_id == $cate->id) {
