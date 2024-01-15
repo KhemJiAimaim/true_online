@@ -20,6 +20,14 @@ class DeliveryController extends Controller
                         ->orWhere('phone_number', 'LIKE', "%$search%");
                 })
                 ->paginate(10);
+                foreach($orders as $order){
+                    foreach($order->orderItems as $item){
+                     if($item['type_id'] === 3){
+                         $berlucky = BerproductMonthly::where('product_id' , $item['product_id'])->first();
+                         $item->product_detail=$berlucky;
+                     }
+                    }
+                }
         } else {
             $orders = Order::where('order_status', 'success')->with("orderItems")->paginate(10);
             foreach($orders as $order){

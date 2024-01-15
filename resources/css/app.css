@@ -467,6 +467,9 @@ ol {
 #box-condition ol, #box-package ol{
     margin-left: 1.5em;
 }
+#modal-content {
+    word-break: break-word;
+}
 
 #modal-content ol, #modal-content ul {
     margin-left: 1.5em;

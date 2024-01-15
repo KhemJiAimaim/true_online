@@ -101,8 +101,8 @@
                                                         @if($product->voice_hd == true)
                                                         <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                                         <div class="flex items-center flex-col justify-center">
-                                                            <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">4G HD Voice</p>
-                                                            <p class="2xl:text-[1.2rem] text-[14px]"> เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ 4G</p>
+                                                            <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">{{$product->sim_gen}} HD Voice</p>
+                                                            <p class="2xl:text-[1.2rem] text-[14px]">เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ {{$product->sim_gen}}</p>
                                                         </div>
                                                         @endif
                                                     </div>
@@ -137,7 +137,7 @@
                                                                 @foreach ($posts as $pos)
                                                                     @if ($pos->id == $item)
                                                                         <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
-                                                                            <div class="border-[1px] rounded-lg border-orange-500 p-1 w-[90px] h-[90px]">
+                                                                            <div class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
                                                                                 <img class="w-full h-full object-contain" src="{{ $pos->thumbnail_link }}" alt="">
                                                                             </div>
 
@@ -161,8 +161,12 @@
                                                         <div class="flex items-center justify-between py-6 px-4">
 
                                                             <p class="text-white text-left text-[18px] max-md:text-[16px]">ราคา</p>
-                                                            <p class="text-white font-medium text-center text-3xl">
-                                                                {{ number_format($product->price) }}</p>
+                                                            <p class="text-center flex flex-col">
+                                                                @if(($product->discount > 0))
+                                                                <span class="line-through text-gray-100">{{ number_format($product->price) }}</span>
+                                                                @endif
+                                                                <span class="text-white font-medium text-3xl">{{ number_format(($product->discount > 0)? $product->discount : $product->price) }}</span>
+                                                            </p>
                                                             <p class="text-white text-right text-[18px] max-md:text-[16px]">บาท <br> /เดือน </p>
                                                         </div>
                                                     </div>
