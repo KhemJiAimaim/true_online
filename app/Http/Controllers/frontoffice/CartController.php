@@ -17,7 +17,7 @@ class CartController extends Controller
     //
     public function cartproduct_page(Request $request) {
         $cartList = Session::get('cart_list', []);
-        // dd($cartList);
+        dd($cartList);
         $berMonthlys = [];
         $prepaidSims = [];
         $travelSims = [];

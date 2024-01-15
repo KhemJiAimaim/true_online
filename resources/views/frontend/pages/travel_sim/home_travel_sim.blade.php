@@ -76,9 +76,9 @@
                                                 </div>
 
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-4 ">
-                                                        <img src="/images/Rectangle 179.png" alt=""
-                                                            class="max-es:w-[150px]">
+                                                    <div class="flex justify-center py-4 mx-auto h-[230px] w-[180px] max-es:w-[150px]">
+                                                        <img src="{{$sim->thumbnail_link}}" alt=""
+                                                            class="w-full h-full object-contain">
                                                     </div>
                                                 </div>
 

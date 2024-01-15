@@ -383,13 +383,13 @@
                                                         </p>
                                                     </div>
                                                 </div>
-
+                                                {{-- @dd($prepaid) --}}
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
                                                     <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}"
                                                         class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button data-id="{{ $i }}"
+                                                    <button data-id="{{ $prepaid->prepaid_sim_id }}"
                                                         data-type="{{ $cate->id }}"
                                                         data-prepaid="{{ $prepaid->prepaid_sim_id }}" id="buyProductNow"
                                                         class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
