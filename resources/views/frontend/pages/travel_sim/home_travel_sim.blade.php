@@ -254,7 +254,7 @@
                                                     </div>
 
                                                     <div
-                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px]   flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
+                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px]   flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2 px-4">
                                                         <div id="addBerToCart" data-id="{{ $sim->id }}"
                                                             data-type="6"
                                                             class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
