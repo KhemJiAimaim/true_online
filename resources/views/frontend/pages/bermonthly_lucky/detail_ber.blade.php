@@ -141,6 +141,7 @@
 
 
         {{-- box package --}}
+        @if($berproduct->monthly == true)
         <div class="max-w-[1536px] max-2xl:max-w-[80%] mt-10 mx-auto">
             <div class="">
                 <div class="flex">
@@ -180,6 +181,7 @@
                 </div>
             </div>
         </div>
+        @endif
         {{-- box package --}}
 
         {{-- มหัศจรรย์ --}}
