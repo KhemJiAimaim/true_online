@@ -26,7 +26,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container pt-4 px-3">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -35,8 +35,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู คอร์ปอเรชั่น
-                        ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
+                    <h1 class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</h1>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -47,9 +46,7 @@
         {{-- มหัศจรรย์ --}}
 
         <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto px-3">
-            <span class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">ค้นหาเบอร์มงคล แพ็กเกจเสริม
-                อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
-                และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
+            <h2 class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">{{$seo->cate_h2}}</h2>
         </div>
 
         {{-- --- --}}

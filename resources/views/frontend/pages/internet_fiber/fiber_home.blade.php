@@ -43,8 +43,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู ออนไลน์ อันดับ 1
-                        เน็ตบ้านไฟเบอร์อัจฉริยะ</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>

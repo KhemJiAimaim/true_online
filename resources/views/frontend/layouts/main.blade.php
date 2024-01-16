@@ -10,16 +10,18 @@
     @vite('resources/css/app.css', 'resources/js/app.js')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title>True Online | @yield('title')</title>
-    <meta name="description" content="คำอธิบายเนื้อหาเว็บไซต์" @yield('description')>
-    <meta name="keywords" content="true,true online,เบอร์มงคล,fiber" @yield('keywords')>
+
+    <title>True Online | {{ (isset($seo) && $seo->meta_title) ? $seo->meta_title : "meta title"}}</title>
+    <meta name="description" content="{{ (isset($seo) && $seo->meta_description) ? $seo->meta_description : "คำอธิบายเนื้อหาเว็บไซต์"}}">
+    <meta name="keywords" content="{{ (isset($seo) && $seo->meta_keyword) ? $seo->meta_keyword : "true,true online,เบอร์มงคล,fiber"}}">
+    
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="/{{ optional($webInfos->firstWhere('info_param', 'favicon'))->info_link }}">
     {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
     {{-- <script src="https://www.google.com/recaptcha/api.js"></script> --}}
     @yield('style')                                                                                                                                                               
 </head>
-
+{{-- @dd($seo) --}}
 
 <body class="w-full min-h-screen">
 

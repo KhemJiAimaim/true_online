@@ -22,6 +22,9 @@ class ShareDataMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        $path = urldecode($request->path());
+        $seo = Category::where('cate_url', $path)->first();
+        // dd($path);
         $webInfos = Cache::remember('web_infos', 3600, function () {
             return WebInfo::whereIn('info_type', [1, 2])
                 ->where('info_display', true)
@@ -41,6 +44,7 @@ class ShareDataMiddleware
         $menu_footer = Category::where('cate_parent_id', '0')->where('cate_status_display', true)->where('is_bottomside', true)->OrderBy('cate_priority')->get();
         
         // Sharing is caring
+        View::share('seo', $seo);
         View::share('webInfos', $webInfos);
         View::share('main_cate', $query_main_cate);
         View::share('sub_cate', $query_sub_cate);
