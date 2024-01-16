@@ -112,11 +112,10 @@
                                     @if($sim->free_wifi == true)
                                         @php
                                             $wifiLabel = ($cate->id == 23) ? 'Unlimited WiFi' : 'Free WiFi';
-                                            $wifiImage = '/images/travel/arcticons_wifianalyzer.png';
                                         @endphp
 
                                         <div class="flex gap-4">
-                                            <img src="{{ $wifiImage }}" alt="" class="w-[26px] h-[26px]">
+                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt="" class="w-[26px] h-[26px]">
                                             <p class="text-left text-[16px] 2xl:text-[18px]">{{ $wifiLabel }}</p>
                                         </div>
                                     @endif
