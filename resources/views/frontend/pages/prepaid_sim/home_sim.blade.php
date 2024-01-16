@@ -98,10 +98,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div
-                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
-
-                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 items-center">
+                                                    {{-- <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a> --}}
                                                     <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" data-id="{{ $prepaid->prepaid_sim_id }}" data-type="4" prepaid_id="{{ $prepaid->prepaid_sim_id }}" class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
                                                 </div>
                                             </div>
@@ -190,7 +188,7 @@
                     </div>
                 @endif
                 <div class="items-center mx-auto mt-4 pt-6">
-                    <a href="{{ url('/' . $cate->cate_redirect) }}"
+                    <a href="{{ url($cate->cate_url) }}"
                         class="py-2.5 px-5 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
                 </div>
                 {!! $circle2 = $j % 2 == 0 ? '<img class=" absolute left-0 bottom-0 " src="/images/circle/ci2.png" alt="">' : '' !!}

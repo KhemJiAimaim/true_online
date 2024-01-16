@@ -383,7 +383,7 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
@@ -498,7 +498,7 @@
                 </div>
 
                 <div class="items-center mx-auto mt-4 pt-6">
-                    <a href="{{ url('/' . $cate->cate_redirect) }}"
+                    <a href="{{ url('/' . $cate->cate_url) }}"
                         class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
                 </div>
                 {!! $circle2 !!}

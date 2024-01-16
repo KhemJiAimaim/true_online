@@ -141,7 +141,7 @@
 
 
         {{-- box package --}}
-        @if($berproduct->monthly == true)
+        @if($berproduct->monthly_status == "yes")
         <div class="max-w-[1536px] max-2xl:max-w-[80%] mt-10 mx-auto">
             <div class="">
                 <div class="flex">

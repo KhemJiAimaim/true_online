@@ -32,23 +32,23 @@ class FiberController extends Controller
     }
 
     // สินค้า Fiber เฉพาะหมวดหมู่
-    public function true_dtac($cate_url)
+    public function true_dtac($cate_redirect)
     {
         // dd($cate_url);
         $cate_fiber = $this->get_fiberProduct();
 
         $current_cate = [];
         foreach($cate_fiber as $cate){
-            if($cate->cate_url == $cate_url){
+            if($cate->cate_redirect == $cate_redirect){
                 $current_cate['keyword'] = $cate->cate_keyword;
                 $current_cate['description'] = $cate->cate_description;
                 break;
             }
         }
-
+        // dd($current_cate);
         $fiber_products = FiberProduct::join('categories', 'fiber_products.fiber_cate_id', '=', 'categories.id')
             ->select('fiber_products.*')
-            ->where('categories.cate_url', $cate_url)
+            ->where('categories.cate_redirect', $cate_redirect)
             ->where('delete_status', false)
             ->orderBy('fiber_products.priority')
             ->get();
