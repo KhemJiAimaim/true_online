@@ -27,10 +27,6 @@
                 </div>
             @endif
         </div>
-<<<<<<< HEAD
-        {{-- @dd($webInfos) --}}
-=======
->>>>>>> 56626cb2cd3ff0abb0af8836e5d4dff7d3bb2d3c
         <div class="flex justify-center border-l border border-gray-500 text-center mx-3 rounded-full px-3"></div>
         <div class="flex sm:justify-between items-center max-md:flex-col gap-y-2 px-3">
             <p class="text-white opacity-50 py-2 2xl:text-[16px] md:text-[16px] text-[14px] text-center">©True Corporation Public Company Limited. All
@@ -38,15 +34,7 @@
             </p>
 
             <div class="flex items-center gap-x-4 py-2 px-2">
-<<<<<<< HEAD
-                @php 
-                // dd($webInfos)
-                    
-                @endphp
-                <a href="#" class="" title="facebook">
-=======
                 <a href="{{ $webInfos->firstWhere('info_param', 'link_facebook')->info_link }}" target="_bank" class="" title="facebook">
->>>>>>> 56626cb2cd3ff0abb0af8836e5d4dff7d3bb2d3c
                     <img src="/images/facebook icon.png" alt="" class="max-w-[20px]">
                 </a>
                 <a href="{{ $webInfos->firstWhere('info_param', 'link_twitter')->info_link }}" target="_bank" class="" title="twitter">
