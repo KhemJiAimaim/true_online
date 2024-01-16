@@ -46,7 +46,7 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto px-3">
+        <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto">
             <span class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">ค้นหาเบอร์มงคล แพ็กเกจเสริม
                 อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
                 และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
@@ -58,7 +58,7 @@
                 class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center ">
                 @foreach ($menus as $menu)
                     <a href=""
-                        class="w-[350px] max-xl:w-[320px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
+                        class="w-[350px] max-xl:w-[320px] max-xs:w-[300px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
                         <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}"alt="">
 
                         <div class="grid grid-cols-3 mb-2">

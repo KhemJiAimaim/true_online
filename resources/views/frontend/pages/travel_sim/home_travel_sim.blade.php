@@ -71,6 +71,7 @@
                             <div class="swiper-wrapper flex items-center  {{ $justify }}">
                                 @foreach ($travel_sim as $sim)
                                     @if ($sim->travel_cate_id == $cate->id)
+                                    {{-- @dd($travel_sim) --}}
                                         {{-- @for ($i = 0; $i < 2; $i++) --}}
                                             <div class="swiper-slide flex justify-center items-center">
                                                 <div
@@ -90,8 +91,8 @@
                                                                 class="w-full h-full object-contain">
                                                         </div>
                                                     </div>
-
-                                                    <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 ">
+                                                    @if ($cate->id == 22)
+                                                    <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 h-[400px] overflow-scroll overflow-y-auto ">
                                                         <div class=" flex gap-4">
                                                             <img src="/images/travel/majesticons_sim-card-line.png"
                                                                 alt="" class=" w-[26px]">
@@ -225,7 +226,142 @@
                                                         @endif
 
                                                     </div>
+                                                    @else
+                                                    <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 h-[250px] overflow-scroll overflow-y-auto ">
+                                                        <div class=" flex gap-4">
+                                                            <img src="/images/travel/majesticons_sim-card-line.png"
+                                                                alt="" class=" w-[26px]">
+                                                            <p class="text-left text-[16px] 2xl:text-[18px] ">
+                                                                {{ $sim->title }}</p>
+                                                        </div>
+                                                        <div class=" flex gap-4">
+                                                            <img src="/images/travel/quill_calendar.png" alt=""
+                                                                class="w-[26px] h-[26px]">
+                                                            <p class="text-left text-[16px] 2xl:text-[18px] ">
+                                                                {{ $sim->lifetime }} Days</p>
+                                                        </div>
+                                                        @if ($sim->unlimited_5g == true)
+                                                            <div class=" flex gap-4">
+                                                                <img src="/images/travel/tabler_world.png" alt=""
+                                                                    class="w-[26px] h-[26px]">
+                                                                <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited
+                                                                    5G
+                                                                    Internet</p>
+                                                            </div>
+                                                        @else
+                                                            <div class=" flex gap-4">
+                                                                <img src="/images/travel/tabler_world.png" alt=""
+                                                                    class="w-[26px] h-[26px]">
+                                                                <div class="flex flex-col">
+                                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">Free
+                                                                        {{ $sim->lifetime }} Days</p>
+                                                                    <p class="text-left text-sm">
+                                                                        {{ $sim->internet_details }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        @if ($cate->id == 23)
+                                                            <div class=" flex gap-4">
+                                                                <img src="/images/travel/majesticons_coins-line.png"
+                                                                    alt="" class="w-[26px] h-[26px]">
+                                                                <p class="text-left text-[16px] 2xl:text-[18px]">{{ $sim->call_credit }}</p>
+                                                            </div>
+                                                        @else
+                                                            <div class=" flex gap-4 ">
+                                                                <img src="/images/travel/majesticons_coins-line.png"
+                                                                    alt="" class="w-[26px] h-[26px]">
+                                                                <div class="flex flex-col">
+                                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">{{ $sim->call_credit }}</p>
+                                                                    <p class="text-sm">{{$sim->call_credit_details}}</p>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        @if ($cate->id == 23)
+                                                            <div class=" flex gap-4">
+                                                                <img src="/images/travel/icon-park-outline_phone-call.png"
+                                                                    alt="" class="w-[26px] h-[26px]">
+                                                                <p class="text-left text-[16px] 2xl:text-[18px] ">
+                                                                    {{ $sim->free_call }}</p>
+                                                            </div>
+                                                        @else
+                                                            <div class=" flex gap-4">
+                                                                <img src="/images/travel/icon-park-outline_phone-call.png"
+                                                                    alt="" class="w-[26px] h-[26px]">
+                                                                <div class="flex flex-col">
+                                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">
+                                                                        {{ $sim->free_call }}</p>
+                                                                    <p class="text-sm">{{ $sim->free_call_details }}</p>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        @if($sim->free_wifi == true)
+                                                            @php
+                                                                $wifiLabel = ($cate->id == 23) ? 'Unlimited WiFi' : 'Free WiFi';
+                                                                $wifiImage = '/images/travel/arcticons_wifianalyzer.png';
+                                                            @endphp
 
+                                                            <div class="flex gap-4">
+                                                                <img src="{{ $wifiImage }}" alt="" class="w-[26px] h-[26px]">
+                                                                <p class="text-left text-[16px] 2xl:text-[18px]">{{ $wifiLabel }}</p>
+                                                            </div>
+                                                        @endif
+                                                        @if ($sim->free_tiktok)
+                                                            <div class=" flex gap-4">
+                                                                <img src="/images/travel/arcticons_tiktok.png"
+                                                                    alt="" class="w-[26px] h-[26px]">
+                                                                <div class="flex flex-col">
+                                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">
+                                                                        {{ $sim->free_tiktok_details }}</p>
+                                                                    <p class="text-sm"> for TikTok and Douyin</p>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        @if ($sim->free_socials)
+                                                            <div class=" flex gap-4">
+                                                                <img src="/images/travel/like-thumb-hand.png"
+                                                                    alt="" class="w-[26px] h-[26px]">
+                                                                <div class="flex flex-col">
+                                                                    <p class="text-left text-[16px] 2xl:text-[18px] ">Free
+                                                                        14
+                                                                        social apps</p>
+                                                                    <p class="text-left">(no data charges)</p>
+                                                                    <div class="mt-1 grid grid-cols-7 gap-x-2 gap-y-2">
+                                                                        <img src="/images/travel/social/facebook icon.png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector.png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Group 6.png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (1).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Group 7.png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (2).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (3).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (4).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (5).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (6).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (7).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (8).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (9).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                        <img src="/images/travel/social/Vector (10).png"
+                                                                            alt="" class="max-w-[20px]">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
+                                                    </div>
+                                                    @endif
                                                     <div
                                                         class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2 relative">
                                                         <div class="grid grid-cols-3">

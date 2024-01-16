@@ -129,7 +129,7 @@
                                                         </div>
                                                     @endif
                                                 </div>
-                                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden p-4">
+                                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden h-[350px] overflow-scroll overflow-y-auto">
                                                     <div class="orange-plate-container pb-2">
                                                         <div class="orange-plate-line"></div>
                                                         <div class="orange-plate-group">
@@ -161,6 +161,9 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($posts as $pos)
                                                                 @if ($pos->id == $item)
+                                                               
+                                                                    
+                                                                
                                                                     <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
                                                                         <div
                                                                             class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
@@ -173,6 +176,7 @@
                                                                             class="text-start text-[18px] max-md:text-[16px]">
                                                                             {{ $pos->title }}</p>
                                                                     </div>
+                                                                   
                                                                 @endif
                                                             @endforeach
                                                         @endforeach
