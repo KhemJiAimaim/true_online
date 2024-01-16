@@ -36,14 +36,14 @@
 
         @php $j = 1 @endphp
         @foreach ($cates as $cate)
-            <section id="sim" class="py-6 px-3 {!! $bg = $j % 2 == 0 ? 'bg-gray-100 relative' : 'bg-white' !!}">
+            <section id="sim" class="py-6 px-3 {!! $bg = $j % 2 == 0 ? 'bg-gray-100 relative' : 'bg-white' !!} z-[1]">
                 {!! $circle1 =
-                    $j % 2 == 0 ? '<img class="absolute right-0 top-0 z-[1]" src="/images/circle/ci1.png" alt="">' : '' !!}
+                    $j % 2 == 0 ? '<img class="absolute right-0 top-0 z-[-1]" src="/images/circle/ci1.png" alt="">' : '' !!}
 
-                <div class="mb-10">
-                    <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px] font-medium">
+                <div class="mb-10 ">
+                    <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px] z-50 font-medium">
                         {{ $cate->cate_title }}</p>
-                    <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px]">
+                    <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px] z-50">
                         {{ $cate->cate_description }}</p>
                 </div>
                 @if ($cate->id == 17)
@@ -59,7 +59,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px] ss:w-[300px] h-[100%]">
+                                            <div class="drop-shadow-md py-4 w-[350px] max-xs:w-[300px] h-[100%]">
                                                 <div
                                                     class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -101,12 +101,8 @@
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}"
-                                                        class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button id="buyProductNow" data-id="{{ $prepaid->prepaid_sim_id }}"
-                                                        data-type="4" prepaid_id="{{ $prepaid->prepaid_sim_id }}"
-                                                        class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
-
+                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" data-id="{{ $prepaid->prepaid_sim_id }}" data-type="4" prepaid_id="{{ $prepaid->prepaid_sim_id }}" class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -135,7 +131,7 @@
                                     @foreach ($package as $pack)
                                        
                                             <div class="swiper-slide flex justify-center items-center">
-                                                <div class="drop-shadow-md w-[350px] ss:w-[300px] h-[100%]">
+                                                <div class="drop-shadow-md py-4 w-[350px] max-xs:w-[300px] h-[100%]">
                                                     <div
                                                         class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                         {{-- <div class="flex justify-start items-center"> --}}

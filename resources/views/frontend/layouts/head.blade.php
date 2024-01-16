@@ -8,7 +8,7 @@
                 <!-- logo -->
                 <div class="hidden xl:flex">
                     <a href="/" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
-                        <img src="{{ asset('/images/Rectangle 11.png') }}" alt="lago">
+                        <img src="/{{ optional($webInfos->firstWhere('info_param', 'image_1'))->info_link }}" alt="lago">
                     </a>
                 </div>
 

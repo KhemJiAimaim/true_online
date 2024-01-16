@@ -33,31 +33,28 @@ body {
 }
 
 .swiper-button-next {
-    right: 7%;
-    position: absolute;
+    /* right: 7%;
+    position: absolute; */
     color: #000;
 }
 
 .swiper-button-prev {
-    left: 7%;
-    position: absolute;
+    /* left: 7%;
+    position: absolute; */
     color: #000;
     widows: 50px;
-    height: 50px;
 }
 
 .swiper-button-next:after {
     font-size: 25px;
-    margin-left: 60%;
-    margin-top: 50%;
+   
 }
 
 .swiper-button-prev:after {
     font-size: 25px;
-    margin-right: 60%;
-    margin-top: 50%;
+    
 }
-
+/* 
 @media only screen and (max-width: 1280px) {
     .swiper-button-next {
         right: 1% !important;
@@ -100,4 +97,4 @@ body {
         left: 1% !important;
 
     }
-}
+} */

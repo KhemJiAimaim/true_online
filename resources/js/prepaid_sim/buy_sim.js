@@ -9,29 +9,35 @@ box.forEach(element => {
 });
 
 let lastClickedBox = null;
+let productQuantity = null;
 
 function handleBoxClick(box) {
-    if (lastClickedBox) {
-        lastClickedBox.classList.remove('border-gray-500', 'activate');
-        lastClickedBox.classList.add('border-gray-10');
-        // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
-        const checkbox = lastClickedBox.querySelector('.check-box');
-        checkbox.src = '/images/check-one.png';
-    }
-  
-    if (box !== lastClickedBox) {
-        // console.log(box);
-        result_price.innerHTML = box.getAttribute('data-price');
-        box.classList.remove('border-gray-10');
-        box.classList.add('border-gray-500', 'activate');
-        // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
-        const checkbox = box.querySelector('.check-box');
-        checkbox.src = '/images/check-one-active.png';
-        lastClickedBox = box;
-    } else {
-        lastClickedBox = null;
-    }
+  productQuantity = box.getAttribute('data-quantity');
+  // console.log(productQuantity)
+  if (lastClickedBox) {
+    lastClickedBox.classList.remove('border-gray-500', 'activate');
+    lastClickedBox.classList.add('border-gray-10');
+    // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
+    const checkbox = lastClickedBox.querySelector('.check-box');
+    checkbox.src = '/images/check-one.png';
+  }
+
+  if (box !== lastClickedBox) {
+    const quantity_product = document.querySelector('#quantity-product').value = 1;
+    console.log(quantity_product);
+
+    result_price.innerHTML = box.getAttribute('data-price');
+    box.classList.remove('border-gray-10');
+    box.classList.add('border-gray-500', 'activate');
+    // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
+    const checkbox = box.querySelector('.check-box');
+    checkbox.src = '/images/check-one-active.png';
+    lastClickedBox = box;
+  } else {
+    lastClickedBox = null;
+  }
 }
+
 
 
 // ปุ่มบวก_ลบจำนวนสินค้า
@@ -52,7 +58,9 @@ function increment(e) {
   if (btn) {
     const target = btn.previousElementSibling;
     let value = Number(target.value);
-    value++;
+    if(value < productQuantity) {
+      value++;
+    }
     target.value = value;
   }
 }
@@ -142,6 +150,14 @@ quantity_product.addEventListener('input', () => {
   if (!regex.test(quantity_product.value)) {
     quantity_product.value = quantity_product.value.replace(/[^0-9]/g, '');
   }
+
+  const inputQuantity = parseInt(quantity_product.value);
+
+  if (!isNaN(inputQuantity) && inputQuantity > productQuantity) {
+    // ถ้า inputQuantity มากกว่า productQuantity ให้ใส่ productQuantity ลงใน input
+    quantity_product.value = productQuantity;
+  }
+
 });
 
 const btn_buynow = document.querySelector('#buyProductNow');

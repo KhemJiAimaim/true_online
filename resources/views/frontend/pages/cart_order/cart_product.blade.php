@@ -402,8 +402,7 @@
 
             {{-- btn submit --}}
             <div class="mt-5 flex justify-center gap-4 mb-4">
-                <a
-                    class="px-6 py-2 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] hover:bg-gray-500 text-[16px] hover:text-white rounded-[15px] shadow-sm">กลับหน้าหลัก</a>
+                <a href="{{url('/')}}" class="px-6 py-2 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] hover:bg-gray-500 text-[16px] hover:text-white rounded-[15px] shadow-sm">กลับหน้าหลัก</a>
                 <button class="px-3 py-2 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700 text-[16px] shadow-sm"
                     id="submit-buy">ยืนยันการสั่งซื้อ</button>
             </div>

@@ -119,7 +119,7 @@
                                 <div class="swiper-wrapper items-center  mx-auto flex {{ $justify }}">
                                     @foreach ($product_fiber as $fiber)
                                         <div class="swiper-slide flex justify-center items-center  ">
-                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
+                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
                                                 <div
                                                     class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                     <p class="text-white text-left text-[16px]">{{ $fiber->details }}</p>
@@ -250,7 +250,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
+                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                                     <div class="flex justify-start items-center gap-1 ">
@@ -342,7 +342,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
+                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -383,13 +383,13 @@
                                                         </p>
                                                     </div>
                                                 </div>
-
+                                                {{-- @dd($prepaid) --}}
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
                                                     <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}"
                                                         class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button data-id="{{ $i }}"
+                                                    <button data-id="{{ $prepaid->prepaid_sim_id }}"
                                                         data-type="{{ $cate->id }}"
                                                         data-prepaid="{{ $prepaid->prepaid_sim_id }}" id="buyProductNow"
                                                         class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
@@ -419,7 +419,7 @@
                                     @foreach ($travel_sim as $sim)
                                    
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-sm w-[350px]  h-[100%]">
+                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
                                                     <p class="text-white mr-2 text-left text-[16px]">{{ $sim->lifetime }}

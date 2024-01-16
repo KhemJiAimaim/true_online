@@ -4,6 +4,14 @@
         .thumnail {
             @apply opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out;
         }
+
+        .main {
+            height: auto;
+            min-height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            /* overflow-y: auto; */
+        }
     </style>
 @endsection
 @section('title')
@@ -11,7 +19,7 @@
 @endsection
 
 @section('content')
-    <div class=" mt-[8%] max-xs:mt-[15%]  mx-3">
+    <div class=" mt-[8%] max-xs:mt-[15%]  mx-3 lg:h-screen xl:h-auto">
         <div class=" flex justify-center items-center">
             <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
 
@@ -26,13 +34,15 @@
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
-                            <img src="/{{$prepaid_cate->thumbnail_link}}" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                            
-                            @foreach($prepaid_sim as $prepaid)
-                                <img src="/{{$prepaid->thumbnail_link}}" alt="" class="thumnail  w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                            <img src="/{{ $prepaid_cate->thumbnail_link }}" alt=""
+                                class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+
+                            @foreach ($prepaid_sim as $prepaid)
+                                <img src="/{{ $prepaid->thumbnail_link }}" alt=""
+                                    class="thumnail  w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             @endforeach
                         </div>
-                        
+
                         <img id="slideRight" class="arrow absolute right-0 cursor-pointer" src="/images/next.png">
 
                     </div>
@@ -46,10 +56,11 @@
                         class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
                         @php $i = 1; @endphp
                         @foreach ($prepaid_sim as $sim)
-                            <div id="box" data-prepaid="{{ $sim->id }}" data-price="{{ $sim->price }}"
+                            <div id="box" data-quantity="{{$sim->quantity - $sim->quantity_sold}}" data-prepaid="{{ $sim->id }}" data-price="{{ $sim->price }}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8.5rem]  cursor-pointer">
                                 <div class="flex ">
-                                    <img src="/{{ $sim->thumbnail_link }}" alt="" class="w-20 max-ex:w-[70px] mb-1 rounded-lg">
+                                    <img src="/{{ $sim->thumbnail_link }}" alt=""
+                                        class="w-20 max-ex:w-[70px] mb-1 rounded-lg">
                                     <p class="text-lg font-medium ml-2">{{ $sim->title }}</p>
                                 </div>
                                 <div class="flex items-center">
@@ -66,38 +77,42 @@
         </div>
 
         {{-- box package --}}
-        <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6">
-            <div class="">
-                <div class="flex">
-                    <button id="btn-package"
-                        class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
-                        แพ็กเกจ</button>
-                    <button id="btn-condition"
-                        class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
-                </div>
-                {{-- content detail --}}
-                <div id="box-package"
-                    class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                    <div class="w-full lg:w-[400px] text-left Z-[99] my-4 ml-4">
+        <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6  ">
+
+            <div class="flex">
+                <button id="btn-package"
+                    class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
+                    แพ็กเกจ</button>
+                <button id="btn-condition"
+                    class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
+            </div>
+            {{-- content detail --}}
+            <div id="box-package"
+                class="h-[300px]  bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                <div class="h-full overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
+                    <div class="w-full max-lg:w-[290px] text-left Z-[99] my-4 ml-4 ">
                         {!! $prepaid_cate->details_content !!}
                     </div>
                     <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
-                    <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
+
+                    <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] absolute bottom-0 py-1">
                         <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
                     </div>
                 </div>
+            </div>
 
-                {{-- content condition --}}
-                <div id="box-condition"
-                    class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
-                    {!! $prepaid_cate->terms_content !!}
-                </div>
+            {{-- content condition --}}
+            <div id="box-condition"
+                class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
+                {!! $prepaid_cate->terms_content !!}
             </div>
         </div>
         {{-- box package --}}
-    </div>
 
-    <div class="bg-white drop-shadow-md items-center w-full" style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
+
+
+    </div>
+    <div class="bg-white drop-shadow-md items-center w-full " style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
         <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
             <p class="2xl:text-lg">ราคา</p>
             <p id="result-price" class="2xl:text-2xl text-xl font-bold">0</p>
@@ -112,7 +127,7 @@
                     </button>
                     <input type="text" id="quantity-product"
                         class="text-center font-bold w-full bg-white hover:text-black focus:text-black  2xl:text-2xl cursor-default flex items-center text-gray-700 border  border-t-[#838383]  border-b-[#838383] outline-none"
-                        name="custom-input-number" value="1">
+                        name="custom-input-number" value="0">
                     <button id="increment" data-action="increment"
                         class="bg-white text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer border border-[#838383]">
                         <span class="m-auto 2xl:text-2xl">+</span>

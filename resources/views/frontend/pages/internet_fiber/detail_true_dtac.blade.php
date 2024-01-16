@@ -198,15 +198,15 @@
     <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10"
         id="modal-container">
         <div
-            class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-es:h-[500px] max-lg:p-2 p-4 bg-white rounded-[10px]">
+            class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] max-lg:p-2 p-4 bg-white rounded-[10px]">
             <div class="w-full flex justify-end">
                 <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close_modal">
             </div>
             <div class="text-center flex flex-col items-center gap-3">
                 <h1 class="text-xl font-bold mb-4">ข้อกำหนดและเงื่อนไข</h1>
             </div>
-            <div id="modal-content" class="text-left h-[calc(100%-68px)] overflow-auto">
-                {!! $terms_demo !!}
+            <div id="modal-content" class="text-left text-center">
+                <a href="{{ url('/public/upload/terms/termsfiber.pdf')}}" target="_bank" class="text-xl text-[#0d6efd] underline">“แพ็กเกจใหม่ ทรูกิกะเทค โปร สมาร์ทโฮม”</a>
             </div>
         </div>
     </div>

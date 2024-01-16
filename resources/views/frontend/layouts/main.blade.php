@@ -14,7 +14,7 @@
     <meta name="description" content="คำอธิบายเนื้อหาเว็บไซต์" @yield('description')>
     <meta name="keywords" content="true,true online,เบอร์มงคล,fiber" @yield('keywords')>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/x-icon" href="/icons/package.png">
+    <link rel="icon" type="image/x-icon" href="/{{ optional($webInfos->firstWhere('info_param', 'favicon'))->info_link }}">
     {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
     {{-- <script src="https://www.google.com/recaptcha/api.js"></script> --}}
     @yield('style')                                                                                                                                                               
