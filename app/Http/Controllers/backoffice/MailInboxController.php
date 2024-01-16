@@ -22,10 +22,10 @@ class MailInboxController extends Controller
             // ใช้ Collection Map เพื่อทำการแปลงข้อมูล
             $mails = $data->map(function ($d) {
                 if ($d->type_id === 1 && $d->fiber) {
-                    $d->product = $d->fiber;
+                    $d->product = $d->fiber[0];
                     return $d;
                 } elseif ($d->type_id === 2 && $d->move) {
-                    $d->product = $d->move;
+                    $d->product = $d->move[0];
                     return $d;
                 } elseif ($d->type_id === 0) {
                     return $d;

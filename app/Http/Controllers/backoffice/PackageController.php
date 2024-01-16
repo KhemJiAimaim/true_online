@@ -37,6 +37,7 @@ class PackageController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'title' => 'string|required',
+            'cate_type' => 'string|required',
             'priority' => 'numeric|required',
             'pin' => 'boolean|required',
             'display' => 'boolean|required',
@@ -75,6 +76,7 @@ class PackageController extends BaseController
 
         $validator = Validator::make($request->all(), [
             'title' => 'string|required',
+            'cate_type' => 'string|required',
             'priority' => 'numeric|required',
         ]);
 
@@ -91,7 +93,7 @@ class PackageController extends BaseController
                 $this->updatePriority("package_categories", $request->priority);
             }
 
-            $data = $request->only(['title', 'priority']);
+            $data = $request->only(['title', 'cate_type', 'priority']);
             $cateUpdate->update($data);
 
             $packageCates = $this->getPackageCateAll();

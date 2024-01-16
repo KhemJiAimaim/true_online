@@ -17,20 +17,6 @@ class BerLuckyController extends BaseController
     {
 
         $bercates = $this->getBerluckyCateAll();
-        $berproduct = $this->getBerluckyProductAll();
-
-        if ($bercates) {
-            foreach ($bercates as $cate) {
-                $products = array();
-                foreach ($berproduct as $product) {
-                    $cate_ids = explode(',', $product->default_cate);
-                    if (in_array($cate->bercate_id, $cate_ids)) {
-                        $products[] = $product;
-                    }
-                }
-                $cate->products = $products;
-            }
-        }
 
         return response([
             'message' => 'ok',
@@ -38,7 +24,6 @@ class BerLuckyController extends BaseController
             'description' => 'Get Lucky cate success',
             'data' => [
                 'cates' => $bercates,
-                'berproduct' => $berproduct,
                 'maxPriority' => BerproductCategory::max('priority'),
             ]
         ], 200);
