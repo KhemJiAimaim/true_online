@@ -81,15 +81,15 @@
                                         <div class=" flex gap-4">
                                             <img src="/images/travel/majesticons_coins-line.png" alt=""
                                                 class="w-[26px] h-[26px]">
-                                            <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}} THB calling credit for international call</p>
+                                            <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}}</p>
                                         </div>
                                     @else
                                         <div class=" flex gap-4 ">
                                             <img src="/images/travel/majesticons_coins-line.png" alt=""
                                                 class="w-[26px] h-[26px]">
                                             <div class="flex flex-col">
-                                                <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}} Baht call credit</p>
-                                                <p class="text-sm">for local and international calls</p>
+                                                <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}}</p>
+                                                <p class="text-sm text-left">{{$sim->call_credit_details}}</p>
                                             </div>
                                         </div>
                                     @endif
@@ -109,17 +109,15 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @if($sim->travel_cate_id == 23)
-                                        <div class=" flex gap-4">
-                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
-                                                class="w-[26px] h-[26px]">
-                                            <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited WiFi</p>
-                                        </div>
-                                    @else
-                                        <div class=" flex gap-4">
-                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
-                                                class="w-[26px] h-[26px]">
-                                            <p class="text-left text-[16px] 2xl:text-[18px] ">Free WiFi</p>
+                                    @if($sim->free_wifi == true)
+                                        @php
+                                            $wifiLabel = ($cate->id == 23) ? 'Unlimited WiFi' : 'Free WiFi';
+                                            $wifiImage = '/images/travel/arcticons_wifianalyzer.png';
+                                        @endphp
+
+                                        <div class="flex gap-4">
+                                            <img src="{{ $wifiImage }}" alt="" class="w-[26px] h-[26px]">
+                                            <p class="text-left text-[16px] 2xl:text-[18px]">{{ $wifiLabel }}</p>
                                         </div>
                                     @endif
                                     @if($sim->free_tiktok)

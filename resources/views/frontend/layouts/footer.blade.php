@@ -37,10 +37,8 @@
 
             <div class="flex items-center gap-x-4 py-2 px-2">
                 @php 
-                    foreach ($webInfos as $info) {
-                        
-                        # code...
-                    }
+                dd($webInfos)
+                    
                 @endphp
                 <a href="#" class="" title="facebook">
                     <img src="/images/facebook icon.png" alt="" class="max-w-[20px]">
