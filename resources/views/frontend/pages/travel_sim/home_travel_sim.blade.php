@@ -11,7 +11,7 @@
     <div class="2xl:mt-12 mt-6 ">
         <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-4">
             @foreach ($cates as $cate)
-                <a href="/{{ $cate->cate_redirect }}"
+                <a href="/{{ $cate->cate_url }}"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-105 transition-all duration-500 ease-in-out">
                     <img class="w-[54px] h-[54px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
                     <p class="text-[18px] se:text-[16px]">{{ $cate->cate_title }}</p>

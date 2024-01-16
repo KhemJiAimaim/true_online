@@ -20,7 +20,7 @@
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
             <div class="grid grid-cols-7 py-6 se:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
                 @foreach ($cate_fiber as $cate)
-                    <a href="{{ url('/fiber/true_dtac/' . $cate->cate_url) }}"
+                    <a href="{{ url($cate->cate_url) }}"
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                         <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
                             alt="">
@@ -235,7 +235,7 @@
                 </div>
 
                 <div class="items-center mx-auto mt-4 pt-6">
-                    <a href="{{ url('/fiber/true_dtac/' . $cate->cate_url) }}"
+                    <a href="{{ url($cate->cate_url) }}"
                         class="py-2.5 px-5 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
                 </div>
 
