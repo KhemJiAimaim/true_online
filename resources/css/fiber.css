@@ -34,20 +34,20 @@ body {
 }
 
 .swiper-button-next {
-    right: 9%;
+    right: 3%;
     position: absolute;
     color: #000;
     top:auto;
-    height: auto;
+    height: 30rem;
 
 }
 
 .swiper-button-prev {
-    left: 9%;
+    left: 3%;
     position: absolute;
     color: #000;
     widows: 50px;
-    height: auto;
+    height: 30rem;
     top:auto;
 
 }
@@ -64,12 +64,23 @@ body {
     margin-top: 50%;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width:1023px) {
     .swiper-button-next {
-        right: 3% !important;
+        right: 5% !important;
     }
 
     .swiper-button-prev {
-        right: 3% !important;
+        left: 5%!important;
+
+    }
+}
+@media only screen and (max-width:430px) {
+    .swiper-button-next {
+        right:10% !important;
+    }
+
+    .swiper-button-prev {
+        left: 10%!important;
+
     }
 }
