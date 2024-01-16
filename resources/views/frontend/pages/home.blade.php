@@ -50,12 +50,12 @@
         </div>
 
         {{-- --- --}}
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4 px-3 ">
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4  ">
             <div
                 class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center ">
                 @foreach ($menus as $menu)
                     <a href=""
-                        class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
+                        class="w-[350px] max-xl:w-[320px] max-xs:w-[300px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
                         <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}"alt="">
 
                         <div class="grid grid-cols-3 mb-2">
@@ -116,7 +116,7 @@
                                 <div class="swiper-wrapper items-center  mx-auto flex {{ $justify }}">
                                     @foreach ($product_fiber as $fiber)
                                         <div class="swiper-slide flex justify-center items-center  ">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]  h-[100%] py-4">
                                                 <div
                                                     class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                     <p class="text-white text-left text-[16px]">{{ $fiber->details }}</p>
@@ -247,7 +247,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]   h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                                     <div class="flex justify-start items-center gap-1 ">
@@ -339,7 +339,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]   h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -416,7 +416,7 @@
                                     @foreach ($travel_sim as $sim)
                                    
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]  h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
                                                     <p class="text-white mr-2 text-left text-[16px]">{{ $sim->lifetime }}

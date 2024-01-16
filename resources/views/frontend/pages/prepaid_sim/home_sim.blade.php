@@ -129,7 +129,7 @@
                                     @foreach ($package as $pack)
                                        
                                             <div class="swiper-slide flex justify-center items-center">
-                                                <div class="drop-shadow-md py-4 w-[350px] max-xx:w-[330px] max-es:w-[300px]h-[100%]">
+                                                <div class="drop-shadow-md py-4 w-[350px] max-xx:w-[330px] max-es:w-[300px] h-[100%]">
                                                     <div
                                                         class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                         {{-- <div class="flex justify-start items-center"> --}}
