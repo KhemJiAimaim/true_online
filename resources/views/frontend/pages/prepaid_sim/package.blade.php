@@ -35,7 +35,7 @@
         </div>
 
         @foreach ($cate_package as $cate)
-            <section class="flex justify-center items-center my-6 px-3">
+            <section class="flex justify-center items-center my-8 px-4">
                 <div class="drop-shadow-md w-[1536px] mx-auto">
                     <div
                         class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3 ">
