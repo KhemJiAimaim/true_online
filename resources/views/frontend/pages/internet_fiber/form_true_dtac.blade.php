@@ -12,7 +12,7 @@
         }
     </style>
     {{-- &callback=initMap --}}
-    <script async src="http://maps.googleapis.com/maps/api/js?key={{ $key_map }}&callback=initMap"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key={{ $key_map }}&callback=initMap"></script>
     <script>
         var map;
         var geocoder;
