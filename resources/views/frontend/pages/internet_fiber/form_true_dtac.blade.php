@@ -159,7 +159,7 @@
                         <label for="province"
                             class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">จังหวัด</label>
                         <select id="province" name="province"
-                            class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[12rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                            class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[15.5rem] ss:w-[13rem] se:w-[12rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                             <option value="">เลือกจังหวัด</option>
                             @foreach ($provinces as $province)
                                 <option data-id="{{ $province->code }}" value="{{ $province->name_th }}">
@@ -173,7 +173,7 @@
                         <label for="district"
                             class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">อำเภอ/เขต</label>
                         <select id="district" name="district"
-                            class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[12rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                            class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[15.5rem] ss:w-[13rem] se:w-[12rem] focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                             <option value="">เลือกอำเภอ</option>
                         </select>
                     </div>
@@ -187,7 +187,7 @@
                         <label for="sub-district"
                             class="w-32 text-right max-ex:text-left pr-4 font-medium text-gray-700">ตำบล/แขวง</label>
                         <select id="sub-district" name="sub-district"
-                            class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[16rem] ss:w-[13rem] se:w-[12rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
+                            class="max-2xl:w-[22rem] max-xs:w-[16rem] ex:w-[24rem] dm:w-[20rem] lg:w-[23rem] md:w-[17rem] es:w-[15.5rem] ss:w-[13rem] se:w-[12rem]  focus:outline-none focus:ring-2 focus:ring-sky-600  text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md">
                             <option value="">เลือกตำบล</option>
                         </select>
                     </div>
