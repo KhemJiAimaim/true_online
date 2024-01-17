@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    เน็ตบ้านไฟเบอร์อัจฉริยะ
-@endsection
+
 
 @section('description')
 @endsection

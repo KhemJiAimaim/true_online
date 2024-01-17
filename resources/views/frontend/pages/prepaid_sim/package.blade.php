@@ -1,7 +1,4 @@
 @extends('frontend.layouts.main')
-@section('title')
-    แพ็กเกจเสริม
-@endsection
 
 @section('style')
     <style>

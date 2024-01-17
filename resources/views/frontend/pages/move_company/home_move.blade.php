@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช
-@endsection
+
 
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />

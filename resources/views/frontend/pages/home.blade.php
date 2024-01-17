@@ -1,9 +1,4 @@
 @extends('frontend.layouts.main')
-
-@section('title')
-    ทรู คอร์ปอเรชั่น
-@endsection
-
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite('resources/css/home.css')

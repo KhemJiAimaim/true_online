@@ -14,9 +14,6 @@
         }
     </style>
 @endsection
-@section('title')
-    {{ $prepaid_cate->details }}
-@endsection
 
 @section('content')
     <div class=" mt-[8%] max-xs:mt-[15%]  mx-3 lg:h-screen xl:h-auto">

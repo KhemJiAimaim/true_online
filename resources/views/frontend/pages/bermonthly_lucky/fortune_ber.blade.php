@@ -1,7 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title')
-    ทำนายเบอร์
-@endsection
+
 @section('content')
     <div class="text-left mt-[120px] max-xl:mt-[74px]">
 
