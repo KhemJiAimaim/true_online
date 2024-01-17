@@ -22,11 +22,7 @@ class FiberController extends Controller
             ->where('status_display', true)
             ->orderBy('priority')
             ->get();
-            // dd($fiber_products);
-
-
-            
-          
+            // dd($fiber_products);          
 
         return view("frontend.pages.internet_fiber.fiber_home" ,compact('cate_fiber', 'fiber_products','post_benefits'));
     }

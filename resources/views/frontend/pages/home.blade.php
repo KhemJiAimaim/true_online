@@ -46,16 +46,14 @@
 
         {{-- --- --}}
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4  ">
-            <div
-                class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center ">
+            <div class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center ">
                 @foreach ($menus as $menu)
-                    <a href=""
-                        class="w-[350px] max-xl:w-[320px] max-xs:w-[300px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
-                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}"alt="">
+                    <a href="" class="w-[350px] max-xl:w-[320px] max-xs:w-[300px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
+                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}" alt="">
 
                         <div class="grid grid-cols-3 mb-2">
                             <div class="flex justify-center items-center">
-                                <img src="/images/iconoir_internet.png" class="w-14 h-14" alt="">
+                                <img src="{{ $menu->image_link }}" class="w-14 h-14" alt="">
                             </div>
                             <div class="col-span-2">
                                 <p class="text-white text-left font-medium  text-[20px] mt-2 mb-2 ">{{ $menu->title }}</p>
@@ -64,8 +62,6 @@
                         </div>
                     </a>
                 @endforeach
-
-
             </div>
         </div>
         {{-- --- --}}
@@ -345,8 +341,8 @@
                                                 </div>
 
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-4 ">
-                                                        <img src="images/Rectangle 98.png" alt="">
+                                                    <div class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[120px] max-ex:h-[120px]">
+                                                        <img src="/{{ $prepaid->thumbnail_link }}" alt="" class="w-full h-full object-contain">
                                                     </div>
                                                 </div>
 
@@ -417,14 +413,10 @@
                                                     <img class=" absolute right-0 top-0"
                                                         src="/images/circle/Intersect.png" alt="">
                                                 </div>
-                                                {{-- <div
-                                                    class="">
-                                                    <p class="text-white text-left text-[1rem] ">แพ็กเกจยอดนิยม</p>
-                                                    </div> --}}
 
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-4 [h-110px]">
-                                                        <img src="/images/Rectangle 179.png" alt="">
+                                                    <div class="flex justify-center py-4 mx-auto h-[230px] w-[180px] max-es:w-[150px]">
+                                                        <img src="/{{$sim->thumbnail_link}}" alt="" class="w-full h-full object-contain">
                                                     </div>
                                                 </div>
 

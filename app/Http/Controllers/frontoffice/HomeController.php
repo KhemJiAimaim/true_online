@@ -28,13 +28,14 @@ use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
     public function homePage() {
-        $menus = Post::where('category', 'LIKE', '%1%')
-            ->where('pin', true)
-            ->where('status_display', true)
-            ->OrderBy('priority')
-            ->get();
-        $menuImage = PostImage::all();
-        // dd($menuImage);
+        $menus = Post::join('post_images', 'posts.id', '=', 'post_images.post_id')
+            ->where('posts.category', 'LIKE', '%1%')
+            ->where('posts.pin', true)
+            ->where('posts.status_display', true)
+            ->orderBy('posts.priority')
+            ->get(['posts.*', 'post_images.image_link']);
+
+        // dd($menus);
         $cate_home = Category::whereIn('id', [2, 3, 4, 6])
             ->where('cate_status_display', true)
             ->orderBy('cate_priority')
@@ -54,7 +55,7 @@ class HomeController extends Controller
             ->orderBy('priority')
             ->get();
         $travel_sim = TravelSim::where('travel_cate_id', 23)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
-        return view('frontend.pages.home',compact('cate_home','menus', 'menuImage', 'berproducts', 'product_fiber','post_benefits', 'prepaid_cate','travel_sim'));
+        return view('frontend.pages.home',compact('cate_home','menus', 'berproducts', 'product_fiber','post_benefits', 'prepaid_cate','travel_sim'));
     }
 
     public function thankyou()
