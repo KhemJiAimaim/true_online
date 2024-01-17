@@ -22,31 +22,35 @@ class SimController extends Controller
     }
 
     public function sim_includ() {
-        
+
         $prepaid_cate = $this->getPrepaid_product();
         return view("frontend.pages.prepaid_sim.sim_includ", compact('prepaid_cate'));
     }
-    
+
     public function buy_sim($id) {
         $prepaid_cate = PrepaidCategory::where('id',$id)->where('display', true)->where('delete_status', false)->first();
         $prepaid_sim = PrepaidSim::where('prepaid_cate_id', $prepaid_cate->id)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
         return view("frontend.pages.prepaid_sim.buy_sim", compact('prepaid_cate','prepaid_sim'));
     }
 
-    
+
     public function package($type = null) {
-        $cate_package = PackageCategory::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
 
         $css_btnMonth = false;
         $css_btnPaysim = false;
         if($type == "month") {
+
             $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'รายเดือน')->get();
+            $cate_package = PackageCategory::where(['display' => true, 'delete_status' => false, 'cate_type' => 'รายเดือน'])->OrderBy('priority')->get();
             $css_btnMonth = true;
         } else if ($type == "paysim") {
+
             $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'เติมเงิน')->get();
+            $cate_package = PackageCategory::where(['display' => true, 'delete_status' => false, 'cate_type' => 'เติมเงิน'])->OrderBy('priority')->get();
             $css_btnPaysim = true;
         } else {
             $package_product = PackageProduct::where('display', true)->where('delete_status', false)->get();
+            $cate_package = PackageCategory::where(['display' => true, 'delete_status' => false])->OrderBy('priority')->get();
         }
         return view("frontend.pages.prepaid_sim.package", compact('cate_package', 'package_product', 'css_btnMonth','css_btnPaysim'));
     }
@@ -58,13 +62,13 @@ class SimController extends Controller
 
 
     public function getPrepaid_product() {
-        return PrepaidCategory::select('*', 
+        return PrepaidCategory::select('*',
         DB::raw("(SELECT id FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false ORDER BY price ASC LIMIT 1) as prepaid_sim_id"),
         DB::raw("(SELECT MIN(price) FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false) as price"))
             ->where('display', true)
             ->where('delete_status', false)
             ->orderBy('priority')
             ->get();
-        
+
     }
 }
