@@ -251,7 +251,7 @@ class BerLuckyController extends BaseController
     public function productIndex(Request $request)
     {
         $bercates = $this->getBerluckyCateAll();
-        $benefits = $this->getBenefits();
+        $benefits = $this->getLuckyBenefits();
         $products = $this->getBerluckyProductAll();
 
         foreach ($products as $product) {

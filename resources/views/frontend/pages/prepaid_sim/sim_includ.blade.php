@@ -15,7 +15,7 @@
             {{-- มหัศจรรย์ --}}
 
             <div
-                class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 m-auto p-4 2xl:mt-16 mt-6 mb-10 ">
+                class="max-w-[1536px] flex justify-center items-center flex-wrap mx-auto py-12 gap-4 gap-y-6 ">
                 @foreach ($prepaid_cate as $prepaid)
                     <div class="drop-shadow-md w-[350px] max-xl:w-[320px] max-es:w-[300px] h-[100%] mx-auto">
                         <div

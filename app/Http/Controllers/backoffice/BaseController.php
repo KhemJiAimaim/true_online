@@ -104,6 +104,16 @@ class BaseController extends Controller
         return $benefits;
     }
 
+    public function getLuckyBenefits()
+    {
+        $benefits = Post::where('category', 'LIKE', '%' . ',33,' . '%')
+            ->where(['status_display' => 1])
+            ->orderBY('priority', 'ASC')
+            ->get();
+
+        return $benefits;
+    }
+
     public function getPrivileges()
     {
         $privileges = Post::where('category', 'LIKE', '%' . ',9,' . '%')

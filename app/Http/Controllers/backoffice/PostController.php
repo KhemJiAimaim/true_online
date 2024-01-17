@@ -36,6 +36,7 @@ class PostController extends BaseController
         $this->getAuthUser();
         $files = $req->allFiles();
         $params = $req->all();
+        $cateArr = explode(",", $params['category']);
 
         $validator = Validator::make($req->all(), [
             'Thumbnail' => "mimes:jpg,png,jpeg,pdf|max:5000|nullable",
@@ -100,6 +101,13 @@ class PostController extends BaseController
                 PostImage::insert($images);
             }
 
+            if (in_array("33", $cateArr)) {
+                $latestBenefitId = Post::max('lucky_benefit_id');
+                $postCreated->is_lucky_benefit = 1;
+                $postCreated->lucky_benefit_id = $latestBenefitId + 1;
+                $postCreated->save();
+            }
+
             DB::commit();
 
             return response([
@@ -121,6 +129,8 @@ class PostController extends BaseController
         $this->getAuthUser();
         $files = $req->allFiles();
         $params = $req->all();
+        $cateArr = explode(",", $params['category']);
+
         $validator = Validator::make($req->all(), [
             'Thumbnail' => "mimes:jpg,png,jpeg,pdf|max:5000|nullable",
         ]);
@@ -185,6 +195,7 @@ class PostController extends BaseController
                 "thumbnail_title" => $params['ThumbnailTitle'],
                 "thumbnail_alt" => $params['ThumbnailAlt'],
                 "category" => $params['category'],
+                "is_lucky_benefit" => in_array("33", $cateArr) ? 1 : 0,
                 "title" => $params['title'],
                 "keyword" => $params['keyword'],
                 "description" => $params['description'],

@@ -34,6 +34,8 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->text('iframe')->nullable();
             $table->text('category');
+            $table->boolean('is_lucky_benefit')->default(false);
+            $table->integer('lucky_benefit_id')->nullable()->default(NULL);
             $table->text('tags')->nullable();
             $table->text('redirect')->nullable();
             $table->text('link_facebook')->nullable();

@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('package_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('cate_type')->comment('เติมเงิน, รายเดือน');
             $table->integer('priority')->nullable();
             $table->boolean('pin')->default(false);
             $table->boolean('display')->default(true);
