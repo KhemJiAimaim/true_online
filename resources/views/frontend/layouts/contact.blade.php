@@ -95,7 +95,7 @@
     class="modal hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center z-50">
     <div class="modal-content bg-white max-uu:w-4/12 max-xl:w-[60%] max-xx:w-[95%] p-8 rounded-lg">
         <div class="flex justify-end items-center mb-1">
-            <img src="images/cross-round-svgrepo-com.png" alt="" id="closeModal"
+            <img src="/images/cross-round-svgrepo-com.png" alt="" id="closeModal"
                 class="close w-8 cursor-pointer hover:scale-110 ">
         </div>
 
