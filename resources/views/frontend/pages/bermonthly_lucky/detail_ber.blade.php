@@ -1,7 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title')
-    รายละเอียดเบอร์มงคล
-@endsection
+
 @section('style')
 @endsection
 @section('content')

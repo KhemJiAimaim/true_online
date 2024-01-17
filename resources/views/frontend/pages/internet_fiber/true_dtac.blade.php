@@ -1,9 +1,5 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    {{ $current_cate['keyword'] }}
-@endsection
-
 @section('content')
     <div class="2xl:my-16 px-3">
         <div class="overflow-x-scroll 2xl:overflow-hidden overflow-hidden py-2">

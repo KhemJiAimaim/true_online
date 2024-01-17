@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    ตรวจสอบสถานะการจัดส่งสินค้า
-@endsection
+
 
 @section('style')
 @endsection

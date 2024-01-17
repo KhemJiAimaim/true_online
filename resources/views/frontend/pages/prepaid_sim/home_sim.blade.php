@@ -1,8 +1,5 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    เบอร์เติมเงิน
-@endsection
 
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -78,7 +75,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
+                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[120px]">
                                                     <img src="/images/Ellipse 6.png" alt="" class="px-4">
                                                     <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">
                                                         {{ $prepaid->details }}</p>

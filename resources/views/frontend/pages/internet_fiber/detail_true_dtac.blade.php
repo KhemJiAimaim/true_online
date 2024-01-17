@@ -4,9 +4,7 @@
 @endsection
 
 @extends('frontend.layouts.main')
-@section('title')
-    {{ $fiber_products->title }}
-@endsection
+
 @section('title')
 @endsection
 @section('content')

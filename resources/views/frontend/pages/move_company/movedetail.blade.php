@@ -1,7 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title')
-{{$move_product->title}}
-@endsection
+
 @section('style')
     <style>
         .main {

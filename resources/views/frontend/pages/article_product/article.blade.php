@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'วิธีการสั่งซื้อ')
+
 
 @section('content')
 <div class="text-left mt-[120px] max-xl:mt-[74px]">
