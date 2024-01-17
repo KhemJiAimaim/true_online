@@ -272,9 +272,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] ">
+                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[110px] ">
                                                     <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4 ">
+                                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 ">
                                                         {{ $ber->product_comment }}</p>
                                                 </div>
 
