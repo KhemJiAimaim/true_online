@@ -9,8 +9,8 @@
         <div class="bg-[#F8F9FA]">
             <div
                 class="2xl:w-[1536px] max-2xl:max-w-[80%] max-lg:max-w-[80%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col  max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
-                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[25%]">
-                    <div class="bg-white flex flex-col drop-shadow-md rounded-[8px] h-full p-4">
+                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[25%] drop-shadow-md">
+                    <div class="bg-white flex flex-col  rounded-[8px] h-full p-4">
                         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
                         @php $formattedTel = substr($berproduct->product_phone, 0, 3) . '-' . substr($berproduct->product_phone, 3, 3) . '-' . substr($berproduct->product_phone, 6); @endphp
                         <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
@@ -139,7 +139,7 @@
 
 
         {{-- box package --}}
-        @if($berproduct->monthly_status == "yes")
+        @if($berproduct->monthly_status == "yes") 
         <div class="max-w-[1536px] max-2xl:max-w-[80%] mt-10 mx-auto">
             <div class="">
                 <div class="flex">
@@ -204,7 +204,7 @@
         {{-- มหัศจรรย์ --}}
 
         {{-- box meaning ber --}}
-        <div class="max-w-[1536px] max-2xl:max-w-[80%] mx-auto pb-6">
+        <div class="max-w-[1536px] max-2xl:max-w-[80%] mx-auto pb-6 p-4">
             <div class="bg-[#F8F9FA]  rounded-[10px]">
                 <h1 class="text-lg font-semibold mb-1">ผลรวม {{ $data_sumber->predict_sum }} :
                     {{ $data_sumber->predict_name }}</h1>
