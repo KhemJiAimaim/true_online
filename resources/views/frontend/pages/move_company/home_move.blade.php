@@ -59,7 +59,7 @@
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full ">
                             @php
                                 $count = 0;
-                                $justify = 'justify-center max-xl:justify-start';
+                                $justify = 'justify-center max-2xl:justify-start';
 
                                 foreach ($move_product as $product) {
                                     if ($product->move_cate_id == $cate->id) {
@@ -67,8 +67,8 @@
                                         $count++;
                                     }
                                 }
-                                $justify = $count > 3 ? 'justify-start' : $justify;
-                                echo " $count $justify";
+                                $justify = $count > 4 ? 'justify-start' : $justify;
+                                // echo "Total count for fiber_cate_id  $justify";
                             @endphp
                             <div class="swiper-wrapper flex items-center py-4 {{ $justify }}">
                                 @foreach ($move_product as $product)
@@ -76,7 +76,7 @@
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div
-                                                class="drop-shadow-md py-4  w-[480px]  max-xl:w-[350px] max-md:w-[300px] h-[100%] ">
+                                                class="drop-shadow-md py-4 w-[480px]  max-xl:w-[350px] max-md:w-[300px] h-[100%] ">
                                                 <div
                                                     class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                                     <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
@@ -159,9 +159,6 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($posts as $pos)
                                                                 @if ($pos->id == $item)
-                                                               
-                                                                    
-                                                                
                                                                     <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
                                                                         <div
                                                                             class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
@@ -174,7 +171,6 @@
                                                                             class="text-start text-[18px] max-md:text-[16px]">
                                                                             {{ $pos->title }}</p>
                                                                     </div>
-                                                                   
                                                                 @endif
                                                             @endforeach
                                                         @endforeach

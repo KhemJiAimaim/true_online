@@ -119,7 +119,7 @@
                         @if ($s_cate->cate_parent_id == $m_cate->id)
                             <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
                                 <li>
-                                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2 text-[1rem] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
                                 </li>
                             </ul>
                         @endif

@@ -23,7 +23,7 @@ var swiper = new Swiper('.swiper1', {
             // centerSlide: true,
         },
         1280: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             // centerSlide: true,
         },
         1536: {
@@ -58,7 +58,7 @@ var swiper = new Swiper('.swiper2', {
             // centerSlide: true,
         },
         1280: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             // centerSlide: true,
         },
         1536: {
@@ -93,7 +93,7 @@ var swiper = new Swiper('.swiper3', {
             // centerSlide: true,
         },
         1280: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             // centerSlide: true,
         },
         1536: {

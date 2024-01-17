@@ -7,8 +7,8 @@
         <div class="bg-[#F8F9FA]">
             <div
                 class="2xl:w-[1536px] max-2xl:max-w-[80%] max-lg:max-w-[80%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col justify-between max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
-                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[35%]">
-                    <div class="bg-white flex flex-col drop-shadow-md rounded-[8px] h-full p-4">
+                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[35%] drop-shadow-md">
+                    <div class="bg-white flex flex-col  rounded-[8px] h-full p-4">
                         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
                         @php $formattedTel = substr($tel, 0, 3) . '-' . substr($tel, 3, 3) . '-' . substr($tel, 6); @endphp
                         <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
@@ -153,18 +153,18 @@
         <div class="max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[90%] w-[90%] pb-10 mx-auto">
 
             {{-- box meaning sum --}}
-            <div class="bg-[#F8F9FA] p-4 rounded-[10px]">
-                <h1 class="text-lg font-semibold mb-1">ผลรวม {{ $data_sumber->predict_sum }} :
+            <div class="bg-[#F8F9FA] rounded-[10px] ">
+                <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
                     {{ $data_sumber->predict_name }}</h1>
-                <p class="indent-8 text-[16px]">{{ $data_sumber->predict_description }}</p>
+                <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
             </div>
             {{-- box meaning sum --}}
 
             {{-- box meaning ber --}}
-            <h1 class="text-lg font-semibold mt-2 mb-1">เบอร์มังกร</h1>
+            <h1 class="text-lg font-semibold mt-2 mb-1 p-4">เบอร์มังกร</h1>
             @if (count($data_fortune) > 0)
                 @foreach ($data_fortune as $data)
-                    <div class="mb-4">
+                    <div class="mb-4 p-4">
                         <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} :
                             {{ $data->prophecy_name }}</h1>
                         <p class="indent-8 text-[16px]">{{ $data->prophecy_desc }}</p>
