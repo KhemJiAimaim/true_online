@@ -175,7 +175,7 @@
                 {{-- content condition --}}
                 <div id="box-condition"
                     class="hidden bg-[#F8F9FA] min-h-[250px] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] p-6">
-                    เงื่อนไขการได้รับสิทธิพิเศษ ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน
+                    {!! $condition_detail->content !!}
                 </div>
             </div>
         </div>
