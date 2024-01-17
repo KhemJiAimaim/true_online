@@ -32,25 +32,26 @@ class SendOrderDetail extends Mailable
     {
         $dataCustomer = $this->dataCustomer;
         $orderItems = OrderItem::where('order_id', $dataCustomer->id)->get();
+        // dd($orderItems);
         $bermonthly = [];
-        $prepaid_sims = [];
-        $travel_sims = [];
+        // $prepaid_sims = [];
+        // $travel_sims = [];
         foreach($orderItems as $item){
             switch($item->type_id){
                 case 3:
                     $bermonthly[] = BerproductMonthly::where('product_id', $item->product_id)->first();
                     break;
-                case 4:
-                    $prepaid_sims[] = PrepaidSim::find($item->product_id);
-                    break;
-                case 6:
-                    $travel_sims[] = TravelSim::find($item->product_id);
-                    break;
+                // case 4:
+                //     $prepaid_sims[] = PrepaidSim::find($item->product_id);
+                //     break;
+                // case 6:
+                //     $travel_sims[] = TravelSim::find($item->product_id);
+                //     break;
             }
         }
         // dd($prepaid_sims);
         return $this->subject('หมายเลขการสั่งซื้อเลขที่ '.$dataCustomer->order_number)
-            ->markdown('frontend.mail.formorder', compact('orderItems', 'bermonthly', 'prepaid_sims', 'travel_sims'));
+            ->markdown('frontend.mail.formorder', compact('orderItems', 'bermonthly'));
     }
 
     /**

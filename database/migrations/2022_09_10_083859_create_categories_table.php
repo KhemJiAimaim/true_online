@@ -63,7 +63,7 @@ return new class extends Migration
         DB::table('categories')->insert([
             [
                 'id' => 1,
-                'cate_url' => 'หน้าหลัก',
+                'cate_url' => '/',
                 'cate_title' => 'หน้าหลัก',
                 'cate_keyword' => 'home',
                 'cate_description' => '',
@@ -487,7 +487,7 @@ return new class extends Migration
                 'cate_title' => 'เน็ตบ้าน สำหรับธุรกิจ SME',
                 'cate_keyword' => 'True Gigatex PRO SME',
                 'cate_description' => 'เน็ตเร็ว แรง เพื่อธุรกิจ ฟรีค่าโทร พร้อมบริการ Public Fixed IP กับ True Gigatex PRO SME',
-                'cate_redirect' => '/เน็ตบ้านสำหรับsme',
+                'cate_redirect' => 'เน็ตบ้านสำหรับsme',
                 'is_menu' => true,
                 'is_product_cate' => true,
                 'is_topside' => true,

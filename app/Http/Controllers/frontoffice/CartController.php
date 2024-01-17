@@ -93,8 +93,8 @@ class CartController extends Controller
                     $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
                 } 
 
-                // $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
-                // Session::put('cart_list', $cartList);
+                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
+                Session::put('cart_list', $cartList);
             } else if($typeProduct == 6) {
                 $found = false;
 
@@ -114,11 +114,9 @@ class CartController extends Controller
                     ];
                 }
     
-                // $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
-                // Session::put('cart_list', $cartList);
+                $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
+                Session::put('cart_list', $cartList);
             } 
-            $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
-            Session::put('cart_list', $cartList);
     
             return response()->json([
                 'status' => 'success',

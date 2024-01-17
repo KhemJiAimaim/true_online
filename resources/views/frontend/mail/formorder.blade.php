@@ -194,9 +194,9 @@
                                                             @endif
                                                         @endforeach
                                                     @elseif($item->type_id == 4)
-                                                        @if(count($prepaid_sims) > 0)
+                                                        {{-- @if(count($prepaid_sims) > 0)
                                                             @foreach($prepaid_sims as $prepaid)
-                                                            @if($item->product_id == $prepaid->id)
+                                                            @if($item->product_id == $prepaid->id) --}}
                                                                 <tr>
                                                                     <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
                                                                     <table border="0" cellpadding="0" cellspacing="0">
@@ -204,13 +204,13 @@
                                                                             <tr>
                                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
                                                                                 <span>
-                                                                                    <img src="https://drive.google.com/uc?id=1odX1zi12uPVt-_v4Fu9is00s5LhghdXQ" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                                    <img src="{{ url($item->thumbnail) }}" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
                                                                                 </span>
                                                                                 </td>
                                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
                                                                                 <div style="font-size:14px;line-height:120%">
                                                                                     <span style="color:#00aeef;text-decoration:none">ซิมเติมเงิน</span>
-                                                                                    <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$prepaid->title}}</div>
+                                                                                    <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$item->product_name}}</div>
                                                                                 </div>
                                                                                 </td>
                                                                             </tr>
@@ -224,13 +224,13 @@
                                                                     <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                     </td>
                                                                 </tr>
-                                                            @endif
+                                                            {{-- @endif
                                                             @endforeach
-                                                        @endif
+                                                        @endif --}}
                                                     @elseif($item->type_id == 6)
-                                                        @if(count($travel_sims) > 0)
+                                                        {{-- @if(count($travel_sims) > 0)
                                                             @foreach($travel_sims as $travel)
-                                                            @if($item->product_id == $travel->id)
+                                                            @if($item->product_id == $travel->id) --}}
                                                             <tr>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;padding-bottom:8px;vertical-align:top">
                                                                 <table border="0" cellpadding="0" cellspacing="0">
@@ -238,13 +238,13 @@
                                                                         <tr>
                                                                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
                                                                             <span>
-                                                                                <img src="https://drive.google.com/uc?id=1fdwnwzhY7oileVxFbnItyirGFTEt_kZW" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                                <img src="{{ url($item->thumbnail) }}" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
                                                                             </span>
                                                                             </td>
                                                                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
                                                                             <div style="font-size:14px;line-height:120%">
                                                                                 <span style="color:#00aeef;text-decoration:none">ซิมท่องเที่ยว</span>
-                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$travel->title}}</div>
+                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$item->product_name}}</div>
                                                                             </div>
                                                                             </td>
                                                                         </tr>
@@ -258,9 +258,9 @@
                                                                 <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                 </td>
                                                             </tr>
-                                                            @endif
+                                                            {{-- @endif
                                                             @endforeach
-                                                        @endif
+                                                        @endif --}}
                                                     @endif
                                                 @endforeach
 
