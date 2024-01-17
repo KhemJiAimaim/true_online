@@ -401,8 +401,12 @@
                                     alt="">
                                 <div class="grid grid-cols-3">
                                     <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">ราคา</p>
-                                    <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem]  text-2xl">
-                                        {{ number_format($product->product_price) }}</p>
+                                    <p class="flex items-center flex-col">
+                                        @if($product->product_discount > 0)
+                                        <span class="text-gray-100 line-through leading-[2px]">{{ number_format($product->product_price) }}</span>
+                                        @endif
+                                        <span class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] text-2xl">{{ number_format($product->product_price - (($product->product_price * $product->product_discount) / 100 )) }}</span>
+                                    </p>
                                     <p class="text-white text-right 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">บาท</p>
 
                                 </div>

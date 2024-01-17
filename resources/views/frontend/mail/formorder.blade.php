@@ -47,7 +47,7 @@
                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;background-color:#f6f8f9;text-align:center">
                               <div style="font-weight:bold;color:#000000;font-size:16px;line-height:150%">เบอร์มงคลที่ดีที่สุดเพื่อคุณ</div>
                               <div>
-                                <a href="https://www.berhoro.com/" title="www.berhoro.com" style="text-decoration:none;font-size:11px;line-height:150%;color:#9b9b9b"target="_blank">www.simulimited.com</a>
+                                <a href="https://simnetunlimited.com/" title="www.simnetunlimited.com" style="text-decoration:none;font-size:11px;line-height:150%;color:#9b9b9b"target="_blank">www.simulimited.com</a>
                               </div>
                             </td>
                           </tr>
@@ -188,7 +188,10 @@
                                                                 <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
                                                                 </td>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
-                                                                <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                                @if($item->discount > 0)
+                                                                    <div><span style="color : gray; font-size: 12px;text-decoration: line-through;">{{ number_format($item->product_price) }}</span> <span style="font-size:10px;color:#9b9b9b;"> บาท</span> </div>
+                                                                @endif
+                                                                    <div>{{ number_format( $item->product_price - (($item->product_price * $item->discount) / 100 ) ) }} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                 </td>
                                                             </tr>
                                                             @endif
@@ -400,7 +403,7 @@
                                 <div>ขอขอบคุณที่อุดหนุนสินค้าจากเรา</div>
                                 <font color="#888888">
                                     <div style="padding-bottom:50px">
-                                        <a href="https://www.berhoro.com/" style="color:#00aeef;text-decoration:none;line-height:200%" target="_blank" >www.trueonline.com</a>
+                                        <a href="https://simnetunlimited.com/" style="color:#00aeef;text-decoration:none;line-height:200%" target="_blank" >www.simnetunlimited.com</a>
                                     </div>
                                 </font>
                               </td>
