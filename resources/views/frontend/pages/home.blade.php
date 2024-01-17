@@ -236,7 +236,6 @@
 
                             {{-- เบอร์มงคลรายเดือน --}}
                         @elseif($cate->id == 3)
-                           
                             <div class="swiper swiper2 items-center  w-full mx-auto">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
@@ -328,7 +327,6 @@
 
                             {{-- ซิมเติมเงิน --}}
                         @elseif($cate->id == 4)
-                            
                              <div class="swiper swiper3 items-center w-full mx-auto">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
@@ -357,7 +355,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
+                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[120px]">
                                                     <img src="images/Ellipse 6.png" alt="" class="px-4">
                                                     <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">
                                                         {{ $prepaid->details }}</p>

@@ -20,7 +20,7 @@
             <div
                 class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 m-auto p-4 2xl:mt-16 mt-6 mb-10 ">
                 @foreach ($prepaid_cate as $prepaid)
-                    <div class="drop-shadow-md w-[350px] ss:w-[300px] h-[100%] mx-auto">
+                    <div class="drop-shadow-md w-[350px] max-xx:w-[330px] max-es:w-[300px] h-[100%] mx-auto">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
@@ -35,7 +35,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
+                        <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[120px]">
                             <img src="/images/Ellipse 6.png" alt="" class="px-4">
                             <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">{{$prepaid->details}}</div>
 
