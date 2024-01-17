@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    ติดต่อเจ้าหน้าที่
-@endsection
+
 
 @section('style')
     <style>
@@ -102,7 +100,7 @@
 
     <div
         class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 gap-y-2 mt-4 2xl:gap-4 mb-10 px-3">
-        <a href="{{ url('/fiber') }}"
+        <a href="{{ url('/move') }}"
             class="py-2.5 px-12  mb-2 mt-2  text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">กลับหน้าหลัก</a>
         <button id="save-form-data"
             class="py-2.5 px-5  mb-2 mt-2 text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>

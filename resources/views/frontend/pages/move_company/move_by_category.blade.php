@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช
-@endsection
+
 
 @section('content')
     <div class="2xl:mt-16 mt-6">

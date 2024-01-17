@@ -1,7 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title')
-    รายละเอียดเบอร์มงคล
-@endsection
+
 @section('style')
 @endsection
 @section('content')
@@ -141,6 +139,7 @@
 
 
         {{-- box package --}}
+        @if($berproduct->monthly_status == "yes")
         <div class="max-w-[1536px] max-2xl:max-w-[80%] mt-10 mx-auto">
             <div class="">
                 <div class="flex">
@@ -180,6 +179,7 @@
                 </div>
             </div>
         </div>
+        @endif
         {{-- box package --}}
 
         {{-- มหัศจรรย์ --}}

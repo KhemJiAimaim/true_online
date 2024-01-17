@@ -19,7 +19,7 @@ class TravelController extends Controller
     public function travel_sim_byCategory(Request $request) {
         $cates = $this->getCategory();
         $path = $request->path(); 
-        $category = $cates->firstWhere('cate_redirect', $path);
+        $category = $cates->firstWhere('cate_url', $path);
         // dd($category);
         $travel_sim = TravelSim::where('travel_cate_id', $category->id)->where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
         return view("frontend.pages.travel_sim.travel_sim_category", compact('cates','category', 'travel_sim'));

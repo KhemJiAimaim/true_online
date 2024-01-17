@@ -230,7 +230,7 @@ class BerLuckyMonthlyController extends Controller
         $package = Post::whereIn('id', $explodePackage)
                             ->where('category', 'LIKE', '%8%')
                             ->get();
-                            
+        // dd($package);                    
         $data_sumber = $this->get_data_sumber($tel);
         $data_fortune = $this->fortune_tel($tel);
         $score = $this->getscore_fortune($data_fortune);

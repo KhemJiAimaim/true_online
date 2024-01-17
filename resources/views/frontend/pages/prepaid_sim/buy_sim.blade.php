@@ -14,9 +14,6 @@
         }
     </style>
 @endsection
-@section('title')
-    {{ $prepaid_cate->details }}
-@endsection
 
 @section('content')
     <div class=" mt-[8%] max-xs:mt-[15%]  mx-3 lg:h-screen xl:h-auto">
@@ -140,7 +137,7 @@
 
             <div class="flex gap-2 ">
                 <button id="buyProductNow" data-id="{{ $prepaid_cate->id }}" data-type="4"
-                    class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                    class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white text-[16px] focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
                 <button id="addtocart" data-id="{{ $prepaid_cate->id }}" data-type="4"
                     class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">

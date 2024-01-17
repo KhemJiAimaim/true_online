@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-    ย้ายค่ายเบอร์เดิมมาทรูมูฟ เอช
-@endsection
+
 
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -61,7 +59,7 @@
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full ">
                             @php
                                 $count = 0;
-                                $justify = 'justify-center max-xs:justify-start';
+                                $justify = 'justify-center max-xl:justify-start';
 
                                 foreach ($move_product as $product) {
                                     if ($product->move_cate_id == $cate->id) {
@@ -78,7 +76,7 @@
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div
-                                                class="drop-shadow-md py-4 2xl:w-[480px] xl:w-[380px] md:w-[390px] w-[350px] max-md:w-[300px] h-[100%] ">
+                                                class="drop-shadow-md py-4  w-[480px]  max-xl:w-[350px] max-md:w-[300px] h-[100%] ">
                                                 <div
                                                     class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                                     <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
@@ -129,7 +127,7 @@
                                                         </div>
                                                     @endif
                                                 </div>
-                                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden p-4">
+                                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden h-[350px] overflow-scroll overflow-y-auto">
                                                     <div class="orange-plate-container pb-2">
                                                         <div class="orange-plate-line"></div>
                                                         <div class="orange-plate-group">
@@ -161,6 +159,9 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($posts as $pos)
                                                                 @if ($pos->id == $item)
+                                                               
+                                                                    
+                                                                
                                                                     <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
                                                                         <div
                                                                             class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
@@ -173,6 +174,7 @@
                                                                             class="text-start text-[18px] max-md:text-[16px]">
                                                                             {{ $pos->title }}</p>
                                                                     </div>
+                                                                   
                                                                 @endif
                                                             @endforeach
                                                         @endforeach

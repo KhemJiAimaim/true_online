@@ -1,8 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title')
-เบอร์มงคล
-@endsection
+
 
 @section('content')
     <div class=" text-left">
@@ -79,7 +77,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">เบอร์มงคล เบอร์เด็ด เบอร์มังกร เสริมดวง</p>
+                    <h1 class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</h1>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -355,7 +353,7 @@
 
         {{-- result search --}}
         <div class="text-center py-6">
-            <h1 class="2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">แหล่งรวมเบอร์มงคล</h1>
+            <h2 class="2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">แหล่งรวมเบอร์มงคล</h2>
             <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
             <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ count($totalCount) }} เบอร์</p>
         </div>
@@ -391,9 +389,9 @@
                                 </a>
                             </div>
 
-                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 max-dm:h-[80px] h-[100px]">
+                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 max-dm:h-[80px] h-[110px]">
                                 <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1">
-                                <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4">
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4">
                                     {{ $product->product_comment }}</p>
                             </div>
 

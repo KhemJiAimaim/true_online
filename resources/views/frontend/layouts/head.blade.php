@@ -79,14 +79,14 @@
                         $matching_cate = true;
                         $main_list =
                             '<li>
-                                <a href="/' . $m_cate->cate_redirect . '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">หน้าหลัก</a>
+                                <a href="/' . $m_cate->cate_url . '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">หน้าหลัก</a>
                             </li>';
                         break;
                     }
                 }
             @endphp
             <li class=" bg-gray-100 w-full">
-                <a id="menufiber" {{ $href = !$matching_cate ? "href=/$m_cate->cate_redirect" : '' }}
+                <a id="menufiber" {{ $href = !$matching_cate ? "href=/$m_cate->cate_url" : '' }}
                     class="dropbtn w-[95%] flex items-center justify-between py-2 text-[1.2rem] max-sm:text-[16px] hover:text-red-500 ml-5 font-medium">{{ $m_cate->cate_title }}
                     <img id="flip" class="flip w-[20px] mr-5" {!! $flip = $matching_cate ? 'src="/images/icon/down-arrow.png"' : '' !!} alt="">
                 </a>
@@ -96,7 +96,7 @@
                     @foreach ($sub_cate as $s_cate)
                         @if ($s_cate->cate_parent_id == $m_cate->id)
                             <li>
-                                <a href="/{{ $s_cate->cate_redirect }}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                <a href="/{{ $s_cate->cate_url }}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
                             </li>
                         @endif
                     @endforeach
@@ -114,12 +114,12 @@
         <ul class="hidden lg:flex 2xl:flex relative list-none">
             @foreach ($main_cate as $m_cate)
                 <li class="group z-[99] basis-[260px] ">
-                    <a href="{{ url($m_cate->cate_redirect) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
+                    <a href="{{ url($m_cate->cate_url) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
                     @foreach ($sub_cate as $s_cate)
                         @if ($s_cate->cate_parent_id == $m_cate->id)
                             <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
                                 <li>
-                                    <a href="{{ url('/' . $s_cate->cate_redirect) }}" class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2  2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
                                 </li>
                             </ul>
                         @endif

@@ -1,9 +1,4 @@
 @extends('frontend.layouts.main')
-
-@section('title')
-    ทรู คอร์ปอเรชั่น
-@endsection
-
 @section('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite('resources/css/home.css')
@@ -26,7 +21,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container pt-4 px-3">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -35,8 +30,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู คอร์ปอเรชั่น
-                        ผู้นำดิจิทัลไลฟ์สไตล์ครบวงจร</p>
+                    <h1 class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</h1>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -47,18 +41,16 @@
         {{-- มหัศจรรย์ --}}
 
         <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto px-3">
-            <span class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">ค้นหาเบอร์มงคล แพ็กเกจเสริม
-                อินเตอร์เน็ตไฟเบอร์ความเร็วสูงสุด แรงสุด
-                และซิมท่องเทียวในประเทศและต่างประเทศ ที่เหมาะกับคุณได้เลยที่นี่</span>
+            <h2 class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">{{$seo->cate_h2}}</h2>
         </div>
 
         {{-- --- --}}
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4 px-3">
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4  ">
             <div
-                class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center">
+                class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center ">
                 @foreach ($menus as $menu)
                     <a href=""
-                        class="w-[350px] xl:w-[350px] lg:w-[330px]  2xl:w-[450px] md:w-[340px]  se:w-[325px] ss:w-[330px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-3xl drop-shadow-md">
+                        class="w-[350px] max-xl:w-[320px] max-xs:w-[300px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
                         <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}"alt="">
 
                         <div class="grid grid-cols-3 mb-2">
@@ -119,7 +111,7 @@
                                 <div class="swiper-wrapper items-center  mx-auto flex {{ $justify }}">
                                     @foreach ($product_fiber as $fiber)
                                         <div class="swiper-slide flex justify-center items-center  ">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]  h-[100%] py-4">
                                                 <div
                                                     class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                     <p class="text-white text-left text-[16px]">{{ $fiber->details }}</p>
@@ -239,7 +231,6 @@
 
                             {{-- เบอร์มงคลรายเดือน --}}
                         @elseif($cate->id == 3)
-                           
                             <div class="swiper swiper2 items-center  w-full mx-auto">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
@@ -250,7 +241,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]   h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                                     <div class="flex justify-start items-center gap-1 ">
@@ -275,9 +266,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[100px] ">
+                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[110px] ">
                                                     <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                                                    <p class="text-left 2xl:text-[16px] text-[14px] p-2 py-1 col-span-4 ">
+                                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 ">
                                                         {{ $ber->product_comment }}</p>
                                                 </div>
 
@@ -331,7 +322,6 @@
 
                             {{-- ซิมเติมเงิน --}}
                         @elseif($cate->id == 4)
-                            
                              <div class="swiper swiper3 items-center w-full mx-auto">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
@@ -342,7 +332,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]   h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -360,7 +350,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[100px]">
+                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[120px]">
                                                     <img src="images/Ellipse 6.png" alt="" class="px-4">
                                                     <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">
                                                         {{ $prepaid->details }}</p>
@@ -383,16 +373,16 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                {{-- @dd($prepaid) --}}
+
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
                                                     <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}"
                                                         class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button data-id="{{ $prepaid->prepaid_sim_id }}"
-                                                        data-type="{{ $cate->id }}"
-                                                        data-prepaid="{{ $prepaid->prepaid_sim_id }}" id="buyProductNow"
-                                                        class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</button>
+                                                        <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" data-id="{{ $i }}"
+                                                            data-type="{{ $cate->id }}"
+                                                            data-prepaid="{{ $prepaid->prepaid_sim_id }}"
+                                                            class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
 
                                                 </div>
                                             </div>
@@ -419,7 +409,7 @@
                                     @foreach ($travel_sim as $sim)
                                    
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]  h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
                                                     <p class="text-white mr-2 text-left text-[16px]">{{ $sim->lifetime }}
@@ -498,7 +488,7 @@
                 </div>
 
                 <div class="items-center mx-auto mt-4 pt-6">
-                    <a href="{{ url('/' . $cate->cate_redirect) }}"
+                    <a href="{{ url('/' . $cate->cate_url) }}"
                         class="py-2.5 px-5 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ดูทั้งหมด</a>
                 </div>
                 {!! $circle2 !!}

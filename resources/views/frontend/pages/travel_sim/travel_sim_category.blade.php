@@ -6,7 +6,7 @@
     <div class="mt-16">
         <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-4">
             @foreach ($cates as $cate)
-                <a href="/{{ $cate->cate_redirect }}"
+                <a href="/{{ $cate->cate_url }}"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-105 transition-all duration-500 ease-in-out">
                     <img class="w-[54px] h-[54px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
                     <p class="text-[18px] se:text-[16px]">{{ $cate->cate_title }}</p>
@@ -81,15 +81,15 @@
                                         <div class=" flex gap-4">
                                             <img src="/images/travel/majesticons_coins-line.png" alt=""
                                                 class="w-[26px] h-[26px]">
-                                            <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}} THB calling credit for international call</p>
+                                            <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}}</p>
                                         </div>
                                     @else
                                         <div class=" flex gap-4 ">
                                             <img src="/images/travel/majesticons_coins-line.png" alt=""
                                                 class="w-[26px] h-[26px]">
                                             <div class="flex flex-col">
-                                                <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}} Baht call credit</p>
-                                                <p class="text-sm">for local and international calls</p>
+                                                <p class="text-left text-[16px] 2xl:text-[18px] ">{{$sim->call_credit}}</p>
+                                                <p class="text-sm text-left">{{$sim->call_credit_details}}</p>
                                             </div>
                                         </div>
                                     @endif
@@ -109,17 +109,14 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @if($sim->travel_cate_id == 23)
-                                        <div class=" flex gap-4">
-                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
-                                                class="w-[26px] h-[26px]">
-                                            <p class="text-left text-[16px] 2xl:text-[18px] ">Unlimited WiFi</p>
-                                        </div>
-                                    @else
-                                        <div class=" flex gap-4">
-                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt=""
-                                                class="w-[26px] h-[26px]">
-                                            <p class="text-left text-[16px] 2xl:text-[18px] ">Free WiFi</p>
+                                    @if($sim->free_wifi == true)
+                                        @php
+                                            $wifiLabel = ($cate->id == 23) ? 'Unlimited WiFi' : 'Free WiFi';
+                                        @endphp
+
+                                        <div class="flex gap-4">
+                                            <img src="/images/travel/arcticons_wifianalyzer.png" alt="" class="w-[26px] h-[26px]">
+                                            <p class="text-left text-[16px] 2xl:text-[18px]">{{ $wifiLabel }}</p>
                                         </div>
                                     @endif
                                     @if($sim->free_tiktok)
