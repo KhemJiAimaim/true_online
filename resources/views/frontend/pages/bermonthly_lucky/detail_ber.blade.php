@@ -150,7 +150,7 @@
                 </div>
                 {{-- content detail --}}
                 <div id="box-package"
-                    class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] ">
+                    class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                     <div class="p-6">
                         {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
                         @foreach ($package as $pack)
@@ -167,7 +167,7 @@
                         {{-- <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p> --}}
                     </div>
 
-                    <div class="w-full flex justify-center rounded-b-[10px] sticky bottom-0 py-1 ">
+                    <div class="w-full flex justify-center rounded-b-[10px] absolute bottom-0 py-1 ">
                         <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
                     </div>
                 </div>

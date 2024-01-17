@@ -13,9 +13,10 @@
             <div class="plate-line max-w-[200px]"></div>
 
             {{-- มหัศจรรย์ --}}
+            {{-- grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 mx-auto p-4 2xl:mt-16 mt-6 mb-10 --}}
 
             <div
-                class="max-w-[1536px] flex justify-center items-center flex-wrap mx-auto py-12 gap-4 gap-y-6 ">
+                class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 mx-auto py-12 gap-4 gap-y-6 px-4 ">
                 @foreach ($prepaid_cate as $prepaid)
                     <div class="drop-shadow-md w-[350px] max-xl:w-[320px] max-es:w-[300px] h-[100%] mx-auto">
                         <div
