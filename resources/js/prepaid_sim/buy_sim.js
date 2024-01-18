@@ -4,27 +4,32 @@ const result_price = document.querySelector('#result-price');
 const box = document.querySelectorAll('#box');
 box.forEach(element => {
   element.addEventListener('click', () => {
+    console.log(element)
     handleBoxClick(element);
   })
 });
 
 let lastClickedBox = null;
 let productQuantity = null;
+let imgElement = null;
 
 function handleBoxClick(box) {
   productQuantity = box.getAttribute('data-quantity');
-  // console.log(productQuantity)
+  imgElement = box.querySelector('img');
+  document.getElementById('featured').src = imgElement.src;
+
+  // console.log(imgElement)
+  // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
   if (lastClickedBox) {
     lastClickedBox.classList.remove('border-gray-500', 'activate');
     lastClickedBox.classList.add('border-gray-10');
-    // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
     const checkbox = lastClickedBox.querySelector('.check-box');
     checkbox.src = '/images/check-one.png';
   }
 
   if (box !== lastClickedBox) {
     const quantity_product = document.querySelector('#quantity-product').value = 1;
-    console.log(quantity_product);
+    // console.log(quantity_product);
 
     result_price.innerHTML = box.getAttribute('data-price');
     box.classList.remove('border-gray-10');
@@ -79,17 +84,45 @@ incrementButtons.addEventListener("click", increment);
 
 let thumbnails = document.getElementsByClassName('thumnail');
 let activeImages = document.getElementsByClassName('active');
+let slideImage = document.querySelectorAll('.thumnail');
 
 for (var i = 0; i < thumbnails.length; i++) {
-    thumbnails[i].addEventListener('mouseover', function () {
-        if (activeImages.length > 0) {
-            activeImages[0].classList.remove('active');
-        }
+  thumbnails[i].addEventListener('mouseover', function () {
+    if (activeImages.length > 0) {
+      activeImages[0].classList.remove('active');
+    }
 
-        this.classList.add('active');
-        document.getElementById('featured').src = this.src;
+    this.classList.add('active');
+    document.getElementById('featured').src = this.src;
+  });
+
+  thumbnails[i].addEventListener('mouseout', function () {
+    // เมื่อเอาเมาส์ออก
+    if (imgElement) {
+      document.getElementById('featured').src = imgElement.src;
+    }
+
+    this.classList.remove('active');
+
+    
+    // console.log(slideImage)
+    slideImage.forEach(prepaidThumbnail => {
+      if (prepaidThumbnail.getAttribute('data-prepaid') === imgElement.getAttribute('data-id')) {
+        prepaidThumbnail.classList.add('active');
+      }
     });
+  });
 }
+
+slideImage.forEach(element => {
+  element.addEventListener('click', () => {
+    const dataPrepaidImg = element.getAttribute('data-prepaid');
+    const box = document.querySelector(`#box[data-prepaid="${dataPrepaidImg}"]`);
+    handleBoxClick(box);
+  })
+});
+
+
 
 let buttonRight = document.getElementById('slideRight');
 let buttonLeft = document.getElementById('slideLeft');
