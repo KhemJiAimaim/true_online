@@ -68,11 +68,6 @@ class FiberController extends BaseController
             return $this->sendErrorValidators('Invalid params', $validator->errors());
         }
 
-        // return response([
-        //     'formData' => $request->all(),
-        // ], 200);
-
-
         try {
             DB::beginTransaction();
 

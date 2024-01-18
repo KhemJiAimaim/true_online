@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\backoffice;
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('backoffice/v1')->group(function () {
@@ -88,7 +89,6 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::get('shippingdata', [OrderController::class, 'shippingData']);
             Route::put('update/{order_id}', [OrderController::class, 'updateOrderAdmin']);
             Route::delete('delete/{order_id}', [OrderController::class, 'deleteOrder']);
-
         });
 
         /* ProductController */
@@ -116,6 +116,15 @@ Route::prefix('backoffice/v1')->group(function () {
             /* Excel */
             Route::post('importexcel', [ExcelController::class, 'excelImportBer']);
             Route::get('exportexcel', [ExcelController::class, 'excelExportBer']);
+
+            /* Lucky Package */
+            Route::prefix('package/')->group(function () {
+                Route::get('data', [BerLuckyController::class, 'packageIndex']);
+                Route::post('create', [BerLuckyController::class, 'createPackage']);
+                Route::post('update/{id}', [BerLuckyController::class, 'updatePackage']);
+
+                Route::delete('delete/{id}', [BerLuckyController::class, 'deletePackage']);
+            });
         });
 
         /* Prediction */
@@ -139,7 +148,6 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::get('sumber/data', [BerpredictController::class, 'sumberIndex']);
             Route::patch('sumber/updatepin/{id}', [BerpredictController::class, 'updatePinSumber']);
             Route::post('sumber/update/{id}', [BerpredictController::class, 'updatePredictSumber']);
-
         });
 
         // Fiber

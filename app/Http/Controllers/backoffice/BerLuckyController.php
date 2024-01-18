@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backoffice;
 
 use App\Http\Controllers\Controller;
+use App\Models\BerluckyPackage;
 use App\Models\BerproductCategory;
 use App\Models\BerproductMonthly;
 use Exception;
@@ -507,6 +508,152 @@ class BerLuckyController extends BaseController
         }
     }
 
+
+
+    /* Lucky Package */
+    public function packageIndex(Request $request)
+    {
+        $packages = BerluckyPackage::where('delete_status', 0)
+            ->orderBy('updated_at', 'DESC')
+            ->orderBy('priority', 'ASC')
+            ->get();
+
+        return response([
+            'message' => 'ok',
+            'status' => true,
+            'description' => 'Get Lucky packages success',
+            'data' => [
+                'packages' => $packages,
+                'maxPriority' => BerluckyPackage::max('priority'),
+            ]
+        ], 200);
+    }
+
+    public function createPackage(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'price_per_month' => 'numeric|required',
+            'call_credit' => 'numeric|required',
+            'internet_volume' => 'string|nullable',
+            'internet_speed' => 'string|nullable',
+            'priority' => 'numeric|required',
+            'benefit_ids' => 'string|nullable',
+            'language' => 'string|nullable',
+            'display' => 'nullable',
+
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $this->updatePriority("berlucky_packages", $request->priority);
+
+            BerluckyPackage::create($request->only(['price_per_month', 'internet_volume', 'call_credit', 'internet_speed', 'priority', 'benefit_ids', 'display']));
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Berlucky package has been created successflully',
+            ], 201);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'error',
+                'status' => false,
+                'description' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updatePackage(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'price_per_month' => 'numeric|required',
+            'call_credit' => 'numeric|required',
+            'internet_volume' => 'string|nullable',
+            'internet_speed' => 'string|nullable',
+            'priority' => 'numeric|required',
+            'benefit_ids' => 'string|nullable',
+            'display' => 'nullable',
+
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $package = BerluckyPackage::find($id);
+
+            if (!$package) {
+                return response([
+                    'message' => 'error',
+                    'status' => false,
+                    'description' => 'Package not found!'
+                ], 404);
+            }
+
+            if ($package->priority != $request->priority) {
+                $this->updatePriority("berlucky_packages", $request->priority);
+            }
+
+            $package->update([
+                'price_per_month' => $request->price_per_month,
+                'internet_speed' => $request->internet_speed,
+                'internet_volume' => $request->internet_volume,
+                'call_credit' => $request->call_credit,
+                'benefit_ids' => $request->benefit_ids,
+                'display' => $request->display,
+                'priority' => $request->priority,
+
+                'updated_at' => now(),
+            ]);
+
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Berlucky package has been updated successflully',
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'error',
+                'status' => false,
+                'description' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function deletePackage(Request $request, $id)
+    {
+        try {
+
+            $product = BerluckyPackage::findOrFail($id);
+            $product->update(['delete_status' => 1]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Berlucky package has been deleted successfully',
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
 
 
 
