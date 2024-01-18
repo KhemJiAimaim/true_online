@@ -13,14 +13,14 @@ box.forEach(element => {
 
 
 function handleBoxClick(box) {
-  // console.log(lastClickedBox)
-  if (lastClickedBox) {
-    // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
-    lastClickedBox.classList.remove('border-gray-500', 'activate');
-    lastClickedBox.classList.add('border-gray-10');
-    const checkbox = lastClickedBox.querySelector('.check-box');
-    checkbox.src = '/images/check-one.png';
-  }
+  console.log(box)
+  // if (lastClickedBox) {
+  //   // แก้ไขรูปภาพ checkbox เป็นรูปภาพปกติ
+  //   lastClickedBox.classList.remove('border-gray-500', 'activate');
+  //   lastClickedBox.classList.add('border-gray-10');
+  //   const checkbox = lastClickedBox.querySelector('.check-box');
+  //   checkbox.src = '/images/check-one.png';
+  // }
 
   if (box !== lastClickedBox) {
     // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active

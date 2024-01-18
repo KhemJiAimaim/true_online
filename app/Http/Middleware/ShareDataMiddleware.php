@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Controllers\Controller;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -11,7 +12,7 @@ use App\Models\Category;
 use App\Models\AdSlide;
 use App\Models\WebInfo;
 
-class ShareDataMiddleware
+class ShareDataMiddleware extends Controller
 {
     /**
      * Handle an incoming request.
@@ -24,12 +25,9 @@ class ShareDataMiddleware
     {
         $path = urldecode($request->path());
         $seo = Category::where('cate_url', $path)->first();
-        // dd($path);
-        $webInfos = Cache::remember('web_infos', 3600, function () {
-            return WebInfo::whereIn('info_type', [1, 2])
-                ->where('info_display', true)
-                ->get();
-        });
+    
+        $infos = $this->getWebInfo('', '');
+        $webInfo = $this->infoSetting($infos);
 
         $query_main_cate = Category::where('id', "!=", 1)->where('is_menu', true)->where('is_topside', true)->where('cate_parent_id', 0)->where('cate_status_display', true)->OrderBy('cate_priority')->get();
         $main_cate['id_main'] = $query_main_cate->pluck('id')->toArray();
@@ -45,7 +43,7 @@ class ShareDataMiddleware
         
         // Sharing is caring
         View::share('seo', $seo);
-        View::share('webInfos', $webInfos);
+        View::share('webInfo', $webInfo);
         View::share('main_cate', $query_main_cate);
         View::share('sub_cate', $query_sub_cate);
         View::share('menu_footer', $menu_footer);

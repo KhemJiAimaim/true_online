@@ -4,11 +4,11 @@
     <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">
-
+               
                 <!-- logo -->
                 <div class="hidden xl:flex">
                     <a href="/" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
-                        <img src="/{{ optional($webInfos->firstWhere('info_param', 'image_1'))->info_link }}" alt="lago">
+                        <img src="/{{ $webInfo->detail->image_1->link }}" alt="lago">
                     </a>
                 </div>
 

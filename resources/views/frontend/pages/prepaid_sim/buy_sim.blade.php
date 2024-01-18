@@ -22,26 +22,20 @@
 
                 <div class="bg-white w-full 2xl:h-[500px]  items-center px-4 lg:px-1 mb-6 relative">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2">
-                        <img id="featured" src="/{{ $prepaid_cate->thumbnail_link }}" alt=""
-                            class="max-ex:w-[250px] max-ex:h-[250px] w-[370px] cursor-pointer pb-4">
+                        <img id="featured" src="/{{ $prepaid_cate->thumbnail_link }}" alt="" class="max-ex:w-[250px] max-ex:h-[250px] w-[370px] cursor-pointer pb-4">
                     </div>
                     <div id="slide-wrapper" class="flex  items-center">
-
-
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
 
                         <div id="slider" class="flex gap-4 overflow-x-hidden mx-4 ">
-                            <img src="/{{ $prepaid_cate->thumbnail_link }}" alt=""
-                                class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-
+                            {{-- <img src="/{{ $prepaid_cate->thumbnail_link }}" alt="" class="thumnail active w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out"> --}}
+                            {{-- @dd($prepaid_cate) --}}
                             @foreach ($prepaid_sim as $prepaid)
-                                <img src="/{{ $prepaid->thumbnail_link }}" alt=""
-                                    class="thumnail  w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                <img src="/{{ $prepaid->thumbnail_link }}" data-prepaid="{{$prepaid->id}}" alt="" class="thumnail w-[100px] h-[100px] cursor-pointer rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                             @endforeach
                         </div>
 
                         <img id="slideRight" class="arrow absolute right-0 cursor-pointer" src="/images/next.png">
-
                     </div>
                 </div>
 
@@ -50,20 +44,20 @@
                     <div class="flex justify-center border-l border border-gray-500 text-center  rounded-full px-2"></div>
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     <div
-                        class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
-                        @php $i = 1; @endphp
+                        class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[320px] h-[280px] w-full">
+                        @php $i = 1;
+                            // dd($prepaid_sim)
+                        @endphp
                         @foreach ($prepaid_sim as $sim)
                             <div id="box" data-quantity="{{$sim->quantity - $sim->quantity_sold}}" data-prepaid="{{ $sim->id }}" data-price="{{ $sim->price }}"
                                 class="box border border-gray-10 hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 h-[8.5rem]  cursor-pointer">
                                 <div class="flex ">
-                                    <img src="/{{ $sim->thumbnail_link }}" alt=""
-                                        class="w-20 max-ex:w-[70px] mb-1 rounded-lg">
+                                    <img src="/{{ $sim->thumbnail_link }}" data-id="{{ $sim->id }}" alt="" class="w-20 max-ex:w-[70px] mb-1 rounded-lg">
                                     <p class="text-lg font-medium ml-2">{{ $sim->title }}</p>
                                 </div>
                                 <div class="flex items-center">
                                     <img src="/images/check-one.png" alt="" class="check-box w-10 ">
-                                    <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] text-red-600">
-                                        {{ $sim->price }}</p>
+                                    <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] text-red-600">{{ $sim->price }}</p>
                                     <p class="2xl:text-lg font-medium ml-2">บาท</p>
                                 </div>
                             </div>
