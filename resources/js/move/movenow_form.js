@@ -65,11 +65,13 @@ btnSavedata.addEventListener("click", () => {
             if (res.status === 201) {
                 Swal.fire({
                     icon: "success",
-                    title: "ส่งข้อความสำเร็จ",
-                    text: "ท่านจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาที",
+                    title: "เราได้รับข้อมูลของคุณเรียบร้อยแล้ว",
+                    text: "คุณจะได้รับการติดต่อกลับจากเจ้าหน้าที่ ภายใน 30 นาท",
                     showConfirmButton: false,
                     timer: 2500,
-                }).then(() => window.location.reload());
+                }).then(() => {
+                    window.location.href = "/move";
+                });
             } else {
                 Swal.fire({
                     icon: "error",

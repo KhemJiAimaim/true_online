@@ -227,15 +227,18 @@ class BerLuckyMonthlyController extends Controller
     public function detailber_page($tel) {
         $berproduct = BerproductMonthly::where('product_phone', $tel)->first();
         $explodePackage = explode(',', $berproduct->product_package);
-        $package = Post::whereIn('id', $explodePackage)
-                            ->where('category', 'LIKE', '%8%')
+        $package = Post::whereIn('lucky_benefit_id', $explodePackage)
+                            ->where('category', 'LIKE', '%33%')
+                            ->where('status_display', 1)
                             ->get();
-        // dd($package);                    
+                            
+        $condition_detail = Post::where('category', 'LIKE', '%32%')->orWhere('slug', 'ck_เงื่อนไขเบอร์มงคล')->first();
+        // dd($condition_detail);                    
         $data_sumber = $this->get_data_sumber($tel);
         $data_fortune = $this->fortune_tel($tel);
         $score = $this->getscore_fortune($data_fortune);
 
-        return view('frontend.pages.bermonthly_lucky.detail_ber', compact('berproduct', 'package', 'data_sumber', 'data_fortune', 'score'));
+        return view('frontend.pages.bermonthly_lucky.detail_ber', compact('berproduct', 'package', 'data_sumber', 'data_fortune', 'score', 'condition_detail'));
     }
 
     public function fortune_page($tel) {

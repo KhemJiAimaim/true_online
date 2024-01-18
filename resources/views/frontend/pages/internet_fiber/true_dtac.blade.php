@@ -30,7 +30,7 @@
 
             <div class="2xl:my-16 my-6 z-2">
                 <div
-                    class="max-w-[1536px] my-0 mx-auto grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  grid-cols-1 items-center gap-x-6 gap-y-6">
+                    class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 mx-auto py-12 gap-4 gap-y-6 px-4">
                     @foreach ($fiber_products as $product)
                         {{-- @for ($i = 1; $i <= 10; $i++) --}}
                         <div class="drop-shadow-md flex justify-center">

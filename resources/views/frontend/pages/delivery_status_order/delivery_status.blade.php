@@ -84,7 +84,7 @@
                                             <td class="whitespace-nowrap  px-6 py-4 text-[16px] flex flex-col">
                                                 @foreach ($order->orderItems as $item)
                                                     @if ($item['type_id'] === 3)
-                                                        <div>{{ $item->product_detail['product_phone'] }}</div>
+                                                        <div>{{ $item['product_name'] }}</div>
                                                     @elseif ($item['type_id'] === 4)
                                                         <div>ซิมเติมเงิน</div>
                                                     @elseif ($item['type_id'] === 6)

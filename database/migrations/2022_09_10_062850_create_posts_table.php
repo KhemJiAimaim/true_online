@@ -661,6 +661,28 @@ return new class extends Migration
                 'date_begin_display' => '2023-11-11 08:30:00',
                 'date_end_display' => '2032-11-11 08:30:00',
             ],
+            [
+                'id' => 28,
+                'language' => 'th',
+                'slug' => 'ck_เงื่อนไขเบอร์มงคล',
+                'title' => 'ck_เงื่อนไขเบอร์มงคล',
+                'keyword' => 'ck_เงื่อนไขเบอร์มงคล',
+                'description' => 'ck_เงื่อนไขเบอร์มงคล',
+                'content' => '<p>ck_เงื่อนไขเบอร์มงคล แก้ไขได้ที่หน้าบทความแล้วเลือกเมนู <strong>เงื่อนไขเบอร์มงคล </strong>หรือ<strong>&nbsp;</strong>Tab <strong>ปักหมุด</strong></p>',
+                'category' => ',32,',
+                'status_display' => true,
+                'defaults' => true,
+                'pin' => false,
+                'is_maincontent' => true,
+                'thumbnail_title' => '',
+                'thumbnail_link' => '',
+                'priority' => 28,
+                'iframe' => '',
+                'redirect' => null,
+                'freetag' => '',
+                'date_begin_display' => '2023-11-11 08:30:00',
+                'date_end_display' => '2032-11-11 08:30:00',
+            ],
         ]);
     }
 

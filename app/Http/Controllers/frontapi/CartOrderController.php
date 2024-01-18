@@ -107,6 +107,7 @@ class CartOrderController extends Controller
                     'product_cate_id' => null,
                     'product_name' => $ber->product_phone,
                     'product_id' => $bermonthly['product_id'],
+                    'thumbnail' => null,
                     'product_price' => $bermonthly['product_price'],
                     'discount' => $bermonthly['product_discount'],
                     'quantity' => 1,
@@ -151,11 +152,12 @@ class CartOrderController extends Controller
                 ];
             }
         }
+
         try {
             DB::beginTransaction();
-
+            
             OrderItem::insert($orderItems);
-
+            
             DB::commit();
             return response([
                 'message' => 'ok',

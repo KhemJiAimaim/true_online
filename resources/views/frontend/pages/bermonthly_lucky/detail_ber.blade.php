@@ -9,8 +9,8 @@
         <div class="bg-[#F8F9FA]">
             <div
                 class="2xl:w-[1536px] max-2xl:max-w-[80%] max-lg:max-w-[80%] max-xs:max-w-[80%] py-10 mx-auto flex max-xs:flex-col  max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
-                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[25%]">
-                    <div class="bg-white flex flex-col drop-shadow-md rounded-[8px] h-full p-4">
+                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[25%] drop-shadow-md">
+                    <div class="bg-white flex flex-col  rounded-[8px] h-full p-4">
                         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
                         @php $formattedTel = substr($berproduct->product_phone, 0, 3) . '-' . substr($berproduct->product_phone, 3, 3) . '-' . substr($berproduct->product_phone, 6); @endphp
                         <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
@@ -139,7 +139,7 @@
 
 
         {{-- box package --}}
-        @if($berproduct->monthly_status == "yes")
+        @if($berproduct->monthly_status == "yes") 
         <div class="max-w-[1536px] max-2xl:max-w-[80%] mt-10 mx-auto">
             <div class="">
                 <div class="flex">
@@ -150,7 +150,7 @@
                 </div>
                 {{-- content detail --}}
                 <div id="box-package"
-                    class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] ">
+                    class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                     <div class="p-6">
                         {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
                         @foreach ($package as $pack)
@@ -167,7 +167,7 @@
                         {{-- <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p> --}}
                     </div>
 
-                    <div class="w-full flex justify-center rounded-b-[10px] sticky bottom-0 py-1 ">
+                    <div class="w-full flex justify-center rounded-b-[10px] absolute bottom-0 py-1 ">
                         <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
                     </div>
                 </div>
@@ -204,16 +204,16 @@
         {{-- มหัศจรรย์ --}}
 
         {{-- box meaning ber --}}
-        <div class="max-w-[1536px] max-2xl:max-w-[80%] mx-auto pb-6">
+        <div class="max-w-[1536px] max-2xl:max-w-[80%] mx-auto pb-6 p-4">
             <div class="bg-[#F8F9FA]  rounded-[10px]">
-                <h1 class="text-lg font-semibold mb-1">ผลรวม {{ $data_sumber->predict_sum }} :
+                <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
                     {{ $data_sumber->predict_name }}</h1>
-                <p class="indent-8 text-[16px]">{{ $data_sumber->predict_description }}</p>
+                <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
             </div>
 
-            <h1 class="text-lg font-semibold mt-2 mb-1">เบอร์มังกร</h1>
+            <h1 class="text-lg font-semibold mt-2 mb-1 p-4">เบอร์มังกร</h1>
             @foreach ($data_fortune as $data)
-                <div class="mb-4">
+                <div class="mb-4 p-4">
                     <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} : {{ $data->prophecy_name }}
                     </h1>
                     <p class="indent-8 text-[16px]">{{ $data->prophecy_desc }}</p>
