@@ -139,7 +139,7 @@
 
 
         {{-- box package --}}
-        @if($berproduct->monthly_status == "yes") 
+        @if($berproduct->monthly_status == "yes")
         <div class="max-w-[1536px] max-2xl:max-w-[80%] mt-10 mx-auto">
             <div class="">
                 <div class="flex">
@@ -153,13 +153,13 @@
                     class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                     <div class="p-6">
                         {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
-                        @foreach ($package as $pack)
+                        @foreach ($benefits as $benefit)
                             <div class="flex gap-2 mb-2 ">
                                 <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-                                    <img class="w-[60px] h-[60px]" src="/{{ $pack->thumbnail_link }}" alt="">
+                                    <img class="w-[60px] h-[60px]" src="/{{ $benefit->thumbnail_link }}" alt="">
                                 </div>
                                 <div class="">
-                                    <p>{{ $pack->title }}</p>
+                                    <p>{{ $benefit->title }}</p>
                                 </div>
                             </div>
                         @endforeach

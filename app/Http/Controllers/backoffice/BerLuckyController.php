@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\backoffice;
 
-use App\Http\Controllers\Controller;
-use App\Models\BerluckyPackage;
 use App\Models\BerproductCategory;
 use App\Models\BerproductMonthly;
+use App\Models\BerluckyPackage;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Cache;
 
 class BerLuckyController extends BaseController
 {
@@ -25,6 +25,7 @@ class BerLuckyController extends BaseController
             'description' => 'Get Lucky cate success',
             'data' => [
                 'cates' => $bercates,
+                // 'berproduct' => $berproduct,
                 'maxPriority' => BerproductCategory::max('priority'),
             ]
         ], 200);
@@ -251,14 +252,12 @@ class BerLuckyController extends BaseController
     /* Product */
     public function productIndex(Request $request)
     {
-        $bercates = $this->getBerluckyCateAll();
-        $benefits = $this->getLuckyBenefits();
-        $products = $this->getBerluckyProductAll();
+        // cache()->flush();
+        // session()->forget('berlucky_products');
 
-        foreach ($products as $product) {
-            $default_cate = explode(",", $product->default_cate);
-            $product->default_cate = $default_cate;
-        }
+        $bercates = $this->getBerluckyCateAll();
+        $packages = $this->getLuckyPackage();
+        $products = $this->getBerluckyProductAll();
 
         return response([
             'message' => 'ok',
@@ -267,7 +266,7 @@ class BerLuckyController extends BaseController
             'data' => [
                 'products' => $products,
                 'cates' => $bercates,
-                'benefits' => $benefits,
+                'packages' => $packages,
             ]
         ], 200);
     }
@@ -282,7 +281,7 @@ class BerLuckyController extends BaseController
             'product_discount' => 'numeric|nullable',
             'product_phone' => 'string|required',
             'product_comment' => 'string|nullable',
-            'product_package' => 'string|nullable',
+            'product_package' => 'numeric|nullable',
             'default_cate' => 'string|nullable',
             'product_pin' => 'string|required',
             'monthly_status' => 'string|required',
@@ -318,6 +317,7 @@ class BerLuckyController extends BaseController
 
             // generate product_category
             $this->getProductByCategory($newProduct);
+            // $products = $this->getBerluckyProductAll();
 
             DB::commit();
             return response([
@@ -346,9 +346,9 @@ class BerLuckyController extends BaseController
             'product_price' => 'numeric|required',
             'product_sumber' => 'numeric|required',
             'product_discount' => 'numeric|nullable',
+            'product_package' => 'numeric|nullable',
             'product_phone' => 'string|required',
             'product_comment' => 'string|nullable',
-            'product_package' => 'string|nullable',
             'default_cate' => 'string|nullable',
 
         ]);
@@ -376,7 +376,9 @@ class BerLuckyController extends BaseController
                 'product_improve' => $generated['product_improve'],
             ]);
 
-            $updated = BerproductMonthly::where('product_id', $id)->first();
+            $updated = BerproductMonthly::where('product_id', $id)
+                ->orWhere('product_phone', $request->product_phone)
+                ->first();
 
             // generate product_category
             $this->getProductByCategory($updated);
@@ -386,6 +388,7 @@ class BerLuckyController extends BaseController
                 'message' => 'ok',
                 'status' => true,
                 'description' => 'Berlucky has been updated successfully',
+                'newData' => $updated
             ], 200);
         } catch (Exception $e) {
             DB::rollBack();
@@ -465,6 +468,7 @@ class BerLuckyController extends BaseController
             ], 500);
         }
     }
+
     public function updateMonthlyStatus(Request $request, $id)
     {
         try {
@@ -508,8 +512,6 @@ class BerLuckyController extends BaseController
         }
     }
 
-
-
     /* Lucky Package */
     public function packageIndex(Request $request)
     {
@@ -518,12 +520,17 @@ class BerLuckyController extends BaseController
             ->orderBy('priority', 'ASC')
             ->get();
 
+        $benefits = $this->getBenefits();
+        $privileges = $this->getPrivileges();
+
         return response([
             'message' => 'ok',
             'status' => true,
             'description' => 'Get Lucky packages success',
             'data' => [
                 'packages' => $packages,
+                'benefits' => $benefits,
+                'privileges' => $privileges,
                 'maxPriority' => BerluckyPackage::max('priority'),
             ]
         ], 200);
@@ -532,13 +539,13 @@ class BerLuckyController extends BaseController
     public function createPackage(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'title' => 'string|required',
             'price_per_month' => 'numeric|required',
             'call_credit' => 'numeric|required',
             'internet_volume' => 'string|nullable',
             'internet_speed' => 'string|nullable',
             'priority' => 'numeric|required',
             'benefit_ids' => 'string|nullable',
-            'language' => 'string|nullable',
             'display' => 'nullable',
 
         ]);
@@ -552,7 +559,16 @@ class BerLuckyController extends BaseController
 
             $this->updatePriority("berlucky_packages", $request->priority);
 
-            BerluckyPackage::create($request->only(['price_per_month', 'internet_volume', 'call_credit', 'internet_speed', 'priority', 'benefit_ids', 'display']));
+            BerluckyPackage::create($request->only([
+                'title',
+                'price_per_month',
+                'internet_volume',
+                'call_credit',
+                'internet_speed',
+                'priority',
+                'benefit_ids',
+                'display'
+            ]));
 
             DB::commit();
             return response([
@@ -570,10 +586,12 @@ class BerLuckyController extends BaseController
         }
     }
 
+
     public function updatePackage(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'id' => 'required',
+            'title' => 'string|required',
             'price_per_month' => 'numeric|required',
             'call_credit' => 'numeric|required',
             'internet_volume' => 'string|nullable',
@@ -606,6 +624,7 @@ class BerLuckyController extends BaseController
             }
 
             $package->update([
+                'title' => $request->title,
                 'price_per_month' => $request->price_per_month,
                 'internet_speed' => $request->internet_speed,
                 'internet_volume' => $request->internet_volume,
@@ -613,7 +632,6 @@ class BerLuckyController extends BaseController
                 'benefit_ids' => $request->benefit_ids,
                 'display' => $request->display,
                 'priority' => $request->priority,
-
                 'updated_at' => now(),
             ]);
 
@@ -658,6 +676,7 @@ class BerLuckyController extends BaseController
 
 
 
+
     /* Private Function */
     private function getBerluckyCateAll()
     {
@@ -672,6 +691,11 @@ class BerLuckyController extends BaseController
     private function getBerluckyProductAll()
     {
         $data = BerproductMonthly::orderBy('updated_at', 'DESC')->get();
+
+        foreach ($data as $product) {
+            $default_cate = explode(",", $product->default_cate);
+            $product->default_cate = $default_cate;
+        }
 
         return $data;
     }

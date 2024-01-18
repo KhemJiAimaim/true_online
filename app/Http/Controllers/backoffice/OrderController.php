@@ -20,17 +20,18 @@ class OrderController extends BaseController
     {
         try {
             $orders = Order::with('orderItems')->orderBy('created_at', 'DESC')->get();
-            $berluckyIds = [];
+            $berluckyPhone = [];
 
-            $orders->each(function ($order) use (&$berluckyIds) {
-                $idArr = $order->orderItems->filter(function ($item) {
+            $orders->each(function ($order) use (&$berluckyPhone) {
+                $phoneArr = $order->orderItems->filter(function ($item) {
                     return $item->type_id === 3;
-                })->pluck('product_id')->toArray();
+                })->pluck('product_name')->toArray();
 
-                $berluckyIds = array_merge($berluckyIds, $idArr);
+                $berluckyPhone = array_merge($berluckyPhone, $phoneArr);
             });
 
-            $berlucky = BerproductMonthly::whereIn('product_id', $berluckyIds)->get();
+            $berlucky = BerproductMonthly::whereIn('product_phone', $berluckyPhone)->get();
+
             $travelsims = TravelSim::get();
             $prepaidsims = PrepaidSim::get();
             $cates = Category::whereIn('id', [3, 4, 6])->get();
@@ -47,13 +48,17 @@ class OrderController extends BaseController
 
                             if ($type === 3) {
                                 $product = $berlucky->filter(function ($ber) use ($i) {
-                                    return $ber->product_id === $i->product_id;
+                                    return $ber->product_phone === $i->product_name;
                                 })->first();
 
                                 if ($product) {
                                     $product->id = $product->product_id;
                                     $product->title = $product->product_phone;
                                     $product->details = $product->product_comment;
+                                } else {
+                                    $product->id = $i->product_id;
+                                    $product->title = $i->product_name;
+                                    $product->details = "";
                                 }
                             } else if ($type === 4) {
                                 $product = $prepaidsims->filter(function ($sim) use ($i) {
@@ -155,9 +160,11 @@ class OrderController extends BaseController
                         'type_id' => $item["type_id"],
                         'product_cate_id' => $item["product_cate_id"],
                         'product_id' => $item["product_id"],
+                        'product_name' => $item["title"],
                         'product_price' => $item["product_price"],
                         'quantity' => $item["quantity"],
                         'discount' => $item["discount"],
+                        'thumbnail' => $item["thumbnail"],
                     ];
 
                     $product_values[] = $value;
@@ -387,11 +394,12 @@ class OrderController extends BaseController
                     } else if ($item->type_id === 6) {
                         TravelSim::where('id', $item->product_id)->decrement('quantity_sold', $item->quantity);
                     }
+
+                    PrepaidSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
+                    TravelSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
                 }
             }
 
-            PrepaidSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
-            TravelSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
 
             Order::where('id', $order_id)->delete();
             OrderItem::where('order_id', $order_id)->delete();

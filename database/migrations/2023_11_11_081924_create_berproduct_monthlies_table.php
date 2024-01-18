@@ -25,7 +25,7 @@ return new class extends Migration
             $table->enum('product_sold', ['yes', 'no'])->default('no');
             $table->enum('product_new', ['yes', 'no'])->default('no');
             $table->text('product_comment')->nullable();
-            $table->string('product_package')->nullable();
+            $table->integer('product_package')->nullable();
             $table->enum('product_hot', ['yes', 'no']);
             $table->integer('product_discount')->default(0)->length(4);
             $table->string('product_grade', 4);
@@ -50,7 +50,7 @@ return new class extends Migration
                 'product_sold' => 'no',
                 'product_new' => 'yes',
                 'product_comment' => 'เน็ต Unlimited + โทร 1700 Mins',
-                'product_package' => ',1,2,3,4,5',
+                'product_package' => 1,
                 'product_hot' => 'yes',
                 'product_discount' => 0,
                 'product_grade' => 'A+',
@@ -69,7 +69,7 @@ return new class extends Migration
                 'product_sold' => 'no',
                 'product_new' => 'yes',
                 'product_comment' => 'เน็ต Unlimited + โทร 1700 Mins',
-                'product_package' => ',1,2,3,4,5',
+                'product_package' => 1,
                 'product_hot' => 'yes',
                 'product_discount' => 0,
                 'product_grade' => 'A+',
@@ -88,7 +88,7 @@ return new class extends Migration
                 'product_sold' => 'no',
                 'product_new' => 'yes',
                 'product_comment' => 'เน็ต Unlimited + โทร 1700 Mins',
-                'product_package' => ',1,2,3,4,5',
+                'product_package' => 1,
                 'product_hot' => 'yes',
                 'product_discount' => 0,
                 'product_grade' => 'A+',
@@ -107,7 +107,7 @@ return new class extends Migration
                 'product_sold' => 'no',
                 'product_new' => 'yes',
                 'product_comment' => 'แพ็กเกจนี้ใช้ฟรี 3 เดือน',
-                'product_package' => ',1,2,3,4,5',
+                'product_package' => 1,
                 'product_hot' => 'yes',
                 'product_discount' => 0,
                 'product_grade' => 'A+',
@@ -126,7 +126,7 @@ return new class extends Migration
                 'product_sold' => 'no',
                 'product_new' => 'yes',
                 'product_comment' => 'พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา นำพาสู่ความสำเร็จ ( แพ็กเกจนี้ใช้ฟรี 3 เดือน )',
-                'product_package' => ',1,2,3,4,5',
+                'product_package' => 1,
                 'product_hot' => 'yes',
                 'product_discount' => 0,
                 'product_grade' => 'A+',
@@ -145,7 +145,7 @@ return new class extends Migration
                 'product_sold' => 'no',
                 'product_new' => 'yes',
                 'product_comment' => 'พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา นำพาสู่ความสำเร็จ ( แพ็กเกจนี้ใช้ฟรี 3 เดือน )',
-                'product_package' => ',1,2,3,4,5',
+                'product_package' => 1,
                 'product_hot' => 'yes',
                 'product_discount' => 0,
                 'product_grade' => 'C',
@@ -164,7 +164,7 @@ return new class extends Migration
                 'product_sold' => 'no',
                 'product_new' => 'yes',
                 'product_comment' => 'พลังแห่งปัญญา การสนับสนุนค้ำจุน สติปัญญา นำพาสู่ความสำเร็จ ( แพ็กเกจนี้ใช้ฟรี 3 เดือน )',
-                'product_package' => ',1,2,3,4,5',
+                'product_package' => 1,
                 'product_hot' => 'yes',
                 'product_discount' => 0,
                 'product_grade' => 'F',

@@ -39,6 +39,21 @@ return new class extends Migration
         });
 
         DB::statement('ALTER TABLE `berlucky_packages` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`, `language`) USING BTREE');
+
+        DB::table('berlucky_packages')->insert([
+            [
+                'id' =>  1,
+                'price_per_month' =>  1999,
+                'title' => "1999",
+                'benefit_ids' => ',5,6,7,',
+                'internet_volume' => 'ไม่จำกัด',
+                'internet_speed' => '',
+                'call_credit' => 1000,
+                'priority' => 1,
+                'language' => 'th',
+
+            ],
+        ]);
     }
 
     /**

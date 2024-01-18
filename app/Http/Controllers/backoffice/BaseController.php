@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backoffice;
 
 use App\Http\Controllers\Controller;
+use App\Models\BerluckyPackage;
 use App\Models\BerproductCategory;
 use App\Models\BerproductGrade;
 use App\Models\BerproductMonthly;
@@ -112,6 +113,16 @@ class BaseController extends Controller
             ->get();
 
         return $benefits;
+    }
+
+    public function getLuckyPackage()
+    {
+        $packages = BerluckyPackage::where('display', 1)
+            ->where(['display' => 1])
+            ->orderBY('price_per_month', 'ASC')
+            ->get();
+
+        return $packages;
     }
 
     public function getPrivileges()
@@ -352,5 +363,4 @@ class BaseController extends Controller
             }
         }
     }
-
 }
