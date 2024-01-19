@@ -40,8 +40,11 @@
             </div>
             <div class="pt-6 w-full">
                 <div
-                    class="max-w-[1536px] my-0 mx-auto 2xl:grid 2xl:grid-cols-3 flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
+                    class="max-w-[1536px] my-0 mx-auto flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
                     @foreach ($move_product as $product)
+                    @for ($i = 0; $i < (1/2); $i++)
+                        
+                    
                         <div class="drop-shadow-md ">
                             <div class="2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
                                 <div
@@ -167,6 +170,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endfor
                     @endforeach
                 </div>
             </div>
