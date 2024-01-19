@@ -291,13 +291,11 @@
                                     $imp_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                 @endphp
-                                <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                    class="relative p-2 bg-white rounded-[5px] group {{ $imp_selected }}">
+                                <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ $imp_selected }}">
                                     <img src="{{ $numbcate->thumbnail }}" alt="" style="{{ $image_selected }}">
-                                    <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150" src="/icons/category/union.png" alt="">
-                                        <p class="w-full text-xs absolute top-1 left-0 text-center">
-                                            {{ $numbcate->numbcate_title }}</p>
+                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                        <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
+                                        <p class="w-full text-xs absolute top-1 left-0 text-center"> {{ $numbcate->numbcate_title }}</p>
                                     </div>
                                 </button>
                             @endforeach
@@ -320,21 +318,19 @@
                                     $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                 @endphp
-                                <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
-                                    class="relative p-2 bg-white rounded-[5px] group {{ $aus_selected }}">
+                                <button id="cate-ber" data-id="{{ $bercate->bercate_id }}" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ $aus_selected }}">
                                     <img src="{{ $bercate->thumbnail }}" alt="" style="{{ $img_selected }}">
-                                    <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150" src="/icons/category/union.png" alt="">
+                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                        <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
                                         <p class="w-full text-xs absolute top-1 left-0">{{ $bercate->bercate_title }}</p>
                                     </div>
                                 </button>
                                 @endif
                             @endforeach
-                            <button id="btn-vip" data-id="vip"
-                                class="relative p-2 bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
+                            <button id="btn-vip" data-id="vip" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
                                 <img src="/icons/category/vip.png" alt="" style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : ''}}">
-                                <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                    <img class="scale-150" src="/icons/category/union.png" alt="">
+                                <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                    <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
                                     <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
                                 </div>
                             </button>
