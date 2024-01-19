@@ -14,7 +14,8 @@
     <title>True Online | {{ (isset($seo) && $seo->meta_title) ? $seo->meta_title : "meta title"}}</title>
     <meta name="description" content="{{ (isset($seo) && $seo->meta_description) ? $seo->meta_description : "คำอธิบายเนื้อหาเว็บไซต์"}}">
     <meta name="keywords" content="{{ (isset($seo) && $seo->meta_keyword) ? $seo->meta_keyword : "true,true online,เบอร์มงคล,fiber"}}">
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
    
     <link rel="icon" type="image/x-icon" href="/{{ $webInfo->detail->favicon->link }}">

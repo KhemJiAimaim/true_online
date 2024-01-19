@@ -79,7 +79,7 @@
                         $matching_cate = true;
                         $main_list =
                             '<li>
-                                <a href="/' . $m_cate->cate_url . '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">หน้าหลัก</a>
+                                <a href="/' . $m_cate->cate_url . '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25] font-medium">หน้าหลัก</a>
                             </li>';
                         break;
                     }
