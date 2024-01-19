@@ -27,15 +27,15 @@ return new class extends Migration
         DB::statement('ALTER TABLE `web_info_types` DROP PRIMARY KEY, ADD PRIMARY KEY (`id`, `language`) USING BTREE');
 
         DB::table('web_info_types')->insert([
-            [ 'id' => 1, 'type_name' => 'detail', 'title' => 'ข้อมูลเว็บไซต์', 'language' => 'fr', 'defaults' => true],
-            [ 'id' => 2, 'type_name' => 'contact', 'title' => 'ข้อมูลติดต่อ', 'language' => 'fr', 'defaults' => true],
-            [ 'id' => 3, 'type_name' => 'location', 'title' => 'ข้อมูลที่อยู่', 'language' => 'fr', 'defaults' => true],
-            [ 'id' => 4, 'type_name' => 'footer', 'title' => 'ข้อมูลส่วนท้าย', 'language' => 'fr', 'defaults' => true],
+            [ 'id' => 1, 'type_name' => 'detail', 'title' => 'ข้อมูลเว็บไซต์', 'language' => 'th', 'defaults' => true],
+            [ 'id' => 2, 'type_name' => 'contact', 'title' => 'ข้อมูลติดต่อ', 'language' => 'th', 'defaults' => true],
+            [ 'id' => 3, 'type_name' => 'location', 'title' => 'ข้อมูลที่อยู่', 'language' => 'th', 'defaults' => true],
+            [ 'id' => 4, 'type_name' => 'footer', 'title' => 'ข้อมูลส่วนท้าย', 'language' => 'th', 'defaults' => true],
 
-            [ 'id' => 1, 'type_name' => 'detail', 'title' => 'Web Info', 'language' => 'en', 'defaults' => false],
-            [ 'id' => 2, 'type_name' => 'contact', 'title' => 'Contact', 'language' => 'en', 'defaults' => false],
-            [ 'id' => 3, 'type_name' => 'location', 'title' => 'Address', 'language' => 'en', 'defaults' => false],
-            [ 'id' => 4, 'type_name' => 'footer', 'title' => 'Footer', 'language' => 'en', 'defaults' => false],
+            // [ 'id' => 1, 'type_name' => 'detail', 'title' => 'Web Info', 'language' => 'en', 'defaults' => false],
+            // [ 'id' => 2, 'type_name' => 'contact', 'title' => 'Contact', 'language' => 'en', 'defaults' => false],
+            // [ 'id' => 3, 'type_name' => 'location', 'title' => 'Address', 'language' => 'en', 'defaults' => false],
+            // [ 'id' => 4, 'type_name' => 'footer', 'title' => 'Footer', 'language' => 'en', 'defaults' => false],
         ]);
 
     }
