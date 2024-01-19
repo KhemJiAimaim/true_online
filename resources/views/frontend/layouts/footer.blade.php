@@ -1,4 +1,4 @@
-<div class=" bg-[#211830] sticky top-[100vh]">
+<div class="bg-[#211830] sticky top-[100vh] ">
     <div class=" 2xl:w-[1536px] xl:w-[1200px] mx-auto">
 
         <div class="flex justify-between py-4 px-4 gap-y-3">
@@ -39,7 +39,9 @@
                 </div>
             @endif
         </div>
+
         <div class="flex justify-center border-l border border-gray-500 text-center mx-3 rounded-full px-3"></div>
+
         <div class="flex sm:justify-between items-center max-md:flex-col gap-y-2 px-3">
             <p class="text-white opacity-50 py-2 2xl:text-[16px] md:text-[16px] text-[14px] text-center">{{$webInfo->footer->copy_right->value}}</p>
             @php
