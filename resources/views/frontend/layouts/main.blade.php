@@ -16,7 +16,9 @@
     <meta name="keywords" content="{{ (isset($seo) && $seo->meta_keyword) ? $seo->meta_keyword : "true,true online,เบอร์มงคล,fiber"}}">
    
     <meta name="csrf-token" content="{{ csrf_token() }}">
+   
     <link rel="icon" type="image/x-icon" href="/{{ $webInfo->detail->favicon->link }}">
+    
     {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
     {{-- <script src="https://www.google.com/recaptcha/api.js"></script> --}}
     @yield('style')                                                                                                                                                               
