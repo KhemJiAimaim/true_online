@@ -25,7 +25,7 @@
         </div>
 
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3 2xl:mt-6">
-            <div class="grid grid-cols-6 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
+            <div class="flex justify-between  max-lg:grid grid-cols-5 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
                 @foreach($berpredict_numbcate as $numcate)
                     @if($numcate->recommended == true)
                     <a href="?improve={{$numcate->numbcate_id}}" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
@@ -354,8 +354,8 @@
             </div>
 
             <div class="w-full mt-4 flex justify-center gap-10">
-                <button id="reset-search" class="px-4 py-1 border border-red-400 rounded-[15px]">คืนค่า</button>
-                <button id="search-product" class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px]">ค้นหา</button>
+                <button id="reset-search" class="px-4 py-1 border border-red-400 rounded-[15px] hover:bg-red-700 hover:text-white">คืนค่า</button>
+                <button id="search-product" class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700">ค้นหา</button>
             </div>
 
         </div>
