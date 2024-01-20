@@ -472,33 +472,33 @@ class BerLuckyMonthlyController extends Controller
     }
 
     public function getProductByCategoryBySet() {
-        $allBer = DB::select('SELECT product_id,product_pin,product_category,product_discount,product_comment,product_package,product_phone,product_sumber,product_price,product_sold,product_grade,monthly_status
-                            ,MID(product_phone,2, 9) as nn 
-                            ,MID(product_phone,4, 7) as pp 
-                            ,MID(product_phone,7, 4) as ff 
-				FROM berproduct_monthlies WHERE  product_category  NOT LIKE "%,0,%" AND product_sold NOT LIKE "%y%" ORDER BY product_id ASC ');
-        // dd($allBer);
+			$allBer = DB::select('SELECT product_id,product_pin,product_category,product_discount,product_comment,product_package,product_phone,product_sumber,product_price,product_sold,product_grade,monthly_status
+													,MID(product_phone,2, 9) as nn 
+													,MID(product_phone,4, 7) as pp 
+													,MID(product_phone,7, 4) as ff 
+			FROM berproduct_monthlies WHERE  product_category  NOT LIKE "%,0,%" AND product_sold NOT LIKE "%y%" ORDER BY product_id ASC ');
+			// dd($allBer);
 
-        $approve_arr = DB::select('SELECT * FROM berproduct_category_approves WHERE func_display = "yes"');
-        if (!empty($approve_arr)) {
-            $approve = array();
-            foreach ($approve_arr as $val) {
-                $val = json_decode(json_encode($val), true);
-                $approve["c" . $val['func_id']]['id'] = $val['func_id'];
-                $approve["c" . $val['func_id']]['cate_id'] = $val['func_cate_id'];
-            }
-        }
+			$approve_arr = DB::select('SELECT * FROM berproduct_category_approves WHERE func_display = "yes"');
+			if (!empty($approve_arr)) {
+				$approve = array();
+				foreach ($approve_arr as $val) {
+						$val = json_decode(json_encode($val), true);
+						$approve["c" . $val['func_id']]['id'] = $val['func_id'];
+						$approve["c" . $val['func_id']]['cate_id'] = $val['func_cate_id'];
+				}
+			}
 
-        /* ********* section 1 แปลงข้อมูลเข้าแต่ละ function ************ */    
-		$var_case = $this->prepare_Byset_variable_condition($allBer,$approve); 
-        
-		/* ********** section 2 ส่วนของการกรองข้อมูลออก ***************** */ 
-		$case = $this->prepare_Byset_filter_condition($var_case,$approve);  
-		/* ********** section 3 ส่วนของการบันทึกข้อมูล ****************** */
-		$res['ins'] = $this->insert_Byset_category($case,$approve);
-        dd($case);
+			/* ********* section 1 แปลงข้อมูลเข้าแต่ละ function ************ */    
+			dd($allBer);
+			$var_case = $this->prepare_Byset_variable_condition($allBer,$approve); 
+			/* ********** section 2 ส่วนของการกรองข้อมูลออก ***************** */ 
+			$case = $this->prepare_Byset_filter_condition($var_case,$approve);  
 
-        
+			// dd($case);
+			/* ********** section 3 ส่วนของการบันทึกข้อมูล ****************** */
+			$res['ins'] = $this->insert_Byset_category($case,$approve);
+			dd($res['ins']);
     }
 
     public function prepare_Byset_variable_condition($allBer,$approve) {
@@ -516,12 +516,11 @@ class BerLuckyMonthlyController extends Controller
 		$condition7 = array(); #case7 = xxx1122 เบอร์ xxyy
 		$condition8 = array(); #case8 = 123x123 เบอร์ห่าม
 		$condition9 = array(); #case9 = xxxx111 เบอร์ตอง
-		$condition10= array(); #case10= xxx1111 เบอร์โฟร 
+		$condition10 = array(); #case10 = xxx1111 เบอร์โฟร 
+		$condition11 = array(); #case11 = 
 		#จัดข้อมูลเข้าหมวดหมู่
         #แต่ละหมวดหมู่จะจับข้อมูลที่ตรงกันตามเงื่อนไขไว้รวมกลุ่มกัน
 		foreach($allBer as $keys => $vals){  
-                // dd($vals);
-
 			#case1 
         if(isset($approve['c1'])){
                 $con1 = substr($vals->nn,0,-1);
@@ -536,6 +535,7 @@ class BerLuckyMonthlyController extends Controller
 				$condition1[$con1][$len1]['numb'] = $vals->product_phone;  
 				$condition1[$con1][$len1]['sumber'] = $vals->product_sumber; 
 				$condition1[$con1][$len1]['comment'] = $vals->product_comment;   
+				$condition1[$con1][$len1]['package'] = $vals->product_package;   
                 $condition1[$con1][$len1]['discount'] = $vals->product_discount;   
 				$condition1[$con1][$len1]['grade'] = $vals->product_grade;  
 				$condition1[$con1][$len1]['p_price'] = $vals->product_price;  
@@ -559,9 +559,10 @@ class BerLuckyMonthlyController extends Controller
 				$condition2[$setResc][$len2]['numb'] = $vals->product_phone;  
 				$condition2[$setResc][$len2]['sumber'] = $vals->product_sumber;  
 				$condition2[$setResc][$len2]['comment'] = $vals->product_comment;   
+				$condition2[$setResc][$len2]['package'] = $vals->product_package;   
                 $condition2[$setResc][$len2]['discount'] = $vals->product_discount; 
 				$condition2[$setResc][$len2]['grade'] = $vals->product_grade;  
-				// $condition2[$setResc][$len2]['p_price'] = $vals->product_pric;
+				$condition2[$setResc][$len2]['p_price'] = $vals->product_pric;
 				$condition2[$setResc][$len2]['monthly'] = $vals->monthly_status;  
 				$condition2[$setResc][$len2]['pp'] = $setResc;
                 $condition2[$setResc][$len2]['value'] = $con2; 
@@ -583,6 +584,7 @@ class BerLuckyMonthlyController extends Controller
                     $condition3[$con3][$len3]['numb'] = $vals->product_phone; 
                     $condition3[$con3][$len3]['sumber'] = $vals->product_sumber; 
                     $condition3[$con3][$len3]['comment'] = $vals->product_comment;   
+                    $condition3[$con3][$len3]['package'] = $vals->product_package;   
                     // $condition3[$con3][$len3]['network'] = $vals->product_network;   
                     $condition3[$con3][$len3]['discount'] = $vals->product_discount;
                     $condition3[$con3][$len3]['grade'] = $vals->product_grade;   
@@ -605,6 +607,7 @@ class BerLuckyMonthlyController extends Controller
 				$condition4[$con4][$len4]['numb'] = $vals->product_phone;  
 				$condition4[$con4][$len4]['sumber'] = $vals->product_sumber; 
 				$condition4[$con4][$len4]['comment'] = $vals->product_comment;   
+				$condition4[$con4][$len4]['package'] = $vals->product_package;   
                 // $condition4[$con4][$len4]['network'] = $vals->product_network;   
                 $condition4[$con4][$len4]['discount'] = $vals->product_discount;
 				$condition4[$con4][$len4]['grade'] = $vals->product_grade;  
@@ -628,6 +631,7 @@ class BerLuckyMonthlyController extends Controller
 				$condition5[$con5][$len5]['pp'] = $vals->pp;  
 				$condition5[$con5][$len5]['sumber'] = $vals->product_sumber; 
 				$condition5[$con5][$len5]['comment'] = $vals->product_comment;   
+				$condition5[$con5][$len5]['package'] = $vals->product_package;   
                 // $condition5[$con5][$len5]['network'] = $vals->product_network; 
                 $condition5[$con5][$len5]['discount'] = $vals->product_discount;  
 				$condition5[$con5][$len5]['grade'] = $vals->product_grade;  
@@ -642,16 +646,17 @@ class BerLuckyMonthlyController extends Controller
 				$limit6 = 3;    
 				$position6 = -4;  
 				for($i=0; $i < $limit6 ;$i++){ 
-						$round =  $position6 + $i; 
-						$numb = substr($vals->ff,$round,2); 
-						$numbKey6[$i] = $numb;   
-                 }  
-	
+					$round =  $position6 + $i; 
+					$numb = substr($vals->ff,$round,2); 
+					$numbKey6[$i] = $numb;   
+				}  
+				
 				if(substr($numbKey6[0],0,1) != substr($numbKey6[0],1,1)   &&  substr($numbKey6[2],0,1) != substr($numbKey6[2],1,1)  ){
 					if($numbKey6[0] == $numbKey6[2] ){
 						$numChk6['value'] =  $numbKey6[0].$numbKey6[2];
-						} 
-				 } 
+
+					} 
+				} 
 				// if(substr($numbKey6[1],0,1) != substr($numbKey6[1],1,1)   &&  substr($numbKey6[3],0,1) != substr($numbKey6[3],1,1)  ){
 				// 	if($numbKey6[1] == $numbKey6[3]){
 				// 		$numChk6['value'] =  $numbKey6[1].$numbKey6[3];
@@ -669,15 +674,14 @@ class BerLuckyMonthlyController extends Controller
 				// 		}
 				//  } 
 				if(!empty($numChk6)){  
-					$numChk6['numb'] =  $vals['product_phone'];
-					$numChk6['pp'] =  $vals['ff'];
-					$numChk6['id'] =  $vals['product_id'];  
-					$numChk6['monthly'] =  $vals['monthly_status'];    
-					$condition6[$vals['product_id']][$vals['ff']]  = $numChk6;  
-					$product_id .= $vals['product_id'].',';
-				 }   
-            } 
-      
+					$numChk6['numb'] =  $vals->product_phone;
+					$numChk6['pp'] =  $vals->ff;
+					$numChk6['id'] =  $vals->product_id;  
+					$numChk6['monthly'] =  $vals->monthly_status;    
+					$condition6[$vals->product_id][$vals->ff]  = $numChk6;  
+					$product_id .= $vals->product_id.',';
+				}   
+			} 
           
 			#case7 
 			if(isset($approve['c7'])){
@@ -724,12 +728,12 @@ class BerLuckyMonthlyController extends Controller
 				// }   
 		
 				if(!empty($numChk7)){
-					$numChk7['numb'] =  $vals['product_phone'];
-					$numChk7['pp'] =  $vals['ff'];
-					$numChk7['id'] =  $vals['product_id'];   
-					$numChk7['monthly'] =  $vals['monthly_status'];   
-					$condition7[$vals['product_id']][$vals['ff']]  = $numChk7;  
-					$product_id .= $vals['product_id'].','; 
+					$numChk7['numb'] =  $vals->product_phone;
+					$numChk7['pp'] =  $vals->ff;
+					$numChk7['id'] =  $vals->product_id;   
+					$numChk7['monthly'] =  $vals->monthly_status;   
+					$condition7[$vals->product_id][$vals->ff]  = $numChk7;  
+					$product_id .= $vals->product_id.','; 
                 } 
                 // else if(!empty($numChk10)) {  
 				// 	$numChk10['numb'] =  $vals['product_phone'];
@@ -757,12 +761,12 @@ class BerLuckyMonthlyController extends Controller
 				}else if($numbKey8[3] == $numbKey8[0]){ 	$numChk8['value'] =  $numbKey8[3].$numbKey8[3];
 				} 
 				if(!empty($numChk8)){  
-					$numChk8['numb'] =  $vals['product_phone'];
-					$numChk8['pp'] =  $vals['pp'];
-					$numChk8['id'] =  $vals['product_id'];  
-					$numChk8['monthly'] =  $vals['monthly_status'];  
-					$condition8[$vals['product_id']][$vals['pp']]  = $numChk8;  
-					$product_id .= $vals['product_id'].',';
+					$numChk8['numb'] =  $vals->product_phone;
+					$numChk8['pp'] =  $vals->pp;
+					$numChk8['id'] =  $vals->product_id;  
+					$numChk8['monthly'] =  $vals->monthly_status;  
+					$condition8[$vals->product_id][$vals->pp]  = $numChk8;  
+					$product_id .= $vals->product_id.',';
 				}  
 			} 
 			#case9
@@ -799,7 +803,6 @@ class BerLuckyMonthlyController extends Controller
 			// 		$product_id .= $vals['product_id'].',';
 			// 	}
             // }  
-       
             #case11
             #xxx1221
 			if(isset($approve['c11'])){
@@ -809,9 +812,10 @@ class BerLuckyMonthlyController extends Controller
 				$position11 = -7;  
 				for($i=0; $i < $limit11 ;$i++){ 
 						$round =  $position11 + $i; 
-						$numb = substr($vals['pp'],$round,1); 
+						$numb = substr($vals->pp,$round,1); 
 						$numbKey11[$i] = $numb;   
-				}   
+				}
+
 				// if( $numbKey11[0]  ==  $numbKey11[3] && $numbKey11[1] == $numbKey11[2] ){ 
 				// 	$numChk11['value'] =  $numbKey11[0].$numbKey11[1].$numbKey11[2].$numbKey11[3]; 
 				// }
@@ -826,17 +830,17 @@ class BerLuckyMonthlyController extends Controller
 				}
 			
 				if(!empty($numChk11)){  
-					$numChk11['numb'] =  $vals['product_phone'];
-					$numChk11['pp'] =  $vals['pp'];
-					$numChk11['id'] =  $vals['product_id'];  
-					$numChk11['monthly'] =  $vals['monthly_status'];  
-					$condition11[$vals['product_id']][$vals['pp']]  = $numChk11;  
-                    $product_id .= $vals['product_id'].',';
+					$numChk11['numb'] =  $vals->product_phone;
+					$numChk11['pp'] =  $vals->pp;
+					$numChk11['id'] =  $vals->product_id;  
+					$numChk11['monthly'] =  $vals->monthly_status;  
+					$condition11[$vals->product_id][$vals->pp ] = $numChk11;  
+					$product_id .= $vals->product_id.',';
                     
 				}
 			}   
         }   
-        
+     
 	    #ส่งค่ากลับ
 	    $ret['condition1'] = $condition1;
 	    $ret['condition2'] = $condition2;
@@ -846,16 +850,17 @@ class BerLuckyMonthlyController extends Controller
 	    $ret['condition6'] = $condition6;
 	    $ret['condition7'] = $condition7;
 	    $ret['condition8'] = $condition8;
-	    $ret['condition9'] = $condition9;
-        # $ret['condition10']= $condition10;   
-        // $ret['condition11']= $condition11; 
+	    // $ret['condition9'] = $condition9;
+      // $ret['condition10']= $condition10;   
+      $ret['condition11']= $condition11; 
 	    $ret['product_id'] = $product_id;  
 		
  	  	return $ret;
     }
 
     public function prepare_Byset_filter_condition($case,$approve) {
-        #(getProductByCategoryBySet)
+		// dd($case);
+		#(getProductByCategoryBySet)
 		#case1 
 		if(isset($approve['c1']) && !empty($case['condition1'])){ 
 			#ลูปลบกลุ่มข้อมูลที่มีไม่ถึง 2 เบอร์
@@ -925,7 +930,7 @@ class BerLuckyMonthlyController extends Controller
 						$case['condition3'][$index][$key]['dprice'] = $price;    
 					}   
 				}  
-             }   
+			}   
              
 			#part2 #กรองข้อมูล 2 หลักด้านหน้า
 			foreach($case['condition3'] as $keys => $valp){   
@@ -938,6 +943,7 @@ class BerLuckyMonthlyController extends Controller
                     $resultCase3[$gg['pp']][$keys]['numb'] = $gg['numb'];
                     $resultCase3[$gg['pp']][$keys]['sumber'] = $gg['sumber']; 
                     $resultCase3[$gg['pp']][$keys]['comment'] = $gg['comment']; 
+                    $resultCase3[$gg['pp']][$keys]['package'] = $gg['package']; 
                     // $resultCase3[$gg['pp']][$keys]['network'] = $gg['network']; 
                     $resultCase3[$gg['pp']][$keys]['discount'] = $gg['discount']; 
                     $resultCase3[$gg['pp']][$keys]['grade'] = $gg['grade'];   
@@ -994,6 +1000,7 @@ class BerLuckyMonthlyController extends Controller
                                 $resultCase4[$gg['value']][$sort][$key]['numb'] = $gg['numb'];   
                                 $resultCase4[$gg['value']][$sort][$key]['sumber'] = $gg['sumber']; 
                                 $resultCase4[$gg['value']][$sort][$key]['comment'] = $gg['comment']; 
+                                $resultCase4[$gg['value']][$sort][$key]['package'] = $gg['package']; 
                                 $resultCase4[$gg['value']][$sort][$key]['discount'] = $gg['discount']; 
                                 // $resultCase4[$gg['value']][$sort][$key]['network'] = $gg['network']; 
                                 $resultCase4[$gg['value']][$sort][$key]['grade'] = $gg['grade']; 
@@ -1057,13 +1064,14 @@ class BerLuckyMonthlyController extends Controller
 					$lastKey = $key -1;  
 					$resc =  $gg['value']; 
 					foreach($case['condition5'][$gg['value']] as $index => $aa ){   
-						if($aa['pp'] == $resc && $gg['id'] != $aa['id'] ){ 
+						if($aa['pp'] == $resc && $gg['id'] != $aa['id'] ){
 							$resultCase5[$gg['value']][$key]['id'] = $gg['id']; 
 							$resultCase5[$gg['value']][$key]['numb'] = $gg['numb'];    
 							$resultCase5[$gg['value']][$key]['price'] = $gg['price'];
 							$resultCase5[$gg['value']][$key]['sumber'] = $gg['sumber']; 
 							$resultCase5[$gg['value']][$key]['comment'] = $gg['comment']; 
-                            $resultCase5[$gg['value']][$key]['network'] = $gg['network']; 
+							$resultCase5[$gg['value']][$key]['package'] = $gg['package']; 
+                            // $resultCase5[$gg['value']][$key]['network'] = $gg['network']; 
                             $resultCase5[$gg['value']][$key]['discount'] = $gg['discount']; 
 							$resultCase5[$gg['value']][$key]['grade'] = $gg['grade'];  
 							$resultCase5[$gg['value']][$key]['p_price'] = $gg['p_price'];  
@@ -1082,7 +1090,7 @@ class BerLuckyMonthlyController extends Controller
 			}
             $ret['resultCase5'] = $case['condition5'];
 		}
-
+		// dd($case);
 		#case6
 		if(isset($approve['c6']) && !empty($case['condition6'])){  
 			$ret['resultCase6'] = $case['condition6'];
@@ -1117,8 +1125,8 @@ class BerLuckyMonthlyController extends Controller
     }
 
     public function insert_Byset_category($case,$approve) {
-        dd($case);
-        #(getProductByCategoryBySet)
+			// dd($case);
+			#(getProductByCategoryBySet)
 			#part1 category id = 3 
 			$idArr_1 = array(); 
 			$category = 3; 
@@ -1137,8 +1145,9 @@ class BerLuckyMonthlyController extends Controller
 						$number = $kk['numb']; 
 						$sumber = $kk['sumber']; 
                         $comment = $kk['comment'];   
+                        $package = $kk['package'];   
                         $discount = $kk['discount'];   
-						$network = $kk['network'];   
+						// $network = $kk['network'];   
 						$grade = $kk['grade'];  
 						$monthly = $kk['monthly'];  
 						$p_price = $kk['p_price'];  
@@ -1153,8 +1162,9 @@ class BerLuckyMonthlyController extends Controller
 											'product_phone' => ($number),
 											'product_sumber' => ($sumber),
                                             'product_comment' => ($comment),
+                                            'product_package' => ($package),
                                             'product_discount' => ($discount),
-											'product_network' => ($network),
+											// 'product_network' => ($network),
 											'product_grade' => ($grade),
 											'product_price' => ($p_price),
 											'monthly_status' => ($monthly),
@@ -1163,6 +1173,7 @@ class BerLuckyMonthlyController extends Controller
 					} 
 				}
 			}
+
 			#case2
 			if(isset($approve['c2'])  && !empty($case['resultCase2'])){ 
 				foreach($case['resultCase2'] as $keys => $vals){ 
@@ -1177,9 +1188,10 @@ class BerLuckyMonthlyController extends Controller
 						$id = $kk['id']; 
 						$number = $kk['numb']; 
 						$sumber = $kk['sumber']; 
-                        $comment = $kk['comment'];   
+                        $comment = $kk['comment']; 
+												$package = $kk['package'];    
                         $discount = $kk['discount'];  
-						$network = $kk['network'];   
+						// $network = $kk['network'];   
 						$grade = $kk['grade'];  
 						$monthly = $kk['monthly'];  
 						$p_price = $kk['p_price'];  
@@ -1193,8 +1205,9 @@ class BerLuckyMonthlyController extends Controller
 											'product_phone' => ($number),
 											'product_sumber' => ($sumber),
                                             'product_comment' => ($comment),
+																						'product_package' => ($package),
                                             'product_discount' => ($discount),
-											'product_network' => ($network),
+											// 'product_network' => ($network),
 											'product_grade' => ($grade), 
 											'product_price' => ($p_price),
 											'monthly_status' => ($monthly),
@@ -1217,9 +1230,10 @@ class BerLuckyMonthlyController extends Controller
 						$id = $kk['id']; 
 						$number = $kk['numb']; 
 						$sumber = $kk['sumber']; 
-                        $comment = $kk['comment'];   
+                        $comment = $kk['comment']; 
+												$package = $kk['package'];    
                         $discount = $kk['discount']; 
-						$network = $kk['network'];   
+						// $network = $kk['network'];   
 						$grade = $kk['grade'];  
 						$p_price = $kk['p_price'];  
 						$monthly = $kk['monthly'];  
@@ -1234,8 +1248,9 @@ class BerLuckyMonthlyController extends Controller
 											'product_phone' => ($number),
 											'product_sumber' => ($sumber),
                                             'product_comment' => ($comment),
+																						'product_package' => ($package),
                                             'product_discount' => ($discount),
-											'product_network' => ($network),
+											// 'product_network' => ($network),
 											'product_grade' => ($grade),
 											'product_price' => ($p_price),
 											'monthly_status' => ($monthly),
@@ -1245,7 +1260,6 @@ class BerLuckyMonthlyController extends Controller
 				}
 			}
       #case4
-
 			if(isset($approve['c4'])  && !empty($case['resultCase4'])){ 
 				foreach($case['resultCase4'] as $keys => $vals){  
 					foreach( $vals as $cc => $kk){ 
@@ -1259,8 +1273,9 @@ class BerLuckyMonthlyController extends Controller
 							$number = $mm['numb']; 
 							$sumber = $mm['sumber']; 
                             $comment = $mm['comment'];   
+                            $package = $mm['package'];   
                             $discount = $mm['discount']; 
-							$network = $mm['network'];   
+							// $network = $mm['network'];   
 							$grade = $mm['grade'];  
 							$p_price = $mm['p_price'];   
 							$monthly = $mm['monthly'];   
@@ -1274,8 +1289,9 @@ class BerLuckyMonthlyController extends Controller
 												'product_phone' => ($number),
 												'product_sumber' => ($sumber),
                                                 'product_comment' => ($comment),
+                                                'product_package' => ($package),
                                                 'product_discount' => ($discount),
-												'product_network' => ($network),
+												// 'product_network' => ($network),
 												'product_grade' => ($grade),
 												'product_price' => ($p_price),
 												'monthly_status' => ($monthly),
@@ -1299,8 +1315,9 @@ class BerLuckyMonthlyController extends Controller
 						$number = $kk['numb']; 
 						$sumber = $kk['sumber']; 
                         $comment = $kk['comment'];  
+                        $package = $kk['package'];  
                         $discount = $kk['discount'];    
-						$network = $kk['network'];   
+						// $network = $kk['network'];   
 						$grade = $kk['grade'];  
 						$p_price = $kk['p_price'];  
 						$monthly = $kk['monthly'];  
@@ -1314,8 +1331,9 @@ class BerLuckyMonthlyController extends Controller
 											'product_phone' => ($number),
 											'product_sumber' => ($sumber),
                                             'product_comment' => ($comment),
+                                            'product_package' => ($package),
                                             'product_discount' => ($discount),
-											'product_network' => ($network),
+											// 'product_network' => ($network),
 											'product_grade' => ($grade),
 											'product_price' => ($p_price),
 											'monthly_status' => ($monthly),
@@ -1324,24 +1342,31 @@ class BerLuckyMonthlyController extends Controller
 					} 
 				}
 			}   
+
 			#insert category 3 
 			if(!empty($idArr_1)){ 
 				$idIn =''; 
 				foreach($idArr_1 as $vals){  $idIn .= $vals.','; } 
 				$idIn = substr($idIn,0,-1); 
-				$table = "berproduct";
-				$set = "product_category = CONCAT(product_category,:cate_id )";
-				$where = " product_id IN (".$idIn.") ";
-				$value = array( ":cate_id" => ',3,' ); 
-				$ret['cate3'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
-				$ret['lover3'] = self::$dbcon->multiInsert('berproduct_alover',$listBer); 
-				$idArr_1 = array_unique($idArr_1);
-				$table = "berproduct_category";
-				$set = "bercate_total =  :cate_id ";
-				$where = "bercate_id = 3 ";
-				$value = array( ":cate_id" => count($idArr_1) ); 
-				$ret['count3'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
+				$table = "berproduct_monthlies";
+				$set = "CONCAT(product_category, '3,')";
+				$where = "product_id IN ($idIn)";
+
+				$ret['cate3'] = DB::table($table)
+					->whereIn('product_id', explode(',', $idIn))
+					->update(['product_category' => DB::raw($set)]);
+			// dd($listBer);
+
+				$ret['lover3'] = DB::table('berproduct_alovers')->insert($listBer);
+				// dd($ret['lover3']);
+				// $idArr_1 = array_unique($idArr_1);
+				// $table = "berproduct_category";
+				// $set = "bercate_total =  :cate_id ";
+				// $where = "bercate_id = 3 ";
+				// $value = array( ":cate_id" => count($idArr_1) ); 
+				// $ret['count3'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
 		 	}  
+			// dd($case['resultCase5']);
 			#part category id = 4
 			$idArr2 = array();  
 			$category = 4;
@@ -1422,28 +1447,28 @@ class BerLuckyMonthlyController extends Controller
 					} 
 				} 
 			}
-			// #case9
-			// if(isset($approve['c9'])  && !empty($case['resultCase9'])){  
-			// 	foreach($case['resultCase9'] as $keys => $vals){ 
-			// 		$ii = 0;
-			// 		foreach( $vals as $cc => $kk){ 
-			// 			if(!isset($idArr2[$kk['id']])){ $idArr2[$kk['id']] = $kk['id'];  }   
-			// 			$func_id = 9;
-			// 			$group = $kk['value'];
-			// 			$sort_by = $kk['id'];
-			// 			$priority = $ii;
-			// 			$number = $kk['numb']; 
-			// 			$listBer2[] = array('category' => ($category), 
-			// 								'func_id' => ($func_id),
-			// 								'lover_group' => ($group),
-			// 								'sort' => ($sort_by),
-			// 								'love_priority' =>($priority),
-			// 								'product_phone' => ($number),
-			// 								'status' => 'auto' );   
-			// 			$ii++;
-			// 		} 
-			// 	}
-			// }
+			#case9
+			if(isset($approve['c9'])  && !empty($case['resultCase9'])){  
+				foreach($case['resultCase9'] as $keys => $vals){ 
+					$ii = 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr2[$kk['id']])){ $idArr2[$kk['id']] = $kk['id'];  }   
+						$func_id = 9;
+						$group = $kk['value'];
+						$sort_by = $kk['id'];
+						$priority = $ii;
+						$number = $kk['numb']; 
+						$listBer2[] = array('category' => ($category), 
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'product_phone' => ($number),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				}
+			}
 			// #case10
 			// if(isset($approve['c10'])  && !empty($case['resultCase10'])){ 
 			// 	foreach($case['resultCase10'] as $keys => $vals){ 
@@ -1468,8 +1493,9 @@ class BerLuckyMonthlyController extends Controller
 			// 		} 
 			// 	} 
             // }
+						// dd($case);
 
-            #case11
+			// #case11
 			if(isset($approve['c11'])  && !empty($case['resultCase11'])){  
 				foreach($case['resultCase11'] as $keys => $vals){ 
 					$ii = 0;
@@ -1493,7 +1519,7 @@ class BerLuckyMonthlyController extends Controller
 					} 
 				}
 			}
-
+			// dd($idArr2);
 			if(!empty($idArr2)){ 
 				$idIn2 = '';
 				foreach($idArr2 as $vals){ 
