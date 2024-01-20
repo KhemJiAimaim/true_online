@@ -22,7 +22,7 @@
                         <img id="featured" src="/{{$move_product->thumbnail_link}}" alt=""
                             class="max-ex:w-[250px] max-ex:h-[250px]  w-[340px] cursor-pointer pb-4 lg:pb-12 xl:pb-[1.5rem] ">
                     </div>
-                    <div id="slide-wrapper" class="flex items-center">
+                    <div id="slide-wrapper" class="flex justify-center items-center">
 
 
                         <img id="slideLeft" class="arrow absolute left-0 cursor-pointer " src="/images/prev.png">
@@ -50,7 +50,7 @@
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[280px] w-full">
+                    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[260px] w-full px-2">
                         <div id="box" data-option="{{$move_product->id}}" class="box border border-gray-500 active hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                             <div class="flex mb-2">
                                 <img src="/{{$move_product->thumbnail_link}}" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
@@ -58,7 +58,6 @@
                             </div>
                             <div class="flex items-center">
                                 <img src="/images/check-one-active.png" alt="" class="check-box w-10 max-ex:w-[35px] ">
-
                                 <p class="text-xl 2xl:text-[2rem] font-bold ml-[3.5rem] max-ex:ml-[2.5rem] text-red-600">{{number_format(($move_product->discount > 0)? $move_product->discount : $move_product->price)}}</p>
                                 <p class="2xl:text-lg font-medium ml-2">บาท</p>
                             </div>
@@ -104,7 +103,7 @@
             <div id="box-package" class="h-[300px] text-left overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                 <div class="m-4">
                 {!!$move_product->details_content!!}</div>
-                <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
+                <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] absolute bottom-0 py-1">
                     <button class="text-center text-[#EC1F25]" id="show">แสดงเพิ่มเติม ˅</button>
                 </div>
             </div>
