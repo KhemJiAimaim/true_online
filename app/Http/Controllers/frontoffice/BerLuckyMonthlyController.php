@@ -20,6 +20,7 @@ use App\Imports\BerMonthlyImportClass;
 use App\Exports\BerproductMonthlyExport;
 use App\Models\BerluckyPackage;
 use Maatwebsite\Excel\Concerns\ToModel;
+use PhpOffice\PhpSpreadsheet\Calculation\Statistical\Distributions\F;
 
 class BerLuckyMonthlyController extends Controller
 {
@@ -395,6 +396,9 @@ class BerLuckyMonthlyController extends Controller
         // generate product_category
         $this->getProductByCategory();
 
+        //จัดหมวดหมู่ตามสูตร หมวดเบอร์คู่รัก และ หมวดเบอร์ห่าม - xxyy #automatic
+        $this->getProductByCategoryBySet();
+
         return response()->json([
             'status' => 'success',
             'message' => 'upload data successfully'
@@ -466,6 +470,1056 @@ class BerLuckyMonthlyController extends Controller
                 ]);
             }
         }
+    }
+
+    public function getProductByCategoryBySet() {
+        $allBer = DB::select('SELECT product_id,product_pin,product_category,product_discount,product_comment,product_package,product_phone,product_sumber,product_price,product_sold,product_grade,monthly_status
+                            ,MID(product_phone,2, 9) as nn 
+                            ,MID(product_phone,4, 7) as pp 
+                            ,MID(product_phone,7, 4) as ff 
+				FROM berproduct_monthlies WHERE  product_category  NOT LIKE "%,0,%" AND product_sold NOT LIKE "%y%" ORDER BY product_id ASC ');
+        // dd($allBer);
+
+        $approve_arr = DB::select('SELECT * FROM berproduct_category_approves WHERE func_display = "yes"');
+        if (!empty($approve_arr)) {
+            $approve = array();
+            foreach ($approve_arr as $val) {
+                $val = json_decode(json_encode($val), true);
+                $approve["c" . $val['func_id']]['id'] = $val['func_id'];
+                $approve["c" . $val['func_id']]['cate_id'] = $val['func_cate_id'];
+            }
+        }
+
+        /* ********* section 1 แปลงข้อมูลเข้าแต่ละ function ************ */    
+		$var_case = $this->prepare_Byset_variable_condition($allBer,$approve); 
+        
+		/* ********** section 2 ส่วนของการกรองข้อมูลออก ***************** */ 
+		$case = $this->prepare_Byset_filter_condition($var_case,$approve);  
+		/* ********** section 3 ส่วนของการบันทึกข้อมูล ****************** */
+		$res['ins'] = $this->insert_Byset_category($case,$approve);
+        dd($case);
+
+        
+    }
+
+    public function prepare_Byset_variable_condition($allBer,$approve) {
+        #(getProductByCategoryBySet)
+		#product_id ไว้เก็บไอดีนำไปใช้อัพเดทข้อมูล product_id IN (..,..)
+		$product_id = '';
+		#set array 
+		# x = เลขที่เหมือนกัน
+		$condition1 = array(); #case1 = xxxxxx1 | xxxxxx2 หลักสุดท้ายอะไรก็ได้  
+		$condition2 = array(); #case2 = 1xxxxxx | 2xxxxxx หลักที่ 1 อะไรก็ได้ 
+		$condition3 = array(); #case3 = 12xxxxx | 21xxxxx สองหลักแรก! เลขเหมือนกันสลับตำแหน่ง 
+		$condition4 = array(); #case4 = xxxxx21 | xxxxx12 สองหลักหลัง! เลขเหมือนกันสลับตำแหน่ง 
+		$condition5 = array(); #case5 = xxxxxxx | xxxxxxx 7หลักหลังเหมือนกันทุกตำแหน่ง 
+		$condition6 = array(); #case6 = xxx1212 เบอร์ xyxy
+		$condition7 = array(); #case7 = xxx1122 เบอร์ xxyy
+		$condition8 = array(); #case8 = 123x123 เบอร์ห่าม
+		$condition9 = array(); #case9 = xxxx111 เบอร์ตอง
+		$condition10= array(); #case10= xxx1111 เบอร์โฟร 
+		#จัดข้อมูลเข้าหมวดหมู่
+        #แต่ละหมวดหมู่จะจับข้อมูลที่ตรงกันตามเงื่อนไขไว้รวมกลุ่มกัน
+		foreach($allBer as $keys => $vals){  
+                // dd($vals);
+
+			#case1 
+        if(isset($approve['c1'])){
+                $con1 = substr($vals->nn,0,-1);
+
+				if(!empty($condition1[$con1])){  
+					$len1 = count($condition1[$con1]); 
+				}else{ 
+					$len1  = 0;
+				} 
+				$condition1[$con1][$len1]['id'] = $vals->product_id;
+				$condition1[$con1][$len1]['price'] = $vals->product_price;
+				$condition1[$con1][$len1]['numb'] = $vals->product_phone;  
+				$condition1[$con1][$len1]['sumber'] = $vals->product_sumber; 
+				$condition1[$con1][$len1]['comment'] = $vals->product_comment;   
+                $condition1[$con1][$len1]['discount'] = $vals->product_discount;   
+				$condition1[$con1][$len1]['grade'] = $vals->product_grade;  
+				$condition1[$con1][$len1]['p_price'] = $vals->product_price;  
+				$condition1[$con1][$len1]['monthly'] = $vals->monthly_status;  	
+				$condition1[$con1][$len1]['pp'] = $vals->nn;   
+				$condition1[$con1][$len1]['value'] = $con1;
+			} 
+			#case2 
+			if(isset($approve['c2'])){   
+                $con2 = substr($vals->nn,2,1);  
+                $setA = substr($vals->nn,0,2);  
+                $setB = substr($vals->nn,3);  
+                $setResc = $setA.$setB;
+				if(!empty($condition2[$setResc])){  
+					$len2 = count($condition2[$setResc]); 
+				}else{
+					$len2  = 0;
+				}
+				$condition2[$setResc][$len2]['id'] = $vals->product_id;
+				$condition2[$setResc][$len2]['price'] = $vals->product_price;
+				$condition2[$setResc][$len2]['numb'] = $vals->product_phone;  
+				$condition2[$setResc][$len2]['sumber'] = $vals->product_sumber;  
+				$condition2[$setResc][$len2]['comment'] = $vals->product_comment;   
+                $condition2[$setResc][$len2]['discount'] = $vals->product_discount; 
+				$condition2[$setResc][$len2]['grade'] = $vals->product_grade;  
+				// $condition2[$setResc][$len2]['p_price'] = $vals->product_pric;
+				$condition2[$setResc][$len2]['monthly'] = $vals->monthly_status;  
+				$condition2[$setResc][$len2]['pp'] = $setResc;
+                $condition2[$setResc][$len2]['value'] = $con2; 
+			}
+			#case3 
+			if(isset($approve['c3'])){
+                $con3 = substr($vals->nn,2,2); 
+                $setA = substr($vals->nn,0,2);  
+                $setB = substr($vals->nn,4);  
+
+				if(!empty($condition3[$con3])){  
+					$len3 = count($condition3[$con3]); 
+				}else{
+					$len3  = 0;
+                }
+                if(substr($con3,0,1) != substr($con3,1,1)){
+                    $condition3[$con3][$len3]['id'] = $vals->product_id;
+                    $condition3[$con3][$len3]['price'] = $vals->product_price;
+                    $condition3[$con3][$len3]['numb'] = $vals->product_phone; 
+                    $condition3[$con3][$len3]['sumber'] = $vals->product_sumber; 
+                    $condition3[$con3][$len3]['comment'] = $vals->product_comment;   
+                    // $condition3[$con3][$len3]['network'] = $vals->product_network;   
+                    $condition3[$con3][$len3]['discount'] = $vals->product_discount;
+                    $condition3[$con3][$len3]['grade'] = $vals->product_grade;   
+                    $condition3[$con3][$len3]['p_price'] = $vals->product_price;  
+                    $condition3[$con3][$len3]['monthly'] = $vals->monthly_status;  
+                    $condition3[$con3][$len3]['pp'] = $setA.$setB;   
+                    $condition3[$con3][$len3]['value'] = $con3; 
+                }
+			}
+			#case4
+			if(isset($approve['c4'])){ 
+				$con4 = substr($vals->nn,0,-2);
+				if(!empty($condition4[$con4])){  
+					$len4 = count($condition4[$con4]); 
+				}else{
+					$len4  = 0;
+				}
+				$condition4[$con4][$len4]['id'] = $vals->product_id;
+				$condition4[$con4][$len4]['price'] = $vals->product_price;
+				$condition4[$con4][$len4]['numb'] = $vals->product_phone;  
+				$condition4[$con4][$len4]['sumber'] = $vals->product_sumber; 
+				$condition4[$con4][$len4]['comment'] = $vals->product_comment;   
+                // $condition4[$con4][$len4]['network'] = $vals->product_network;   
+                $condition4[$con4][$len4]['discount'] = $vals->product_discount;
+				$condition4[$con4][$len4]['grade'] = $vals->product_grade;  
+				$condition4[$con4][$len4]['p_price'] = $vals->product_price;  
+				$condition4[$con4][$len4]['monthly'] = $vals->monthly_status;  
+				$condition4[$con4][$len4]['pp'] = $vals->nn;  
+				$condition4[$con4][$len4]['value'] = $con4; 
+      }
+            
+			#case5 
+			if(isset($approve['c5'])){
+				$con5 = $vals->pp;  
+				if(!empty($condition5[$con5])){
+					$len5 = count($condition5[$con5]); 
+				}else{
+					$len5  = 0;
+				}
+				$condition5[$con5][$len5]['id'] = $vals->product_id;
+				$condition5[$con5][$len5]['price'] = $vals->product_price;
+				$condition5[$con5][$len5]['numb'] = $vals->product_phone;  
+				$condition5[$con5][$len5]['pp'] = $vals->pp;  
+				$condition5[$con5][$len5]['sumber'] = $vals->product_sumber; 
+				$condition5[$con5][$len5]['comment'] = $vals->product_comment;   
+                // $condition5[$con5][$len5]['network'] = $vals->product_network; 
+                $condition5[$con5][$len5]['discount'] = $vals->product_discount;  
+				$condition5[$con5][$len5]['grade'] = $vals->product_grade;  
+				$condition5[$con5][$len5]['p_price'] = $vals->product_price;  
+				$condition5[$con5][$len5]['monthly'] = $vals->monthly_status;  
+				$condition5[$con5][$len5]['value'] = $con5;  
+			}
+			#case6  
+			if(isset($approve['c6'])){
+				$numbKey6 = array();
+				$numChk6 = array();   
+				$limit6 = 3;    
+				$position6 = -4;  
+				for($i=0; $i < $limit6 ;$i++){ 
+						$round =  $position6 + $i; 
+						$numb = substr($vals->ff,$round,2); 
+						$numbKey6[$i] = $numb;   
+                 }  
+	
+				if(substr($numbKey6[0],0,1) != substr($numbKey6[0],1,1)   &&  substr($numbKey6[2],0,1) != substr($numbKey6[2],1,1)  ){
+					if($numbKey6[0] == $numbKey6[2] ){
+						$numChk6['value'] =  $numbKey6[0].$numbKey6[2];
+						} 
+				 } 
+				// if(substr($numbKey6[1],0,1) != substr($numbKey6[1],1,1)   &&  substr($numbKey6[3],0,1) != substr($numbKey6[3],1,1)  ){
+				// 	if($numbKey6[1] == $numbKey6[3]){
+				// 		$numChk6['value'] =  $numbKey6[1].$numbKey6[3];
+				// 		}
+				//  }
+				// if(substr($numbKey6[2],0,1) != substr($numbKey6[2],1,1)   &&  substr($numbKey6[4],0,1) != substr($numbKey6[4],1,1)  ){
+				// 	if($numbKey6[2] == $numbKey6[4]){
+				// 		$numChk6['value'] =  $numbKey6[2].$numbKey6[4];
+				// 		}
+				//  }
+	
+				// if(substr($numbKey6[3],0,1) != substr($numbKey6[3],1,1)   &&  substr($numbKey6[5],0,1) != substr($numbKey6[5],1,1)  ){
+				// 	if($numbKey6[3] == $numbKey6[5]){
+				// 		$numChk6['value'] =  $numbKey6[3].$numbKey6[5];
+				// 		}
+				//  } 
+				if(!empty($numChk6)){  
+					$numChk6['numb'] =  $vals['product_phone'];
+					$numChk6['pp'] =  $vals['ff'];
+					$numChk6['id'] =  $vals['product_id'];  
+					$numChk6['monthly'] =  $vals['monthly_status'];    
+					$condition6[$vals['product_id']][$vals['ff']]  = $numChk6;  
+					$product_id .= $vals['product_id'].',';
+				 }   
+            } 
+      
+          
+			#case7 
+			if(isset($approve['c7'])){
+				$numChk10 = array(); 
+				$numbKey7 = array();
+				$numChk7 = array();   
+				$limit7 = 3;    
+				$position7 = -4;  
+				for($i=0; $i < $limit7 ;$i++){ 
+						$round =  $position7 + $i; 
+						$numb = substr($vals->ff,$round,2); 
+						$numbKey7[$i] = $numb;    
+				}  
+				
+				#ถ้าชุดเลขตำแหน่งแรกกับตำแหน่งที่สองเหมือนกัน ทั้งฝั่งซ้ายและขวาจะเกิดเบอร์ xxyy
+				#ถ้าเลขที่อยู่คู่ระหว่างกันตรงกัน จะเชื่อมโยงเลขเท่ากับเบอร์โฟร์ เช่น [9(9)-> 9 == 9 <-(9)9] == 9999 จะเกิดเบอร์โฟร์
+				if(substr($numbKey7[0],0,1) == substr($numbKey7[0],1,1)   &&  substr($numbKey7[2],0,1) == substr($numbKey7[2],1,1)  ){ 
+					if(substr($numbKey7[0],1,1) != substr($numbKey7[2],0,1)){
+                        $numChk7['value'] =  $numbKey7[0].$numbKey7[2]; 
+					}  
+                } 
+                
+				// #เงื่อนไขนี้เข้าข่ายของฟังก์ชั่น case10 เบอร์โฟร์
+				// if(substr($numbKey7[1],0,1) == substr($numbKey7[1],1,1)   &&  substr($numbKey7[3],0,1) == substr($numbKey7[3],1,1)  ){
+				// 	if(substr($numbKey7[1],1,1) == substr($numbKey7[3],0,1)){
+				// 		$numChk10['value'] =  $numbKey7[1].$numbKey7[3];  
+				// 	} else {
+				// 		$numChk7['value'] =  $numbKey7[1].$numbKey7[3];  
+				// 	}  
+				// }
+				// if(substr($numbKey7[2],0,1) == substr($numbKey7[2],1,1)   &&  substr($numbKey7[4],0,1) == substr($numbKey7[4],1,1)  ){ 
+				// 	if(substr($numbKey7[2],1,1) == substr($numbKey7[4],0,1)){
+				// 		$numChk10['value'] =  $numbKey7[2].$numbKey7[4];  
+				// 	} else {
+				// 		$numChk7['value'] =  $numbKey7[2].$numbKey7[4];  
+				// 	} 
+				// } 
+				// if(substr($numbKey7[3],0,1) == substr($numbKey7[3],1,1)   &&  substr($numbKey7[5],0,1) == substr($numbKey7[5],1,1)  ){
+				// 	if(substr($numbKey7[3],1,1) == substr($numbKey7[5],0,1)){
+				// 		$numChk10['value'] =  $numbKey7[3].$numbKey7[5];  
+				// 	} else {
+				// 		$numChk7['value'] =  $numbKey7[3].$numbKey7[5];  
+				// 	}  
+				// }   
+		
+				if(!empty($numChk7)){
+					$numChk7['numb'] =  $vals['product_phone'];
+					$numChk7['pp'] =  $vals['ff'];
+					$numChk7['id'] =  $vals['product_id'];   
+					$numChk7['monthly'] =  $vals['monthly_status'];   
+					$condition7[$vals['product_id']][$vals['ff']]  = $numChk7;  
+					$product_id .= $vals['product_id'].','; 
+                } 
+                // else if(!empty($numChk10)) {  
+				// 	$numChk10['numb'] =  $vals['product_phone'];
+				// 	$numChk10['pp'] =  $vals['ff'];
+				// 	$numChk10['id'] =  $vals['product_id'];   
+				// 	$condition10[$vals['product_id']][$vals['ff']]  = $numChk10;  
+				// 	$product_id .= $vals['product_id'].','; 
+				// } 
+				
+			} 
+			#case8  
+			if(isset($approve['c8'])){
+				$numbKey8 = array();
+				$numChk8 = array();   
+				$limit8 = 5;    
+				$position8 = -7;  
+				for($i=0; $i < $limit8 ;$i++){ 
+						$round =  $position8 + $i; 
+						$numb = substr($vals->pp,$round,3); 
+						$numbKey8[$i] = $numb;  
+				}  
+				if( $numbKey8[0] == $numbKey8[3] ){  		$numChk8['value'] =  $numbKey8[0].$numbKey8[0]; 
+				}else if( $numbKey8[0] == $numbKey8[4]){  	$numChk8['value'] =  $numbKey8[4].$numbKey8[4]; 
+				}else if($numbKey8[1] == $numbKey8[4]){  	$numChk8['value'] =  $numbKey8[1].$numbKey8[1]; 
+				}else if($numbKey8[3] == $numbKey8[0]){ 	$numChk8['value'] =  $numbKey8[3].$numbKey8[3];
+				} 
+				if(!empty($numChk8)){  
+					$numChk8['numb'] =  $vals['product_phone'];
+					$numChk8['pp'] =  $vals['pp'];
+					$numChk8['id'] =  $vals['product_id'];  
+					$numChk8['monthly'] =  $vals['monthly_status'];  
+					$condition8[$vals['product_id']][$vals['pp']]  = $numChk8;  
+					$product_id .= $vals['product_id'].',';
+				}  
+			} 
+			#case9
+			// if(isset($approve['c9'])){
+			// 	$numbKey9 = array();
+			// 	$numChk9 = array();   
+			// 	$limit9 = 7;    
+			// 	$position9 = -7;  
+			// 	for($i=0; $i < $limit9 ;$i++){ 
+			// 			$round =  $position9 + $i; 
+			// 			$numb = substr($vals['pp'],$round,1); 
+			// 			$numbKey9[$i] = $numb;   
+			// 	}   
+			// 	if( $numbKey9[0]  ==  $numbKey9[1] && $numbKey9[1] == $numbKey9[2] ){ 
+			// 		$numChk9['value'] =  $numbKey9[0].$numbKey9[1].$numbKey9[2]; 
+			// 	}
+			// 	if( $numbKey9[1]  ==  $numbKey9[2] && $numbKey9[2] == $numbKey9[3] ){ 
+			// 		$numChk9['value'] =  $numbKey9[1].$numbKey9[2].$numbKey9[3]; 
+			// 	}
+			// 	if( $numbKey9[2]  ==  $numbKey9[3] && $numbKey9[3] == $numbKey9[4] ){ 
+			// 		$numChk9['value'] =  $numbKey9[2].$numbKey9[3].$numbKey9[4]; 
+			// 	} 
+			// 	if( $numbKey9[3]  ==  $numbKey9[4] && $numbKey9[4] == $numbKey9[5] ){ 
+			// 		$numChk9['value'] =  $numbKey9[3].$numbKey9[4].$numbKey9[5]; 
+			// 	}
+			// 	if( $numbKey9[4]  ==  $numbKey9[5] && $numbKey9[5] == $numbKey9[6] ){ 
+			// 		$numChk9['value'] =  $numbKey9[4].$numbKey9[5].$numbKey9[6]; 
+			// 	} 
+			// 	if(!empty($numChk9)){  
+			// 		$numChk9['numb'] =  $vals['product_phone'];
+			// 		$numChk9['pp'] =  $vals['pp'];
+			// 		$numChk9['id'] =  $vals['product_id'];  
+			// 		$condition9[$vals['product_id']][$vals['pp']]  = $numChk9;  
+			// 		$product_id .= $vals['product_id'].',';
+			// 	}
+            // }  
+       
+            #case11
+            #xxx1221
+			if(isset($approve['c11'])){
+				$numbKey11 = array();
+				$numChk11 = array();   
+				$limit11 = 7;    
+				$position11 = -7;  
+				for($i=0; $i < $limit11 ;$i++){ 
+						$round =  $position11 + $i; 
+						$numb = substr($vals['pp'],$round,1); 
+						$numbKey11[$i] = $numb;   
+				}   
+				// if( $numbKey11[0]  ==  $numbKey11[3] && $numbKey11[1] == $numbKey11[2] ){ 
+				// 	$numChk11['value'] =  $numbKey11[0].$numbKey11[1].$numbKey11[2].$numbKey11[3]; 
+				// }
+				// if( $numbKey11[1]  ==  $numbKey11[4] && $numbKey11[2] == $numbKey11[3] ){ 
+				// 	$numChk11['value'] =  $numbKey11[1].$numbKey11[2].$numbKey11[3].$numbKey11[4]; 
+				// }
+				// if( $numbKey11[2]  ==  $numbKey11[5] && $numbKey11[3] == $numbKey11[4] ){ 
+				// 	$numChk11['value'] =  $numbKey11[2].$numbKey11[3].$numbKey11[4].$numbKey11[5]; 
+				// } 
+				if( $numbKey11[3]  ==  $numbKey11[6] && $numbKey11[4] == $numbKey11[5] ){ 
+					$numChk11['value'] =  $numbKey11[3].$numbKey11[4].$numbKey11[5].$numbKey11[6]; 
+				}
+			
+				if(!empty($numChk11)){  
+					$numChk11['numb'] =  $vals['product_phone'];
+					$numChk11['pp'] =  $vals['pp'];
+					$numChk11['id'] =  $vals['product_id'];  
+					$numChk11['monthly'] =  $vals['monthly_status'];  
+					$condition11[$vals['product_id']][$vals['pp']]  = $numChk11;  
+                    $product_id .= $vals['product_id'].',';
+                    
+				}
+			}   
+        }   
+        
+	    #ส่งค่ากลับ
+	    $ret['condition1'] = $condition1;
+	    $ret['condition2'] = $condition2;
+	    $ret['condition3'] = $condition3;
+	    $ret['condition4'] = $condition4;
+	    $ret['condition5'] = $condition5;
+	    $ret['condition6'] = $condition6;
+	    $ret['condition7'] = $condition7;
+	    $ret['condition8'] = $condition8;
+	    $ret['condition9'] = $condition9;
+        # $ret['condition10']= $condition10;   
+        // $ret['condition11']= $condition11; 
+	    $ret['product_id'] = $product_id;  
+		
+ 	  	return $ret;
+    }
+
+    public function prepare_Byset_filter_condition($case,$approve) {
+        #(getProductByCategoryBySet)
+		#case1 
+		if(isset($approve['c1']) && !empty($case['condition1'])){ 
+			#ลูปลบกลุ่มข้อมูลที่มีไม่ถึง 2 เบอร์
+			$resultCase1 = array();  
+				foreach($case['condition1'] as $index => $valz ){  
+					$len = count($valz); 
+					if($len  < 2){ 	
+						unset($case['condition1'][$index]);
+					}else{  
+						#จัดกลุ่มตามราคา
+						$price = 0;
+						foreach($valz as $key => $value){  
+							if($value['price'] >  $price){
+								$price =  $value['price'];
+							} 
+						} 
+						foreach($valz as $key => $value){   
+							$case['condition1'][$index][$key]['price'] = $price;    
+						}   
+					} 
+				} 
+				$ret['resultCase1'] = $case['condition1'];  
+		}   
+		
+		#case2 
+		if(isset($approve['c2']) && !empty($case['condition2'])){
+
+            #ลูปลบกลุ่มข้อมูลที่มีไม่ถึง 2 เบอร์  
+            $resultCase2 = array(); 
+			foreach($case['condition2'] as $index => $valz ){ 
+                if(count($case['condition2'][$index]) < 2){
+                    unset($case['condition2'][$index]); 
+                }else{
+                    $setPrice = 0;
+					foreach($valz as $key => $value){  
+					  if($value['price'] >  $setPrice){
+						  $setPrice  =  $value['price'];
+					  } 
+					} 
+					foreach($valz as $key => $value){  
+					  $case['condition2'][$index][$key]['price'] = $setPrice;    
+					}   
+                }
+            }
+            $ret['resultCase2'] = $case['condition2']; 
+
+           
+        }
+
+     
+		#case3 
+		if(isset($approve['c3']) && !empty($case['condition3'])){ 
+			#part1 #ลูปลบกลุ่มข้อมูลที่มีไม่ถึง 2 เบอร์
+            $resultCase3 = array(); 
+			foreach($case['condition3'] as $index => $valz ){    
+				$len = count($valz); 
+				if($len  < 2){  
+					unset($case['condition3'][$index]);
+				}else{  
+					$price = 0;
+					foreach($valz as $key => $value){  
+						if($value['price'] >  $price){
+							$price =  $value['price'];
+						} 
+					} 
+					foreach($valz as $key => $value){  
+						$case['condition3'][$index][$key]['dprice'] = $price;    
+					}   
+				}  
+             }   
+             
+			#part2 #กรองข้อมูล 2 หลักด้านหน้า
+			foreach($case['condition3'] as $keys => $valp){   
+				foreach($valp as $key => $gg){  
+					$lastKey = $key -1; 
+					$value['st'] = substr($gg['value'],0,1);
+					$value['nd'] = substr($gg['value'],1,1); 
+                    $resc = $value['nd'].''.$value['st']; 
+                    $resultCase3[$gg['pp']][$keys]['id'] = $gg['id'];
+                    $resultCase3[$gg['pp']][$keys]['numb'] = $gg['numb'];
+                    $resultCase3[$gg['pp']][$keys]['sumber'] = $gg['sumber']; 
+                    $resultCase3[$gg['pp']][$keys]['comment'] = $gg['comment']; 
+                    // $resultCase3[$gg['pp']][$keys]['network'] = $gg['network']; 
+                    $resultCase3[$gg['pp']][$keys]['discount'] = $gg['discount']; 
+                    $resultCase3[$gg['pp']][$keys]['grade'] = $gg['grade'];   
+                    $resultCase3[$gg['pp']][$keys]['p_price'] = $gg['p_price'];   
+                    $resultCase3[$gg['pp']][$keys]['value'] = $gg['value'];
+                    $resultCase3[$gg['pp']][$keys]['price'] = $gg['dprice']; 
+                    $resultCase3[$gg['pp']][$keys]['monthly'] = $gg['monthly']; 
+                    $resultCase3[$gg['pp']][$keys]['pp'] = $gg['pp']; 
+                    $resultCase3[$gg['pp']][$keys]['flip'] = $resc; 
+				}   
+             }  
+             foreach($resultCase3 as $key => $valp){
+                 if(count($resultCase3[$key]) > 1){
+                     foreach($valp as $find){  
+                        if(!isset($resultCase3[$key][$find['flip']])){
+                            unset($resultCase3[$key]);
+                        }
+                     }
+                 }else{
+                    unset($resultCase3[$key]);
+                 }
+             }
+             $ret['resultCase3'] = $resultCase3; 
+        }
+
+
+        #case4 
+            if(isset($approve['c4']) && !empty($case['condition4'])){ 
+                #ลูปลบกลุ่มข้อมูลที่มีไม่ถึง 2 เบอร์
+                $resultCase4 = array();
+                foreach($case['condition4'] as $index => $valz ){   
+                $len = count($valz); 
+                if($len  < 2){
+                    unset($case['condition4'][$index]);
+                } 
+        } 
+    
+                foreach($case['condition4'] as $keys => $valp){    
+                    foreach($valp as $key => $gg){ 
+                    $rescArr= array();
+                    $lastKey = $key -1; 
+                    $value['st'] = substr($gg['pp'],7,1);
+                    $value['nd'] = substr($gg['pp'],8,1); 
+                    $resc =  $gg['value'].$value['nd'].$value['st'];  
+                    $rescArr[] = substr($gg['pp'],7,1);
+                    $rescArr[] = substr($gg['pp'],8,1); 
+                    sort($rescArr);
+                    $sort =  $rescArr[0].$rescArr[1];   
+                        foreach($case['condition4'][$gg['value']] as $index => $aa ){   
+                        if($gg['id'] != $aa['id']){   
+                            if( $aa['pp'] == $resc ){    
+                                $oldSort = $sort;  
+                                $resultCase4[$gg['value']][$sort][$key]['id'] = $gg['id'];
+                                $resultCase4[$gg['value']][$sort][$key]['numb'] = $gg['numb'];   
+                                $resultCase4[$gg['value']][$sort][$key]['sumber'] = $gg['sumber']; 
+                                $resultCase4[$gg['value']][$sort][$key]['comment'] = $gg['comment']; 
+                                $resultCase4[$gg['value']][$sort][$key]['discount'] = $gg['discount']; 
+                                // $resultCase4[$gg['value']][$sort][$key]['network'] = $gg['network']; 
+                                $resultCase4[$gg['value']][$sort][$key]['grade'] = $gg['grade']; 
+                                $resultCase4[$gg['value']][$sort][$key]['p_price'] = $gg['p_price']; 
+                                $resultCase4[$gg['value']][$sort][$key]['value'] = $gg['value'].$sort;  
+                                $resultCase4[$gg['value']][$sort][$key]['pp'] = $gg['pp']; 
+                                $resultCase4[$gg['value']][$sort][$key]['flip'] = $resc; 
+                                $resultCase4[$gg['value']][$sort][$key]['port'] = $sort;  
+                                $resultCase4[$gg['value']][$sort][$key]['oldPrice'] = $aa['price']; 
+                                $resultCase4[$gg['value']][$sort][$key]['monthly'] = $gg['monthly']; 
+                            }   
+                        } 
+                        }   
+            }
+        
+                if(!empty($resultCase4[$gg['value']][$sort])){
+                    if(count($resultCase4[$gg['value']][$sort]) < 2){  
+                        unset($resultCase4[$gg['value']][$sort]);
+                    }  
+            } 
+        } 
+       
+        foreach($resultCase4 as $index => $value){
+            foreach($value as $key => $val){  
+                $price = 0;  
+                foreach($resultCase4[$index][$key] as $keyPrice => $var){ 
+                    if($var['oldPrice'] >  $price){
+                        $price =  $var['oldPrice'];
+                    }   
+                }   
+                foreach($resultCase4[$index][$key] as $keyId => $var){  
+                    $resultCase4[$index][$key][$keyId]['price'] =  $price;
+                } 
+            } 
+        }
+        $ret['resultCase4'] = $resultCase4;
+        }
+    
+		#case5 
+		if(isset($approve['c5']) && !empty($case['condition5'])){ 
+			#ลูปลบกลุ่มข้อมูลที่มีไม่ถึง 2 เบอร์
+			$resultCase5 = array(); 
+			foreach($case['condition5'] as $index => $valz ){ 
+				$len = count($valz);    
+				if($len  < 2){    
+					unset($case['condition5'][$index]);
+				} else {  
+					$price = 0;
+					foreach($valz as $key => $value){  
+						if($value['price'] >  $price){
+							$price =  $value['price'];
+						} 
+					} 
+					foreach($valz as $key => $value){  
+						$case['condition5'][$index][$key]['price'] = $price;    
+					}   
+				}
+			}  
+			foreach($case['condition5'] as $keys => $valp){   
+				foreach($valp as $key => $gg){  
+					$lastKey = $key -1;  
+					$resc =  $gg['value']; 
+					foreach($case['condition5'][$gg['value']] as $index => $aa ){   
+						if($aa['pp'] == $resc && $gg['id'] != $aa['id'] ){ 
+							$resultCase5[$gg['value']][$key]['id'] = $gg['id']; 
+							$resultCase5[$gg['value']][$key]['numb'] = $gg['numb'];    
+							$resultCase5[$gg['value']][$key]['price'] = $gg['price'];
+							$resultCase5[$gg['value']][$key]['sumber'] = $gg['sumber']; 
+							$resultCase5[$gg['value']][$key]['comment'] = $gg['comment']; 
+                            $resultCase5[$gg['value']][$key]['network'] = $gg['network']; 
+                            $resultCase5[$gg['value']][$key]['discount'] = $gg['discount']; 
+							$resultCase5[$gg['value']][$key]['grade'] = $gg['grade'];  
+							$resultCase5[$gg['value']][$key]['p_price'] = $gg['p_price'];  
+							$resultCase5[$gg['value']][$key]['val'] = $gg['value'];  
+							$resultCase5[$gg['value']][$key]['pp'] = $gg['pp'];   
+							$resultCase5[$gg['value']][$key]['value'] = $gg['pp'];  
+							$resultCase5[$gg['value']][$key]['monthly'] = $gg['monthly'];  
+						} 
+					}  
+				}  
+				if(!empty($resultCase5[$gg['value']])){
+					if(count($resultCase5[$gg['value']]) < 2){  
+						unset($resultCase5[$keys]); 
+					} 
+				}  	
+			}
+            $ret['resultCase5'] = $case['condition5'];
+		}
+
+		#case6
+		if(isset($approve['c6']) && !empty($case['condition6'])){  
+			$ret['resultCase6'] = $case['condition6'];
+		}
+
+		#case7
+		if(isset($approve['c7']) && !empty($case['condition7'])){  
+			$ret['resultCase7'] = $case['condition7'];
+		}
+
+		#case8
+		if(isset($approve['c8']) && !empty($case['condition8'])){  
+			$ret['resultCase8'] = $case['condition8'];
+		}
+
+		// #case9
+		// if(isset($approve['c9']) && !empty($case['condition9'])){  
+		// 	$ret['resultCase9'] = $case['condition9'];
+		// }
+
+		// #case10
+		// if(isset($approve['c10']) && !empty($case['condition10'])){  
+		// 	$ret['resultCase10'] = $case['condition10'];
+        // }
+
+        #case11
+		if(isset($approve['c11']) && !empty($case['condition11'])){  
+			$ret['resultCase11'] = $case['condition11'];
+		}
+		 
+		return $ret;
+    }
+
+    public function insert_Byset_category($case,$approve) {
+        dd($case);
+        #(getProductByCategoryBySet)
+			#part1 category id = 3 
+			$idArr_1 = array(); 
+			$category = 3; 
+			#case1
+			if(isset($approve['c1']) && !empty($case['resultCase1'])){ 
+				foreach($case['resultCase1'] as $keys => $vals){
+					$ii= 0; 
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr_1[$kk['id']])){ $idArr_1[$kk['id']] = $kk['id']; }  
+						$func_id = 1;
+						$group = $kk['value'];
+						$sort_by = 0;
+						$priority = $ii; 
+						$price =  $kk['price'];
+						$id = $kk['id']; 
+						$number = $kk['numb']; 
+						$sumber = $kk['sumber']; 
+                        $comment = $kk['comment'];   
+                        $discount = $kk['discount'];   
+						$network = $kk['network'];   
+						$grade = $kk['grade'];  
+						$monthly = $kk['monthly'];  
+						$p_price = $kk['p_price'];  
+
+						$listBer[] = array( 'category' => $category,
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'group_price' =>($price),
+											'product_id' => ($id),
+											'product_phone' => ($number),
+											'product_sumber' => ($sumber),
+                                            'product_comment' => ($comment),
+                                            'product_discount' => ($discount),
+											'product_network' => ($network),
+											'product_grade' => ($grade),
+											'product_price' => ($p_price),
+											'monthly_status' => ($monthly),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				}
+			}
+			#case2
+			if(isset($approve['c2'])  && !empty($case['resultCase2'])){ 
+				foreach($case['resultCase2'] as $keys => $vals){ 
+					$ii= 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr_1[$kk['id']])){ $idArr_1[$kk['id']] = $kk['id']; } 
+						$func_id = 2;
+						$group = $kk['pp'];
+						$sort_by = 0;
+						$priority = $ii;
+						$price =  $kk['price'];
+						$id = $kk['id']; 
+						$number = $kk['numb']; 
+						$sumber = $kk['sumber']; 
+                        $comment = $kk['comment'];   
+                        $discount = $kk['discount'];  
+						$network = $kk['network'];   
+						$grade = $kk['grade'];  
+						$monthly = $kk['monthly'];  
+						$p_price = $kk['p_price'];  
+						$listBer[] = array( 'category' => $category,
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'group_price' =>($price),
+											'product_id' => ($id),
+											'product_phone' => ($number),
+											'product_sumber' => ($sumber),
+                                            'product_comment' => ($comment),
+                                            'product_discount' => ($discount),
+											'product_network' => ($network),
+											'product_grade' => ($grade), 
+											'product_price' => ($p_price),
+											'monthly_status' => ($monthly),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				}
+			}
+			#case3
+			if(isset($approve['c3'])  && !empty($case['resultCase3'])){ 
+				foreach($case['resultCase3'] as $keys => $vals){ 
+					$ii= 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr_1[$kk['id']])){ $idArr_1[$kk['id']] = $kk['id']; }  
+						$func_id = 3;
+						$group = $kk['pp']; 
+						$sort_by = 0;
+						$priority = $ii;
+						$price =  $kk['price'];
+						$id = $kk['id']; 
+						$number = $kk['numb']; 
+						$sumber = $kk['sumber']; 
+                        $comment = $kk['comment'];   
+                        $discount = $kk['discount']; 
+						$network = $kk['network'];   
+						$grade = $kk['grade'];  
+						$p_price = $kk['p_price'];  
+						$monthly = $kk['monthly'];  
+							 
+						$listBer[] = array( 'category' => $category,
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'group_price' =>($price),
+											'product_id' => ($id),
+											'product_phone' => ($number),
+											'product_sumber' => ($sumber),
+                                            'product_comment' => ($comment),
+                                            'product_discount' => ($discount),
+											'product_network' => ($network),
+											'product_grade' => ($grade),
+											'product_price' => ($p_price),
+											'monthly_status' => ($monthly),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				}
+			}
+      #case4
+
+			if(isset($approve['c4'])  && !empty($case['resultCase4'])){ 
+				foreach($case['resultCase4'] as $keys => $vals){  
+					foreach( $vals as $cc => $kk){ 
+						foreach( $kk as $tt => $mm){
+							if(!isset($idArr_1[$mm['id']])){ $idArr_1[$mm['id']] = $mm['id']; } 
+							$func_id = 4;
+							$group = $mm['value'];
+							$sort_by = $mm['port'];
+							$priority = 0;
+							$price = $mm['price'];
+							$number = $mm['numb']; 
+							$sumber = $mm['sumber']; 
+                            $comment = $mm['comment'];   
+                            $discount = $mm['discount']; 
+							$network = $mm['network'];   
+							$grade = $mm['grade'];  
+							$p_price = $mm['p_price'];   
+							$monthly = $mm['monthly'];   
+							$listBer[] = array( 'category' => $category,
+													'func_id' => ($func_id),
+												'lover_group' => ($group),
+												'sort' => ($sort_by),
+												'love_priority' =>($priority),
+												'group_price' =>($price),
+												'product_id' => ($id),
+												'product_phone' => ($number),
+												'product_sumber' => ($sumber),
+                                                'product_comment' => ($comment),
+                                                'product_discount' => ($discount),
+												'product_network' => ($network),
+												'product_grade' => ($grade),
+												'product_price' => ($p_price),
+												'monthly_status' => ($monthly),
+												'status' => 'auto' );   
+							$ii++;
+						}
+					} 
+				} 
+			}
+			#case5
+			if(isset($approve['c5'])  && !empty($case['resultCase5'])){ 
+				foreach($case['resultCase5'] as $keys => $vals){ 
+					$ii= 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr_1[$kk['id']])){ $idArr_1[$kk['id']] = $kk['id']; } 
+						$func_id = 5;
+						$group = $kk['value'];
+						$sort_by = 0;
+						$priority = $ii;
+						$price = $kk['price'];
+						$number = $kk['numb']; 
+						$sumber = $kk['sumber']; 
+                        $comment = $kk['comment'];  
+                        $discount = $kk['discount'];    
+						$network = $kk['network'];   
+						$grade = $kk['grade'];  
+						$p_price = $kk['p_price'];  
+						$monthly = $kk['monthly'];  
+						$listBer[] = array( 'category' => $category,
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'group_price' =>($price),
+											'product_id' => ($id),
+											'product_phone' => ($number),
+											'product_sumber' => ($sumber),
+                                            'product_comment' => ($comment),
+                                            'product_discount' => ($discount),
+											'product_network' => ($network),
+											'product_grade' => ($grade),
+											'product_price' => ($p_price),
+											'monthly_status' => ($monthly),
+											'status' => 'auto');   
+						$ii++;
+					} 
+				}
+			}   
+			#insert category 3 
+			if(!empty($idArr_1)){ 
+				$idIn =''; 
+				foreach($idArr_1 as $vals){  $idIn .= $vals.','; } 
+				$idIn = substr($idIn,0,-1); 
+				$table = "berproduct";
+				$set = "product_category = CONCAT(product_category,:cate_id )";
+				$where = " product_id IN (".$idIn.") ";
+				$value = array( ":cate_id" => ',3,' ); 
+				$ret['cate3'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
+				$ret['lover3'] = self::$dbcon->multiInsert('berproduct_alover',$listBer); 
+				$idArr_1 = array_unique($idArr_1);
+				$table = "berproduct_category";
+				$set = "bercate_total =  :cate_id ";
+				$where = "bercate_id = 3 ";
+				$value = array( ":cate_id" => count($idArr_1) ); 
+				$ret['count3'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
+		 	}  
+			#part category id = 4
+			$idArr2 = array();  
+			$category = 4;
+			#case6 
+			if(isset($approve['c6'])  && !empty($case['resultCase6'])){ 
+				foreach($case['resultCase6'] as $keys => $vals){ 
+					$ii= 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr2[$kk['id']])){ $idArr2[$kk['id']] = $kk['id'];  }   
+						$func_id = 6;
+						$group = $kk['value'];
+						$sort_by = $kk['id'];
+						$priority = $ii;
+						$number = $kk['numb']; 
+						$monthly = $kk['monthly']; 
+						$listBer2[] = array('category' => ($category),
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'product_phone' => ($number),
+											'monthly_status' => ($monthly),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				}	
+			}
+			#case7
+			if(isset($approve['c7'])  && !empty($case['resultCase7'])){ 
+				foreach($case['resultCase7'] as $keys => $vals){ 
+					$ii= 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr2[$kk['id']])){
+							$idArr2[$kk['id']] = $kk['id']; 
+						}   
+						$func_id = 7;
+						$group = $kk['value'];
+						$sort_by = $kk['id'];
+						$priority = $ii;
+						$number = $kk['numb']; 
+						$monthly = $kk['monthly']; 
+						$listBer2[] = array('category' => ($category),
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'product_phone' => ($number),
+											'monthly_status' => ($monthly),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				} 
+			}
+			#case8
+			if(isset($approve['c8'])  && !empty($case['resultCase8'])){ 
+				foreach($case['resultCase8'] as $keys => $vals){ 
+					$ii= 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr2[$kk['id']])){
+							$idArr2[$kk['id']] = $kk['id']; 
+						}  
+						$category = 4;
+						$func_id = 8;
+						$group = $kk['value'];
+						$sort_by = $kk['id'];
+						$priority = $ii;
+						$number = $kk['numb']; 
+						$monthly = $kk['monthly']; 
+						$listBer2[] = array('category' => ($category), 
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'product_phone' => ($number),
+											'monthly_status' => ($monthly),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				} 
+			}
+			// #case9
+			// if(isset($approve['c9'])  && !empty($case['resultCase9'])){  
+			// 	foreach($case['resultCase9'] as $keys => $vals){ 
+			// 		$ii = 0;
+			// 		foreach( $vals as $cc => $kk){ 
+			// 			if(!isset($idArr2[$kk['id']])){ $idArr2[$kk['id']] = $kk['id'];  }   
+			// 			$func_id = 9;
+			// 			$group = $kk['value'];
+			// 			$sort_by = $kk['id'];
+			// 			$priority = $ii;
+			// 			$number = $kk['numb']; 
+			// 			$listBer2[] = array('category' => ($category), 
+			// 								'func_id' => ($func_id),
+			// 								'lover_group' => ($group),
+			// 								'sort' => ($sort_by),
+			// 								'love_priority' =>($priority),
+			// 								'product_phone' => ($number),
+			// 								'status' => 'auto' );   
+			// 			$ii++;
+			// 		} 
+			// 	}
+			// }
+			// #case10
+			// if(isset($approve['c10'])  && !empty($case['resultCase10'])){ 
+			// 	foreach($case['resultCase10'] as $keys => $vals){ 
+			// 		$ii= 0;
+			// 		foreach( $vals as $cc => $kk){ 
+			// 			if(!isset($idArr2[$kk['id']])){
+			// 				$idArr2[$kk['id']] = $kk['id']; 
+			// 			}   
+			// 			$func_id = 10;
+			// 			$group = $kk['value'];
+			// 			$sort_by = $kk['id'];
+			// 			$priority = $ii;
+			// 			$number = $kk['numb']; 
+			// 			$listBer2[] = array('category' => ($category),
+			// 								'func_id' => ($func_id),
+			// 								'lover_group' => ($group),
+			// 								'sort' => ($sort_by),
+			// 								'love_priority' =>($priority),
+			// 								'product_phone' => ($number),
+			// 								'status' => 'auto' );   
+			// 			$ii++;
+			// 		} 
+			// 	} 
+            // }
+
+            #case11
+			if(isset($approve['c11'])  && !empty($case['resultCase11'])){  
+				foreach($case['resultCase11'] as $keys => $vals){ 
+					$ii = 0;
+					foreach( $vals as $cc => $kk){ 
+						if(!isset($idArr2[$kk['id']])){ $idArr2[$kk['id']] = $kk['id'];  }   
+						$func_id = 11;
+						$group = $kk['value'];
+						$sort_by = $kk['id'];
+						$priority = $ii;
+						$number = $kk['numb']; 
+						$monthly = $kk['monthly']; 
+						$listBer2[] = array('category' => ($category), 
+											'func_id' => ($func_id),
+											'lover_group' => ($group),
+											'sort' => ($sort_by),
+											'love_priority' =>($priority),
+											'product_phone' => ($number),
+											'monthly_status' => ($monthly),
+											'status' => 'auto' );   
+						$ii++;
+					} 
+				}
+			}
+
+			if(!empty($idArr2)){ 
+				$idIn2 = '';
+				foreach($idArr2 as $vals){ 
+					$idIn2 .= $vals.',';
+				}  
+				$idIn2 = substr($idIn2,0,-1); 
+				$table = "berproduct";
+				$set = "product_category = CONCAT(product_category,:cate_id )";
+				$where = "product_id IN (".$idIn2.")";
+				$value = array(
+					":cate_id" => ',4,' 
+				); 
+				$idArr2 = array_unique($idArr2); 
+				$ret['cate4'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
+				$ret['lover4'] = self::$dbcon->multiInsert('berproduct_alover',$listBer2); 
+				$table = "berproduct_category";
+				$set = "bercate_total =  :cate_id ";
+				$where = "bercate_id = 4 ";
+				$value = array(
+					":cate_id" => count($idArr2)
+				); 
+				$ret['count4'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
+			}
+
+		return $ret;
     }
 
     public function export_excel()

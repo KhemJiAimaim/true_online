@@ -65,11 +65,11 @@ body {
 }
 @media only screen and (max-width:1280px) {
     .swiper-button-next {
-        right: 5% !important;
+        right: 4% !important;
     }
 
     .swiper-button-prev {
-        left: 5%!important;
+        left: 4%!important;
 
     }
 }

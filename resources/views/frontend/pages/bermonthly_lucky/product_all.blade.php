@@ -25,43 +25,57 @@
         </div>
 
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3 2xl:mt-6">
-            <div class="grid grid-cols-6 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
-                <a href="#fiber"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/icons/category/icon-money-menu.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์การเงิน</p>
-                </a>
+            <div class="flex justify-center py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
+                @foreach($berpredict_numbcate as $numcate)
+                    @if($numcate->recommended == true)
+                    <a href="?improve={{$numcate->numbcate_id}}" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                        <div class="w-10 h-10 max-sm:w-[40px]">
+                            <img class="w-full h-full mb-2" src="{{$numcate->thumbnail}}" alt="">
+                        </div>
+                        <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{$numcate->numbcate_title}}</p>
+                    </a>
+                    @endif
+                @endforeach
 
-                <a
-                    href="#ber_lucky"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-3" src="/icons/category/icon-work-menu.png" alt="">
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์การงาน</p>
-                </a>
+                @foreach($berproduct_cates as $cate)
+                    @if($cate->recommended == true)
+                    <a href="?auspicious={{$cate->bercate_id}}"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                        <div class="w-10 h-10 max-sm:w-[30px]">
+                            <img class="w-full h-full mb-3" src="/{{$cate->thumbnail}}" alt="">
+                        </div>
+                        <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{$cate->bercate_title}}</p>
+                    </a>
+                    @endif
+                @endforeach
 
 
-                <a href="#sim"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[40px] mb-3" src="/icons/category/icon-swarn-menu.png" alt="">
+                {{-- <a href="#sim" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                    <div>
+                        <img class="w-30 h-30 max-sm:w-[40px] mb-3" src="/icons/category/icon-swarn-menu.png" alt="">
+                    </div>
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์หงส์</p>
                 </a>
 
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-dragon-menu.png" alt="">
+                <a href="#travel" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                    <div>
+                        <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-dragon-menu.png" alt="">
+                    </div>
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์มังกร</p>
                 </a>
 
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-god-menu.png" alt="">
+                <a href="#travel" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                    <div>
+                        <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-god-menu.png" alt="">
+                    </div>
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์กวนอู</p>
                 </a>
 
-                <a href="#travel"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-healt-menu.png" alt="">
+                <a href="#travel" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                    <div>
+                        <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-healt-menu.png" alt="">
+                    </div>
                     <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">สุขภาพดี</p>
-                </a>
+                </a> --}}
 
             </div>
         </div>
@@ -291,13 +305,11 @@
                                     $imp_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                 @endphp
-                                <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                    class="relative p-2 bg-white rounded-[5px] group {{ $imp_selected }}">
+                                <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ $imp_selected }}">
                                     <img src="{{ $numbcate->thumbnail }}" alt="" style="{{ $image_selected }}">
-                                    <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150" src="/icons/category/union.png" alt="">
-                                        <p class="w-full text-xs absolute top-1 left-0 text-center">
-                                            {{ $numbcate->numbcate_title }}</p>
+                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                        <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
+                                        <p class="w-full text-xs absolute top-1 left-0 text-center"> {{ $numbcate->numbcate_title }}</p>
                                     </div>
                                 </button>
                             @endforeach
@@ -320,21 +332,19 @@
                                     $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                 @endphp
-                                <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
-                                    class="relative p-2 bg-white rounded-[5px] group {{ $aus_selected }}">
+                                <button id="cate-ber" data-id="{{ $bercate->bercate_id }}" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ $aus_selected }}">
                                     <img src="{{ $bercate->thumbnail }}" alt="" style="{{ $img_selected }}">
-                                    <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150" src="/icons/category/union.png" alt="">
+                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                        <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
                                         <p class="w-full text-xs absolute top-1 left-0">{{ $bercate->bercate_title }}</p>
                                     </div>
                                 </button>
                                 @endif
                             @endforeach
-                            <button id="btn-vip" data-id="vip"
-                                class="relative p-2 bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
+                            <button id="btn-vip" data-id="vip" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
                                 <img src="/icons/category/vip.png" alt="" style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : ''}}">
-                                <div class="w-14 h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                    <img class="scale-150" src="/icons/category/union.png" alt="">
+                                <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                    <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
                                     <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
                                 </div>
                             </button>
@@ -344,8 +354,8 @@
             </div>
 
             <div class="w-full mt-4 flex justify-center gap-10">
-                <button id="reset-search" class="px-4 py-1 border border-red-400 rounded-[15px]">คืนค่า</button>
-                <button id="search-product" class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px]">ค้นหา</button>
+                <button id="reset-search" class="px-4 py-1 border border-red-400 rounded-[15px] hover:bg-red-700 hover:text-white">คืนค่า</button>
+                <button id="search-product" class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700">ค้นหา</button>
             </div>
 
         </div>

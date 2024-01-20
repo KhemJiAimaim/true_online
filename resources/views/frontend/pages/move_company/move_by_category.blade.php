@@ -40,7 +40,7 @@
             </div>
             <div class="pt-6 w-full">
                 <div
-                    class="max-w-[1536px] my-0 mx-auto 2xl:grid 2xl:grid-cols-3 flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
+                    class="max-w-[1536px] my-0 mx-auto flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
                     @foreach ($move_product as $product)
                         <div class="drop-shadow-md ">
                             <div class="2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
@@ -89,7 +89,7 @@
                                         </div>
                                     @endif
                                 </div>
-                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden p-4">
+                                <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden ">
                                     <div class="orange-plate-container pb-2">
                                         <div class="orange-plate-line"></div>
                                         <div class="orange-plate-group">
@@ -117,7 +117,7 @@
                                         $benefit_items = array_slice($same_benefit, 0, 3);
                                         // dd($benefit_items)
                                     @endphp
-                                    <div>
+                                    <div class=" h-[300px] overflow-scroll overflow-y-auto overflow-x-hidden">
                                         @foreach ($benefit_items as $item)
                                             @foreach ($posts as $pos)
                                                 @if ($pos->id == $item)
