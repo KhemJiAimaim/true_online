@@ -82,7 +82,7 @@
             <div id="box-package"
                 class="h-[300px]  bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                 <div class="h-full overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
-                    <div class="w-full max-lg:w-[290px] text-left Z-[99] my-4 ml-4 ">
+                    <div class="w-full max-lg:w-[320px] text-left Z-[99] my-4 ml-4 ">
                         {!! $prepaid_cate->details_content !!}
                     </div>
                     <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">

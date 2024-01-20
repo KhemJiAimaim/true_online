@@ -18,7 +18,7 @@
 @php
     $data_option = array_filter(explode(',', $travel_sim->package_options));
 @endphp
-<div class="mt-[125px] max-xl:mt-[74px] ">
+<div class="mt-[10%] max-xs:mt-[20%] ">
     <div class=" flex justify-center items-center  ">
         <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 xl:grid-cols-3  gap-4 m-3 ">
 
@@ -94,7 +94,7 @@
         <div id="box-package"
             class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
             <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
-            <div class="w-full lg:w-[400px] px-2 text-left">
+            <div class="w-full lg:w-[320px] px-2 text-left">
                 {!! $travel_sim->details_content !!}
             </div>
             <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">

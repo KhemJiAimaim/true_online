@@ -59,7 +59,7 @@
                                 </div>
                             </div>
 
-                            <p class="mt-4 font-medium text-[18px]">{{$fiber_products->special_details}}</p>
+                            <p class="mt-4 font-medium text-[18px]">{{ $fiber_products->special_details }}</p>
                             <div class="grid grid-cols-3 px-10 mt-4 items-center">
                                 <p class="text-black font-medium text-[16px] pt-[26px] ">ราคา</p>
                                 <p class="font-bold text-center text-4xl pt-3">
@@ -118,61 +118,58 @@
                     @endphp
                     <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                         @foreach ($posts as $pos)
-                            <div class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-4">
+                            <div
+                                class="swiper-slide flex flex-col text-center text-[18px] bg-[#fff] justify-center items-center gap-4">
                                 <div class="flex justify-center items-center w-[230px] h-[150px]">
-                                    <img src="/{{ $pos->thumbnail_link }}" alt="" class="w-full h-full object-contain">
+                                    <img src="/{{ $pos->thumbnail_link }}" alt=""
+                                        class="w-full h-full object-contain">
                                 </div>
                                 <p class="se:text-[16px]">{{ $pos->title }}</p>
                             </div>
-                        @endforeach  
-                        
-                       
-                    </div> 
+                        @endforeach
+
+
+                    </div>
 
                     <div class="mx-3 items-center">
                         <div class="swiper-button-next "></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                  
+
                 </div>
-
-
             </div>
+        </section>
 
-    </div>
-    </section>
-
-    <section class="py-16 ">
-        <div class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">สิทธิพิเศษ</div>
-        <div class="flex justify-center mt-2 ">
-            <div class="flex flex-col justify-center w-[550px] gap-4 px-3 text-left ">
-                @foreach ($privilege as $previl)
-                    <div class="flex items-start">
-                        <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
-                        <p class="">{!! $previl->content !!}</p>
-                    </div>
-                @endforeach
+        <section class="py-12 ">
+            <div class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">สิทธิพิเศษ</div>
+            <div class="flex justify-center mt-2 ">
+                <div class="flex flex-col justify-center w-[550px] gap-4 px-3 text-left ">
+                    @foreach ($privilege as $previl)
+                        <div class="flex items-start">
+                            <img src="/images/quill_star.png" alt="" class="mr-2 h-[35px] w-[35px]">
+                            <p class="">{!! $previl->content !!}</p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
+        </section>
+
+
+        <div class="bg-white rounded-bl-[10px] my-4 rounded-br-[10px] flex justify-center">
+            <a href="{{ url('/fiber/form_true_dtac/' . $fiber_products->id) }}"
+                class="py-2.5 px-5 mr-2 mb-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
         </div>
-    </section>
+        <button id="modal-term-service" class="text-[#838383] text-[16px] underline">ข้อกำหนดและเงื่อนไข</button>
 
-
-    <div class="bg-white rounded-bl-[10px] my-4 rounded-br-[10px] flex justify-center">
-        <a href="{{ url('/fiber/form_true_dtac/' . $fiber_products->id) }}"
-            class="py-2.5 px-5 mr-2 mb-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
-    </div>
-    <button id="modal-term-service" class="text-[#838383] text-[16px] underline">ข้อกำหนดและเงื่อนไข</button>
-
-    {{-- box manual --}}
-    @php
-        $terms_demo = '<p><strong>ข้อกำหนดและเงื่อนไขรายการส่งเสริมการขาย Fixxy No Limit สำหรับย้ายค่ายแบบรายเดือน</strong></p>
+        {{-- box manual --}}
+        @php
+            $terms_demo = '<p><strong>ข้อกำหนดและเงื่อนไขรายการส่งเสริมการขาย Fixxy No Limit สำหรับย้ายค่ายแบบรายเดือน</strong></p>
                         <p>1.รายการส่งเสริมการขายนี้ สำหรับผู้สมัครใช้บริการย้ายค่ายเบอร์เดิมมาใช้ ทรูมูฟ เอช (&ldquo;ผู้ใช้บริการ&rdquo;) ของบริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด (&ldquo;บริษัท&rdquo;) แบบระบบรายเดือน ในนามบุคคลธรรมดา ตั้งแต่วันที่ 22 กันยายน 2566 &nbsp;ถึง 30 พฤศจิกายน 2566 หรือจนกว่าจะมีการเปลี่ยนแปลง</p>
                         <p>2.รายละเอียดรายการส่งเสริมการขาย: อัตราค่าบริการยังไม่รวมภาษีมูลค่าเพิ่ม</p>
                         <p>2.1 รายการส่งเสริมการขาย Fixxy No Limit 399<br />
                         สิทธิตามแพ็กเกจปกติ:<br />
                         คิดอัตราค่าใช้บริการเหมาจ่ายขั้นต่ำรายเดือน 399 บาท ต่อเดือน ผู้ใช้บริการจะได้รับสิทธิใช้บริการ ดังนี้<br />
-                        (1)
-โทรทุกเครือข่ายเดือนละ 150 นาทีต่อรอบค่าบริการ&nbsp;<br />
+                        (1)โทรทุกเครือข่ายเดือนละ 150 นาทีต่อรอบค่าบริการ&nbsp;<br />
                         (2)บริการ 5G ที่ความเร็วสูงสุด 20 เมกะบิตต่อวินาที (Mbps) เป็นจำนวน 70 กิกะไบต์ (GB)หลังจากนั้น จะใช้ได้ไม่จำกัดปริมาณที่ความเร็วสูงสุด 1 เมกะบิตต่อวินาที (Mbps)<br />
                         (3)บริการ Wi-Fi ที่ความเร็วสูงสุด 1 กิกกะบิตต่อวินาที (Gbps) ไม่จำกัดปริมาณการใช้งาน<br />
                         (4)บริการ Voice Mail และ Miss Call Alert</p>
@@ -192,23 +189,24 @@
                         3.1 โทรทุกเครือข่าย นาทีละ 1.50 บาท คิดค่าบริการเป็นรายนาที เศษของนาทีนับเป็นหนึ่งนาที<br />
                         3.2 บริการส่งข้อความสั้น (SMS) ระหว่างโทรศัพท์เคลื่อนที่ที่ใช้และจดทะเบียนภายในประเทศ ข้อความละ 2.50 บาท<br />
                         3.3 บริการส่งข้อความมัลติมีเดีย (MMS) ระหว่างโทรศัพท์เคลื่อนทีที่ใช้และจดทะเบียนภายในประเทศ ครั้งละ 4.50 บาท</p>';
-    @endphp
-    <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10"
-        id="modal-container">
-        <div
-            class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] max-lg:p-2 p-4 bg-white rounded-[10px]">
-            <div class="w-full flex justify-end">
-                <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close_modal">
-            </div>
-            <div class="text-center flex flex-col items-center gap-3">
-                <h1 class="text-xl font-bold mb-4">ข้อกำหนดและเงื่อนไข</h1>
-            </div>
-            <div id="modal-content" class="text-left text-center">
-                <a href="{{ url('/public/upload/terms/termsfiber.pdf')}}" target="_bank" class="text-xl text-[#0d6efd] underline">“แพ็กเกจใหม่ ทรูกิกะเทค โปร สมาร์ทโฮม”</a>
+        @endphp
+
+        <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10 "
+            id="modal-container">
+            <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] max-lg:p-2 p-4 bg-white rounded-[10px]">
+                <div class="w-full flex justify-end">
+                    <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close_modal">
+                </div>
+                <div class="text-center flex flex-col items-center gap-3">
+                    <h1 class="text-xl font-bold mb-4">ข้อกำหนดและเงื่อนไข</h1>
+                </div>
+                <div id="modal-content" class="text-left text-center">
+                    <a href="{{ url('/public/upload/terms/termsfiber.pdf') }}" target="_bank"
+                        class="text-xl text-[#0d6efd] underline">“แพ็กเกจใหม่ ทรูกิกะเทค โปร สมาร์ทโฮม”</a>
+                </div>
             </div>
         </div>
-    </div>
-    {{-- box manual --}}
+        {{-- box manual --}}
     </div>
 
     @include('frontend.pages.internet_fiber.footer_fiber')

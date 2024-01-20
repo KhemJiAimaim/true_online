@@ -74,6 +74,7 @@ class OrderController extends BaseController
                                 return $sim->id === $type;
                             })->first();
 
+                            $product->amount = $product->quantity;
                             $product->item_id = $i->id;
                             $product->cate_name = $cate->cate_title;
                             $product->type_id = $type;
@@ -165,6 +166,7 @@ class OrderController extends BaseController
                         'quantity' => $item["quantity"],
                         'discount' => $item["discount"],
                         'thumbnail' => $item["thumbnail"],
+
                     ];
 
                     $product_values[] = $value;
@@ -175,9 +177,13 @@ class OrderController extends BaseController
                                 'product_sold' => $request->order_status === "success" ? 'yes' : 'no',
                             ]);
                         } else if ($item['type_id'] === 4) {
-                            PrepaidSim::where('id', $item['product_id'])->increment('quantity_sold', $item['quantity']);
+                            PrepaidSim::where('id', $item['product_id'])
+                                ->increment('quantity_sold', $item['quantity'])
+                                ->decrement('quantity', $item['quantity']);
                         } else if ($item['type_id'] === 6) {
-                            TravelSim::where('id', $item['product_id'])->increment('quantity_sold', $item['quantity']);
+                            TravelSim::where('id', $item['product_id'])
+                                ->increment('quantity_sold', $item['quantity'])
+                                ->decrement('quantity', $item['quantity']);
                         }
                     }
                 }
@@ -208,8 +214,8 @@ class OrderController extends BaseController
         try {
 
             $berlucky = BerproductMonthly::where('product_sold', 'no')->orderBy('product_price', 'ASC')->get();
-            $travelsim = TravelSim::whereColumn('quantity', '>', 'quantity_sold')->orderBy('price', 'ASC')->get();
-            $prepaidsim = PrepaidSim::whereColumn('quantity', '>', 'quantity_sold')->orderBy('price', 'ASC')->get();
+            $travelsim = TravelSim::where('quantity', '>', 0)->orderBy('price', 'ASC')->get();
+            $prepaidsim = PrepaidSim::where('quantity', '>', 0)->orderBy('price', 'ASC')->get();
 
             if ($berlucky) {
                 foreach ($berlucky as $ber) {
@@ -223,6 +229,7 @@ class OrderController extends BaseController
 
             if ($travelsim) {
                 foreach ($travelsim as $ber) {
+                    $ber->amount = $ber->quantity;
                     $ber->title = $ber->title . " " . $ber->price;
                     $ber->p_cate_id = $ber->travel_cate_id;
                     $ber->discount = 0;
@@ -231,6 +238,7 @@ class OrderController extends BaseController
 
             if ($prepaidsim) {
                 foreach ($prepaidsim as $ber) {
+                    $ber->amount = $ber->quantity;
                     $ber->title = $ber->title . " " . $ber->price;
                     $ber->p_cate_id = $ber->prepaid_cate_id;
                     $ber->discount = 0;
@@ -308,7 +316,7 @@ class OrderController extends BaseController
                     ]);
 
                     if ($item['type_id'] === 3) {
-                        BerproductMonthly::where('product_id', $item['product_id'])->update([
+                        BerproductMonthly::where('product_phone', $item['product_phone'])->update([
                             'product_sold' => $request->order_status === "success" ? 'yes' : 'no',
                         ]);
                     }
@@ -316,28 +324,48 @@ class OrderController extends BaseController
                     if ($request->order_status !== $order->order_status) {
                         if ($request->order_status === "success") {
                             if ($item['type_id'] === 4) {
-                                $prepaidSim = PrepaidSim::where('id', $item['id'])->update([
-                                    'quantity_sold' => $item['quantity_sold']
+                                PrepaidSim::where('id', $item['id'])->update([
+                                    'quantity_sold' => DB::raw('quantity_sold + ' . (int)$item['quantity']),
+                                    'quantity' => DB::raw('quantity - ' . (int)$item['quantity']),
                                 ]);
+
+                                $prepaidSim = PrepaidSim::find($item['id']);
+
+                                if ($prepaidSim->quantity < 0) {
+                                    $prepaidSim->quantity = 0;
+                                    $prepaidSim->save();
+                                }
                             }
 
                             if ($item['type_id'] === 6) {
-                                $travelSim = TravelSim::where('id', $item['id'])->update([
-                                    'quantity_sold' => $item['quantity_sold']
+                                TravelSim::where('id', $item['id'])->update([
+                                    'quantity_sold' => DB::raw('quantity_sold + ' . (int)$item['quantity']),
+                                    'quantity' => DB::raw('quantity - ' . (int)$item['quantity']),
                                 ]);
+
+                                $travelSim = TravelSim::find($item['id']);
+
+                                if ($travelSim->quantity < 0) {
+                                    $travelSim->quantity = 0;
+                                    $travelSim->save();
+                                }
                             }
                         } else if ($request->order_status === "pending") {
                             if ($item['type_id'] === 4) {
                                 $prepaidSim = PrepaidSim::where('id', $item['id'])->first();
-                                $sold = $prepaidSim->quantity_sold;
-                                $prepaidSim->quantity_sold = $sold >= (int)$item['quantity_sold'] ? ($sold - (int)$item['quantity_sold']) : 0;
+                                // $sold = $prepaidSim->quantity_sold;
+                                // $prepaidSim->quantity_sold = $sold >= (int)$item['quantity_sold'] ? ($sold - (int)$item['quantity_sold']) : 0;
+                                $prepaidSim->quantity_sold -= (int)$item['quantity'];
+                                $prepaidSim->quantity += (int)$item['quantity'];
                                 $prepaidSim->save();
                             }
 
                             if ($item['type_id'] === 6) {
                                 $travelSim = TravelSim::where('id', $item['id'])->first();
-                                $sold = $travelSim->quantity_sold;
-                                $travelSim->quantity_sold = $sold >= (int)$item['quantity_sold'] ? ($sold - (int)$item['quantity_sold']) : 0;
+                                // $sold = $travelSim->quantity_sold;
+                                // $travelSim->quantity_sold = $sold >= (int)$item['quantity_sold'] ? ($sold - (int)$item['quantity_sold']) : 0;
+                                $travelSim->quantity_sold -= (int)$item['quantity'];
+                                $travelSim->quantity += (int)$item['quantity'];
                                 $travelSim->save();
                             }
                         }
@@ -383,23 +411,31 @@ class OrderController extends BaseController
             $order = Order::where('id', $order_id)->with("orderItems")->first();
 
             if ($order->order_status === "success") {
-
                 foreach ($order->orderItems as $item) {
                     if ($item->type_id === 3) {
-                        BerproductMonthly::where('product_id', $item->product_id)->update([
+                        BerproductMonthly::where('product_phone', $item->product_name)->update([
                             'product_sold' => 'no',
                         ]);
                     } else if ($item->type_id === 4) {
-                        PrepaidSim::where('id', $item->product_id)->decrement('quantity_sold', $item->quantity);
+                        PrepaidSim::where('id', $item->product_id)->update([
+                            'quantity_sold' => DB::raw('quantity_sold - ' . (int)$item->quantity),
+                            'quantity' => DB::raw('quantity + ' . (int)$item->quantity),
+                        ]);
                     } else if ($item->type_id === 6) {
-                        TravelSim::where('id', $item->product_id)->decrement('quantity_sold', $item->quantity);
+                        TravelSim::where('id', $item->product_id)->update([
+                            'quantity_sold' => DB::raw('quantity_sold - ' . (int)$item->quantity),
+                            'quantity' => DB::raw('quantity + ' . (int)$item->quantity),
+                        ]);
                     }
 
-                    PrepaidSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
-                    TravelSim::where('id', $item->product_id)->where('quantity_sold', '<', 0)->update(['quantity_sold' => 0]);
+                    PrepaidSim::where('id', $item->product_id)
+                        ->where('quantity_sold', '<', 0)
+                        ->update(['quantity_sold' => 0]);
+                    TravelSim::where('id', $item->product_id)
+                        ->where('quantity_sold', '<', 0)
+                        ->update(['quantity_sold' => 0]);
                 }
             }
-
 
             Order::where('id', $order_id)->delete();
             OrderItem::where('order_id', $order_id)->delete();

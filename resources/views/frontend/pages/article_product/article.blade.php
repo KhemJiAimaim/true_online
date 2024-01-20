@@ -8,9 +8,11 @@
     <h1 class=" text-white text-center text-[22px] font-medium">{{$post->keyword}}</h1>
   </div>
   <div class="w-full mt-4 mx-auto max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%]">
-    <figure>
-      <img class="w-[1305px] h-[653px] max-lg:h-[350px] max-xs:h-[240px] mx-auto" src="{{$post->thumbnail_link}}" alt="">
-    </figure>
+
+    <div class="max-w-[1300px] h-[400px] max-[1023px]:h-[350px] max-[540px]:h-[260px] max-xs:h-[190px]  mx-auto">
+      <img class="w-full h-full" src="{{$post->thumbnail_link}}" alt="">
+    </div>
+
     <h1 class="mt-8 mb-16 text-center 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">{{$post->title}}</h1>
 
     {{-- box content --}}

@@ -206,6 +206,52 @@ class BerpredictController extends BaseController
         }
     }
 
+    public function updatePinNumbCate(Request $request, $id)
+    {
+        try {
+
+            $product = BerpredictNumbcate::where('numbcate_id', $id)->update([
+                'numbcate_pin' => $request->numbcate_pin,
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update pin numbcate successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updateRecNumbCate(Request $request, $id)
+    {
+        try {
+
+            $product = BerpredictNumbcate::where('numbcate_id', $id)->update([
+                'recommended' => $request->recommended,
+            ]);
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update recommended numbcate successfully',
+                'updated' => $product,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
     public function deletePredictNumbCate(Request $request, $id)
     {
         try {
