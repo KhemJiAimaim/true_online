@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3 2xl:mt-6">
+        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-4 px-3 2xl:mt-6">
             <div class="flex justify-center py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
                 @foreach($berpredict_numbcate as $numcate)
                     @if($numcate->recommended == true)

@@ -81,7 +81,7 @@
                                                     <p class="2xl:text-[18px] text-[16px]">กำลังจัดส่ง</p>
                                                 @endif
                                             </td>
-                                            <td class="whitespace-nowrap  px-6 py-4 text-[16px] flex flex-col">
+                                            {{-- <td class="whitespace-nowrap  px-6 py-4 text-[16px] flex flex-col">
                                                 @foreach ($order->orderItems as $item)
                                                     @if ($item['type_id'] === 3)
                                                         <div>{{ $item['product_name'] }}</div>
@@ -92,6 +92,20 @@
                                                     @endif
                                                 @endforeach
 
+                                            </td> --}}
+                                            <td class="whitespace-nowrap px-6 py-4 text-[16px] flex flex-col">
+                                                @foreach ($order->orderItems as $item)
+                                                    @if ($item['type_id'] === 3)
+                                                        @php
+                                                            $trimmedProductName = substr($item['product_name'], 0, 3) . substr($item['product_name'], 3);
+                                                        @endphp
+                                                        <div>{{ $trimmedProductName }}</div>
+                                                    @elseif ($item['type_id'] === 4)
+                                                        <div>ซิมเติมเงิน</div>
+                                                    @elseif ($item['type_id'] === 6)
+                                                        <div>ซิมท่องเที่ยว</div>
+                                                    @endif
+                                                @endforeach
                                             </td>
                                         </tr>
                                     @endforeach
