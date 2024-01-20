@@ -7,8 +7,10 @@
                
                 <!-- logo -->
                 <div class="hidden xl:flex">
-                    <a href="/" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
-                        <img src="/{{ $webInfo->detail->image_1->link }}" alt="lago">
+                    <a href="/" class="flex items-center py-2 text-gray-700 hover:text-gray-900">
+                        <div class="w-16">
+                         <img src="/images/logo/S__41378004.jpg" alt="" class="w-full">{{--{{ $webInfo->detail->image_1->link }} --}}
+                        </div>
                     </a>
                 </div>
 
@@ -38,7 +40,9 @@
         <div class="xl:hidden flex justify-between items-center">
             <div class="">
                 <a href="{{ url('/') }}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
-                    <img src="{{ asset('/images/Rectangle 11.png') }}" alt="lago">
+                    <div class="w-16">
+                     <img src="/images/logo/S__41378004.jpg" alt="" class="w-full"> {{--{{ asset('/images/Rectangle 11.png') }} --}}
+                    </div>
                 </a>
             </div>
 
