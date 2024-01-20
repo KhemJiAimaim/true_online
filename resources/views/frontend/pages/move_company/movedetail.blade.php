@@ -15,7 +15,7 @@
 @section('content')
     <div class="mt-[10%] max-xs:mt-[20%]  mx-3">
         <div class=" flex justify-center items-center">
-            <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3  gap-4 m-3">
+            <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1  2xl:grid-cols-3  gap-4 m-3">
 
                 <div class="bg-white w-full 2xl:h-[500px]  items-center px-4 lg:px-1 mb-6 relative">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2">
@@ -50,7 +50,7 @@
 
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-2 2xl:gap-4 overflow-auto 2xl:h-[380px] h-[260px] w-full px-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-4 gap-y-4 overflow-auto 2xl:h-[350px] h-[280px] w-full px-2">
                         <div id="box" data-option="{{$move_product->id}}" class="box border border-gray-500 active hover:border-gray-500 bg-[#F8F9FA] rounded-lg px-2 py-2 max-ex:h-[8rem] h-[9rem] cursor-pointer">
                             <div class="flex mb-2">
                                 <img src="/{{$move_product->thumbnail_link}}" alt="" class="w-20 max-ex:w-[70px] rounded-lg">
@@ -79,7 +79,7 @@
                             @endif
                         @endforeach
                     </div>
-                    <div class="w-[100%] mt-0 flex justify-start max-lg:justify-center items-center">
+                    <div class="w-[100%] mt-0 flex justify-start max-xl:justify-center items-center">
                         <button id="btn-move-form" data-id="{{$move_product->id}}" class=" bg-red-500  hover:bg-red-700 w-[200px] text-center rounded-full py-2 text-white text-[16px] "
                             href="/move/movenow/form">ติดต่อเจ้าหน้าที่</button>
                     </div>
