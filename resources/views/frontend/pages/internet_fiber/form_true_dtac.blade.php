@@ -95,7 +95,7 @@
 @endsection
 @section('content')
     <div class="">
-        <div class="mt-[15%] max-xx:mt-[30%] mx-3 ">
+        <div class="mt-[15%] 2xl:mt-[10%] max-xx:mt-[20%] max-xs:mt-[30%] mx-3 ">
             <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
             <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
 
