@@ -98,6 +98,7 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::post('update/{id}', [BerLuckyController::class, 'updateBerluckyCate']);
             Route::patch('updatestatus/{id}', [BerLuckyController::class, 'updateStatusCate']);
             Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinCate']);
+            Route::patch('updaterec/{id}', [BerLuckyController::class, 'updateRecCate']);
             Route::patch('updatedisplay/{id}', [BerLuckyController::class, 'updateDisplayCate']);
             Route::delete('delete/{id}', [BerLuckyController::class, 'deleteBerluckyCate']);
         });
@@ -134,6 +135,8 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::post('numbcate/create', [BerpredictController::class, 'createPredictNumbCate']);
             Route::post('numbcate/update/{id}', [BerpredictController::class, 'updatePredictNumbCate']);
             Route::patch('numbcate/updatedisplay/{id}', [BerpredictController::class, 'updateDisplayNumbCate']);
+            Route::patch('numbcate/updatepin/{id}', [BerpredictController::class, 'updatePinNumbCate']);
+            Route::patch('numbcate/updaterec/{id}', [BerpredictController::class, 'updateRecNumbCate']);
             Route::delete('numbcate/delete/{id}', [BerpredictController::class, 'deletePredictNumbCate']);
 
             /* grade */

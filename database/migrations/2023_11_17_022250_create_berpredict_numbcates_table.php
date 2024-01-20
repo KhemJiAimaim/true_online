@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('numbcate_want', 300);
             $table->string('numbcate_unwant', 300);
             $table->boolean('numbcate_pin')->default(false);
+            $table->boolean('recommended')->default(false);
             $table->boolean('numbcate_display')->default(true);
             $table->text('thumbnail');
             $table->integer('numbcate_priority')->length(5);

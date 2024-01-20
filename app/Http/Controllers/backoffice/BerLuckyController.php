@@ -208,6 +208,27 @@ class BerLuckyController extends BaseController
         }
     }
 
+    public function updateRecCate(Request $request, $id)
+    {
+        try {
+
+            $cate = BerproductCategory::where('recommended', $id)->update($request->only(['recommended']));
+
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'update recommended cate successfully',
+                'updated' => $cate,
+            ], 200);
+        } catch (Exception $e) {
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 500);
+        }
+    }
+
     public function updateDisplayCate(Request $request, $id)
     {
         try {
@@ -619,9 +640,7 @@ class BerLuckyController extends BaseController
                 ], 404);
             }
 
-            if ($package->priority != $request->priority) {
-                $this->updatePriority("berlucky_packages", $request->priority);
-            }
+            $this->updatePriority("berlucky_packages", $request->priority);
 
             $package->update([
                 'title' => $request->title,

@@ -133,9 +133,7 @@ class FiberController extends BaseController
                 ], 404);
             }
 
-            if ($product->priority != $request->priority) {
-                $this->updatePriority("fiber_products", $request->priority);
-            }
+            $this->updatePriority("fiber_products", $request->priority);
 
             $product->update([
                 'title' => $request->title,

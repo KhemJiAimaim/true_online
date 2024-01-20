@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('details')->nullable();
             $table->string('description')->nullable();
             $table->integer('price')->default(0)->comment('ราคาขาย/บาท');
-            $table->integer('quantity')->default(0)->comment('จำนวน');
+            $table->integer('quantity')->default(0)->comment('จำนวนคงเหลือ');
             $table->integer('quantity_sold')->nullable()->default(0)->comment('จำนวนที่ขายไป');
             $table->string('thumbnail_link')->nullable();
             $table->string('thumbnail_title')->nullable();

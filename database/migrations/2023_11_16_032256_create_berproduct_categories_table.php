@@ -29,6 +29,7 @@ return new class extends Migration
             $table->boolean('status')->default(true)->comment('ตั้งค่าให้เพิ่ม product_category อัตโนมัติ');
             $table->boolean('bercate_pin')->default(true);
             $table->boolean('allow_edit')->default(true)->comment('อนุญาตให้ปรับเปลี่ยนข้อมูล');
+            $table->boolean('recommended')->default(false);
             $table->boolean('bercate_display')->default(true);
             $table->integer('update_by')->length(5);
             $table->string('bercate_h1')->nullable();
