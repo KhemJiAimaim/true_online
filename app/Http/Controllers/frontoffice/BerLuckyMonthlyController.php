@@ -239,6 +239,7 @@ class BerLuckyMonthlyController extends Controller
     public function detailber_page($tel)
     {
         $berproduct = BerproductMonthly::where('product_phone', $tel)->first();
+        $benefits = [];
 
         if ($berproduct->monthly_status === "yes") {
             $package = BerluckyPackage::find($berproduct->product_package);
