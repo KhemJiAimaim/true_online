@@ -126,7 +126,6 @@ const contentCondition = document.querySelector('#contentCondition');
 const show = document.querySelector('#show');
 
 
-
 // ฟังก์ชัน package and condition content
 btn_package.addEventListener('click', () => {
   console.log("กดปุ่มแพ็คเกจ")
