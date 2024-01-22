@@ -116,34 +116,55 @@ buttonRight.addEventListener('click', function () {
 //รายละเอียด
 console.log("use detail_ber.js")
 
-let btn_package = document.querySelector('#btn-package');  // ปุ่มรายละเอียด
-let btn_condition = document.querySelector('#btn-condition');  // ปุ่มเงื่อนไข
-let box_package = document.querySelector('#box-package');
-let box_condition = document.querySelector('#box-condition');
-let show = document.querySelector('#show');
+const btn_package = document.querySelector('#btn-package');  // ปุ่มแพ็คเกจ
+const btn_detailPackage = document.querySelector('#btn-detailPackage');  // ปุ่มรายละเอียด
+const btn_condition = document.querySelector('#btn-condition');  // ปุ่มเงื่อนไข
+const box_package = document.querySelector('#box-package');
+const contentPackage = document.querySelector('#contentPackage');
+const contentDetail = document.querySelector('#contentDetail');
+const contentCondition = document.querySelector('#contentCondition');
+const show = document.querySelector('#show');
 
 
 
 // ฟังก์ชัน package and condition content
 btn_package.addEventListener('click', () => {
-  console.log("button box package")
-  box_package.classList.remove('hidden')
-  box_condition.classList.add('hidden')
+  console.log("กดปุ่มแพ็คเกจ")
+  contentPackage.classList.remove('hidden')
+  contentDetail.classList.add('hidden')
+  contentCondition.classList.add('hidden')
 
   btn_package.classList.add('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
+  btn_detailPackage.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
+  btn_detailPackage.classList.add('bg-[#838383]')
+  btn_condition.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
+  btn_condition.classList.add('bg-[#838383]')
+})
+
+btn_detailPackage.addEventListener('click', () => {
+  contentPackage.classList.add('hidden')
+  contentDetail.classList.remove('hidden')
+  contentCondition.classList.add('hidden')
+
+  btn_detailPackage.classList.add('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
+  btn_package.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
+  btn_package.classList.add('bg-[#838383]')
   btn_condition.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
   btn_condition.classList.add('bg-[#838383]')
 })
 
 btn_condition.addEventListener('click', () => {
   console.log("button box condition")
-  box_package.classList.add('hidden')
-  box_condition.classList.remove('hidden')
+  contentPackage.classList.add('hidden')
+  contentDetail.classList.add('hidden')
+  contentCondition.classList.remove('hidden')
 
-  btn_package.classList.add('bg-[#838383]')
-  btn_package.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
   btn_condition.classList.add('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
   btn_condition.classList.remove('bg-[#838383]')
+  btn_detailPackage.classList.add('bg-[#838383]')
+  btn_detailPackage.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
+  btn_package.classList.add('bg-[#838383]')
+  btn_package.classList.remove('bg-gradient-to-r', 'from-[#F6911D]', 'to-[#ED4312]')
 })
 
 show.addEventListener('click', () => {
@@ -155,9 +176,11 @@ function showMore_boxPackage() {
   if (box_package.classList.contains('h-[300px]')) {
     box_package.classList.remove('h-[300px]');
     box_package.classList.add('h-auto'); 
+    show.innerText = "แสดงน้อยลง ˄"
   } else {
     box_package.classList.add('h-[300px]');
     box_package.classList.remove('h-auto');
+    show.innerText = "แสดงเพิ่มเติม ˅"
   }
 }
 

@@ -46,12 +46,10 @@ class MoveController extends Controller
             ->where('delete_status', false)->get();
 
         $move_product = $moveRelates->firstWhere('id', $id);
-            // dd($moveRelates);
-
-        // $move_product = MoveProduct::where('id', $id)
-        //     ->where('display', true)
-        //     ->where('delete_status', false)->first();
-        return view('frontend.pages.move_company.movedetail',compact('moveRelates', 'move_product'));
+        // $benefit_ids = explode(',', $move_product->benefit_ids);
+        $posts = $this->getPostBenefits();
+        // dd($benefit_ids);
+        return view('frontend.pages.move_company.movedetail',compact('moveRelates', 'move_product', 'posts'));
     }
 
     public function formMove(Request $request, $id) {

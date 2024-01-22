@@ -93,26 +93,53 @@
         <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6">
 
             <div class="flex">
-                <button id="btn-package"
-                    class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
-                    แพ็กเกจ</button>
-                <button id="btn-condition"
-                    class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
+                <button id="btn-package" class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">แพ็กเกจ</button>
+                <button id="btn-detailPackage" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">รายละเอียด แพ็กเกจ</button>
+                <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
             </div>
             {{-- content detail --}}
             <div id="box-package" class="h-[300px] text-left overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                <div class="m-4">
-                {!!$move_product->details_content!!}</div>
+                @php
+                    $benefit_ids = explode(',', $move_product->benefit_ids);
+                    $post_ids = $posts->pluck('id')->toArray();
+
+                    // หาค่าที่เหมือนกัน
+                    $same_benefit = array_intersect($benefit_ids, $post_ids);
+                    $benefit_items = array_slice($same_benefit, 0, 3);
+                    // dd($benefit_items)
+                @endphp
+                <div id="contentPackage" class="m-4">
+                    @foreach ($benefit_items as $item)
+                        @foreach ($posts as $pos)
+                            @if ($pos->id == $item)
+                                <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
+                                    <div
+                                        class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
+                                        <img class="w-full h-full object-contain"
+                                            src="/{{ $pos->thumbnail_link }}"
+                                            alt="">
+                                    </div>
+
+                                    <p
+                                        class="text-start text-[18px] max-md:text-[16px]">
+                                        {{ $pos->title }}</p>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endforeach
+                </div>
+                <div id="contentDetail" class="m-4 hidden">{!!$move_product->details_content!!}</div>
+                <div id="contentCondition" class="m-4 hidden">{!!$move_product->terms_content!!}</div>
                 <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] absolute bottom-0 py-1">
                     <button class="text-center text-[#EC1F25]" id="show">แสดงเพิ่มเติม ˅</button>
                 </div>
             </div>
 
             {{-- content condition --}}
-            <div id="box-condition"
+            {{-- <div id="box-condition"
                 class="hidden bg-[#F8F9FA] text-left min-h-[300px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium  rounded-r-[10px] rounded-bl-[10px]">
                 {!!$move_product->terms_content!!}
-            </div>
+            </div> --}}
 
         </div>
         {{-- box package --}}
