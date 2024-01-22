@@ -1,6 +1,6 @@
 <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] sticky top-[100vh] ">
     <div class=" 2xl:w-[1536px] xl:w-[1200px] mx-auto">
-{{-- 
+    {{-- 
         <div class="flex justify-between py-4 px-4 gap-y-3">
             <div class="2xl:grid 2xl:grid-rows-2 2xl:gap-[0] 2xl:mx-0 gap-[7.3rem]">
                 @if($webInfo->contact->phone->display == true)
