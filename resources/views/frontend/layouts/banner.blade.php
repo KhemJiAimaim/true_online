@@ -48,11 +48,13 @@
 </style>
 
 
-<swiper-container class="mySwiper 2xl:mt-28 mt-16 lg:mt-[4.5rem] cursor-pointer" pagination="true" pagination-dynamic-bullets="true" loop="true"
+<swiper-container class="mySwiper 2xl:mt-[8.5rem] mt-[4.5rem] lg:mt-[7.5rem] cursor-pointer" pagination="true" pagination-dynamic-bullets="true" loop="true"
     autoplay-delay="2000">
     @if($slide_image)
     @foreach($slide_image as $image) 
-        <swiper-slide ><img src="/{{ $image->ad_image }}" alt=""></swiper-slide>
+        <swiper-slide >
+            <img src="/{{ $image->ad_image }}" alt="" class="w-full h-auto">
+        </swiper-slide>
     @endforeach
     @endif
     {{-- <swiper-slide ><img src="{{ asset('images/14.webp') }}" alt=""></swiper-slide>
