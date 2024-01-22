@@ -492,16 +492,16 @@ class BerLuckyMonthlyController extends Controller
 				}
 			}
 
-			/* ********* section 1 แปลงข้อมูลเข้าแต่ละ function ************ */    
-			dd($allBer);
+			/* ********* section 1 แปลงข้อมูลเข้าแต่ละ function ************ */  
 			$var_case = $this->prepare_Byset_variable_condition($allBer,$approve); 
+
 			/* ********** section 2 ส่วนของการกรองข้อมูลออก ***************** */ 
 			$case = $this->prepare_Byset_filter_condition($var_case,$approve);  
 
 			// dd($case);
 			/* ********** section 3 ส่วนของการบันทึกข้อมูล ****************** */
 			$res['ins'] = $this->insert_Byset_category($case,$approve);
-			dd($res['ins']);
+			// dd($res['ins']);
     }
 
     public function prepare_Byset_variable_condition($allBer,$approve) {
@@ -524,6 +524,7 @@ class BerLuckyMonthlyController extends Controller
 		#จัดข้อมูลเข้าหมวดหมู่
         #แต่ละหมวดหมู่จะจับข้อมูลที่ตรงกันตามเงื่อนไขไว้รวมกลุ่มกัน
 		foreach($allBer as $keys => $vals){  
+			// dd($vals);
 			#case1 
         if(isset($approve['c1'])){
                 $con1 = substr($vals->nn,0,-1);
@@ -565,7 +566,7 @@ class BerLuckyMonthlyController extends Controller
 				$condition2[$setResc][$len2]['package'] = $vals->product_package;   
                 $condition2[$setResc][$len2]['discount'] = $vals->product_discount; 
 				$condition2[$setResc][$len2]['grade'] = $vals->product_grade;  
-				$condition2[$setResc][$len2]['p_price'] = $vals->product_pric;
+				$condition2[$setResc][$len2]['p_price'] = $vals->product_price;
 				$condition2[$setResc][$len2]['monthly'] = $vals->monthly_status;  
 				$condition2[$setResc][$len2]['pp'] = $setResc;
                 $condition2[$setResc][$len2]['value'] = $con2; 
@@ -1358,7 +1359,7 @@ class BerLuckyMonthlyController extends Controller
 				$ret['cate3'] = DB::table($table)
 					->whereIn('product_id', explode(',', $idIn))
 					->update(['product_category' => DB::raw($set)]);
-			// dd($listBer);
+				// dd($listBer);
 
 				$ret['lover3'] = DB::table('berproduct_alovers')->insert($listBer);
 				// dd($ret['lover3']);
@@ -1369,7 +1370,7 @@ class BerLuckyMonthlyController extends Controller
 				// $value = array( ":cate_id" => count($idArr_1) ); 
 				// $ret['count3'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
 		 	}  
-			// dd($case['resultCase5']);
+
 			#part category id = 4
 			$idArr2 = array();  
 			$category = 4;
@@ -1522,29 +1523,39 @@ class BerLuckyMonthlyController extends Controller
 					} 
 				}
 			}
-			// dd($idArr2);
+			
 			if(!empty($idArr2)){ 
 				$idIn2 = '';
 				foreach($idArr2 as $vals){ 
 					$idIn2 .= $vals.',';
 				}  
-				$idIn2 = substr($idIn2,0,-1); 
-				$table = "berproduct";
-				$set = "product_category = CONCAT(product_category,:cate_id )";
-				$where = "product_id IN (".$idIn2.")";
-				$value = array(
-					":cate_id" => ',4,' 
-				); 
+				// $idIn2 = substr($idIn2,0,-1); 
+				// $table = "berproduct";
+				// $set = "product_category = CONCAT(product_category,:cate_id )";
+				// $where = "product_id IN (".$idIn2.")";
+				// $value = array(
+				// 	":cate_id" => ',4,' 
+				// ); 
 				$idArr2 = array_unique($idArr2); 
-				$ret['cate4'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
-				$ret['lover4'] = self::$dbcon->multiInsert('berproduct_alover',$listBer2); 
-				$table = "berproduct_category";
-				$set = "bercate_total =  :cate_id ";
-				$where = "bercate_id = 4 ";
-				$value = array(
-					":cate_id" => count($idArr2)
-				); 
-				$ret['count4'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
+
+				$idIn2 = substr($idIn2,0,-1); 
+				$table = "berproduct_monthlies";
+				$set = "CONCAT(product_category, '4,')";
+				$where = "product_id IN ($idIn2)";
+
+				$ret['cate4'] = DB::table($table)
+					->whereIn('product_id', explode(',', $idIn))
+					->update(['product_category' => DB::raw($set)]);
+				$ret['lover4'] = DB::table('berproduct_alovers')->insert($listBer2);
+				// dd($ret['cate4']);
+				// $ret['lover4'] = self::$dbcon->multiInsert('berproduct_alover',$listBer2); 
+				// $table = "berproduct_category";
+				// $set = "bercate_total =  :cate_id ";
+				// $where = "bercate_id = 4 ";
+				// $value = array(
+				// 	":cate_id" => count($idArr2)
+				// ); 
+				// $ret['count4'] = self::$dbcon->update_prepare($table, $set, $where,$value); 
 			}
 
 		return $ret;
