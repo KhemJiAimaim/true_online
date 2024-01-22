@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class=" text-left">
+    <div class=" text-left ">
 
         <div class="h-[158px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
             <div class="flex max-xs:flex-col gap-8">
@@ -24,32 +24,34 @@
 
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-4 px-3 2xl:mt-6">
             <div class="grid grid-cols-5 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
-                @foreach($berpredict_numbcate as $numcate)
-                    @if($numcate->recommended == true)
-                    <a href="?improve={{$numcate->numbcate_id}}" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                        <div class="w-10 h-10 max-sm:w-[40px]">
-                            <img class="w-full h-full mb-2" src="{{$numcate->thumbnail}}" alt="">
-                        </div>
-                        <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{$numcate->numbcate_title}}</p>
-                    </a>
+                @foreach ($berpredict_numbcate as $numcate)
+                    @if ($numcate->recommended == true)
+                        <a href="?improve={{ $numcate->numbcate_id }}"
+                            class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            <div class="w-10 h-10 max-sm:w-[40px]">
+                                <img class="w-full h-full mb-2" src="{{ $numcate->thumbnail }}" alt="">
+                            </div>
+                            <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $numcate->numbcate_title }}</p>
+                        </a>
                     @endif
                 @endforeach
 
-                @foreach($berproduct_cates as $cate)
-                    @if($cate->recommended == true)
-                    <a href="?auspicious={{$cate->bercate_id}}"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                        <div class="w-10 h-10 max-sm:w-[30px]">
-                            <img class="w-full h-full mb-3" src="/{{$cate->thumbnail}}" alt="">
-                        </div>
-                        <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{$cate->bercate_title}}</p>
-                    </a>
+                @foreach ($berproduct_cates as $cate)
+                    @if ($cate->recommended == true)
+                        <a
+                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            <div class="w-10 h-10 max-sm:w-[30px]">
+                                <img class="w-full h-full mb-3" src="/{{ $cate->thumbnail }}" alt="">
+                            </div>
+                            <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->bercate_title }}</p>
+                        </a>
                     @endif
                 @endforeach
             </div>
         </div>
 
         {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container px-3">
+        <div class="title-plate-container px-3 ">
             <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
                 <div class="title-plate-line"></div>
             </div>
@@ -59,7 +61,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</p>
+                    <p class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{ $seo->cate_h1 }}</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -70,266 +72,306 @@
         {{-- มหัศจรรย์ --}}
 
         <!-- search box -->
-        <div
-            class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-[#F8F9FA] mx-auto my-4 p-4 rounded-[20px] text-[17px]">
-            <div class="flex max-lg:flex-col gap-6">
-                {{-- box left --}}
-                <div class="w-full max-xl:max-w-[54%] max-lg:max-w-full">
-                    <div class="w-full p-4 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px]">
-                        <label class="text-white " for="input-fortune">กรอกเบอร์โทร</label>
-                        <div class="w-full flex gap-2">
-                            <input class="w-full h-7 text-center rounded-[3px] " type="text" id="input-fortune"
-                                maxlength="10">
-                            <button class="w-full max-w-[20%] max-xs:max-w-[29%] bg-white rounded-[15px] text-[17px] se:text-[14px] text-[#EC1F25] font-medium"
-                                id="fortune-ber">วิเคราะห์เบอร์</button>
-                        </div>
-                    </div>
+        <div class="max-xs:mx-2">
+            <div
+                class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-gradient-to-r from-[#EC1F25] to-[#960004] p-2 max-xs:p-1 mx-auto rounded-[20px] mt-8">
+                <div class=" bg-[#F8F9FA]  2xl:p-6 p-4 rounded-[18px] text-[17px] ">
+                    <div class="flex max-lg:flex-col gap-4">
+                        {{-- box left --}}
+                        <div class=" w-full max-2xl:w-[48%] max-lg:w-full">
+                            <div
+                                class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4">
+                                <label class="text-white " for="input-fortune">กรอกเบอร์โทร</label>
+                                <div class="w-full flex gap-4">
+                                    <input class="w-full h-7 text-center rounded-[3px] " type="text" id="input-fortune"
+                                        maxlength="10">
+                                    <button
+                                        class="w-full max-w-[25%] max-xs:max-w-[29%] bg-white rounded-[15px] text-[17px] se:text-[14px] text-[#EC1F25] font-medium"
+                                        id="fortune-ber">วิเคราะห์เบอร์</button>
+                                </div>
+                            </div>
 
-                    <div class="mt-4 flex flex-col">
-                        <label class="" for="">ค้นหาเบอร์</label>
-                        <div class="flex gap-2 max-xs:gap-1">
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]" type="text"
-                                data-position="0" value="0" disabled>
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]" type="text"
-                                id="search-num" data-position="1" maxlength="1"
-                                value="{{ isset($_GET['pos1']) ? $_GET['pos1'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 mr-4 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="2" maxlength="1"
-                                value="{{ isset($_GET['pos2']) ? $_GET['pos2'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="3" maxlength="1"
-                                value="{{ isset($_GET['pos3']) ? $_GET['pos3'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="4" maxlength="1"
-                                value="{{ isset($_GET['pos4']) ? $_GET['pos4'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 mr-4 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="5" maxlength="1"
-                                value="{{ isset($_GET['pos5']) ? $_GET['pos5'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="6" maxlength="1"
-                                value="{{ isset($_GET['pos6']) ? $_GET['pos6'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="7" maxlength="1"
-                                value="{{ isset($_GET['pos7']) ? $_GET['pos7'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="8" maxlength="1"
-                                value="{{ isset($_GET['pos8']) ? $_GET['pos8'] : '' }}" placeholder="-">
-                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
-                                type="text" id="search-num" data-position="9" maxlength="1"
-                                value="{{ isset($_GET['pos9']) ? $_GET['pos9'] : '' }}" placeholder="-">
-                        </div>
-                    </div>
+                            <div class="mb-4 flex gap-4 max-2xl:flex-col 2xl:items-center w-full">
+                                <div class="2xl:w-[20%]">
+                                    <label class="text-left" for="">ค้นหาเบอร์</label>
+                                </div>
+                                <div class="flex justify-between gap-5 max-2xl:gap-4 max-xl:gap-2">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" data-position="0" value="0" disabled>
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="1" maxlength="1"
+                                        value="{{ isset($_GET['pos1']) ? $_GET['pos1'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 mr-2 max-xs:mr-1  bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="2" maxlength="1"
+                                        value="{{ isset($_GET['pos2']) ? $_GET['pos2'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="3" maxlength="1"
+                                        value="{{ isset($_GET['pos3']) ? $_GET['pos3'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="4" maxlength="1"
+                                        value="{{ isset($_GET['pos4']) ? $_GET['pos4'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6  mr-2 max-xs:mr-1 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="5" maxlength="1"
+                                        value="{{ isset($_GET['pos5']) ? $_GET['pos5'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="6" maxlength="1"
+                                        value="{{ isset($_GET['pos6']) ? $_GET['pos6'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="7" maxlength="1"
+                                        value="{{ isset($_GET['pos7']) ? $_GET['pos7'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="8" maxlength="1"
+                                        value="{{ isset($_GET['pos8']) ? $_GET['pos8'] : '' }}" placeholder="-">
+                                    <input
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        type="text" id="search-num" data-position="9" maxlength="1"
+                                        value="{{ isset($_GET['pos9']) ? $_GET['pos9'] : '' }}" placeholder="-">
+                                </div>
+                            </div>
 
-                    <div class="mt-4 flex justify-between gap-4 max-xs:grid max-xs:grid-cols-2">
-                        <div class="flex flex-col">
-                            <label for="slc-sum">ผลรวม</label>
-                            <select class="w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]"
-                                name="slc-sum" id="slc-sum">
-                                <option value="">ผลรวม</option>
-                                @foreach ($sumbers as $sum)
+                            <div class="flex flex-col mb-4 gap-y-2">
+                                <label for="slc-category">หมวดหมู่เบอร์</label>
+                                <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-category"
+                                    id="slc-category">
+                                    <option value="">หมวดหมู่เบอร์</option>
+                                    @foreach ($berproduct_cates as $bercate)
+                                        <option value="{{ $bercate->bercate_id }}"
+                                            {{ isset($_GET['cate']) && $bercate->bercate_id == $_GET['cate'] ? 'selected' : '' }}>
+                                            {{ $bercate->bercate_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-4 flex justify-between w-full gap-4 ">
+                                <div class="flex flex-col w-1/2  gap-y-2">
+                                    <label for="slc-sum">ผลรวม</label>
+                                    <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-sum"
+                                        id="slc-sum">
+                                        <option value="">ผลรวม</option>
+                                        @foreach ($sumbers as $sum)
+                                            @php
+                                                $selected = null;
+                                                if (isset($_GET['sum'])) {
+                                                    if ($sum->predict_sum == $_GET['sum']) {
+                                                        $selected = 'selected';
+                                                    }
+                                                }
+                                            @endphp
+                                            <option value="{{ $sum->predict_sum }}" {{ $selected }}>
+                                                {{ $sum->predict_sum }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="flex flex-col w-1/2 gap-y-2">
+                                    <label for="txt_favorite">ค้นหาเลขชุดที่ชอบ</label>
+                                    <input class="w-full h-8 border border-[#838383] rounded-[3px] p-2" type="text"
+                                        name="txt_favorite" id="txt_favorite" maxlength="10"
+                                        placeholder="ชุดเลขที่ชอบ 42,25 หรือ 55*56"
+                                        value="{{ isset($_GET['fav']) ? $_GET['fav'] : '' }}">
+                                </div>
+                            </div>
+
+                            @php
+                                $packages = ['เน็ต Unlimited + โทร 1700 Mins', 'แพ็กเกจนี้ใช้ฟรี 3 เดือน', 'เน็ต 1mbs นาน 3 วัน'];
+                                // dd($packages);
+                            @endphp
+
+                            <div class="mb-4 flex justify-between w-full gap-4">
+                               
+                                <div class="flex flex-col w-1/2  gap-y-2 ">
+                                    <label for="slc-package">แพ็กเกจ</label>
+                                    <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-package"
+                                        id="slc-package">
+                                        <option value="">เลือกแพ็กเกจ</option>
+                                        @foreach ($slc_package as $pack)
+                                            <option value="{{ $pack->id }}" class="text-[14px] w-[150px]"
+                                                {{ isset($_GET['package']) && $_GET['package'] == $pack->id ? 'selected' : '' }}>
+                                                {{ $pack->title }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="flex flex-col w-1/2  gap-y-2 ">
+                                    <label for="slc-sort">เรียงลำดับราคา</label>
+                                    <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-sort"
+                                        id="slc-sort">
+                                        <option value="">เรียงลำดับราคา</option>
+                                        <option value="desc"
+                                            {{ isset($_GET['sort']) && $_GET['sort'] == 'desc' ? 'selected' : '' }}>
+                                            ราคามากไปน้อย
+                                        </option>
+                                        <option value="asc"
+                                            {{ isset($_GET['sort']) && $_GET['sort'] == 'asc' ? 'selected' : '' }}>
+                                            ราคาน้อยไปมาก
+                                        </option>
+                                        <option value="rand"
+                                            {{ isset($_GET['sort']) && $_GET['sort'] == 'rand' ? 'selected' : '' }}>
+                                            สุ่มราคาสินค้า
+                                        </option>
+                                    </select>
+                                </div>
+                            
+                            </div>
+
+                            <div class="flex flex-col w-full gap-y-2  mb-6 ">
+                                <label for="txt_favorite">ช่วงราคา</label>
+                                <div class="flex  w-full items-center justify-between gap-4">
+                                    <input class=" w-1/2  h-8 border border-[#838383] rounded-[3px] price-input p-2"
+                                        type="text" name="price-min" id="price-min" placeholder="999"
+                                        value="{{ isset($_GET['min']) ? number_format($_GET['min']) : '' }}">
+
+                                    <input class="w-1/2  h-8 border border-[#838383] rounded-[3px] price-input p-2"
+                                        type="text" name="price-max" id="price-max" placeholder="999,999"
+                                        value="{{ isset($_GET['max']) ? number_format($_GET['max']) : '' }}">
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-y-2 mb-4">
+                                @php
+                                    $explodeLike = [];
+                                    if (isset($_GET['like'])) {
+                                        $like = $_GET['like'];
+                                        $explodeLike = explode(',', $like);
+                                    }
+                                @endphp
+                                <div class="flex gap-x-4 gap-y-2 mb-4 2xl:items-center w-full max-2xl:flex-col">
+                                    <div class="2xl:w-[25%]">
+                                        <label for="">ตัวเลขที่ชอบ</label>
+                                    </div>
+                                    <div class="flex gap-x-5 max-2xl:gap-x-4 max-xs:gap-x-3  text-white justify-between">
+                                        @for ($i = 0; $i <= 9; $i++)
+                                            <button id="like" data-fav="{{ $i }}"
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#838383] rounded-[3px] {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE] selected' : '' }}">
+                                                {{ $i }}
+                                            </button>
+                                        @endfor
+                                    </div>
+                                </div>
+
+                                @php
+                                    $explodedisLike = [];
+                                    if (isset($_GET['dislike'])) {
+                                        $dislike = $_GET['dislike'];
+                                        $explodedisLike = explode(',', $dislike);
+                                    }
+                                @endphp
+                                <div class="flex gap-x-4 gap-y-2  mb-4 2xl:items-center w-full max-2xl:flex-col ">
+                                    <div class="2xl:w-[25%]">
+                                        <label for="">ตัวเลขที่ไม่ชอบ</label>
+                                    </div>
+                                    <div class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3 text-white justify-between w-full">
+                                        @for ($i = 0; $i <= 9; $i++)
+                                            <button id="dislike" data-fav="{{ $i }}"
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7  bg-[#838383] rounded-[3px] {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">{{ $i }}</button>
+                                        @endfor
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- border center --}}
+                        <div class="border  border-1 border-[#838383]">
+                        </div>
+
+                        {{-- box right --}}
+                        <div class="w-full flex flex-col justify-between">
+                            <div class="flex flex-col max-lg:mb-4">
+                                <p class="mb-2">เสริมดวงด้าน</p>
+                                <div class="flex flex-wrap gap-[1rem] max-xs:gap-[1rem] max-es:gap-[0.8rem]">
                                     @php
-                                        $selected = null;
-                                        if (isset($_GET['sum'])) {
-                                            if ($sum->predict_sum == $_GET['sum']) {
-                                                $selected = 'selected';
-                                            }
+                                        $exImprove = [];
+                                        if (isset($_GET['improve'])) {
+                                            $improve = $_GET['improve'];
+                                            $exImprove = explode(',', $improve);
                                         }
                                     @endphp
-                                    <option value="{{ $sum->predict_sum }}" {{ $selected }}>{{ $sum->predict_sum }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="flex flex-col order-1 max-xs:col-span-2">
-                            <label for="slc-category">หมวดหมู่เบอร์</label>
-                            <select class="w-52 max-xl:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]"
-                                name="slc-category" id="slc-category">
-                                <option value="">หมวดหมู่เบอร์</option>
-                                @foreach ($berproduct_cates as $bercate)
-                                    <option value="{{ $bercate->bercate_id }}"
-                                        {{ isset($_GET['cate']) && $bercate->bercate_id == $_GET['cate'] ? 'selected' : '' }}>
-                                        {{ $bercate->bercate_name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <label for="txt_favorite">ค้นหาเลขชุดที่ชอบ</label>
-                            <input
-                                class="w-80 max-xl:w-32 max-lg:w-64 max-xs:w-full h-7 border border-[#838383] rounded-[3px] p-2"
-                                type="text" name="txt_favorite" id="txt_favorite" maxlength="10" placeholder="ชุดเลขที่ชอบ 42,25 หรือ 55*56"
-                                value="{{ isset($_GET['fav']) ? $_GET['fav'] : '' }}">
-                        </div>
-                    </div>
-
-                    @php
-                        $packages = ['เน็ต Unlimited + โทร 1700 Mins', 'แพ็กเกจนี้ใช้ฟรี 3 เดือน', 'เน็ต 1mbs นาน 3 วัน'];
-                        // dd($packages);
-                    @endphp
-                    <div class="mt-4 flex justify-between gap-4 max-xs:grid max-xs:grid-cols-2">
-                        <div class="flex flex-col">
-                            <label for="slc-package">แพ็กเกจ</label>
-                            <select
-                                class="w-52 max-xl:w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]"
-                                name="slc-package" id="slc-package">
-                                <option value="">เลือกแพ็กเกจ</option>
-                                @foreach ($slc_package as $pack)
-                                    <option value="{{ $pack->id }}"  class="text-[14px] w-[150px]"
-                                        {{ isset($_GET['package']) && $_GET['package'] == $pack->id ? 'selected' : '' }}>
-                                        {{ $pack->title }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <label for="slc-sort">เรียงลำดับราคา</label>
-                            <select class="w-36 max-lg:w-40 max-xs:w-full h-7 border border-[#838383] rounded-[3px]"
-                                name="slc-sort" id="slc-sort">
-                                <option value="">เรียงลำดับราคา</option>
-                                <option value="desc"
-                                    {{ isset($_GET['sort']) && $_GET['sort'] == 'desc' ? 'selected' : '' }}>ราคามากไปน้อย
-                                </option>
-                                <option value="asc"
-                                    {{ isset($_GET['sort']) && $_GET['sort'] == 'asc' ? 'selected' : '' }}>ราคาน้อยไปมาก
-                                </option>
-                                <option value="rand"
-                                    {{ isset($_GET['sort']) && $_GET['sort'] == 'rand' ? 'selected' : '' }}>สุ่มราคาสินค้า
-                                </option>
-                            </select>
-                        </div>
-
-                        <div class="flex flex-col max-xs:col-span-2">
-                            <label for="txt_favorite">ช่วงราคา</label>
-                            <div class="flex gap-4 w-80 max-xl:w-40 max-lg:w-64 max-xs:w-full ">
-                                <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input p-2" type="text"
-                                    name="price-min" id="price-min" placeholder="999"
-                                    value="{{ isset($_GET['min']) ? number_format($_GET['min']) : '' }}">
-                                <input class="w-full h-7 border border-[#838383] rounded-[3px] price-input p-2" type="text"
-                                    name="price-max" id="price-max" placeholder="999,999"
-                                    value="{{ isset($_GET['max']) ? number_format($_GET['max']) : '' }}">
+                                    @foreach ($berpredict_numbcate as $numbcate)
+                                        @php
+                                            $imp_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
+                                            $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
+                                        @endphp
+                                        <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
+                                            class="relative p-[0.5rem] w-[80px] max-xl:w-[60px] bg-white rounded-[5px] group {{ $imp_selected }}">
+                                            <img src="{{ $numbcate->thumbnail }}" alt=""
+                                                style="{{ $image_selected }}">
+                                            <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                                <img class="scale-150 w-full h-full" src="/icons/category/union.png"
+                                                    alt="">
+                                                <p class="w-full text-xs absolute top-1 left-0 text-center">
+                                                    {{ $numbcate->numbcate_title }}</p>
+                                            </div>
+                                        </button>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="flex max-xl:flex-col max-xl:gap-4 justify-between mt-4">
-                        @php
-                            $explodeLike = [];
-                            if (isset($_GET['like'])) {
-                                $like = $_GET['like'];
-                                $explodeLike = explode(',', $like);
-                            }
-                        @endphp
-                        <div class="flex flex-col">
-                            <label for="">ตัวเลขที่ชอบ</label>
-                            <div class="flex gap-1 text-white">
-                                @for ($i = 0; $i <= 9; $i++)
-                                    <button id="like" data-fav="{{ $i }}"
-                                        class="w-6 h-7 bg-[#838383] rounded-[3px] {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE] selected' : '' }}">
-                                        {{ $i }}
-                                    </button>
-                                @endfor
-                            </div>
-                        </div>
-
-                        @php
-                            $explodedisLike = [];
-                            if (isset($_GET['dislike'])) {
-                                $dislike = $_GET['dislike'];
-                                $explodedisLike = explode(',', $dislike);
-                            }
-                        @endphp
-                        <div class="flex flex-col">
-                            <label for="">ตัวเลขที่ไม่ชอบ</label>
-                            <div class="flex gap-1 text-white">
-                                @for ($i = 0; $i <= 9; $i++)
-                                    <button id="dislike" data-fav="{{ $i }}"
-                                        class="w-6 h-7 bg-[#838383] rounded-[3px] {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">{{ $i }}</button>
-                                @endfor
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- border center --}}
-                <div class="border  border-1 border-[#838383]">
-                </div>
-
-                {{-- box right --}}
-                <div class="w-full flex flex-col justify-between">
-                    <div class="flex flex-col max-lg:mb-4">
-                        <p class="mb-2">เสริมดวงด้าน</p>
-                        <div class="flex flex-wrap gap-[0.3rem] max-xs:gap-[0.6rem] max-es:gap-[0.5rem]">
                             @php
-                                $exImprove = [];
-                                if (isset($_GET['improve'])) {
-                                    $improve = $_GET['improve'];
-                                    $exImprove = explode(',', $improve);
+                                $exAuspicious = [];
+                                if (isset($_GET['auspicious'])) {
+                                    $auspicious = $_GET['auspicious'];
+                                    $exAuspicious = explode(',', $auspicious);
                                 }
                             @endphp
-                            @foreach ($berpredict_numbcate as $numbcate)
-                                @php
-                                    $imp_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
-                                    $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
-                                @endphp
-                                <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                    class="relative p-[0.5rem] w-[65px] bg-white rounded-[5px] group {{ $imp_selected }}">
-                                    <img src="{{ $numbcate->thumbnail }}" alt="" style="{{ $image_selected }}">
-                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
-                                        <p class="w-full text-xs absolute top-1 left-0 text-center">
-                                            {{ $numbcate->numbcate_title }}</p>
-                                    </div>
-                                </button>
-                            @endforeach
+                            <div class="flex flex-col">
+                                <p class="mb-2">หมวดหมู่เบอร์</p>
+                                <div class="flex flex-wrap gap-[1rem] max-xs:gap-[1rem] max-es:gap-[0.8rem]">
+                                    @foreach ($berproduct_cates as $bercate)
+                                        @if ($bercate->bercate_pin == true)
+                                            @php
+                                                $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
+                                                $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
+                                            @endphp
+                                            <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
+                                                class="relative p-[0.5rem] w-[80px] max-xl:w-[60px]  bg-white rounded-[5px] group {{ $aus_selected }}">
+                                                <img src="{{ $bercate->thumbnail }}" alt=""
+                                                    style="{{ $img_selected }}">
+                                                <div
+                                                    class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                                    <img class="scale-150 w-full h-full" src="/icons/category/union.png"
+                                                        alt="">
+                                                    <p class="w-full text-xs absolute top-1 left-0">
+                                                        {{ $bercate->bercate_title }}
+                                                    </p>
+                                                </div>
+                                            </button>
+                                        @endif
+                                    @endforeach
+                                    <button id="btn-vip" data-id="vip"
+                                        class="relative p-2 w-[80px] max-xl:w-[70px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
+                                        <img src="/upload/2024/01/19/VIP-02.svg" alt=""
+                                            style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}">
+                                        <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                            <img class="scale-150 w-full h-full" src="/icons/category/union.png"
+                                                alt="">
+                                            <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    @php
-                        $exAuspicious = [];
-                        if (isset($_GET['auspicious'])) {
-                            $auspicious = $_GET['auspicious'];
-                            $exAuspicious = explode(',', $auspicious);
-                        }
-                    @endphp
-                    <div class="flex flex-col">
-                        <p class="mb-2">หมวดหมู่เบอร์</p>
-                        <div class="flex flex-wrap gap-[0.3rem] max-xs:gap-[0.6rem] max-es:gap-[0.5rem]">
-                            @foreach ($berproduct_cates as $bercate)
-                                @if($bercate->bercate_pin == true)
-                                @php
-                                    $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
-                                    $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
-                                @endphp
-                                <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
-                                    class="relative p-[0.5rem] w-[65px] bg-white rounded-[5px] group {{ $aus_selected }}">
-                                    <img src="{{ $bercate->thumbnail }}" alt="" style="{{ $img_selected }}">
-                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
-                                        <p class="w-full text-xs absolute top-1 left-0">{{ $bercate->bercate_title }}</p>
-                                    </div>
-                                </button>
-                                @endif
-                            @endforeach
-                            <button id="btn-vip" data-id="vip"
-                                class="relative p-2 w-[65px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
-                                <img src="/upload/2024/01/19/VIP-02.svg" alt="" style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : ''}}">
-                                <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                    <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
-                                    <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
-                                </div>
-                            </button>
-                        </div>
+                    <div class="w-full mt-4 flex justify-center gap-10">
+                        <button id="reset-search"
+                            class="px-4 py-1 border border-red-400 rounded-[15px] hover:bg-red-700 hover:text-white">คืนค่า</button>
+                        <button id="search-product"
+                            class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700">ค้นหา</button>
                     </div>
+
                 </div>
             </div>
-
-            <div class="w-full mt-4 flex justify-center gap-10">
-                <button id="reset-search" class="px-4 py-1 border border-red-400 rounded-[15px] hover:bg-red-700 hover:text-white">คืนค่า</button>
-                <button id="search-product" class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700">ค้นหา</button>
-            </div>
-
         </div>
         <!-- end search box -->
 
@@ -337,7 +379,8 @@
         <div class="text-center py-6">
             <h1 class="2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">แหล่งรวมเบอร์มงคล</h1>
             <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
-            <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ count($totalCount) }} เบอร์</p>
+            <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ count($totalCount) }}
+                เบอร์</p>
         </div>
 
         <!-- box all product -->
@@ -382,20 +425,26 @@
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
                                 <div class="grid grid-cols-3">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">ราคา</p>
-                                    <p class="flex items-center flex-col">
-                                        @if($product->product_discount > 0)
-                                        <span class="text-gray-100 line-through leading-[2px]">{{ number_format($product->product_price) }}</span>
-                                        @endif
-                                        <span class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] text-2xl">{{ number_format($product->product_price - (($product->product_price * $product->product_discount) / 100 )) }}</span>
+                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">ราคา
                                     </p>
-                                    <p class="text-white text-right 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">บาท</p>
+                                    <p class="flex items-center flex-col">
+                                        @if ($product->product_discount > 0)
+                                            <span
+                                                class="text-gray-100 line-through leading-[2px]">{{ number_format($product->product_price) }}</span>
+                                        @endif
+                                        <span
+                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] text-2xl">{{ number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
+                                    </p>
+                                    <p class="text-white text-right 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">บาท
+                                    </p>
 
                                 </div>
                             </div>
 
-                            <div class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center flex justify-center px-2 md:px-0 lg:px-0 items-center ">
-                                <div id="addBerToCart" data-id="{{$product->product_id}}" data-type="3" class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-red-600">
+                            <div
+                                class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                                <div id="addBerToCart" data-id="{{ $product->product_id }}" data-type="3"
+                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
@@ -409,7 +458,7 @@
                                     class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
 
 
-                                <button id="buyProductNow" data-id="{{$product->product_id}}" data-type="3"
+                                <button id="buyProductNow" data-id="{{ $product->product_id }}" data-type="3"
                                     class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
                             </div>
