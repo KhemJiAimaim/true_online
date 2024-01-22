@@ -90,7 +90,7 @@
                                     @endif
                                 </div>
                                 <div class="bg-white  2xl:flex flex-col gap-5 md:block hidden ">
-                                    <div class="orange-plate-container pb-2">
+                                    <div class="orange-plate-container">
                                         <div class="orange-plate-line"></div>
                                         <div class="orange-plate-group">
                                             <div class="orange-plate-box-s">
@@ -98,8 +98,7 @@
                                                 <div class="orange-plate-textboxS"></div>
                                             </div>
                                             <div class="orange-plate-textboxC">
-                                                <p class="orange-plate-text text-white text-[18px] max-md:text-[16px]">
-                                                    รับเพิ่ม</p>
+                                                <p class="orange-plate-text text-white text-[18px] max-md:text-[16px]">รับเพิ่ม</p>
                                             </div>
                                             <div class="orange-plate-box-e">
                                                 <div class="orange-plate-textboxE"></div>
@@ -117,17 +116,19 @@
                                         $benefit_items = array_slice($same_benefit, 0, 3);
                                         // dd($benefit_items)
                                     @endphp
-                                    <div class=" h-[300px] overflow-scroll overflow-y-auto overflow-x-hidden">
+                                    <div class="flex justify-center gap-4 mb-4">
                                         @foreach ($benefit_items as $item)
                                             @foreach ($posts as $pos)
                                                 @if ($pos->id == $item)
-                                                    <div class="grid grid-cols-[90px,1fr] gap-2 px-4 mb-2">
-                                                        <div class="border-[1px] border-orange-500 p-1 w-[80px] h-[80px] rounded-lg">
-                                                            <img class="w-full h-full object-contain" src="/{{ $pos->thumbnail_link }}" alt="">
+                                                    <div class="grid grid-cols-[1fr] gap-2">
+                                                        <div class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
+                                                            <img class="w-full h-full object-contain"
+                                                                src="/{{ $pos->thumbnail_link }}"
+                                                                alt="">
                                                         </div>
 
-                                                        <p class="text-start text-[18px] max-md:text-[16px]">
-                                                            {{ $pos->title }}</p>
+                                                        {{-- <div class="border"></div> --}}
+                                                        {{-- <p class="text-start text-[18px] max-md:text-[16px]">{{ $pos->title }}</p> --}}
                                                     </div>
                                                 @endif
                                             @endforeach
