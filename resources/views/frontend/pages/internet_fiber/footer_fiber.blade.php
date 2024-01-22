@@ -4,7 +4,7 @@
         <a href="https://line.me/R/ti/p/@488jedjg?oat_content=url" target="_blank" class="flex flex-col items-center cursor-pointer z-50">
             <div class="w-20 max-xx:w-16">
             <img class="mt-2 mb-4 w-full" src="/images/qrcode_fiber.png" alt=""></div>
-            <p class="text-[1rem] text-white">ช้อปผ่านแชท</p>
+            <p class="text-[1rem] text-white">ติดต่อเจ้าหน้าที่</p>
             <p class="text-[0.8rem] text-white">Line ID QR Coed</p>
         </a>
         <a href="{{ url('/delivery') }}" class="flex flex-col items-center cursor-pointer z-50">

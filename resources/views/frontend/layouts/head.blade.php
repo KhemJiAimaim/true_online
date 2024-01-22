@@ -121,8 +121,8 @@
 
 
 <div class="bg-white drop-shadow-md w-full fixed top-20  z-40">
-    <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
-      <ul class="hidden lg:flex 2xl:flex relative list-none" id="menu">
+    <div class="2xl:w-[1610px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
+      <ul class="hidden lg:flex 2xl:flex relative list-none text-center" id="menu">
         @foreach ($main_cate as $m_cate)
           <li class="group z-[99] w-full ">
             <a href="{{ url($m_cate->cate_url) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">{{ $m_cate->cate_title }}</a>
@@ -130,7 +130,7 @@
               @if ($s_cate->cate_parent_id == $m_cate->id)
                 <ul class="submenu hidden w-full left-0 space-y-2 bg-white group-hover:block z-50 mt-4 list-none">
                   <li>
-                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2 text-[1rem] max-2xl:text-[14px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2 text-[1rem] max-2xl:text-[14px] ml-18 hover:text-[#EC1F25] text-left pl-10">{{ $s_cate->cate_title }}</a>
                   </li>
                 </ul>
               @endif

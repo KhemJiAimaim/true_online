@@ -88,33 +88,33 @@
                     <div class="mt-4 flex flex-col">
                         <label class="" for="">ค้นหาเบอร์</label>
                         <div class="flex gap-2 max-xs:gap-1">
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]" type="text"
                                 data-position="0" value="0" disabled>
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]" type="text"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]" type="text"
                                 id="search-num" data-position="1" maxlength="1"
                                 value="{{ isset($_GET['pos1']) ? $_GET['pos1'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 mr-4 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="2" maxlength="1"
                                 value="{{ isset($_GET['pos2']) ? $_GET['pos2'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="3" maxlength="1"
                                 value="{{ isset($_GET['pos3']) ? $_GET['pos3'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="4" maxlength="1"
                                 value="{{ isset($_GET['pos4']) ? $_GET['pos4'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 mr-4 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 mr-4 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="5" maxlength="1"
                                 value="{{ isset($_GET['pos5']) ? $_GET['pos5'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="6" maxlength="1"
                                 value="{{ isset($_GET['pos6']) ? $_GET['pos6'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="7" maxlength="1"
                                 value="{{ isset($_GET['pos7']) ? $_GET['pos7'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="8" maxlength="1"
                                 value="{{ isset($_GET['pos8']) ? $_GET['pos8'] : '' }}" placeholder="-">
-                            <input class="w-6 h-7 bg-white border border-[#838383] text-center rounded-[3px]"
+                            <input class="w-10 h-10 bg-white border border-[#838383] text-center rounded-[3px]"
                                 type="text" id="search-num" data-position="9" maxlength="1"
                                 value="{{ isset($_GET['pos9']) ? $_GET['pos9'] : '' }}" placeholder="-">
                         </div>
@@ -400,8 +400,8 @@
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
                                 <div
-                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-red-600">
-                                    <img src="/images/icons8-line-app (1) 9.png" alt=""
+                                    class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                    <img src="/images/icons8-line-app (1) 6.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
 
