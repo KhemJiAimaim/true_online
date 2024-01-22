@@ -71,7 +71,7 @@
 
         <!-- search box -->
         <div
-            class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-[#F8F9FA] mx-auto my-4 p-6 rounded-[20px] text-[17px]">
+            class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-[#F8F9FA] mx-auto my-4 p-4 rounded-[20px] text-[17px]">
             <div class="flex max-lg:flex-col gap-6">
                 {{-- box left --}}
                 <div class="w-full max-xl:max-w-[54%] max-lg:max-w-full">
@@ -260,7 +260,7 @@
                 <div class="w-full flex flex-col justify-between">
                     <div class="flex flex-col max-lg:mb-4">
                         <p class="mb-2">เสริมดวงด้าน</p>
-                        <div class="flex flex-wrap gap-[0.3rem]">
+                        <div class="flex flex-wrap gap-[0.3rem]  max-es:gap-[0.6rem]">
                             @php
                                 $exImprove = [];
                                 if (isset($_GET['improve'])) {
@@ -295,7 +295,7 @@
                     @endphp
                     <div class="flex flex-col">
                         <p class="mb-2">หมวดหมู่เบอร์</p>
-                        <div class="flex flex-wrap gap-[0.3rem]">
+                        <div class="flex flex-wrap gap-[0.3rem]  max-es:gap-[0.6rem]">
                             @foreach ($berproduct_cates as $bercate)
                                 @if($bercate->bercate_pin == true)
                                 @php
@@ -313,7 +313,7 @@
                                 @endif
                             @endforeach
                             <button id="btn-vip" data-id="vip"
-                                class="relative p-2 w-[46px] h-[46px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
+                                class="relative p-2 w-[55px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
                                 <img src="/upload/2024/01/19/VIP-02.svg" alt="" style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : ''}}">
                                 <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
                                     <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
