@@ -98,7 +98,7 @@
                 <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
             </div>
             {{-- content detail --}}
-            <div id="box-package" class="h-[300px] text-left overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+            <div id="box-package" class="h-[300px] text-left overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative pb-[30px]">
                 @php
                     $benefit_ids = explode(',', $move_product->benefit_ids);
                     $post_ids = $posts->pluck('id')->toArray();
