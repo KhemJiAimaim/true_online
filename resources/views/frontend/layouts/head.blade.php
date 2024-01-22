@@ -1,3 +1,10 @@
+
+<style>
+    /* Define the style for the active class */
+    .active {
+      color: #EC1F25 !important;
+    }
+  </style>
 <!-- nav goes here -->
 
 <nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed w-full top-0 z-50 ">
@@ -8,7 +15,7 @@
                 <!-- logo -->
                 <div class="hidden xl:flex">
                     <a href="/" class="flex items-center py-2 text-gray-700 hover:text-gray-900">
-                        <div class="w-16">
+                        <div class="w-20">
                          <img src="/images/logo/S__41378004.jpg" alt="" class="w-full">{{--{{ $webInfo->detail->image_1->link }} --}}
                         </div>
                     </a>
@@ -39,8 +46,8 @@
         <!-- mobile button goes here -->
         <div class="xl:hidden flex justify-between items-center">
             <div class="">
-                <a href="{{ url('/') }}" class="flex items-center py-5 text-gray-700 hover:text-gray-900">
-                    <div class="w-16">
+                <a href="{{ url('/') }}" class="flex items-center py-4 text-gray-700 hover:text-gray-900">
+                    <div class="w-20 max-xs:w-12">
                      <img src="/images/logo/S__41378004.jpg" alt="" class="w-full"> {{--{{ asset('/images/Rectangle 11.png') }} --}}
                     </div>
                 </a>
@@ -113,29 +120,31 @@
 </nav>
 
 
-<div class="bg-white drop-shadow-md fixed w-full top-16 z-40">
+<div class="bg-white drop-shadow-md w-full fixed top-20  z-40">
     <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
-        <ul class="hidden lg:flex 2xl:flex relative list-none">
-            @foreach ($main_cate as $m_cate)
-                <li class="group z-[99] w-full ">
-                    <a href="{{ url($m_cate->cate_url) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
-                    @foreach ($sub_cate as $s_cate)
-                        @if ($s_cate->cate_parent_id == $m_cate->id)
-                            <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
-                                <li>
-                                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2 text-[1rem] max-2xl:text-[14px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
-                                </li>
-                            </ul>
-                        @endif
-                    @endforeach
-                </li>
+      <ul class="hidden lg:flex 2xl:flex relative list-none" id="menu">
+        @foreach ($main_cate as $m_cate)
+          <li class="group z-[99] w-full ">
+            <a href="{{ url($m_cate->cate_url) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">{{ $m_cate->cate_title }}</a>
+            @foreach ($sub_cate as $s_cate)
+              @if ($s_cate->cate_parent_id == $m_cate->id)
+                <ul class="submenu hidden w-full left-0 space-y-2 bg-white group-hover:block z-50 mt-4 list-none">
+                  <li>
+                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2 text-[1rem] max-2xl:text-[14px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                  </li>
+                </ul>
+              @endif
             @endforeach
-        </ul>
+          </li>
+        @endforeach
+      </ul>
     </div>
-</div>
+  </div>
+
 
 
 <script>
+
     const btns = document.querySelectorAll('.mobile-menu-button');
     const menu = document.querySelector('.mobile-menu');
 
@@ -188,4 +197,6 @@
     //     flip.classList.add('flip');
     //     drop.classList.remove("show");
     // }
+
+   
 </script>
