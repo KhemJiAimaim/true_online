@@ -90,12 +90,11 @@ class BerLuckyMonthlyController extends Controller
             ->orderBy('numbcate_priority')
             ->get();
 
-        $slc_package = Post::where('category', 'LIKE', '%8%')->get();
-        // dd($package);
+        // $slc_package = Post::where('category', 'LIKE', '%8%')->get();
 				$packages = BerluckyPackage::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
 				// dd($package);
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
-        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'packages', 'slc_package', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
+        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'packages', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
     }
 
     public function product_prepare_variable($request)
@@ -127,6 +126,7 @@ class BerLuckyMonthlyController extends Controller
         if (isset($request['package']) && filter_var($request['package'], FILTER_SANITIZE_NUMBER_INT) !== "") {
             $package = filter_var($request['package'], FILTER_SANITIZE_NUMBER_INT);
             $sql .= " AND FIND_IN_SET($package, product_package) > 0 ";
+						// dd($sql);
         }
 
 

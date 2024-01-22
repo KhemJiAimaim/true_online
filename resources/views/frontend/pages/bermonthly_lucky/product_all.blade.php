@@ -163,10 +163,6 @@
                         </div>
                     </div>
 
-                    @php
-                        $packages = ['เน็ต Unlimited + โทร 1700 Mins', 'แพ็กเกจนี้ใช้ฟรี 3 เดือน', 'เน็ต 1mbs นาน 3 วัน'];
-                        // dd($packages);
-                    @endphp
                     <div class="mt-4 flex justify-between gap-4 max-xs:grid max-xs:grid-cols-2">
                         <div class="flex flex-col">
                             <label for="slc-package">แพ็กเกจ</label>
@@ -174,7 +170,7 @@
                                 class="w-52 max-xl:w-36 max-lg:w-44 max-xs:w-full h-7 border border-[#838383] rounded-[3px]"
                                 name="slc-package" id="slc-package">
                                 <option value="">เลือกแพ็กเกจ</option>
-                                @foreach ($slc_package as $pack)
+                                @foreach ($packages as $pack)
                                     <option value="{{ $pack->id }}"  class="text-[14px] w-[150px]"
                                         {{ isset($_GET['package']) && $_GET['package'] == $pack->id ? 'selected' : '' }}>
                                         {{ $pack->title }}
