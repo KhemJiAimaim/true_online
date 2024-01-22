@@ -42,11 +42,11 @@
         </div>
     </div>
 
-    <div class="w-full px-8 mx-auto ">
+    <div class="w-full px-4 mx-auto ">
         <!-- mobile button goes here -->
         <div class="xl:hidden flex justify-between items-center">
             <div class="">
-                <a href="{{ url('/') }}" class="flex items-center py-4 text-gray-700 hover:text-gray-900">
+                <a href="{{ url('/') }}" class="flex items-center py-1 text-gray-700 hover:text-gray-900">
                     <div class="w-16">
                      <img src="/images/logo/S__41378004.jpg" alt="" class="w-full"> {{--{{ asset('/images/Rectangle 11.png') }} --}}
                     </div>

@@ -1,7 +1,5 @@
 @extends('frontend.layouts.main')
 
-
-
 @section('content')
     <div class=" text-left">
 
@@ -25,7 +23,7 @@
         </div>
 
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-4 px-3 2xl:mt-6">
-            <div class="flex justify-center py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
+            <div class="grid grid-cols-5 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
                 @foreach($berpredict_numbcate as $numcate)
                     @if($numcate->recommended == true)
                     <a href="?improve={{$numcate->numbcate_id}}" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
@@ -47,36 +45,6 @@
                     </a>
                     @endif
                 @endforeach
-
-
-                {{-- <a href="#sim" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <div>
-                        <img class="w-30 h-30 max-sm:w-[40px] mb-3" src="/icons/category/icon-swarn-menu.png" alt="">
-                    </div>
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์หงส์</p>
-                </a>
-
-                <a href="#travel" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <div>
-                        <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-dragon-menu.png" alt="">
-                    </div>
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์มังกร</p>
-                </a>
-
-                <a href="#travel" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <div>
-                        <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-god-menu.png" alt="">
-                    </div>
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">เบอร์กวนอู</p>
-                </a>
-
-                <a href="#travel" class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                    <div>
-                        <img class="w-30 h-30 max-sm:w-[30px] mb-4" src="/icons/category/icon-healt-menu.png" alt="">
-                    </div>
-                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">สุขภาพดี</p>
-                </a> --}}
-
             </div>
         </div>
 
@@ -91,7 +59,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <h1 class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</h1>
+                    <p class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -292,7 +260,7 @@
                 <div class="w-full flex flex-col justify-between">
                     <div class="flex flex-col max-lg:mb-4">
                         <p class="mb-2">เสริมดวงด้าน</p>
-                        <div class="flex flex-wrap gap-3">
+                        <div class="flex flex-wrap gap-[0.3rem]">
                             @php
                                 $exImprove = [];
                                 if (isset($_GET['improve'])) {
@@ -305,11 +273,13 @@
                                     $imp_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                 @endphp
-                                <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ $imp_selected }}">
+                                <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
+                                    class="relative p-[0.5rem] w-[55px] bg-white rounded-[5px] group {{ $imp_selected }}">
                                     <img src="{{ $numbcate->thumbnail }}" alt="" style="{{ $image_selected }}">
                                     <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
                                         <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
-                                        <p class="w-full text-xs absolute top-1 left-0 text-center"> {{ $numbcate->numbcate_title }}</p>
+                                        <p class="w-full text-xs absolute top-1 left-0 text-center">
+                                            {{ $numbcate->numbcate_title }}</p>
                                     </div>
                                 </button>
                             @endforeach
@@ -325,14 +295,15 @@
                     @endphp
                     <div class="flex flex-col">
                         <p class="mb-2">หมวดหมู่เบอร์</p>
-                        <div class="flex flex-wrap gap-3">
+                        <div class="flex flex-wrap gap-[0.3rem]">
                             @foreach ($berproduct_cates as $bercate)
                                 @if($bercate->bercate_pin == true)
                                 @php
                                     $aus_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '';
                                     $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                 @endphp
-                                <button id="cate-ber" data-id="{{ $bercate->bercate_id }}" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ $aus_selected }}">
+                                <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
+                                    class="relative p-[0.5rem] w-[55px] bg-white rounded-[5px] group {{ $aus_selected }}">
                                     <img src="{{ $bercate->thumbnail }}" alt="" style="{{ $img_selected }}">
                                     <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
                                         <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
@@ -341,8 +312,9 @@
                                 </button>
                                 @endif
                             @endforeach
-                            <button id="btn-vip" data-id="vip" class="relative p-1 w-[46px] h-[46px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
-                                <img src="/icons/category/vip.png" alt="" style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : ''}}">
+                            <button id="btn-vip" data-id="vip"
+                                class="relative p-2 w-[46px] h-[46px] bg-white rounded-[5px] group {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }}">
+                                <img src="/upload/2024/01/19/VIP-02.svg" alt="" style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : ''}}">
                                 <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
                                     <img class="scale-150 w-full h-full" src="/icons/category/union.png" alt="">
                                     <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
@@ -363,7 +335,7 @@
 
         {{-- result search --}}
         <div class="text-center py-6">
-            <h2 class="2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">แหล่งรวมเบอร์มงคล</h2>
+            <h1 class="2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">แหล่งรวมเบอร์มงคล</h1>
             <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
             <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ count($totalCount) }} เบอร์</p>
         </div>
