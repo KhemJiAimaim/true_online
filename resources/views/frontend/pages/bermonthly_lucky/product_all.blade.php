@@ -260,7 +260,7 @@
                 <div class="w-full flex flex-col justify-between">
                     <div class="flex flex-col max-lg:mb-4">
                         <p class="mb-2">เสริมดวงด้าน</p>
-                        <div class="flex flex-wrap gap-[0.3rem] max-xs:gap-[0.6rem]">
+                        <div class="flex flex-wrap gap-[0.3rem] max-xs:gap-[0.6rem] max-es:gap-[0.5rem]">
                             @php
                                 $exImprove = [];
                                 if (isset($_GET['improve'])) {
@@ -295,7 +295,7 @@
                     @endphp
                     <div class="flex flex-col">
                         <p class="mb-2">หมวดหมู่เบอร์</p>
-                        <div class="flex flex-wrap gap-[0.3rem] max-xs:gap-[0.6rem]">
+                        <div class="flex flex-wrap gap-[0.3rem] max-xs:gap-[0.6rem] max-es:gap-[0.5rem]">
                             @foreach ($berproduct_cates as $bercate)
                                 @if($bercate->bercate_pin == true)
                                 @php
