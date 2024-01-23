@@ -243,10 +243,12 @@
                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                     </button>
 
-                    <a href="https://line.me/ti/p/~@berhoro"
-                        class="group rounded-full border border-red-500 mx-1  w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
-                        <img src="/images/icons8-line-app (1) 9.png" alt=""
-                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                    <a href="https://line.me/ti/p/~@berhoro">
+                        <div
+                            class="group rounded-full border border-green-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-green-600">
+                            <img src="/images/icons8-line-app (1) 6.png" alt=""
+                                class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                        </div>
                     </a>
                 </div>
 
