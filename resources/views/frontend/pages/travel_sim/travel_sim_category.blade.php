@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mt-16">
-        <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-4">
+        <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-10">
             @foreach ($cates as $cate)
                 <a href="/{{ $cate->cate_url }}"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-105 transition-all duration-500 ease-in-out">
@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
 
-                                <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 ">
+                                <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 h-[300px] overflow-scroll overflow-y-auto">
                                     <div class=" flex gap-4">
                                         <img src="/images/travel/majesticons_sim-card-line.png" alt=""
                                             class=" w-[26px]">
@@ -93,6 +93,7 @@
                                             </div>
                                         </div>
                                     @endif
+
                                     @if($sim->travel_cate_id == 23)
                                         <div class=" flex gap-4">
                                             <img src="/images/travel/icon-park-outline_phone-call.png" alt=""
@@ -186,11 +187,14 @@
                                     <div id="addBerToCart" data-id="{{$sim->id}}" data-type="6" class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                         <img src="/images/mdi_cart-arrow-down.png" alt="" class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                     </div>
-                                    <div
-                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                        <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                    </div>
+                                    
+                                    <a href="https://line.me/ti/p/~@berhoro">
+                                        <div
+                                            class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                            <img src="/images/icons8-line-app (1) 6.png" alt=""
+                                                class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                        </div>
+                                    </a>
 
                                     <a href="{{url('/travel_sim_buy/'.$sim->id)}}"
                                         class="cursor-pointer flex items-center lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>

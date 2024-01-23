@@ -170,9 +170,9 @@ like.forEach(likeElement => {
     const matchingDislike = document.querySelector(`#dislike[data-fav="${likeFav}"]`);
 
     if (likeElement.classList.contains('selected')) {
-      likeElement.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
+      likeElement.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'text-white', 'selected');
     } else {
-      likeElement.classList.add('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
+      likeElement.classList.add('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'text-white', 'selected');
       if (matchingDislike.classList.contains('selected')) {
         matchingDislike.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
       }
@@ -186,9 +186,9 @@ dislike.forEach(dislikeElement => {
     const matchingLike = document.querySelector(`#like[data-fav="${dislikeFav}"]`);
 
     if (dislikeElement.classList.contains('selected')) {
-      dislikeElement.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      dislikeElement.classList.remove('bg-gradient-to-r', 'from-yellow-500', 'to-[#fa6007]', 'text-white', 'selected');
     } else {
-      dislikeElement.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      dislikeElement.classList.add('bg-gradient-to-r', 'from-yellow-500', 'to-[#fa6007]', 'text-white', 'selected');
       if (matchingLike.classList.contains('selected')) {
         matchingLike.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
       }
