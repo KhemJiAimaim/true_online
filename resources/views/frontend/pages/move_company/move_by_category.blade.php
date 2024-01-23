@@ -113,7 +113,7 @@
 
                                         // หาค่าที่เหมือนกัน
                                         $same_benefit = array_intersect($benefit_ids, $post_ids);
-                                        $benefit_items = array_slice($same_benefit, 0, 3);
+                                        $benefit_items = array_slice($same_benefit, 0, 4);
                                         // dd($benefit_items)
                                     @endphp
                                     <div class="flex justify-center gap-4 py-4">
