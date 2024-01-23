@@ -1,7 +1,12 @@
+
+
 <style>
     /* Define the style for the active class */
     .active {
         color: #EC1F25 !important;
+    }
+    .submenu {
+        width: 100%; /* กำหนดความกว้างเริ่มต้นเป็น 100% */
     }
 </style>
 <!-- nav goes here -->
@@ -124,24 +129,24 @@
 
 
 <div class="bg-white drop-shadow-md w-full fixed top-20  z-40">
-    <div class="2xl:w-[1610px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
-        <ul class="hidden lg:flex 2xl:flex relative list-none text-center" id="menu">
+    <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
+        <ul class=" max-xl:hidden flex justify-between relative list-none mx-auto" id="menu">
             @foreach ($main_cate as $m_cate)
-                <li class="group z-[99] w-full ">
+                <li class="group z-[99]">
                     <a href="{{ url($m_cate->cate_url) }}"
-                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">{{ $m_cate->cate_title }}</a>
-                    <div class="submenu hidden w-full left-0 space-y-2 bg-white group-hover:block z-50 mt-4  ">
-                        <ul class="list-none w-full flex flex-col items-start ml-[1rem] ">
+                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] mr-10">{{ $m_cate->cate_title }}</a>
+
+                    <div class="submenu hidden w-full space-y-2 bg-white group-hover:block z-50 mt-4">
+                        <ul class="list-none  flex flex-col items-start ">
                             @foreach ($sub_cate as $s_cate)
                                 @if ($s_cate->cate_parent_id == $m_cate->id)
-                                    <li class="pl-[1rem]">
+                                    <li class="">
                                         <a href="{{ url('/' . $s_cate->cate_url) }}"
-                                            class="block py-2 text-[1rem] max-2xl:text-[14px] ml-18 hover:text-[#EC1F25] ">{{ $s_cate->cate_title }}</a>
+                                            class="block py-2 text-[1rem] max-2xl:text-[14px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
                                     </li>
                                 @endif
                             @endforeach
                         </ul>
-
                     </div>
                 </li>
             @endforeach
@@ -150,58 +155,4 @@
 </div>
 
 
-
-<script>
-    const btns = document.querySelectorAll('.mobile-menu-button');
-    const menu = document.querySelector('.mobile-menu');
-
-    btns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.currentTarget.classList.toggle('change')
-            menu.classList.toggle('hidden');
-
-        });
-    });
-
-
-
-    const menuItems = document.querySelectorAll('.group');
-
-    menuItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            item.querySelector('.group-hover\\:block')?.classList.remove('hidden');
-        });
-        item.addEventListener('mouseleave', () => {
-            item.querySelector('.group-hover\\:block')?.classList.add('hidden');
-        });
-    });
-
-    const menufiber = document.querySelectorAll('.dropbtn');
-    const myDropdown = document.querySelectorAll('.dropdow-conten');
-    const flip = document.querySelectorAll('.flip');
-
-    menufiber.forEach((element, index) => {
-        let show = false;
-
-        element.addEventListener('click', () => {
-            if (!show) {
-                myDropdown[index].classList.add('show');
-                flip[index].classList.add('flipdow');
-            } else {
-                myDropdown[index].classList.remove('show');
-                flip[index].classList.remove('flipdow');
-            }
-
-            // สลับสถานะ show
-            show = !show;
-        });
-    });
-
-    // if (flip.classList.contains('flipdow')) {
-    //     flip.classList.remove('flip');
-    //     drop.classList.toggle("show");
-    // } else {
-    //     flip.classList.add('flip');
-    //     drop.classList.remove("show");
-    // }
-</script>
+@vite('resources/js/header/header.js')
