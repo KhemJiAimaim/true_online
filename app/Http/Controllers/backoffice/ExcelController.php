@@ -59,6 +59,7 @@ class ExcelController extends Controller
 
 
     /* Private function */
+
     private function getProductByCategory()
     {
         $reesultCate = BerproductCategory::where('bercate_id', '!=', 0)
@@ -72,7 +73,7 @@ class ExcelController extends Controller
             $bercate[$cateVal['bercate_id']]['cate_id']  = $cateVal['bercate_id'];
             $sqlProd[$cateVal['bercate_id']]  = "";
             $sqlProd[$cateVal['bercate_id']]  .= 'SELECT  product_id,product_sold,product_phone,MID(product_phone,4, 10) as pp
-														 FROM berproduct_monthlies HAVING product_sold NOT LIKE "%y%" AND ';
+    													 FROM berproduct_monthlies HAVING product_sold NOT LIKE "%y%" AND ';
             $sqlProd[$cateVal['bercate_id']]  .= '(';
             $needfulArr = explode(',', $cateVal['bercate_needful']);
             foreach ($needfulArr as $nfKey => $nfVal) {
@@ -148,4 +149,78 @@ class ExcelController extends Controller
                 ]);
         }
     }
+
+    // private function getProductByCategory()
+    // {
+    //     $categories = BerproductCategory::where('bercate_id', '!=', 0)
+    //         ->where('status', '=', true)
+    //         ->orderBy('priority', 'ASC')
+    //         ->get();
+
+    //     foreach ($categories as $category) {
+    //         $needfulArr = explode(',', $category->bercate_needful);
+    //         $needlessArr = explode(',', $category->bercate_needless);
+
+    //         $resultSlcUpdate = DB::table('berproduct_monthlies')
+    //             ->select('product_id', 'product_sold', 'product_phone', DB::raw('MID(product_phone, 4, 10) as pp'))
+    //             ->having('product_sold', 'NOT LIKE', '%y%')
+    //             ->where(function ($query) use ($needfulArr, $needlessArr) {
+    //                 foreach ($needfulArr as $nfKey => $nfVal) {
+    //                     if ($nfKey != 0) {
+    //                         $query->orWhere('pp', 'LIKE', '%' . $nfVal . '%');
+    //                     } else {
+    //                         $query->where('pp', 'LIKE', '%' . $nfVal . '%');
+    //                     }
+    //                 }
+
+    //                 if ($needlessArr[0] != '') {
+    //                     $query->where(function ($query) use ($needlessArr) {
+    //                         foreach ($needlessArr as $nlKey => $nlVal) {
+    //                             if ($nlKey != 0) {
+    //                                 $query->andWhere('pp', 'NOT LIKE', '%' . $nlVal . '%');
+    //                             } else {
+    //                                 $query->where('pp', 'NOT LIKE', '%' . $nlVal . '%');
+    //                             }
+    //                         }
+    //                     });
+    //                 }
+    //             })
+    //             ->get();
+
+    //         $categoryIdUpdate = $category->bercate_id . ',';
+    //         $productIdsToUpdate = $resultSlcUpdate->pluck('product_id')->toArray();
+
+    //         if (!empty($productIdsToUpdate)) {
+    //             DB::table('berproduct_monthlies')
+    //                 ->whereIn('product_id', $productIdsToUpdate)
+    //                 ->where('product_category', 'NOT LIKE', '%' . $categoryIdUpdate . '%')
+    //                 ->update(['product_category' => DB::raw("CONCAT(product_category, '$categoryIdUpdate')")]);
+    //         }
+    //     }
+
+    //     $this->updateProductTotal();
+    // }
+
+    // public function updateProductTotal()
+    // {
+    //     // อัปเดตค่าสำหรับ default_cate_id
+    //     $defaultCateTotal = DB::table('berproduct_monthlies')
+    //         ->where('product_sold', '!=', 'yes')
+    //         ->count();
+
+    //     BerproductCategory::where('bercate_id', 1)
+    //         ->update(['bercate_total' => $defaultCateTotal]);
+
+    //     // อัปเดตค่าสำหรับแต่ละ cate_id
+    //     BerproductCategory::where('bercate_id', '!=', 1)
+    //         ->get(['bercate_id'])
+    //         ->each(function ($category) {
+    //             $cateTotal = DB::table('berproduct_monthlies')
+    //                 ->whereRaw('FIND_IN_SET(?, product_category) > 0', [$category->bercate_id])
+    //                 ->where('product_sold', '!=', 'yes')
+    //                 ->count();
+
+    //             $category->update(['bercate_total' => $cateTotal]);
+    //         });
+    // }
 }
