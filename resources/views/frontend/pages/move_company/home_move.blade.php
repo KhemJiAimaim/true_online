@@ -127,7 +127,7 @@
                                                         </div>
                                                     @endif
                                                 </div>
-                                                <div class="bg-white 2xl:flex flex-col gap-4 md:block hidden h-auto overflow-scroll overflow-y-auto">
+                                                <div class="bg-white 2xl:flex flex-col md:block hidden h-auto">
                                                     <div class="orange-plate-container">
                                                         <div class="orange-plate-line"></div>
                                                         <div class="orange-plate-group">
@@ -155,7 +155,7 @@
                                                         $benefit_items = array_slice($same_benefit, 0, 4);
                                                         // dd($benefit_items)
                                                     @endphp
-                                                    <div class="flex justify-center gap-4 mb-4">
+                                                    <div class="flex justify-center gap-4 py-4">
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($posts as $pos)
                                                                 @if ($pos->id == $item)
