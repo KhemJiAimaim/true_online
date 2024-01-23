@@ -106,6 +106,7 @@ Route::prefix('backoffice/v1')->group(function () {
         /* ber lucky */
         Route::prefix('berlucky/')->group(function () {
             Route::get('data', [BerLuckyController::class, 'productIndex']);
+            Route::get('privatedata', [BerLuckyController::class, 'productIndex']);
             Route::post('create', [BerLuckyController::class, 'createBerlucky']);
             Route::post('update/{id}', [BerLuckyController::class, 'updateBerlucky']);
             Route::patch('updatepin/{id}', [BerLuckyController::class, 'updatePinProduct']);

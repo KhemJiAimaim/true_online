@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backoffice;
 
+use App\Http\Controllers\Controller;
 use App\Models\BerproductCategory;
 use App\Models\BerproductMonthly;
 use App\Models\BerluckyPackage;
@@ -276,11 +277,17 @@ class BerLuckyController extends BaseController
         // cache()->flush();
         // session()->forget('berlucky_products');
 
+        $isCached = filter_var($request->iscached, FILTER_VALIDATE_BOOLEAN);;
         $bercates = $this->getBerluckyCateAll();
         $packages = $this->getLuckyPackage();
-        $products = $this->getBerluckyProductAll();
+        $products = [];
+
+        if (!$isCached) {
+            $products =  $this->getBerluckyProductAll();
+        }
 
         return response([
+            'isCached' => $isCached,
             'message' => 'ok',
             'status' => true,
             'description' => 'Get Lucky ber success',
@@ -711,11 +718,13 @@ class BerLuckyController extends BaseController
     {
         $data = BerproductMonthly::orderBy('updated_at', 'DESC')->get();
 
-        foreach ($data as $product) {
-            $default_cate = explode(",", $product->default_cate);
-            $product->default_cate = $default_cate;
-        }
-
         return $data;
+
+        // $dataCached = Cache::remember('berluckyCache', 60, function () {
+        //     return BerproductMonthly::orderBy('updated_at', 'DESC')->get();
+
+        // });
+
+        // return $dataCached;
     }
 }
