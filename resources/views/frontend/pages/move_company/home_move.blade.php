@@ -76,7 +76,7 @@
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div
-                                                class="drop-shadow-md py-4 w-[480px]  max-xl:w-[350px] max-md:w-[300px] h-[100%] ">
+                                                class="drop-shadow-md py-4 w-[480px]  max-xl:w-[400px] max-md:w-[300px] h-[100%] ">
                                                 <div
                                                     class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                                     <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
