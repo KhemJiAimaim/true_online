@@ -1,22 +1,21 @@
-
 <style>
     /* Define the style for the active class */
     .active {
-      color: #EC1F25 !important;
+        color: #EC1F25 !important;
     }
-  </style>
+</style>
 <!-- nav goes here -->
 
 <nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed w-full top-0 z-50 ">
     <div class="w-3/4 2xl:w-[1536px] xl:w-[1200px] mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">
-               
+
                 <!-- logo -->
                 <div class="hidden xl:flex">
                     <a href="/" class="flex items-center py-2 text-gray-700 hover:text-gray-900">
                         <div class="w-20">
-                         <img src="/images/logo/S__41378004.jpg" alt="" class="w-full">{{--{{ $webInfo->detail->image_1->link }} --}}
+                            <img src="/images/logo/S__41378004.jpg" alt="" class="w-full">{{-- {{ $webInfo->detail->image_1->link }} --}}
                         </div>
                     </a>
                 </div>
@@ -48,14 +47,15 @@
             <div class="">
                 <a href="{{ url('/') }}" class="flex items-center py-1 text-gray-700 hover:text-gray-900">
                     <div class="w-16">
-                     <img src="/images/logo/S__41378004.jpg" alt="" class="w-full"> {{--{{ asset('/images/Rectangle 11.png') }} --}}
+                        <img src="/images/logo/S__41378004.jpg" alt="" class="w-full"> {{-- {{ asset('/images/Rectangle 11.png') }} --}}
                     </div>
                 </a>
             </div>
 
             <div class="flex items-center gap-2 ">
                 <div class="flex justify-center w-[33px] h-[33px]">
-                <span id="mobile-num-cart" class="bg-[#EC1F25] text-white rounded-full px-1 py-1 w-full text-center text-[16px] items-center">{{ isset($amount) ? $amount : 0 }}</span>
+                    <span id="mobile-num-cart"
+                        class="bg-[#EC1F25] text-white rounded-full px-1 py-1 w-full text-center text-[16px] items-center">{{ isset($amount) ? $amount : 0 }}</span>
                 </div>
                 <a href="{{ url('/cartproduct') }}"
                     class="flex items-center py-5 text-gray-700 hover:text-gray-900 w-[30px]">
@@ -90,7 +90,9 @@
                         $matching_cate = true;
                         $main_list =
                             '<li>
-                                <a href="/' . $m_cate->cate_url . '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25] font-medium">หน้าหลัก</a>
+                                <a href="/' .
+                            $m_cate->cate_url .
+                            '" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25] font-medium">หน้าหลัก</a>
                             </li>';
                         break;
                     }
@@ -107,7 +109,8 @@
                     @foreach ($sub_cate as $s_cate)
                         @if ($s_cate->cate_parent_id == $m_cate->id)
                             <li>
-                                <a href="/{{ $s_cate->cate_url }}" class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                <a href="/{{ $s_cate->cate_url }}"
+                                    class="block py-2 ml-5 2xl:text-[1.2rem] text-[16px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
                             </li>
                         @endif
                     @endforeach
@@ -122,29 +125,33 @@
 
 <div class="bg-white drop-shadow-md w-full fixed top-20  z-40">
     <div class="2xl:w-[1610px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
-      <ul class="hidden lg:flex 2xl:flex relative list-none text-center" id="menu">
-        @foreach ($main_cate as $m_cate)
-          <li class="group z-[99] w-full ">
-            <a href="{{ url($m_cate->cate_url) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">{{ $m_cate->cate_title }}</a>
-            @foreach ($sub_cate as $s_cate)
-              @if ($s_cate->cate_parent_id == $m_cate->id)
-                <ul class="submenu hidden w-full left-0 space-y-2 bg-white group-hover:block z-50 mt-4 list-none">
-                  <li>
-                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2 text-[1rem] max-2xl:text-[14px] ml-18 hover:text-[#EC1F25] ">{{ $s_cate->cate_title }}</a>
-                  </li>
-                </ul>
-              @endif
+        <ul class="hidden lg:flex 2xl:flex relative list-none text-center" id="menu">
+            @foreach ($main_cate as $m_cate)
+                <li class="group z-[99] w-full ">
+                    <a href="{{ url($m_cate->cate_url) }}"
+                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">{{ $m_cate->cate_title }}</a>
+                    <div class="submenu hidden w-full left-0 space-y-2 bg-white group-hover:block z-50 mt-4  ">
+                        <ul class="list-none w-full flex flex-col items-start ml-[1rem] ">
+                            @foreach ($sub_cate as $s_cate)
+                                @if ($s_cate->cate_parent_id == $m_cate->id)
+                                    <li class="pl-[1rem]">
+                                        <a href="{{ url('/' . $s_cate->cate_url) }}"
+                                            class="block py-2 text-[1rem] max-2xl:text-[14px] ml-18 hover:text-[#EC1F25] ">{{ $s_cate->cate_title }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+                    </div>
+                </li>
             @endforeach
-          </li>
-        @endforeach
-      </ul>
+        </ul>
     </div>
-  </div>
+</div>
 
 
 
 <script>
-
     const btns = document.querySelectorAll('.mobile-menu-button');
     const menu = document.querySelector('.mobile-menu');
 
@@ -197,6 +204,4 @@
     //     flip.classList.add('flip');
     //     drop.classList.remove("show");
     // }
-
-   
 </script>
