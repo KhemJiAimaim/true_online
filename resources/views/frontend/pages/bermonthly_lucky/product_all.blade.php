@@ -74,14 +74,14 @@
         <!-- search box -->
         <div class="max-xs:mx-2">
             <div
-                class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-gradient-to-r from-[#EC1F25] to-[#960004] p-2 max-xs:p-1 mx-auto rounded-[20px] mt-8">
-                <div class=" bg-[#F8F9FA]  2xl:p-6 p-4 rounded-[18px] text-[17px] ">
+                class="">
+                <div class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-gradient-to-r from-[#EC1F25] to-[#960004] max-xs:p-1 mx-auto rounded-[20px] mt-8   2xl:p-6 p-4 text-[17px] ">
                     <div class="flex max-lg:flex-col gap-4">
                         {{-- box left --}}
                         <div class=" w-full max-2xl:w-[48%] max-lg:w-full">
                             <div
-                                class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4">
-                                <label class="text-white " for="input-fortune">กรอกเบอร์โทร</label>
+                                class="w-full p-2 flex flex-col bg-white rounded-[10px] mb-4">
+                                <label class="text-black " for="input-fortune">กรอกเบอร์โทร</label>
                                 <div class="w-full flex gap-4">
                                     <input class="w-full h-7 text-center rounded-[3px] " type="text" id="input-fortune"
                                         maxlength="10">
