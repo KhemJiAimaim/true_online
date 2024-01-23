@@ -3,7 +3,7 @@
         {{-- ที่อยู่ --}}
         <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
             <h2 class="w-full  text-center text-[1.5rem] text-white">ที่อยู่</h2>
-            <p class="w-full h-[100px]  text-center text-white ">บริษัท พาณิชย์อมรกิจ จำกัด 19/39 ซอย 01 ถนนกาญจนาภิเษก 5
+            <p class="w-full h-[100px]  text-start text-white ">บริษัท พาณิชย์อมรกิจ จำกัด 19/39 ซอย 01 ถนนกาญจนาภิเษก 5
                 แขวงสามตะวันตก
                 เขตคลองสามวา กรุงเทพมหานคร 10510
             </p>
