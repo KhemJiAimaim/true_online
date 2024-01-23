@@ -1,9 +1,32 @@
-document.getElementById("contact_button").addEventListener("click", function() {
-    document.getElementById("close").style.display = "flex";
-    document.getElementById("social").style.display = "flex";
+document.addEventListener('DOMContentLoaded', function () {
+    // เลือกปุ่ม contact_button
+    const contactButton = document.getElementById('contact_button');
+    // เลือกเนื้อหา social
+    const socialContent = document.getElementById('social');
+
+     // เพิ่ม event listener เมื่อมีการวางเมาส์ที่ปุ่ม contact_button
+     contactButton.addEventListener('mouseenter', function () {
+        // แสดงเนื้อหา social
+        socialContent.classList.remove('hidden');
+    });
+
+    // กำหนดตัวแปรเพื่อตรวจสอบว่า social กำลังแสดงหรือไม่
+    let socialVisible = false;
+
+    // เพิ่ม event listener เมื่อมีการคลิกที่พื้นที่ว่างหรือปุ่มเดิม
+    document.addEventListener('click', function (event) {
+        const isClickInsideSocial = socialContent.contains(event.target);
+        const isClickInsideContactButton = contactButton.contains(event.target);
+
+        // ถ้าคลิกภายใน social หรือ contact_button ไม่ต้องทำการปิด social
+        if (isClickInsideSocial || isClickInsideContactButton) {
+            return;
+        }
+
+        // ถ้าคลิกภายนอก social ให้ซ่อน social
+        socialContent.classList.add('hidden');
+        socialVisible = false;
+    });
 });
 
-document.getElementById("close").addEventListener("click", function() {
-    document.getElementById("close").style.display = "none";
-    document.getElementById("social").style.display = "none";
-});
+

@@ -30,7 +30,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <h1 class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</h1>
+                    <h1 class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{ $seo->cate_h1 }}</h1>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -41,15 +41,18 @@
         {{-- มหัศจรรย์ --}}
 
         <div class="2xl:my-12 my-6 md:w-[600px] 2xl:w-[1536px] mx-auto px-3">
-            <h2 class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">{{$seo->cate_h2}}</h2>
+            <h2 class="text-gray-400 2xl:text-[20px] md:text-[18px] text-[16px] ">{{ $seo->cate_h2 }}</h2>
         </div>
 
         {{-- --- --}}
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden py-2 mb-4  ">
-            <div class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center ">
+            <div
+                class="2xl:w-[1536px] xl:w-[1200px] w-[1200px] se:w-[1000px] md:w-[1100px] lg:w-[1000px] ss:w-[1050px] ss:gap-4 xl:gap-10 grid grid-cols-3 md:gap-1 se:gap-4 se:p-0  gap-4 xs:gap-0  lg:gap-6 2xl:gap-4 mx-auto 2xl:p-4 p-1 items-center place-content-center ">
                 @foreach ($menus as $menu)
-                    <a href="{{ $menu->slug}}" class="w-[350px] max-xl:w-[320px] max-xs:w-[300px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
-                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}" alt="">
+                    <a href="{{ $menu->slug }}"
+                        class="w-[350px] max-xl:w-[320px] max-xs:w-[300px]  2xl:w-[450px] mx-auto h-auto bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex flex-col rounded-[2rem] drop-shadow-md">
+                        <img class="w-full h-auto rounded-tl-3xl rounded-tr-3xl" src="{{ $menu->thumbnail_link }}"
+                            alt="">
 
                         <div class="grid grid-cols-3 mb-2">
                             <div class="flex justify-center items-center">
@@ -85,7 +88,7 @@
                     $circle2 = '';
                 }
                 $j++;
-                $i=0;
+                $i = 0;
             @endphp
             <section id="{{ $cate->cate_url }}" class="{{ $bg }} py-6 relative z-0 px-3 ss:px-6">
                 {!! $circle1 !!}
@@ -170,9 +173,11 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($post_benefits as $post)
                                                                 @if ($post->id == $item)
-                                                                <div class="w-[6rem] h-[96px] flex justify-center items-center">
-                                                                    <img class="w-full" src="/{{ $post->thumbnail_link }}"alt="">
-                                                                </div>
+                                                                    <div
+                                                                        class="w-[6rem] h-[96px] flex justify-center items-center">
+                                                                        <img class="w-full"
+                                                                            src="/{{ $post->thumbnail_link }}"alt="">
+                                                                    </div>
                                                                     @php
                                                                         $showDivider = true;
                                                                     @endphp
@@ -198,9 +203,13 @@
                                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
                                                         alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left  2xl:text-[18px] text-[16px] ">ราคา</p>
-                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format( ($fiber->special_price > 0)?$fiber->special_price : $fiber->price_per_month ) }}</p>
-                                                        <p class="text-white text-right  2xl:text-[18px] text-[16px]">บาท<br>/เดือน</p>
+                                                        <p class="text-white text-left  2xl:text-[18px] text-[16px] ">ราคา
+                                                        </p>
+                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">
+                                                            {{ number_format($fiber->special_price > 0 ? $fiber->special_price : $fiber->price_per_month) }}
+                                                        </p>
+                                                        <p class="text-white text-right  2xl:text-[18px] text-[16px]">
+                                                            บาท<br>/เดือน</p>
                                                     </div>
                                                 </div>
 
@@ -217,8 +226,8 @@
                             </div>
 
                             <div class="items-center  mx-auto">
-                                    <div class="swiper-button-next swiper-button-next1 "></div>
-                                    <div class="swiper-button-prev swiper-button-prev1 "></div>
+                                <div class="swiper-button-next swiper-button-next1 "></div>
+                                <div class="swiper-button-prev swiper-button-prev1 "></div>
                             </div>
 
 
@@ -230,7 +239,7 @@
                             <div class="swiper swiper2 items-center  w-full mx-auto">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
-                                    if (count($berproducts ) > 3) {
+                                    if (count($berproducts) > 3) {
                                         $justify = 'justify-start';
                                     }
                                 @endphp
@@ -291,11 +300,14 @@
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                     </button>
-                                                    <div
-                                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                                        <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                                    </div>
+                                                   
+                                                    <a href="https://line.me/ti/p/~@berhoro">
+                                                        <div
+                                                            class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                                            <img src="/images/icons8-line-app (1) 6.png" alt=""
+                                                                class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                                        </div>
+                                                    </a>
 
                                                     <a href="{{ url('/detailber/' . $ber->product_phone) }}"
                                                         class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
@@ -318,7 +330,7 @@
 
                             {{-- ซิมเติมเงิน --}}
                         @elseif($cate->id == 4)
-                             <div class="swiper swiper3 items-center w-full mx-auto">
+                            <div class="swiper swiper3 items-center w-full mx-auto">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
                                     if (count($prepaid_cate) > 3) {
@@ -341,8 +353,10 @@
                                                 </div>
 
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[120px] max-ex:h-[120px]">
-                                                        <img src="/{{ $prepaid->thumbnail_link }}" alt="" class="w-full h-full object-contain">
+                                                    <div
+                                                        class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[120px] max-ex:h-[120px]">
+                                                        <img src="/{{ $prepaid->thumbnail_link }}" alt=""
+                                                            class="w-full h-full object-contain">
                                                     </div>
                                                 </div>
 
@@ -370,10 +384,11 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 items-center">
+                                                <div
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 items-center">
                                                     {{-- <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a> --}}
-                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" data-id="{{ $i }}"
-                                                        data-type="{{ $cate->id }}"
+                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}"
+                                                        data-id="{{ $i }}" data-type="{{ $cate->id }}"
                                                         data-prepaid="{{ $prepaid->prepaid_sim_id }}"
                                                         class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
                                                 </div>
@@ -390,16 +405,15 @@
 
                             {{-- ซิมท่องเที่ยว --}}
                         @elseif($cate->id == 6)
-                        <div class="swiper swiper4 items-center w-full mx-auto">
-                            @php
-                                $justify = 'justify-center max-xs:justify-start';
-                                if (count($travel_sim) > 3) {
-                                    $justify = 'justify-start';
-                                }
-                            @endphp
+                            <div class="swiper swiper4 items-center w-full mx-auto">
+                                @php
+                                    $justify = 'justify-center max-xs:justify-start';
+                                    if (count($travel_sim) > 3) {
+                                        $justify = 'justify-start';
+                                    }
+                                @endphp
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($travel_sim as $sim)
-
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  max-es:w-[323px]  h-[100%] py-4">
                                                 <div
@@ -411,8 +425,10 @@
                                                 </div>
 
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-4 mx-auto h-[230px] w-[180px] max-es:w-[150px]">
-                                                        <img src="/{{$sim->thumbnail_link}}" alt="" class="w-full h-full object-contain">
+                                                    <div
+                                                        class="flex justify-center py-4 mx-auto h-[230px] w-[180px] max-es:w-[150px]">
+                                                        <img src="/{{ $sim->thumbnail_link }}" alt=""
+                                                            class="w-full h-full object-contain">
                                                     </div>
                                                 </div>
 
@@ -446,11 +462,14 @@
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                                     </div>
-                                                    <div
-                                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
-                                                        <img src="/images/icons8-line-app (1) 9.png" alt=""
-                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                                    </div>
+
+                                                    <a href="https://line.me/ti/p/~@berhoro">
+                                                        <div
+                                                            class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                                            <img src="/images/icons8-line-app (1) 6.png" alt=""
+                                                                class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                                        </div>
+                                                    </a>
 
                                                     <a href="{{ url('/travel_sim_buy/' . $sim->id) }}"
                                                         class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
@@ -461,7 +480,6 @@
 
                                             </div>
                                         </div>
-
                                     @endforeach
                                 </div>
                             </div>

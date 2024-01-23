@@ -1,4 +1,4 @@
-<div class=" bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF]  relative">
+<div class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312]  relative">
     <img class=" absolute right-0 top-0" src="/images/circle/Intersect (3).png" alt="">
     <div class="p-6 flex justify-center gap-[6rem] 2xl:gap-[15rem]">
         <a href="https://line.me/ti/p/~@berhoro" target="_blank" class="flex flex-col items-center cursor-pointer z-50">
