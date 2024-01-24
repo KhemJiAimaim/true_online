@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mt-16">
-        <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-4">
+        <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-10">
             @foreach ($cates as $cate)
                 <a href="/{{ $cate->cate_url }}"
                     class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-105 transition-all duration-500 ease-in-out">
@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
 
-                                <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 ">
+                                <div class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 h-[300px] overflow-scroll overflow-y-auto">
                                     <div class=" flex gap-4">
                                         <img src="/images/travel/majesticons_sim-card-line.png" alt=""
                                             class=" w-[26px]">
@@ -93,6 +93,7 @@
                                             </div>
                                         </div>
                                     @endif
+
                                     @if($sim->travel_cate_id == 23)
                                         <div class=" flex gap-4">
                                             <img src="/images/travel/icon-park-outline_phone-call.png" alt=""

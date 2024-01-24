@@ -246,7 +246,7 @@
                                     <div class="flex gap-x-5 max-2xl:gap-x-4 max-xs:gap-x-3  text-white justify-between">
                                         @for ($i = 0; $i <= 9; $i++)
                                             <button id="like" data-fav="{{ $i }}"
-                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#e7e7e7] text-black rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  text-white selected' : '' }}">
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0] rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  text-white selected' : '' }}">
                                                 {{ $i }}
                                             </button>
                                         @endfor
@@ -268,7 +268,7 @@
                                         class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3 text-white justify-between w-full">
                                         @for ($i = 0; $i <= 9; $i++)
                                             <button id="dislike" data-fav="{{ $i }}"
-                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#e7e7e7] text-black rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-yellow-500 to-[#fa6007] text-white selected' : '' }}">{{ $i }}</button>
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0]  rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-yellow-500 to-[#fa6007] text-white selected' : '' }}">{{ $i }}</button>
                                         @endfor
                                     </div>
                                 </div>

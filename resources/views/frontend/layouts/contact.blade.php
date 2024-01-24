@@ -1,10 +1,10 @@
 <div class="fixed  bottom-2 md:bottom-10 right-0  z-50  flex flex-col mx-2" id="contact">
     <div class="flex flex-col-reverse relative">
 
-        <div id="contact_button" class="cursor-pointer flex justify-center max-es:justify-end flex-col  items-center mt-2 w-[160px]">
+        <div id="contact_button" class="cursor-pointer flex justify-center max-es:justify-end flex-col  items-center mt-2 w-[160px] ">
             <div class="md:relative">
                 <div class="w-[80px] h-[80px] max-md:hidden  ">
-                    <img src="/images/Ellipse 33.png" alt="" class="bg-white rounded-full w-full h-full ">
+                    <img src="/images/Ellipse 33.png" alt="" class="bg-white rounded-full w-full h-full">
                 </div>
                 <p
                     class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg w-[80px] flex justify-center max-sm:text-sm text-center md:absolute md:top-[90%]">
@@ -14,7 +14,7 @@
         </div>
 
         <div id="social"
-            class="hidden rounded-lg w-[160px] py-2 px-1 flex justify-start flex-col gap-2  mx-auto bg-[#fff] ">
+            class="hidden rounded-lg w-[160px] py-2 px-1 flex justify-start flex-col gap-2  mx-auto bg-[#fff] shadow-lg ">
             <a href="https://line.me/ti/p/~@berhoro" target="_blank">
                 <div class="flex items-center gap-2">
                     <div
