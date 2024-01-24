@@ -131,10 +131,10 @@
                     <a href="{{ url($m_cate->cate_url) }}"
                         class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] ">{{ $m_cate->cate_title }}</a>
                     <div class="submenu hidden w-full left-0 space-y-2 bg-white group-hover:block z-50 mt-4  ">
-                        <ul class="list-none w-full flex flex-col items-start ml-[1rem] ">
+                        <ul class="list-none w-full flex flex-col items-end ml-[1rem] ">
                             @foreach ($sub_cate as $s_cate)
                                 @if ($s_cate->cate_parent_id == $m_cate->id)
-                                    <li class="pl-[1rem]">
+                                    <li class=" w-[90%] text-start">
                                         <a href="{{ url('/' . $s_cate->cate_url) }}"
                                             class="block py-2 text-[1rem] max-2xl:text-[14px] ml-18 hover:text-[#EC1F25] ">{{ $s_cate->cate_title }}</a>
                                     </li>
