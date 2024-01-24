@@ -6,21 +6,39 @@
         <div class="h-[158px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
             <div class="flex max-xs:flex-col gap-8">
                 <a href="/bermonthly?sim=month"
-                    class="bg-white flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
-                    <img id="system-sim" data-sim="month"
-                        class="{{ isset($_GET['sim']) && $_GET['sim'] == 'month' ? 'selected' : 'invisible' }}"
-                        src="/icons/check.png" alt="">
+                    class="bg-white flex justify-center items-center gap-2 py-2 px-2 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
+
+                    @if (isset($_GET['sim']) && $_GET['sim'] == 'month')
+                        <div class="w-7 h-7">
+                            <img id="system-sim" data-sim="month" class="w-full h-full" src="/icons/check.png" alt="">
+                        </div>
+                    @else
+                        <div class="w-7 h-7">
+                            <img id="system-sim" data-sim="month" class="w-full h-full " src="/images/check-one.png"
+                                alt="">
+                        </div>
+                    @endif
                     <p class="text-[#CE090E] text-[17px] ">เบอร์มงคลระบบรายเดือน</p>
                 </a>
                 <a href="/bermonthly?sim=paysim"
-                    class="bg-black flex justify-center items-center gap-2 py-2 pl-2 pr-6 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
-                    <img id="system-sim" data-sim="paysim"
-                        class="{{ isset($_GET['sim']) && $_GET['sim'] == 'paysim' ? 'selected' : 'invisible' }}"
-                        src="/icons/check.png" alt="">
+                    class="bg-black flex justify-center items-center gap-2 py-2 px-2 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out">
+                    @if (isset($_GET['sim']) && $_GET['sim'] == 'paysim')
+                        <div class="w-7 h-7">
+                            <img id="system-sim" data-sim="paysim" class="w-full h-full" src="/icons/check.png"
+                                alt="">
+                        </div>
+                    @else
+                        <div class="w-7 h-7">
+                            <img id="system-sim" data-sim="paysim" class="w-full h-full" src="/images/check-one.png"
+                                alt="">
+                        </div>
+                    @endif
                     <p class="text-white text-[17px]">เบอร์มงคลระบบเติมเงิน</p>
                 </a>
             </div>
         </div>
+
+
 
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-4 px-3 2xl:mt-6">
             <div class="grid grid-cols-5 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
@@ -85,7 +103,7 @@
                                     <input class="w-full h-7 text-center rounded-[3px] bg-slate-200 " type="text"
                                         id="input-fortune" maxlength="10">
                                     <button
-                                        class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] se:text-[14px] text-[#EC1F25] font-medium bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white"
+                                        class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] se:text-[14px] font-medium bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white"
                                         id="fortune-ber">วิเคราะห์เบอร์</button>
                                 </div>
                             </div>
@@ -281,7 +299,7 @@
 
                         {{-- box right --}}
                         <div class="w-full flex flex-col justify-between">
-                            <div class="flex flex-col max-lg:mb-4">
+                            <div class="flex flex-col mb-4">
                                 <p class="mb-2 text-white">เสริมดวงด้าน</p>
                                 <div class="flex flex-wrap gap-[1rem] max-es:gap-[0.8rem] max-xs:gap-[1rem]">
                                     @php
@@ -297,7 +315,7 @@
                                             $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                         @endphp
                                         <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                            class="relative p-[0.5rem] w-[80px] max-xl:w-[55px] bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e]">
+                                            class="relative p-[0.5rem] w-[75px] max-xl:w-[55px] bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e]">
                                             <img src="{{ $numbcate->thumbnail }}" alt=""
                                                 style="{{ $image_selected }}"
                                                 class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -329,7 +347,7 @@
                                                 $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                             @endphp
                                             <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
-                                                class="relative p-[0.5rem] w-[80px] max-xl:w-[55px]  bg-white rounded-[5px] border-2 border-white group {{ $aus_selected }} hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e]">
+                                                class="relative p-[0.5rem] w-[75px] max-xl:w-[55px]  bg-white rounded-[5px] border-2 border-white group {{ $aus_selected }} hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e]">
                                                 <img src="{{ $bercate->thumbnail }}" alt=""
                                                     style="{{ $img_selected }}"
                                                     class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -345,8 +363,8 @@
                                         @endif
                                     @endforeach
                                     <button id="btn-vip" data-id="vip"
-                                        class="relative p-2 w-[80px] max-xl:w-[55px] bg-white border-2 border-white rounded-[5px] group  {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e] ">
-                                        <img src="/upload/2024/01/19/VIP-02.svg" alt=""
+                                        class="relative p-2 w-[75px] max-xl:w-[55px] bg-white border-2 border-white rounded-[5px] group  {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e] ">
+                                        <img src="/images/icon/VIP.png" alt=""
                                             style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}"
                                             class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                         <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
@@ -445,7 +463,7 @@
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
-                                
+
                                 <a href="https://line.me/ti/p/~@berhoro">
                                     <div
                                         class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
@@ -503,5 +521,6 @@
     <script>
         let data_page = @json($data_paginate)
     </script>
+
     @vite('resources/js/bermonthly_lucky/allproduct.js')
 @endsection
