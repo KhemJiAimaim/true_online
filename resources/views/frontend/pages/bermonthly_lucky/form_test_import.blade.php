@@ -9,6 +9,7 @@
     </div>
 
     <button id="export-file" class="bg-red-600 text-white mx-auto flex justify-center w-40 rounded-lg px-2 py-1">EXPORT FILE</button>
+    <button id="getData" class="bg-red-600 text-white mx-auto flex justify-center w-40 rounded-lg px-2 py-1">GETDATA</button>
   </div>
 </div>
 
@@ -16,6 +17,12 @@
 
 @section('scripts')
 <script>
+  let getData = document.querySelector('#getData');
+  getData.addEventListener('click', () => {
+    axios.get('http://localhost/true.api/').then((response) => {
+      console.log(response);
+    })
+  })
   let submit = document.querySelector('#submit');
   
   submit.addEventListener('click', function() {

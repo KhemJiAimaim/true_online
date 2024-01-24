@@ -82,7 +82,7 @@ return new class extends Migration
                 'func_display' => 'yes',
             ],
             [
-                'func_id' => '9',
+                'func_id' => '11',
                 'func_cate_id' => '4',
                 'func_name' => 'xxx1221',
                 'func_desc' => 'หน้าหลังเหมือนกัน คู่กลางเหมือนกัน ',

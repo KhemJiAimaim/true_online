@@ -396,10 +396,10 @@ class BerLuckyMonthlyController extends Controller
         Excel::import(new BerMonthlyImportClass, $file);
 
         // generate product_category
-        $this->getProductByCategory();
+        // $this->getProductByCategory();
 
         //จัดหมวดหมู่ตามสูตร หมวดเบอร์คู่รัก และ หมวดเบอร์ห่าม - xxyy #automatic
-        $this->getProductByCategoryBySet();
+        // $this->getProductByCategoryBySet();
 
         return response()->json([
             'status' => 'success',
