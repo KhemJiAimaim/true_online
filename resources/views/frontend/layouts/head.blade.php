@@ -128,26 +128,21 @@
 </nav>
 
 
-<div class="bg-white drop-shadow-md w-full fixed top-20  z-40">
+<div class="bg-white drop-shadow-md fixed w-full top-20 z-40">
     <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
-        <ul class=" max-xl:hidden flex  relative list-none mx-auto" id="menu">
+        <ul class="hidden lg:flex 2xl:flex relative list-none">
             @foreach ($main_cate as $m_cate)
                 <li class="group z-[99] {{ $m_cate->id == 2 ? 'flex-initial w-[22rem]' : 'flex-initial w-72' }}">
-                    <a href="{{ url($m_cate->cate_url) }}"
-                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] text-center">{{ $m_cate->cate_title }}</a>
-                    
-                    <div class="submenu hidden w-full space-y-2 bg-white group-hover:block z-50 mt-4">
-                        <ul class="list-none  flex flex-col items-start ">
-                            @foreach ($sub_cate as $s_cate)
-                                @if ($s_cate->cate_parent_id == $m_cate->id)
-                                    <li class="">
-                                        <a href="{{ url('/' . $s_cate->cate_url) }}"
-                                            class="block py-2 text-[1rem] max-2xl:text-[14px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </div>
+                    <a href="{{ url($m_cate->cate_url) }}" class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
+                    @foreach ($sub_cate as $s_cate)
+                        @if ($s_cate->cate_parent_id == $m_cate->id)
+                            <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
+                                <li>
+                                    <a href="{{ url('/' . $s_cate->cate_url) }}" class="block py-2 text-[1rem] max-2xl:text-[14px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
+                                </li>
+                            </ul>
+                        @endif
+                    @endforeach
                 </li>
             @endforeach
         </ul>
