@@ -103,7 +103,7 @@
                                     <input class="w-full h-7 text-center rounded-[3px] bg-slate-200 " type="text"
                                         id="input-fortune" maxlength="10">
                                     <button
-                                        class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] se:text-[14px] text-[#EC1F25] font-medium bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white"
+                                        class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] se:text-[14px] font-medium bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white"
                                         id="fortune-ber">วิเคราะห์เบอร์</button>
                                 </div>
                             </div>
@@ -299,7 +299,7 @@
 
                         {{-- box right --}}
                         <div class="w-full flex flex-col justify-between">
-                            <div class="flex flex-col max-lg:mb-4">
+                            <div class="flex flex-col mb-4">
                                 <p class="mb-2 text-white">เสริมดวงด้าน</p>
                                 <div class="flex flex-wrap gap-[1rem] max-es:gap-[0.8rem] max-xs:gap-[1rem]">
                                     @php
