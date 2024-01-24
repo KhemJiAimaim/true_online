@@ -130,12 +130,12 @@
 
 <div class="bg-white drop-shadow-md w-full fixed top-20  z-40">
     <div class="2xl:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
-        <ul class=" max-xl:hidden flex justify-between relative list-none mx-auto" id="menu">
+        <ul class=" max-xl:hidden flex  relative list-none mx-auto" id="menu">
             @foreach ($main_cate as $m_cate)
-                <li class="group z-[99]">
+                <li class="group z-[99] {{ $m_cate->id == 2 ? 'flex-initial w-[22rem]' : 'flex-initial w-72' }}">
                     <a href="{{ url($m_cate->cate_url) }}"
-                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] mr-10">{{ $m_cate->cate_title }}</a>
-
+                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25] text-center">{{ $m_cate->cate_title }}</a>
+                    
                     <div class="submenu hidden w-full space-y-2 bg-white group-hover:block z-50 mt-4">
                         <ul class="list-none  flex flex-col items-start ">
                             @foreach ($sub_cate as $s_cate)
