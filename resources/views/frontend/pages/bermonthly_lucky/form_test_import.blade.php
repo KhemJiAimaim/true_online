@@ -35,15 +35,19 @@
 
     // axios.post(`backoffice/v1/readexcel`,formData).then((response) => {
     axios.post(`/readexcel`,formData).then((response) => {
+      console.log(response.data.data);
       if(response.data.status == "success") {
-        Swal.fire({
+        axios.post('http://localhost/true.api/postdata',response.data.data).then((response) => {
+          Swal.fire({
           position: "center",
           icon: "success",
           title: response.data.message,
           showConfirmButton: false,
           timer: 1500
-        }).then(() => {
-          location.href = "/bermonthly"
+          }).then(() => {
+            console.log(response);
+            // location.href = "/bermonthly"
+          })
         })
       } else {
         Swal.fire({

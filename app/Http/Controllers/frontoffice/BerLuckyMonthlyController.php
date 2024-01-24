@@ -369,6 +369,12 @@ class BerLuckyMonthlyController extends Controller
     {
 
         $file = $request->file('excel_file');   // รับไฟล์จาก request
+		$excelData = Excel::toArray([], $file);
+
+		return response()->json([
+			'status' => 'success',
+			'data' => $excelData,
+		]);
 
         // เอาไว้ debug ดูข้อมูลในไฟล์ excel
         // ข้อมูลไม่ควรเกิน 100 row
@@ -390,10 +396,10 @@ class BerLuckyMonthlyController extends Controller
         // dd($importedData);
 
         // delete old data before new up load
-        BerproductMonthly::truncate();
+        // BerproductMonthly::truncate();
 
         // method import new ber
-        Excel::import(new BerMonthlyImportClass, $file);
+        // Excel::import(new BerMonthlyImportClass, $file);
 
         // generate product_category
         // $this->getProductByCategory();
