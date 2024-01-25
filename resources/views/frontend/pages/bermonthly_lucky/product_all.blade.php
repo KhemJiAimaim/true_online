@@ -70,7 +70,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
-            <div class="mx-auto w-[90%] ">
+            <div class="mx-auto w-[90%] max-lg:w-full">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -93,12 +93,11 @@
 
         <!-- search box -->
         <div class="max-xs:mx-2">
-            <div
-                class="w-[90%] max-xs:p-1 mx-auto rounded-[20px] mt-8">
-                <div class=" bg-[#f8f7f7]  2xl:p-6 p-4 text-[17px] " style="border-radius: 12px;">
+            <div class="w-[90%] max-xl:w-full max-xs:p-1 mx-auto rounded-[20px] mt-8">
+                <div class=" bg-[#f8f7f7]  2xl:p-6 p-4 text-[17px] w-full mx-4" style="border-radius: 12px;">
                     <div class="flex max-lg:flex-col gap-4">
                         {{-- box left --}}
-                        <div class=" w-full max-2xl:w-[48%] max-lg:w-full">
+                        <div class=" w-full max-2xl:w-full max-lg:w-full">
                             <div
                                 class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4">
                                 <label class="text-white " for="input-fortune">กรอกเบอร์โทร</label>
@@ -115,7 +114,7 @@
                                 <div class="2xl:w-[20%]">
                                     <label class="text-left text-black" for="">ค้นหาเบอร์</label>
                                 </div>
-                                <div class="flex justify-between gap-5 max-2xl:gap-4 max-xl:gap-2">
+                                <div class="flex justify-between gap-5 max-2xl:gap-4 max-xl:gap-2 w-full">
                                     <input
                                         class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="text" data-position="0" value="0" disabled>
@@ -260,11 +259,12 @@
                                         $explodeLike = explode(',', $like);
                                     }
                                 @endphp
-                                <div class="flex gap-x-4 gap-y-2 mb-4 2xl:items-center w-full max-2xl:flex-col">
+                                <div class="flex gap-x-4 gap-y-2  mb-4 2xl:items-center w-full max-2xl:flex-col">
                                     <div class="2xl:w-[25%]">
                                         <label for="" class="text-black">ตัวเลขที่ชอบ</label>
                                     </div>
-                                    <div class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3  text-white justify-between">
+                                    <div
+                                        class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3 text-white justify-between w-full">
                                         @for ($i = 0; $i <= 9; $i++)
                                             <button id="like" data-fav="{{ $i }}"
                                                 class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0] rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  text-white selected' : '' }} hover:bg-gradient-to-r from-[#5741CD] to-[#00ACEE]">
@@ -406,9 +406,9 @@
         @if (count($berproducts) > 0)
             <div class="px-3">
                 <div
-                    class="w-[95%] grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-3 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 items-center mx-auto ss:p-1 p-4 ">
+                    class="w-[95%] flex flex-wrap justify-center  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 items-center mx-auto ss:p-1 p-4 ">
                     @foreach ($berproducts as $product)
-                        <div class="drop-shadow-md max-2xl:w-[320px] max-es:w-[323px] py-2">
+                        <div class="drop-shadow-md w-[350px] max-2xl:w-[320px] max-es:w-[323px] py-2">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                 <div class="flex justify-start items-center gap-1 ">
@@ -424,11 +424,12 @@
                             </div>
 
                             {{-- berproduct --}}
-                            <div class="bg-white flex items-center  justify-center max-uu:gap-14 max-2xl:gap-8 h-[100px] max-md:h-[80px]">
+                            <div
+                                class="bg-white flex items-center  justify-center px-2 max-uu:gap-[1rem] gap-12 h-[100px] max-md:h-[80px]">
                                 <div class="w-[70px] h-[40px]">
                                     <img src="/images/651e616b04c02CnURE.png" alt="" class="w-full h-full">
                                 </div>
-                            
+
                                 <a href="{{ url('/detailber/' . $product->product_phone) }}">
                                     <div class="flex justify-center py-10 max-ex:py-2">
                                         <h2 class="2xl:text-[2rem] text-[1.5rem] text-center font-bold">
@@ -436,7 +437,7 @@
                                         </h2>
                                     </div>
                                 </a>
-                            
+
                             </div>
                             {{-- berproduct --}}
 

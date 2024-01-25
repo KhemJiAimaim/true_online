@@ -21,8 +21,8 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container pt-4 px-3">
-            <div class="mx-auto w-[90%] ">
-                <div class="title-plate-line"></div>
+            <div class="mx-auto  w-[90%] max-2xl:w-4/5 max-lg:w-full">
+                <div class="title-plate-line "></div>
             </div>
             <div class="plate-group">
                 <div class="plate-box-s">
@@ -97,7 +97,7 @@
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] text-[16px]">{{ $cate->cate_description }}</p>
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class=" w-4/5 my-0 mx-auto flex justify-center ">
+                    <div class="w-4/5 max-lg:w-full my-0 mx-auto flex justify-center ">
                         {{-- เน็ตไฟเบอร์ --}}
                         @if ($cate->id == 2)
                             <div class="swiper swiper1 items-center w-full mx-auto">
@@ -265,7 +265,8 @@
                                                 </div>
 
                                                 {{-- berproduct --}}
-                                                <div class="bg-white flex items-center justify-center gap-14">
+                                                <div
+                                                    class="bg-white flex items-center justify-center px-2 max-uu:gap-[1rem] gap-12">
                                                     <div class="max-w-[70px] max-h-[40px]">
                                                         <img src="/images/651e616b04c02CnURE.png" alt=""
                                                             class="w-full h-full">
