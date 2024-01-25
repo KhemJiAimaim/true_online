@@ -4,9 +4,12 @@
         class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[700px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden      mx-auto flex items-center justify-between py-10 gap-4  ">
         {{-- ที่อยู่  : 2xl:w-[1536px] xl:w-[1200px] min-[800px]:w-[780px] --}}
         <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
-            <h2 class="w-full  text-center text-[1.5rem] max-[900px]:text-[1rem] max-sm:text-[14px] text-white">ที่อยู่
+            <h2
+                class="w-full uu:text-[1.7rem]  text-center text-[1.5rem] max-[900px]:text-[1rem] max-sm:text-[14px] text-white">
+                ที่อยู่
             </h2>
-            <p class="w-full text-[1rem] h-[100px] max-[900px]:text-[14px] max-sm:text-[12px]  text-start text-white ">
+            <p
+                class="w-full uu:text-[1.2rem] text-[1rem] h-[100px] max-[900px]:text-[14px] max-sm:text-[12px]  text-start text-white ">
                 บริษัท
                 พาณิชย์อมรกิจ จำกัด 19/39
                 ซอย 01 ถนนกาญจนาภิเษก 5
@@ -15,37 +18,42 @@
             </p>
         </div>
         <div class="w-[30%] flex flex-col items-center gap-3 justify-start">
-            <h2 class="w-full  text-center text-[1.5rem]  max-[900px]:text-[1rem] max-sm:text-[14px] text-white">
+            <h2
+                class="w-full uu:text-[1.7rem] text-center text-[1.5rem]  max-[900px]:text-[1rem] max-sm:text-[14px] text-white">
                 ช่องทางติดต่อ</h2>
             <div class="w-full pl-[2rem] max-[900]:pl-[0.2rem] h-[100px]   flex items-start flex-col gap-2">
                 <div>
                     <img src="" alt="">
-                    <p class="text-white text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px]  ">LINE ID : @fibertrue
+                    <p class="text-white uu:text-[1.2rem] text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px]  ">LINE
+                        ID : @fibertrue
                     </p>
                 </div>
                 <div>
                     <img src="" alt="">
-                    <p class="text-white text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px] ">สมัครบริการใหม่ :
+                    <p class="text-white uu:text-[1.2rem] text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px] ">
+                        สมัครบริการใหม่ :
                         0832289789 </p>
                 </div>
                 <div>
                     <img src="" alt="">
-                    <p class="text-white text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px] ">แจ้งปัญหาติดต่อ: 1242
+                    <p class="text-white uu:text-[1.2rem] text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px] ">
+                        แจ้งปัญหาติดต่อ: 1242
                     </p>
                 </div>
             </div>
 
         </div>
         <div class="w-[30%] flex flex-col items-center gap-3 justify-start">
-            <h2 class=" w-full text-center text-[1.5rem] text-white max-[900px]:text-[1rem] max-sm:text-[14px] ">
+            <h2
+                class=" w-full text-center uu:text-[1.7rem] text-[1.5rem] text-white max-[900px]:text-[1rem] max-sm:text-[14px] ">
                 บริการของเรา</h2>
             <ul
-                class="w-full pl-[2rem] max-[900]:pl-[1rem] text-white max-[900px]:text-[14px] max-sm:text-[12px] max-sm:h-[100px] ">
-                <li class="text-[1rem]">อินเตอร์เน็ตบ้าน</li>
-                <li class="text-[1rem]">เบอร์มงคล</li>
-                <li class="text-[1rem]">เติมเงิน</li>
-                <li class="text-[1rem]">ย้ายค่ายมาทรู</li>
-                <li class="text-[1rem]">ซิมท่องเที่ยว</li>
+                class="w-full pl-[2rem] max-[900]:pl-[1rem] uu:text-[1.2rem] text-white max-[900px]:text-[14px] max-sm:text-[12px] max-sm:h-[100px] ">
+                <li>อินเตอร์เน็ตบ้าน</li>
+                <li>เบอร์มงคล</li>
+                <li>เติมเงิน</li>
+                <li>ย้ายค่ายมาทรู</li>
+                <li>ซิมท่องเที่ยว</li>
             </ul>
         </div>
 
@@ -119,7 +127,7 @@
     </div>
     {{-- z-mobile --}}
     <div
-        class="md:hidden ex:max-w-[500px] xs:max-w-[400px]   se:max-w-[300px]  w-full my-0 mx-auto  pt-[2rem] flex flex-col gap-4 ">
+        class="md:hidden ex:max-w-[480px] xs:max-w-[460px]  max-w-[300px]  w-full my-0 mx-auto  pt-[2rem] flex flex-col gap-4 ">
         <div class="w-full   ">
             <div id="cshow1" class="w-full flex items-center justify-between">
                 <h2 class="text-white w-full text-[1rem]">ที่อยู่</h2>
