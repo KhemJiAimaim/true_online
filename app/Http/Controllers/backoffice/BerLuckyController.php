@@ -211,6 +211,7 @@ class BerLuckyController extends BaseController
 
     public function updateRecCate(Request $request, $id)
     {
+        dd($id);
         try {
 
             $cate = BerproductCategory::where('bercate_id', $id)->update($request->only(['recommended']));

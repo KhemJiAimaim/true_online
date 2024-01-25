@@ -13,7 +13,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-
+use stdClass;
 class OrderController extends BaseController
 {
     public function index(Request $request)
@@ -31,7 +31,6 @@ class OrderController extends BaseController
             });
 
             $berlucky = BerproductMonthly::whereIn('product_phone', $berluckyPhone)->get();
-
             $travelsims = TravelSim::get();
             $prepaidsims = PrepaidSim::get();
             $cates = Category::whereIn('id', [3, 4, 6])->get();
