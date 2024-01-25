@@ -105,7 +105,7 @@
                                     <input class="w-full h-7 text-center rounded-[3px] bg-white " type="text"
                                         id="input-fortune" maxlength="10">
                                     <button
-                                        class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] se:text-[14px] font-medium bg-white text-black"
+                                        class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] se:text-[14px] font-medium bg-white hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e] hover:text-white text-black"
                                         id="fortune-ber">วิเคราะห์เบอร์</button>
                                 </div>
                             </div>
@@ -296,7 +296,7 @@
                         </div>
 
                         {{-- border center --}}
-                        <div class="border  border-1 border-white rounded-full">
+                        <div class="border  border-1 border-gray-300 rounded-full">
                         </div>
 
                         {{-- box right --}}
