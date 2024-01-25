@@ -3,17 +3,17 @@
     <div
         class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[980px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden  mx-auto flex items-center flex-col justify-between py-10 gap-2  ">
         <div class="w-full flex justify-between">
-            <h2 class=" w-[30%] text-center  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">ที่อยู่</h2>
-            <h2 class=" w-[30%] text-center  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">ช่องทางติดต่อ</h2>
-            <h2 class=" w-[30%] text-center  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">บริการของเรา</h2>
+            <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">ที่อยู่</h2>
+            <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem] pl-[10rem]  text-white">ช่องทางติดต่อ</h2>
+            <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem] pl-[10rem] text-white">บริการของเรา</h2>
         </div>
-        <div class=" w-full flex items-center justify-between ">
+        <div class=" w-full flex  justify-between ">
             <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
                 {{-- <h2 class="w-full uu:text-[1.2rem]  text-center  max-[900px]:text-[1rem]  text-white">
                     ที่อยู่
                 </h2> --}}
                 <p
-                    class="uu:w-[60%] 2xl:w-[60%] lg:w-[90%]   uu:text-[1rem] font-light max-[900px]:text-[14px]   text-start text-white ">
+                    class="uu:w-[100%] 2xl:w-[100%] lg:w-[90%]   uu:text-[1rem] font-light max-[900px]:text-[14px]   text-start text-white ">
                     บริษัท
                     พาณิชย์อมรกิจ จำกัด 19/39
                     ซอย 01 ถนนกาญจนาภิเษก 5
@@ -24,39 +24,46 @@
             <div class="w-[30%] flex flex-col items-center gap-3 justify-start">
                 {{-- <h2 class="w-full uu:text-[1.2rem] text-center    text-white">
                     ช่องทางติดต่อ</h2> --}}
-                <div class="w-full pl-[2rem] pt-[1rem]  flex items-start flex-col gap-2">
-                    <div class="flex items-center gap-1">
+                <div class="w-full pl-[10rem] flex items-start flex-col gap-2">
+
+                    <a href="https://line.me/ti/p/~@berhoro" class="flex items-center gap-2 hover:underline decoration-solid text-white">
                         <figure class=" max-w-[30px]">
-                            <img class="w-full" src="/icons/line_3536785.png" alt="">
+                            <img class="w-full" src="/icons/icons8-line-app (1) 6.png" alt="">
                         </figure>
 
-                        <p class="text-white uu:text-[0.8rem] text-[1rem]   ">LINE
+                        <p class="text-white uu:text-[0.8rem] font-light
+                          ">LINE
                             ID : @fibertrue
                         </p>
-                    </div>
-                    <div class="flex items-center gap-1">
+                    </a>
+
+                    <a href="tel:0832289789"class="flex items-center gap-2 hover:underline decoration-solid text-white">
                         <figure class=" max-w-[30px]">
-                            <img class="w-full" src="/icons/phone_12225709.png" alt="">
+                            <img class="w-full" src="/icons/solar_outgoing-call-rounded-linear1.png" alt="">
                         </figure>
-                        <p class="text-white uu:text-[0.8rem] text-[1rem]  ">
+                        <p class="text-white uu:text-[0.8rem] font-light
+                         ">
                             สมัครบริการใหม่ :
                             0832289789 </p>
-                    </div>
-                    <div class="flex items-center gap-1">
+                    </a>
+
+                    <a href="tel:1242" class="flex items-center gap-2 hover:underline decoration-solid text-white">
                         <figure class=" max-w-[30px]">
                             <img class="w-full" src="/icons/tools_1077198.png" alt="">
                         </figure>
-                        <p class="text-white uu:text-[0.8rem] text-[1rem] ">
+                        <p class="text-white uu:text-[0.8rem] font-light
+                        ">
                             แจ้งปัญหาติดต่อ: 1242
                         </p>
-                    </div>
+                    </a>
+
                 </div>
 
             </div>
             <div class="w-[30%] flex flex-col items-center gap-6 justify-start">
                 {{-- <h2 class=" w-full text-center uu:text-[1.2rem]  text-white  ">
                     บริการของเรา</h2> --}}
-                <ul class="w-full pl-[2rem] max-[900]:pl-[1rem]  uu:text-[0.8rem] text-white   ">
+                <ul class="w-full pl-[10rem] max-[900]:pl-[1rem]  uu:text-[0.8rem] text-white   ">
                     <li>อินเตอร์เน็ตบ้าน</li>
                     <li>เบอร์มงคล</li>
                     <li>เติมเงิน</li>
