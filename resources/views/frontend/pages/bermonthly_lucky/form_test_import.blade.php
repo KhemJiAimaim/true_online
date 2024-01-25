@@ -36,7 +36,7 @@
           showConfirmButton: false,
           timer: 1500
         }).then(() => {
-          location.href = "/bermonthly"
+          // location.href = "/bermonthly"
         })
       } else {
         Swal.fire({
