@@ -1,61 +1,72 @@
 <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] sticky top-[100vh] ">
     {{-- z-pc --}}
     <div
-        class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[700px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden      mx-auto flex items-center justify-between py-10 gap-4  ">
-        {{-- ที่อยู่  : 2xl:w-[1536px] xl:w-[1200px] min-[800px]:w-[780px] --}}
-        <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
-            <h2
-                class="w-full uu:text-[1.7rem]  text-center text-[1.5rem] max-[900px]:text-[1rem] max-sm:text-[14px] text-white">
-                ที่อยู่
-            </h2>
-            <p
-                class="w-full uu:text-[1.2rem] text-[1rem] h-[100px] max-[900px]:text-[14px] max-sm:text-[12px]  text-start text-white ">
-                บริษัท
-                พาณิชย์อมรกิจ จำกัด 19/39
-                ซอย 01 ถนนกาญจนาภิเษก 5
-                แขวงสามตะวันตก
-                เขตคลองสามวา กรุงเทพมหานคร 10510
-            </p>
+        class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[980px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden  mx-auto flex items-center flex-col justify-between py-10 gap-2  ">
+        <div class="w-full flex justify-between">
+            <h2 class=" w-[30%] text-center  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">ที่อยู่</h2>
+            <h2 class=" w-[30%] text-center  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">ช่องทางติดต่อ</h2>
+            <h2 class=" w-[30%] text-center  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">บริการของเรา</h2>
         </div>
-        <div class="w-[30%] flex flex-col items-center gap-3 justify-start">
-            <h2
-                class="w-full uu:text-[1.7rem] text-center text-[1.5rem]  max-[900px]:text-[1rem] max-sm:text-[14px] text-white">
-                ช่องทางติดต่อ</h2>
-            <div class="w-full pl-[2rem] max-[900]:pl-[0.2rem] h-[100px]   flex items-start flex-col gap-2">
-                <div>
-                    <img src="" alt="">
-                    <p class="text-white uu:text-[1.2rem] text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px]  ">LINE
-                        ID : @fibertrue
-                    </p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                    <p class="text-white uu:text-[1.2rem] text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px] ">
-                        สมัครบริการใหม่ :
-                        0832289789 </p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                    <p class="text-white uu:text-[1.2rem] text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px] ">
-                        แจ้งปัญหาติดต่อ: 1242
-                    </p>
-                </div>
+        <div class=" w-full flex items-center justify-between ">
+            <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
+                {{-- <h2 class="w-full uu:text-[1.2rem]  text-center  max-[900px]:text-[1rem]  text-white">
+                    ที่อยู่
+                </h2> --}}
+                <p
+                    class="uu:w-[60%] 2xl:w-[60%] lg:w-[90%]   uu:text-[1rem] font-light max-[900px]:text-[14px]   text-start text-white ">
+                    บริษัท
+                    พาณิชย์อมรกิจ จำกัด 19/39
+                    ซอย 01 ถนนกาญจนาภิเษก 5
+                    แขวงสามตะวันตก
+                    เขตคลองสามวา กรุงเทพมหานคร 10510
+                </p>
             </div>
+            <div class="w-[30%] flex flex-col items-center gap-3 justify-start">
+                {{-- <h2 class="w-full uu:text-[1.2rem] text-center    text-white">
+                    ช่องทางติดต่อ</h2> --}}
+                <div class="w-full pl-[2rem] pt-[1rem]  flex items-start flex-col gap-2">
+                    <div class="flex items-center gap-1">
+                        <figure class=" max-w-[30px]">
+                            <img class="w-full" src="/icons/line_3536785.png" alt="">
+                        </figure>
 
+                        <p class="text-white uu:text-[0.8rem] text-[1rem]   ">LINE
+                            ID : @fibertrue
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <figure class=" max-w-[30px]">
+                            <img class="w-full" src="/icons/phone_12225709.png" alt="">
+                        </figure>
+                        <p class="text-white uu:text-[0.8rem] text-[1rem]  ">
+                            สมัครบริการใหม่ :
+                            0832289789 </p>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <figure class=" max-w-[30px]">
+                            <img class="w-full" src="/icons/tools_1077198.png" alt="">
+                        </figure>
+                        <p class="text-white uu:text-[0.8rem] text-[1rem] ">
+                            แจ้งปัญหาติดต่อ: 1242
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-[30%] flex flex-col items-center gap-6 justify-start">
+                {{-- <h2 class=" w-full text-center uu:text-[1.2rem]  text-white  ">
+                    บริการของเรา</h2> --}}
+                <ul class="w-full pl-[2rem] max-[900]:pl-[1rem]  uu:text-[0.8rem] text-white   ">
+                    <li>อินเตอร์เน็ตบ้าน</li>
+                    <li>เบอร์มงคล</li>
+                    <li>เติมเงิน</li>
+                    <li>ย้ายค่ายมาทรู</li>
+                    <li>ซิมท่องเที่ยว</li>
+                </ul>
+            </div>
         </div>
-        <div class="w-[30%] flex flex-col items-center gap-3 justify-start">
-            <h2
-                class=" w-full text-center uu:text-[1.7rem] text-[1.5rem] text-white max-[900px]:text-[1rem] max-sm:text-[14px] ">
-                บริการของเรา</h2>
-            <ul
-                class="w-full pl-[2rem] max-[900]:pl-[1rem] uu:text-[1.2rem] text-white max-[900px]:text-[14px] max-sm:text-[12px] max-sm:h-[100px] ">
-                <li>อินเตอร์เน็ตบ้าน</li>
-                <li>เบอร์มงคล</li>
-                <li>เติมเงิน</li>
-                <li>ย้ายค่ายมาทรู</li>
-                <li>ซิมท่องเที่ยว</li>
-            </ul>
-        </div>
+        {{-- ที่อยู่  : 2xl:w-[1536px] xl:w-[1200px] min-[800px]:w-[780px] --}}
+
 
 
 
@@ -156,16 +167,22 @@
 
             <ul id="content2" class="w-full hidden list-none pt-1 text-[14px] pl-[1rem]">
 
-                <li class="mt-2">
-                    <img src="" alt="">
+                <li class="mt-2 flex items-center gap-1">
+                    <figure class=" max-w-[20px]">
+                        <img class="w-full" src="/icons/line_3536785.png" alt="">
+                    </figure>
                     <p class="text-white   ">LINE ID : @fibertrue </p>
                 </li>
-                <li class="mt-2">
-                    <img src="" alt="">
+                <li class="mt-2 flex items-center gap-1">
+                    <figure class=" max-w-[20px]">
+                        <img class="w-full" src="/icons/phone_12225709.png" alt="">
+                    </figure>
                     <p class="text-white  ">สมัครบริการใหม่ : 0832289789 </p>
                 </li>
-                <li class="mt-2">
-                    <img src="" alt="">
+                <li class="mt-2 flex items-center gap-1">
+                    <figure class=" max-w-[20px]">
+                        <img class="w-full" src="/icons/tools_1077198.png" alt="">
+                    </figure>
                     <p class="text-white ">แจ้งปัญหาติดต่อ: 1242 </p>
                 </li>
             </ul>
