@@ -31,8 +31,8 @@
         </div>
 
         {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container py-4 px-3">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+        <div class="title-plate-container py-4 px-3 ">
+            <div class="mx-auto w-[90%]">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -70,7 +70,7 @@
 
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
+                    <div class="w-4/5 my-0 mx-auto flex justify-center ">
 
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
 

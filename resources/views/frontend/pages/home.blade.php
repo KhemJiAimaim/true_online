@@ -21,7 +21,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container pt-4 px-3">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]">
+            <div class="mx-auto w-[90%] ">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -97,7 +97,7 @@
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] text-[16px]">{{ $cate->cate_description }}</p>
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
+                    <div class=" w-4/5 my-0 mx-auto flex justify-center ">
                         {{-- เน็ตไฟเบอร์ --}}
                         @if ($cate->id == 2)
                             <div class="swiper swiper1 items-center w-full mx-auto">

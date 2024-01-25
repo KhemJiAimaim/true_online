@@ -70,7 +70,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto w-[90%] ">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -94,7 +94,7 @@
         <!-- search box -->
         <div class="max-xs:mx-2">
             <div
-                class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%]  max-xs:p-1 mx-auto rounded-[20px] mt-8">
+                class="w-[90%] max-xs:p-1 mx-auto rounded-[20px] mt-8">
                 <div class=" bg-[#f8f7f7]  2xl:p-6 p-4 text-[17px] " style="border-radius: 12px;">
                     <div class="flex max-lg:flex-col gap-4">
                         {{-- box left --}}
@@ -406,9 +406,9 @@
         @if (count($berproducts) > 0)
             <div class="px-3">
                 <div
-                    class="2xl:w-[1536px] xl:w-[1200px] w-full grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-4 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 mx-auto ss:p-1 p-4 ">
+                    class="w-[95%] grid grid-cols-1 2xl:grid-cols-4  xl:grid-cols-3 lg:grid-cols-3 dm:grid-cols-2 ex:grid-cols-2 md:grid-cols-2  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 items-center mx-auto ss:p-1 p-4 ">
                     @foreach ($berproducts as $product)
-                        <div class="drop-shadow-md">
+                        <div class="drop-shadow-md max-2xl:w-[320px] max-es:w-[323px] py-2">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                 <div class="flex justify-start items-center gap-1 ">
@@ -424,7 +424,7 @@
                             </div>
 
                             {{-- berproduct --}}
-                            <div class="bg-white flex items-center  justify-center gap-14">
+                            <div class="bg-white flex items-center  justify-center max-uu:gap-14 max-2xl:gap-8 h-[100px] max-md:h-[80px]">
                                 <div class="w-[70px] h-[40px]">
                                     <img src="/images/651e616b04c02CnURE.png" alt="" class="w-full h-full">
                                 </div>
