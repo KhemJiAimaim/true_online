@@ -91,29 +91,28 @@
 
        
 
-        <!-- search box -->
-        <div class="max-xs:mx-2">
+         <!-- search box -->
+         <div class="max-xs:mx-2">
             <div
-                class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%] bg-gradient-to-r from-[#EC1F25] to-[#960004] p-2 max-xs:p-1 mx-auto rounded-[20px] mt-8">
-                <div class=" bg-[#F8F9FA]  2xl:p-6 p-4 text-[17px] " style="border-radius: 12px;">
+                class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%]  max-xs:p-1 mx-auto rounded-[20px] mt-8">
+                <div class=" bg-[#f8f7f7]  2xl:p-6 p-4 text-[17px] " style="border-radius: 12px;">
                     <div class="flex max-lg:flex-col gap-4">
                         {{-- box left --}}
                         <div class=" w-full max-2xl:w-[48%] max-lg:w-full">
-                            <div
-                                class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4">
+                            <div class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4">
                                 <label class="text-white " for="input-fortune">กรอกเบอร์โทร</label>
                                 <div class="w-full flex gap-4">
-                                    <input class="w-full h-7 text-center rounded-[3px] " type="text" id="input-fortune"
-                                        maxlength="10">
+                                    <input class="w-full h-7 text-center rounded-[3px] bg-white " type="text"
+                                        id="input-fortune" maxlength="10">
                                     <button
-                                        class="w-full max-w-[25%] max-xs:max-w-[29%] bg-white rounded-[15px] text-[17px] se:text-[14px] text-[#EC1F25] font-medium"
+                                        class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] se:text-[14px] font-medium bg-white text-black"
                                         id="fortune-ber">วิเคราะห์เบอร์</button>
                                 </div>
                             </div>
 
                             <div class="mb-4 flex gap-4 max-2xl:flex-col 2xl:items-center w-full">
                                 <div class="2xl:w-[20%]">
-                                    <label class="text-left" for="">ค้นหาเบอร์</label>
+                                    <label class="text-left text-black" for="">ค้นหาเบอร์</label>
                                 </div>
                                 <div class="flex justify-between gap-5 max-2xl:gap-4 max-xl:gap-2">
                                     <input
@@ -159,7 +158,7 @@
                             </div>
 
                             <div class="flex flex-col mb-4 gap-y-2">
-                                <label for="slc-category">หมวดหมู่เบอร์</label>
+                                <label for="slc-category" class="text-black">หมวดหมู่เบอร์</label>
                                 <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-category"
                                     id="slc-category">
                                     <option value="">หมวดหมู่เบอร์</option>
@@ -173,7 +172,7 @@
 
                             <div class="mb-4 flex justify-between w-full gap-4 ">
                                 <div class="flex flex-col w-1/2  gap-y-2">
-                                    <label for="slc-sum">ผลรวม</label>
+                                    <label for="slc-sum" class="text-black">ผลรวม</label>
                                     <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-sum"
                                         id="slc-sum">
                                         <option value="">ผลรวม</option>
@@ -194,7 +193,7 @@
                                 </div>
 
                                 <div class="flex flex-col w-1/2 gap-y-2">
-                                    <label for="txt_favorite">ค้นหาเลขชุดที่ชอบ</label>
+                                    <label for="txt_favorite" class="text-black">ค้นหาเลขชุดที่ชอบ</label>
                                     <input class="w-full h-8 border border-[#838383] rounded-[3px] p-2" type="text"
                                         name="txt_favorite" id="txt_favorite" maxlength="10"
                                         placeholder="ชุดเลขที่ชอบ 42,25 หรือ 55*56"
@@ -203,9 +202,8 @@
                             </div>
 
                             <div class="mb-4 flex justify-between w-full gap-4">
-                               
                                 <div class="flex flex-col w-1/2  gap-y-2 ">
-                                    <label for="slc-package">แพ็กเกจ</label>
+                                    <label for="slc-package" class="text-black">แพ็กเกจ</label>
                                     <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-package"
                                         id="slc-package">
                                         <option value="">เลือกแพ็กเกจ</option>
@@ -219,7 +217,7 @@
                                 </div>
 
                                 <div class="flex flex-col w-1/2  gap-y-2 ">
-                                    <label for="slc-sort">เรียงลำดับราคา</label>
+                                    <label for="slc-sort" class="text-black">เรียงลำดับราคา</label>
                                     <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-sort"
                                         id="slc-sort">
                                         <option value="">เรียงลำดับราคา</option>
@@ -237,11 +235,11 @@
                                         </option>
                                     </select>
                                 </div>
-                            
+
                             </div>
 
                             <div class="flex flex-col w-full gap-y-2  mb-6 ">
-                                <label for="txt_favorite">ช่วงราคา</label>
+                                <label for="txt_favorite" class="text-black">ช่วงราคา</label>
                                 <div class="flex  w-full items-center justify-between gap-4">
                                     <input class=" w-1/2  h-8 border border-[#838383] rounded-[3px] price-input p-2"
                                         type="text" name="price-min" id="price-min" placeholder="999"
@@ -263,12 +261,12 @@
                                 @endphp
                                 <div class="flex gap-x-4 gap-y-2 mb-4 2xl:items-center w-full max-2xl:flex-col">
                                     <div class="2xl:w-[25%]">
-                                        <label for="">ตัวเลขที่ชอบ</label>
+                                        <label for="" class="text-black">ตัวเลขที่ชอบ</label>
                                     </div>
                                     <div class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3  text-white justify-between">
                                         @for ($i = 0; $i <= 9; $i++)
                                             <button id="like" data-fav="{{ $i }}"
-                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#838383] rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE] selected' : '' }} hover:bg-gradient-to-r from-[#5741CD] to-[#00ACEE]">
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0] rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  text-white selected' : '' }} hover:bg-gradient-to-r from-[#5741CD] to-[#00ACEE]">
                                                 {{ $i }}
                                             </button>
                                         @endfor
@@ -284,12 +282,13 @@
                                 @endphp
                                 <div class="flex gap-x-4 gap-y-2  mb-4 2xl:items-center w-full max-2xl:flex-col ">
                                     <div class="2xl:w-[25%]">
-                                        <label for="">ตัวเลขที่ไม่ชอบ</label>
+                                        <label for="" class="text-black">ตัวเลขที่ไม่ชอบ</label>
                                     </div>
-                                    <div class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3 text-white justify-between w-full">
+                                    <div
+                                        class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3 text-white justify-between w-full">
                                         @for ($i = 0; $i <= 9; $i++)
                                             <button id="dislike" data-fav="{{ $i }}"
-                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7  bg-[#838383] rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">{{ $i }}</button>
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0]  rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-yellow-500 to-[#fa6007] text-white selected' : '' }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">{{ $i }}</button>
                                         @endfor
                                     </div>
                                 </div>
@@ -297,14 +296,14 @@
                         </div>
 
                         {{-- border center --}}
-                        <div class="border  border-1 border-[#838383]">
+                        <div class="border  border-1 border-white rounded-full">
                         </div>
 
                         {{-- box right --}}
                         <div class="w-full flex flex-col justify-between">
                             <div class="flex flex-col mb-4">
-                                <p class="mb-2">เสริมดวงด้าน</p>
-                                <div class="flex flex-wrap gap-[1rem] max-xs:gap-[1rem] max-es:gap-[0.8rem]">
+                                <p class="mb-2 text-black">เสริมดวงด้าน</p>
+                                <div class="flex flex-wrap gap-[1rem] max-es:gap-[0.8rem] max-xs:gap-[1rem]">
                                     @php
                                         $exImprove = [];
                                         if (isset($_GET['improve'])) {
@@ -318,9 +317,10 @@
                                             $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                         @endphp
                                         <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                            class="relative p-[0.5rem] w-[80px] max-xl:w-[60px] bg-white rounded-[5px] border-2 border-white group {{ $imp_selected }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
+                                            class="relative p-[0.5rem] w-[75px] max-xl:w-[60px] max-lg:w-[70px] max-xx:w-[65px] max-md:w-[55px] max-xs:w-[50px] bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
                                             <img src="{{ $numbcate->thumbnail }}" alt=""
-                                                style="{{ $image_selected }}" class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                                style="{{ $image_selected }}"
+                                                class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                             <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
                                                 <img class="scale-150 w-full h-full" src="/icons/category/union.png"
                                                     alt="">
@@ -340,8 +340,8 @@
                                 }
                             @endphp
                             <div class="flex flex-col">
-                                <p class="mb-2">หมวดหมู่เบอร์</p>
-                                <div class="flex flex-wrap gap-[1rem] max-xs:gap-[1rem] max-es:gap-[0.8rem]">
+                                <p class="mb-2 text-black">หมวดหมู่เบอร์</p>
+                                <div class="flex flex-wrap gap-[1rem] max-es:gap-[0.8rem] max-xs:gap-[1rem]">
                                     @foreach ($berproduct_cates as $bercate)
                                         @if ($bercate->bercate_pin == true)
                                             @php
@@ -349,9 +349,10 @@
                                                 $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                             @endphp
                                             <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
-                                                class="relative p-[0.5rem] w-[80px] max-xl:w-[60px]  bg-white rounded-[5px] border-2 border-white group {{ $aus_selected }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
+                                                class="relative p-[0.5rem] w-[75px] max-xl:w-[60px] max-lg:w-[70px] max-xx:w-[65px]  max-md:w-[55px] max-xs:w-[50px] bg-white rounded-[5px] border-2 border-white group {{ $aus_selected }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
                                                 <img src="{{ $bercate->thumbnail }}" alt=""
-                                                    style="{{ $img_selected }}" class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                                    style="{{ $img_selected }}"
+                                                    class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                 <div
                                                     class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
                                                     <img class="scale-150 w-full h-full" src="/icons/category/union.png"
@@ -364,26 +365,26 @@
                                         @endif
                                     @endforeach
                                     <button id="btn-vip" data-id="vip"
-                                    class="relative p-2 w-[80px] max-xl:w-[60px] bg-white border-2 border-white rounded-[5px] group  {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#EC1F25] to-[#960004] selected' : '' }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004] ">
-                                    <img src="/images/icon/VIP.png" alt=""
-                                        style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}"
-                                        class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150 w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100"
-                                            src="/icons/category/union.png" alt="">
-                                        <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
-                                    </div>
-                                </button>
+                                        class="relative p-2 w-[75px] max-xl:w-[60px] max-lg:w-[70px] max-xx:w-[65px]  max-md:w-[55px] max-xs:w-[50px] bg-white border-2 border-white rounded-[5px] group  {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r  from-[#EC1F25] to-[#960004] ">
+                                        <img src="/images/icon/VIP.png" alt=""
+                                            style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}"
+                                            class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                        <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                            <img class="scale-150 w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100"
+                                                src="/icons/category/union.png" alt="">
+                                            <p class="w-full text-xs absolute top-1 left-0">เบอร์ VIP</p>
+                                        </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="w-full mt-4 flex justify-center gap-10">
+                    <div class="w-full mt-8 flex justify-center gap-10 ">
                         <button id="reset-search"
-                            class="px-4 py-1 border border-red-400 rounded-[15px] hover:bg-red-700 hover:text-white">คืนค่า</button>
+                            class="px-8 py-1 bg-[#fff]  text-black rounded-[15px] border-2 border-red-700 hover:bg-red-700 hover:text-white">คืนค่า</button>
                         <button id="search-product"
-                            class="px-4 py-1 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700">ค้นหา</button>
+                            class="px-8 py-1 bg-[#fff] text-black rounded-[15px] border-2 border-red-700 hover:bg-red-700  hover:text-white">ค้นหา</button>
                     </div>
 
                 </div>
