@@ -89,17 +89,18 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-       
 
-         <!-- search box -->
-         <div class="max-xs:mx-2">
+
+        <!-- search box -->
+        <div class="max-xs:mx-2">
             <div
                 class="xl:w-[1200px] 2xl:w-[1536px] max-xs:max-w-[100%] w-[90%] max-xs:w-[100%]  max-xs:p-1 mx-auto rounded-[20px] mt-8">
                 <div class=" bg-[#f8f7f7]  2xl:p-6 p-4 text-[17px] " style="border-radius: 12px;">
                     <div class="flex max-lg:flex-col gap-4">
                         {{-- box left --}}
                         <div class=" w-full max-2xl:w-[48%] max-lg:w-full">
-                            <div class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4">
+                            <div
+                                class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4">
                                 <label class="text-white " for="input-fortune">กรอกเบอร์โทร</label>
                                 <div class="w-full flex gap-4">
                                     <input class="w-full h-7 text-center rounded-[3px] bg-white " type="text"
@@ -422,19 +423,26 @@
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             </div>
 
-                            <div class="bg-white ">
+                            {{-- berproduct --}}
+                            <div class="bg-white flex items-center  justify-center gap-14">
+                                <div class="w-[70px] h-[40px]">
+                                    <img src="/images/651e616b04c02CnURE.png" alt="" class="w-full h-full">
+                                </div>
+                            
                                 <a href="{{ url('/detailber/' . $product->product_phone) }}">
                                     <div class="flex justify-center py-10 max-ex:py-2">
-                                        <h2 class="2xl:text-[2.5rem] text-[1.5rem] text-center font-bold">
+                                        <h2 class="2xl:text-[2rem] text-[1.5rem] text-center font-bold">
                                             {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
                                         </h2>
                                     </div>
                                 </a>
+                            
                             </div>
+                            {{-- berproduct --}}
 
                             <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 max-dm:h-[80px] h-[110px]">
                                 <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1">
-                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4">
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                     {{ $product->product_comment }}</p>
                             </div>
 

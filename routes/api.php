@@ -80,7 +80,7 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::patch('mail/updatepin/{id}', [MailInboxController::class, 'updatePin']);
         Route::patch('mail/updatereaded/{id}', [MailInboxController::class, 'updateReaded']);
         Route::delete('mail/delete/{id}', [MailInboxController::class, 'deleteMail']);
-
+        
         Route::prefix('order/')->group(function () {
             Route::get('data', [OrderController::class, 'index']);
             Route::get('orderpending', [OrderController::class, 'orderPending']);
