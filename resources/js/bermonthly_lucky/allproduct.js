@@ -186,9 +186,9 @@ dislike.forEach(dislikeElement => {
     const matchingLike = document.querySelector(`#like[data-fav="${dislikeFav}"]`);
 
     if (dislikeElement.classList.contains('selected')) {
-      dislikeElement.classList.remove('bg-gradient-to-r', 'from-yellow-500', 'to-[#fa6007]', 'text-white', 'selected');
+      dislikeElement.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'text-white', 'selected');
     } else {
-      dislikeElement.classList.add('bg-gradient-to-r', 'from-yellow-500', 'to-[#fa6007]', 'text-white', 'selected');
+      dislikeElement.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'text-white', 'selected');
       if (matchingLike.classList.contains('selected')) {
         matchingLike.classList.remove('bg-gradient-to-r', 'from-[#5741CD]', 'to-[#00ACEE]', 'selected');
       }

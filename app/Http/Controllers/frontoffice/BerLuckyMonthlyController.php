@@ -397,13 +397,13 @@ class BerLuckyMonthlyController extends Controller
         // dd($importedData);
 
         // delete old data before new up load
-        BerproductMonthly::truncate();
+        // BerproductMonthly::truncate();
 
         // method import new ber
-        Excel::import(new BerMonthlyImportClass, $file);
+        // Excel::import(new BerMonthlyImportClass, $file);
 
         // generate product_category
-        $this->getProductByCategory();
+        // $this->getProductByCategory();
 
         //จัดหมวดหมู่ตามสูตร หมวดเบอร์คู่รัก และ หมวดเบอร์ห่าม - xxyy #automatic
         // $this->getProductByCategoryBySet();
