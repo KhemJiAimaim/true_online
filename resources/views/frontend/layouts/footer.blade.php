@@ -86,7 +86,7 @@
 
 
 
-        <div class="flex justify-between py-4 px-4 gap-y-3">
+        {{-- <div class="flex justify-between py-4 px-4 gap-y-3">
             <div class="2xl:grid 2xl:grid-rows-2 2xl:gap-[0] 2xl:mx-0 gap-[7.3rem]">
                 @if ($webInfo->contact->phone->display == true)
                     <p class="text-white sm:text-lg 2xl:text-[20px] text-[16px]">สมัครบริการใหม่</p>
@@ -156,9 +156,9 @@
                 @endif
             </div>
         </div>
-    </div>
-    {{-- z-mobile --}}
-    {{-- <div
+    </div> --}}
+        {{-- z-mobile --}}
+        {{-- <div
         class="md:hidden ex:max-w-[480px] xs:max-w-[460px]  max-w-[300px]  w-full my-0 mx-auto  pt-[2rem] flex flex-col gap-4 ">
         <div class="w-full   ">
             <div id="cshow1" class="w-full flex items-center justify-between">
@@ -189,6 +189,6 @@
         </div>
     </div> --}}
 
-</div>
+    </div>
 </div>
 {{-- @vite('resources/js/footer.js') --}}
