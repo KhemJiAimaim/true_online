@@ -3,7 +3,7 @@
     <div
         class=" xl:max-w-[1536px] w-full lg:max-w-[700px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden      mx-auto flex items-center justify-between py-10 gap-4  ">
         {{-- ที่อยู่  : 2xl:w-[1536px] xl:w-[1200px] min-[800px]:w-[780px] --}}
-        {{-- <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
+        <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
             <h2 class="w-full  text-center text-[1.5rem] max-[900px]:text-[1rem] max-sm:text-[14px] text-white">ที่อยู่
             </h2>
             <p class="w-full text-[1rem] h-[100px] max-[900px]:text-[14px] max-sm:text-[12px]  text-start text-white ">
@@ -33,6 +33,7 @@
                     <p class="text-white text-[1rem] max-[900px]:text-[14px] max-sm:text-[12px] ">แจ้งปัญหาติดต่อ: 1242
                     </p>
                 </div>
+
             </div>
 
         </div>
@@ -47,8 +48,7 @@
                 <li class="text-[1rem]">ย้ายค่ายมาทรู</li>
                 <li class="text-[1rem]">ซิมท่องเที่ยว</li>
             </ul>
-        </div> --}}
-
+        </div>
 
 
         
@@ -118,7 +118,7 @@
         </div>
     </div>
     {{-- z-mobile --}}
-    {{-- <div class=" max-w-[400px] w-full p-[1rem]">
+    <div class=" max-w-[400px] w-full p-[1rem]">
         <div>
             <h2>ที่อยู่</h2>
             <ul>
@@ -150,6 +150,7 @@
                 </p>
             </li>
         </ul>
-    </div> --}}
+    </div>
 </div>
 </div>
+{{-- @vite('resources/js/footer.js') --}}

@@ -264,16 +264,23 @@
                                                         src="/images/circle/Intersect.png" alt="">
                                                 </div>
 
-                                                <div class="bg-white">
+                                                {{-- berproduct --}}
+                                                <div class="bg-white flex items-center justify-center gap-14">
+                                                    <div class="max-w-[70px] max-h-[40px]">
+                                                        <img src="/images/651e616b04c02CnURE.png" alt=""
+                                                            class="w-full h-full">
+                                                    </div>
                                                     <div class="flex justify-center py-10 ">
                                                         <p class="2xl:text-[2.5rem] text-[2rem] text-center font-bold">
                                                             {{ $ber->product_phone }}</p>
                                                     </div>
                                                 </div>
+                                                {{-- berproduct --}}
 
                                                 <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[110px] ">
                                                     <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 ">
+                                                    <p
+                                                        class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                                         {{ $ber->product_comment }}</p>
                                                 </div>
 
@@ -300,7 +307,7 @@
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                     </button>
-                                                   
+
                                                     <a href="https://line.me/ti/p/~@berhoro">
                                                         <div
                                                             class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
