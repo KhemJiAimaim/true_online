@@ -30,7 +30,7 @@
                             <img class="w-full" src="/icons/line_3536785.png" alt="">
                         </figure>
 
-                        <p class="text-white uu:text-[0.8rem] text-[1rem]   ">LINE
+                        <p class="text-white uu:text-[0.8rem]   ">LINE
                             ID : @fibertrue
                         </p>
                     </div>
@@ -38,7 +38,7 @@
                         <figure class=" max-w-[30px]">
                             <img class="w-full" src="/icons/phone_12225709.png" alt="">
                         </figure>
-                        <p class="text-white uu:text-[0.8rem] text-[1rem]  ">
+                        <p class="text-white uu:text-[0.8rem]   ">
                             สมัครบริการใหม่ :
                             0832289789 </p>
                     </div>
@@ -46,7 +46,7 @@
                         <figure class=" max-w-[30px]">
                             <img class="w-full" src="/icons/tools_1077198.png" alt="">
                         </figure>
-                        <p class="text-white uu:text-[0.8rem] text-[1rem] ">
+                        <p class="text-white uu:text-[0.8rem]  ">
                             แจ้งปัญหาติดต่อ: 1242
                         </p>
                     </div>
