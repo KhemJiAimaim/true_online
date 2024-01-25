@@ -48,7 +48,7 @@
 
 
 <swiper-container class="mySwiper max-uu:mt-[8.5rem] mt-[7.5rem] max-xl:mt-[4.5rem] cursor-pointer" pagination="true"
-    pagination-dynamic-bullets="true" loop="true" autoplay-delay="8000">
+    pagination-dynamic-bullets="true" loop="true" autoplay-delay="6000">
     @if ($slide_image)
         @foreach ($slide_image as $image)
             @if ($image->is_footer == 0)
