@@ -48,7 +48,7 @@
                     </a>
 
                     <a href="tel:1242" class="flex items-center gap-2 hover:underline decoration-solid text-white">
-                        <figure class=" max-w-[30px]">
+                        <figure class=" max-w-[25px]">
                             <img class="w-full" src="/icons/tools_1077198.png" alt="">
                         </figure>
                         <p class="text-white uu:text-[0.8rem] font-light
