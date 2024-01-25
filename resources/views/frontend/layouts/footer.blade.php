@@ -1,35 +1,35 @@
 <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] sticky top-[100vh] ">
     {{-- z-pc --}}
     <div
-        class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[980px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden  mx-auto flex items-center flex-col justify-between py-10 gap-2  ">
-        <div class="w-full flex justify-between">
+        class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[980px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden  mx-auto flex   justify-between py-10 gap-2  ">
+        {{-- <div class="w-full flex justify-between">
             <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">ที่อยู่</h2>
             <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem] pl-[10rem]  text-white">
                 ช่องทางติดต่อ</h2>
             <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem] pl-[10rem] text-white">บริการของเรา
             </h2>
+        </div> --}}
+        <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
+            <h2 class="w-full uu:text-[1.2rem]  text-center  max-[900px]:text-[1rem]  text-white">
+                ที่อยู่
+            </h2>
+            <p
+                class="uu:w-[100%] 2xl:w-[100%] lg:w-[90%]   uu:text-[1rem] font-light max-[900px]:text-[14px]   text-start text-white ">
+                บริษัท
+                พาณิชย์อมรกิจ จำกัด 19/39
+                ซอย 01 ถนนกาญจนาภิเษก 5
+                แขวงสามตะวันตก
+                เขตคลองสามวา กรุงเทพมหานคร 10510
+            </p>
         </div>
-        <div class=" w-full flex  justify-between ">
-            <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
-                {{-- <h2 class="w-full uu:text-[1.2rem]  text-center  max-[900px]:text-[1rem]  text-white">
-                    ที่อยู่
-                </h2> --}}
-                <p
-                    class="uu:w-[100%] 2xl:w-[100%] lg:w-[90%]   uu:text-[1rem] font-light max-[900px]:text-[14px]   text-start text-white ">
-                    บริษัท
-                    พาณิชย์อมรกิจ จำกัด 19/39
-                    ซอย 01 ถนนกาญจนาภิเษก 5
-                    แขวงสามตะวันตก
-                    เขตคลองสามวา กรุงเทพมหานคร 10510
-                </p>
-            </div>
-            <div class="w-[30%] flex flex-col items-center gap-3 justify-start">
-                {{-- <h2 class="w-full uu:text-[1.2rem] text-center    text-white">
-                    ช่องทางติดต่อ</h2> --}}
-                <div class="w-full pl-[10rem] flex items-start flex-col gap-2">
+        <div class="w-[30%] flex justify-center">
+            <div class="w-full flex flex-col items-center gap-3 justify-start">
+                <h2 class="w-full uu:text-[1.2rem] text-center    text-white">
+                    ช่องทางติดต่อ</h2>
+                <div class="w-[50%] lg:w-[70%] md:w-[80%] sm:w-full  flex items-start flex-col gap-2">
 
                     <a href="https://line.me/ti/p/~@berhoro"
-                        class="flex items-center gap-2 hover:underline decoration-solid text-white">
+                        class="flex items-start gap-2 hover:underline decoration-solid text-white">
                         <figure class=" max-w-[30px]">
                             <img class="w-full" src="/icons/icons8-line-app (1) 6.png" alt="">
                         </figure>
@@ -61,12 +61,15 @@
                     </a>
 
                 </div>
-
             </div>
-            <div class="w-[30%] flex flex-col items-center gap-6 justify-start">
-                {{-- <h2 class=" w-full text-center uu:text-[1.2rem]  text-white  ">
-                    บริการของเรา</h2> --}}
-                <ul class="w-full pl-[10rem] max-[900]:pl-[1rem]  uu:text-[0.8rem] text-white   ">
+
+
+        </div>
+        <div class="w-[30%] flex flex-col items-center gap-6 justify-start">
+            <h2 class=" w-full text-center uu:text-[1.2rem]  text-white  ">
+                บริการของเรา</h2>
+            <div class="w-[50%] lg:w-[70%] flex justify-center items-center">
+                <ul class="w-full pl-[1rem] max-[900]:pl-[1rem]  uu:text-[0.8rem] text-white   ">
                     <li>อินเตอร์เน็ตบ้าน</li>
                     <li>เบอร์มงคล</li>
                     <li>เติมเงิน</li>
@@ -74,7 +77,11 @@
                     <li>ซิมท่องเที่ยว</li>
                 </ul>
             </div>
+
         </div>
+        {{-- <div class=" w-full flex  justify-between ">
+        
+        </div> --}}
         {{-- ที่อยู่  : 2xl:w-[1536px] xl:w-[1200px] min-[800px]:w-[780px] --}}
 
 
@@ -147,7 +154,7 @@
         </div> --}}
     </div>
     {{-- z-mobile --}}
-    <div
+    {{-- <div
         class="md:hidden ex:max-w-[480px] xs:max-w-[460px]  max-w-[300px]  w-full my-0 mx-auto  pt-[2rem] flex flex-col gap-4 ">
         <div class="w-full   ">
             <div id="cshow1" class="w-full flex items-center justify-between">
@@ -212,7 +219,7 @@
                 <li>ซิมท่องเที่ยว</li>
             </ul>
         </div>
-    </div>
+    </div> --}}
 
 </div>
 </div>
