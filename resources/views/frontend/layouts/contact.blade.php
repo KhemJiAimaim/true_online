@@ -1,13 +1,13 @@
 <div class="fixed  bottom-2 md:bottom-10 right-0  z-50  flex flex-col mx-2" id="contact">
     <div class="flex flex-col-reverse relative">
 
-        <div id="contact_button" class="cursor-pointer flex justify-center max-es:justify-end flex-col  items-center mt-2 w-[160px] ">
-            <div class="md:relative">
+        <div class=" flex justify-center max-es:justify-end flex-col  items-center mt-2 w-[160px] ">
+            <div class="md:relative cursor-pointer" id="contact_button">
                 <div class="w-[80px] h-[80px] max-md:hidden  ">
                     <img src="/images/Ellipse 33.png" alt="" class="bg-white rounded-full w-full h-full">
                 </div>
                 <p
-                    class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg w-[80px] flex justify-center max-sm:text-sm text-center md:absolute md:top-[90%]">
+                    class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg w-[80px] max-md:w-[100px] flex justify-center max-sm:text-sm text-center md:absolute md:top-[90%]">
                     ติดต่อ
                 </p>
             </div>
@@ -47,7 +47,7 @@
                         <img src="/images/Group.png" alt=""
                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                     </div>
-                    <p class="text-[14px] font-medium">ติดต่อเจ้าหน้าที่</p>
+                    <p class="text-[14px] font-medium cursor-pointer">ติดต่อเจ้าหน้าที่</p>
 
                 </div>
             </div>
