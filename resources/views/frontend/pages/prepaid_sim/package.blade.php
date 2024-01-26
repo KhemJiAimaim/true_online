@@ -9,6 +9,10 @@
             flex-direction: column;
             /* overflow-y: auto; */
         }
+
+        .active{
+            color: #fff;
+        }
     </style>
 @endsection
 
@@ -29,9 +33,9 @@
         <div class=" flex justify-center px-4 gap-4 items-center 2xl:mt-10 mt-6">
             {{-- @dd($css_btnMonth) --}}
             <button id="btn-package" data-type="paysim"
-                class="py-3 px-10 mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none rounded-lg border {{ $paysim = $css_btnPaysim == true ? 'bg-gradient-to-r from-[#ED4312] to-[#F6911D] hover:bg-gradient-to-br active' : 'bg-[#4f4f4f] hover:bg-gradient-to-r from-[#ED4312] to-[#F6911D] hover:text-white' }}">เติมเงิน</button>
+                class="py-3 px-10 mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none rounded-lg border {{ $paysim = $css_btnPaysim == true ? 'bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-white hover:bg-gradient-to-br active' : 'bg-[#4f4f4f] hover:bg-gradient-to-r from-[#ED4312] to-[#F6911D] hover:text-white' }}">เติมเงิน</button>
             <button id="btn-package" data-type="month"
-                class="py-3 px-8 mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none rounded-lg border {{ $month = $css_btnMonth == true ? 'bg-gradient-to-r from-[#ED4312] to-[#F6911D] hover:bg-gradient-to-br active' : 'bg-[#4f4f4f] hover:bg-gradient-to-r from-[#ED4312] to-[#F6911D] hover:text-white' }}">รายเดือน</button>
+                class="py-3 px-8 mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none rounded-lg border {{ $month = $css_btnMonth == true ? 'bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  text-white hover:bg-gradient-to-br active' : 'bg-[#4f4f4f] hover:bg-gradient-to-r from-[#5642CD] to-[#00BCFF] hover:text-white' }}">รายเดือน</button>
         </div>
 
         @foreach ($cate_package as $cate)

@@ -1,14 +1,4 @@
-<style>
-    /* Define the style for the active class */
-    .active {
-        color: #EC1F25 !important;
-    }
 
-    .submenu {
-        width: 100%;
-        /* กำหนดความกว้างเริ่มต้นเป็น 100% */
-    }
-</style>
 <!-- nav goes here -->
 
 <nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed  top-0 z-50 w-full">

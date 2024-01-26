@@ -15,7 +15,7 @@ module.exports = {
         ex: "540px",
         xx: "820px",
         dm: "912px",
-        yy: "1537px",
+        yy: "1535px",
         uu: "1919px"
       },
 
