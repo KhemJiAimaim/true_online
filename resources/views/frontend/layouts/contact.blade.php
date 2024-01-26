@@ -7,7 +7,7 @@
                     <img src="/images/Ellipse 33.png" alt="" class="bg-white rounded-full w-full h-full">
                 </div>
                 <p
-                    class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg w-[80px] max-md:w-[100px] flex justify-center max-sm:text-sm text-center absolute top-[80%]">
+                    class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg w-[80px] max-md:w-[90px] flex justify-center max-sm:text-sm text-center absolute top-[80%]">
                     ติดต่อ
                 </p>
             </div>
