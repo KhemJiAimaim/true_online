@@ -32,7 +32,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container py-4 px-3 ">
-            <div class="mx-auto w-[90%]">
+            <div class="mx-auto w-[90%]  max-2xl:w-4/5 max-lg:w-full">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">

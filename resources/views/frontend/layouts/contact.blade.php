@@ -1,4 +1,4 @@
-<div class="fixed  bottom-2 md:bottom-10 right-0  z-50  flex flex-col mx-2" id="contact">
+<div class="fixed   lg:bottom-10 bottom-[12.5rem] max-ex:bottom-2 right-0  z-50  flex flex-col mx-2" id="contact">
     <div class="flex flex-col-reverse relative">
 
         <div class=" flex justify-center max-es:justify-end flex-col  items-center mt-2 w-[160px] ">

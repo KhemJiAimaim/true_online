@@ -1,15 +1,90 @@
 <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] sticky top-[100vh] ">
-    {{-- z-pc --}}
-    <div
-        class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[980px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden  mx-auto flex   justify-between py-10 gap-2  ">
-        {{-- <div class="w-full flex justify-between">
+
+    <div class="w-4/5 mx-auto py-4 flex justify-between max-md:flex-col max-md:gap-y-6">
+        <div class="text-white ">
+            <h2 class="text-[1.2rem] mb-2">
+                ที่อยู่
+            </h2>
+            <div class="font-light text-[0.8rem]">
+                <p class="">
+                    บริษัท
+                    พาณิชย์อมรกิจ จำกัด 19/39</p>
+                <p class=""> ซอย 01 ถนนกาญจนาภิเษก 5 </p>
+                <p class=""> แขวงสามตะวันตก </p>
+                <p class=""> เขตคลองสามวา กรุงเทพมหานคร 10510</p>
+
+            </div>
+        </div>
+
+        <div class="text-white">
+            <h2 class="text-[1.2rem] mb-2">
+                ช่องทางติดต่อ</h2>
+
+            <div class="font-light text-[0.8rem]">
+                <a href="https://line.me/ti/p/~@berhoro"
+                    class="flex items-center gap-2 hover:underline decoration-solid">
+                    <div class=" max-w-[30px]">
+                        <img class="w-full" src="/icons/icons8-line-app (1) 6.png" alt="">
+                    </div>
+
+                    <p class="font-light
+                          ">LINE
+                        ID : @fibertrue
+                    </p>
+                </a>
+
+                <a href="tel:0832289789" class="flex items-center gap-2 hover:underline decoration-solid">
+                    <div class="max-w-[30px]">
+                        <img class="w-full" src="/icons/solar_outgoing-call-rounded-linear1.png" alt="">
+                    </div>
+                    <p class="font-light
+                         ">
+                        สมัครบริการใหม่ :
+                        0832289789 </p>
+                </a>
+
+                <a href="tel:1242" class="flex gap-2 hover:underline decoration-solid items-center">
+                    <div class=" max-w-[25px]">
+                        <img class="w-full" src="/icons/tools_1077198.png" alt="">
+                    </div>
+                    <p class="font-light
+                        ">
+                        แจ้งปัญหาติดต่อ: 1242
+                    </p>
+                </a>
+            </div>
+        </div>
+
+        <div class="text-white">
+            <h2 class="text-[1.2rem] mb-2">
+                บริการของเรา</h2>
+            <ul class="font-light text-[0.8rem] max-md:pl-6">
+                <li>อินเตอร์เน็ตบ้าน</li>
+                <li>เบอร์มงคล</li>
+                <li>เติมเงิน</li>
+                <li>ย้ายค่ายมาทรู</li>
+                <li>ซิมท่องเที่ยว</li>
+            </ul>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+{{-- <div
+        class=" 2xl:max-w-[1536px] xl:max-w-[1024px] w-full lg:max-w-[980px] max-[1100px]:max-w-[700px] max-[900px]:max-w-[600px] max-sm:max-w-[400px] max-sm:hidden  mx-auto flex   justify-between py-10 gap-2  "> --}}
+{{-- <div class="w-full flex justify-between">
             <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem]  text-white">ที่อยู่</h2>
             <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem] pl-[10rem]  text-white">
                 ช่องทางติดต่อ</h2>
             <h2 class=" w-[30%] text-left  uu:text-[1.2rem]  max-[900px]:text-[1rem] pl-[10rem] text-white">บริการของเรา
             </h2>
         </div> --}}
-        <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
+{{-- <div class="w-[30%] flex flex-col items-center gap-3 justify-start ">
             <h2 class="w-full uu:text-[1.2rem]  text-center  max-[900px]:text-[1rem]  text-white">
                 ที่อยู่
             </h2>
@@ -21,51 +96,51 @@
                 แขวงสามตะวันตก
                 เขตคลองสามวา กรุงเทพมหานคร 10510
             </p>
-        </div>
-        <div class="w-[30%] flex justify-center">
-            <div class="w-full flex flex-col items-center gap-3 justify-start">
-                <h2 class="w-full uu:text-[1.2rem] text-center    text-white">
-                    ช่องทางติดต่อ</h2>
-                <div class="w-[50%] lg:w-[70%] md:w-[80%] sm:w-full  flex items-start flex-col gap-2">
+        </div> --}}
 
-                    <a href="https://line.me/ti/p/~@berhoro"
-                        class="flex items-start gap-2 hover:underline decoration-solid text-white">
-                        <figure class=" max-w-[30px]">
-                            <img class="w-full" src="/icons/icons8-line-app (1) 6.png" alt="">
-                        </figure>
+{{-- <div class="flex justify-start flex-col">
 
-                        <p class="text-white uu:text-[0.8rem] font-light
+            <h2 class="w-full uu:text-[1.2rem] text-center    text-white">
+                ช่องทางติดต่อ</h2>
+            <div class="">
+
+                <a href="https://line.me/ti/p/~@berhoro"
+                    class="flex items-start gap-2 hover:underline decoration-solid text-white">
+                    <figure class=" max-w-[30px]">
+                        <img class="w-full" src="/icons/icons8-line-app (1) 6.png" alt="">
+                    </figure>
+
+                    <p class="text-white uu:text-[0.8rem] font-light
                           ">LINE
-                            ID : @fibertrue
-                        </p>
-                    </a>
+                        ID : @fibertrue
+                    </p>
+                </a>
 
-                    <a href="tel:0832289789"class="flex items-center gap-2 hover:underline decoration-solid text-white">
-                        <figure class=" max-w-[30px]">
-                            <img class="w-full" src="/icons/solar_outgoing-call-rounded-linear1.png" alt="">
-                        </figure>
-                        <p class="text-white uu:text-[0.8rem] font-light
+                <a href="tel:0832289789"class="">
+                    <figure class=" max-w-[30px]">
+                        <img class="w-full" src="/icons/solar_outgoing-call-rounded-linear1.png" alt="">
+                    </figure>
+                    <p class="text-white uu:text-[0.8rem] font-light
                          ">
-                            สมัครบริการใหม่ :
-                            0832289789 </p>
-                    </a>
+                        สมัครบริการใหม่ :
+                        0832289789 </p>
+                </a>
 
-                    <a href="tel:1242" class="flex items-center gap-2 hover:underline decoration-solid text-white">
-                        <figure class=" max-w-[30px]">
-                            <img class="w-full" src="/icons/tools_1077198.png" alt="">
-                        </figure>
-                        <p class="text-white uu:text-[0.8rem] font-light
+                <a href="tel:1242" class="">
+                    <figure class=" max-w-[30px]">
+                        <img class="w-full" src="/icons/tools_1077198.png" alt="">
+                    </figure>
+                    <p class="text-white uu:text-[0.8rem] font-light
                         ">
-                            แจ้งปัญหาติดต่อ: 1242
-                        </p>
-                    </a>
+                        แจ้งปัญหาติดต่อ: 1242
+                    </p>
+                </a>
 
-                </div>
+
             </div>
+        </div> --}}
 
-
-        </div>
-        <div class="w-[30%] flex flex-col items-center gap-6 justify-start">
+{{-- <div class="w-[30%] flex flex-col items-center gap-6 justify-start">
             <h2 class=" w-full text-center uu:text-[1.2rem]  text-white  ">
                 บริการของเรา</h2>
             <div class="w-[50%] lg:w-[70%] flex justify-center items-center">
@@ -78,15 +153,15 @@
                 </ul>
             </div>
 
-        </div>
-        {{-- <div class=" w-full flex  justify-between ">
+        </div> --}}
+{{-- <div class=" w-full flex  justify-between ">
         
         </div> --}}
-        {{-- ที่อยู่  : 2xl:w-[1536px] xl:w-[1200px] min-[800px]:w-[780px] --}}
+{{-- ที่อยู่  : 2xl:w-[1536px] xl:w-[1200px] min-[800px]:w-[780px] --}}
 
 
 
-        {{-- <div class="flex justify-between py-4 px-4 gap-y-3">
+{{-- <div class="flex justify-between py-4 px-4 gap-y-3">
             <div class="2xl:grid 2xl:grid-rows-2 2xl:gap-[0] 2xl:mx-0 gap-[7.3rem]">
                 @if ($webInfo->contact->phone->display == true)
                     <p class="text-white sm:text-lg 2xl:text-[20px] text-[16px]">สมัครบริการใหม่</p>
@@ -157,8 +232,8 @@
             </div>
         </div>
     </div> --}}
-        {{-- z-mobile --}}
-        {{-- <div
+{{-- z-mobile --}}
+{{-- <div
         class="md:hidden ex:max-w-[480px] xs:max-w-[460px]  max-w-[300px]  w-full my-0 mx-auto  pt-[2rem] flex flex-col gap-4 ">
         <div class="w-full   ">
             <div id="cshow1" class="w-full flex items-center justify-between">
@@ -189,6 +264,6 @@
         </div>
     </div> --}}
 
-    </div>
-</div>
+{{-- </div> --}}
+
 {{-- @vite('resources/js/footer.js') --}}
