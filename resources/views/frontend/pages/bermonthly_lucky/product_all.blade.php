@@ -319,7 +319,7 @@
                         <div class="w-full flex flex-col justify-between">
                             <div class="flex flex-col mb-4">
                                 <p class="mb-2 text-black">เสริมดวงด้าน</p>
-                                <div class="grid max-uu:grid-cols-8 max-w-[1536px]:grid-cols-6 gap-y-2 ">
+                                <div class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 gap-y-2  ">
                                     @php
                                         $exImprove = [];
                                         if (isset($_GET['improve'])) {
@@ -333,7 +333,7 @@
                                             $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                         @endphp
                                         <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                            class="relative p-[0.5rem] w-[90px]  bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:text-white hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
+                                            class="relative p-[0.5rem] w-[90px]  max-yy:w-[80px]  bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:text-white hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
                                             <img src="{{ $numbcate->thumbnail }}" alt=""
                                                 style="{{ $image_selected }}"
                                                 class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
