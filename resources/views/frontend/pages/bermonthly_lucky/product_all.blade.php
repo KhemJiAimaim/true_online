@@ -408,7 +408,7 @@
                 <div
                     class="w-[95%] flex flex-wrap justify-center  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 items-center mx-auto ss:p-1 p-4 ">
                     @foreach ($berproducts as $product)
-                        <div class="drop-shadow-md w-[350px] max-2xl:w-[320px] max-es:w-[323px] py-2">
+                        <div class="drop-shadow-md w-[350px] max-2xl:w-[335px] max-es:w-[323px] py-2">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                 <div class="flex justify-start items-center gap-1 ">
@@ -416,7 +416,7 @@
                                     <p class="text-white font-medium text-[1.5rem]">{{ $product->product_grade }}</p>
                                 </div>
                                 <div
-                                    class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-3/4 xl:w-4/6 md:w-4/6 transform -skew-x-12 px-2 flex justify-end items-center">
+                                    class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-4/6  transform -skew-x-12 px-2 flex justify-end items-center">
                                     <p class="text-white mr-1 text-[18px]">ผลรวม</p>
                                     <p class="text-white font-bold text-[1.5rem]">{{ $product->product_sumber }}</p>
                                 </div>
