@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class=" text-left ">
+    <div class=" text-left  ">
 
         <div class="h-[158px] bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
             <div class="flex max-xs:flex-col gap-8">
@@ -85,12 +85,11 @@
 
 
         <!-- search box -->
-        <div class="max-xs:mx-2">
-            <div class="w-full max-xs:p-1 mx-auto rounded-[20px] mt-8">
-                <div class=" bg-[#f8f7f7]  2xl:p-6 p-4 text-[17px] w-full mx-4" style="border-radius: 12px;">
-                    <div class="flex max-lg:flex-col gap-4">
+        <div class="max-xs:mx-2 w-[90%] mx-auto rounded-[20px] mt-8 max-xs:p-1">
+                <div class=" bg-[#f8f7f7] p-4 text-[17px] w-full mx-auto" style="border-radius: 12px;">
+                    <div class="flex justify-between max-lg:flex-col gap-4 w-full">
                         {{-- box left --}}
-                        <div class=" w-full max-2xl:w-full max-lg:w-full">
+                        <div class="w-1/2 max-lg:w-full">
 
                             {{-- วิเคราะห์เบอร์ --}}
                             <div
@@ -106,50 +105,50 @@
                             </div>
                             
                             {{-- ค้นหาเบอร์ --}}
-                            <div class="mb-4 flex gap-4 max-2xl:flex-col 2xl:items-center w-full">
+                            <div class="mb-4 flex gap-4 max-yy:flex-col yy:items-center w-full">
                                 <div class="2xl:w-[20%]">
                                     <label class="text-left text-black" for="">ค้นหาเบอร์</label>
                                 </div>
-                                <div class="flex justify-between gap-5 max-2xl:gap-4 max-xl:gap-2">
+                                <div class="flex justify-between gap-2 ">
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="text" data-position="0" value="0" disabled>
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="1" maxlength="1"
                                         value="{{ isset($_GET['pos1']) ? $_GET['pos1'] : '' }}" placeholder="-">
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="2" maxlength="1"
                                         value="{{ isset($_GET['pos2']) ? $_GET['pos2'] : '' }}" placeholder="-">
                                     <span> _ </span>
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="3" maxlength="1"
                                         value="{{ isset($_GET['pos3']) ? $_GET['pos3'] : '' }}" placeholder="-">
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="4" maxlength="1"
                                         value="{{ isset($_GET['pos4']) ? $_GET['pos4'] : '' }}" placeholder="-">
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6   bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7   bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="5" maxlength="1"
                                         value="{{ isset($_GET['pos5']) ? $_GET['pos5'] : '' }}" placeholder="-">
                                         <span> _ </span>
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="6" maxlength="1"
                                         value="{{ isset($_GET['pos6']) ? $_GET['pos6'] : '' }}" placeholder="-">
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="7" maxlength="1"
                                         value="{{ isset($_GET['pos7']) ? $_GET['pos7'] : '' }}" placeholder="-">
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="8" maxlength="1"
                                         value="{{ isset($_GET['pos8']) ? $_GET['pos8'] : '' }}" placeholder="-">
                                     <input
-                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 max-es:w-6 max-es:h-6 bg-white border border-[#838383] text-center rounded-[3px]"
+                                        class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-white border border-[#838383] text-center rounded-[3px]"
                                         type="tel" id="search-num" data-position="9" maxlength="1"
                                         value="{{ isset($_GET['pos9']) ? $_GET['pos9'] : '' }}" placeholder="-">
                                 </div>
@@ -164,7 +163,7 @@
                                         $explodeLike = explode(',', $like);
                                     }
                                 @endphp
-                                <div class="flex gap-x-4 gap-y-2  mb-4 2xl:items-center w-full max-2xl:flex-col">
+                                <div class="flex gap-x-4 gap-y-2  mb-4 yy:items-center w-full max-yy:flex-col">
                                     <div class="2xl:w-[25%]">
                                         <label for="" class="text-black">ตัวเลขที่ชอบ</label>
                                     </div>
@@ -172,7 +171,7 @@
                                         class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3 text-white justify-between w-full">
                                         @for ($i = 0; $i <= 9; $i++)
                                             <button id="like" data-fav="{{ $i }}"
-                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0] rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  text-white selected' : '' }} hover:bg-gradient-to-r from-[#5741CD] to-[#00ACEE]">
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0] border border-[#838383] text-center rounded-[3px] {{ in_array(strval($i), $explodeLike) ? 'bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  text-white selected' : '' }} hover:bg-gradient-to-r from-[#5741CD] to-[#00ACEE]">
                                                 {{ $i }}
                                             </button>
                                         @endfor
@@ -186,7 +185,7 @@
                                         $explodedisLike = explode(',', $dislike);
                                     }
                                 @endphp
-                                <div class="flex gap-x-4 gap-y-2  mb-4 2xl:items-center w-full max-2xl:flex-col ">
+                                <div class="flex gap-x-4 gap-y-2  mb-4 yy:items-center w-full max-yy:flex-col ">
                                     <div class="2xl:w-[25%]">
                                         <label for="" class="text-black">ตัวเลขที่ไม่ชอบ</label>
                                     </div>
@@ -194,7 +193,7 @@
                                         class="flex gap-x-5 max-2xl:gap-x-2 max-xs:gap-x-3 text-white justify-between w-full">
                                         @for ($i = 0; $i <= 9; $i++)
                                             <button id="dislike" data-fav="{{ $i }}"
-                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0]  rounded-[3px] border-2 border-white {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-yellow-500 to-[#fa6007] text-white selected' : '' }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">{{ $i }}</button>
+                                                class="w-10 h-10 max-xl:w-8 max-xl:h-8 max-lg:w-10 max-lg:h-10 max-xs:w-7 max-xs:h-7 bg-[#a0a0a0] border border-[#838383] text-center rounded-[3px] {{ in_array(strval($i), $explodedisLike) ? 'bg-gradient-to-r from-yellow-500 to-[#fa6007] text-white selected' : '' }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">{{ $i }}</button>
                                         @endfor
                                     </div>
                                 </div>
@@ -305,14 +304,14 @@
                         </div>
 
                         {{-- border center --}}
-                        <div class="border  border-1 border-gray-300 rounded-full">
+                        <div class="border border-1 border-gray-300 rounded-full">
                         </div>
 
                         {{-- box right --}}
-                        <div class="w-full max-2xl:w-full max-lg:w-full flex flex-col justify-between">
-                            <div class="flex flex-col mb-4">
+                        <div class="w-1/2 max-lg:w-full flex flex-col justify-between">
+                            <div class="flex flex-col mb-4 w-full">
                                 <p class="mb-2 text-black">เสริมดวงด้าน</p>
-                                <div class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-8 max-ex:grid-cols-5  gap-y-2 gap-3 ">
+                                <div class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-7 max-ex:grid-cols-5  gap-y-2 gap-3">
                                     @php
                                         $exImprove = [];
                                         if (isset($_GET['improve'])) {
@@ -326,7 +325,7 @@
                                             $image_selected = in_array($numbcate->numbcate_id, $exImprove) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                         @endphp
                                         <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                            class="relative p-[0.5rem] w-[90px] max-ex:w-[65px] max-es:w-[60px] bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:text-white hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
+                                            class="relative p-[0.5rem] w-[80px] max-xl:w-[100%] max-ex:w-[65px] max-es:w-[60px] bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:text-white hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
                                             <img src="{{ $numbcate->thumbnail }}" alt=""
                                                 style="{{ $image_selected }}"
                                                 class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -350,9 +349,9 @@
                                     $exAuspicious = explode(',', $auspicious);
                                 }
                             @endphp
-                            <div class="flex flex-col">
+                            <div class="flex flex-col w-full">
                                 <p class="mb-2 text-black">หมวดหมู่เบอร์</p>
-                                <div class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-8 max-ex:grid-cols-5  gap-y-2 gap-3 ">
+                                <div class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-7 max-ex:grid-cols-5  gap-y-2 gap-3 ">
                                     @foreach ($berproduct_cates as $bercate)
                                         @if ($bercate->bercate_pin == true)
                                             @php
@@ -360,7 +359,7 @@
                                                 $img_selected = in_array($bercate->bercate_id, $exAuspicious) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '';
                                             @endphp
                                             <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
-                                                class="relative p-[0.5rem] w-[90px] max-ex:w-[65px] max-es:w-[60px] bg-white rounded-[5px] border-2 border-white group hover:text-white {{ $aus_selected }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
+                                                class="relative p-[0.5rem] w-[90%] max-2xl:w-[80px] max-xl:w-[100%] max-ex:w-[65px] max-es:w-[60px] bg-white rounded-[5px] border-2 border-white group hover:text-white {{ $aus_selected }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
                                                 <img src="{{ $bercate->thumbnail }}" alt=""
                                                     style="{{ $img_selected }}"
                                                     class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -379,7 +378,7 @@
                                         @endif
                                     @endforeach
                                     <button id="btn-vip" data-id="vip"
-                                        class="relative p-2 w-[90px] max-ex:w-[65px] max-es:w-[60px] bg-white border-2 border-white rounded-[5px] group hover:text-white {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r  from-[#EC1F25] to-[#960004] ">
+                                        class="relative p-2 w-[80px] max-xl:w-[100%] max-ex:w-[65px] max-es:w-[60px] bg-white border-2 border-white rounded-[5px] group hover:text-white {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r  from-[#EC1F25] to-[#960004] ">
                                         <img src="/images/icon/VIP.png" alt=""
                                             style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}"
                                             class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
@@ -403,9 +402,8 @@
                         <button id="search-product"
                             class="px-8 py-1 bg-[#fff] text-black rounded-[15px] border-2 border-red-700 hover:bg-red-700  hover:text-white">ค้นหา</button>
                     </div>
-
+                
                 </div>
-            </div>
         </div>
         <!-- end search box -->
 
