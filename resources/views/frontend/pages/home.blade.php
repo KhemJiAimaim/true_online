@@ -110,7 +110,7 @@
                                 <div class="swiper-wrapper items-center  mx-auto flex {{ $justify }}">
                                     @foreach ($product_fiber as $fiber)
                                         <div class="swiper-slide flex justify-center items-center  ">
-                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[310px]  h-[100%] py-4">
                                                 <div
                                                     class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                     <p class="text-white text-left text-[16px]">{{ $fiber->details }}</p>
@@ -132,10 +132,10 @@
                                                     $unit_upload = $fiber->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                                                 @endphp
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-6 ml-12">
-                                                        <p class="text-[35px] text-center font-medium">1</p>
+                                                    <div class="flex justify-center py-2 ml-12 items-center">
+                                                        <p class="text-[70px] text-center font-medium">1</p>
                                                         <div
-                                                            class="border-l border border-gray-500 text-center mx-6 rounded-full">
+                                                            class="border-l border border-gray-500 text-center mx-6 py-8 rounded-full">
                                                         </div>
                                                         <p class="text-lg text-left text-[16px]">Gbps<br>/500Mbps</p>
                                                     </div>
@@ -165,7 +165,7 @@
                                                         $same_benefit = array_intersect($benefit_ids, $post_ids);
                                                         $benefit_items = array_slice($same_benefit, 0, 3);
                                                     @endphp
-                                                    <div class="flex justify-center py-6">
+                                                    <div class="flex justify-center py-6 px-2">
                                                         @php
                                                             $showDivider = false;
                                                         @endphp
@@ -203,13 +203,13 @@
                                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
                                                         alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left  2xl:text-[18px] text-[16px] ">ราคา
+                                                        <p class="text-white text-left  text-[18px] ">ราคา
                                                         </p>
-                                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">
+                                                        <p class="text-white font-medium text-center text-[35px] ">
                                                             {{ number_format($fiber->special_price > 0 ? $fiber->special_price : $fiber->price_per_month) }}
                                                         </p>
-                                                        <p class="text-white text-right  2xl:text-[18px] text-[16px]">
-                                                            บาท<br>/เดือน</p>
+                                                        <p class="text-white text-right text-[18px]">
+                                                            บาท/เดือน</p>
                                                     </div>
                                                 </div>
 
@@ -246,7 +246,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($berproducts as $ber)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]   h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[310px]   h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                                     <div class="flex justify-start items-center gap-1 ">
@@ -265,21 +265,21 @@
                                                 </div>
 
                                                 {{-- berproduct --}}
-                                                <div
-                                                    class="bg-white flex items-center justify-center px-2 max-uu:gap-[1rem] gap-12">
+                                                <div class="bg-white flex items-center justify-center px-2 gap-[1rem]">
                                                     <div class="max-w-[70px] max-h-[40px]">
                                                         <img src="/images/651e616b04c02CnURE.png" alt=""
                                                             class="w-full h-full">
                                                     </div>
                                                     <div class="flex justify-center py-10 ">
-                                                        <p class="2xl:text-[2.5rem] text-[2rem] text-center font-bold">
+                                                        <p class="text-[35px] text-center font-bold">
                                                             {{ $ber->product_phone }}</p>
                                                     </div>
                                                 </div>
                                                 {{-- berproduct --}}
 
-                                                <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 h-[110px] ">
-                                                    <img src="/images/Ellipse 6.png" alt="" class="px-4">
+                                                <div
+                                                    class="bg-[#F8F9FA] flex justify-start px-4 py-2 max-dm:h-[80px] h-[110px]">
+                                                    {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4"> --}}
                                                     <p
                                                         class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                                         {{ $ber->product_comment }}</p>
@@ -290,39 +290,42 @@
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px]">ราคา
+                                                        <p class="text-white text-left text-[18px]">ราคา
                                                         </p>
-                                                        <p
-                                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem]  text-2xl">
+                                                        <p class="text-white font-medium text-center text-[35px]">
                                                             {{ number_format($ber->product_price) }}</p>
-                                                        <p class="text-white text-right 2xl:text-[18px] text-[16px]">บาท
+                                                        <p class="text-white text-right text-[18px]">บาท
                                                         </p>
                                                     </div>
                                                 </div>
 
-                                                <div
-                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
-                                                    <button id="addBerToCart" data-id="{{ $ber->product_id }}"
-                                                        data-type="{{ $cate->id }}"
-                                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
-                                                        <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                                    </button>
 
-                                                    <a href="https://line.me/ti/p/~@berhoro">
+                                                <div
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center ">
+                                                    <div id="addBerToCart" data-id="{{ $ber->product_id }}"
+                                                        data-type="{{ $cate->id }}"
+                                                        class="group rounded-full border border-red-500  w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                                        <img src="/images/mdi_cart-arrow-down.png" alt=""
+                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
+                                                    </div>
+
+                                                    <a href="https://line.me/ti/p/~@berhoro"
+                                                        class="flex justify-center items-center">
                                                         <div
-                                                            class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                                            class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">
                                                             <img src="/images/icons8-line-app (1) 6.png" alt=""
                                                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                         </div>
                                                     </a>
 
-                                                    <a href="{{ url('/detailber/' . $ber->product_phone) }}"
-                                                        class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button id="buyProductNow" data-id="{{ $ber->product_id }}"
+                                                    <a href="{{ url('/travel_sim_buy/' . $ber->product_phone) }}"
+                                                        target="_blank"
+                                                        class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                    <button id="addBerToCart" data-id="{{ $ber->product_id }}"
                                                         data-type="{{ $cate->id }}"
-                                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
+
 
                                             </div>
                                         </div>
@@ -348,7 +351,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]   h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[310px]   h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -374,21 +377,22 @@
                                                         {{ $prepaid->details }}</p>
                                                 </div>
 
+
                                                 <div
-                                                    class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
+                                                    class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา
-                                                            <br> เริ่มต้น
+                                                        <p class="text-white text-left text-[18px] pt-1 ">
+                                                            ราคาเริ่มต้น
                                                         </p>
-                                                        <p
-                                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                                            {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}
+                                                        <p class="flex items-center flex-col">
+                                                            <span class="text-white font-medium text-center text-[35px]">
+                                                                {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</span>
                                                         </p>
-                                                        <p class="text-white text-right text-[1rem] 2xl:text-[16px]">บาท
-                                                            <br> /เดือน
+                                                        <p class="text-white text-right text-[18px] pt-1 ">บาท / เดือน
                                                         </p>
+
                                                     </div>
                                                 </div>
 
@@ -423,7 +427,7 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($travel_sim as $sim)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md w-[350px]  max-es:w-[323px]  h-[100%] py-4">
+                                            <div class="drop-shadow-md w-[350px]  max-es:w-[310px]  h-[100%] py-4">
                                                 <div
                                                     class="relative  bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0">
                                                     <p class="text-white mr-2 text-left text-[16px]">{{ $sim->lifetime }}
@@ -452,38 +456,40 @@
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left 2xl:text-[18px] text-[16px] ">ราคา
+                                                        <p class="text-white text-left text-[18px] ">ราคา
                                                         </p>
-                                                        <p class="text-white font-medium text-center text-3xl">
+                                                        <p class="text-white font-medium text-center text-[35px]">
                                                             {{ $sim->price }}</p>
-                                                        <p class="text-white text-right 2xl:text-[18px] text-[16px] ">บาท
+                                                        <p class="text-white text-right text-[18px] ">บาท
                                                         </p>
 
                                                     </div>
                                                 </div>
 
                                                 <div
-                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center  flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center ">
                                                     <div id="addBerToCart" data-id="{{ $sim->id }}"
                                                         data-type="{{ $cate->id }}"
-                                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                                        class="group rounded-full border border-red-500  w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                                     </div>
 
-                                                    <a href="https://line.me/ti/p/~@berhoro">
+                                                    <a href="https://line.me/ti/p/~@berhoro"
+                                                        class="flex justify-center items-center">
                                                         <div
-                                                            class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                                            class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">
                                                             <img src="/images/icons8-line-app (1) 6.png" alt=""
                                                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                         </div>
                                                     </a>
 
-                                                    <a href="{{ url('/travel_sim_buy/' . $sim->id) }}"
-                                                        class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                    <a href="{{ url('/travel_sim_buy/' . $sim->id) }}" target="_blank"
+                                                        class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                                     <button data-id="{{ $sim->id }}"
+                                                        
                                                         data-type="{{ $cate->id }}" id="buyProductNow"
-                                                        class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
                                             </div>

@@ -65,7 +65,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto w-[90%] max-2xl:w-4/5 max-lg:w-full">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -457,7 +457,7 @@
                 <div
                     class="w-[95%] flex flex-wrap justify-center  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 items-center mx-auto ss:p-1 p-4 ">
                     @foreach ($berproducts as $product)
-                        <div class="drop-shadow-md w-[350px] max-2xl:w-[335px] max-es:w-[323px] py-2">
+                        <div class="drop-shadow-md w-[350px] max-2xl:w-[335px] max-es:w-[325px] py-2">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                 <div class="flex justify-start items-center gap-1 ">
@@ -473,21 +473,17 @@
                             </div>
 
                             {{-- berproduct --}}
-                            <div
-                                class="bg-white flex items-center  justify-center px-2  gap-[1rem] h-[100px] max-md:h-[80px]">
-                                <div class="w-[70px] h-[40px]">
+                            {{-- berproduct --}}
+                            <div class="bg-white flex items-center justify-center px-2 gap-[1rem]">
+                                <div class="max-w-[70px] max-h-[40px]">
                                     <img src="/images/651e616b04c02CnURE.png" alt="" class="w-full h-full">
                                 </div>
-
-                                <a href="{{ url('/detailber/' . $product->product_phone) }}">
-                                    <div class="flex justify-center py-10 max-ex:py-2">
-                                        <h2 class="text-[30px] text-center font-bold">
-                                            {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
-                                        </h2>
-                                    </div>
-                                </a>
-
+                                <div class="flex justify-center py-10 ">
+                                    <p class="text-[35px] text-center font-bold">
+                                        {{ $product->product_phone }}</p>
+                                </div>
                             </div>
+                            {{-- berproduct --}}
                             {{-- berproduct --}}
 
                             <div class="bg-[#F8F9FA] flex justify-start px-4 py-2 max-dm:h-[80px] h-[110px]">
@@ -501,7 +497,7 @@
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
                                 <div class="grid grid-cols-3 items-center">
-                                    <p class="text-white text-left text-[20px] pt-1 ">
+                                    <p class="text-white text-left text-[18px] pt-1 ">
                                         ราคา
                                     </p>
                                     <p class="flex items-center flex-col">
@@ -510,38 +506,37 @@
                                                 class="text-gray-100 line-through leading-[2px] text-[35px]">{{ number_format($product->product_price) }}</span>
                                         @endif
                                         <span
-                                            class="text-white font-medium text-center text-[30px]">{{ number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
+                                            class="text-white font-medium text-center text-[35px]">{{ number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
                                     </p>
-                                    <p class="text-white text-right text-[20px] pt-1 ">บาท
+                                    <p class="text-white text-right text-[18px] pt-1 ">บาท
                                     </p>
 
                                 </div>
                             </div>
 
+
                             <div
-                                class="bg-white rounded-bl-[10px] rounded-br-[10px] 2xl:flex 2xL:justify-center flex justify-center px-2 md:px-0 lg:px-0 items-center ">
+                                class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center ">
                                 <div id="addBerToCart" data-id="{{ $product->product_id }}" data-type="3"
-                                    class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-red-600">
+                                    class="group rounded-full border border-red-500  w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                        class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                        class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                 </div>
 
-                                <a href="">
+                                <a href="https://line.me/ti/p/~@berhoro" class="flex justify-center items-center">
                                     <div
-                                        class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                        class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">
                                         <img src="/images/icons8-line-app (1) 6.png" alt=""
                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                     </div>
                                 </a>
 
-                                <a href="{{ url('/detailber/' . $product->product_phone) }}"
-                                    class="cursor-pointer flex items-center lg:px-2 xl:px-1  ss:px-2 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-
-
+                                <a href="{{ url('/travel_sim_buy/' . $product->product_phone) }}" target="_blank"
+                                    class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <button id="buyProductNow" data-id="{{ $product->product_id }}" data-type="3"
-                                    class="cursor-pointer flex items-center lg:px-4  xl:px-4 ss:px-6 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[14px]  font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
-
+                                    class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                             </div>
+
                         </div>
                     @endforeach
                 </div>

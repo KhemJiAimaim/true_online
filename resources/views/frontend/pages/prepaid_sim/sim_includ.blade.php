@@ -40,13 +40,19 @@
                             <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">{{ $prepaid->details }}
                         </div>
 
-                        <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
+                        <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
                             <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png" alt="">
-                            <div class="grid grid-cols-3">
-                                <p class="text-white text-left text-[16px] ">ราคา <br> เริ่มต้น</p>
-                                <p class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                    {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</p>
-                                <p class="text-white text-right text-[16px]">บาท <br> /เดือน</p>
+                            <div class="grid grid-cols-3 items-center">
+                                <p class="text-white text-left text-[18px] pt-1 ">
+                                    ราคาเริ่มต้น
+                                </p>
+                                <p class="flex items-center flex-col">
+                                    <span class="text-white font-medium text-center text-[35px]">
+                                        {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</span>
+                                </p>
+                                <p class="text-white text-right text-[18px] pt-1 ">บาท/เดือน
+                                </p>
+
                             </div>
                         </div>
 

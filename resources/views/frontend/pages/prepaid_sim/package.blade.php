@@ -10,7 +10,7 @@
             /* overflow-y: auto; */
         }
 
-        .active{
+        .active {
             color: #fff;
         }
     </style>
@@ -41,8 +41,9 @@
         @foreach ($cate_package as $cate)
             <section class="flex justify-center items-center my-8 px-4">
                 <div class="drop-shadow-md w-[1536px] mx-auto">
+
                     <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3 ">
+                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] {{ $month = $css_btnMonth == true ? 'bg-gradient-to-r from-[#5642CD] to-[#00BCFF]' : '' }}  rounded-tl-[10px] rounded-tr-[10px] py-3 ">
                         <p class="text-white text-center ml-3 2xl:text-[20px] md:text-[18px] text-[16px]">
                             {{ $cate->title }}</p>
 
@@ -50,6 +51,7 @@
                     <div class="box-package rounded-bl-[10px] rounded-br-[10px]">
                         @foreach ($package_product as $product)
                             @if ($cate->id == $product->package_cate_id)
+                                {{-- @dd($cate->id) --}}
                                 <div
                                     class="item flex justify-between 2xl:px-40  px-2 py-2 2xl:py-8 dm:px-4 xs:px-2  2xl:items-center">
                                     <div class="text-left">

@@ -41,7 +41,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</p>
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{ $seo->cate_h1 }}</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -70,7 +70,7 @@
 
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class="w-4/5 my-0 mx-auto flex justify-center ">
+                    <div class="w-4/5 max-lg:w-full my-0 mx-auto flex justify-center ">
 
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
 
@@ -94,7 +94,8 @@
                                         @for ($i = 0; $i < 5; $i++)
                                             <div class="swiper-slide flex justify-center items-center">
 
-                                                <div class="drop-shadow-md py-4 rounded-[10px] w-[350px] max-es:w-[325px] h-[100%]">
+                                                <div
+                                                    class="drop-shadow-md py-4 rounded-[10px] w-[350px] max-es:w-[310px] h-[100%]">
                                                     <div
                                                         class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                                         <p class="text-white text-left text-[16px]">{{ $product->details }}
@@ -116,15 +117,15 @@
                                                         $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                                                     @endphp
                                                     <div class="bg-white">
-                                                        <div class="flex justify-center py-6 ml-12">
-                                                            <p class="text-[35px] text-center font-medium">
-                                                                {{ $download }}
-                                                            </p>
+
+                                                        <div class="flex justify-center py-2 ml-12 items-center">
+                                                            <p class="text-[70px] text-center font-medium">
+                                                                {{ $download }}</p>
                                                             <div
-                                                                class="border-l border border-gray-500 text-center mx-6 rounded-full">
+                                                                class="border-l border border-gray-500 text-center mx-6 py-8 rounded-full">
                                                             </div>
                                                             <p class="text-lg text-left text-[16px]">
-                                                                {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
+                                                                {{ $unit_download }}/{{ $upload }}{{ $unit_upload }}
                                                             </p>
                                                         </div>
 
@@ -164,7 +165,7 @@
                                                                     @endforeach
                                                                 @endforeach
                                                             </div> --}}
-                                                        <div class="flex justify-center py-6">
+                                                        <div class="flex justify-center py-6 px-2">
                                                             @php
                                                                 $showDivider = false;
                                                             @endphp
@@ -197,17 +198,19 @@
 
                                                     </div>
 
+
                                                     <div
                                                         class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
                                                         <img class="absolute bottom-0 left-0"
                                                             src="/images/Intersect (1).png" alt="">
                                                         <div class="grid grid-cols-3 items-center">
-                                                            <p class="text-white text-left text-[16px]  ">ราคา</p>
-                                                            <p
-                                                                class="text-white font-medium text-center 2xl:text-3xl text-2xl">
+                                                            <p class="text-white text-left  text-[18px] ">ราคา
+                                                            </p>
+                                                            <p class="text-white font-medium text-center text-[35px] ">
                                                                 {{ number_format($product->special_price > 0 ? $product->special_price : $product->price_per_month) }}
                                                             </p>
-                                                            <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
+                                                            <p class="text-white text-right text-[18px]">
+                                                                บาท/เดือน</p>
                                                         </div>
                                                     </div>
 
