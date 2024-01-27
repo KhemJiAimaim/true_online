@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class=" text-left  ">
+    <div class=" text-left ">
 
         <div
             class="h-[158px] max-xs:h-[100px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
@@ -23,16 +23,16 @@
         </div>
 
         {{-- @if (isset($_GET['sim']) && $_GET['sim'] == 'paysim')
-                        <div class="w-7 h-7">
-                            <img id="system-sim" data-sim="paysim" class="w-full h-full" src="/icons/check.png"
-                                alt="">
-                        </div>
-                    @else
-                        <div class="w-7 h-7">
-                            <img id="system-sim" data-sim="paysim" class="w-full h-full" src="/images/check-one.png"
-                                alt="">
-                        </div>
-                    @endif --}}
+                    <div class="w-7 h-7">
+                        <img id="system-sim" data-sim="paysim" class="w-full h-full" src="/icons/check.png"
+                            alt="">
+                    </div>
+                @else
+                    <div class="w-7 h-7">
+                        <img id="system-sim" data-sim="paysim" class="w-full h-full" src="/images/check-one.png"
+                            alt="">
+                    </div>
+                @endif --}}
 
 
         <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-4 px-3 2xl:mt-6">
@@ -65,7 +65,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
-            <div class="mx-auto w-[90%] max-lg:w-full">
+            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -85,7 +85,6 @@
         {{-- มหัศจรรย์ --}}
 
 
-
         <!-- search box -->
         <div class="w-[90%] max-ex:w-full mx-auto rounded-[20px] mt-8">
             <div class=" bg-[#f8f7f7] p-4 max-ex:p-2 text-[17px] mx-3 items-center" style="border-radius: 12px;">
@@ -98,8 +97,9 @@
                             class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4 ">
                             <label class="text-white " for="input-fortune">กรอกเบอร์โทรศัพท์</label>
                             <div class="w-full flex gap-4">
-                                <input class="w-full h-7 text-center rounded-[3px] bg-white max-es:text-[14px] max-es:text-left p-2" type="text"
-                                    id="input-fortune" maxlength="10" placeholder="กรอกเบอร์โทรศัพท์">
+                                <input
+                                    class="w-full h-7 text-center rounded-[3px] bg-white max-es:text-[14px] max-es:text-left p-2"
+                                    type="text" id="input-fortune" maxlength="10" placeholder="กรอกเบอร์โทรศัพท์">
                                 <button
                                     class="w-full max-w-[25%] max-xs:max-w-[29%] rounded-[15px] text-[17px] max-es:text-[14px] font-medium bg-white hover:bg-gradient-to-r from-[#c5a04f] to-[#a1621e] hover:text-white text-black"
                                     id="fortune-ber">วิเคราะห์เบอร์</button>
@@ -294,13 +294,35 @@
                                 </select>
                             </div>
 
-                            <div class="flex flex-col w-1/2 gap-y-2">
-                                <label for="txt_favorite" class="text-black">ค้นหาเลขชุดที่ชอบ</label>
-                                <input class="w-full h-8 border border-[#838383] rounded-[3px] p-2" type="text"
-                                    name="txt_favorite" id="txt_favorite" maxlength="10"
-                                    placeholder="ชุดเลขที่ชอบ 42,25 หรือ 55*56"
-                                    value="{{ isset($_GET['fav']) ? $_GET['fav'] : '' }}">
+                            <div class="flex flex-col w-1/2  gap-y-2">
+                                <label for="slc-sum" class="text-black">เครือข่าย</label>
+                                <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-sum"
+                                    id="slc-sum">
+                                    <option value="">เครือข่าย</option>
+                                    @foreach ($sumbers as $sum)
+                                        @php
+                                            $selected = null;
+                                            if (isset($_GET['sum'])) {
+                                                if ($sum->predict_sum == $_GET['sum']) {
+                                                    $selected = 'selected';
+                                                }
+                                            }
+                                        @endphp
+                                        <option value="{{ $sum->predict_sum }}" {{ $selected }}>
+                                            {{ $sum->predict_sum }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
+                        </div>
+
+                        {{-- ค้นหาเบอร์มงคลที่ชอบ --}}
+                        <div class="flex flex-col w-full  gap-y-2">
+                            <label for="txt_favorite" class="text-black">ค้นหาเบอร์มงคลที่ชอบ</label>
+                            <input class="w-full h-8 border border-[#838383] rounded-[3px] p-2" type="text"
+                                name="txt_favorite" id="txt_favorite" maxlength="10"
+                                placeholder="คู่เบอร์มงคลที่ชอบ 42,25 หรือ 55*56"
+                                value="{{ isset($_GET['fav']) ? $_GET['fav'] : '' }}">
                         </div>
 
                     </div>
@@ -388,22 +410,22 @@
                                     @endif
                                 @endforeach
                                 <div class="flex flex-col justify-center items-center gap-y-1">
-                                <button id="btn-vip" data-id="vip"
-                                    class="relative p-2 w-full bg-white border-2 border-white rounded-[5px] group hover:text-white {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r  from-[#EC1F25] to-[#960004] ">
-                                    <img src="/images/icon/VIP.png" alt=""
-                                        style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}"
-                                        class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                    <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
-                                        <img class="scale-150 w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100"
-                                            src="/icons/category/union.png" alt="">
-                                        <p class="w-full text-xs absolute top-1 left-0 text-black">เบอร์ VIP</p>
-                                    </div>
-                                    
-                                </button>
-                                <p class="w-full text-[12px] text-center ">
-                                    {{ $bercate->bercate_title }}
-                                </p>
-                            </div>
+                                    <button id="btn-vip" data-id="vip"
+                                        class="relative p-2 w-full bg-white border-2 border-white rounded-[5px] group hover:text-white {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r  from-[#EC1F25] to-[#960004] ">
+                                        <img src="/images/icon/VIP.png" alt=""
+                                            style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}"
+                                            class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                        <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                            <img class="scale-150 w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100"
+                                                src="/icons/category/union.png" alt="">
+                                            <p class="w-full text-xs absolute top-1 left-0 text-black">เบอร์ VIP</p>
+                                        </div>
+
+                                    </button>
+                                    <p class="w-full text-[12px] text-center ">
+                                        {{ $bercate->bercate_title }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -452,14 +474,14 @@
 
                             {{-- berproduct --}}
                             <div
-                                class="bg-white flex items-center  justify-center px-2 max-uu:gap-[1rem] gap-12 h-[100px] max-md:h-[80px]">
+                                class="bg-white flex items-center  justify-center px-2  gap-[1rem] h-[100px] max-md:h-[80px]">
                                 <div class="w-[70px] h-[40px]">
                                     <img src="/images/651e616b04c02CnURE.png" alt="" class="w-full h-full">
                                 </div>
 
                                 <a href="{{ url('/detailber/' . $product->product_phone) }}">
                                     <div class="flex justify-center py-10 max-ex:py-2">
-                                        <h2 class="2xl:text-[2rem] text-[1.5rem] text-center font-bold">
+                                        <h2 class="text-[30px] text-center font-bold">
                                             {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
                                         </h2>
                                     </div>
@@ -468,8 +490,8 @@
                             </div>
                             {{-- berproduct --}}
 
-                            <div class="bg-[#F8F9FA] grid grid-cols-5 py-2 max-dm:h-[80px] h-[110px]">
-                                <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1">
+                            <div class="bg-[#F8F9FA] flex justify-start px-4 py-2 max-dm:h-[80px] h-[110px]">
+                                {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
                                 <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                     {{ $product->product_comment }}</p>
                             </div>
@@ -478,18 +500,19 @@
                                 class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-2 px-2 items-center">
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3">
-                                    <p class="text-white text-left 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">ราคา
+                                <div class="grid grid-cols-3 items-center">
+                                    <p class="text-white text-left text-[20px] pt-1 ">
+                                        ราคา
                                     </p>
                                     <p class="flex items-center flex-col">
                                         @if ($product->product_discount > 0)
                                             <span
-                                                class="text-gray-100 line-through leading-[2px]">{{ number_format($product->product_price) }}</span>
+                                                class="text-gray-100 line-through leading-[2px] text-[35px]">{{ number_format($product->product_price) }}</span>
                                         @endif
                                         <span
-                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] text-2xl">{{ number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
+                                            class="text-white font-medium text-center text-[30px]">{{ number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
                                     </p>
-                                    <p class="text-white text-right 2xl:text-[18px] text-[1rem] md:text-[18px] pt-1 ">บาท
+                                    <p class="text-white text-right text-[20px] pt-1 ">บาท
                                     </p>
 
                                 </div>
@@ -503,7 +526,7 @@
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                 </div>
 
-                                <a href="https://line.me/ti/p/~@berhoro">
+                                <a href="">
                                     <div
                                         class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
                                         <img src="/images/icons8-line-app (1) 6.png" alt=""
