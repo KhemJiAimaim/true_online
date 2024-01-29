@@ -7,13 +7,15 @@
 @section('content')
     <div class="2xl:my-12">
 
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
-            <div class="grid grid-cols-4 py-6 w-[500px] 2xl:w-[800px] items-center mx-auto">
+        <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+            <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
                 @foreach ($cate_home as $cate)
                     <a href="#{{ $cate->cate_url }} "
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                        <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
-                        <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
+                        <div class="flex-initial max-uu:w-[8rem] max-xs:w-[7rem] flex flex-col justify-center items-center">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}" alt="">
+                            <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
+                        </div>
                     </a>
                 @endforeach
             </div>
@@ -487,7 +489,6 @@
                                                     <a href="{{ url('/travel_sim_buy/' . $sim->id) }}" target="_blank"
                                                         class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                                     <button data-id="{{ $sim->id }}"
-                                                        
                                                         data-type="{{ $cate->id }}" id="buyProductNow"
                                                         class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>

@@ -7,14 +7,18 @@
 
 @section('content')
     <div class="2xl:mt-12 mt-6 ">
-        <div class="flex flex-wrap justify-center gap-x-20 max-es:gap-10 gap-y-5 mb-4">
-            @foreach ($cates as $cate)
-                <a href="/{{ $cate->cate_url }}"
-                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-105 transition-all duration-500 ease-in-out">
-                    <img class="w-[54px] h-[54px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
-                    <p class="text-[18px] se:text-[16px]">{{ $cate->cate_title }}</p>
-                </a>
-            @endforeach
+        <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+            <div class="flex justify-center max-md:justify-start  gap-x-6  py-2  items-center mx-auto ">
+                @foreach ($cates as $cate)
+                    <a href="/{{ $cate->cate_url }}"
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-105 transition-all duration-500 ease-in-out">
+                        <div class="flex-initial w-[10rem]  flex flex-col justify-center items-center">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}" alt="">
+                            <p class="max-uu:text-[18px] max-xs:text-[16px]">{{ $cate->cate_title }}</p>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
         </div>
 
         {{-- มหัศจรรย์ --}}
