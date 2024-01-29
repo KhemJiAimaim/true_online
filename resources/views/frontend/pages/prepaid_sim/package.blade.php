@@ -66,7 +66,7 @@
                                 {{-- @dd($cate->id) --}}
                                 <div
                                     class="item flex justify-between max-uu:px-40 max-lg:px-4 max-xs:px-2  max-uu:py-8  max-xs:py-2 items-center">
-                                    <div class="text-left ">
+                                    <div class="text-left max-uu:w-full max-es:w-[70%]">
                                         <p class="2xl:text-lg md:text-[18px] xs:text-[16px] text-[14px] font-medium">
                                             {{ $product->title }}</p> 
                                         <p class="2xl:text-lg  md:text-[18px] xs:text-[16px] text-[14px] font-medium">
@@ -83,12 +83,13 @@
                                             {{ number_format($product->price) }} บาท</p>
                                         <div class="border-l border border-[#838383] text-center  py-4 rounded-full "></div>
                                         <a href="{{ url('/prepaid_sim/buy_package/' . $product->id) }}"
-                                            class="cursor-pointer py-2 2xl:px-8 px-3 mb-2 mt-2 2xl:text-lg dm:text-[14px] text-[14px]  xs:text-[12px] font-medium text-white focus:outline-none bg-[#EC1F25] rounded-full border hover:bg-red-500 hover:text-white ">ซื้อเลย</a>
+                                            class="cursor-pointer py-2 2xl:px-8 px-3 mb-2 mt-2 md:text-[18px]  xs:text-[16px] text-[13px]  font-medium text-white focus:outline-none bg-[#EC1F25] rounded-full border hover:bg-red-500 hover:text-white ">ซื้อเลย</a>
                                     </div>
                                 </div>
                             @endif
                         @endforeach
                     </div>
+
                 </div>
             </section>
         @endforeach

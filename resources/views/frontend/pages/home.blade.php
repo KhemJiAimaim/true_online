@@ -13,7 +13,8 @@
                     <a href="#{{ $cate->cate_url }} "
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                         <div class="flex-initial max-uu:w-[8rem] max-xs:w-[7rem] flex flex-col justify-center items-center">
-                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}" alt="">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
+                                alt="">
                             <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
                         </div>
                     </a>
@@ -273,7 +274,7 @@
                                                             class="w-full h-full">
                                                     </div>
                                                     <div class="flex justify-center py-10 ">
-                                                        <p class="text-[35px] text-center font-bold">
+                                                        <p class="text-[40px] text-center font-bold">
                                                             {{ $ber->product_phone }}</p>
                                                     </div>
                                                 </div>
@@ -322,10 +323,10 @@
 
                                                     <a href="{{ url('/travel_sim_buy/' . $ber->product_phone) }}"
                                                         target="_blank"
-                                                        class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                        class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                                     <button id="addBerToCart" data-id="{{ $ber->product_id }}"
                                                         data-type="{{ $cate->id }}"
-                                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px]  font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
 
@@ -367,7 +368,7 @@
 
                                                 <div class="bg-white">
                                                     <div
-                                                        class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[120px] max-ex:h-[120px]">
+                                                        class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[160px] max-ex:h-[160px]">
                                                         <img src="/{{ $prepaid->thumbnail_link }}" alt=""
                                                             class="w-full h-full object-contain">
                                                     </div>
@@ -487,10 +488,10 @@
                                                     </a>
 
                                                     <a href="{{ url('/travel_sim_buy/' . $sim->id) }}" target="_blank"
-                                                        class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                        class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                                     <button data-id="{{ $sim->id }}"
                                                         data-type="{{ $cate->id }}" id="buyProductNow"
-                                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
                                             </div>
