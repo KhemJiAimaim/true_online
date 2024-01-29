@@ -20,11 +20,11 @@
             <h2 class="text-[1.2rem] mb-2">
                 ช่องทางติดต่อ</h2>
 
-            <div class="font-light text-[0.8rem]">
+            <div class="font-light text-[0.8rem] flex flex-col gap-y-1">
                 <a href="https://line.me/ti/p/~@berhoro"
                     class="flex items-center gap-2 hover:underline decoration-solid">
                     <div class=" max-w-[30px]">
-                        <img class="w-full" src="/icons/line-white_0.png" alt="" class="w-full">
+                        <img class="w-full" src="/icons/line-white_0.png" alt="">
                     </div>
 
                     <p class="font-light
@@ -35,7 +35,7 @@
 
                 <a href="tel:0832289789" class="flex items-center gap-2 hover:underline decoration-solid">
                     <div class="max-w-[30px]">
-                        <img class="w-full" src="/icons/call-white_0.png" alt="" class="w-full">
+                        <img class="w-full" src="/icons/call-white_0.png" alt="">
                     </div>
                     <p class="font-light
                          ">
@@ -45,7 +45,7 @@
 
                 <a href="tel:1242" class="flex gap-2 hover:underline decoration-solid items-center">
                     <div class=" max-w-[30px]">
-                        <img class="w-full" src="/icons/exclamation-mark-white_0.png" alt="" class="w-full>
+                        <img class="w-full" src="/icons/exclamation-mark-white_0.png" alt="">
                     </div>
                     <p class="font-light
                         ">

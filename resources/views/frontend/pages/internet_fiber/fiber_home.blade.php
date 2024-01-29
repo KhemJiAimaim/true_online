@@ -22,7 +22,7 @@
                @foreach ($cate_fiber as $cate)
                    <a href="{{ url($cate->cate_url) }}"
                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out ">
-                       <div class="flex-initial w-[8rem] flex flex-col justify-center items-center">
+                       <div class="flex-initial max-uu:w-[12rem] max-xs:w-[10rem] flex flex-col justify-center items-center">
                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5 " src="/{{ $cate->cate_thumbnail }}"
                            alt="">
                        @foreach (explode(' ', $cate->cate_title) as $word)
