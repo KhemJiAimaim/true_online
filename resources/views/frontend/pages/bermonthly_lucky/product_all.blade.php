@@ -6,7 +6,7 @@
         <div
             class="h-[158px] max-xs:h-[100px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
             <div class="flex gap-8  max-xs:gap-4">
-                <a href="/bermonthly?sim=month"
+                <a href="/bermonthly?"
                     class="bg-white flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px] hover:bg-black hover:text-white ">
                     <p class=" ">เบอร์ทั้งหมด</p>
                 </a>
@@ -15,7 +15,7 @@
 
                     <p class="">เบอร์เติมเงิน</p>
                 </a>
-                <a href="/bermonthly?sim=paysim"
+                <a href="/bermonthly?sim=month"
                     class="bg-white flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
                     <p class="">เบอร์รายเดือน</p>
                 </a>
@@ -295,21 +295,21 @@
                             </div>
 
                             <div class="flex flex-col w-1/2  gap-y-2">
-                                <label for="slc-sum" class="text-black">เครือข่าย</label>
-                                <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-sum"
-                                    id="slc-sum">
+                                <label for="slc-network" class="text-black">เครือข่าย</label>
+                                <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-network"
+                                    id="slc-network">
                                     <option value="">เครือข่าย</option>
-                                    @foreach ($sumbers as $sum)
+                                    @foreach ($networks as $net)
                                         @php
                                             $selected = null;
-                                            if (isset($_GET['sum'])) {
-                                                if ($sum->predict_sum == $_GET['sum']) {
+                                            if (isset($_GET['network'])) {
+                                                if ($net->network_name == $_GET['network']) {
                                                     $selected = 'selected';
                                                 }
                                             }
                                         @endphp
-                                        <option value="{{ $sum->predict_sum }}" {{ $selected }}>
-                                            {{ $sum->predict_sum }}
+                                        <option value="{{ $net->network_name }}" {{ $selected }}>
+                                            {{ $net->network_name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -422,9 +422,7 @@
                                         </div>
 
                                     </button>
-                                    <p class="w-full text-[12px] text-center ">
-                                        {{ $bercate->bercate_title }}
-                                    </p>
+                                    <p class="w-full text-[12px] text-center ">เบอร์ VIP</p>
                                 </div>
                             </div>
                         </div>
@@ -486,10 +484,12 @@
                             {{-- berproduct --}}
                             {{-- berproduct --}}
 
-                            <div class="bg-[#F8F9FA] flex justify-start px-4 py-2 max-dm:h-[80px] h-[110px]">
+                            <div class="bg-[#F8F9FA] flex flex-col px-4 py-2 max-dm:h-[80px] h-[110px]">
                                 {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
-                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                    {{ $product->product_comment }}</p>
+                                @if($product->monthly_status)
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
+                                @endif
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
                             </div>
 
                             <div

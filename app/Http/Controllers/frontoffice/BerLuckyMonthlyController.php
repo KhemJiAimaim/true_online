@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 use App\Models\BerproductMonthly;
+use App\Models\Bernetwork;
 use App\Models\BerpredictProphecy;
 use App\Models\BerpredictSum;
 use App\Models\BerproductGrade;
@@ -70,7 +71,6 @@ class BerLuckyMonthlyController extends Controller
             'limit' => $perPage,
             'offset' => $offset,
         ]); // query ข้อมูลเบอร์ต่อหน้า
-
         $total_page = ceil(count($totalCount) / $perPage);
         $berTotal = count($berproducts);
         $onLastPage = $berTotal < $perPage; // เช็คว่าหน้าสุดท้ายมั้ย true or false
@@ -95,7 +95,9 @@ class BerLuckyMonthlyController extends Controller
 				$packages = BerluckyPackage::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
 				$networks = Bernetwork::where('display', 'yes')->get();
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
-        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'packages', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
+				dd($berproducts);
+
+        return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'networks', 'berproduct_cates', 'packages', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
     }
 
     public function product_prepare_variable($request)
