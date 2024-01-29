@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id('product_id');
             $table->string('product_phone', 10);
             $table->string('product_sumber', 10);
+            $table->string('product_network', 10);
             $table->float('product_price');
             $table->string('product_category');
             $table->text('product_improve');

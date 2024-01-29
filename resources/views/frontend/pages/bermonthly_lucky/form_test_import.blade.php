@@ -44,10 +44,8 @@
           title: response.data.message,
           showConfirmButton: false,
           timer: 1500
-          }).then(() => {
-            console.log(response);
-            // location.href = "/bermonthly"
-          })
+        }).then(() => {
+          // location.href = "/bermonthly"
         })
       } else {
         Swal.fire({
