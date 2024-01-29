@@ -17,9 +17,9 @@
 
 @section('content')
     <div class=" mt-[10%] max-xs:mt-[20%] ">
-        <div class=" flex justify-center items-center">
-            <div class="w-4/5 max-lg:w-full max-2xl:max-w-[90%] grid grid-cols-1 xl:grid-cols-3  gap-4 m-3">
-                <div class="bg-white w-full 2xl:h-[500px]  items-center px-4 lg:px-1 mb-6 relative">
+        <div class=" flex justify-center items-center max-xs:mb-12">
+            <div class="w-[1536px] max-2xl:max-w-[90%] grid grid-cols-1  2xl:grid-cols-3  gap-4 m-3 ">
+                <div class="bg-white w-full 2xl:h-[500px]  items-center px-4 lg:px-1 mb-6 relative mx-3">
                     <div class="flex justify-center lg:mb-6 2xl:mb-2">
                         <img id="featured" src="/{{ $prepaid_cate->thumbnail_link }}" alt=""
                             class="max-ex:w-[250px] max-ex:h-[250px] w-[370px] cursor-pointer pb-4">
@@ -46,9 +46,7 @@
                     <p class="2xl:text-xl text-lg font-medium">ตัวเลือก</p>
                     <div
                         class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-4 gap-y-4 overflow-autow-full  h-[290px] w-full px-2">
-                        @php$i = 1;
-                                                        // dd($prepaid_sim)
-                                                @endphp
+
                         @foreach ($prepaid_sim as $sim)
                             <div id="box" data-quantity="{{ $sim->quantity - $sim->quantity_sold }}"
                                 data-prepaid="{{ $sim->id }}" data-price="{{ $sim->price }}"
@@ -73,8 +71,8 @@
         </div>
 
         {{-- box package --}}
-        <div class="w-4/5 max-lg:w-full max-2xl:max-w-[90%] pt-6 mx-auto mb-6 m ">
-            
+        <div class="w-[1536px] max-2xl:max-w-[90%] py-6 mx-auto  m ">
+
             <div class="flex">
                 <button id="btn-package"
                     class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
@@ -102,7 +100,7 @@
                 class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
                 {!! $prepaid_cate->terms_content !!}
             </div>
-        
+
         </div>
         {{-- box package --}}
 

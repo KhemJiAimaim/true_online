@@ -35,7 +35,7 @@
                             <div class="flex justify-between items-center px-6 py-2 gap-2">
                                 <p class="text-black font-medium text-[18px] w-full">ราคา</p>
                                 <p
-                                    class="text-center text-[35px] text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  w-full">
+                                    class="text-center text-[50px] text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  w-full">
                                     {{ number_format($fiber_products->price_per_month) }}</p>
                                 <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
                             </div>
@@ -67,7 +67,7 @@
                                 <p class="mt-4 font-medium text-[18px]">{{ $fiber_products->special_details }}</p>
                                 <div class="flex justify-between items-center px-6 py-2 gap-2">
                                     <p class="text-black font-medium text-[18px] w-full">ราคา</p>
-                                    <p class="font-bold text-center text-[35px]  w-full">
+                                    <p class="font-bold text-center text-[50px]  w-full">
                                         {{ number_format($fiber_products->special_price) }}</p>
                                     <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
                                 </div>
@@ -83,30 +83,30 @@
                         $unit_upload = $fiber_products->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                     @endphp
                     <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
-                        <div class="flex justify-between p-2 gap-4">
-                                <div class="flex justify-center  items-center w-full ">
-                                    <img src="/images/Rectangle 1233.png" alt=""
-                                        class="w-[7rem] h-[7rem] max-xs:w-[6rem] max-xs:h-[6rem]">
-                                </div>
-                            
-                            <div class="w-full ">
+                        <div class="flex justify-between items-center p-4 max-xs:px-2 gap-4 ">
+                            <div class="flex justify-center items-center w-full">
+                                <img src="/images/Rectangle 1233.png" alt=""
+                                    class="w-[7rem] h-[7rem] max-xs:w-[6rem] max-xs:h-[6rem]">
+                            </div>
+
+                            <div class="w-full flex flex-col ">
                                 <p
                                     class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-2xl text-left">
                                     ความเร็ว</p>
                                 <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
                                 <div class="flex justify-start py-4 items-center  ">
                                     <p
-                                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[40px]
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[50px]
                                    
                                     font-bold">
-                                    {{ $download}}
+                                        {{ $download }}
                                     </p>
 
                                     <div
-                                        class="border-l border border-gray-500 text-center mx-2 py-6 rounded-full max-ex:mx-3">
+                                        class="border-l border border-gray-500 text-center mx-2 py-6 rounded-full max-ex:mx-1">
                                     </div>
                                     <p class="max-uu:text-[16px] max-xs:text-[13px] text-md text-left font-medium">
-                                        {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}</p>
+                                        {{ $unit_download }}<br>/{{ $upload }}000{{ $unit_upload }}</p>
                                 </div>
                             </div>
                         </div>

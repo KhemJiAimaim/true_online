@@ -105,7 +105,7 @@
 
 
         {{-- box package --}}
-        <div class="w-4/5 max-lg:w-full pt-6 mx-auto mb-6">
+        <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6">
 
             <div class="flex">
                 <button id="btn-package"
@@ -118,7 +118,7 @@
             </div>
             {{-- content detail --}}
             <div id="box-package"
-                class="h-[300px] text-left overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative pb-[30px]">
+                class="h-[300px] text-left overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] max-es:rounded-r-[0px] max-rounded-bl-[10px] relative pb-[30px]">
                 @php
                     $benefit_ids = explode(',', $move_product->benefit_ids);
                     $post_ids = $posts->pluck('id')->toArray();

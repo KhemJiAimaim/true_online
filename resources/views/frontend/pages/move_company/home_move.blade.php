@@ -54,8 +54,8 @@
                     <p class="text-[#000]   2xl:text-[2rem] xl:text-[25px] text-[22px]">{{ $cate->title }}</p>
                     <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">{{ $cate->details }}</p>
                 </div>
-                <div class="py-6 w-full">
-                    <div class="w-4/5 max-lg:w-full mx-auto flex justify-center">
+                <div class="w-full">
+                    <div class="w-4/5 max-2xl:w-[90%] max-lg:w-full mx-auto flex justify-center">
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full ">
                             @php
                                 $count = 0;
@@ -76,7 +76,7 @@
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div
-                                                class="drop-shadow-md  max-uu:w-[460px] py-4 max-yy:w-[360px]  max-xs:w-[310px] h-[100%] ">
+                                                class="drop-shadow-md py-4 w-[460px] max-yy:w-[360px]  max-xs:w-[310px] max-se:w-[290px] h-[100%] ">
                                                 <div
                                                     class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                                     <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
@@ -87,18 +87,18 @@
 
                                                 <div class="bg-white flex items-center justify-center flex-col p-4 ">
                                                     <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
-                                                    <div class="flex justify-center items-baseline gap-10">
-                                                        <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต
-                                                        </p>
-                                                        <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">
+                                                    <div class="flex justify-between items-baseline w-full px-8">
+                                                        <p class=" text-[18px] max-md:text-[16px]">เน็ต</p>
+
+                                                        <p class="text-[50px] text-[#F98E24] ">
                                                             {{ $product->internet_volume }}</p>
-                                                        <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]"> GB</p>
+                                                        <p class=" text-[18px] max-md:text-[16px]"> GB</p>
 
                                                     </div>
                                                     <div class="h-[1px] w-[90%] bg-gray-500 "></div>
-                                                    <div class="flex justify-center items-baseline gap-10">
+                                                    <div class="flex justify-between items-baseline w-full px-8">
                                                         <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
-                                                        <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">
+                                                        <p class="text-[50px] text-[#F98E24] ">
                                                             {{ $product->call_minutes }} </p>
                                                         <p class="2xl:text-[1.5rem] text-[1rem]">Mins</p>
 
@@ -184,19 +184,20 @@
                                                     class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative items-center">
                                                     <img class=" absolute left-0 top-0 h-[100%]"
                                                         src="/images/circle/Intersect (2).png" alt="">
-                                                    <div class="flex items-center justify-between py-6 px-4">
+                                                    <div class="grid grid-cols-3 items-center py-6 px-4">
 
-                                                        <p class="text-white text-left text-[18px] w-full">ราคา
+                                                        <p class="text-white text-left text-[18px] max-xs:text-[16px]">ราคา
                                                         </p>
-                                                        <p class="text-center flex flex-col w-full">
+                                                        <p class="text-center flex flex-col ">
                                                             @if ($product->discount > 0)
                                                                 <span
                                                                     class="line-through text-gray-100 ">{{ number_format($product->price) }}</span>
                                                             @endif
                                                             <span
-                                                                class="text-white font-medium text-[35px]">{{ number_format($product->discount > 0 ? $product->discount : $product->price) }}</span>
+                                                                class="text-white font-medium text-[50px]">{{ number_format($product->discount > 0 ? $product->discount : $product->price) }}</span>
                                                         </p>
-                                                        <p class="text-white text-right text-[18px] w-full">บาท / เดือน
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px]">
+                                                            บาท/เดือน
                                                         </p>
                                                     </div>
                                                 </div>
@@ -205,10 +206,10 @@
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-2 px-2 gap-3">
 
                                                     <button id="btn-termOfService" data-id="{{ $product->id }}"
-                                                        class="cursor-pointer w-full py-2.5 px-2  max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] max-yy:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงื่อนไข</button>
+                                                        class="cursor-pointer w-full py-2.5 px-2 max-se:w-[60%]   max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงื่อนไข</button>
 
                                                     <a href="{{ url('/movedetail/' . $product->move_cate_id . '/' . $product->id) }}"
-                                                        class="cursor-pointer w-full py-2.5 px-1  max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] max-yy:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
+                                                        class="cursor-pointer w-full py-2.5 px-1 max-se:w-[40%]  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px]font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                                 </div>
                                             </div>
@@ -236,7 +237,7 @@
         <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10"
             id="modal-container">
             <div
-                class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-es:h-[500px] max-lg:p-2 p-4 bg-white rounded-[10px]">
+                class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] h-[616px] max-es:h-[500px] max-lg:p-2 p-4 bg-white rounded-[10px] mx-3">
                 <div class="w-full flex justify-end">
                     <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close-modal">
                 </div>

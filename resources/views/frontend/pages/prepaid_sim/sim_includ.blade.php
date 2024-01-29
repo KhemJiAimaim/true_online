@@ -45,15 +45,15 @@
                             <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 items-center">
-                                    <p class="text-white text-left text-[18px] pt-1 ">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-white text-left text-[18px] max-xs:text-[16px]">
                                         ราคาเริ่มต้น
                                     </p>
                                     <p class="flex items-center flex-col">
-                                        <span class="text-white font-medium text-center text-[35px]">
+                                        <span class="text-white font-medium text-center text-[50px]">
                                             {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</span>
                                     </p>
-                                    <p class="text-white text-right text-[18px] pt-1 ">บาท/เดือน
+                                    <p class="text-white text-right text-[18px] max-xs:text-[16px] ">บาท/เดือน
                                     </p>
 
                                 </div>

@@ -8,15 +8,15 @@
                     <a href="{{ url($cate->cate_url) }}"
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out ">
                         <div class="flex-initial w-[8rem] flex flex-col justify-center items-center">
-                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5 " src="/{{ $cate->cate_thumbnail }}"
-                            alt="">
-                        @foreach (explode(' ', $cate->cate_title) as $word)
-                            <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
-                        @endforeach
-                    </div>
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5 "
+                                src="/{{ $cate->cate_thumbnail }}" alt="">
+                            @foreach (explode(' ', $cate->cate_title) as $word)
+                                <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
+                            @endforeach
+                        </div>
                     </a>
                 @endforeach
-            
+
             </div>
         </div>
 
@@ -60,10 +60,11 @@
                                 @endphp
 
                                 <div class="bg-white">
-                                    <div class="flex justify-center py-2  items-center">
-                                        <p class="max-uu:text-[50px] max-lg:text-[70px] text-center font-medium">
-                                            {{ $download }}</p>
-                                        <div class="border-l border border-gray-500 text-center mx-6 max-xs:mx-2 py-8 rounded-full">
+                                    <div class="flex justify-center py-2 items-center">
+                                        <p class="text-[70px] text-center font-medium">{{ $download }}
+                                        </p>
+                                        <div
+                                            class="border-l border border-gray-500 text-center mx-4 max-xs:mx-2 py-8 rounded-full">
                                         </div>
                                         <p class="text-lg text-left text-[16px]">
                                             {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
@@ -128,12 +129,12 @@
                                     class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                     <div class="grid grid-cols-3 items-center">
-                                        <p class="text-white text-left  text-[18px] ">ราคา
+                                        <p class="text-white text-left  text-[20px] ">ราคา
                                         </p>
-                                        <p class="text-white font-medium text-center text-[35px] ">
+                                        <p class="text-white font-medium text-center text-[50px] ">
                                             {{ number_format($product->special_price > 0 ? $product->special_price : $product->price_per_month) }}
                                         </p>
-                                        <p class="text-white text-right text-[18px]">
+                                        <p class="text-white text-right text-[20px]">
                                             บาท/เดือน</p>
                                     </div>
                                 </div>

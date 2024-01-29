@@ -135,12 +135,15 @@
                                                     $unit_upload = $fiber->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                                                 @endphp
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-2 ml-12 items-center">
-                                                        <p class="text-[70px] text-center font-medium">1</p>
+                                                    <div class="flex justify-center py-2 items-center">
+                                                        <p class="text-[70px] text-center font-medium">{{ $download }}
+                                                        </p>
                                                         <div
-                                                            class="border-l border border-gray-500 text-center mx-6 py-8 rounded-full">
+                                                            class="border-l border border-gray-500 text-center mx-4 max-xs:mx-2 py-8 rounded-full">
                                                         </div>
-                                                        <p class="text-lg text-left text-[16px]">Gbps<br>/500Mbps</p>
+                                                        <p class="text-lg text-left text-[16px]">
+                                                            {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
+                                                        </p>
                                                     </div>
 
                                                     <div class="blue-plate-container">
@@ -206,12 +209,13 @@
                                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
                                                         alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left  text-[18px] ">ราคา
+                                                        <p class="text-white text-left  text-[18px] max-xs:text-[16px] ">
+                                                            ราคา
                                                         </p>
-                                                        <p class="text-white font-medium text-center text-[35px] ">
+                                                        <p class="text-white font-medium text-center text-[50px] ">
                                                             {{ number_format($fiber->special_price > 0 ? $fiber->special_price : $fiber->price_per_month) }}
                                                         </p>
-                                                        <p class="text-white text-right text-[18px]">
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px] ">
                                                             บาท/เดือน</p>
                                                     </div>
                                                 </div>
@@ -292,12 +296,14 @@
                                                     class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-3 px-2 items-center">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
-                                                    <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left text-[18px]">ราคา
+                                                    <div class="flex justify-between items-center">
+                                                        <p class="text-white text-left text-[18px] max-xs:text-[16px] ">
+                                                            ราคา
                                                         </p>
-                                                        <p class="text-white font-medium text-center text-[35px]">
+                                                        <p class="text-white font-medium  text-[50px]">
                                                             {{ number_format($ber->product_price) }}</p>
-                                                        <p class="text-white text-right text-[18px]">บาท
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px] ">
+                                                            บาท
                                                         </p>
                                                     </div>
                                                 </div>
@@ -385,15 +391,16 @@
                                                     class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
-                                                    <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left text-[18px] pt-1 ">
+                                                    <div class="flex justify-between items-center">
+                                                        <p class="text-white text-left text-[18px] max-xs:text-[16px] ">
                                                             ราคาเริ่มต้น
                                                         </p>
                                                         <p class="flex items-center flex-col">
-                                                            <span class="text-white font-medium text-center text-[35px]">
+                                                            <span class="text-white font-medium text-center text-[50px]">
                                                                 {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</span>
                                                         </p>
-                                                        <p class="text-white text-right text-[18px] pt-1 ">บาท / เดือน
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px] ">
+                                                            บาท / เดือน
                                                         </p>
 
                                                     </div>
@@ -441,7 +448,7 @@
 
                                                 <div class="bg-white">
                                                     <div
-                                                        class="flex justify-center py-4 mx-auto h-[230px] w-[180px] max-es:w-[150px]">
+                                                        class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[160px] max-ex:h-[160px]">
                                                         <img src="/{{ $sim->thumbnail_link }}" alt=""
                                                             class="w-full h-full object-contain">
                                                     </div>
@@ -458,12 +465,14 @@
                                                     class="relative bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
-                                                    <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left text-[18px] ">ราคา
+                                                    <div class="flex justify-between items-center">
+                                                        <p class="text-white text-left text-[18px] max-xs:text-[16px] ">
+                                                            ราคา
                                                         </p>
-                                                        <p class="text-white font-medium text-center text-[35px]">
+                                                        <p class="text-white font-medium text-center text-[50px]">
                                                             {{ $sim->price }}</p>
-                                                        <p class="text-white text-right text-[18px] ">บาท
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px] ">
+                                                            บาท
                                                         </p>
 
                                                     </div>

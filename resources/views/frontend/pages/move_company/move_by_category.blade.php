@@ -42,8 +42,7 @@
                 <div class="w-4/5 max-lg:w-full my-0 mx-auto flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
                     @foreach ($move_product as $product)
                         <div class="drop-shadow-md ">
-                            <div
-                                class=" max-uu:w-[480px] py-4 max-yy:w-[360px]  max-xl:w-[400px] max-es:w-[310px] h-[100%] ">
+                            <div class=" py-4 w-[460px] max-yy:w-[360px]  max-xl:w-[400px] max-es:w-[310px] h-[100%] ">
                                 <div
                                     class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative">
                                     <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
@@ -54,19 +53,19 @@
 
                                 <div class="bg-white flex items-center justify-center flex-col p-4 ">
                                     <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
-                                    <div class="flex justify-center items-baseline gap-10">
-                                        <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">เน็ต</p>
-                                        <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">
+                                    <div class="flex justify-between items-baseline w-full px-8">
+                                        <p class="text-[18px] max-md:text-[16px]">เน็ต</p>
+                                        <p class="text-[50px] text-[#F98E24] ">
                                             {{ $product->internet_volume }}</p>
-                                        <p class="2xl:text-[1.5rem] text-[18px] max-md:text-[16px]">GB</p>
+                                        <p class="text-[18px] max-md:text-[16px]">GB</p>
 
                                     </div>
                                     <div class="h-[1px] w-[90%] bg-gray-500 "></div>
-                                    <div class="flex justify-center items-baseline gap-10">
-                                        <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
-                                        <p class="2xl:text-[4rem] text-[2rem] text-[#F98E24] ">{{ $product->call_minutes }}
+                                    <div class="flex justify-between items-baseline w-full px-8">
+                                        <p class="text-[18px] max-md:text-[16px]">โทร</p>
+                                        <p class="text-[50px] text-[#F98E24] ">{{ $product->call_minutes }}
                                         </p>
-                                        <p class="2xl:text-[1.5rem] text-[1rem]">Mins</p>
+                                        <p class="text-[18px] max-md:text-[16px]">Mins</p>
 
                                     </div>
                                 </div>
@@ -146,18 +145,18 @@
                                 <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
                                     <img class=" absolute left-0 top-0 h-[100%]" src="/images/circle/Intersect (2).png"
                                         alt="">
-                                    <div class="flex items-center justify-between py-6 px-2">
+                                    <div class="grid grid-cols-3 items-center justify-between py-6 px-4">
 
-                                        <p class="text-white text-left text-[18px] max-md:text-[16px] ">ราคา</p>
+                                        <p class="text-white text-left text-[18px] max-md:text-[16px]">ราคา</p>
                                         <p class="text-center flex flex-col">
                                             @if ($product->discount > 0)
                                                 <span
                                                     class="line-through text-gray-100">{{ number_format($product->price) }}</span>
                                             @endif
                                             <span
-                                                class="text-white font-medium text-3xl">{{ number_format($product->discount > 0 ? $product->discount : $product->price) }}</span>
+                                                class="text-white font-medium text-[50px]">{{ number_format($product->discount > 0 ? $product->discount : $product->price) }}</span>
                                         </p>
-                                        <p class="text-white text-right text-[18px] max-md:text-[16px]  ">บาท <br> /เดือน
+                                        <p class="text-white text-right text-[18px] max-md:text-[16px]  ">บาท/เดือน
                                         </p>
 
                                     </div>
