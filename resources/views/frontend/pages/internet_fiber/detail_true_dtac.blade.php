@@ -8,10 +8,10 @@
 @section('title')
 @endsection
 @section('content')
-    <div class="2xl:my-16">
+    <div class="2xl:my-16 py-4">
         <section class="py-2 px-3">
-            <div class="py-6 mb-6">
-                <p class="text-[#000] mt-2 mb-2 2xl:text-[1.5rem] text-[18px] font-medium">
+            <div class="py-6 mb-4">
+                <p class="text-[#000] mt-2 mb-2 2xl:text-[1.5rem] text-[20px] font-medium">
                     {{ $fiber_products->cate_keyword }}</p>
                 <p class="text-[#838383] mt-2 mb-2 2xl:text-[18px] text-[16px]">
                     {{ $fiber_products->cate_description }}
@@ -22,22 +22,24 @@
             <div class="plate-line max-w-[200px]"></div>
             {{-- มหัศจรรย์ --}}
 
-            <div class="max-w-[1536px] gap-4 m-auto p-4 mt-10 ">
+            <div class="max-w-[1536px] gap-4 m-auto p-4 mt-6 ">
 
-                <div class="flex flex-wrap justify-center gap-4 mx-auto">
+                <div class="flex flex-wrap justify-center gap-4 py-2 mx-auto">
                     <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4 px-1">
                         <p
                             class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
                             {{ $fiber_products->title }}
                         </p>
-                        <div class="grid grid-cols-3 px-10 ss:px-[1.5rem] mt-6">
-                            <p class="text-black font-medium text-[16px] pt-[26px] ">ราคา</p>
+
+                        <div class="flex justify-between items-center px-6 gap-2">
+                            <p class="text-black font-medium text-[18px] w-full ">ราคา</p>
                             <p
-                                class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-4xl pt-3">
+                                class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-[35px] w-full">
                                 {{ number_format($fiber_products->price_per_month) }}
                             </p>
-                            <p class="text-black font-medium text-[16px]">บาท<br>/เดือน</p>
+                            <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
                         </div>
+
                         <p class="text-md mt-4">ระยะสัญญา {{ $fiber_products->duration }} เดือน</p>
                     </div>
 
@@ -60,11 +62,11 @@
                             </div>
 
                             <p class="mt-4 font-medium text-[18px]">{{ $fiber_products->special_details }}</p>
-                            <div class="grid grid-cols-3 px-10 mt-4 items-center">
-                                <p class="text-black font-medium text-[16px] pt-[26px] ">ราคา</p>
-                                <p class="font-bold text-center text-4xl pt-3">
+                            <div class="flex justify-between items-center px-6 py-2 gap-2">
+                                <p class="text-black font-medium text-[18px] w-full">ราคา</p>
+                                <p class="font-bold text-center text-[35px]  w-full">
                                     {{ number_format($fiber_products->special_price) }}</p>
-                                <p class="text-black font-medium text-[16px] ">บาท<br>/เดือน</p>
+                                <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
                             </div>
                         </div>
                     @endif
@@ -106,7 +108,7 @@
         {{-- --- --}}
 
         <section class="py-16 px-3 max-2xl:mx-6">
-            <p class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
+            <p class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[20px] font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
             <div class="max-w-[1536px] mx-auto items-center">
                 <!-- Swiper -->
                 <div class="swiper items-center ">
@@ -141,7 +143,7 @@
         </section>
 
         <section class="py-12 ">
-            <div class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[18px] font-medium mb-6">สิทธิพิเศษ</div>
+            <div class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[20px] font-medium mb-6">สิทธิพิเศษ</div>
             <div class="flex justify-center mt-2 ">
                 <div class="flex flex-col justify-center w-[550px] gap-4 px-3 text-left ">
                     @foreach ($privilege as $previl)
@@ -169,7 +171,8 @@
                         <p>2.1 รายการส่งเสริมการขาย Fixxy No Limit 399<br />
                         สิทธิตามแพ็กเกจปกติ:<br />
                         คิดอัตราค่าใช้บริการเหมาจ่ายขั้นต่ำรายเดือน 399 บาท ต่อเดือน ผู้ใช้บริการจะได้รับสิทธิใช้บริการ ดังนี้<br />
-                        (1)โทรทุกเครือข่ายเดือนละ 150 นาทีต่อรอบค่าบริการ&nbsp;<br />
+                        (1)
+โทรทุกเครือข่ายเดือนละ 150 นาทีต่อรอบค่าบริการ&nbsp;<br />
                         (2)บริการ 5G ที่ความเร็วสูงสุด 20 เมกะบิตต่อวินาที (Mbps) เป็นจำนวน 70 กิกะไบต์ (GB)หลังจากนั้น จะใช้ได้ไม่จำกัดปริมาณที่ความเร็วสูงสุด 1 เมกะบิตต่อวินาที (Mbps)<br />
                         (3)บริการ Wi-Fi ที่ความเร็วสูงสุด 1 กิกกะบิตต่อวินาที (Gbps) ไม่จำกัดปริมาณการใช้งาน<br />
                         (4)บริการ Voice Mail และ Miss Call Alert</p>
@@ -193,14 +196,14 @@
 
         <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10 "
             id="modal-container">
-            <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] max-lg:p-2 p-4 bg-white rounded-[10px]">
+            <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] max-lg:p-2 p-4 bg-white rounded-[10px] mx-2">
                 <div class="w-full flex justify-end">
                     <img class="cursor-pointer" src="/icons/cancel-btn.png" alt="" id="close_modal">
                 </div>
                 <div class="text-center flex flex-col items-center gap-3">
                     <h1 class="text-xl font-bold mb-4">ข้อกำหนดและเงื่อนไข</h1>
                 </div>
-                <div id="modal-content" class="text-left text-center">
+                <div id="modal-content" class="text-center">
                     <a href="{{ url('/public/upload/terms/termsfiber.pdf') }}" target="_bank"
                         class="text-xl text-[#0d6efd] underline">“แพ็กเกจใหม่ ทรูกิกะเทค โปร สมาร์ทโฮม”</a>
                 </div>

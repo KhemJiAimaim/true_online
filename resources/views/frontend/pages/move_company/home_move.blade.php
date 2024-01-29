@@ -12,7 +12,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto w-[90%] max-2xl:w-4/5 max-lg:w-full ">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -55,7 +55,7 @@
                     <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">{{ $cate->details }}</p>
                 </div>
                 <div class="py-6 w-full">
-                    <div class="max-w-[1548px]  mx-auto flex justify-center">
+                    <div class="w-4/5 max-lg:w-full mx-auto flex justify-center">
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full ">
                             @php
                                 $count = 0;
@@ -76,7 +76,7 @@
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div
-                                                class="drop-shadow-md py-4 w-[480px]  max-xl:w-[400px] max-md:w-[300px] h-[100%] ">
+                                                class="drop-shadow-md  max-uu:w-[480px] py-4 max-yy:w-[360px]  max-xs:w-[310px] h-[100%] ">
                                                 <div
                                                     class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
                                                     <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
@@ -160,7 +160,8 @@
                                                             @foreach ($posts as $pos)
                                                                 @if ($pos->id == $item)
                                                                     <div class="grid grid-cols-[1fr] gap-2">
-                                                                        <div class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
+                                                                        <div
+                                                                            class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
                                                                             <img class="w-full h-full object-contain"
                                                                                 src="{{ $pos->thumbnail_link }}"
                                                                                 alt="">
@@ -179,33 +180,35 @@
                                                         </div> --}}
                                                 </div>
 
-                                                <div class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative">
+                                                <div
+                                                    class="bg-gradient-to-r from-[#ED4312] to-[#F6911D]  relative items-center">
                                                     <img class=" absolute left-0 top-0 h-[100%]"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="flex items-center justify-between py-6 px-4">
 
-                                                        <p class="text-white text-left text-[18px] max-md:text-[16px]">ราคา
+                                                        <p class="text-white text-left text-[18px] w-full">ราคา
                                                         </p>
-                                                        <p class="text-center flex flex-col">
+                                                        <p class="text-center flex flex-col w-full">
                                                             @if ($product->discount > 0)
                                                                 <span
-                                                                    class="line-through text-gray-100">{{ number_format($product->price) }}</span>
+                                                                    class="line-through text-gray-100 ">{{ number_format($product->price) }}</span>
                                                             @endif
                                                             <span
-                                                                class="text-white font-medium text-3xl">{{ number_format($product->discount > 0 ? $product->discount : $product->price) }}</span>
+                                                                class="text-white font-medium text-[35px]">{{ number_format($product->discount > 0 ? $product->discount : $product->price) }}</span>
                                                         </p>
-                                                        <p class="text-white text-right text-[18px] max-md:text-[16px]">บาท
-                                                            <br> /เดือน </p>
+                                                        <p class="text-white text-right text-[18px] w-full">บาท / เดือน
+                                                        </p>
                                                     </div>
                                                 </div>
 
                                                 <div
-                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 ss:px-2 gap-3">
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-2 px-2 gap-3">
 
                                                     <button id="btn-termOfService" data-id="{{ $product->id }}"
-                                                        class="cursor-pointer py-2 xl:px-1 2xl:px-2  px-[0.5rem]  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงื่อนไข</button>
+                                                        class="cursor-pointer w-full py-2.5 px-2  max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] max-yy:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงื่อนไข</button>
+
                                                     <a href="{{ url('/movedetail/' . $product->move_cate_id . '/' . $product->id) }}"
-                                                        class="cursor-pointer py-2 md:px-10 2xl:px-16 px-16 ss:px-[1.8rem] xs:  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
+                                                        class="cursor-pointer w-full py-2.5 px-1  max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] max-yy:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                                 </div>
                                             </div>

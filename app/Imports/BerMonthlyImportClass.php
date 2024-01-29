@@ -31,7 +31,7 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
 
         // เตรียมข้อมูล
         $pp = substr($row[0], 3, 10);
-        // $improve = $this->getProductByCategoryPredict($pp);
+        $improve = $this->getProductByCategoryPredict($pp);
         $grade = ($row[9] == "") ? $this->generate_grade($row[0]) : $row[9];
 
         if ($row[1] == "") {
@@ -41,13 +41,13 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
         } else {
             $sum = $row[1];
         }
-
-        $product = new BerproductMonthly([
+        // dd($row);
+        new BerproductMonthly([
             'product_phone' => $row[0],
             'product_sumber' => $sum,
             'product_price' => $row[2],
             'product_category' => ',' . $row[3] . ',',
-            'product_improve' => "1,2",
+            'product_improve' => $improve,
             'product_pin' => $row[4] = ($row[4] == "") ? "no" : $row[4],
             'product_sold' => $row[5] = ($row[5] == "") ? "no" : $row[5],
             'product_new' => $row[6] = ($row[6] == "") ? "no" : $row[6],
@@ -60,7 +60,7 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
             'monthly_status' => $row[11] = ($row[11] == "") ? "no" : $row[11],
         ]);
 
-        return $product;
+        // return $product;
     }
 
     public function generate_grade($tel)

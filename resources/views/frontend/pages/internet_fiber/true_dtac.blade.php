@@ -23,26 +23,29 @@
             <div class="plate-line max-w-[200px] "></div>
         </div>
         {{-- มหัศจรรย์ --}}
-{{-- @dd($current_cate) --}}
+        {{-- @dd($current_cate) --}}
         <section id="fiber" class="py-10  z-0 px-3">
-            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">{{ $current_cate['keyword'] }}</p>
-            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">{{ $current_cate['description'] }}</p>
+            <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem]  xl:text-[22px] text-[20px] font-medium">
+                {{ $current_cate['keyword'] }}</p>
+            <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px]  xl:text-[18px] text-[16px]">
+                {{ $current_cate['description'] }}</p>
 
             <div class="2xl:my-16 my-6 z-2">
                 <div
-                    class="max-w-[1536px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 mx-auto py-12 gap-4 gap-y-6 px-4">
+                    class="w-4/5 max-lg:w-full  flex justify-center flex-wrap items-center mx-auto py-12 gap-4 gap-y-6 px-4">
                     @foreach ($fiber_products as $product)
                         {{-- @for ($i = 1; $i <= 10; $i++) --}}
                         <div class="drop-shadow-md flex justify-center">
-                            <div class=" w-[350px] xl:w-[350px] lg:w-[310px] h-[100%] ">
-                                <div class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                            <div class=" w-[350px] max-es:w-[310px] h-[100%] ">
+                                <div
+                                    class=" flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
                                     <p class="text-white text-left text-[16px]">{{ $product->details }}</p>
                                     <img class="absolute top-0 right-0" src="/images/Intersect2.png" alt="">
                                 </div>
 
                                 <div class="bg-[#F8F9FA]">
                                     <div class="">
-                                        <p class="py-3 text-[20px]">{{$product->title}}</p>
+                                        <p class="py-3 text-[20px]">{{ $product->title }}</p>
                                     </div>
                                 </div>
 
@@ -53,14 +56,18 @@
                                     $upload = $product->upload_speed >= 1000 ? $product->upload_speed / 1000 : $product->upload_speed;
                                     $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                                 @endphp
-                                
+
                                 <div class="bg-white">
-                                    <div class="flex justify-center py-6 ml-12">
-                                        <p class="text-[35px] text-center font-medium">{{ $download }}</p>
-                                        <div class="border-l border border-gray-500 text-center mx-6 rounded-full"></div>
+                                    <div class="flex justify-center py-2 ml-12 items-center">
+                                        <p class="text-[70px] text-center font-medium">
+                                            {{ $download }}</p>
+                                        <div class="border-l border border-gray-500 text-center mx-6 py-8 rounded-full">
+                                        </div>
                                         <p class="text-lg text-left text-[16px]">
-                                            {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}</p>
+                                            {{ $unit_download }}/{{ $upload }}{{ $unit_upload }}
+                                        </p>
                                     </div>
+
 
                                     <div class="blue-plate-container">
                                         <div class="blue-plate-line"></div>
@@ -87,7 +94,7 @@
                                         $same_benefit = array_intersect($benefit_ids, $post_ids);
                                         $benefit_items = array_slice($same_benefit, 0, 3);
                                     @endphp
-                                    <div class="flex justify-center py-6">
+                                    <div class="flex justify-center py-6 px-2">
                                         @php
                                             $showDivider = false;
                                         @endphp
@@ -119,10 +126,13 @@
                                     class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                     <div class="grid grid-cols-3 items-center">
-                                        <p class="text-white text-left  text-[16px]  ">ราคา</p>
-                                        <p class="text-white font-medium text-center 2xl:text-3xl text-2xl">{{ number_format( ($product->special_price > 0)?$product->special_price : $product->price_per_month ) }}</p>
-                                        <p class="text-white text-right text-[16px] ">บาท<br>/เดือน</p>
-
+                                        <p class="text-white text-left  text-[18px] ">ราคา
+                                        </p>
+                                        <p class="text-white font-medium text-center text-[35px] ">
+                                            {{ number_format($product->special_price > 0 ? $product->special_price : $product->price_per_month) }}
+                                        </p>
+                                        <p class="text-white text-right text-[18px]">
+                                            บาท/เดือน</p>
                                     </div>
                                 </div>
 

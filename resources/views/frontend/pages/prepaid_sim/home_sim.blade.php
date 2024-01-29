@@ -11,7 +11,7 @@
     <div class="2xl:mt-16 mt-[1rem]">
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container pt-4 px-3">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto  w-[90%] max-2xl:w-4/5 max-lg:w-full ">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -20,7 +20,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[18px]">ทรู ซิมเติมเงิน และ แพ็กเกจเสริม
+                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[16px]">ทรู ซิมเติมเงิน และ แพ็กเกจเสริม
                         ทั้งเน็ตและโทร</p>
                 </div>
                 <div class="plate-box-e">
@@ -40,12 +40,12 @@
                 <div class="mb-10 ">
                     <p class="text-[#000] mt-2 mb-2 2xl:text-[2rem] xl:text-[25px] text-[22px] z-50 font-medium">
                         {{ $cate->cate_title }}</p>
-                    <p class="text-[#838383] mt-2 mb-2 2xl:text-[20px] xl:text-[18px] text-[16px] z-50">
+                    <p class="text-[#838383] mt-2  2xl:text-[20px] xl:text-[18px] text-[16px] z-50">
                         {{ $cate->cate_description }}</p>
                 </div>
                 @if ($cate->id == 17)
                     <div class="2xl:my-16 my-4 z-2 w-full">
-                        <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
+                        <div class=" w-[90%] max-2xl:w-4/5 max-lg:w-full my-0 mx-auto flex justify-center ">
                             <div class="swiper swiper1 flex justify-center items-center mx-auto w-full">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
@@ -56,7 +56,8 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
                                         <div class="swiper-slide flex justify-center items-center">
-                                            <div class="drop-shadow-md py-4 w-[350px] max-xx:w-[330px] max-es:w-[300px] h-[100%]">
+                                            <div
+                                                class="drop-shadow-md py-4 w-[350px] max-xx:w-[330px] max-es:w-[300px] h-[100%]">
                                                 <div
                                                     class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
@@ -81,23 +82,32 @@
                                                         {{ $prepaid->details }}</p>
                                                 </div>
 
+
                                                 <div
-                                                    class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
+                                                    class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
-                                                    <div class="grid grid-cols-3">
-                                                        <p class="text-white text-left text-[16px] ">ราคา <br> เริ่มต้น</p>
-                                                        <p
-                                                            class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                                            {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}
+                                                    <div class="grid grid-cols-3 items-center">
+                                                        <p class="text-white text-left text-[18px] pt-1 ">
+                                                            ราคาเริ่มต้น
                                                         </p>
-                                                        <p class="text-white text-right text-[16px]">บาท <br> /เดือน</p>
+                                                        <p class="flex items-center flex-col">
+                                                            <span class="text-white font-medium text-center text-[35px]">
+                                                                {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</span>
+                                                        </p>
+                                                        <p class="text-white text-right text-[18px] pt-1 ">บาท/เดือน
+                                                        </p>
+
                                                     </div>
                                                 </div>
 
-                                                <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 items-center">
+                                                <div
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 items-center">
                                                     {{-- <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" class="cursor-pointer py-2  px-6 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a> --}}
-                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}" data-id="{{ $prepaid->prepaid_sim_id }}" data-type="4" prepaid_id="{{ $prepaid->prepaid_sim_id }}" class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
+                                                    <a href="{{ url('/prepaid_sim/buy_sim/' . $prepaid->id) }}"
+                                                        data-id="{{ $prepaid->prepaid_sim_id }}" data-type="4"
+                                                        prepaid_id="{{ $prepaid->prepaid_sim_id }}"
+                                                        class="cursor-pointer py-2 px-10  mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ซื้อเลย</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,7 +123,7 @@
                     </div>
                 @else
                     <div class="2xl:my-16 my-4 z-2 w-full">
-                        <div class="max-w-[1548px] my-0 mx-auto flex justify-center ">
+                        <div class=" w-[90%] max-2xl:w-4/5 max-lg:w-full my-0 mx-auto flex justify-center ">
                             <div class="swiper swiper2 flex justify-center items-center mx-auto w-full">
                                 @php
                                     $justify = 'justify-center max-xs:justify-start';
@@ -124,55 +134,60 @@
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
 
                                     @foreach ($package as $pack)
-                                       
-                                            <div class="swiper-slide flex justify-center items-center">
-                                                <div class="drop-shadow-md py-4 w-[350px] max-xx:w-[330px] max-es:w-[300px] h-[100%]">
-                                                    <div
-                                                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
-                                                        {{-- <div class="flex justify-start items-center"> --}}
-                                                        <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ
-                                                            เล่นเน็ตไม่อั้น
-                                                            ใช้ได้ไม่จำกัด</p>
-                                                        <img class=" absolute right-0 top-0"
-                                                            src="/images/circle/Intersect.png" alt="">
-                                                        {{-- </div> --}}
+                                        <div class="swiper-slide flex justify-center items-center">
+                                            <div
+                                                class="drop-shadow-md py-4 w-[350px] max-xx:w-[330px] max-es:w-[300px] h-[100%]">
+                                                <div
+                                                    class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                                    {{-- <div class="flex justify-start items-center"> --}}
+                                                    <p class="text-white text-left ml-3 text-[16px]">ซิมเทพ
+                                                        เล่นเน็ตไม่อั้น
+                                                        ใช้ได้ไม่จำกัด</p>
+                                                    <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png"
+                                                        alt="">
+                                                    {{-- </div> --}}
 
-                                                    </div>
+                                                </div>
 
-                                                    <div
-                                                        class="bg-[#F8F9FA] flex flex-col justify-center items-center py-2  h-[150px]">
-                                                        <p class="text-[18px]">เน็ต</p>
-                                                        <p class="text-[30px] font-medium">{{ $pack->title }} /
-                                                            {{ $pack->lifetime }}วัน</p>
-                                                    </div>
+                                                <div
+                                                    class="bg-[#F8F9FA] flex flex-col justify-center items-center py-2  h-[150px]">
+                                                    <p class="text-[18px]">เน็ต</p>
+                                                    <p class="text-[30px] font-medium">{{ $pack->title }} /
+                                                        {{ $pack->lifetime }}วัน</p>
+                                                </div>
 
-                                                    <div
-                                                        class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D] py-3 px-2 items-center">
-                                                        <img class=" absolute left-0 bottom-0"
-                                                            src="/images/circle/Intersect (2).png" alt="">
-                                                        <div class="grid grid-cols-3 items-center">
-                                                            <p class="text-white text-left text-[16px] ">ราคา</p>
-                                                            <p
-                                                                class="text-white font-medium text-center 2xl:text-3xl md:text-[2rem] pt-3 text-2xl">
-                                                                {{ number_format($pack->price) }}</p>
-                                                            <p class="text-white text-right text-[16px]">บาท <br>
-                                                                แบบรายครั้ง</p>
-                                                        </div>
-                                                    </div>
 
-                                                    <div
-                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
-                                                        <a href="{{ url('/prepaid_sim/buy_package/' . $pack->id) }}"
-                                                            class="cursor-pointer py-2 px-6 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                        <a href="tel:{{ $pack->package_code }}"
-                                                            class="cursor-pointer py-2 px-10 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+                                                <div
+                                                    class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
+                                                    <img class=" absolute left-0 bottom-0"
+                                                        src="/images/circle/Intersect (2).png" alt="">
+                                                    <div class="grid grid-cols-3 items-center">
+                                                        <p class="text-white text-left text-[18px] pt-1 ">
+                                                            ราคา
+                                                        </p>
+                                                        <p class="flex items-center flex-col">
+                                                            <span class="text-white font-medium text-center text-[35px]">
+                                                                {{ number_format($pack->price) }}</span>
+                                                        </p>
+                                                        <p class="text-white text-right text-[18px] pt-1 ">
+                                                            บาท<br>/แบบรายครั้ง
+                                                        </p>
 
                                                     </div>
                                                 </div>
+
+                                                <div
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
+
+                                                    <a href="{{ url('/prepaid_sim/buy_package/' . $pack->id) }}"
+                                                        class="cursor-pointer py-2 px-6 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                    <a href="tel:{{ $pack->package_code }}"
+                                                        class="cursor-pointer py-2 px-10 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>
+
+                                                </div>
                                             </div>
-                                            
-                                       
+                                        </div>
                                     @endforeach
                                 </div>
 

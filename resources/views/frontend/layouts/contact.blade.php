@@ -1,13 +1,13 @@
-<div class="fixed  bottom-2 md:bottom-10 right-0  z-50  flex flex-col mx-2" id="contact">
+<div class="fixed   lg:bottom-10 bottom-[12.5rem] max-ex:bottom-[1.5rem] right-0  z-50  flex flex-col mx-2" id="contact">
     <div class="flex flex-col-reverse relative">
 
         <div class=" flex justify-center max-es:justify-end flex-col  items-center mt-2 w-[160px] ">
-            <div class="md:relative cursor-pointer" id="contact_button">
-                <div class="w-[80px] h-[80px] max-md:hidden  ">
+            <div class="relative cursor-pointer" id="contact_button">
+                <div class="w-[90px] h-[90px]  ">
                     <img src="/images/Ellipse 33.png" alt="" class="bg-white rounded-full w-full h-full">
                 </div>
                 <p
-                    class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg w-[80px] max-md:w-[100px] flex justify-center max-sm:text-sm text-center md:absolute md:top-[90%]">
+                    class="bg-red-500 bg-gradient-to-r from-[#EC1F25] to-[#CD1A70] rounded-md text-white py-1 px-8 text-lg w-[80px] max-md:w-[90px] flex justify-center max-sm:text-sm text-center absolute top-[80%]">
                     ติดต่อ
                 </p>
             </div>

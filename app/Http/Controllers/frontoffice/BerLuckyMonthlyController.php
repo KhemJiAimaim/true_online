@@ -19,6 +19,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\BerMonthlyImportClass;
 use App\Exports\BerproductMonthlyExport;
 use App\Models\BerluckyPackage;
+use App\Models\BerproductAlover;
 use Maatwebsite\Excel\Concerns\ToModel;
 use PhpOffice\PhpSpreadsheet\Calculation\Statistical\Distributions\F;
 
@@ -92,7 +93,7 @@ class BerLuckyMonthlyController extends Controller
 
         // $slc_package = Post::where('category', 'LIKE', '%8%')->get();
 				$packages = BerluckyPackage::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
-				// dd($package);
+				$networks = Bernetwork::where('display', 'yes')->get();
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
         return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'packages', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
     }
@@ -369,12 +370,12 @@ class BerLuckyMonthlyController extends Controller
     {
 
         $file = $request->file('excel_file');   // รับไฟล์จาก request
-		$excelData = Excel::toArray([], $file);
-
-		return response()->json([
-			'status' => 'success',
-			'data' => $excelData,
-		]);
+				$excelData = Excel::toArray([], $file);
+				dd($excelData[0]);
+				// return response()->json([
+				// 	'status' => 'success',
+				// 	'data' => $excelData,
+				// ]);
 
         // เอาไว้ debug ดูข้อมูลในไฟล์ excel
         // ข้อมูลไม่ควรเกิน 100 row
@@ -500,7 +501,7 @@ class BerLuckyMonthlyController extends Controller
 
 			/* ********* section 1 แปลงข้อมูลเข้าแต่ละ function ************ */  
 			$var_case = $this->prepare_Byset_variable_condition($allBer,$approve); 
-
+		
 			/* ********** section 2 ส่วนของการกรองข้อมูลออก ***************** */ 
 			$case = $this->prepare_Byset_filter_condition($var_case,$approve);  
 
@@ -587,22 +588,22 @@ class BerLuckyMonthlyController extends Controller
 					$len3 = count($condition3[$con3]); 
 				}else{
 					$len3  = 0;
-                }
-                if(substr($con3,0,1) != substr($con3,1,1)){
-                    $condition3[$con3][$len3]['id'] = $vals->product_id;
-                    $condition3[$con3][$len3]['price'] = $vals->product_price;
-                    $condition3[$con3][$len3]['numb'] = $vals->product_phone; 
-                    $condition3[$con3][$len3]['sumber'] = $vals->product_sumber; 
-                    $condition3[$con3][$len3]['comment'] = $vals->product_comment;   
-                    $condition3[$con3][$len3]['package'] = $vals->product_package;   
-                    // $condition3[$con3][$len3]['network'] = $vals->product_network;   
-                    $condition3[$con3][$len3]['discount'] = $vals->product_discount;
-                    $condition3[$con3][$len3]['grade'] = $vals->product_grade;   
-                    $condition3[$con3][$len3]['p_price'] = $vals->product_price;  
-                    $condition3[$con3][$len3]['monthly'] = $vals->monthly_status;  
-                    $condition3[$con3][$len3]['pp'] = $setA.$setB;   
-                    $condition3[$con3][$len3]['value'] = $con3; 
-                }
+						}
+						if(substr($con3,0,1) != substr($con3,1,1)){
+							$condition3[$con3][$len3]['id'] = $vals->product_id;
+							$condition3[$con3][$len3]['price'] = $vals->product_price;
+							$condition3[$con3][$len3]['numb'] = $vals->product_phone; 
+							$condition3[$con3][$len3]['sumber'] = $vals->product_sumber; 
+							$condition3[$con3][$len3]['comment'] = $vals->product_comment;   
+							$condition3[$con3][$len3]['package'] = $vals->product_package;   
+							// $condition3[$con3][$len3]['network'] = $vals->product_network;   
+							$condition3[$con3][$len3]['discount'] = $vals->product_discount;
+							$condition3[$con3][$len3]['grade'] = $vals->product_grade;   
+							$condition3[$con3][$len3]['p_price'] = $vals->product_price;  
+							$condition3[$con3][$len3]['monthly'] = $vals->monthly_status;  
+							$condition3[$con3][$len3]['pp'] = $setA.$setB;   
+							$condition3[$con3][$len3]['value'] = $con3; 
+						}
 			}
 			#case4
 			if(isset($approve['c4'])){ 
@@ -1352,20 +1353,23 @@ class BerLuckyMonthlyController extends Controller
 					} 
 				}
 			}   
-
 			#insert category 3 
 			if(!empty($idArr_1)){ 
 				$idIn =''; 
 				foreach($idArr_1 as $vals){  $idIn .= $vals.','; } 
 				$idIn = substr($idIn,0,-1); 
+				// dd($idIn);
 				$table = "berproduct_monthlies";
 				$set = "CONCAT(product_category, '3,')";
-				$where = "product_id IN ($idIn)";
+				// $where = "product_id IN ($idIn)";
 
 				$ret['cate3'] = DB::table($table)
 					->whereIn('product_id', explode(',', $idIn))
 					->update(['product_category' => DB::raw($set)]);
 				// dd($listBer);
+
+				// delete old data before new up load
+        BerproductAlover::truncate();
 
 				$ret['lover3'] = DB::table('berproduct_alovers')->insert($listBer);
 				// dd($ret['lover3']);
@@ -1547,10 +1551,10 @@ class BerLuckyMonthlyController extends Controller
 				$idIn2 = substr($idIn2,0,-1); 
 				$table = "berproduct_monthlies";
 				$set = "CONCAT(product_category, '4,')";
-				$where = "product_id IN ($idIn2)";
+				// $where = "product_id IN ($idIn2)";
 
 				$ret['cate4'] = DB::table($table)
-					->whereIn('product_id', explode(',', $idIn))
+					->whereIn('product_id', explode(',', $idIn2))
 					->update(['product_category' => DB::raw($set)]);
 				$ret['lover4'] = DB::table('berproduct_alovers')->insert($listBer2);
 				// dd($ret['cate4']);

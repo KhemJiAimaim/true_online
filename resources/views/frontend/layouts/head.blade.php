@@ -1,18 +1,8 @@
-<style>
-    /* Define the style for the active class */
-    .active {
-        color: #EC1F25 !important;
-    }
 
-    .submenu {
-        width: 100%;
-        /* กำหนดความกว้างเริ่มต้นเป็น 100% */
-    }
-</style>
 <!-- nav goes here -->
 
-<nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed w-full top-0 z-50 ">
-    <div class=" max-uu:w-[1536px] xl:w-[1200px] mx-auto">
+<nav class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] fixed  top-0 z-50 w-full">
+    <div class="w-4/5 mx-auto">
         <div class="flex justify-between">
             <div class="flex space-x-4">
 
@@ -129,7 +119,7 @@
 
 
 <div class="bg-white drop-shadow-md fixed w-full top-20 z-40">
-    <div class="max-uu:w-[1536px] xl:w-[1200px] mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
+    <div class="w-4/5 mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
         <ul class="hidden lg:flex 2xl:flex relative list-none">
             @foreach ($main_cate as $m_cate)
                 <li class="group z-[99] {{ $m_cate->id == 2 ? 'flex-initial w-[22rem]' : 'flex-initial w-72' }}">
