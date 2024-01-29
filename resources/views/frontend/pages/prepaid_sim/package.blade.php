@@ -65,16 +65,16 @@
                             @if ($cate->id == $product->package_cate_id)
                                 {{-- @dd($cate->id) --}}
                                 <div
-                                    class="item flex justify-between 2xl:px-40  px-2 py-2 2xl:py-8 dm:px-4 xs:px-2  2xl:items-center">
-                                    <div class="text-left max-es:w-[9rem]">
+                                    class="item flex justify-between max-uu:px-40 max-lg:px-4 max-xs:px-2  max-uu:py-8  max-xs:py-2 items-center">
+                                    <div class="text-left ">
                                         <p class="2xl:text-lg md:text-[18px] xs:text-[16px] text-[14px] font-medium">
-                                            {{ $product->title }}</p>
+                                            {{ $product->title }}</p> 
                                         <p class="2xl:text-lg  md:text-[18px] xs:text-[16px] text-[14px] font-medium">
                                             {{ $product->details }}</p>
                                         <p class="2xl:text-lg text-gray-500 md:text-[16px] xs:text-[16px] text-[14px]">
                                             {{ $product->package_type }}</p>
                                     </div>
-                                    <div class="flex justify-center items-center gap-1  2xl:gap-4 md:gap-2 xs:gap-2">
+                                    <div class="flex justify-end items-center gap-1  2xl:gap-4 md:gap-2 xs:gap-2 w-full">
                                         <div class="border-l border border-[#838383] text-center py-4 rounded-full "></div>
                                         <p class="2xl:text-lg font-medium md:text-[18px]  xs:text-[16px] text-[14px]">
                                             {{ $product->lifetime }} วัน</p>
