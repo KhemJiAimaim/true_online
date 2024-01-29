@@ -118,14 +118,14 @@
                                                     @endphp
                                                     <div class="bg-white">
 
-                                                        <div class="flex justify-center py-2 ml-12 items-center">
-                                                            <p class="text-[70px] text-center font-medium">
+                                                        <div class="flex justify-center py-2  items-center">
+                                                            <p class="max-uu:text-[50px] max-lg:text-[70px]  font-medium">
                                                                 {{ $download }}</p>
                                                             <div
-                                                                class="border-l border border-gray-500 text-center mx-6 py-8 rounded-full">
+                                                                class="border-l border border-gray-500  mx-6 py-8 rounded-full">
                                                             </div>
-                                                            <p class="text-lg text-left text-[16px]">
-                                                                {{ $unit_download }}/{{ $upload }}{{ $unit_upload }}
+                                                            <p class="text-lg text-[16px]">
+                                                                {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
                                                             </p>
                                                         </div>
 
