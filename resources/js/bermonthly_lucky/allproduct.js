@@ -114,12 +114,12 @@ improve_ber.forEach(element => {
   element.addEventListener('click', () => {
     if (element.classList.contains('bg-gradient-to-r')) {
       // ถ้ามี class ที่เราต้องการเอาออก
-      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'selected');
+      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'text-white', 'selected');
       const img = element.querySelector('img');
       img.style.filter = '';
     } else {
       // ถ้ายังไม่มี class, เพิ่ม class และ style เข้าไป
-      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]','text-white', 'selected');
       const img = element.querySelector('img');
       img.style.filter = 'invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%)';
     }
@@ -132,12 +132,12 @@ cate_ber.forEach(element => {
   element.addEventListener('click', () => {
     if (element.classList.contains('bg-gradient-to-r')) {
       // ถ้ามี class ที่เราต้องการเอาออก
-      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' , 'selected');
+      element.classList.remove('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]' ,'text-white', 'selected');
       const img = element.querySelector('img');
       img.style.filter = '';
     } else {
       // ถ้ายังไม่มี class, เพิ่ม class และ style เข้าไป
-      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'selected');
+      element.classList.add('bg-gradient-to-r', 'from-[#EC1F25]', 'to-[#960004]', 'text-white', 'selected');
       const img = element.querySelector('img');
       img.style.filter = 'invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%)';
     }

@@ -7,7 +7,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto w-4/5 max-lg:w-full  ">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -39,13 +39,13 @@
                 @endforeach
             </div>
             <div class="pt-6 w-full">
-                <div
-                    class="max-w-[1536px] my-0 mx-auto flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
+                <div class="w-4/5 max-lg:w-full my-0 mx-auto flex flex-wrap justify-center px-4 gap-x-6 gap-y-6">
                     @foreach ($move_product as $product)
                         <div class="drop-shadow-md ">
-                            <div class="2xl:w-[480px] md:w-[424px] xl:w-[410px] w-[350px] max-md:w-[350px] h-[100%] ">
+                            <div
+                                class=" max-uu:w-[480px] py-4 max-yy:w-[360px]  max-xl:w-[400px] max-es:w-[310px] h-[100%] ">
                                 <div
-                                    class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative ">
+                                    class=" bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-tl-[10px] rounded-tr-[10px] py-2 relative">
                                     <p class="text-white text-left ml-3 text-[18px] max-md:text-[16px]">
                                         {{ $product->details }}</p>
                                     <img class=" absolute top-0 right-0" src="/images/circle/Intersect.png" alt="">
@@ -84,8 +84,10 @@
                                     @if ($product->voice_hd == true)
                                         <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                         <div class="flex items-center flex-col justify-center">
-                                            <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">{{$product->sim_gen}} HD Voice</p>
-                                            <p class="2xl:text-[1.2rem] text-[14px]">เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ {{$product->sim_gen}}</p>
+                                            <p class="font-bold 2xl:text-[1.5rem] text-[1rem]">{{ $product->sim_gen }} HD
+                                                Voice</p>
+                                            <p class="2xl:text-[1.2rem] text-[14px]">เสียงโทรคมชัดยิ่งขึ้นแบบสัญญาณ
+                                                {{ $product->sim_gen }}</p>
                                         </div>
                                     @endif
                                 </div>
@@ -98,7 +100,8 @@
                                                 <div class="orange-plate-textboxS"></div>
                                             </div>
                                             <div class="orange-plate-textboxC">
-                                                <p class="orange-plate-text text-white text-[18px] max-md:text-[16px]">รับเพิ่ม</p>
+                                                <p class="orange-plate-text text-white text-[18px] max-md:text-[16px]">
+                                                    รับเพิ่ม</p>
                                             </div>
                                             <div class="orange-plate-box-e">
                                                 <div class="orange-plate-textboxE"></div>
@@ -121,10 +124,10 @@
                                             @foreach ($posts as $pos)
                                                 @if ($pos->id == $item)
                                                     <div class="grid grid-cols-[1fr] gap-2">
-                                                        <div class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
+                                                        <div
+                                                            class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
                                                             <img class="w-full h-full object-contain"
-                                                                src="/{{ $pos->thumbnail_link }}"
-                                                                alt="">
+                                                                src="/{{ $pos->thumbnail_link }}" alt="">
                                                         </div>
 
                                                         {{-- <div class="border"></div> --}}
@@ -147,10 +150,12 @@
 
                                         <p class="text-white text-left text-[18px] max-md:text-[16px] ">ราคา</p>
                                         <p class="text-center flex flex-col">
-                                            @if(($product->discount > 0))
-                                            <span class="line-through text-gray-100">{{ number_format($product->price) }}</span>
+                                            @if ($product->discount > 0)
+                                                <span
+                                                    class="line-through text-gray-100">{{ number_format($product->price) }}</span>
                                             @endif
-                                            <span class="text-white font-medium text-3xl">{{ number_format(($product->discount > 0)? $product->discount : $product->price) }}</span>
+                                            <span
+                                                class="text-white font-medium text-3xl">{{ number_format($product->discount > 0 ? $product->discount : $product->price) }}</span>
                                         </p>
                                         <p class="text-white text-right text-[18px] max-md:text-[16px]  ">บาท <br> /เดือน
                                         </p>
@@ -158,12 +163,15 @@
                                     </div>
                                 </div>
 
-                                <div class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center px-4 gap-3">
+
+                                <div
+                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-2 px-2 gap-3">
 
                                     <button id="btn-termOfService" data-id="{{ $product->id }}"
-                                        class="cursor-pointer py-2 xl:px-2 px-4  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ข้อกำหนดและเงือนไข</button>
-                                    <a href="{{ url('/movedetail/'.$product->move_cate_id.'/'.$product->id) }}"
-                                        class="cursor-pointer py-2 max-md:px-10 px-16  mb-2 mt-2 text-[18px] max-md:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
+                                        class="cursor-pointer w-full py-2.5 px-2  max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] max-yy:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ข้อกำหนดและเงื่อนไข</button>
+
+                                    <a href="{{ url('/movedetail/' . $product->move_cate_id . '/' . $product->id) }}"
+                                        class="cursor-pointer w-full py-2.5 px-1  max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] max-yy:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white ">ย้ายเลย</a>
 
                                 </div>
                             </div>

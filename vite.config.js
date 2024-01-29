@@ -5,6 +5,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+                
                     'resources/css/app.css', 
                     'resources/css/fiber_detail.css', 
                     'resources/css/fiber.css', 
@@ -14,6 +15,9 @@ export default defineConfig({
                     'resources/css/travel.css', 
                      
                     'resources/js/app.js',
+
+                    'resources/js/header/header.js',
+                    
                     'resources/js/bootstrap.js',
                     'resources/js/contacts.js',
                     

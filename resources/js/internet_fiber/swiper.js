@@ -29,7 +29,12 @@ var swiper = new Swiper('.swiper1', {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        1536: {
+        1539: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+            centerSlide: true,
+        },
+        1600: {
             slidesPerView: 4,
             spaceBetween: 15,
             centerSlide: true,
@@ -68,7 +73,12 @@ var swiper = new Swiper('.swiper2', {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        1536: {
+        1539: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+            centerSlide: true,
+        },
+        1600: {
             slidesPerView: 4,
             spaceBetween: 15,
             centerSlide: true,
@@ -108,7 +118,12 @@ var swiper = new Swiper('.swiper3', {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        1536: {
+        1539: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+            centerSlide: true,
+        },
+        1600: {
             slidesPerView: 4,
             spaceBetween: 15,
             centerSlide: true,
@@ -147,7 +162,12 @@ var swiper = new Swiper('.swiper4', {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        1536: {
+        1539: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+            centerSlide: true,
+        },
+        1600: {
             slidesPerView: 4,
             spaceBetween: 15,
             centerSlide: true,
@@ -186,7 +206,12 @@ var swiper = new Swiper('.swiper5', {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        1536: {
+        1539: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+            centerSlide: true,
+        },
+        1600: {
             slidesPerView: 4,
             spaceBetween: 15,
             centerSlide: true,
@@ -225,7 +250,12 @@ var swiper = new Swiper('.swiper6', {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        1536: {
+        1539: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+            centerSlide: true,
+        },
+        1600: {
             slidesPerView: 4,
             spaceBetween: 15,
             centerSlide: true,
@@ -264,7 +294,12 @@ var swiper = new Swiper('.swiper7', {
             slidesPerView: 3,
             spaceBetween: 20,
         },
-        1536: {
+        1539: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+            centerSlide: true,
+        },
+        1600: {
             slidesPerView: 4,
             spaceBetween: 15,
             centerSlide: true,
