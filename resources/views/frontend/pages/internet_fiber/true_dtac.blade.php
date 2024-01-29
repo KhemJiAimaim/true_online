@@ -62,11 +62,11 @@
                                 <div class="bg-white">
                                     <div class="flex justify-center py-2  items-center">
                                         <p class="max-uu:text-[50px] max-lg:text-[70px] text-center font-medium">
-                                            {{ $download }}000</p>
+                                            {{ $download }}</p>
                                         <div class="border-l border border-gray-500 text-center mx-6 max-xs:mx-2 py-8 rounded-full">
                                         </div>
                                         <p class="text-lg text-left text-[16px]">
-                                            {{ $unit_download }}<br>/{{ $upload }}000{{ $unit_upload }}
+                                            {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
                                         </p>
                                     </div>
 
