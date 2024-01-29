@@ -569,6 +569,7 @@ class BerLuckyController extends BaseController
     {
         $validator = Validator::make($request->all(), [
             'title' => 'string|required',
+            'details' => 'string|required',
             'price_per_month' => 'numeric|required',
             'call_credit' => 'numeric|required',
             'internet_volume' => 'string|nullable',
@@ -590,6 +591,7 @@ class BerLuckyController extends BaseController
 
             BerluckyPackage::create($request->only([
                 'title',
+                'details',
                 'price_per_month',
                 'internet_volume',
                 'call_credit',
@@ -621,6 +623,7 @@ class BerLuckyController extends BaseController
         $validator = Validator::make($request->all(), [
             'id' => 'required',
             'title' => 'string|required',
+            'details' => 'string|required',
             'price_per_month' => 'numeric|required',
             'call_credit' => 'numeric|required',
             'internet_volume' => 'string|nullable',
@@ -652,6 +655,7 @@ class BerLuckyController extends BaseController
 
             $package->update([
                 'title' => $request->title,
+                'details' => $request->details,
                 'price_per_month' => $request->price_per_month,
                 'internet_speed' => $request->internet_speed,
                 'internet_volume' => $request->internet_volume,
