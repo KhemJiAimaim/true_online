@@ -10,6 +10,8 @@ use App\Models\BerproductGrade;
 
 class BerMonthlyImportClass implements ToModel, WithStartRow
 {
+    private $list_ber = []; // สร้างอาร์เรย์เพื่อเก็บข้อมูลที่ได้จาก Excel
+
     /**
      * @return int
      */
@@ -25,7 +27,7 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
      */
     public function model(array $row)
     {
-
+        // dd($row);
         /* ดึงข้อมูล PredictCate Want & Unwant comment */
         $this->getPredictWantUnwantArr();
 
@@ -41,26 +43,29 @@ class BerMonthlyImportClass implements ToModel, WithStartRow
         } else {
             $sum = $row[1];
         }
-        // dd($row);
-        new BerproductMonthly([
+
+        $berproductMonthly = new BerproductMonthly([
             'product_phone' => $row[0],
             'product_sumber' => $sum,
+            'product_network' =>  $row[3],
             'product_price' => $row[2],
-            'product_category' => ',' . $row[3] . ',',
+            'product_category' => ',' . $row[4] . ',',
             'product_improve' => $improve,
-            'product_pin' => $row[4] = ($row[4] == "") ? "no" : $row[4],
-            'product_sold' => $row[5] = ($row[5] == "") ? "no" : $row[5],
-            'product_new' => $row[6] = ($row[6] == "") ? "no" : $row[6],
-            'product_comment' => $row[7],
-            'product_package' => $row[8],
-            'product_discount' => $row[10] = ($row[10] == "") ? 0 : $row[10],
+            'product_pin' => $row[5] = ($row[5] == "") ? "no" : $row[5],
+            'product_sold' => $row[6] = ($row[6] == "") ? "no" : $row[6],
+            'product_new' => $row[7] = ($row[7] == "") ? "no" : $row[7],
+            'product_comment' => $row[8],
+            'product_package' => $row[9],
+            'product_discount' => $row[11] = ($row[11] == "") ? 0 : $row[11],
             'product_grade' => $grade,
-            'default_cate' => $row[3],
+            'default_cate' => $row[4],
             'product_display' => "yes",
-            'monthly_status' => $row[11] = ($row[11] == "") ? "no" : $row[11],
+            'monthly_status' => $row[12] = ($row[12] == "") ? "no" : $row[12],
         ]);
-
-        // return $product;
+    
+        $berproductMonthly->save(); // บันทึกข้อมูล
+        
+        return null;
     }
 
     public function generate_grade($tel)

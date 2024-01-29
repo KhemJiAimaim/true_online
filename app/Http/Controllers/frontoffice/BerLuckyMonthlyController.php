@@ -95,7 +95,7 @@ class BerLuckyMonthlyController extends Controller
 				$packages = BerluckyPackage::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
 				$networks = Bernetwork::where('display', 'yes')->get();
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
-				dd($berproducts);
+				// dd($berproducts);
 
         return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'networks', 'berproduct_cates', 'packages', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
     }
@@ -372,40 +372,61 @@ class BerLuckyMonthlyController extends Controller
     {
 
         $file = $request->file('excel_file');   // รับไฟล์จาก request
-				$excelData = Excel::toArray([], $file);
-				dd($excelData[0]);
-				// return response()->json([
-				// 	'status' => 'success',
-				// 	'data' => $excelData,
-				// ]);
+				$rawexcelData = Excel::toArray([], $file);
+				$excelData = $rawexcelData[0]; // เข้าถึงอาร์เรย์ข้อมูลในชั้นลึกที่ 0
+				$excelData = array_slice($excelData, 1); // ตัดแถวแรกที่ไม่ต้องการออก
 
-        // เอาไว้ debug ดูข้อมูลในไฟล์ excel
-        // ข้อมูลไม่ควรเกิน 100 row
-        // $importedData = Excel::toArray(new class implements ToModel {
-        //     public function model(array $row)
-        //     {
-        //         return new BerproductMonthly([
-        //             'product_phone' => $row[8], // A1
-        //             'price' => $row[9], // B1
-        //             'network' => $row[10], // C1
-        //             'sold' => $row[11], // D1
-        //             'new' => $row[12], // E1
-        //             'comment' => $row[13], // F1
-        //             'discount' => $row[14], // G1
-        //             'monthly' => $row[15], // H1
-        //         ]);
-        //     }
-        // }, $file);
-        // dd($importedData);
+				// delete old data before new up load
+        BerproductMonthly::truncate();
 
-        // delete old data before new up load
-        // BerproductMonthly::truncate();
+				$list_ber = array();
+				/* ดึงข้อมูล PredictCate Want & Unwant comment */
+				$this->getPredictWantUnwantArr();
 
+				foreach ($excelData as $row) {
+					// เตรียมข้อมูล
+					$pp = substr($row[0], 3, 10);
+					$improve = $this->getProductByCategoryPredict($pp);
+					$grade = ($row[9] == "") ? $this->generate_grade($row[0]) : $row[9];
+
+					if ($row[1] == "") {
+							$telArray = str_split($row[0]);
+							$telArray = array_map('intval', $telArray);
+							$sum = array_sum($telArray);
+					} else {
+							$sum = $row[1];
+					}
+
+					$list_ber[] = [
+						'product_phone' => $row[0],
+            'product_sumber' => $sum,
+            'product_network' =>  $row[3],
+            'product_price' => $row[2],
+            'product_category' => ',' . $row[4] . ',',
+            'product_improve' => $improve,
+            'product_pin' => $row[5] = ($row[5] == "") ? "no" : $row[5],
+            'product_sold' => $row[6] = ($row[6] == "") ? "no" : $row[6],
+            'product_new' => $row[7] = ($row[7] == "") ? "no" : $row[7],
+            'product_comment' => $row[8],
+            'product_package' => $row[9],
+            'product_discount' => $row[11] = ($row[11] == "") ? 0 : $row[11],
+            'product_grade' => $grade,
+            'default_cate' => $row[4],
+            'product_display' => "yes",
+            'monthly_status' => $row[12] = ($row[12] == "") ? "no" : $row[12],
+					];
+				}	
+
+				foreach (array_chunk($list_ber, 1000) as $chunk) {
+					BerproductMonthly::insert($chunk);
+				}
+		
+        
         // method import new ber
         // Excel::import(new BerMonthlyImportClass, $file);
 
         // generate product_category
-        // $this->getProductByCategory();
+        $this->getProductByCategory();
 
         //จัดหมวดหมู่ตามสูตร หมวดเบอร์คู่รัก และ หมวดเบอร์ห่าม - xxyy #automatic
         // $this->getProductByCategoryBySet();
@@ -416,12 +437,102 @@ class BerLuckyMonthlyController extends Controller
         ], 201);
     }
 
+		public function getPredictWantUnwantArr()
+    {
+        global $predictArr;
+        $numbcates = DB::select("SELECT * FROM berpredict_numbcates ORDER BY numbcate_id ASC");
+        if (!empty($numbcates)) {
+            $predictArr = array();
+            foreach ($numbcates as $nnn) {
+                if (!isset($predictArr[$nnn->numbcate_id]['id'])) {
+                    $predictArr[$nnn->numbcate_id]['id'] = $nnn->numbcate_id;
+                    $predictArr[$nnn->numbcate_id]['numbcate_id'] = $nnn->numbcate_id;
+                    $predictArr[$nnn->numbcate_id]['wanted'] = explode(",", $nnn->numbcate_want);
+                    $predictArr[$nnn->numbcate_id]['unwanted'] = explode(",", $nnn->numbcate_unwant);
+                }
+            }
+        }
+    }
+
+		public static function getProductByCategoryPredict($pp)
+    {
+        global $predictArr;
+        if (isset($pp)) {
+            $improve = ",";
+            foreach ($predictArr as $predVal) {
+                $founded = "";
+                $wanted = $predVal['wanted'];
+                $unwanted = $predVal['unwanted'];
+                if (!empty($unwanted)) {
+                    foreach ($unwanted as $unw) {
+                        if ($unw == "") continue;
+                        $founded = strpos($pp, $unw);
+                        if ($founded) break;
+                    }
+                }
+                if (!empty($wanted) && $founded == "") {
+                    foreach ($wanted as $wan) {
+                        if ($wan == "") continue;
+                        $required = strpos($pp, $wan);
+                        if ($required) {
+                            $improve .= $predVal['id'] . ",";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return $improve;
+    }
+
+		public function generate_grade($tel)
+    {
+        $sub_tel = substr($tel, 3, 7);
+        if (strlen($sub_tel) == 7) {
+            $pos[1] = substr($sub_tel, 0, 2);
+            $pos[2] = substr($sub_tel, 1, 2);
+            $pos[3] = substr($sub_tel, 2, 2);
+            $pos[4] = substr($sub_tel, 3, 2);
+            $pos[5] = substr($sub_tel, 4, 2);
+            $pos[6] = substr($sub_tel, 5, 2);
+
+            $prophecies = DB::select("
+                    SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[1] UNION ALL
+                    SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[2] UNION ALL
+                    SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[3] UNION ALL
+                    SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[4] UNION ALL
+                    SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[5] UNION ALL
+                    SELECT * FROM `berpredict_prophecies` WHERE `prophecy_numb` = $pos[6] ");
+        }
+        $total_percet = 0;
+        foreach ($prophecies as $prophe) {
+            $total_percet += $prophe->prophecy_percent;
+        }
+        $total_score =  (($total_percet / 6) * 1000) / 100; // แปลงเปอร์เซ็น ให้เป็นคะแนนให้เต็ม 1000
+
+        if ($total_percet > 0) {
+            $grade = BerproductGrade::where('grade_display', 'yes')
+                ->where('grade_min', '<=', $total_score)
+                ->where('grade_max', '>=', $total_score)
+                ->orderBy('grade_max', 'desc')
+                ->first();
+        } else {
+            $grade = new \stdClass();
+            $grade->grade_name = 'F';
+        }
+
+        return $grade->grade_name;
+    }
+
+
+
     private function getProductByCategory()
     {
-        $reesultCate = BerproductCategory::where('bercate_id', '!=', 0)
+        $reesultCate = BerproductCategory::where('bercate_id', '!=', 1)
             ->where('status', '=', true)
             ->orderBy('priority', 'ASC')
             ->get();
+					dd($reesultCate);
 
         foreach ($reesultCate as $cateVal) {
             // DB::table('berproduct_monthlies')
