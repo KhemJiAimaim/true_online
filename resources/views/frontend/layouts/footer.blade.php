@@ -24,7 +24,7 @@
                 <a href="https://line.me/ti/p/~@berhoro"
                     class="flex items-center gap-2 hover:underline decoration-solid">
                     <div class=" max-w-[30px]">
-                        <img class="w-full" src="/icons/icons8-line-app (1) 6.png" alt="">
+                        <img class="w-full" src="/icons/line-white_0.png" alt="" class="w-full">
                     </div>
 
                     <p class="font-light
@@ -35,7 +35,7 @@
 
                 <a href="tel:0832289789" class="flex items-center gap-2 hover:underline decoration-solid">
                     <div class="max-w-[30px]">
-                        <img class="w-full" src="/icons/solar_outgoing-call-rounded-linear1.png" alt="">
+                        <img class="w-full" src="/icons/call-white_0.png" alt="" class="w-full">
                     </div>
                     <p class="font-light
                          ">
@@ -44,8 +44,8 @@
                 </a>
 
                 <a href="tel:1242" class="flex gap-2 hover:underline decoration-solid items-center">
-                    <div class=" max-w-[25px]">
-                        <img class="w-full" src="/icons/tools_1077198.png" alt="">
+                    <div class=" max-w-[30px]">
+                        <img class="w-full" src="/icons/exclamation-mark-white_0.png" alt="" class="w-full>
                     </div>
                     <p class="font-light
                         ">
