@@ -204,7 +204,7 @@
                         3.3 บริการส่งข้อความมัลติมีเดีย (MMS) ระหว่างโทรศัพท์เคลื่อนทีที่ใช้และจดทะเบียนภายในประเทศ ครั้งละ 4.50 บาท</p>';
         @endphp
 
-        <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10 "
+        <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-[99] "
             id="modal-container">
             <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] max-lg:p-2 p-4 bg-white rounded-[10px] mx-2">
                 <div class="w-full flex justify-end">

@@ -38,16 +38,33 @@
                 class="py-3 px-8 mb-2 mt-2 2xl:text-[20px] md:text-[18px] text-[16px] font-medium text-white focus:outline-none rounded-lg border {{ $month = $css_btnMonth == true ? 'bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  text-white hover:bg-gradient-to-br active' : 'bg-[#4f4f4f] hover:bg-gradient-to-r from-[#5642CD] to-[#00BCFF] hover:text-white' }}">รายเดือน</button>
         </div>
 
+        {{-- @dd($month) --}}
+
         @foreach ($cate_package as $cate)
             <section class="flex justify-center items-center my-8 px-4">
                 <div class="drop-shadow-md w-[1536px] mx-auto">
-
+                    {{-- @dd($cate) --}}
+{{-- 
+                    @if ($cate->data_type == 'paysim')
+                        <div
+                            class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D]   rounded-tl-[10px] rounded-tr-[10px] py-3 ">
+                            <p class="text-white text-center ml-3 2xl:text-[20px] md:text-[18px] text-[16px]">
+                                {{ $cate->title }}</p>
+                        </div>
+                    @elseif($cate->data_type == 'month')
+                        <div data-type="month"
+                            class="relative overflow-hidden bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   rounded-tl-[10px] rounded-tr-[10px] py-3 ">
+                            <p class="text-white text-center ml-3 2xl:text-[20px] md:text-[18px] text-[16px]">
+                                {{ $cate->title }}</p>
+                        </div>
+                    @endif --}}
                     <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] {{ $month = $css_btnMonth == true ? 'bg-gradient-to-r from-[#5642CD] to-[#00BCFF]' : '' }}  rounded-tl-[10px] rounded-tr-[10px] py-3 ">
+                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3 ">
                         <p class="text-white text-center ml-3 2xl:text-[20px] md:text-[18px] text-[16px]">
                             {{ $cate->title }}</p>
 
                     </div>
+
                     <div class="box-package rounded-bl-[10px] rounded-br-[10px]">
                         @foreach ($package_product as $product)
                             @if ($cate->id == $product->package_cate_id)
