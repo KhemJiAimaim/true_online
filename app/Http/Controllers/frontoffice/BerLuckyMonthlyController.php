@@ -93,7 +93,7 @@ class BerLuckyMonthlyController extends Controller
 
         // $slc_package = Post::where('category', 'LIKE', '%8%')->get();
 				$packages = BerluckyPackage::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
-				// dd($package);
+				$networks = Bernetwork::where('display', 'yes')->get();
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
         return view('frontend.pages.bermonthly_lucky.product_all', compact('berproducts', 'sumbers', 'berproduct_cates', 'packages', 'data_paginate', 'berpredict_numbcate', 'totalCount'));
     }
