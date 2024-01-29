@@ -59,12 +59,6 @@
                         </div>
                     @endif
 
-                    {{-- <div
-                        class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-3 ">
-                        <p class="text-white text-center ml-3 2xl:text-[20px] md:text-[18px] text-[16px]">
-                            {{ $cate->title }}</p>
-
-                    </div> --}}
 
                     <div class="box-package rounded-bl-[10px] rounded-br-[10px]">
                         @foreach ($package_product as $product)
@@ -72,7 +66,7 @@
                                 {{-- @dd($cate->id) --}}
                                 <div
                                     class="item flex justify-between 2xl:px-40  px-2 py-2 2xl:py-8 dm:px-4 xs:px-2  2xl:items-center">
-                                    <div class="text-left">
+                                    <div class="text-left max-es:w-[9rem]">
                                         <p class="2xl:text-lg md:text-[18px] xs:text-[16px] text-[14px] font-medium">
                                             {{ $product->title }}</p>
                                         <p class="2xl:text-lg  md:text-[18px] xs:text-[16px] text-[14px] font-medium">

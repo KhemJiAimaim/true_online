@@ -13,7 +13,7 @@
                     <a href="#{{ $cate->cate_url }} "
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                         <div class="flex-initial max-uu:w-[8rem] max-xs:w-[7rem] flex flex-col justify-center items-center">
-                            <img class="w-30 h-30 max-sm:w-[40px] mb-2" src="/{{ $cate->cate_thumbnail }}" alt="">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}" alt="">
                             <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
                         </div>
                     </a>
