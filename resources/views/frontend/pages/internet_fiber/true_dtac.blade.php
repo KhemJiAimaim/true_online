@@ -2,19 +2,22 @@
 
 @section('content')
     <div class="2xl:my-16 px-3">
-        <div class="overflow-x-scroll 2xl:overflow-hidden overflow-hidden py-2">
-            <div
-                class="grid grid-cols-7 px-3 py-6 se:w-[1000px] ss:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
+        <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+          
+            <div class="flex justify-center max-md:justify-start  gap-x-10  py-2  items-center mx-auto ">
                 @foreach ($cate_fiber as $cate)
                     <a href="{{ url($cate->cate_url) }}"
-                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out ">
+                        <div class="flex-initial w-[8rem] flex flex-col justify-center items-center">
+                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5 " src="/{{ $cate->cate_thumbnail }}"
                             alt="">
                         @foreach (explode(' ', $cate->cate_title) as $word)
                             <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
                         @endforeach
+                    </div>
                     </a>
                 @endforeach
+            
             </div>
         </div>
 
