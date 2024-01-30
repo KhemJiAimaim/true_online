@@ -82,32 +82,32 @@
 
     {{-- box package --}}
     <div class="w-[1536px] max-2xl:max-w-[90%] pt-6 mx-auto mb-6">
-
-        <div class="flex">
-            <button id="btn-package"
-                class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
-                แพ็กเกจ</button>
-            <button id="btn-condition"
-                class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
-        </div>
-        {{-- content detail --}}
-        <div id="box-package"
-            class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
-            <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
-            <div class="w-full lg:w-[320px] px-2 text-left">
-                {!! $travel_sim->details_content !!}
+        <div class="mx-4 max-2xl:mx-2">
+            <div class="flex">
+                <button id="btn-package"
+                    class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
+                    แพ็กเกจ</button>
+                <button id="btn-condition"
+                    class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
             </div>
-            <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
-                <button class="text-center text-[#EC1F25]" id="show">แสดงเพิ่มเติม ˅</button>
+            {{-- content detail --}}
+            <div id="box-package"
+                class="h-[300px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative">
+                <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
+                <div class="w-full lg:w-[320px] px-2 text-left">
+                    {!! $travel_sim->details_content !!}
+                </div>
+                <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] sticky bottom-0 py-1">
+                    <button class="text-center text-[#EC1F25]" id="show">แสดงเพิ่มเติม ˅</button>
+                </div>
+            </div>
+
+            {{-- content condition --}}
+            <div id="box-condition"
+                class="hidden bg-[#F8F9FA] text-left min-h-[300px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium  rounded-r-[10px] rounded-bl-[10px]">
+                {!! $travel_sim->terms_content !!}
             </div>
         </div>
-
-        {{-- content condition --}}
-        <div id="box-condition"
-            class="hidden bg-[#F8F9FA] text-left min-h-[300px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium  rounded-r-[10px] rounded-bl-[10px]">
-            {!! $travel_sim->terms_content !!}
-        </div>
-
     </div>
     {{-- box package --}}
 
@@ -115,28 +115,29 @@
 </div>
 
 
-<div class="bg-white drop-shadow-md items-center w-full" style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
-    <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
-        <div class="flex gap-4 items-center ">
-            <p class="2xl:text-lg text-[16px]">ราคา</p>
-            <p id="total-price" class="2xl:text-2xl text-[18px] font-bold">{{ $travel_sim->price }}</p>
-            <p class="2xl:text-lg text-[16px]">บาท</p>
-        </div>
-        <div class="border-l border border-[#838383] text-center py-8 mx-4 rounded-full max-xs:hidden"></div>
+<div class="bg-white drop-shadow-md items-center w-full " style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
+    <div class="flex items-center justify-center gap-x-4 gap-y-3 p-2 w-full max-xs:flex-wrap max-es:flex-col">
+        <div class="flex items-center justify-center gap-4">
+            <p class="text-[20px]">ราคา</p>
+            <p id="result-price" class="text-[40px] font-bold">{{ $travel_sim->price }}</p>
+            <p class="text-[20px]">บาท</p>
 
-        <div class="flex gap-2 ">
+        </div>
+        <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
+
+        <div class="flex gap-4 ">
             <button id="buyProductNow" data-type="6" data-id="{{ $travel_sim->id }}"
-                class="cursor-pointer flex items-center px-6 2xl:py-2 text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                class="cursor-pointer flex items-center px-8 2xl:py-2 text-md font-medium text-white text-[16px] focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
             <button id="addtocart" data-type="6" data-id="{{ $travel_sim->id }}"
-                class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-red-600">
                 <img src="/images/mdi_cart-arrow-down.png" alt=""
                     class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
             </button>
 
             <a href="https://line.me/ti/p/~@berhoro">
                 <div
-                    class="group rounded-full border border-green-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-green-600">
+                    class="group rounded-full border border-green-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-green-600">
                     <img src="/images/icons8-line-app (1) 6.png" alt=""
                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                 </div>
@@ -144,11 +145,11 @@
         </div>
 
     </div>
-</div>
 
-@include('frontend.pages.travel_sim.footer_sim')
+
+    @include('frontend.pages.travel_sim.footer_sim')
 @endsection
 
 @section('scripts')
-@vite('resources/js/travel/buy_sim.js')
+    @vite('resources/js/travel/buy_sim.js')
 @endsection

@@ -23,7 +23,7 @@
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container pt-4 px-3 ">
-            <div class="mx-auto 2xl:w-[1536px] xl:w-[1200px]  ">
+            <div class="mx-auto w-[90%] max-2xl:w-4/5 max-lg:w-full">
                 <div class="title-plate-line"></div>
             </div>
             <div class="plate-group">
@@ -32,7 +32,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px]  text-[16px] px-3 py-4">ซิม อันดับ 1
+                    <p class="plate-text yy:text-[1.5rem]  md:text-[20px]   text-[16px] px-3 py-4">ซิม อันดับ 1
                         สำหรับเดินทางท่องเที่ยวทั้งในประเทศ และ ต่างประเทศ</p>
                 </div>
                 <div class="plate-box-e">
@@ -54,11 +54,11 @@
                 </div>
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class="max-w-[1548px] my-0 mx-auto flex justify-center">
+                    <div class="w-4/5 max-2xl:max-w-[90%] max-lg:w-full my-0 mx-auto flex justify-center">
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
                             @php
                             $count = 0;
-                            $justify = 'justify-center max-xl:justify-start';
+                            $justify = 'justify-center max-2xl:justify-start';
 
                             foreach ($travel_sim as $sim) {
                                 if ($sim->travel_cate_id == $cate->id) {
@@ -74,7 +74,7 @@
                                     @if ($sim->travel_cate_id == $cate->id)
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div
-                                                class="drop-shadow-md py-4 2xl:w-[480px] xl:w-[380px] md:w-[390px] xs:w-[415px] w-[350px] max-md:w-[350px] h-[100%] ss:px-3">
+                                                class="drop-shadow-md py-4 w-[460px] max-yy:w-[360px]  max-xs:w-[310px] max-se:w-[300px] h-[100%] ">
                                                 <div
                                                     class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0 ">
 
@@ -85,7 +85,7 @@
                                                 </div>
 
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-4 mx-auto h-[230px] w-[180px] max-es:w-[150px]">
+                                                    <div class="flex justify-center py-4 mx-auto w-[180px] h-[200px] max-ex:w-[160px] max-ex:h-[180px]">
                                                         <img src="{{$sim->thumbnail_link}}" alt=""
                                                             class="w-full h-full object-contain">
                                                     </div>
@@ -364,42 +364,39 @@
                                                 @endif
                                                 <div
                                                     class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2 relative">
-                                                    <div class="grid grid-cols-3">
-                                                        <p
-                                                            class="text-white text-left text-[18px] max-es:text-[16px] mt-2">
-                                                            ราคา</p>
-                                                        <p class="text-white font-medium text-center text-3xl">
-                                                            {{ $sim->price }}</p>
-                                                        <p
-                                                            class="text-white text-right text-[18px] max-es:text-[16px]  mt-2">
-                                                            บาท
+                                                    <div class="flex justify-between items-center">
+                                                        <p class="text-white text-left text-[18px] max-xs:text-[16px] mt-2">ราคา</p>
+                                                        <p class="text-white font-medium text-center text-[50px]">{{ $sim->price }}</p>
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px] mt-2">บาท
                                                         </p>
-
                                                     </div>
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png">
                                                 </div>
 
                                                 <div
-                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px]   flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
-                                                    <div id="addBerToCart" data-id="{{ $sim->id }}" data-type="6"
-                                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center  ">
+                                                    <div id="addBerToCart" data-id="{{ $sim->id }}"
+                                                        data-type="{{ $cate->id }}"
+                                                        class="group rounded-full border border-red-500  w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px]    flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                                     </div>
-                                                    <a href="https://line.me/ti/p/~@berhoro">
+
+                                                    <a href="https://line.me/ti/p/~@berhoro"
+                                                        class="flex justify-center items-center">
                                                         <div
-                                                            class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                                            class="  group rounded-full border border-green-500 w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px]   p-2 hover:bg-green-600">
                                                             <img src="/images/icons8-line-app (1) 6.png" alt=""
                                                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                         </div>
                                                     </a>
 
-                                                    <a href="{{ url('/travel_sim_buy/' . $sim->id) }}"
-                                                        class="cursor-pointer flex items-center  lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button data-id="{{ $sim->id }}" data-type="6"
-                                                        id="buyProductNow"
-                                                        class="cursor-pointer flex items-center  lg:px-4  xl:px-6 ss:px-4 2xl:px-6 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                                    <a href="{{ url('/travel_sim_buy/' . $sim->id) }}" target="_blank"
+                                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-4  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                                    <button data-id="{{ $sim->id }}"
+                                                        data-type="{{ $cate->id }}" id="buyProductNow"
+                                                        class="cursor-pointer flex items-center py-2.5 px-12 max-uu:px-6  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
                                             </div>

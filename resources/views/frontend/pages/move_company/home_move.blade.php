@@ -55,7 +55,7 @@
                     <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">{{ $cate->details }}</p>
                 </div>
                 <div class="w-full">
-                    <div class="w-4/5 max-2xl:w-[90%] max-lg:w-full mx-auto flex justify-center">
+                    <div class="w-4/5 max-2xl:max-w-[90%] max-lg:w-full  mx-auto flex justify-center">
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full ">
                             @php
                                 $count = 0;

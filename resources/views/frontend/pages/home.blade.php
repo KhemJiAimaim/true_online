@@ -448,7 +448,7 @@
 
                                                 <div class="bg-white">
                                                     <div
-                                                        class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[160px] max-ex:h-[160px]">
+                                                        class="flex justify-center py-4 mx-auto w-[180px] h-[200px] max-ex:w-[160px] max-ex:h-[180px]">
                                                         <img src="/{{ $sim->thumbnail_link }}" alt=""
                                                             class="w-full h-full object-contain">
                                                     </div>

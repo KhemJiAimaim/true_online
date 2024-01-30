@@ -12,7 +12,8 @@
                     <a href="/{{ $cate->cate_url }}"
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-105 transition-all duration-500 ease-in-out">
                         <div class="flex-initial w-[10rem]  flex flex-col justify-center items-center">
-                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}" alt="">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
+                                alt="">
                             <p class="max-uu:text-[18px] max-xs:text-[16px]">{{ $cate->cate_title }}</p>
                         </div>
                     </a>
@@ -38,12 +39,12 @@
 
             <div class="pt-6 w-full">
                 <div
-                    class="max-w-[1536px] my-0 mx-auto 2xl:grid 2xl:grid-cols-3 flex flex-wrap justify-center items-center  px-4 gap-x-6 gap-y-6">
+                    class="w-4/5 max-2xl:max-w-[90%] max-lg:w-full my-0 mx-auto flex flex-wrap justify-center items-center  px-4 gap-x-6 gap-y-6">
 
                     @foreach ($travel_sim as $sim)
                         <div class="swiper-slide flex justify-center items-center">
                             <div
-                                class="drop-shadow-md 2xl:w-[480px] xl:w-[380px] md:w-[390px] xs:w-[415px] w-[350px] max-md:w-[350px] h-[100%] ss:px-3">
+                                class="drop-shadow-md py-4 w-[460px] max-yy:w-[360px]  max-xs:w-[310px] max-se:w-[300px] h-[100%]">
                                 <div
                                     class="relative overflow-hidden bg-gradient-to-r from-[#960004]  to-[#EC1F25] rounded-tl-[10px] rounded-tr-[10px] py-2 px-3 z-0 ">
 
@@ -59,7 +60,7 @@
                                 </div>
 
                                 <div
-                                    class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 h-[300px] overflow-scroll overflow-y-auto">
+                                    class="bg-[#F8F9FA] flex flex-col py-2 gap-y-2 p-3 h-[300px] max-xs:h-[240px] overflow-scroll overflow-y-auto">
                                     <div class=" flex gap-4">
                                         <img src="/images/travel/majesticons_sim-card-line.png" alt=""
                                             class=" w-[26px]">
@@ -187,36 +188,37 @@
                                 </div>
 
                                 <div class="bg-gradient-to-r from-[#960004]  to-[#EC1F25] py-3 px-2 relative">
-                                    <div class="grid grid-cols-3">
-                                        <p class="text-white text-left text-[18px] max-es:text-[16px] mt-2">ราคา</p>
-                                        <p class="text-white font-medium text-center text-3xl">{{ $sim->price }}</p>
-                                        <p class="text-white text-right text-[18px] max-es:text-[16px]  mt-2">บาท
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-white text-left text-[18px] max-xs:text-[16px] mt-2">ราคา</p>
+                                        <p class="text-white font-medium text-center text-[50px]">{{ $sim->price }}</p>
+                                        <p class="text-white text-right text-[18px] max-xs:text-[16px] mt-2">บาท
                                         </p>
-
                                     </div>
                                     <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png">
                                 </div>
 
                                 <div
-                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center py-1 md:px-0 lg:px-0 items-center gap-2">
-                                    <div id="addBerToCart" data-id="{{ $sim->id }}" data-type="6"
-                                        class="group rounded-full border border-red-500 mb-4 mt-2 mx-1 w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center  ">
+                                    <div id="addBerToCart" data-id="{{ $sim->id }}"
+                                        data-type="{{ $cate->id }}"
+                                        class="group rounded-full border border-red-500  w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px]    flex justify-center items-center p-2 hover:bg-red-600">
                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
-                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                     </div>
 
-                                    <a href="https://line.me/ti/p/~@berhoro">
+                                    <a href="https://line.me/ti/p/~@berhoro" class="flex justify-center items-center">
                                         <div
-                                            class="group rounded-full border border-green-500 mb-4 mt-2 mx-1 w-[45px] h-[45px] flex justify-center items-center p-2 hover:bg-green-600">
+                                            class="  group rounded-full border border-green-500 w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px]   p-2 hover:bg-green-600">
                                             <img src="/images/icons8-line-app (1) 6.png" alt=""
                                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                         </div>
                                     </a>
 
-                                    <a href="{{ url('/travel_sim_buy/' . $sim->id) }}"
-                                        class="cursor-pointer flex items-center lg:px-2 xl:px-4  ss:px-1 2xl:px-4 px-4 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2 mx-1 ss:mx-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                    <button data-id="{{ $sim->id }}" data-type="6" id="buyProductNow"
-                                        class="flex items-center lg:px-4  xl:px-6 ss:px-4 2xl:px-8 px-6 2xl:py-3 py-2 lg:mb-2 mb-4 lg:mt-0 mt-2  2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                    <a href="{{ url('/travel_sim_buy/' . $sim->id) }}" target="_blank"
+                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-4  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                    <button data-id="{{ $sim->id }}" data-type="{{ $cate->id }}"
+                                        id="buyProductNow"
+                                        class="cursor-pointer flex items-center py-2.5 px-12 max-uu:px-6  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                 </div>
 
                             </div>
