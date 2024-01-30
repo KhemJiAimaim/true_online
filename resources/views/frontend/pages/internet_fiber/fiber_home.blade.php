@@ -209,12 +209,12 @@
                                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
                                                         alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left  text-[20px] ">ราคา
+                                                        <p class="text-white text-left   text-[18px] max-xs:text-[16px]">ราคา
                                                         </p>
                                                         <p class="text-white font-medium text-center text-[50px] ">
                                                             {{ number_format($product->special_price > 0 ? $product->special_price : $product->price_per_month) }}
                                                         </p>
-                                                        <p class="text-white text-right text-[20px]">
+                                                        <p class="text-white text-right  text-[18px] max-xs:text-[16px]">
                                                             บาท/เดือน</p>
                                                     </div>
                                                 </div>

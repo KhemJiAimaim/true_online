@@ -51,24 +51,28 @@
 
                                 </div>
 
+                                
+                                
                                 <div class="bg-white flex items-center justify-center flex-col p-4 ">
                                     <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
                                     <div class="flex justify-between items-baseline w-full px-8">
-                                        <p class="text-[18px] max-md:text-[16px]">เน็ต</p>
-                                        <p class="text-[50px] text-[#F98E24] ">
+                                        <p class=" text-[18px] max-md:text-[16px]">เน็ต</p>
+
+                                        <p class="max-uu:text-[50px] max-xs:text-[30px] text-[#F98E24] ">
                                             {{ $product->internet_volume }}</p>
-                                        <p class="text-[18px] max-md:text-[16px]">GB</p>
+                                        <p class=" text-[18px] max-md:text-[16px]"> GB</p>
 
                                     </div>
                                     <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                     <div class="flex justify-between items-baseline w-full px-8">
                                         <p class="text-[18px] max-md:text-[16px]">โทร</p>
-                                        <p class="text-[50px] text-[#F98E24] ">{{ $product->call_minutes }}
-                                        </p>
+                                        <p class="max-uu:text-[50px] max-xs:text-[30px] text-[#F98E24] ">
+                                            {{ $product->call_minutes }} </p>
                                         <p class="text-[18px] max-md:text-[16px]">Mins</p>
 
                                     </div>
                                 </div>
+                                
                                 <div class="bg-gray-100 p-4 flex flex-col items-center gap-3">
                                     <div class="flex items-center justify-center gap-2">
                                         <img src="/images/arcticons_wifianalyzer (1).png" alt="">
