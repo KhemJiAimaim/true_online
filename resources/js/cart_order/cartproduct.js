@@ -139,6 +139,7 @@ submitBuy.addEventListener("click", () => {
     // return false;
 
     //  Check if any required field is empty
+
     const requiredFields = [
         firstname,
         lastname,
@@ -194,57 +195,128 @@ submitBuy.addEventListener("click", () => {
         }
     }
 
-     // Show the loader
-     document.getElementById("loader").style.display = "block";
+    Swal.fire({
+        title: "QR",
+        html: `<p>*** หลังจากชำระเงินแล้ว กรุณาติดต่อกลับที่ line Id:  @fibertrue หรือโทร 083-228-9789 เพื่อส่งเอกสารในการเปิดใช้ซิม</p>`,
+        icon: "question",
+        imageUrl: "../../../icons/S__14614577.jpg",
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: "Custom image",
+        showCancelButton: true,
+        cancelButtonColor: "#d33",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "ยืนยันการสั่งซื้อ",
+        cancelButtonText: "ยกเลิกการสั่งซื้อ",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById("loader").style.display = "block";
 
-    axios.post(`/confirmorder`, params).then((response) => {
-        if (response.status === 201) {
-            document.getElementById("loader").style.display = "none";
-            Swal.fire({
-                icon: "success",
-                title: "สั่งซื้อสำเร็จ",
-                text: "กำลังจะนำท่านสู่หน้าชำระสินค้า",
-                showConfirmButton: false,
-                timer: 1500,
-            }).then(() => {
-                let formData = new FormData();
-                formData.append("refno", response.data.ref_order);
-                formData.append("merchantid", "13745519");
-                formData.append("customeremail", customer_email);
-                formData.append("cc", "00");
-                formData.append("productdetail", "สินค้าเบอร์ true");
-                formData.append("total", total_price);
-                formData.append("lang", "TH");
+            axios.post(`/confirmorder`, params).then((response) => {
+                if (response.status === 201) {
+                    document.getElementById("loader").style.display = "none";
+                    Swal.fire({
+                        icon: "success",
+                        title: "สั่งซื้อสำเร็จ",
+                        text: "กำลังจะนำท่านสู่หน้าชำระสินค้า",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    }).then(() => {
+                        let formData = new FormData();
+                        formData.append("refno", response.data.ref_order);
+                        formData.append("merchantid", "13745519");
+                        formData.append("customeremail", customer_email);
+                        formData.append("cc", "00");
+                        formData.append("productdetail", "สินค้าเบอร์ true");
+                        formData.append("total", total_price);
+                        formData.append("lang", "TH");
 
-                let form = document.createElement("form");
-                form.method = "POST";
-                form.action =
-                    "https://payment.paysolutions.asia/epaylink/payment.aspx";
+                        let form = document.createElement("form");
+                        form.method = "POST";
+                        form.action =
+                            "https://payment.paysolutions.asia/epaylink/payment.aspx";
 
-                formData.forEach(function (value, key) {
-                    let input = document.createElement("input");
-                    input.type = "hidden";
-                    input.name = key;
-                    input.value = value;
-                    form.appendChild(input);
-                });
+                        formData.forEach(function (value, key) {
+                            let input = document.createElement("input");
+                            input.type = "hidden";
+                            input.name = key;
+                            input.value = value;
+                            form.appendChild(input);
+                        });
 
-                document.body.appendChild(form);
-                form.submit();
+                        document.body.appendChild(form);
+                        form.submit();
 
-                for (var pair of formData.entries()) {
-                    console.log(pair[0] + ": " + pair[1]);
-                }
-                return false;
-                // window.location.reload('/')
+                        for (var pair of formData.entries()) {
+                            console.log(pair[0] + ": " + pair[1]);
+                        }
+                        return false;
+                        // window.location.reload('/')
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "มีบางอย่างผิดพลาด",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                };
             });
-        } else {
-            Swal.fire({
-                icon: "error",
-                title: "มีบางอย่างผิดพลาด",
-                showConfirmButton: false,
-                timer: 1500,
-            });
-        };
+        }
     });
+
+    // Show the loader
+    //  document.getElementById("loader").style.display = "block";
+
+    // axios.post(`/confirmorder`, params).then((response) => {
+    //     if (response.status === 201) {
+    //         document.getElementById("loader").style.display = "none";
+    //         Swal.fire({
+    //             icon: "success",
+    //             title: "สั่งซื้อสำเร็จ",
+    //             text: "กำลังจะนำท่านสู่หน้าชำระสินค้า",
+    //             showConfirmButton: false,
+    //             timer: 1500,
+    //         }).then(() => {
+    //             let formData = new FormData();
+    //             formData.append("refno", response.data.ref_order);
+    //             formData.append("merchantid", "13745519");
+    //             formData.append("customeremail", customer_email);
+    //             formData.append("cc", "00");
+    //             formData.append("productdetail", "สินค้าเบอร์ true");
+    //             formData.append("total", total_price);
+    //             formData.append("lang", "TH");
+
+    //             let form = document.createElement("form");
+    //             form.method = "POST";
+    //             form.action =
+    //                 "https://payment.paysolutions.asia/epaylink/payment.aspx";
+
+    //             formData.forEach(function (value, key) {
+    //                 let input = document.createElement("input");
+    //                 input.type = "hidden";
+    //                 input.name = key;
+    //                 input.value = value;
+    //                 form.appendChild(input);
+    //             });
+
+    //             document.body.appendChild(form);
+    //             form.submit();
+
+    //             for (var pair of formData.entries()) {
+    //                 console.log(pair[0] + ": " + pair[1]);
+    //             }
+    //             return false;
+    //             // window.location.reload('/')
+    //         });
+    //     } else {
+    //         Swal.fire({
+    //             icon: "error",
+    //             title: "มีบางอย่างผิดพลาด",
+    //             showConfirmButton: false,
+    //             timer: 1500,
+    //         });
+    //     };
+    // });
 });
