@@ -71,36 +71,36 @@
         </div>
 
         {{-- box package --}}
-        <div class="w-[1536px] max-2xl:max-w-[90%] py-6 mx-auto  m ">
+        <div class="w-[1536px] max-2xl:w-[90%] py-6 mx-auto  ">
+            <div class="mx-4 max-2xl:mx-2">
+                <div class="flex">
+                    <button id="btn-package"
+                        class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
+                        แพ็กเกจ</button>
+                    <button id="btn-condition"
+                        class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
+                </div>
+                {{-- content detail --}}
+                <div id="box-package"
+                    class="h-[300px]  bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                    <div class="h-full overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
+                        <div class="w-full max-lg:w-[320px] max-xs:w-[300px] text-left Z-[99] my-4 ml-4 ">
+                            {!! $prepaid_cate->details_content !!}
+                        </div>
+                        <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
 
-            <div class="flex">
-                <button id="btn-package"
-                    class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] text-[16px]">รายละเอียด
-                    แพ็กเกจ</button>
-                <button id="btn-condition"
-                    class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] text-[16px]">เงื่อนไข</button>
-            </div>
-            {{-- content detail --}}
-            <div id="box-package"
-                class="h-[300px]  bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                <div class="h-full overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2">
-                    <div class="w-full max-lg:w-[320px] max-xs:w-[300px] text-left Z-[99] my-4 ml-4 ">
-                        {!! $prepaid_cate->details_content !!}
-                    </div>
-                    <img src="/images/Intersect.png" alt="" class="right-0 absolute bottom-0 max-lg:z-[-1]">
-
-                    <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] absolute bottom-0 py-1">
-                        <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
+                        <div class="w-full flex justify-center bg-[#F8F9FA] rounded-b-[10px] absolute bottom-0 py-1">
+                            <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {{-- content condition --}}
-            <div id="box-condition"
-                class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
-                {!! $prepaid_cate->terms_content !!}
+                {{-- content condition --}}
+                <div id="box-condition"
+                    class="hidden bg-[#F8F9FA] text-left min-h-[200px] p-2 border-solid border-2 border-[#ED4312] text-[16px] font-medium rounded-r-[10px] rounded-bl-[10px]">
+                    {!! $prepaid_cate->terms_content !!}
+                </div>
             </div>
-
         </div>
         {{-- box package --}}
 
