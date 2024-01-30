@@ -48,9 +48,9 @@
                 // $i++;
             @endphp
 
-            <section class="{{ $bg }} py-6 relative z-0 px-3 max-md:px-[1.5rem] md:px-[1.5rem]">
+            <section class="{{ $bg }} py-2 relative z-0 px-3 max-md:px-[1.5rem] md:px-[1.5rem]">
                 {!! $circle1 !!}
-                <div class="py-10">
+                <div class="py-3">
                     <p class="text-[#000]   2xl:text-[2rem] xl:text-[25px] text-[22px]">{{ $cate->title }}</p>
                     <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px] ">{{ $cate->details }}</p>
                 </div>
@@ -70,7 +70,7 @@
                                 $justify = $count > 4 ? 'justify-start' : $justify;
                                 // echo "Total count for fiber_cate_id  $justify";
                             @endphp
-                            <div class="swiper-wrapper flex items-center py-4 {{ $justify }}">
+                            <div class="swiper-wrapper flex items-center py-2 {{ $justify }}">
                                 @foreach ($move_product as $product)
                                     @if ($product->move_cate_id == $cate->id)
                                         {{-- @for ($i = 1; $i <= 4; $i++) --}}
@@ -85,25 +85,27 @@
                                                         alt="">
                                                 </div>
 
+
                                                 <div class="bg-white flex items-center justify-center flex-col p-4 ">
                                                     <img src="/images/Ellipse 6.png" alt="" class="px-4 ">
                                                     <div class="flex justify-between items-baseline w-full px-8">
                                                         <p class=" text-[18px] max-md:text-[16px]">เน็ต</p>
 
-                                                        <p class="text-[50px] text-[#F98E24] ">
+                                                        <p class="max-uu:text-[50px] max-xs:text-[30px] text-[#F98E24] ">
                                                             {{ $product->internet_volume }}</p>
                                                         <p class=" text-[18px] max-md:text-[16px]"> GB</p>
 
                                                     </div>
                                                     <div class="h-[1px] w-[90%] bg-gray-500 "></div>
                                                     <div class="flex justify-between items-baseline w-full px-8">
-                                                        <p class="2xl:text-[1.5rem] text-[1rem]">โทร</p>
-                                                        <p class="text-[50px] text-[#F98E24] ">
+                                                        <p class="text-[18px] max-md:text-[16px]">โทร</p>
+                                                        <p class="max-uu:text-[50px] max-xs:text-[30px] text-[#F98E24] ">
                                                             {{ $product->call_minutes }} </p>
-                                                        <p class="2xl:text-[1.5rem] text-[1rem]">Mins</p>
+                                                        <p class="text-[18px] max-md:text-[16px]">Mins</p>
 
                                                     </div>
                                                 </div>
+
                                                 <div class="bg-gray-100 p-4 flex flex-col items-center gap-3">
                                                     <div class="flex items-center justify-center gap-2">
                                                         <img src="/images/arcticons_wifianalyzer (1).png" alt="">
