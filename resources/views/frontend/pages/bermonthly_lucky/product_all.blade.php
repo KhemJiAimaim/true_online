@@ -242,7 +242,7 @@
                                     @foreach ($packages as $pack)
                                         <option value="{{ $pack->id }}" class="text-[14px] w-[150px]"
                                             {{ isset($_GET['package']) && $_GET['package'] == $pack->id ? 'selected' : '' }}>
-                                            {{ $pack->title }}
+                                            {{ $pack->details }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -486,7 +486,7 @@
                             <div class="bg-[#F8F9FA] flex flex-col px-4 py-2 max-dm:h-[80px] h-[110px]">
                                 {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
                                 @if($product->monthly_status)
-                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $title_package = $packages->firstWhere('id', $product->product_package)->details; }}</p>
                                 @endif
                                 <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
                             </div>
