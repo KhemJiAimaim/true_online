@@ -448,7 +448,7 @@
             <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ count($totalCount) }}
                 เบอร์</p>
         </div>
-
+       
         <!-- box all product -->
         @if (count($berproducts) > 0)
             <div class="px-3">
@@ -469,12 +469,11 @@
                                 </div>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             </div>
-
-                            {{-- berproduct --}}
+                            {{-- @dd($product) --}}
                             {{-- berproduct --}}
                             <div class="bg-white flex items-center justify-center px-2 gap-[1rem]">
                                 <div class="max-w-[70px] max-h-[40px]">
-                                    <img src="/images/651e616b04c02CnURE.png" alt="" class="w-full h-full">
+                                    <img src="{{ (isset($product->thumbnail))?$product->thumbnail:'/images/651e616b04c02CnURE.png' }}" alt="" class="w-full h-full">
                                 </div>
                                 <div class="flex justify-center py-10 ">
                                     <p class="text-[35px] text-center font-bold">
@@ -531,7 +530,7 @@
                                     </div>
                                 </a>
 
-                                <a href="{{ url('/travel_sim_buy/' . $product->product_phone) }}" target="_blank"
+                                <a href="{{ url('/detailber/' . $product->product_phone) }}" target="_blank"
                                     class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <button id="buyProductNow" data-id="{{ $product->product_id }}" data-type="3"
                                     class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>

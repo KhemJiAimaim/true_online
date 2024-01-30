@@ -127,22 +127,22 @@
                                                         <p class="py-3 text-[20px]">{{ $fiber->title }}</p>
                                                     </div>
                                                 </div>
-                                                @php
+                                                {{-- @php
                                                     $download = $fiber->download_speed >= 1000 ? $fiber->download_speed / 1000 : $fiber->download_speed;
                                                     $unit_download = $fiber->download_speed >= 1000 ? 'Gbps' : 'Mbps';
 
                                                     $upload = $fiber->upload_speed >= 1000 ? $fiber->upload_speed / 1000 : $fiber->upload_speed;
                                                     $unit_upload = $fiber->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
-                                                @endphp
+                                                @endphp --}}
                                                 <div class="bg-white">
                                                     <div class="flex justify-center py-2 items-center">
-                                                        <p class="text-[70px] text-center font-medium">{{ $download }}
+                                                        <p class="text-[70px] text-center font-medium">{{ $fiber->download_speed }}
                                                         </p>
                                                         <div
                                                             class="border-l border border-gray-500 text-center mx-4 max-xs:mx-2 py-8 rounded-full">
                                                         </div>
                                                         <p class="text-lg text-left text-[16px]">
-                                                            {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
+                                                            Mbps<br>/{{ $fiber->upload_speed }}Mbps
                                                         </p>
                                                     </div>
 
@@ -274,7 +274,7 @@
                                                 {{-- berproduct --}}
                                                 <div class="bg-white flex items-center justify-center px-2 gap-[1rem]">
                                                     <div class="max-w-[70px] max-h-[40px]">
-                                                        <img src="/images/651e616b04c02CnURE.png" alt=""
+                                                        <img src="{{ (isset($ber->thumbnail))?$ber->thumbnail:'/images/651e616b04c02CnURE.png' }}" alt=""
                                                             class="w-full h-full">
                                                     </div>
                                                     <div class="flex justify-center py-10 ">
@@ -327,7 +327,7 @@
                                                         </div>
                                                     </a>
 
-                                                    <a href="{{ url('/travel_sim_buy/' . $ber->product_phone) }}"
+                                                    <a href="{{ url('/detailber/' . $ber->product_phone) }}"
                                                         target="_blank"
                                                         class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                                     <button id="addBerToCart" data-id="{{ $ber->product_id }}"

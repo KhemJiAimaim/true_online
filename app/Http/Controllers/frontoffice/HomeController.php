@@ -41,7 +41,20 @@ class HomeController extends Controller
             ->orderBy('cate_priority')
             ->get();
 
-        $berproducts = BerproductMonthly::where('product_sold', 'no')->where('product_display', 'yes')->inRandomOrder()->distinct()->limit(4)->get();
+        $berproducts = BerproductMonthly::select('*')
+            ->selectSub(function ($query) {
+                $query->select('thumbnail')
+                    ->from('bernetworks')
+                    ->whereColumn('berproduct_monthlies.product_network', 'bernetworks.network_name')
+                    ->whereColumn('berproduct_monthlies.monthly_status', 'bernetworks.monthly');
+            }, 'thumbnail')
+            ->where('product_sold', 'no')
+            ->where('product_display', 'yes')
+            ->inRandomOrder()
+            ->distinct()
+            ->limit(4)
+            ->get();
+            
         $product_fiber = FiberProduct::where('display', true)->OrderBy('priority')->limit(4)->get();
         $post_benefits = Post::select('id','title','thumbnail_link')->where('category', 'LIKE', '%8%')
             ->where('status_display', true)

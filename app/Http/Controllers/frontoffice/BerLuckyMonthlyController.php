@@ -51,8 +51,8 @@ class BerLuckyMonthlyController extends Controller
         // Calculate the offset based on the current page and items per page
         $offset = ($current_page - 1) * $perPage;
         $limit = null;
-        $sql = "SELECT *, MID(product_phone, 4, 7) AS pp
-                    FROM berproduct_monthlies
+        $sql = "SELECT *,(SELECT thumbnail FROM bernetworks WHERE berproduct_monthlies.product_network = bernetworks.network_name AND berproduct_monthlies.monthly_status = bernetworks.monthly) as thumbnail, MID(product_phone, 4, 7) AS pp
+                    FROM berproduct_monthlies 
                     WHERE product_sold = :value $getpost[sql]
                     HAVING product_display = :display $getpost[sql2]
                     $sql_sort
@@ -74,24 +74,20 @@ class BerLuckyMonthlyController extends Controller
         $total_page = ceil(count($totalCount) / $perPage);
         $berTotal = count($berproducts);
         $onLastPage = $berTotal < $perPage; // เช็คว่าหน้าสุดท้ายมั้ย true or false
-        // dd($offset);
         $data_paginate = [
             "current_page" => $current_page,
             "total_page" => $total_page,
             "onLastPage" => $onLastPage,
 
         ];
+
         $berproduct_cates = BerproductCategory::where('bercate_display', 1)
             ->orderBy('priority')
             ->get();
-
-        // dd($berproduct_cates);
         $berpredict_numbcate = BerpredictNumbcate::where('numbcate_display', 1)
             ->where('numbcate_pin', 1)
             ->orderBy('numbcate_priority')
             ->get();
-
-        // $slc_package = Post::where('category', 'LIKE', '%8%')->get();
 				$packages = BerluckyPackage::where('display', true)->where('delete_status', false)->OrderBy('priority')->get();
 				$networks = Bernetwork::where('display', 'yes')->get();
         $sumbers = BerpredictSum::where('predict_pin', 'yes')->get();
@@ -376,12 +372,11 @@ class BerLuckyMonthlyController extends Controller
 				$excelData = $rawexcelData[0]; // เข้าถึงอาร์เรย์ข้อมูลในชั้นลึกที่ 0
 				$excelData = array_slice($excelData, 1); // ตัดแถวแรกที่ไม่ต้องการออก
 
-				// delete old data before new up load
-        BerproductMonthly::truncate();
-
 				$list_ber = array();
 				/* ดึงข้อมูล PredictCate Want & Unwant comment */
 				$this->getPredictWantUnwantArr();
+
+				$predictSum = BerpredictSum::all();
 
 				foreach ($excelData as $row) {
 					// เตรียมข้อมูล
@@ -397,17 +392,23 @@ class BerLuckyMonthlyController extends Controller
 							$sum = $row[1];
 					}
 
+					if($row[8] == "") {
+						$comment = $predictSum->firstWhere('predict_sum', $sum)->predict_name;
+					} else {
+						$comment = $row[8];
+					}
+					
 					$list_ber[] = [
 						'product_phone' => $row[0],
             'product_sumber' => $sum,
-            'product_network' =>  $row[3],
-            'product_price' => $row[2],
+            'product_network' =>  $row[2] = ($row[2] = true || $row[2] = 1) ? 'TRUE' : $row[2],
+            'product_price' => $row[3],
             'product_category' => ',' . $row[4] . ',',
             'product_improve' => $improve,
             'product_pin' => $row[5] = ($row[5] == "") ? "no" : $row[5],
             'product_sold' => $row[6] = ($row[6] == "") ? "no" : $row[6],
             'product_new' => $row[7] = ($row[7] == "") ? "no" : $row[7],
-            'product_comment' => $row[8],
+            'product_comment' => $comment,
             'product_package' => $row[9],
             'product_discount' => $row[11] = ($row[11] == "") ? 0 : $row[11],
             'product_grade' => $grade,
@@ -417,11 +418,13 @@ class BerLuckyMonthlyController extends Controller
 					];
 				}	
 
+				// delete old data before new up load
+        BerproductMonthly::truncate();
+
 				foreach (array_chunk($list_ber, 1000) as $chunk) {
 					BerproductMonthly::insert($chunk);
 				}
 		
-        
         // method import new ber
         // Excel::import(new BerMonthlyImportClass, $file);
 
@@ -532,7 +535,7 @@ class BerLuckyMonthlyController extends Controller
             ->where('status', '=', true)
             ->orderBy('priority', 'ASC')
             ->get();
-					dd($reesultCate);
+					// dd($reesultCate);
 
         foreach ($reesultCate as $cateVal) {
             // DB::table('berproduct_monthlies')

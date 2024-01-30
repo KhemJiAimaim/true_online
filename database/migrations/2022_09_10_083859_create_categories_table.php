@@ -315,7 +315,7 @@ return new class extends Migration
             ],
             [
                 'id' => 10,
-                'cate_url' => 'fiber/true_dtac/เน็ตบ้านทรู&ดีแทค',
+                'cate_url' => 'fiber/เน็ตบ้านทรู&ดีแทค',
                 'cate_title' => 'เน็ตบ้าน สำหรับทรูและดีแทค',
                 'cate_keyword' => 'True Gigatex PRO Special.',
                 'cate_description' => 'แพ็กราคาสุดพิเศษ สำหรับลูกค้าดีแทค และ ทรูมูฟเอช รายเดือนเท่านั้น สนใจสมัครด้วยตนเองที่นี่ หรือ โทร 02-700-8000',
@@ -343,7 +343,7 @@ return new class extends Migration
             ],
             [
                 'id' => 11,
-                'cate_url' => 'fiber/true_dtac/เน็ตบ้านพื้นฐาน',
+                'cate_url' => 'fiber/เน็ตบ้านพื้นฐาน',
                 'cate_title' => 'เน็ตบ้าน สำหรับใช้งานพื้นฐาน',
                 'cate_keyword' => 'True Gigatex PRO',
                 'cate_description' => 'ครบกว่า คุ้มกว่า แรงกว่าทุกกระแส ดูเต็มอิ่ม หนัง กีฬา ความบันเทิง',
@@ -371,7 +371,7 @@ return new class extends Migration
             ],
             [
                 'id' => 12,
-                'cate_url' => 'fiber/true_dtac/เน็ตบ้านพร้อมประกัน',
+                'cate_url' => 'fiber/เน็ตบ้านพร้อมประกัน',
                 'cate_title' => 'เน็ตบ้าน พร้อมประกัน',
                 'cate_keyword' => 'True Gigatex PRO Security',
                 'cate_description' => 'แพ็กเกจเน็ตบ้าน ครอบคลุมทุกย่าน ด้วยความห่วงใย',
@@ -399,7 +399,7 @@ return new class extends Migration
             ],
             [
                 'id' => 13,
-                'cate_url' => 'fiber/true_dtac/เน็ตบ้านพร้อมทรูวิชั่นส์',
+                'cate_url' => 'fiber/เน็ตบ้านพร้อมทรูวิชั่นส์',
                 'cate_title' => 'เน็ตบ้าน พร้อมทรูวิชั่นส์',
                 'cate_keyword' => 'True Gigatex PRO CYOD',
                 'cate_description' => 'ทางเลือกสุดคุ้ม นำเราเตอร์ของคุณเองมาใช้ ร่วมกับแพ็กเกจเน็ตบ้านทรู ราคาสุดพิเศษ',
@@ -427,7 +427,7 @@ return new class extends Migration
             ],
             [
                 'id' => 14,
-                'cate_url' => 'fiber/true_dtac/เน็ตบ้านพร้อมเราเตอร์',
+                'cate_url' => 'fiber/เน็ตบ้านพร้อมเราเตอร์',
                 'cate_title' => 'เน็ตบ้าน เลือกเราเตอร์เอง',
                 'cate_keyword' => 'True Gigatex PRO Gold',
                 'cate_description' => 'กล่องทรูไฮบริด พร้อมคอนเทนท์พรีเมียม | สตรีมมิง | แอพสุดฮิต มาพร้อมเน็ตบ้านไฟเบอร์ทรู 1Gbps',
@@ -455,7 +455,7 @@ return new class extends Migration
             ],
             [
                 'id' => 15,
-                'cate_url' => 'fiber/true_dtac/เน็ตบ้านสำหรับเกมเมอร์',
+                'cate_url' => 'fiber/เน็ตบ้านสำหรับเกมเมอร์',
                 'cate_title' => 'เน็ตบ้าน สำหรับเกมเมอร์',
                 'cate_keyword' => 'True Gigatex PRO Gamer',
                 'cate_description' => 'แพ็กเกจเน็ตบ้าน ครอบคลุมทุกย่าน ด้วยความห่วงใย',
@@ -483,7 +483,7 @@ return new class extends Migration
             ],
             [
                 'id' => 16,
-                'cate_url' => 'fiber/true_dtac/เน็ตบ้านสำหรับsme',
+                'cate_url' => 'fiber/เน็ตบ้านสำหรับsme',
                 'cate_title' => 'เน็ตบ้าน สำหรับธุรกิจ SME',
                 'cate_keyword' => 'True Gigatex PRO SME',
                 'cate_description' => 'เน็ตเร็ว แรง เพื่อธุรกิจ ฟรีค่าโทร พร้อมบริการ Public Fixed IP กับ True Gigatex PRO SME',

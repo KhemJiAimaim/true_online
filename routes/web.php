@@ -30,7 +30,7 @@ Route::get('/', [HomeController::class,"homePage"]);
 
 //fiber
 Route::get("/fiber", [FiberController::class, "homePage"]);
-Route::get("/fiber/true_dtac/{cate_url}", [FiberController::class, "true_dtac"]);
+Route::get("/fiber/{cate_url}", [FiberController::class, "true_dtac"]);
 Route::get("/fiber/detail_true_dtac/{id}", [FiberController::class, "detail_true_dtac"]);
 Route::get("/fiber/form_true_dtac/{id}", [FiberController::class, "form_true_dtac"]);
 Route::get('/map', [FiberController::class, "getMap"]);
