@@ -12,7 +12,7 @@
                 @foreach ($cate_home as $cate)
                     <a href="#{{ $cate->cate_url }} "
                         class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                        <div class="flex-initial max-uu:w-[8rem] max-xs:w-[7rem] flex flex-col justify-center items-center">
+                        <div class="flex-initial max-uu:w-[9rem] max-xs:w-[7rem] flex flex-col justify-center items-center">
                             <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
                                 alt="">
                             <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
@@ -136,7 +136,8 @@
                                                 @endphp --}}
                                                 <div class="bg-white">
                                                     <div class="flex justify-center py-2 items-center">
-                                                        <p class="text-[70px] text-center font-medium">{{ $fiber->download_speed }}
+                                                        <p class="text-[70px] text-center font-medium">
+                                                            {{ $fiber->download_speed }}
                                                         </p>
                                                         <div
                                                             class="border-l border border-gray-500 text-center mx-4 max-xs:mx-2 py-8 rounded-full">
@@ -274,8 +275,8 @@
                                                 {{-- berproduct --}}
                                                 <div class="bg-white flex items-center justify-center px-2 gap-[1rem]">
                                                     <div class="max-w-[70px] max-h-[40px]">
-                                                        <img src="{{ (isset($ber->thumbnail))?$ber->thumbnail:'/images/651e616b04c02CnURE.png' }}" alt=""
-                                                            class="w-full h-full">
+                                                        <img src="{{ isset($ber->thumbnail) ? $ber->thumbnail : '/images/651e616b04c02CnURE.png' }}"
+                                                            alt="" class="w-full h-full">
                                                     </div>
                                                     <div class="flex justify-center py-10 ">
                                                         <p class="text-[40px] text-center font-bold">

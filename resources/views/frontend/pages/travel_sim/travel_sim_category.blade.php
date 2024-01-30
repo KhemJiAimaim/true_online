@@ -198,7 +198,7 @@
                                 </div>
 
                                 <div
-                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center  ">
+                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between gap-1 py-4 px-4 max-xs:px-2 items-center  ">
                                     <div id="addBerToCart" data-id="{{ $sim->id }}"
                                         data-type="{{ $cate->id }}"
                                         class="group rounded-full border border-red-500  w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px]    flex justify-center items-center p-2 hover:bg-red-600">
@@ -215,10 +215,10 @@
                                     </a>
 
                                     <a href="{{ url('/travel_sim_buy/' . $sim->id) }}" target="_blank"
-                                        class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-4  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                        class="cursor-pointer lex justify-center items-center py-2.5  max-uu:w-36 max-yy:w-28 max-xs:w-24 max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                     <button data-id="{{ $sim->id }}" data-type="{{ $cate->id }}"
                                         id="buyProductNow"
-                                        class="cursor-pointer flex items-center py-2.5 px-12 max-uu:px-6  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                        class="cursor-pointer flex justify-center items-center py-2.5  max-uu:w-36 max-yy:w-28 max-xs:w-24  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                 </div>
 
                             </div>
