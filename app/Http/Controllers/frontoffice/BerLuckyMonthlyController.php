@@ -241,15 +241,15 @@ class BerLuckyMonthlyController extends Controller
     {
         $berproduct = BerproductMonthly::where('product_phone', $tel)->first();
         $benefits = [];
-
         if ($berproduct->monthly_status === "yes") {
-            $package = BerluckyPackage::find($berproduct->product_package);
-            $benefit_ids = explode(',', $package->benefit_ids);
-
-            $benefits = Post::whereIn('id', $benefit_ids)
-                ->where('category', 'LIKE', '%,8,%')
-                ->where('status_display', 1)
-                ->get();
+					$package = BerluckyPackage::find($berproduct->product_package);
+					if ($package) {
+						$benefit_ids = explode(',', $package->benefit_ids);
+						$benefits = Post::whereIn('id', $benefit_ids)
+								->where('category', 'LIKE', '%,8,%')
+								->where('status_display', 1)
+								->get();
+					}
         }
 
         $condition_detail = Post::where('category', 'LIKE', '%32%')->orWhere('slug', 'ck_เงื่อนไขเบอร์มงคล')->first();
