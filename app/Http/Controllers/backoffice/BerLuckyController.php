@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BerproductCategory;
 use App\Models\BerproductMonthly;
 use App\Models\BerluckyPackage;
+use App\Models\Bernetwork;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -703,10 +704,66 @@ class BerLuckyController extends BaseController
             ], 500);
         }
     }
+    /* Lucky Network */
+    public function getNetwork()
+    {
+        $bernetworks = Bernetwork::all();
+        return response([
+            'message' => 'ok',
+            'status' => true,
+            'description' => 'Get Berlucky Network success',
+            'bernetworks' => $bernetworks
+        ], 200);
+    }
 
+    public function updateBernet(Request $request, $id)
+    {
+        $files = $request->allFiles();
+        // dd( $files);
+        $params = $request->all();
+        $validator = Validator::make($request->all(), [
+            'network_name' => 'string|required',
+            'imagename' => 'string|nullable',
+            'display' => 'string|required',
+            'monthly' => 'string|required',
+        ]);
 
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
 
+        try {
+            DB::beginTransaction();
+            /* Upload Thumbnail */
+            $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
+            $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", $params['thumbnail_name']) : $params['imagename'];
 
+            $conditions  = ['network_id' => $id];
+            $values = [
+                "network_name" => $params['network_name'],
+                "thumbnail" =>  $thumbnail,
+                "display" => $params['display'],
+                "monthly" => $params['monthly'],
+                "updated_at" => date('Y-m-d H:i:s')
+            ];
+
+            DB::table('bernetworks')->updateOrInsert($conditions, $values);
+            // Bernetwork::where('network_id', $id)->update($values);
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'BerNetworks updated successfully',
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
 
     /* Private Function */
     private function getBerluckyCateAll()

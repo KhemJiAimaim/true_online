@@ -127,6 +127,11 @@ Route::prefix('backoffice/v1')->group(function () {
 
                 Route::delete('delete/{id}', [BerLuckyController::class, 'deletePackage']);
             });
+            /* Lucky networks */
+            Route::prefix('network/')->group(function () {
+                Route::get('data',[BerLuckyController::class, 'getNetwork']);
+                Route::post('update/{id}',[BerLuckyController::class, 'updateBernet']);
+              });
         });
 
         /* Prediction */
