@@ -24,7 +24,7 @@
                                               </td>
                                               <td rowspan="3" style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:64px;line-height:0">
                                                   <div style="border-radius:8px;overflow:hidden">
-                                                      <img src="https://drive.google.com/uc?id=1eWm2tGbC9tokVfSJb8B59TxzkM6lKOhd" style="outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#f6f8f9;font-size:28px;height:64px;border:2px solid;background:#fbfbfb;border-radius:8px;background:#f6f8f994">
+                                                      <img src="{{ url('/upload/2024/01/29/117065089380.png') }}" style="outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#f6f8f9;font-size:28px;height:64px;border:2px solid;background:#fbfbfb;border-radius:8px;background:#f6f8f994">
                                                   </div>
                                               </td>
                                               <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:243px;height:30px;vertical-align:top"></td>
@@ -170,14 +170,18 @@
                                                                         <tr>
                                                                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;width:90px">
                                                                             <span>
-                                                                                <img src="https://drive.google.com/uc?id=1eWm2tGbC9tokVfSJb8B59TxzkM6lKOhd" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
+                                                                                <img src="{{ url($ber->thumbnail) }}" style="font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;border:0;outline:none;text-decoration:none;width:90px">
                                                                             </span>
                                                                             </td>
                                                                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
                                                                             <div style="font-size:14px;line-height:120%">
                                                                                 <span style="color:#00aeef;text-decoration:none">เบอร์ {{$ber->product_phone}}</span>
-                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$ber->product_sumber}}</div>
+                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">ผลรวม {{$ber->product_sumber}}</div>
+                                                                                @if($ber->monthly_status == 'yes')
+                                                                                <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$ber->details_pack}}</div>
+                                                                                @else
                                                                                 <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$ber->product_comment}}</div>
+                                                                                @endif
                                                                             </div>
                                                                             </td>
                                                                         </tr>
@@ -338,14 +342,14 @@
                             <tr>
                               <td style="padding-top:10px">
                                 <div style="text-align:center;padding:10px 0px;background:#f6f8f9;margin:0px 16px">
-                                  <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
-                                  <a href="tel:%3Ca%20href='tel:0809789289'%3E0809789289%3C/a%3E%20%3Ca%20href='tel:0645695656'%3E0645695656%3C/a%3E" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                    <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> </a>
-                                        <a href="tel:0809789289" target="_blank">0809789289</a> 
-                                        <a href="tel:0645695656" target="_blank">0645695656</a>
-                                  <a href="https://line.me/ti/p/~@berhoro" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
+                                    <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
+                                    <a href="tel:0832289789" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
+                                      <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> </a>
+                                      <a href="tel:0832289789" target="_blank">0832289789</a> 
+                                      <a href="tel:0645695656" target="_blank">0645695656</a>
+                                    <a href="https://lin.ee/heZ761Y" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
                                       <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png">
-                                    @berhoro </a>
+                                    @fibertrue </a>
                                 </div>
                               </td>
                             </tr>
@@ -387,13 +391,13 @@
                                         </div>
                                         <div style="text-align:center;padding:10px 0px;background:#f6f8f9;margin:0px 16px">
                                             <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
-                                            <a href="tel:%3Ca%20href='tel:0809789289'%3E0809789289%3C/a%3E%20%3Ca%20href='tel:0645695656'%3E0645695656%3C/a%3E" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
+                                            <a href="tel:0832289789" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
                                               <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> </a>
-                                              <a href="tel:0809789289" target="_blank">0809789289</a> 
+                                              <a href="tel:0832289789" target="_blank">0832289789</a> 
                                               <a href="tel:0645695656" target="_blank">0645695656</a>
-                                            <a href="https://line.me/ti/p/~@berhoro" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
+                                            <a href="https://lin.ee/heZ761Y" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
                                               <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png">
-                                            @berhoro </a>
+                                            @fibertrue </a>
                                         </div>
                                     </div>
                                 </td>

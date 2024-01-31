@@ -8,22 +8,22 @@
             <div
                 class="w-4/5 max-lg:w-full py-10 mx-auto flex max-xs:flex-col justify-between max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
                 <div
-                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[40%] drop-shadow-md">
+                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] w-full drop-shadow-md">
                     <div class="bg-white flex flex-col  rounded-[8px] h-full p-4">
                         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
                         @php $formattedTel = substr($tel, 0, 3) . '-' . substr($tel, 3, 3) . '-' . substr($tel, 6); @endphp
-                        <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
+                        <h1 class="text-[50px] max-yy:text-[45px] max-xx:text-[40px]   font-semibold mt-6">{{ $formattedTel }}</h1>
                     </div>
                 </div>
                 {{-- กราฟ --}}
-                <div class="bg-white p-4 rounded-[10px] drop-shadow-md flex justify-between gap-x-4 2x:w-[40%] ">
-                    <div class="flex w-[40%]">
-                        <div class="w-full">
-                            <canvas id="myChart" class="se:w-[97px]"></canvas>
+                <div class="bg-white p-2 rounded-[10px] drop-shadow-md flex justify-between items-center max-xs:flex-col gap-x-4 w-full ">
+                    <div class="flex justify-center items-center w-[70%]">
+                        <div class="max-uu:w-[165px] max-yy:w-[180px] max-xl:w-[170px] max-xx:w-[145px] max-xs:w-[180px]">
+                            <canvas id="myChart" class="w-full"></canvas>
                         </div>
                     </div>
 
-                    <div class="flex flex-col items-lft justify-between gap-2 max-2xl:gap-2  w-full">
+                    <div class="flex flex-col items-lft justify-between gap-2 max-2xl:gap-2 w-full py-6 px-4">
 
                         <div class="flex justify-between items-center gap-4">
                             <h1 class="text-lg font-semibold">กราฟคะแนน</h1>
@@ -69,16 +69,16 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 col-span-2 gap-x-4 max-lg:col-span-2 max-xs:col-span-1 2xl:w-[25%]">
+                <div class="grid grid-cols-2 col-span-2 gap-x-4 max-lg:col-span-2 max-xs:col-span-1 w-full">
 
                     <div class="w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md ">
                         <h1 class="text-lg font-semibold">เกรด</h1>
-                        <h1 class="text-4xl font-semibold mt-8">{{ $score['grade']->grade_name }}</h1>
+                        <h1 class="text-[60px] font-semibold mt-8">{{ $score['grade']->grade_name }}</h1>
                     </div>
 
                     <div class="w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md ">
                         <h1 class="text-lg font-semibold">ผลรวม</h1>
-                        <h1 class="text-4xl font-semibold mt-8">{{ $data_sumber->predict_sum }}</h1>
+                        <h1 class="text-[60px] font-semibold mt-8">{{ $data_sumber->predict_sum }}</h1>
                     </div>
 
                 </div>
@@ -156,16 +156,7 @@
         </div>
         {{-- มหัศจรรย์ --}}
 
-        <div class="w-4/5 max-lg:w-full mx-auto  py-6 max-xs:p-1">
-
-            {{-- box meaning sum --}}
-            <div class="bg-[#F8F9FA] rounded-[10px] ">
-                <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
-                    {{ $data_sumber->predict_name }}</h1>
-                <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
-            </div>
-            {{-- box meaning sum --}}
-
+        <div class="w-4/5 max-lg:w-full mx-auto  py-6 max-xs:p-1 mb-8">
             {{-- box meaning ber --}}
             <h1 class="text-lg font-semibold mt-2 mb-1 p-4">เบอร์มังกร</h1>
             @if (count($data_fortune) > 0)
@@ -179,6 +170,14 @@
             @else
             @endif
             {{-- box meaning ber --}}
+
+             {{-- box meaning sum --}}
+             <div class="bg-[#F8F9FA] rounded-[10px] ">
+                <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
+                    {{ $data_sumber->predict_name }}</h1>
+                <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
+            </div>
+            {{-- box meaning sum --}}
         </div>
     </div>
 

@@ -278,19 +278,21 @@
                                                         <img src="{{ isset($ber->thumbnail) ? $ber->thumbnail : '/images/651e616b04c02CnURE.png' }}"
                                                             alt="" class="w-full h-full">
                                                     </div>
-                                                    <div class="flex justify-center py-10 ">
-                                                        <p class="text-[40px] text-center font-bold">
-                                                            {{ $ber->product_phone }}</p>
-                                                    </div>
+                                                    <a href="{{ url('/detailber/' . $ber->product_phone) }}">
+                                                        <div class="flex justify-center py-10 max-ex:py-2">
+                                                            <h2 class="2xl:text-[2rem] text-[1.5rem] text-center font-bold">
+                                                                {{ substr($ber->product_phone, 0, 3) }}-{{ substr($ber->product_phone, 3, 3) }}-{{ substr($ber->product_phone, 6) }}
+                                                            </h2>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                                 {{-- berproduct --}}
 
                                                 <div
                                                     class="bg-[#F8F9FA] flex justify-start px-4 py-2 max-dm:h-[80px] h-[110px]">
                                                     {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4"> --}}
-                                                    <p
-                                                        class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                                        {{ $ber->product_comment }}</p>
+                                                    
+                                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $ber->product_comment }}</p>
                                                 </div>
 
                                                 <div

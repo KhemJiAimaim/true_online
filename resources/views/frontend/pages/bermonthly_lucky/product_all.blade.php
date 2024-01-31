@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class=" text-left ">
+    <div class="text-left ">
 
         <div
             class="h-[158px] max-xs:h-[100px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
@@ -35,14 +35,15 @@
                 @endif --}}
 
 
-        <div class="max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+        <div class="max-2xl:overflow-x-scroll max-uu::overflow-hidden  my-4 px-3">
             <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
                 @foreach ($berpredict_numbcate as $numcate)
                     @if ($numcate->recommended == true)
                         <a href="?improve={{ $numcate->numbcate_id }}"
-                            class="flex flex-col max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                            <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
-                                <img class="w-full h-full mb-2" src="{{ $numcate->thumbnail }}" alt="">
+                            class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            <div class="flex flex-col  flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center">
+                                <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5"
+                                    src="{{ $numcate->thumbnail }}" alt="">
                             </div>
                             <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $numcate->numbcate_title }}</p>
                         </a>
@@ -52,9 +53,10 @@
                 @foreach ($berproduct_cates as $cate)
                     @if ($cate->recommended == true)
                         <a
-                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-col max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                            <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
-                                <img class="w-full h-full mb-3" src="/{{ $cate->thumbnail }}" alt="">
+                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            <div class="flex flex-col  flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center">
+                                <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5"
+                                    src="/{{ $cate->thumbnail }}" alt="">
                             </div>
                             <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->bercate_title }}</p>
                         </a>
@@ -491,24 +493,40 @@
                                     <img src="{{ isset($product->thumbnail) ? $product->thumbnail : '/images/651e616b04c02CnURE.png' }}"
                                         alt="" class="w-full h-full">
                                 </div>
-                                <div class="flex justify-center py-10 ">
-                                    <p class="text-[35px] text-center font-bold">
-                                        {{ $product->product_phone }}</p>
-                                </div>
+                                <a href="{{ url('/detailber/' . $product->product_phone) }}">
+                                    <div class="flex justify-center py-10 max-ex:py-2">
+                                        <h2 class="2xl:text-[2rem] text-[33px] text-center font-bold">
+                                            {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
+                                        </h2>
+                                    </div>
+                                </a>
                             </div>
                             {{-- berproduct --}}
-                            {{-- berproduct --}}
+                            {{-- @dd($title_package = $packages->firstWhere('id', $product->product_package)) --}}
+                            @if ($product->monthly_status == 'yes')
+                                <div
+                                    class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
+                                    {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
 
-                            <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-dm:h-[100px] h-[120px]">
-                                {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
-                                @if ($product->monthly_status)
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                        {{ $title_package = $packages->firstWhere('id', $product->product_package)->details }}
+                                        {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
                                     </p>
-                                @endif
-                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                    {{ $product->product_comment }}</p>
-                            </div>
+                                    <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+
+                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
+                                        {{ $product->product_comment }}</p>
+                                </div>
+                            @endif
+
+                            @if ($product->monthly_status != 'yes')
+                                <div
+                                    class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
+                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
+                                        {{ $product->product_comment }}</p>
+                                </div>
+                            @endif
+
+
 
                             <div
                                 class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-2 px-2 items-center">

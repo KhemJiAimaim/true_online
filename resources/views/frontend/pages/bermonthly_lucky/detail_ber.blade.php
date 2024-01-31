@@ -8,28 +8,32 @@
         {{-- box fortune --}}
         <div class="bg-[#F8F9FA] mx-2">
             <div
-                class="w-4/5 max-lg:w-full  py-10 mx-auto flex max-xs:flex-col  max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
+                class="w-4/5 max-lg:w-full h-[18rem]  py-10 mx-auto flex max-xs:flex-col  max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4 gap-y-4">
                 <div
-                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[25%] drop-shadow-md">
+                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[30%]  drop-shadow-md">
                     <div class="bg-white flex flex-col  rounded-[8px] h-full p-4">
                         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
                         @php $formattedTel = substr($berproduct->product_phone, 0, 3) . '-' . substr($berproduct->product_phone, 3, 3) . '-' . substr($berproduct->product_phone, 6); @endphp
-                        <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
+                        <div class="text-center">
+                            <h1 class="text-[50px] max-yy:text-[45px] max-xx:text-[40px]  font-semibold mt-6">
+                                {{ $formattedTel }}</h1>
+                        </div>
                     </div>
                 </div>
 
                 {{-- กราฟ --}}
-                <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[35%] flex justify-between gap-x-4">
-                    <div class="flex w-[40%]">
-                        <div class="w-full">
-                            <canvas id="myChart" class="se:w-[97px]"></canvas>
+                <div
+                    class="bg-white p-2 rounded-[10px] drop-shadow-md 2xl:w-[35%] flex justify-between max-xs:flex-col items-center gap-x-4">
+                    <div class="flex justify-center items-center w-[70%]">
+                        <div class="max-uu:w-[165px] max-yy:w-[180px] max-xl:w-[170px] max-xx:w-[145px] max-xs:w-[180px]">
+                            <canvas id="myChart" class="w-full"></canvas>
                         </div>
                     </div>
 
-                    <div class="flex flex-col items-lft justify-between gap-2 max-2xl:gap-2  w-full">
+                    <div class="flex flex-col items-lft justify-between gap-2 max-2xl:gap-2  w-full py-6 px-4">
 
                         <div class="flex justify-between items-center gap-4">
-                            <h1 class="text-lg font-semibold">กราฟคะแนน</h1>
+                            <h1 class="text-[20px] font-semibold max-xl:text-[16px]">กราฟคะแนน</h1>
                             <div class="flex items-center cursor-pointer" id="manual-fortune">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                     fill="none">
@@ -73,7 +77,7 @@
                 </div>
 
                 {{-- ความหมาย --}}
-                <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[35%]">
+                <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[20%]">
                     <h1 class="text-lg font-semibold">ความหมาย</h1>
                     <div class="flex items-center gap-4 mt-4">
                         <img src="/icons/package.png" alt="">
@@ -84,9 +88,9 @@
 
                 {{-- 
                 <div class="flex gap-4"> --}}
-                <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+                <div class="w-[15%] max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
                     <h1 class="text-lg font-semibold">เกรด</h1>
-                    <h1 class="text-4xl font-semibold mt-4">{{ $berproduct->product_grade }}</h1>
+                    <h1 class="text-[85px] font-semibold mt-4">{{ $berproduct->product_grade }}</h1>
                 </div>
 
                 {{-- <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
@@ -147,117 +151,121 @@
         </div>
         {{-- box manual --}}
 
+        <div class="mt-10 max-2xl:mt-[12rem] max-xs:mt-[42rem] ">
+            {{-- box package --}}
+            @if ($berproduct->monthly_status == 'yes')
+                <div class="w-4/5 max-lg:w-full  mx-auto mb-12">
+                    <div class="mx-2">
+                        <div class="flex">
+                            <button id="btn-package"
+                                class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] ">รายละเอียด
+                                แพ็กเกจ</button>
+                            <button id="btn-condition"
+                                class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] ">เงื่อนไข</button>
+                        </div>
+                        {{-- content detail --}}
+                        <div id="box-package"
+                            class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                            <div class="p-6">
+                                {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
+                                @foreach ($benefits as $benefit)
+                                    <div class="flex gap-2 mb-2 ">
+                                        <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
+                                            <img class="w-[60px] h-[60px]" src="/{{ $benefit->thumbnail_link }}"
+                                                alt="">
+                                        </div>
+                                        <div class="">
+                                            <p>{{ $benefit->title }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                {{-- <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p> --}}
+                                {{-- <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p> --}}
+                            </div>
 
-        {{-- box package --}}
-        @if ($berproduct->monthly_status == 'yes')
-            <div class="w-4/5 max-lg:w-full mt-10 mx-auto mb-12">
-                <div class="mx-2">
-                    <div class="flex">
-                        <button id="btn-package"
-                            class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] ">รายละเอียด
-                            แพ็กเกจ</button>
-                        <button id="btn-condition"
-                            class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] ">เงื่อนไข</button>
-                    </div>
-                    {{-- content detail --}}
-                    <div id="box-package"
-                        class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                        <div class="p-6">
-                            {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
-                            @foreach ($benefits as $benefit)
-                                <div class="flex gap-2 mb-2 ">
-                                    <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-                                        <img class="w-[60px] h-[60px]" src="/{{ $benefit->thumbnail_link }}" alt="">
-                                    </div>
-                                    <div class="">
-                                        <p>{{ $benefit->title }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                            {{-- <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p> --}}
-                            {{-- <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p> --}}
+                            <div class="w-full flex justify-center rounded-b-[10px] absolute bottom-0 py-1 ">
+                                <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
+                            </div>
                         </div>
 
-                        <div class="w-full flex justify-center rounded-b-[10px] absolute bottom-0 py-1 ">
-                            <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
+                        {{-- content condition --}}
+                        <div id="box-condition"
+                            class="hidden bg-[#F8F9FA] min-h-[250px] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] p-6">
+                            {!! $condition_detail->content !!}
                         </div>
                     </div>
+                </div>
+            @endif
+            {{-- box package --}}
 
-                    {{-- content condition --}}
-                    <div id="box-condition"
-                        class="hidden bg-[#F8F9FA] min-h-[250px] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] p-6">
-                        {!! $condition_detail->content !!}
+            {{-- มหัศจรรย์ --}}
+            <div class="title-plate-container px-3  ">
+                <div class="mx-auto max-w-[1536px] max-2xl:max-w-[80%]  ">
+                    <div class="title-plate-line"></div>
+                </div>
+                <div class="plate-group">
+                    <div class="plate-box-s">
+                        <div class="plate-circleS"></div>
+                        <div class="title-plate-textboxS"></div>
+                    </div>
+                    <div class="title-plate-textboxC 2xl:w-[13%] xl:w-[15%] lg:w-[17%] md:w-[22%]">
+                        <p class="plate-text 2xl:text-[1.5rem] md:text-[20px] text-[18px]">คำทำนายคู่เลข</p>
+                    </div>
+                    <div class="plate-box-e">
+                        <div class="title-plate-textboxE"></div>
+                        <div class="plate-circleE"></div>
                     </div>
                 </div>
             </div>
-        @endif
-        {{-- box package --}}
+            {{-- มหัศจรรย์ --}}
 
-        {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container px-3  ">
-            <div class="mx-auto max-w-[1536px] max-2xl:max-w-[80%]  ">
-                <div class="title-plate-line"></div>
+            {{-- box meaning ber --}}
+            <div class="w-4/5 max-lg:w-full mx-auto  py-4 max-xs:p-1 mb-8">
+                {{-- <h1 class="text-lg font-semibold mb-1 p-4">เบอร์มังกร</h1> --}}
+                @foreach ($data_fortune as $data)
+                    <div class="mb-4 p-4">
+                        <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} :
+                            {{ $data->prophecy_name }}
+                        </h1>
+                        <p class="indent-8 text-[16px]">{{ $data->prophecy_desc }}</p>
+                    </div>
+                @endforeach
+
+                <div class="bg-[#F8F9FA]  rounded-[10px] mx-2">
+                    <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
+                        {{ $data_sumber->predict_name }}</h1>
+                    <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
+                </div>
+
             </div>
-            <div class="plate-group">
-                <div class="plate-box-s">
-                    <div class="plate-circleS"></div>
-                    <div class="title-plate-textboxS"></div>
-                </div>
-                <div class="title-plate-textboxC 2xl:w-[13%] xl:w-[15%] lg:w-[17%] md:w-[22%]">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px] text-[18px]">คำทำนายคู่เลข</p>
-                </div>
-                <div class="plate-box-e">
-                    <div class="title-plate-textboxE"></div>
-                    <div class="plate-circleE"></div>
-                </div>
-            </div>
+            {{-- box meaning ber --}}
         </div>
-        {{-- มหัศจรรย์ --}}
 
-        {{-- box meaning ber --}}
-        <div class="w-4/5 max-lg:w-full mx-auto  py-4 max-xs:p-1">
-            {{-- <h1 class="text-lg font-semibold mb-1 p-4">เบอร์มังกร</h1> --}}
-            @foreach ($data_fortune as $data)
-                <div class="mb-4 p-4">
-                    <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} : {{ $data->prophecy_name }}
-                    </h1>
-                    <p class="indent-8 text-[16px]">{{ $data->prophecy_desc }}</p>
-                </div>
-            @endforeach
-
-            <div class="bg-[#F8F9FA]  rounded-[10px] mx-2">
-                <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
-                    {{ $data_sumber->predict_name }}</h1>
-                <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
-            </div>
-
-        </div>
-        {{-- box meaning ber --}}
 
         {{-- box buy detail --}}
 
-        <div class="bg-white drop-shadow-md items-center w-full"
+        <div class="bg-white drop-shadow-md items-center w-full "
             style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
             <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
-                <p class="text-[18px] ">ราคา</p>
-                <p class="text-[30px] font-bold">{{ number_format($berproduct->product_price) }}</p>
-                <p class="text-[18px] ">บาท</p>
+                <p class="text-[20px]">ราคา</p>
+                <p class="text-[40px] font-bold">{{ number_format($berproduct->product_price) }}</p>
+                <p class="text-[20px] ">บาท</p>
 
                 <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
 
                 <div class="flex gap-2 ">
                     <button id="buyProductNow" data-id="{{ $berproduct->product_id }}" data-type="3"
-                        class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                        class="cursor-pointer flex items-center px-8 2xl:py-2 text-md font-medium text-white text-[16px] focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
                     <button id="addBerToCart" data-id="{{ $berproduct->product_id }}" data-type="3"
-                        class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                        class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-red-600">
                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                     </button>
 
                     <a href="https://line.me/ti/p/~@berhoro">
                         <div
-                            class="group rounded-full border border-green-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-green-600">
+                            class="group rounded-full border border-green-500 mx-1w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-green-600">
                             <img src="/images/icons8-line-app (1) 6.png" alt=""
                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                         </div>

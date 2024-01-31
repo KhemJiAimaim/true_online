@@ -25,8 +25,13 @@ class CartController extends Controller
             if (isset($list[3])) {
                 $id = array_column($list[3], 'id');
                 $berMonthlys = BerproductMonthly::whereIn('product_id', $id)
-                ->select('*', DB::raw('3 as type_cate'))
-                ->get();
+                    ->select('*', DB::raw('3 as type_cate'))
+                    ->selectSub(function ($query) {
+                        $query->select('details')
+                            ->from('berlucky_packages')
+                            ->whereColumn('berproduct_monthlies.product_package', '=', 'berlucky_packages.id');
+                    }, 'details_pack')
+                    ->get();
             } 
 
             if (isset($list[4])){
