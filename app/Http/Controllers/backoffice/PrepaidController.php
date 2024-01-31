@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backoffice;
 
 use App\Http\Controllers\Controller;
 use App\Models\PrepaidCategory;
+use App\Models\PrepaidNetwoek;
 use App\Models\PrepaidSim;
 use Exception;
 use Illuminate\Http\Request;
@@ -15,13 +16,15 @@ class PrepaidController extends BaseController
     // Cate
     public function cateIndex(Request $request)
     {
-        $cates = $this->getPrepaidCateAll();
+        $cates = $this->getPrepaidCateNet();
+        $net = PrepaidNetwoek::all();
 
         return response([
             'message' => 'ok',
             'status' => true,
             'description' => 'Get Prepaid cate success',
             'cates' => $cates,
+            'prenet' => $net,
             'maxPriority' => PrepaidCategory::where('delete_status', 0)->max('priority'),
 
         ], 200);
@@ -37,6 +40,7 @@ class PrepaidController extends BaseController
             'title' => 'string|required',
             'details' => 'string|nullable',
             'description' => 'string|nullable',
+            'networks_id' => 'string|required',
             'details_content' => 'string|nullable',
             'terms_content' => 'string|nullable',
             'display' => 'numeric|required',
@@ -63,6 +67,7 @@ class PrepaidController extends BaseController
                 "title" => $params['title'],
                 "details" => $params['details'],
                 "description" => $params['description'],
+                "networks_id" => $params['networks_id'],
                 "terms_content" => $params['terms_content'],
                 "details_content" => $params['details_content'],
                 "thumbnail_link" => $thumbnail,
@@ -102,6 +107,7 @@ class PrepaidController extends BaseController
             'title' => 'string|required',
             'details' => 'string|nullable',
             'description' => 'string|nullable',
+            'networks_id' => 'string|required',
             'details_content' => 'string|nullable',
             'terms_content' => 'string|nullable',
             'priority' => 'numeric|required',
@@ -128,6 +134,7 @@ class PrepaidController extends BaseController
                 "title" => $params['title'],
                 "details" => $params['details'],
                 "description" => $params['description'],
+                "networks_id" => $params['networks_id'],
                 "terms_content" => $params['terms_content'],
                 "details_content" => $params['details_content'],
                 "thumbnail_link" => $thumbnail,
@@ -222,6 +229,109 @@ class PrepaidController extends BaseController
                 'description' => 'Something went wrong.',
                 'errorsMessage' => $e->getMessage()
             ], 500);
+        }
+    }
+    //net
+    public function netIndex()
+    {
+        $net = PrepaidNetwoek::all();
+        return response([
+            'message' => 'ok',
+            'status' => true,
+            'description' => 'Get Prepaid networks success',
+            'prenetworks' => $net
+        ], 200);
+    }
+
+    public function createPrepaidNet(Request $request)
+    {
+        $this->getAuthUser();
+        // dd($request);
+        $files = $request->allFiles();
+        $params = $request->all();
+
+        $validator = Validator::make($request->all(), [
+            'networkname' => 'string|required',
+            'thumbnail_name' => 'string|nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
+
+            /* Upload Thumbnail */
+            $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", $params['thumbnail_name']) : "";
+
+            $created = PrepaidNetwoek::create([
+                "network_name" => $params['networkname'],
+                "thumbnail" => $thumbnail,
+                "display" => boolval($params['display']),
+            ]);
+
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'Prepaid networks has been created successfully',
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
+        }
+    }
+
+    public function updatePrepaidNet(Request $request, $id)
+    {
+        $files = $request->allFiles();
+        // dd( $files);
+        $params = $request->all();
+        $validator = Validator::make($request->all(), [
+            'network_name' => 'string|required',
+            'imagename' => 'string|nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendErrorValidators('Invalid params', $validator->errors());
+        }
+
+        try {
+            DB::beginTransaction();
+            /* Upload Thumbnail */
+            $newFolder = "upload/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
+            $thumbnail = (isset($files['thumbnail'])) ? $this->uploadImage($newFolder, $files['thumbnail'], "", "", $params['thumbnail_name']) : $params['imagename'];
+
+            $conditions  = ['id' => $id];
+            $values = [
+                "network_name" => $params['network_name'],
+                "thumbnail" =>  $thumbnail,
+                "display" => $params['display'],
+                "updated_at" => date('Y-m-d H:i:s')
+            ];
+
+            DB::table('prepaid_netwoeks')->updateOrInsert($conditions, $values);
+            // Bernetwork::where('network_id', $id)->update($values);
+            DB::commit();
+            return response([
+                'message' => 'ok',
+                'status' => true,
+                'description' => 'PrepaidNetworks updated successfully',
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response([
+                'message' => 'server error',
+                'description' => 'Something went wrong.',
+                'errorsMessage' => $e->getMessage()
+            ], 501);
         }
     }
 
@@ -449,6 +559,18 @@ class PrepaidController extends BaseController
         $data = PrepaidCategory::where('delete_status', 0)
             ->orderBy('updated_at', 'DESC')
             ->orderBy('priority', 'ASC')
+            ->get();
+
+        return $data;
+    }
+
+    private function getPrepaidCateNet()
+    {
+        $data = PrepaidCategory::join('prepaid_netwoeks AS pn', 'pn.id', 'prepaid_categories.networks_id')
+            ->select('prepaid_categories.*', 'pn.network_name AS prepaid_networks_name')
+            ->where('prepaid_categories.delete_status', 0)
+            ->orderBy('prepaid_categories.updated_at', 'DESC')
+            ->orderBy('prepaid_categories.priority', 'ASC')
             ->get();
 
         return $data;

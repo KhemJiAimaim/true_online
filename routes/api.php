@@ -80,7 +80,7 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::patch('mail/updatepin/{id}', [MailInboxController::class, 'updatePin']);
         Route::patch('mail/updatereaded/{id}', [MailInboxController::class, 'updateReaded']);
         Route::delete('mail/delete/{id}', [MailInboxController::class, 'deleteMail']);
-        
+
         Route::prefix('order/')->group(function () {
             Route::get('data', [OrderController::class, 'index']);
             Route::get('orderpending', [OrderController::class, 'orderPending']);
@@ -129,9 +129,9 @@ Route::prefix('backoffice/v1')->group(function () {
             });
             /* Lucky networks */
             Route::prefix('network/')->group(function () {
-                Route::get('data',[BerLuckyController::class, 'getNetwork']);
-                Route::post('update/{id}',[BerLuckyController::class, 'updateBernet']);
-              });
+                Route::get('data', [BerLuckyController::class, 'getNetwork']);
+                Route::post('update/{id}', [BerLuckyController::class, 'updateBernet']);
+            });
         });
 
         /* Prediction */
@@ -226,6 +226,12 @@ Route::prefix('backoffice/v1')->group(function () {
             Route::patch('updatepin/{id}', [PrepaidController::class, 'updatePinCate']);
             Route::patch('updatedisplay/{id}', [PrepaidController::class, 'updateDisplayCate']);
             Route::delete('delete/{id}', [PrepaidController::class, 'deletePrepaidCate']);
+        });
+        // Prepaid net
+        Route::prefix('prepaidnet/')->group(function () {
+            Route::get('data', [PrepaidController::class, 'netIndex']);
+            Route::post('create', [PrepaidController::class, 'createPrepaidNet']);
+            Route::post('update/{id}', [PrepaidController::class, 'updatePrepaidNet']);
         });
 
         // Prepaid sim
