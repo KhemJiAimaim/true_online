@@ -14,12 +14,16 @@
                     <div class="bg-white flex flex-col  rounded-[8px] h-full p-4">
                         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
                         @php $formattedTel = substr($berproduct->product_phone, 0, 3) . '-' . substr($berproduct->product_phone, 3, 3) . '-' . substr($berproduct->product_phone, 6); @endphp
-                        <div class="text-center"><h1 class="text-[50px] max-yy:text-[45px] max-xx:text-[40px]  font-semibold mt-6">{{ $formattedTel }}</h1></div>
+                        <div class="text-center">
+                            <h1 class="text-[50px] max-yy:text-[45px] max-xx:text-[40px]  font-semibold mt-6">
+                                {{ $formattedTel }}</h1>
+                        </div>
                     </div>
                 </div>
 
                 {{-- กราฟ --}}
-                <div class="bg-white p-2 rounded-[10px] drop-shadow-md 2xl:w-[35%] flex justify-between max-xs:flex-col items-center gap-x-4">
+                <div
+                    class="bg-white p-2 rounded-[10px] drop-shadow-md 2xl:w-[35%] flex justify-between max-xs:flex-col items-center gap-x-4">
                     <div class="flex justify-center items-center w-[70%]">
                         <div class="max-uu:w-[165px] max-yy:w-[180px] max-xl:w-[170px] max-xx:w-[145px] max-xs:w-[180px]">
                             <canvas id="myChart" class="w-full"></canvas>
@@ -86,7 +90,7 @@
                 <div class="flex gap-4"> --}}
                 <div class="w-[15%] max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
                     <h1 class="text-lg font-semibold">เกรด</h1>
-                    <h1 class="text-[60px] font-semibold mt-4">{{ $berproduct->product_grade }}</h1>
+                    <h1 class="text-[85px] font-semibold mt-4">{{ $berproduct->product_grade }}</h1>
                 </div>
 
                 {{-- <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
@@ -147,92 +151,96 @@
         </div>
         {{-- box manual --}}
 
+        <div class="mt-10 max-2xl:mt-[12rem] max-xs:mt-[42rem] ">
+            {{-- box package --}}
+            @if ($berproduct->monthly_status == 'yes')
+                <div class="w-4/5 max-lg:w-full  mx-auto mb-12">
+                    <div class="mx-2">
+                        <div class="flex">
+                            <button id="btn-package"
+                                class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] ">รายละเอียด
+                                แพ็กเกจ</button>
+                            <button id="btn-condition"
+                                class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] ">เงื่อนไข</button>
+                        </div>
+                        {{-- content detail --}}
+                        <div id="box-package"
+                            class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                            <div class="p-6">
+                                {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
+                                @foreach ($benefits as $benefit)
+                                    <div class="flex gap-2 mb-2 ">
+                                        <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
+                                            <img class="w-[60px] h-[60px]" src="/{{ $benefit->thumbnail_link }}"
+                                                alt="">
+                                        </div>
+                                        <div class="">
+                                            <p>{{ $benefit->title }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                {{-- <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p> --}}
+                                {{-- <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p> --}}
+                            </div>
 
-        {{-- box package --}}
-        @if ($berproduct->monthly_status == 'yes')
-            <div class="w-4/5 max-lg:w-full mt-10 max-2xl:mt-[12rem] max-xs:mt-[42rem]  mx-auto mb-12">
-                <div class="mx-2">
-                    <div class="flex">
-                        <button id="btn-package"
-                            class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] ">รายละเอียด
-                            แพ็กเกจ</button>
-                        <button id="btn-condition"
-                            class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] ">เงื่อนไข</button>
-                    </div>
-                    {{-- content detail --}}
-                    <div id="box-package"
-                        class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
-                        <div class="p-6">
-                            {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
-                            @foreach ($benefits as $benefit)
-                                <div class="flex gap-2 mb-2 ">
-                                    <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
-                                        <img class="w-[60px] h-[60px]" src="/{{ $benefit->thumbnail_link }}" alt="">
-                                    </div>
-                                    <div class="">
-                                        <p>{{ $benefit->title }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                            {{-- <p>รับฟรีโค้ดความบันเทิง iQIYI,WeTV,Viu   จนถึง 31 ธ.ค. 66</p> --}}
-                            {{-- <p>รับสิทธิประกันชีวิตและอุบัติเหตุ ความคุ้มครองรวมสูงสุด 320,000 บาท</p> --}}
+                            <div class="w-full flex justify-center rounded-b-[10px] absolute bottom-0 py-1 ">
+                                <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
+                            </div>
                         </div>
 
-                        <div class="w-full flex justify-center rounded-b-[10px] absolute bottom-0 py-1 ">
-                            <button class="text-center text-[#EC1F25]" id="show-more">แสดงเพิ่มเติม ˅</button>
+                        {{-- content condition --}}
+                        <div id="box-condition"
+                            class="hidden bg-[#F8F9FA] min-h-[250px] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] p-6">
+                            {!! $condition_detail->content !!}
                         </div>
                     </div>
+                </div>
+            @endif
+            {{-- box package --}}
 
-                    {{-- content condition --}}
-                    <div id="box-condition"
-                        class="hidden bg-[#F8F9FA] min-h-[250px] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] p-6">
-                        {!! $condition_detail->content !!}
+            {{-- มหัศจรรย์ --}}
+            <div class="title-plate-container px-3  ">
+                <div class="mx-auto max-w-[1536px] max-2xl:max-w-[80%]  ">
+                    <div class="title-plate-line"></div>
+                </div>
+                <div class="plate-group">
+                    <div class="plate-box-s">
+                        <div class="plate-circleS"></div>
+                        <div class="title-plate-textboxS"></div>
+                    </div>
+                    <div class="title-plate-textboxC 2xl:w-[13%] xl:w-[15%] lg:w-[17%] md:w-[22%]">
+                        <p class="plate-text 2xl:text-[1.5rem] md:text-[20px] text-[18px]">คำทำนายคู่เลข</p>
+                    </div>
+                    <div class="plate-box-e">
+                        <div class="title-plate-textboxE"></div>
+                        <div class="plate-circleE"></div>
                     </div>
                 </div>
             </div>
-        @endif
-        {{-- box package --}}
+            {{-- มหัศจรรย์ --}}
 
-        {{-- มหัศจรรย์ --}}
-        <div class="title-plate-container px-3  ">
-            <div class="mx-auto max-w-[1536px] max-2xl:max-w-[80%]  ">
-                <div class="title-plate-line"></div>
+            {{-- box meaning ber --}}
+            <div class="w-4/5 max-lg:w-full mx-auto  py-4 max-xs:p-1 mb-8">
+                {{-- <h1 class="text-lg font-semibold mb-1 p-4">เบอร์มังกร</h1> --}}
+                @foreach ($data_fortune as $data)
+                    <div class="mb-4 p-4">
+                        <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} :
+                            {{ $data->prophecy_name }}
+                        </h1>
+                        <p class="indent-8 text-[16px]">{{ $data->prophecy_desc }}</p>
+                    </div>
+                @endforeach
+
+                <div class="bg-[#F8F9FA]  rounded-[10px] mx-2">
+                    <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
+                        {{ $data_sumber->predict_name }}</h1>
+                    <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
+                </div>
+
             </div>
-            <div class="plate-group">
-                <div class="plate-box-s">
-                    <div class="plate-circleS"></div>
-                    <div class="title-plate-textboxS"></div>
-                </div>
-                <div class="title-plate-textboxC 2xl:w-[13%] xl:w-[15%] lg:w-[17%] md:w-[22%]">
-                    <p class="plate-text 2xl:text-[1.5rem] md:text-[20px] text-[18px]">คำทำนายคู่เลข</p>
-                </div>
-                <div class="plate-box-e">
-                    <div class="title-plate-textboxE"></div>
-                    <div class="plate-circleE"></div>
-                </div>
-            </div>
+            {{-- box meaning ber --}}
         </div>
-        {{-- มหัศจรรย์ --}}
 
-        {{-- box meaning ber --}}
-        <div class="w-4/5 max-lg:w-full mx-auto  py-4 max-xs:p-1 mb-8">
-            {{-- <h1 class="text-lg font-semibold mb-1 p-4">เบอร์มังกร</h1> --}}
-            @foreach ($data_fortune as $data)
-                <div class="mb-4 p-4">
-                    <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} : {{ $data->prophecy_name }}
-                    </h1>
-                    <p class="indent-8 text-[16px]">{{ $data->prophecy_desc }}</p>
-                </div>
-            @endforeach
-
-            <div class="bg-[#F8F9FA]  rounded-[10px] mx-2">
-                <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
-                    {{ $data_sumber->predict_name }}</h1>
-                <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
-            </div>
-
-        </div>
-        {{-- box meaning ber --}}
 
         {{-- box buy detail --}}
 
