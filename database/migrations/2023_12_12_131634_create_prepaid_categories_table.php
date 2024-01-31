@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('details')->nullable();
             $table->string('description')->nullable();
+            $table->integer('networks_id');
             $table->string('thumbnail_link')->nullable();
             $table->string('thumbnail_title')->nullable();
             $table->string('thumbnail_alt')->nullable();
@@ -32,7 +33,7 @@ return new class extends Migration
             $table->boolean('defaults')->default(false);
             $table->string('language')->default('th');
             $table->unique(['language', 'id']);
-
+            
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
