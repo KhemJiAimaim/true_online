@@ -12,6 +12,7 @@ box.forEach(element => {
 let lastClickedBox = null;
 let productQuantity = null;
 let imgElement = null;
+let priceProductSl = null;
 
 function handleBoxClick(box) {
   productQuantity = box.getAttribute('data-quantity');
@@ -30,8 +31,8 @@ function handleBoxClick(box) {
   if (box !== lastClickedBox) {
     const quantity_product = document.querySelector('#quantity-product').value = 1;
     // console.log(quantity_product);
-
-    result_price.innerHTML = box.getAttribute('data-price');
+    priceProductSl = box.getAttribute('data-price')
+    result_price.innerText = priceProductSl;
     box.classList.remove('border-gray-10');
     box.classList.add('border-gray-500', 'activate');
     // แก้ไขรูปภาพ checkbox เป็นรูปภาพ active
@@ -47,14 +48,17 @@ function handleBoxClick(box) {
 
 // ปุ่มบวก_ลบจำนวนสินค้า
 function decrement(e) {
+  console.log("ราคาสินค้าที่เลือก " + priceProductSl)
   const btn = e.target.closest('#decrement');
   if (btn) {
     const target = btn.nextElementSibling;
     let value = Number(target.value);
-    if (value > 0) {
+    if (value > 1) {
       value--;
       target.value = value;
     }
+    result_price.innerText = priceProductSl* value;
+    console.log("จำนวน "+ priceProductSl* value)
   }
 }
 
@@ -65,8 +69,10 @@ function increment(e) {
     let value = Number(target.value);
     if(value < productQuantity) {
       value++;
+      target.value = value;
     }
-    target.value = value;
+    result_price.innerText = priceProductSl* value
+    console.log("จำนวน "+ value)
   }
 }
 
@@ -184,12 +190,21 @@ quantity_product.addEventListener('input', () => {
     quantity_product.value = quantity_product.value.replace(/[^0-9]/g, '');
   }
 
-  const inputQuantity = parseInt(quantity_product.value);
+  let inputQuantity = parseInt(quantity_product.value);
+
+  // ตรวจสอบว่า inputQuantity เป็น NaN หรือน้อยกว่า 1 ให้กำหนดให้มีค่าเป็น 1
+  if (isNaN(inputQuantity) || inputQuantity < 1) {
+    inputQuantity = 1;
+  }
 
   if (!isNaN(inputQuantity) && inputQuantity > productQuantity) {
     // ถ้า inputQuantity มากกว่า productQuantity ให้ใส่ productQuantity ลงใน input
-    quantity_product.value = productQuantity;
+    inputQuantity = productQuantity;
   }
+
+  quantity_product.value = inputQuantity;
+  result_price.innerText = quantity_product.value * priceProductSl
+  console.log("จำนวนกรอก " + quantity_product.value * priceProductSl);
 
 });
 

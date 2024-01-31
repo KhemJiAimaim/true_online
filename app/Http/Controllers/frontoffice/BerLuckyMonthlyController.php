@@ -30,7 +30,6 @@ class BerLuckyMonthlyController extends Controller
     public function get_product_all(Request $request)
     {
         $getpost = $this->product_prepare_variable($request->all());
-
         $sql_sort = null;
         if (isset($getpost['need_sort'])) {
             if ($getpost['need_sort'] == "RAND") {
@@ -100,7 +99,7 @@ class BerLuckyMonthlyController extends Controller
     {
         $sql = "";  #WHERE
         $sql2 =  ""; #HAVING
-
+				// dd($request);
         if (isset($request['sim']) && $request['sim'] == "month") {
             $sql .= " AND `monthly_status` = 'yes' ";
         } else if (isset($request['sim']) && $request['sim'] == "paysim") {
@@ -123,16 +122,22 @@ class BerLuckyMonthlyController extends Controller
         }
 
         if (isset($request['package']) && filter_var($request['package'], FILTER_SANITIZE_NUMBER_INT) !== "") {
-            $package = filter_var($request['package'], FILTER_SANITIZE_NUMBER_INT);
-            $sql .= " AND FIND_IN_SET($package, product_package) > 0 ";
-						// dd($sql);
+					$package = filter_var($request['package'], FILTER_SANITIZE_NUMBER_INT);
+					$sql .= " AND FIND_IN_SET($package, product_package) > 0 ";
+					// dd($sql);
         }
-
 
         if (isset($request['sum']) && filter_var($request['sum'], FILTER_SANITIZE_NUMBER_INT) !== "") {
-            $sum = filter_var($request['sum'], FILTER_SANITIZE_NUMBER_INT);
-            $sql .= " AND `product_sumber` = $sum ";
+					$sum = filter_var($request['sum'], FILTER_SANITIZE_NUMBER_INT);
+					$sql .= " AND `product_sumber` = $sum ";
         }
+
+				if (isset($request['network']) ) {
+					$network = strtoupper(filter_var($request['network'], FILTER_SANITIZE_ADD_SLASHES,FILTER_SANITIZE_ADD_SLASHES));
+					if($network == "TRUE" || $network == "DTAC") {
+						$sql .= " AND `product_network` = '$network' ";
+					}
+				}
 
         if (isset($request['sort'])) {
             $request['sort'] = strtoupper($request['sort']);
@@ -382,7 +387,7 @@ class BerLuckyMonthlyController extends Controller
 					// เตรียมข้อมูล
 					$pp = substr($row[0], 3, 10);
 					$improve = $this->getProductByCategoryPredict($pp);
-					$grade = ($row[9] == "") ? $this->generate_grade($row[0]) : $row[9];
+					$grade = ($row[10] == "") ? $this->generate_grade($row[0]) : $row[10];
 
 					if ($row[1] == "" || $row[1] == 0) {
 						$telArray = str_split($row[0]);

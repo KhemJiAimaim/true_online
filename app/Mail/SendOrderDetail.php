@@ -39,7 +39,20 @@ class SendOrderDetail extends Mailable
         foreach($orderItems as $item){
             switch($item->type_id){
                 case 3:
-                    $bermonthly[] = BerproductMonthly::where('product_id', $item->product_id)->first();
+                    $bermonthly[] = BerproductMonthly::select('*')
+                        ->selectSub(function ($query) {
+                            $query->select('details')
+                                ->from('berlucky_packages')
+                                ->whereColumn('berproduct_monthlies.product_package', '=', 'berlucky_packages.id');
+                        }, 'details_pack')
+                        ->selectSub(function ($query) {
+                            $query->select('thumbnail')
+                                ->from('bernetworks')
+                                ->whereColumn('berproduct_monthlies.product_network', '=', 'bernetworks.network_name')
+                                ->whereColumn('berproduct_monthlies.monthly_status', '=', 'bernetworks.monthly');
+                        }, 'thumbnail')
+                        ->where('product_id', $item->product_id)
+                        ->first();
                     break;
                 // case 4:
                 //     $prepaid_sims[] = PrepaidSim::find($item->product_id);
@@ -49,7 +62,6 @@ class SendOrderDetail extends Mailable
                 //     break;
             }
         }
-        // dd($prepaid_sims);
         return $this->subject('หมายเลขการสั่งซื้อเลขที่ '.$dataCustomer->order_number)
             ->markdown('frontend.mail.formorder', compact('orderItems', 'bermonthly'));
     }
