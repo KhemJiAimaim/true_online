@@ -196,8 +196,8 @@ submitBuy.addEventListener("click", () => {
     }
 
     Swal.fire({
-        title: "SCAN",
-        html: `<p>*** หลังจากชำระเงินแล้ว กรุณาติดต่อกลับที่ <br> line Id: <a href="https://line.me/R/ti/p/@488jedjg?oat_content=url" class="text-red-500">@fibertrue</a> <br>หรือโทร 083-228-9789 <br>เพื่อส่งเอกสารในการเปิดใช้ซิม</p>`,
+        // title: "SCAN",
+        html: `<p>*** หลังจากชำระเงินแล้ว กรุณาติดต่อกลับที่ <br> line Id: <a href="https://line.me/R/ti/p/@488jedjg?oat_content=url" class="text-red-500 hover:underline decoration-solid">@fibertrue</a> <br>หรือโทร 083-228-9789 <br>เพื่อส่งเอกสารในการเปิดใช้ซิม</p>`,
         icon: "info",
         imageUrl: "../../../icons/S__14614577.jpg",
         imageWidth: 200,
