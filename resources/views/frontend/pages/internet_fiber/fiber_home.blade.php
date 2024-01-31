@@ -14,6 +14,7 @@
 @endsection
 
 @section('content')
+
     <div class="2xl:mt-16">
         <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
 
