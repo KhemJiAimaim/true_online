@@ -491,23 +491,24 @@
                                     <img src="{{ isset($product->thumbnail) ? $product->thumbnail : '/images/651e616b04c02CnURE.png' }}"
                                         alt="" class="w-full h-full">
                                 </div>
-                                <div class="flex justify-center py-10 ">
-                                    <p class="text-[35px] text-center font-bold">
-                                        {{ $product->product_phone }}</p>
-                                </div>
+                                <a href="{{ url('/detailber/' . $product->product_phone) }}">
+                                    <div class="flex justify-center py-10 max-ex:py-2">
+                                        <h2 class="2xl:text-[2rem] text-[1.5rem] text-center font-bold">
+                                            {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
+                                        </h2>
+                                    </div>
+                                </a>
                             </div>
                             {{-- berproduct --}}
-                            {{-- berproduct --}}
-
+                            {{-- @dd($title_package = $packages->firstWhere('id', $product->product_package)) --}}
                             <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-dm:h-[100px] h-[120px]">
                                 {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
-                                @if ($product->monthly_status)
+                                @if ($product->monthly_status == 'yes')
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                        {{ $title_package = $packages->firstWhere('id', $product->product_package)->details }}
+                                        {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
                                     </p>
                                 @endif
-                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                    {{ $product->product_comment }}</p>
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
                             </div>
 
                             <div
