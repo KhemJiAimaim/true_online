@@ -8,28 +8,28 @@
         {{-- box fortune --}}
         <div class="bg-[#F8F9FA] mx-2">
             <div
-                class="w-4/5 max-lg:w-full  py-10 mx-auto flex max-xs:flex-col  max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4">
+                class="w-4/5 max-lg:w-full h-[18rem]  py-10 mx-auto flex max-xs:flex-col  max-2xl:grid max-2xl:grid-cols-2 max-xs:grid-cols-1 gap-4 gap-y-4">
                 <div
-                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[25%] drop-shadow-md">
+                    class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] p-1 rounded-[10px] 2xl:w-[30%]  drop-shadow-md">
                     <div class="bg-white flex flex-col  rounded-[8px] h-full p-4">
                         <h1 class="text-lg font-semibold">หมายเลขเบอร์</h1>
                         @php $formattedTel = substr($berproduct->product_phone, 0, 3) . '-' . substr($berproduct->product_phone, 3, 3) . '-' . substr($berproduct->product_phone, 6); @endphp
-                        <h1 class="text-4xl font-semibold mt-4">{{ $formattedTel }}</h1>
+                        <div class="text-center"><h1 class="text-[50px] max-yy:text-[45px] max-xx:text-[40px]  font-semibold mt-6">{{ $formattedTel }}</h1></div>
                     </div>
                 </div>
 
                 {{-- กราฟ --}}
-                <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[35%] flex justify-between gap-x-4">
-                    <div class="flex w-[40%]">
-                        <div class="w-full">
-                            <canvas id="myChart" class="se:w-[97px]"></canvas>
+                <div class="bg-white p-2 rounded-[10px] drop-shadow-md 2xl:w-[35%] flex justify-between max-xs:flex-col items-center gap-x-4">
+                    <div class="flex justify-center items-center w-[70%]">
+                        <div class="max-uu:w-[165px] max-yy:w-[180px] max-xl:w-[170px] max-xx:w-[145px] max-xs:w-[180px]">
+                            <canvas id="myChart" class="w-full"></canvas>
                         </div>
                     </div>
 
-                    <div class="flex flex-col items-lft justify-between gap-2 max-2xl:gap-2  w-full">
+                    <div class="flex flex-col items-lft justify-between gap-2 max-2xl:gap-2  w-full py-6 px-4">
 
                         <div class="flex justify-between items-center gap-4">
-                            <h1 class="text-lg font-semibold">กราฟคะแนน</h1>
+                            <h1 class="text-[20px] font-semibold max-xl:text-[16px]">กราฟคะแนน</h1>
                             <div class="flex items-center cursor-pointer" id="manual-fortune">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                     fill="none">
@@ -73,7 +73,7 @@
                 </div>
 
                 {{-- ความหมาย --}}
-                <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[35%]">
+                <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[20%]">
                     <h1 class="text-lg font-semibold">ความหมาย</h1>
                     <div class="flex items-center gap-4 mt-4">
                         <img src="/icons/package.png" alt="">
@@ -84,9 +84,9 @@
 
                 {{-- 
                 <div class="flex gap-4"> --}}
-                <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
+                <div class="w-[15%] max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
                     <h1 class="text-lg font-semibold">เกรด</h1>
-                    <h1 class="text-4xl font-semibold mt-4">{{ $berproduct->product_grade }}</h1>
+                    <h1 class="text-[60px] font-semibold mt-4">{{ $berproduct->product_grade }}</h1>
                 </div>
 
                 {{-- <div class="w-28 max-2xl:w-full bg-white text-center p-4 rounded-[10px] drop-shadow-md">
@@ -150,7 +150,7 @@
 
         {{-- box package --}}
         @if ($berproduct->monthly_status == 'yes')
-            <div class="w-4/5 max-lg:w-full mt-10 mx-auto mb-12">
+            <div class="w-4/5 max-lg:w-full mt-10 max-2xl:mt-[12rem] max-xs:mt-[42rem]  mx-auto mb-12">
                 <div class="mx-2">
                     <div class="flex">
                         <button id="btn-package"
@@ -215,7 +215,7 @@
         {{-- มหัศจรรย์ --}}
 
         {{-- box meaning ber --}}
-        <div class="w-4/5 max-lg:w-full mx-auto  py-4 max-xs:p-1">
+        <div class="w-4/5 max-lg:w-full mx-auto  py-4 max-xs:p-1 mb-8">
             {{-- <h1 class="text-lg font-semibold mb-1 p-4">เบอร์มังกร</h1> --}}
             @foreach ($data_fortune as $data)
                 <div class="mb-4 p-4">
@@ -236,28 +236,28 @@
 
         {{-- box buy detail --}}
 
-        <div class="bg-white drop-shadow-md items-center w-full"
+        <div class="bg-white drop-shadow-md items-center w-full "
             style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
             <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
-                <p class="text-[18px] ">ราคา</p>
-                <p class="text-[30px] font-bold">{{ number_format($berproduct->product_price) }}</p>
-                <p class="text-[18px] ">บาท</p>
+                <p class="text-[20px]">ราคา</p>
+                <p class="text-[40px] font-bold">{{ number_format($berproduct->product_price) }}</p>
+                <p class="text-[20px] ">บาท</p>
 
                 <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
 
                 <div class="flex gap-2 ">
                     <button id="buyProductNow" data-id="{{ $berproduct->product_id }}" data-type="3"
-                        class="cursor-pointer flex items-center px-6 2xl:py-2 text-md font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                        class="cursor-pointer flex items-center px-8 2xl:py-2 text-md font-medium text-white text-[16px] focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
 
                     <button id="addBerToCart" data-id="{{ $berproduct->product_id }}" data-type="3"
-                        class="group rounded-full border border-red-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-red-600">
+                        class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-red-600">
                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                     </button>
 
                     <a href="https://line.me/ti/p/~@berhoro">
                         <div
-                            class="group rounded-full border border-green-500 mx-1 w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px] flex justify-center items-center p-2 hover:bg-green-600">
+                            class="group rounded-full border border-green-500 mx-1w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-green-600">
                             <img src="/images/icons8-line-app (1) 6.png" alt=""
                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                         </div>

@@ -35,33 +35,33 @@
                 @endif --}}
 
 
-        <div class="max-2xl:overflow-x-scroll max-uu::overflow-hidden  my-4 px-3">
-            <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
-                @foreach ($berpredict_numbcate as $numcate)
-                    @if ($numcate->recommended == true)
-                        <a href="?improve={{ $numcate->numbcate_id }}"
-                            class="flex flex-col flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                            <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
-                                <img class="w-full h-full mb-2" src="{{ $numcate->thumbnail }}" alt="">
-                            </div>
-                            <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $numcate->numbcate_title }}</p>
-                        </a>
-                    @endif
-                @endforeach
-
-                @foreach ($berproduct_cates as $cate)
-                    @if ($cate->recommended == true)
-                        <a
-                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-co  flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                            <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
-                                <img class="w-full h-full mb-3" src="/{{ $cate->thumbnail }}" alt="">
-                            </div>
-                            <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->bercate_title }}</p>
-                        </a>
-                    @endif
-                @endforeach
-            </div>
-        </div>
+                <div class="max-2xl:overflow-x-scroll max-uu::overflow-hidden  my-4 px-3">
+                    <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
+                        @foreach ($berpredict_numbcate as $numcate)
+                            @if ($numcate->recommended == true)
+                                <a href="?improve={{ $numcate->numbcate_id }}"
+                                    class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                                    <div class="flex flex-col  flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center">
+                                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="{{ $numcate->thumbnail }}" alt="">
+                                    </div>
+                                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $numcate->numbcate_title }}</p>
+                                </a>
+                            @endif
+                        @endforeach
+        
+                        @foreach ($berproduct_cates as $cate)
+                            @if ($cate->recommended == true)
+                                <a
+                                    href="?auspicious={{ $cate->bercate_id }}"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                                    <div class="flex flex-col  flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center">
+                                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->thumbnail }}" alt="">
+                                    </div>
+                                    <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->bercate_title }}</p>
+                                </a>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
 
         {{-- <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
             <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
@@ -501,12 +501,13 @@
                             </div>
                             {{-- berproduct --}}
                             {{-- @dd($title_package = $packages->firstWhere('id', $product->product_package)) --}}
-                            <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-dm:h-[100px] h-[120px]">
+                            <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
                                 {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
                                 @if ($product->monthly_status == 'yes')
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                         {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
                                     </p>
+                                    <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
                                 @endif
                                 <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
                             </div>
