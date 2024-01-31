@@ -132,7 +132,11 @@
                                             <p>หมายเลขเบอร์ <br>{{ $month->product_phone }}</p>
                                             <div class="max-ex:hidden">
                                                 <p>เกรด {{ $month->product_grade }}</p>
+                                                @if($month->monthly_status == 'yes')
+                                                <p>{{ $month->details_pack }}</p>
+                                                @else
                                                 <p>{{ $month->product_comment }}</p>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

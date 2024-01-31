@@ -38,7 +38,7 @@ class ExcelController extends Controller
             $improve = $this->getProductByCategoryPredict($pp);
             $grade = ($row[10] == "") ? $this->generate_grade($row[0]) : $row[10];
 
-            if ($row[1] == "") {
+            if ($row[1] == "" || $row[1] == 0) {
                 $telArray = str_split($row[0]);
                 $telArray = array_map('intval', $telArray);
                 $sum = array_sum($telArray);

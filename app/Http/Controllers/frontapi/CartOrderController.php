@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use App\Models\BerproductMonthly;
 use App\Models\PrepaidSim;
 use App\Models\TravelSim;
+use App\Models\WebInfo;
 use Exception;
 
 class CartOrderController extends Controller
@@ -176,6 +177,11 @@ class CartOrderController extends Controller
     }
 
     public function sendOrderMail($newOrder) {
-        Mail::to($newOrder->email)->send(new SendOrderDetail($newOrder));
+        $webMail = WebInfo::where('info_type', 2)->where('info_param', 'email')->first();
+        $recipients = [
+            $newOrder->email,
+            $webMail->info_value
+        ];
+        Mail::to($recipients)->send(new SendOrderDetail($newOrder));
     }
 }
