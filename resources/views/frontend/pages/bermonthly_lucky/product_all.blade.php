@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-    <div class=" text-left ">
+    <div class="text-left ">
 
         <div
             class="h-[158px] max-xs:h-[100px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
@@ -35,12 +35,12 @@
                 @endif --}}
 
 
-        <div class="max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+        <div class="max-2xl:overflow-x-scroll max-uu::overflow-hidden  my-4 px-3">
             <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
                 @foreach ($berpredict_numbcate as $numcate)
                     @if ($numcate->recommended == true)
                         <a href="?improve={{ $numcate->numbcate_id }}"
-                            class="flex flex-col max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            class="flex flex-col flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                             <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
                                 <img class="w-full h-full mb-2" src="{{ $numcate->thumbnail }}" alt="">
                             </div>
@@ -52,7 +52,7 @@
                 @foreach ($berproduct_cates as $cate)
                     @if ($cate->recommended == true)
                         <a
-                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-col max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-co  flex-initial max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
                             <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
                                 <img class="w-full h-full mb-3" src="/{{ $cate->thumbnail }}" alt="">
                             </div>
