@@ -22,26 +22,28 @@
             <div class="plate-line max-w-[200px]"></div>
             {{-- มหัศจรรย์ --}}
 
-            <div class="max-w-[1536px] gap-4 m-auto p-4 mt-6 ">
+            <div class="w-4/5 max-lg:w-full gap-4 m-auto  mt-6 ">
 
                 <div class="flex flex-wrap justify-center gap-4 py-2 mx-auto">
-                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center py-4 px-1">
-                        <p
-                            class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
-                            {{ $fiber_products->title }}
-                        </p>
-
-                        <div class="flex justify-between items-center px-6 gap-2">
-                            <p class="text-black font-medium text-[18px] w-full ">ราคา</p>
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1 py-4 ">
+                        <div class="flex flex-col w-full justify-between gap-y-2">
                             <p
-                                class="text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-center text-[35px] w-full">
-                                {{ number_format($fiber_products->price_per_month) }}
+                                class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#5741CD] to-[#00ACEE] text-[18px]">
+                                {{ $fiber_products->title }}
                             </p>
-                            <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
-                        </div>
 
-                        <p class="text-md mt-4">ระยะสัญญา {{ $fiber_products->duration }} เดือน</p>
+                            <div class="flex justify-between items-center px-6 py-2 gap-2">
+                                <p class="text-black font-medium text-[18px] w-full">ราคา</p>
+                                <p
+                                    class="text-center text-[50px] text-transparent bg-clip-text font-bold bg-gradient-to-r from-[#5741CD] to-[#00ACEE]  w-full">
+                                    {{ number_format($fiber_products->price_per_month) }}</p>
+                                <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
+                            </div>
+
+                            <p class="text-md ">ระยะสัญญา {{ $fiber_products->duration }} เดือน</p>
+                        </div>
                     </div>
+
 
                     @if ($fiber_products->special_price > 0)
                         <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
@@ -61,12 +63,14 @@
                                 </div>
                             </div>
 
-                            <p class="mt-4 font-medium text-[18px]">{{ $fiber_products->special_details }}</p>
-                            <div class="flex justify-between items-center px-6 py-2 gap-2">
-                                <p class="text-black font-medium text-[18px] w-full">ราคา</p>
-                                <p class="font-bold text-center text-[35px]  w-full">
-                                    {{ number_format($fiber_products->special_price) }}</p>
-                                <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
+                            <div class="flex flex-col w-full justify-between gap-y-2">
+                                <p class="mt-4 font-medium text-[18px]">{{ $fiber_products->special_details }}</p>
+                                <div class="flex justify-between items-center px-6 py-2 gap-2">
+                                    <p class="text-black font-medium text-[18px] w-full">ราคา</p>
+                                    <p class="font-bold text-center text-[50px]  w-full">
+                                        {{ number_format($fiber_products->special_price) }}</p>
+                                    <p class="text-black font-medium text-[18px] w-full">บาท/เดือน</p>
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -78,25 +82,31 @@
                         $upload = $fiber_products->upload_speed >= 1000 ? $fiber_products->upload_speed / 1000 : $fiber_products->upload_speed;
                         $unit_upload = $fiber_products->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
                     @endphp
-                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center px-1">
-                        <div class="grid grid-cols-2 mt-6 p-2">
-                            <div class="flex justify-center">
-                                <img src="/images/Rectangle 1233.png" alt="" class="w-[7rem] h-[7rem]">
+                    <div class="w-[456px] drop-shadow-sm bg-[#F5F5F7] rounded-lg items-center ">
+                        <div class="flex justify-between items-center p-4 max-xs:px-2 gap-4 ">
+                            <div class="flex justify-center items-center w-full">
+                                <img src="/images/Rectangle 1233.png" alt=""
+                                    class="w-[7rem] h-[7rem] max-xs:w-[6rem] max-xs:h-[6rem]">
                             </div>
-                            <div class="">
+
+                            <div class="w-full flex flex-col ">
                                 <p
                                     class="text-transparent bg-clip-text font-medium bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-2xl text-left">
                                     ความเร็ว</p>
                                 <p class="text-left">( ดาวน์โหลด / อัปโหลด )</p>
-                                <div class="flex justify-start py-4 ">
+                                <div class="flex justify-start py-4 items-center  ">
                                     <p
-                                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-4xl font-bold">
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#ED4312] to-[#F6911D] text-left text-[50px]
+                                   
+                                    font-bold">
                                         {{ $download }}
                                     </p>
-                                    <div class="border-l border border-gray-500 text-center mx-6 rounded-full max-ex:mx-3">
+
+                                    <div
+                                        class="border-l border border-gray-500 text-center mx-2 py-6 rounded-full max-ex:mx-1">
                                     </div>
-                                    <p class="text-[16px] max-xs:text-[13px] text-md text-left font-medium">
-                                        {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}</p>
+                                    <p class="max-uu:text-[16px] max-xs:text-[13px] text-md text-left font-medium">
+                                        {{ $unit_download }}<br>/{{ $upload }}000{{ $unit_upload }}</p>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +119,7 @@
 
         <section class="py-16 px-3 max-2xl:mx-6">
             <p class="2xl:text-[1.5rem] xl:text-[1.5rem] text-[20px] font-medium mb-6">รับเพิ่มในแพ็กเกจนี้</p>
-            <div class="max-w-[1536px] mx-auto items-center">
+            <div class="w-4/5 max-lg:w-full mx-auto items-center">
                 <!-- Swiper -->
                 <div class="swiper items-center ">
                     @php
@@ -194,7 +204,7 @@
                         3.3 บริการส่งข้อความมัลติมีเดีย (MMS) ระหว่างโทรศัพท์เคลื่อนทีที่ใช้และจดทะเบียนภายในประเทศ ครั้งละ 4.50 บาท</p>';
         @endphp
 
-        <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-10 "
+        <div class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-[99] "
             id="modal-container">
             <div class="w-[700px] max-lg:w-[444px] max-xs:w-[355px] max-lg:p-2 p-4 bg-white rounded-[10px] mx-2">
                 <div class="w-full flex justify-end">

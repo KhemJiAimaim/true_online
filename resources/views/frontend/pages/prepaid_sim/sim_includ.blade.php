@@ -16,9 +16,9 @@
             {{-- มหัศจรรย์ --}}
             {{-- grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 mx-auto p-4 2xl:mt-16 mt-6 mb-10 --}}
 
-            <div class="max-w-[1536px] flex flex-wrap justify-center mx-auto py-12 gap-4 gap-y-6 px-4 ">
+            <div class="w-4/5 max-lg:w-full  flex justify-center flex-wrap items-center mx-auto py-12 gap-4 gap-y-6 px-4 ">
                 @foreach ($prepaid_cate as $prepaid)
-                    <div class="drop-shadow-md w-[350px] max-xl:w-[320px] max-es:w-[300px] h-[100%] mx-auto">
+                    <div class="drop-shadow-md w-[350px] max-xl:w-[320px] max-es:w-[300px] h-[100%]">
                         <div
                             class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
@@ -29,7 +29,7 @@
 
                         <div class="bg-white">
                             <div
-                                class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[120px] max-ex:h-[120px]">
+                                class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[160px] max-ex:h-[160px]">
                                 <img src="/{{ $prepaid->thumbnail_link }}" alt=""
                                     class="w-full h-full object-contain">
                             </div>
@@ -37,20 +37,21 @@
 
                         <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[120px]">
                             <img src="/images/Ellipse 6.png" alt="" class="px-4">
-                            <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">{{ $prepaid->details }}
+                            <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">
+                                {{ $prepaid->details }}
                         </div>
 
                         <div class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
                             <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png" alt="">
-                            <div class="grid grid-cols-3 items-center">
-                                <p class="text-white text-left text-[18px] pt-1 ">
+                            <div class="flex justify-between items-center">
+                                <p class="text-white text-left text-[18px] max-xs:text-[16px]">
                                     ราคาเริ่มต้น
                                 </p>
                                 <p class="flex items-center flex-col">
-                                    <span class="text-white font-medium text-center text-[35px]">
+                                    <span class="text-white font-medium text-center text-[50px]">
                                         {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</span>
                                 </p>
-                                <p class="text-white text-right text-[18px] pt-1 ">บาท/เดือน
+                                <p class="text-white text-right text-[18px] max-xs:text-[16px] ">บาท/เดือน
                                 </p>
 
                             </div>

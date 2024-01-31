@@ -2,19 +2,21 @@
 
 @section('content')
     <div class="2xl:my-16 px-3">
-        <div class="overflow-x-scroll 2xl:overflow-hidden overflow-hidden py-2">
-            <div
-                class="grid grid-cols-7 px-3 py-6 se:w-[1000px] ss:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
+        <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+            <div class="flex justify-center max-md:justify-start  gap-x-10  py-2  items-center mx-auto ">
                 @foreach ($cate_fiber as $cate)
                     <a href="{{ url($cate->cate_url) }}"
-                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-[1.1] transition-all duration-500 ease-in-out">
-                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
-                            alt="">
-                        @foreach (explode(' ', $cate->cate_title) as $word)
-                            <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
-                        @endforeach
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out ">
+                        <div class="flex-initial w-[8rem] flex flex-col justify-center items-center">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5 "
+                                src="/{{ $cate->cate_thumbnail }}" alt="">
+                            @foreach (explode(' ', $cate->cate_title) as $word)
+                                <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
+                            @endforeach
+                        </div>
                     </a>
                 @endforeach
+
             </div>
         </div>
 
@@ -58,13 +60,14 @@
                                 @endphp
 
                                 <div class="bg-white">
-                                    <div class="flex justify-center py-2 ml-12 items-center">
-                                        <p class="text-[70px] text-center font-medium">
-                                            {{ $download }}</p>
-                                        <div class="border-l border border-gray-500 text-center mx-6 py-8 rounded-full">
+                                    <div class="flex justify-center py-2 items-center">
+                                        <p class="text-[70px] text-center font-medium">{{ $download }}
+                                        </p>
+                                        <div
+                                            class="border-l border border-gray-500 text-center mx-4 max-xs:mx-2 py-8 rounded-full">
                                         </div>
                                         <p class="text-lg text-left text-[16px]">
-                                            {{ $unit_download }}/{{ $upload }}{{ $unit_upload }}
+                                            {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
                                         </p>
                                     </div>
 
@@ -126,12 +129,12 @@
                                     class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
                                     <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png" alt="">
                                     <div class="grid grid-cols-3 items-center">
-                                        <p class="text-white text-left  text-[18px] ">ราคา
+                                        <p class="text-white text-left   text-[18px] max-xs:text-[16px]">ราคา
                                         </p>
-                                        <p class="text-white font-medium text-center text-[35px] ">
+                                        <p class="text-white font-medium text-center text-[50px] ">
                                             {{ number_format($product->special_price > 0 ? $product->special_price : $product->price_per_month) }}
                                         </p>
-                                        <p class="text-white text-right text-[18px]">
+                                        <p class="text-white text-right  text-[18px] max-xs:text-[16px]">
                                             บาท/เดือน</p>
                                     </div>
                                 </div>

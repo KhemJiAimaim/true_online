@@ -16,18 +16,24 @@
 @section('content')
 
     <div class="2xl:mt-16">
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-2 px-3">
-            <div class="grid grid-cols-7 py-2 se:w-[1000px] md:w-[1200px] 2xl:w-[1536px] items-center mx-auto gap-2">
+        <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+
+            <div class="flex justify-center max-md:justify-start  gap-x-10  py-2  items-center mx-auto ">
+
                 @foreach ($cate_fiber as $cate)
                     <a href="{{ url($cate->cate_url) }}"
-                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                        <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5" src="/{{ $cate->cate_thumbnail }}"
-                            alt="">
-                        @foreach (explode(' ', $cate->cate_title) as $word)
-                            <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
-                        @endforeach
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out ">
+                        <div
+                            class="flex-initial max-uu:w-[12rem] max-xs:w-[10rem] flex flex-col justify-center items-center">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5 "
+                                src="/{{ $cate->cate_thumbnail }}" alt="">
+                            @foreach (explode(' ', $cate->cate_title) as $word)
+                                <p class="2xl:text-[18px] md:text-[18px] se:text-[14px]">{{ $word }}</p>
+                            @endforeach
+                        </div>
                     </a>
                 @endforeach
+
             </div>
         </div>
 
@@ -71,11 +77,11 @@
 
 
                 <div class="2xl:my-16 my-4 z-2 w-full">
-                    <div class="w-4/5 max-lg:w-full my-0 mx-auto flex justify-center ">
+                    <div class="w-4/5 max-lg:w-full my-0 mx-auto flex justify-center items-center">
 
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
 
-                            {{-- @php
+                            @php
                                 $count = 0;
                                 $justify = 'justify-center max-xs:justify-start';
 
@@ -87,76 +93,76 @@
                                 }
                                 $justify = $count > 4 ? 'justify-start' : $justify;
                                 // echo "Total count for fiber_cate_id  $justify";
-                            @endphp --}}
+                            @endphp
 
-                            <div class="swiper-wrapper items-center w-full mx-auto flex">
+                            <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                 @foreach ($fiber_products as $product)
                                     @if ($product->fiber_cate_id == $cate->id)
-                                        @for ($i = 0; $i < 5; $i++)
-                                            <div class="swiper-slide flex justify-center items-center">
+                                        {{-- @for ($i = 0; $i < 5; $i++) --}}
+                                        <div class="swiper-slide flex justify-center items-center">
 
+                                            <div
+                                                class="drop-shadow-md py-4 rounded-[10px] w-[350px] max-es:w-[310px] h-[100%]">
                                                 <div
-                                                    class="drop-shadow-md py-4 rounded-[10px] w-[350px] max-es:w-[310px] h-[100%]">
-                                                    <div
-                                                        class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
-                                                        <p class="text-white text-left text-[16px]">{{ $product->details }}
+                                                    class="flex bg-gradient-to-r from-[#5642CD] to-[#00BCFF]  rounded-tl-[10px] rounded-tr-[10px] py-2 px-3">
+                                                    <p class="text-white text-left text-[16px]">{{ $product->details }}
+                                                    </p>
+                                                    <img class="absolute top-0 right-0" src="/images/Intersect2.png"
+                                                        alt="">
+                                                </div>
+
+                                                <div class="bg-[#F8F9FA]">
+                                                    <div class="">
+                                                        <p class="py-3 text-[20px]">{{ $product->title }}</p>
+                                                    </div>
+                                                </div>
+                                                @php
+                                                    $download = $product->download_speed >= 1000 ? $product->download_speed / 1000 : $product->download_speed;
+                                                    $unit_download = $product->download_speed >= 1000 ? 'Gbps' : 'Mbps';
+
+                                                    $upload = $product->upload_speed >= 1000 ? $product->upload_speed / 1000 : $product->upload_speed;
+                                                    $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
+                                                @endphp
+                                                <div class="bg-white">
+
+                                                    <div class="flex justify-center py-2 items-center">
+                                                        <p class="text-[70px] text-center font-medium">{{ $download }}
                                                         </p>
-                                                        <img class="absolute top-0 right-0" src="/images/Intersect2.png"
-                                                            alt="">
+                                                        <div
+                                                            class="border-l border border-gray-500 text-center mx-4 max-xs:mx-2 py-8 rounded-full">
+                                                        </div>
+                                                        <p class="text-lg text-left text-[16px]">
+                                                            {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
+                                                        </p>
                                                     </div>
 
-                                                    <div class="bg-[#F8F9FA]">
-                                                        <div class="">
-                                                            <p class="py-3 text-[20px]">{{ $product->title }}</p>
+                                                    <div class="blue-plate-container">
+                                                        <div class="blue-plate-line"></div>
+                                                        <div class="blue-plate-group">
+                                                            <div class="blue-plate-box-s">
+                                                                <div class="blue-plate-circleS"></div>
+                                                                <div class="blue-plate-textboxS"></div>
+                                                            </div>
+                                                            <div class="blue-plate-textboxC">
+                                                                <p class="blue-plate-text text-white text-[18px]">
+                                                                    รับทันที
+                                                                </p>
+                                                            </div>
+                                                            <div class="blue-plate-box-e">
+                                                                <div class="blue-plate-textboxE"></div>
+                                                                <div class="blue-plate-circleE"></div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     @php
-                                                        $download = $product->download_speed >= 1000 ? $product->download_speed / 1000 : $product->download_speed;
-                                                        $unit_download = $product->download_speed >= 1000 ? 'Gbps' : 'Mbps';
+                                                        $benefit_ids = explode(',', $product->benefit_ids);
+                                                        $post_ids = $post_benefits->pluck('id')->toArray();
 
-                                                        $upload = $product->upload_speed >= 1000 ? $product->upload_speed / 1000 : $product->upload_speed;
-                                                        $unit_upload = $product->upload_speed >= 1000 ? 'Gbps' : 'Mbps';
+                                                        // หาค่าที่เหมือนกัน
+                                                        $same_benefit = array_intersect($benefit_ids, $post_ids);
+                                                        $benefit_items = array_slice($same_benefit, 0, 3);
                                                     @endphp
-                                                    <div class="bg-white">
-
-                                                        <div class="flex justify-center py-2  items-center">
-                                                            <p class="max-uu:text-[50px] max-lg:text-[70px]  font-medium">
-                                                                {{ $download }}</p>
-                                                            <div
-                                                                class="border-l border border-gray-500  mx-6 py-8 rounded-full">
-                                                            </div>
-                                                            <p class="text-lg text-[16px]">
-                                                                {{ $unit_download }}<br>/{{ $upload }}{{ $unit_upload }}
-                                                            </p>
-                                                        </div>
-
-                                                        <div class="blue-plate-container">
-                                                            <div class="blue-plate-line"></div>
-                                                            <div class="blue-plate-group">
-                                                                <div class="blue-plate-box-s">
-                                                                    <div class="blue-plate-circleS"></div>
-                                                                    <div class="blue-plate-textboxS"></div>
-                                                                </div>
-                                                                <div class="blue-plate-textboxC">
-                                                                    <p class="blue-plate-text text-white text-[18px]">
-                                                                        รับทันที
-                                                                    </p>
-                                                                </div>
-                                                                <div class="blue-plate-box-e">
-                                                                    <div class="blue-plate-textboxE"></div>
-                                                                    <div class="blue-plate-circleE"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @php
-                                                            $benefit_ids = explode(',', $product->benefit_ids);
-                                                            $post_ids = $post_benefits->pluck('id')->toArray();
-
-                                                            // หาค่าที่เหมือนกัน
-                                                            $same_benefit = array_intersect($benefit_ids, $post_ids);
-                                                            $benefit_items = array_slice($same_benefit, 0, 3);
-                                                        @endphp
-                                                        {{-- <div class="flex justify-center py-6">
+                                                    {{-- <div class="flex justify-center py-6">
                                                                 @foreach ($benefit_items as $item)
                                                                     @foreach ($post_benefits as $post)
                                                                         @if ($post->id == $item)
@@ -166,63 +172,62 @@
                                                                     @endforeach
                                                                 @endforeach
                                                             </div> --}}
-                                                        <div class="flex justify-center py-6 px-2">
-                                                            @php
-                                                                $showDivider = false;
-                                                            @endphp
+                                                    <div class="flex justify-center py-6 px-2">
+                                                        @php
+                                                            $showDivider = false;
+                                                        @endphp
 
-                                                            @foreach ($benefit_items as $item)
-                                                                @foreach ($post_benefits as $post)
-                                                                    @if ($post->id == $item)
-                                                                        <img class="w-20"
-                                                                            src="/{{ $post->thumbnail_link }}"
-                                                                            alt="">
-                                                                        @php
-                                                                            $showDivider = true;
-                                                                        @endphp
-                                                                    @endif
-                                                                @endforeach
-
-                                                                {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
-                                                                @if ($showDivider && !$loop->last)
-                                                                    <div
-                                                                        class="border-l border border-gray-500 text-center mx-3 rounded-full">
-                                                                    </div>
+                                                        @foreach ($benefit_items as $item)
+                                                            @foreach ($post_benefits as $post)
+                                                                @if ($post->id == $item)
+                                                                    <img class="w-20" src="/{{ $post->thumbnail_link }}"
+                                                                        alt="">
                                                                     @php
-                                                                        $showDivider = false;
+                                                                        $showDivider = true;
                                                                     @endphp
                                                                 @endif
                                                             @endforeach
-                                                        </div>
 
-
-
+                                                            {{-- ตรวจสอบว่าไม่ใช่การวนลูปครั้งสุดท้ายก่อนที่จะเพิ่ม div --}}
+                                                            @if ($showDivider && !$loop->last)
+                                                                <div
+                                                                    class="border-l border border-gray-500 text-center mx-3 rounded-full">
+                                                                </div>
+                                                                @php
+                                                                    $showDivider = false;
+                                                                @endphp
+                                                            @endif
+                                                        @endforeach
                                                     </div>
 
 
-                                                    <div
-                                                        class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
-                                                        <img class="absolute bottom-0 left-0"
-                                                            src="/images/Intersect (1).png" alt="">
-                                                        <div class="grid grid-cols-3 items-center">
-                                                            <p class="text-white text-left  text-[18px] ">ราคา
-                                                            </p>
-                                                            <p class="text-white font-medium text-center text-[35px] ">
-                                                                {{ number_format($product->special_price > 0 ? $product->special_price : $product->price_per_month) }}
-                                                            </p>
-                                                            <p class="text-white text-right text-[18px]">
-                                                                บาท/เดือน</p>
-                                                        </div>
-                                                    </div>
 
-                                                    <div
-                                                        class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
-                                                        <a href="{{ url('/fiber/detail_true_dtac/' . $product->id) }}"
-                                                            class="py-2 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">สมัครเลย</a>
+                                                </div>
+
+
+                                                <div
+                                                    class=" relative bg-gradient-to-r from-[#5642CD] to-[#00BCFF]   py-3 px-2 items-center">
+                                                    <img class="absolute bottom-0 left-0" src="/images/Intersect (1).png"
+                                                        alt="">
+                                                    <div class="grid grid-cols-3 items-center">
+                                                        <p class="text-white text-left   text-[18px] max-xs:text-[16px]">ราคา
+                                                        </p>
+                                                        <p class="text-white font-medium text-center text-[50px] ">
+                                                            {{ number_format($product->special_price > 0 ? $product->special_price : $product->price_per_month) }}
+                                                        </p>
+                                                        <p class="text-white text-right  text-[18px] max-xs:text-[16px]">
+                                                            บาท/เดือน</p>
                                                     </div>
                                                 </div>
+
+                                                <div
+                                                    class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
+                                                    <a href="{{ url('/fiber/detail_true_dtac/' . $product->id) }}"
+                                                        class="py-2 px-5 mr-2 mb-2 mt-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">สมัครเลย</a>
+                                                </div>
                                             </div>
-                                        @endfor
+                                        </div>
+                                        {{-- @endfor --}}
                                     @endif
                                 @endforeach
                             </div>

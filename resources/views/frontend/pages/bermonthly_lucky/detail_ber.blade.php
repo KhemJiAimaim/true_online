@@ -74,7 +74,7 @@
 
                 {{-- ความหมาย --}}
                 <div class="bg-white p-4 rounded-[10px] drop-shadow-md 2xl:w-[35%]">
-                    <h1 class="text-lg font-semibold">แพ็กเกจ/ความหมาย</h1>
+                    <h1 class="text-lg font-semibold">ความหมาย</h1>
                     <div class="flex items-center gap-4 mt-4">
                         <img src="/icons/package.png" alt="">
                         <p class="">{{ $berproduct->product_comment }}</p>
@@ -216,7 +216,7 @@
 
         {{-- box meaning ber --}}
         <div class="w-4/5 max-lg:w-full mx-auto  py-4 max-xs:p-1">
-            <h1 class="text-lg font-semibold mb-1 p-4">เบอร์มังกร</h1>
+            {{-- <h1 class="text-lg font-semibold mb-1 p-4">เบอร์มังกร</h1> --}}
             @foreach ($data_fortune as $data)
                 <div class="mb-4 p-4">
                     <h1 class="text-lg font-semibold mb-1">คู่เลข {{ $data->prophecy_numb }} : {{ $data->prophecy_name }}

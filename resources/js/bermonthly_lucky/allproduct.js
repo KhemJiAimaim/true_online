@@ -202,6 +202,7 @@ function product_search() {
   const system_sim = document.querySelectorAll('#system-sim')
   const search_num = document.querySelectorAll('#search-num')
   const slc_sum = document.querySelector('#slc-sum').value;
+  const slc_network = document.querySelector('#slc-network').value;
   const favorite_num = document.querySelector('#txt_favorite').value;
   const category = document.querySelector('#slc-category').value;
   const slc_package = document.querySelector('#slc-package').value;
@@ -238,6 +239,10 @@ function product_search() {
   
   if(slc_sum !== "") {
     source += "&sum="+slc_sum
+  }
+
+  if(slc_network !== "") {
+    source += "&network="+slc_network
   }
 
   if(favorite_num !== "") {

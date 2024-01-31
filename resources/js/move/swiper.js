@@ -1,13 +1,13 @@
-var swiper = new Swiper('.swiper1', {
+var swiper = new Swiper(".swiper1", {
     slidesPerView: 3,
     spaceBetween: 20,
-    grabCursor: 'true',
+    grabCursor: "true",
     // direction: getDirection(),
     navigation: {
-        nextEl: '.swiper-button-next1',
-        prevEl: '.swiper-button-prev1',
+        nextEl: ".swiper-button-next1",
+        prevEl: ".swiper-button-prev1",
     },
-   
+
     breakpoints: {
         340: {
             slidesPerView: 1,
@@ -33,16 +33,16 @@ var swiper = new Swiper('.swiper1', {
     },
 });
 
-var swiper = new Swiper('.swiper2', {
+var swiper = new Swiper(".swiper2", {
     slidesPerView: 3,
     spaceBetween: 20,
-    grabCursor: 'true',
+    grabCursor: "true",
     // direction: getDirection(),
     navigation: {
-        nextEl: '.swiper-button-next2',
-        prevEl: '.swiper-button-prev2',
+        nextEl: ".swiper-button-next2",
+        prevEl: ".swiper-button-prev2",
     },
-   
+
     breakpoints: {
         340: {
             slidesPerView: 1,
@@ -68,16 +68,16 @@ var swiper = new Swiper('.swiper2', {
     },
 });
 
-var swiper = new Swiper('.swiper3', {
+var swiper = new Swiper(".swiper3", {
     slidesPerView: 3,
     spaceBetween: 20,
-    grabCursor: 'true',
+    grabCursor: "true",
     // direction: getDirection(),
     navigation: {
-        nextEl: '.swiper-button-next3',
-        prevEl: '.swiper-button-prev3',
+        nextEl: ".swiper-button-next3",
+        prevEl: ".swiper-button-prev3",
     },
-   
+
     breakpoints: {
         340: {
             slidesPerView: 1,

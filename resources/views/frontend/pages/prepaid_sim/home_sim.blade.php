@@ -70,9 +70,10 @@
                                                 </div>
 
                                                 <div class="bg-white">
-                                                    <div class="flex justify-center py-4 ">
+                                                    <div
+                                                        class="flex justify-center py-4 mx-auto w-[180px] h-[180px] max-ex:w-[160px] max-ex:h-[160px]">
                                                         <img src="/{{ $prepaid->thumbnail_link }}" alt=""
-                                                            class="max-ex:w-[120px] max-ex:h-[120px]">
+                                                            class="w-full h-full object-contain">
                                                     </div>
                                                 </div>
 
@@ -87,15 +88,16 @@
                                                     class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
-                                                    <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left text-[18px] pt-1 ">
+                                                    <div class="flex justify-between items-center">
+                                                        <p class="text-white text-left text-[18px] max-xs:text-[16px]  ">
                                                             ราคาเริ่มต้น
                                                         </p>
                                                         <p class="flex items-center flex-col">
-                                                            <span class="text-white font-medium text-center text-[35px]">
+                                                            <span class="text-white font-medium text-center text-[50px]">
                                                                 {{ $price = $prepaid->price ? number_format($prepaid->price) : 0 }}</span>
                                                         </p>
-                                                        <p class="text-white text-right text-[18px] pt-1 ">บาท/เดือน
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px] ">
+                                                            บาท/เดือน
                                                         </p>
 
                                                     </div>
@@ -163,14 +165,15 @@
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="grid grid-cols-3 items-center">
-                                                        <p class="text-white text-left text-[18px] pt-1 ">
+                                                        <p class="text-white text-left text-[18px] max-xs:text-[16px]">
                                                             ราคา
                                                         </p>
-                                                        <p class="flex items-center flex-col">
-                                                            <span class="text-white font-medium text-center text-[35px]">
-                                                                {{ number_format($pack->price) }}</span>
-                                                        </p>
-                                                        <p class="text-white text-right text-[18px] pt-1 ">
+
+                                                        <span
+                                                            class="text-white font-medium text-center text-[50px] max-xs:text-">
+                                                            {{ number_format($pack->price) }}</span>
+
+                                                        <p class="text-white text-right text-[18px] max-xs:text-[16px]">
                                                             บาท<br>/แบบรายครั้ง
                                                         </p>
 
@@ -181,6 +184,7 @@
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between px-4 items-center">
 
                                                     <a href="{{ url('/prepaid_sim/buy_package/' . $pack->id) }}"
+                                                        target="_blank"
                                                         class="cursor-pointer py-2 px-6 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                                     <a href="tel:{{ $pack->package_code }}"
                                                         class="cursor-pointer py-2 px-10 mb-2 mt-2 text-[18px] max-es:text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</a>

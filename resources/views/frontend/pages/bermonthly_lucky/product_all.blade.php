@@ -6,7 +6,7 @@
         <div
             class="h-[158px] max-xs:h-[100px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
             <div class="flex gap-8  max-xs:gap-4">
-                <a href="/bermonthly?sim=month"
+                <a href="/bermonthly?"
                     class="bg-white flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px] hover:bg-black hover:text-white ">
                     <p class=" ">เบอร์ทั้งหมด</p>
                 </a>
@@ -15,7 +15,7 @@
 
                     <p class="">เบอร์เติมเงิน</p>
                 </a>
-                <a href="/bermonthly?sim=paysim"
+                <a href="/bermonthly?sim=month"
                     class="bg-white flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
                     <p class="">เบอร์รายเดือน</p>
                 </a>
@@ -35,13 +35,13 @@
                 @endif --}}
 
 
-        <div class="overflow-x-scroll 2xl:overflow-hidden lg:overflow-hidden mb-4 px-3 2xl:mt-6">
-            <div class="grid grid-cols-5 py-6 se:w-[750px] md:w-[1200px] 2xl:w-[1200px] dm:w-[800px] items-center mx-auto">
+        <div class="max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+            <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
                 @foreach ($berpredict_numbcate as $numcate)
                     @if ($numcate->recommended == true)
                         <a href="?improve={{ $numcate->numbcate_id }}"
-                            class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                            <div class="w-10 h-10 max-sm:w-[40px]">
+                            class="flex flex-col max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
                                 <img class="w-full h-full mb-2" src="{{ $numcate->thumbnail }}" alt="">
                             </div>
                             <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $numcate->numbcate_title }}</p>
@@ -52,8 +52,8 @@
                 @foreach ($berproduct_cates as $cate)
                     @if ($cate->recommended == true)
                         <a
-                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
-                            <div class="w-10 h-10 max-sm:w-[30px]">
+                            href="?auspicious={{ $cate->bercate_id }}"class="flex flex-col max-uu:w-[9rem] max-xs:w-[7rem] items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                            <div class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5">
                                 <img class="w-full h-full mb-3" src="/{{ $cate->thumbnail }}" alt="">
                             </div>
                             <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->bercate_title }}</p>
@@ -62,6 +62,21 @@
                 @endforeach
             </div>
         </div>
+
+        {{-- <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
+            <div class="flex justify-center max-md:justify-start  gap-x-10 max-xs:gap-x-2  py-2  items-center mx-auto ">
+                @foreach ($cate_home as $cate)
+                    <a href="#{{ $cate->cate_url }} "
+                        class="flex flex-col items-center cursor-pointer hover:text-[#EC1F25] hover:font-bold hover:scale-110 transition-all duration-500 ease-in-out">
+                        <div class="flex-initial max-uu:w-[9rem] max-xs:w-[7rem] flex flex-col justify-center items-center">
+                            <img class="w-[45px] h-[45px] max-sm:w-[45px] mb-4 max-sm:mt-5"
+                                src="/{{ $cate->cate_thumbnail }}" alt="">
+                            <p class="2xl:text-[18px] md:text-[16px] se:text-[14px]">{{ $cate->cate_title }}</p>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+        </div> --}}
 
         {{-- มหัศจรรย์ --}}
         <div class="title-plate-container px-3 ">
@@ -242,7 +257,7 @@
                                     @foreach ($packages as $pack)
                                         <option value="{{ $pack->id }}" class="text-[14px] w-[150px]"
                                             {{ isset($_GET['package']) && $_GET['package'] == $pack->id ? 'selected' : '' }}>
-                                            {{ $pack->title }}
+                                            {{ $pack->details }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -295,21 +310,21 @@
                             </div>
 
                             <div class="flex flex-col w-1/2  gap-y-2">
-                                <label for="slc-sum" class="text-black">เครือข่าย</label>
-                                <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-sum"
-                                    id="slc-sum">
+                                <label for="slc-network" class="text-black">เครือข่าย</label>
+                                <select class="w-full h-8 border border-[#838383] rounded-[3px]" name="slc-network"
+                                    id="slc-network">
                                     <option value="">เครือข่าย</option>
-                                    @foreach ($sumbers as $sum)
+                                    @foreach ($networks as $net)
                                         @php
                                             $selected = null;
-                                            if (isset($_GET['sum'])) {
-                                                if ($sum->predict_sum == $_GET['sum']) {
+                                            if (isset($_GET['network'])) {
+                                                if ($net->network_name == $_GET['network']) {
                                                     $selected = 'selected';
                                                 }
                                             }
                                         @endphp
-                                        <option value="{{ $sum->predict_sum }}" {{ $selected }}>
-                                            {{ $sum->predict_sum }}
+                                        <option value="{{ $net->network_name }}" {{ $selected }}>
+                                            {{ $net->network_name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -422,9 +437,7 @@
                                         </div>
 
                                     </button>
-                                    <p class="w-full text-[12px] text-center ">
-                                        {{ $bercate->bercate_title }}
-                                    </p>
+                                    <p class="w-full text-[12px] text-center ">เบอร์ VIP</p>
                                 </div>
                             </div>
                         </div>
@@ -453,11 +466,11 @@
 
         <!-- box all product -->
         @if (count($berproducts) > 0)
-            <div class="px-3">
+            <div class=" px-3">
                 <div
-                    class="w-[95%] flex flex-wrap justify-center  xl:gap-4 2xl:gap-6 gap-6 dm:gap-8 ss:gap-4 items-center mx-auto ss:p-1 p-4 ">
+                    class="w-4/5mx-auto flex flex-wrap justify-center items-center ss:p-1 p-4 gap-10 max-yy:gap-[2.5rem] max-2xl:gap-6">
                     @foreach ($berproducts as $product)
-                        <div class="drop-shadow-md w-[350px] max-2xl:w-[335px] max-es:w-[325px] py-2">
+                        <div class="drop-shadow-md w-[350px] max-2xl:w-[335px] max-es:w-[325px]">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
                                 <div class="flex justify-start items-center gap-1 ">
@@ -471,12 +484,12 @@
                                 </div>
                                 <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">
                             </div>
-
-                            {{-- berproduct --}}
+                            {{-- @dd($product) --}}
                             {{-- berproduct --}}
                             <div class="bg-white flex items-center justify-center px-2 gap-[1rem]">
                                 <div class="max-w-[70px] max-h-[40px]">
-                                    <img src="/images/651e616b04c02CnURE.png" alt="" class="w-full h-full">
+                                    <img src="{{ isset($product->thumbnail) ? $product->thumbnail : '/images/651e616b04c02CnURE.png' }}"
+                                        alt="" class="w-full h-full">
                                 </div>
                                 <div class="flex justify-center py-10 ">
                                     <p class="text-[35px] text-center font-bold">
@@ -486,8 +499,13 @@
                             {{-- berproduct --}}
                             {{-- berproduct --}}
 
-                            <div class="bg-[#F8F9FA] flex justify-start px-4 py-2 max-dm:h-[80px] h-[110px]">
+                            <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-dm:h-[100px] h-[120px]">
                                 {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
+                                @if ($product->monthly_status)
+                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
+                                        {{ $title_package = $packages->firstWhere('id', $product->product_package)->details }}
+                                    </p>
+                                @endif
                                 <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                     {{ $product->product_comment }}</p>
                             </div>
@@ -516,25 +534,25 @@
 
 
                             <div
-                                class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center ">
+                                class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-2 items-center gap-1">
                                 <div id="addBerToCart" data-id="{{ $product->product_id }}" data-type="3"
-                                    class="group rounded-full border border-red-500  w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
+                                    class="group rounded-full border border-red-500  w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px]  flex justify-center items-center p-2 hover:bg-red-600">
                                     <img src="/images/mdi_cart-arrow-down.png" alt=""
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                 </div>
 
                                 <a href="https://line.me/ti/p/~@berhoro" class="flex justify-center items-center">
                                     <div
-                                        class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">
+                                        class="  group rounded-full border border-green-500 w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px] p-2 hover:bg-green-600">
                                         <img src="/images/icons8-line-app (1) 6.png" alt=""
                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                     </div>
                                 </a>
 
-                                <a href="{{ url('/travel_sim_buy/' . $product->product_phone) }}" target="_blank"
-                                    class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
+                                <a href="{{ url('/detailber/' . $product->product_phone) }}" target="_blank"
+                                    class="cursor-pointer flex justify-center items-center py-2.5  w-28 max-xs:w-24 max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                 <button id="buyProductNow" data-id="{{ $product->product_id }}" data-type="3"
-                                    class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+                                    class="cursor-pointer flex justify-center items-center py-2.5  w-28 max-xs:w-24  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                             </div>
 
                         </div>

@@ -38,15 +38,15 @@ class SimController extends Controller
 
         $css_btnMonth = false;
         $css_btnPaysim = false;
-        if($type == "month") {
+        if($type == "dtac") {
+            $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'dtac')->get();
+            $cate_package = PackageCategory::where(['display' => true, 'delete_status' => false, 'cate_type' => 'dtac'])->OrderBy('priority')->get();
 
-            $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'รายเดือน')->get();
-            $cate_package = PackageCategory::where(['display' => true, 'delete_status' => false, 'cate_type' => 'รายเดือน'])->OrderBy('priority')->get();
             $css_btnMonth = true;
-        } else if ($type == "paysim") {
+        } else if ($type == "true") {
+            $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'true')->get();
+            $cate_package = PackageCategory::where(['display' => true, 'delete_status' => false, 'cate_type' => 'true'])->OrderBy('priority')->get();
 
-            $package_product = PackageProduct::where('display', true)->where('delete_status', false)->where('type', 'เติมเงิน')->get();
-            $cate_package = PackageCategory::where(['display' => true, 'delete_status' => false, 'cate_type' => 'เติมเงิน'])->OrderBy('priority')->get();
             $css_btnPaysim = true;
         } else {
             $package_product = PackageProduct::where('display', true)->where('delete_status', false)->get();
