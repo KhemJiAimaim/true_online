@@ -122,22 +122,27 @@
     <div class="w-4/5 mx-auto xl:mt-4 py-2 z-50 max-xl:hidden">
         <ul class="hidden lg:flex 2xl:flex relative list-none">
             @foreach ($main_cate as $m_cate)
-                <li class="group z-[99] {{ $m_cate->id == 2 ? 'flex-initial w-[22rem]' : 'flex-initial w-72' }}">
-                    <a href="{{ url($m_cate->cate_url) }}"
-                        class="py-2 2xl:text-[1.2rem] text-[1rem] hover:text-[#EC1F25]">{{ $m_cate->cate_title }}</a>
-                    @foreach ($sub_cate as $s_cate)
-                        @if ($s_cate->cate_parent_id == $m_cate->id)
-                            <ul
-                                class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
-                                <li>
-                                    <a href="{{ url('/' . $s_cate->cate_url) }}"
-                                        class="block py-2 text-[1rem] max-2xl:text-[14px] hover:text-[#EC1F25]">{{ $s_cate->cate_title }}</a>
-                                </li>
-                            </ul>
-                        @endif
-                    @endforeach
-                </li>
-            @endforeach
+            <li class="group z-[99] {{ $m_cate->id == 2 ? 'flex-initial w-[22rem]' : 'flex-initial w-72' }}">
+                <a href="{{ url($m_cate->cate_url) }}"
+                    class="py-2 2xl:text-[1.2rem] text-[1rem] {{ request()->is($m_cate->cate_url) ? 'text-red-500' : 'hover:text-[#EC1F25]' }}">
+                    {{ $m_cate->cate_title }}
+                </a>
+        
+                @foreach ($sub_cate as $s_cate)
+                    @if ($s_cate->cate_parent_id == $m_cate->id)
+                        <ul class="submenu hidden w-full left-0 space-y-2 bg-white  group-hover:block z-50 mt-4 list-none">
+                            <li>
+                                <a href="{{ url('/' . $s_cate->cate_url) }}"
+                                    class="block py-2 text-[1rem] max-2xl:text-[14px] {{ request()->is($s_cate->cate_url) ? 'text-red-500' : 'hover:text-[#EC1F25]' }}">
+                                    {{ $s_cate->cate_title }}
+                                </a>
+                            </li>
+                        </ul>
+                    @endif
+                @endforeach
+            </li>
+        @endforeach
+        
         </ul>
     </div>
 </div>
