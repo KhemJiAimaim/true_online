@@ -4,10 +4,10 @@
     <div class="text-left ">
 
         <div
-            class="h-[158px] max-xs:h-[100px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center">
-            <div class="flex gap-8  max-xs:gap-4">
+            class="h-[158px] max-xs:h-[130px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center max-xs:py-4">
+            <div class="flex max-xs:grid max-xs:grid-cols-2 gap-8  max-xs:gap-4">
                 <a href="/bermonthly?"
-                    class="bg-white flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px] hover:bg-black hover:text-white ">
+                    class="bg-white max-xs:w-36 flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px] hover:bg-black hover:text-white ">
                     <p class=" ">เบอร์ทั้งหมด</p>
                 </a>
                 <a href="/bermonthly?sim=paysim"
@@ -18,6 +18,10 @@
                 <a href="/bermonthly?sim=month"
                     class="bg-white flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
                     <p class="">เบอร์รายเดือน</p>
+                </a>
+                <a href="/bermonthly?sim=month"
+                    class="bg-white flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
+                    <p class="">เบอร์แจกฟรี</p>
                 </a>
             </div>
         </div>

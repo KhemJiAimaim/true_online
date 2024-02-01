@@ -94,7 +94,6 @@
     </script>
 @endsection
 @section('content')
-    <div class="">
         <div class="mt-[15%] 2xl:mt-[10%] max-xx:mt-[20%] max-xs:mt-[30%] mx-3 ">
             <p class="text-[20px] font-blod">กรุณากรอกข้อมูล</p>
             <p class="text-[18px] font-blod mb-6">เพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
@@ -231,23 +230,21 @@
         </div>
 
         {{-- modal google map --}}
-        <div id="modal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10 hidden">
+        <div id="modal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[99] hidden  ">
             <div class="flex items-center justify-center h-full">
-                <div
-                    class="bg-white p-2 rounded-[10px] shadow-lg w-[1100px] h-[600px] max-ex:h-[80%] max-ex:w-[95%] relative">
-                    <div id="close-modal" class="cursor-pointer text-gray-600 text-[60px] absolute top-[-5%] right-2">
+                <div class="bg-white p-2 rounded-[10px] shadow-lg w-[1100px] h-[600px] max-ex:h-[80%] max-ex:w-[95%]  mx-4">
+                    <div id="close-modal" class="cursor-pointer text-gray-600 text-[60px]">
                         &times;
                     </div>
-                    <div class="w-96 mx-auto flex gap-4 my-4">
-                        <input type="text" id="search"
-                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
-                        <button onclick="searchLocation()"
-                            class="bg-blue-500 text-white py-2 px-4 rounded">Search</button>
+                    <div class="w-full mx-auto flex gap-4 my-4">
+                        <input type="text" id="search" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                        <button onclick="searchLocation()" class="bg-blue-500 text-white py-2 px-4 rounded">Search</button>
                     </div>
-                    <div id="gMap" style="width: 100%;height:500px"></div>
+                    <div id="gMap" style="width: 100%;height:500px" class="overflow-hidden"></div>
                 </div>
             </div>
         </div>
+    
 
         <div
             class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center max-ex:flex-col gap-6 gap-y-2 mt-4 2xl:gap-4 mb-10 px-3">
@@ -256,7 +253,7 @@
             <button id="save-fiber"
                 class="py-2.5 px-5  mb-2 mt-2 text-[16px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ฝากข้อมูลให้ติดต่อกลับ</button>
         </div>
-    </div>
+    
 
 
 
