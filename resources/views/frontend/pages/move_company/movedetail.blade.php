@@ -95,11 +95,11 @@
                     </div>
                     <div class="w-[100%] mt-0 flex justify-start max-xl:flex-col items-center gap-4 ">
                         <button id="btn-move-form" data-id="{{ $move_product->id }}"
-                            class=" bg-red-500  hover:bg-red-700 w-[200px] text-center rounded-full py-2 text-white text-[16px] "
+                            class="border-green-600 bg-green-600  hover:bg-green-700 w-[200px] text-center rounded-full py-2 text-white text-[18px] max-xs:text-[16px] "
                             href="/move/movenow/form">ติดต่อเจ้าหน้าที่</button>
 
                         <a href=""
-                            class=" bg-red-500  hover:bg-red-700 w-[200px] text-center rounded-full py-2 text-white text-[16px] "
+                            class="border-green-600 bg-green-600  hover:bg-green-700 w-[200px] text-center rounded-full py-2 text-white text-[18px] max-xs:text-[16px]"
                             href="/move/movenow/form">ติดต่อเจ้าหน้าที่ผ่าน Line</a>
                     </div>
                 </div>

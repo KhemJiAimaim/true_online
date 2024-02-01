@@ -224,7 +224,7 @@
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-center mx-auto">
                                                     <a href="{{ url('/fiber/detail_true_dtac/' . $fiber->id) }}"
-                                                        class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">สมัครเลย</a>
+                                                        class="py-2 px-5 mr-2 mb-2 mt-2 2xl:text-[16px] md:text-[16px] text-[1rem] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">รายละเอียด</a>
                                                 </div>
                                             </div>
                                         </div>
