@@ -269,7 +269,10 @@ async function addProductSession(element) {
   try {
     const response = await axios.post(`/addproduct/${data_id}`, param);
     const num_cart = document.querySelector('#num-cart');
+    const mobile_num_cart = document.querySelector('#mobile-num-cart');
+    
     num_cart.innerText = response.data.data.amount
+    mobile_num_cart.innerText = response.data.data.amount;
     return response;
   } catch (error) {
     console.error(error);
