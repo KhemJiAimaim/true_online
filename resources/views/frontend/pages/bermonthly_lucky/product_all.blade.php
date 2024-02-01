@@ -472,9 +472,14 @@
 
         <!-- box all product -->
         @if (count($berproducts) > 0)
+            @php
+                $lover_tag = "";
+                if(isset($_GET['cate'] && $_GET['cate'] == 3)) {
+                    $lover_tag = '<div class="lover"></div>';
+                }
+            @endphp
             <div class=" px-3">
-                <div
-                    class="w-4/5mx-auto flex flex-wrap justify-center items-center ss:p-1 p-4 gap-10 max-yy:gap-[2.5rem] max-2xl:gap-6">
+                <div class="w-4/5mx-auto flex flex-wrap justify-center items-center ss:p-1 p-4 gap-10 max-yy:gap-[2.5rem] max-2xl:gap-6">
                     @foreach ($berproducts as $product)
                         <div class="drop-shadow-md w-[350px] max-2xl:w-[335px] max-es:w-[325px]">
                             <div
