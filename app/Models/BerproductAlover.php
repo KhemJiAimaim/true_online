@@ -23,6 +23,7 @@ class BerproductAlover extends Model
         'product_improve',
         'product_price',
         'product_sumber',
+        'product_network',
         'product_grade', 
         'product_discount',
         'product_sold',

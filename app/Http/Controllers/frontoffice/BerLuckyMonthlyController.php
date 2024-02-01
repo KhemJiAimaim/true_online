@@ -30,16 +30,7 @@ class BerLuckyMonthlyController extends Controller
     public function get_product_all(Request $request)
     {
         $getpost = $this->product_prepare_variable($request->all());
-        $sql_sort = null;
-        if (isset($getpost['need_sort'])) {
-            if ($getpost['need_sort'] == "RAND") {
-                $sql_sort .= " ORDER BY RAND(),product_sumber DESC ";
-            } else {
-                $sql_sort .= " ORDER BY product_price " . $getpost['need_sort'] . ",product_sumber DESC ";
-            }
-        } else {
-            $sql_sort .= " ORDER BY product_pin DESC,product_price DESC,product_sumber DESC ";
-        }
+				// dd($getpost);
 
         // Set the current page from the request or default to 1
         $current_page = request('page', 1);
@@ -50,13 +41,42 @@ class BerLuckyMonthlyController extends Controller
         // Calculate the offset based on the current page and items per page
         $offset = ($current_page - 1) * $perPage;
         $limit = null;
-        $sql = "SELECT *,(SELECT thumbnail FROM bernetworks WHERE berproduct_monthlies.product_network = bernetworks.network_name AND berproduct_monthlies.monthly_status = bernetworks.monthly) as thumbnail, MID(product_phone, 4, 7) AS pp
+				// dd($getpost);
+				if($getpost['cate'] != 3) {
+					$sql_sort = null;
+					if (isset($getpost['need_sort'])) {
+							if ($getpost['need_sort'] == "RAND") {
+									$sql_sort .= " ORDER BY RAND(),product_sumber DESC ";
+							} else {
+									$sql_sort .= " ORDER BY product_price " . $getpost['need_sort'] . ",product_sumber DESC ";
+							}
+					} else {
+							$sql_sort .= " ORDER BY product_pin DESC,product_price DESC,product_sumber DESC ";
+					}
+
+					$sql = "SELECT *,(SELECT thumbnail FROM bernetworks WHERE berproduct_monthlies.product_network = bernetworks.network_name AND berproduct_monthlies.monthly_status = bernetworks.monthly) as thumbnail, MID(product_phone, 4, 7) AS pp
                     FROM berproduct_monthlies 
                     WHERE product_sold = :value $getpost[sql]
                     HAVING product_display = :display $getpost[sql2]
                     $sql_sort
                     $limit
                 ";
+				} else {
+					$sql_sort = null;
+					if (isset($getpost['need_sort'])) {
+						$sql_sort .= " ORDER BY func_id ASC, lover_group DESC,sort ASC, product_price DESC ";
+					} else {
+						$sql_sort .= " ORDER BY func_id ASC, lover_group DESC,sort ASC, product_price DESC ";
+					}
+
+					$sql = "SELECT *,(SELECT thumbnail FROM bernetworks WHERE berproduct_alovers.product_network = bernetworks.network_name AND berproduct_alovers.monthly_status = bernetworks.monthly) as thumbnail, MID(product_phone, 4, 7) AS pp
+                    FROM berproduct_alovers 
+                    WHERE product_sold = :value $getpost[sql]  AND category = 3
+                    HAVING product_sold != :display $getpost[sql2]
+                    $sql_sort
+                    $limit
+                ";
+				}
         // dd($sql);
         $totalCount = DB::select($sql, [
             'value' => 'no',
@@ -70,6 +90,7 @@ class BerLuckyMonthlyController extends Controller
             'limit' => $perPage,
             'offset' => $offset,
         ]); // query ข้อมูลเบอร์ต่อหน้า
+				// dd($berproducts);
         $total_page = ceil(count($totalCount) / $perPage);
         $berTotal = count($berproducts);
         $onLastPage = $berTotal < $perPage; // เช็คว่าหน้าสุดท้ายมั้ย true or false
@@ -213,28 +234,32 @@ class BerLuckyMonthlyController extends Controller
         }
 
         $cate_val = null;
-        if (isset($request['cate']) && $request['cate'] != 1) {
-            $cate = filter_var($request['cate'], FILTER_SANITIZE_NUMBER_INT);
-            $sql .=  " AND( product_category LIKE '%," . $cate . ",%' ) ";
-        }
+				if(isset($request['cate']) && $request['cate'] != 3) {
+					if (isset($request['cate']) && $request['cate'] != 1) {
+							$cate = filter_var($request['cate'], FILTER_SANITIZE_NUMBER_INT);
+							$sql .=  " AND( product_category LIKE '%," . $cate . ",%' ) ";
+					}
 
+					if (!empty($request['auspicious'])) {
+						$check['auspicious'] = explode(',', $request['auspicious']);
+						$auspicious = $check['auspicious'];
+						foreach ($auspicious as $key => $val) {
+							$val = filter_var($val, FILTER_SANITIZE_NUMBER_INT);
+							if ($cate_val == $val || $val == "") {
+								continue;
+							}
+							$sql .= ($key == 0 && !isset($cate_val)) ? " AND( " : " OR ";
+							$sql .= " product_category LIKE '%," . $val . ",%' ";
+						}
+						$sql .= " ) ";
+					}
+
+				}
         if (isset($request['pin']) && $request['pin'] == "yes") {
             $sql .= " AND product_pin = 'yes' ";
         }
 
-        if (!empty($request['auspicious'])) {
-            $check['auspicious'] = explode(',', $request['auspicious']);
-            $auspicious = $check['auspicious'];
-            foreach ($auspicious as $key => $val) {
-                $val = filter_var($val, FILTER_SANITIZE_NUMBER_INT);
-                if ($cate_val == $val || $val == "") {
-                    continue;
-                }
-                $sql .= ($key == 0 && !isset($cate_val)) ? " AND( " : " OR ";
-                $sql .= " product_category LIKE '%," . $val . ",%' ";
-            }
-            $sql .= " ) ";
-        }
+				$check['cate'] = isset($request['cate']) ? $request['cate'] : null;
 
         $getpost = $check;
         $getpost['sql'] = $sql;
@@ -409,8 +434,8 @@ class BerLuckyMonthlyController extends Controller
 					$list_ber[] = [
 						'product_phone' => $row[0],
             'product_sumber' => $sum,
-            'product_network' =>  $row[2] = ($row[2] = true || $row[2] = 1) ? 'TRUE' : $row[2],
-            'product_price' => $row[3],
+            'product_price' => $row[2],
+            'product_network' =>  $row[3] = ($row[3] = true || $row[3] = 1) ? 'TRUE' : $row[3],
             'product_category' => ',' . $row[4] . ',',
             'product_improve' => $improve,
             'product_pin' => $row[5] = ($row[5] == "") ? "no" : $row[5],
