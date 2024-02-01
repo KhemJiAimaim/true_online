@@ -394,7 +394,7 @@
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-1 items-center gap-2 max-se:gap-1 ">
                                                     <div id="addBerToCart" data-id="{{ $sim->id }}"
-                                                        data-type="{{ $cate->id }}"
+                                                        data-type="6"
                                                         class="group rounded-full border border-red-500  w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
@@ -412,7 +412,7 @@
                                                     <a href="{{ url('/travel_sim_buy/' . $sim->id) }}" target="_blank"
                                                         class="cursor-pointer flex justify-center items-center py-2.5  w-36 max-yy:w-28 max-xs:w-24 max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
                                                     <button data-id="{{ $sim->id }}"
-                                                        data-type="{{ $cate->id }}" id="buyProductNow"
+                                                        data-type="6" id="buyProductNow"
                                                         class="cursor-pointer flex justify-center items-center py-2.5  w-36 max-yy:w-28 max-xs:w-24  max-uu:text-[18px]  max-yy:text-[16px] max-xs:text-[14px] font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
 
