@@ -265,7 +265,7 @@
 
                     <a href="https://line.me/ti/p/~@berhoro">
                         <div
-                            class="group rounded-full border border-green-500 mx-1w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-green-600">
+                            class="group rounded-full border border-green-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-green-600">
                             <img src="/images/icons8-line-app (1) 6.png" alt=""
                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                         </div>

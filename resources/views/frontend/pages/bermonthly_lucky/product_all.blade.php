@@ -495,7 +495,7 @@
                                 </div>
                                 <a href="{{ url('/detailber/' . $product->product_phone) }}">
                                     <div class="flex justify-center py-10 max-ex:py-2">
-                                        <h2 class="2xl:text-[2rem] text-[33px] text-center font-bold">
+                                        <h2 class="2xl:text-[2rem] text-[30px] text-center font-bold">
                                             {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
                                         </h2>
                                     </div>
