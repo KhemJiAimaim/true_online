@@ -14,7 +14,7 @@ use App\Models\BerproductGrade;
 use App\Models\BerproductCategory;
 use App\Models\BerpredictNumbcate;
 use App\Models\Post;
-
+use Illuminate\Support\Facades\Http;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\BerMonthlyImportClass;
@@ -436,13 +436,28 @@ class BerLuckyMonthlyController extends Controller
         // generate product_category
         $this->getProductByCategory();
 
+				//จัดหมวดหมู่ตามสูตร หมวดเบอร์คู่รัก และ หมวดเบอร์ห่าม - xxyy #automatic
+        // $this->getProductByCategoryBySet();
+				$response = Http::get('http://localhost/apiupload_excel/genaratecate');
+
+				if ($response->successful()) {
+					// กระบวนการที่ต้องการทำหลังจากเรียก API สำเร็จ
+					// เช่นการประมวลผลข้อมูลที่ได้จาก API หรืออื่น ๆ
+					return response()->json([
+            'status' => 'success',
+            'message' => 'upload data successfully'
+        	], 201);
+
+				} else {
+						// กระบวนการเมื่อเรียก API ไม่สำเร็จ
+						// ตัวอย่างเช่นการบันทึกข้อผิดพลาดหรือลอคข้อมูล
+					dd("error");
+				}
+
         //จัดหมวดหมู่ตามสูตร หมวดเบอร์คู่รัก และ หมวดเบอร์ห่าม - xxyy #automatic
         // $this->getProductByCategoryBySet();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'upload data successfully'
-        ], 201);
+        
     }
 
 		public function getPredictWantUnwantArr()
