@@ -2,25 +2,25 @@
 
 @section('content')
     <div class="text-left ">
-
+        {{-- @dd($_GET) --}}
         <div
             class="h-[158px] max-xs:h-[130px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center max-xs:py-4">
             <div class="flex max-xs:grid max-xs:grid-cols-2 gap-8  max-xs:gap-4">
                 <a href="/bermonthly?"
-                    class="bg-white max-xs:w-36 flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px] hover:bg-black hover:text-white ">
+                    class="{{ empty($_GET) ? 'bg-black text-white' : 'bg-white' }} max-xs:w-36 flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px] hover:bg-black hover:text-white ">
                     <p class=" ">เบอร์ทั้งหมด</p>
                 </a>
                 <a href="/bermonthly?sim=paysim"
-                    class="bg-white flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
+                    class="{{ (isset($_GET['sim']) && $_GET['sim'] == 'paysim')  ? 'bg-black text-white' : 'bg-white' }} flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
 
                     <p class="">เบอร์เติมเงิน</p>
                 </a>
                 <a href="/bermonthly?sim=month"
-                    class="bg-white flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
+                    class="{{ (isset($_GET['sim']) && $_GET['sim'] == 'month')  ? 'bg-black text-white' : 'bg-white' }} flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
                     <p class="">เบอร์รายเดือน</p>
                 </a>
-                <a href="/bermonthly?sim=month"
-                    class="bg-white flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
+                <a href="/bermonthly?min=0&max=0"
+                    class=" {{ isset($_GET['min']) && isset($_GET['max']) && $_GET['min'] == 0 && $_GET['max'] == 0 ? 'bg-black text-white' : 'bg-white' }} flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
                     <p class="">เบอร์แจกฟรี</p>
                 </a>
             </div>
@@ -546,7 +546,7 @@
                                                 class="text-gray-100 line-through leading-[2px] text-[35px]">{{ number_format($product->product_price) }}</span>
                                         @endif
                                         <span
-                                            class="text-white font-medium text-center text-[35px]">{{ number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
+                                            class="text-white font-medium text-center text-[35px]">{{ $product->product_price == 0 ? 'แจกฟรี' : number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
                                     </p>
                                     <p class="text-white text-right text-[18px] pt-1 ">บาท
                                     </p>

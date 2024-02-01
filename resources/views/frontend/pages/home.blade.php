@@ -304,7 +304,8 @@
                                                             ราคา
                                                         </p>
                                                         <p class="text-white font-medium  text-[50px]">
-                                                            {{ number_format($ber->product_price) }}</p>
+                                                                {{$ber->product_price==0 ?"แจกฟรี":number_format($ber->product_price) }}
+                                                            </p>
                                                         <p class="text-white text-right text-[18px] max-xs:text-[16px] ">
                                                             บาท
                                                         </p>

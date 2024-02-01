@@ -248,7 +248,7 @@
             style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
             <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
                 <p class="text-[20px]">ราคา</p>
-                <p class="text-[40px] font-bold">{{ number_format($berproduct->product_price) }}</p>
+                <p class="text-[40px] font-bold">{{ $berproduct->product_price == 0 ? "แจกฟรี" :number_format($berproduct->product_price) }}</p>
                 <p class="text-[20px] ">บาท</p>
 
                 <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
