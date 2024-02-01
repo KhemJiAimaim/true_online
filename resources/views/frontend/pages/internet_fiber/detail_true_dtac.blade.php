@@ -168,14 +168,16 @@
 
         <div class="flex justify-center max-xs:flex-col">
             <div class="bg-white rounded-bl-[10px] my-4 rounded-br-[10px] flex justify-center">
-                <a href="{{ url('/fiber/form_true_dtac/' . $fiber_products->id) }}"
-                    class="w-52 py-2.5 px-5 mr-2 mb-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
-            </div>
-            <div class="bg-white rounded-bl-[10px] my-4 rounded-br-[10px] flex justify-center">
-                <a href=""
-                    class="w-52 py-2.5 px-5 mr-2 mb-2 text-[16px] font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-500 hover:text-white">ติดต่อเจ้าหน้าที่ผ่าน
+                <a href="" target="_blank"
+                    class="w-52 py-2.5 px-5 mr-2 mb-2 text-[16px] font-medium text-green-600 focus:outline-none bg-white rounded-full border border-green-600 hover:bg-green-600 hover:text-white">ติดต่อเจ้าหน้าที่ผ่าน
                     Line</a>
             </div>
+            <div class="bg-white rounded-bl-[10px] my-4 rounded-br-[10px] flex justify-center">
+                <a href="{{ url('/fiber/form_true_dtac/' . $fiber_products->id) }}"
+                    class="w-52 py-2.5 px-5 mr-2 mb-2 text-[16px] font-medium text-green-600 focus:outline-none bg-white rounded-full border border-green-600 hover:bg-green-600 hover:text-white">ให้เจ้าหน้าที่ติดต่อกลับ</a>
+            </div>
+            
+        </div>
         </div>
         <button id="modal-term-service" class="text-[#838383] text-[16px] underline">ข้อกำหนดและเงื่อนไข</button>
 
