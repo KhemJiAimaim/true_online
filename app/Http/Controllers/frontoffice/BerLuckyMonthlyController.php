@@ -377,6 +377,9 @@ class BerLuckyMonthlyController extends Controller
 				$excelData = $rawexcelData[0]; // เข้าถึงอาร์เรย์ข้อมูลในชั้นลึกที่ 0
 				$excelData = array_slice($excelData, 1); // ตัดแถวแรกที่ไม่ต้องการออก
 
+				// $newFolder = "upload/excel/" . date('Y') . "/" . date('m') . "/" . date('d') . "/";
+				// $thumbnail = (isset($file)) ? $this->uploadImage($newFolder, $file, "", "", time()) : "";
+
 				$list_ber = array();
 				/* ดึงข้อมูล PredictCate Want & Unwant comment */
 				$this->getPredictWantUnwantArr();
