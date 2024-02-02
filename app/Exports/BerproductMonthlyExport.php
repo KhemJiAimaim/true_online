@@ -22,7 +22,7 @@ class BerproductMonthlyExport implements FromCollection, WithHeadings, WithStart
     public function collection()
     {
         //
-        $products = BerproductMonthly::select('product_phone', 'product_sumber', 'product_price', 
+        $products = BerproductMonthly::select('product_phone', 'product_sumber', 'product_price', 'product_network',
                                     'default_cate', 'product_pin', 'product_sold', 'product_new',
                                     'product_comment', 'product_package', 'product_grade', 'product_discount',
                                     'monthly_status')
@@ -39,6 +39,7 @@ class BerproductMonthlyExport implements FromCollection, WithHeadings, WithStart
             'number',
             'sum',
             'price',
+            'network',
             'catagory',
             'VIP',
             'sold',
@@ -57,6 +58,7 @@ class BerproductMonthlyExport implements FromCollection, WithHeadings, WithStart
             $product->product_phone,
             $product->product_sumber,
             $product->product_price,
+            $product->product_network,
             $product->default_cate,
             $product->product_pin,
             $product->product_sold,

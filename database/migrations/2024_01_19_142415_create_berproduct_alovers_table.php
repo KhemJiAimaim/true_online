@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('product_improve', 300);
             $table->float('product_price');
             $table->integer('product_sumber')->default(0);
+            $table->string('product_network', 5)->default('');
             $table->string('product_grade', 5)->nullable();
             $table->integer('product_discount')->default(0);
             $table->enum('product_sold', ['yes', 'no'])->default('no');

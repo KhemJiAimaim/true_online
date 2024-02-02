@@ -322,7 +322,7 @@
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                                     </div>
 
-                                                    <a href="https://line.me/ti/p/~@berhoro"
+                                                    <a href="{{$webInfo->contact->line1->link}}"
                                                         class="flex justify-center items-center">
                                                         <div
                                                             class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">
@@ -491,7 +491,7 @@
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                                     </div>
 
-                                                    <a href="https://line.me/ti/p/~@berhoro"
+                                                    <a href="{{$webInfo->contact->line1->link}}"
                                                         class="flex justify-center items-center">
                                                         <div
                                                             class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">

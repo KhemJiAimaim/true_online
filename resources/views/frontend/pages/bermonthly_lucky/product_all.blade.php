@@ -473,9 +473,27 @@
         <!-- box all product -->
         @if (count($berproducts) > 0)
             <div class=" px-3">
-                <div
-                    class="w-4/5mx-auto flex flex-wrap justify-center items-center ss:p-1 p-4 gap-10 max-yy:gap-[2.5rem] max-2xl:gap-6">
+                <div class="w-4/5mx-auto flex flex-wrap justify-center items-center ss:p-1 p-4 gap-10 max-yy:gap-[2.5rem] max-2xl:gap-6">
+                    @php
+                        $love_group = null; // เริ่มต้น $love_group ให้เป็น null
+                        $open_tag = ''; // เริ่มต้น $open_tag ให้เป็น string ว่าง
+                        $end_tag = ''; // เริ่มต้น $end_tag ให้เป็น string ว่าง
+                    @endphp
                     @foreach ($berproducts as $product)
+                        @if (isset($_GET['cate']) && $_GET['cate'] == 3)
+                            @if ($product->lover_group != $love_group)
+                                {{-- ปิดกลุ่มก่อนหน้า --}}
+                                {!! $end_tag !!}
+                                
+                                {{-- เปิดกลุ่มใหม่ --}}
+                                @php
+                                    $love_group = $product->lover_group;
+                                    $open_tag = '<div class="w-4/5 lover border-2 border-y-[#c5a04f] flex flex-wrap items-center ss:p-1 p-4 gap-7 max-yy:gap-[2.5rem] max-2xl:gap-6">';
+                                    $end_tag = '</div>';
+                                @endphp
+                                {!! $open_tag !!}
+                            @endif
+                        @endif
                         <div class="drop-shadow-md w-[350px] max-2xl:w-[335px] max-es:w-[325px]">
                             <div
                                 class="relative overflow-hidden bg-gradient-to-r from-[#CE090E] via-[#CE090E] to-[#00ADEF] rounded-tl-[10px] rounded-tr-[10px] px-3 z-0">
@@ -485,6 +503,7 @@
                                 </div>
                                 <div
                                     class="absolute top-0 right-0  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] h-full w-4/6  transform -skew-x-12 px-2 flex justify-end items-center">
+                                    {{-- <p class="text-white mr-1 text-[18px]">{{ isset($product->lover_group) }}</p> --}}
                                     <p class="text-white mr-1 text-[18px]">ผลรวม</p>
                                     <p class="text-white font-bold text-[1.5rem]">{{ $product->product_sumber }}</p>
                                 </div>
@@ -507,12 +526,19 @@
                             </div>
                             {{-- berproduct --}}
                             {{-- @dd($title_package = $packages->firstWhere('id', $product->product_package)) --}}
+<<<<<<< HEAD
                             {{-- <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-dm:h-[130px] max-yy:h-[150px] h-[140px]">
+=======
+                            <div
+                                class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
+                                {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
+>>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                 @if ($product->monthly_status == 'yes')
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                         {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
                                     </p>
                                     <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+<<<<<<< HEAD
                                 @endif
                                 <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
                             </div> --}}
@@ -526,6 +552,8 @@
                                         {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
                                     </p>
                                     <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+=======
+>>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                 @elseif ($product->monthly_status != 'yes')
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                         {{ $webInfo->contact->detail_paysim->value }}
@@ -535,11 +563,14 @@
                                 <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                     {{ $product->product_comment }}</p>
                             </div>
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
 
                             <div
                                 class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-2 px-2 items-center">
@@ -582,7 +613,11 @@
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                 </div>
 
+<<<<<<< HEAD
                                 <a href="" class="flex justify-center items-center">
+=======
+                                <a href="{{$webInfo->contact->line1->link}}" class="flex justify-center items-center">
+>>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                     <div
                                         class="  group rounded-full border border-green-500 w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px] p-2 hover:bg-green-600">
                                         <img src="/images/icons8-line-app (1) 6.png" alt=""
@@ -598,6 +633,8 @@
 
                         </div>
                     @endforeach
+                    {{-- ปิดกลุ่มสุดท้าย (หลังจากวนลูป) --}}
+                    {!! $end_tag !!}
                 </div>
             </div>
         @else

@@ -55,8 +55,8 @@ class ExcelController extends Controller
             $list_ber[] = [
                 'product_phone' => $row[0],
                 'product_sumber' => $sum,
-                'product_network' =>  $row[2],
-                'product_price' => $row[3],
+                'product_price' => $row[2],
+                'product_network' =>  $row[3] = ($row[3] == 1) ? 'TRUE' : $row[3],
                 'product_category' => ',' . $row[4] . ',',
                 'product_improve' => $improve,
                 'product_pin' => $row[5] = ($row[5] == "") ? "no" : $row[5],
