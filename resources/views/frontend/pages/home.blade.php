@@ -316,13 +316,13 @@
                                                 <div
                                                     class="bg-white rounded-bl-[10px] rounded-br-[10px] flex justify-between py-4 px-4 max-xs:px-2 items-center ">
                                                     <div id="addBerToCart" data-id="{{ $ber->product_id }}"
-                                                        data-type="{{ $cate->id }}"
+                                                        data-type="{{$cate->id}}"
                                                         class="group rounded-full border border-red-500  w-[45px]  h-[45px]   flex justify-center items-center p-2 hover:bg-red-600">
                                                         <img src="/images/mdi_cart-arrow-down.png" alt=""
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                                     </div>
 
-                                                    <a href="{{$webInfo->contact->line1->link}}"
+                                                    <a href=""
                                                         class="flex justify-center items-center">
                                                         <div
                                                             class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">
@@ -330,7 +330,6 @@
                                                                 class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
                                                         </div>
                                                     </a>
-
                                                     <a href="{{ url('/detailber/' . $ber->product_phone) }}"
                                                         target="_blank"
                                                         class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
@@ -491,7 +490,7 @@
                                                             class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                                     </div>
 
-                                                    <a href="{{$webInfo->contact->line1->link}}"
+                                                    <a href=""
                                                         class="flex justify-center items-center">
                                                         <div
                                                             class="  group rounded-full border border-green-500 w-[45px] h-[45px]  p-2 hover:bg-green-600">
