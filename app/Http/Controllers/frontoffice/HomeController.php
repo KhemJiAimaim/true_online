@@ -48,6 +48,11 @@ class HomeController extends Controller
                     ->whereColumn('berproduct_monthlies.product_network', 'bernetworks.network_name')
                     ->whereColumn('berproduct_monthlies.monthly_status', 'bernetworks.monthly');
             }, 'thumbnail')
+            ->selectSub(function ($query) {
+                $query->select('details')
+                    ->from('berlucky_packages')
+                    ->whereColumn('berproduct_monthlies.product_package', 'berlucky_packages.id');
+            }, 'package')
             ->where('product_sold', 'no')
             ->where('product_display', 'yes')
             ->inRandomOrder()

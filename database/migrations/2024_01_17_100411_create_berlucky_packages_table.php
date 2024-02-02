@@ -44,7 +44,8 @@ return new class extends Migration
             [
                 'id' =>  1,
                 'price_per_month' =>  1999,
-                'title' => "1999",
+                'title' => "แพ็กเกจ 399 เล่นเน็ต 5G/4G ไม่จำกัด (20GB) โทรฟรีทุกเครือข่าย 300 นาที รับชม True Vision Now Go Plus ฟรี 12 เดือน",
+                'details' => "แพ็กเกจ 399 เล่นเน็ต 5G/4G ไม่จำกัด (20GB)",
                 'benefit_ids' => ',5,6,7,',
                 'internet_volume' => 'ไม่จำกัด',
                 'internet_speed' => '',
