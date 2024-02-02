@@ -102,6 +102,37 @@
         </div>
         {{-- box fortune --}}
 
+        <div class="bg-white drop-shadow-sm items-center w-full mt-2 max-2xl:mt-[12rem] max-xs:mt-[42rem] "
+            style="box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15);">
+            <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
+                <p class="text-[20px]">ราคา</p>
+                <p class="text-[40px] font-bold">{{ $berproduct->product_price == 0 ? "แจกฟรี" :number_format($berproduct->product_price) }}</p>
+                <p class="text-[20px] ">บาท</p>
+
+                <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
+
+                <div class="flex gap-2 ">
+                    <button id="buyProductNow" data-id="{{ $berproduct->product_id }}" data-type="3"
+                        class="cursor-pointer flex items-center px-8 2xl:py-2 text-md font-medium text-white text-[16px] focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
+
+                    <button id="addBerToCart" data-id="{{ $berproduct->product_id }}" data-type="3"
+                        class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-red-600">
+                        <img src="/images/mdi_cart-arrow-down.png" alt=""
+                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                    </button>
+
+                    <a href="https://line.me/ti/p/~@berhoro">
+                        <div
+                            class="group rounded-full border border-green-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-green-600">
+                            <img src="/images/icons8-line-app (1) 6.png" alt=""
+                                class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
         {{-- box manual --}}
         <div class="hidden  fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-[51]"
             id="modal-container">
@@ -151,7 +182,7 @@
         </div>
         {{-- box manual --}}
 
-        <div class="mt-10 max-2xl:mt-[12rem] max-xs:mt-[42rem] ">
+        <div class="mt-10 ">
             {{-- box package --}}
             @if ($berproduct->monthly_status == 'yes')
                 <div class="w-4/5 max-lg:w-full  mx-auto mb-12">
@@ -244,7 +275,7 @@
 
         {{-- box buy detail --}}
 
-        <div class="bg-white drop-shadow-md items-center w-full "
+        {{-- <div class="bg-white drop-shadow-md items-center w-full "
             style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
             <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
                 <p class="text-[20px]">ราคา</p>
@@ -273,7 +304,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
     </div>
 
     <!-- end box product -->

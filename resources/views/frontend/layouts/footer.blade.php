@@ -20,7 +20,7 @@
             <h2 class="text-[1.2rem] mb-2">ช่องทางติดต่อ</h2>
 
             <div class="font-light text-[0.8rem] flex flex-col gap-y-1">
-                <a href="{{$webInfo->contact->line1->link}}"
+                <a href=""
                     class="flex items-center gap-2 hover:underline decoration-solid">
                     <div class=" max-w-[30px]">
                         <img class="w-full" src="/icons/line-white_0.png" alt="">
