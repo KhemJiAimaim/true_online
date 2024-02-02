@@ -19,14 +19,14 @@
             width: 100%;
             height: 100%;
             background-color: #c9c8c898;
-          
+
             transform: translate(-50%, -50%);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: none;
         }
 
         .wrapper {
-            
+
             height: 100%;
             display: flex;
             justify-content: center;
@@ -67,6 +67,11 @@
                 transform: translateY(25px);
             }
         }
+
+        .error-border {
+            border-color: red !important;
+        }
+        
     </style>
 @endsection
 @section('content')
@@ -132,10 +137,10 @@
                                             <p>หมายเลขเบอร์ <br>{{ $month->product_phone }}</p>
                                             <div class="max-ex:hidden">
                                                 <p>เกรด {{ $month->product_grade }}</p>
-                                                @if($month->monthly_status == 'yes')
-                                                <p>{{ $month->details_pack }}</p>
+                                                @if ($month->monthly_status == 'yes')
+                                                    <p>{{ $month->details_pack }}</p>
                                                 @else
-                                                <p>{{ $month->product_comment }}</p>
+                                                    <p>{{ $month->product_comment }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -325,22 +330,26 @@
                         <div class="flex flex-col gap-2">
                             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="name">ชื่อ*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                <input
+                                    class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full focus:border-red-500 required-field"
                                     type="text" name="name" id="name">
                             </div>
                             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="last-name">นามสกุล*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                <input
+                                    class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full focus:border-red-500 required-field"
                                     type="text" name="last-name" id="last-name">
                             </div>
                             <div class="grid grid-cols-[62px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="customer-tel">เบอร์โทร*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                <input
+                                    class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full focus:border-red-500 required-field"
                                     type="text" name="customer-tel" id="customer-tel" maxlength="10">
                             </div>
                             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
                                 <label class="text-end" for="customer-email">อีเมล*</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
+                                <input
+                                    class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full focus:border-red-500 required-field"
                                     type="text" name="customer-email" id="customer-email">
                             </div>
                         </div>
@@ -348,14 +357,15 @@
                         <div class="flex flex-col gap-2">
                             <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                 <label class="text-end" for="customer-address">ที่อยู่*</label>
-                                <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="customer-address"
-                                    id="customer-address" cols="30" rows="3"></textarea>
+                                <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
+                                    name="customer-address" id="customer-address" cols="30" rows="3"></textarea>
                             </div>
                             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
                                 <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                     <label class="text-end" for="province">จังหวัด*</label>
-                                    <select class=" bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="province"
-                                        id="province">
+                                    <select
+                                        class=" bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
+                                        name="province" id="province">
                                         <option value="">เลือกจังหวัด</option>
                                         @foreach ($provinces as $province)
                                             <option data-id="{{ $province->code }}" value="{{ $province->name_th }}">
@@ -366,7 +376,8 @@
 
                                 <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4 ">
                                     <label class="text-end" for="district">อำเภอ/เขต*</label>
-                                    <select class="px-1   bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                    <select
+                                        class="px-1   bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
                                         name="district" id="district">
                                         <option value="">เลือกอำเภอ</option>
                                     </select>
@@ -375,7 +386,8 @@
                             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
                                 <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                     <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
-                                    <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                    <select
+                                        class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
                                         name="sub-district" id="sub-district">
                                         <option value="">เลือกตำบล</option>
                                     </select>
@@ -383,7 +395,8 @@
 
                                 <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
                                     <label class="text-end" for="zip-code">รหัสไปรษณี*</label>
-                                    <input class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
+                                    <input
+                                        class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
                                         type="text" name="zip-code" id="zip-code" maxlength="5">
                                 </div>
                             </div>
@@ -404,7 +417,8 @@
 
             {{-- btn submit --}}
             <div class="mt-5 flex justify-center gap-4 mb-4">
-                <a href="{{url('/')}}" class="px-6 py-2 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] hover:bg-gray-500 text-[16px] hover:text-white rounded-[15px] shadow-sm">กลับหน้าหลัก</a>
+                <a href="{{ url('/') }}"
+                    class="px-6 py-2 bg-white border border-[1px]-[#EC1F25] text-[#EC1F25] hover:bg-gray-500 text-[16px] hover:text-white rounded-[15px] shadow-sm">กลับหน้าหลัก</a>
                 <button class="px-3 py-2 bg-[#EC1F25] text-white rounded-[15px] hover:bg-red-700 text-[16px] shadow-sm"
                     id="submit-buy">ยืนยันการสั่งซื้อ</button>
             </div>

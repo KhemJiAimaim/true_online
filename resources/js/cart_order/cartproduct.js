@@ -1,7 +1,5 @@
 console.log("use cartproduct.js");
 
-
-
 const btn_removeItem = document.querySelectorAll("#remove-item");
 
 btn_removeItem.forEach((element) => {
@@ -54,7 +52,6 @@ btn_removeItem.forEach((element) => {
         });
     });
 });
-
 
 const customer_tel = document.querySelector("#customer-tel");
 const zip_code = document.querySelector("#zip-code");
@@ -132,7 +129,6 @@ submitBuy.addEventListener("click", () => {
     const province = document.querySelector("#province").value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
     // console.log(travelSims_data)
     // console.log(prepaidCate_data)
     // console.log(bermonthly_data)
@@ -157,7 +153,17 @@ submitBuy.addEventListener("click", () => {
             showConfirmButton: false,
             timer: 2000,
         });
-        return;
+
+       // Add a class to highlight the empty input fields
+    document.querySelectorAll('input, textarea, select').forEach((element) => {
+        if (!element.value.trim()) {
+            element.classList.add('error-border');
+        }
+    });
+
+    return;
+
+       
     }
 
     if (!emailRegex.test(customer_email)) {
@@ -208,7 +214,7 @@ submitBuy.addEventListener("click", () => {
         confirmButtonColor: "#3085d6",
         confirmButtonText: "ยืนยันการสั่งซื้อ",
         cancelButtonText: "ยกเลิกการสั่งซื้อ",
-        reverseButtons: true
+        reverseButtons: true,
     }).then((result) => {
         if (result.isConfirmed) {
             document.getElementById("loader").style.display = "block";
@@ -261,7 +267,7 @@ submitBuy.addEventListener("click", () => {
                         showConfirmButton: false,
                         timer: 1500,
                     });
-                };
+                }
             });
         }
     });

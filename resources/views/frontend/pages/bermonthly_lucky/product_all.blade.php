@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-left ">
-        {{-- @dd($_GET) --}}
+
         <div
             class="h-[158px] max-xs:h-[130px]  bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] flex justify-center items-center max-xs:py-4">
             <div class="flex max-xs:grid max-xs:grid-cols-2 gap-8  max-xs:gap-4">
@@ -11,12 +11,12 @@
                     <p class=" ">เบอร์ทั้งหมด</p>
                 </a>
                 <a href="/bermonthly?sim=paysim"
-                    class="{{ (isset($_GET['sim']) && $_GET['sim'] == 'paysim')  ? 'bg-black text-white' : 'bg-white' }} flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
+                    class="{{ isset($_GET['sim']) && $_GET['sim'] == 'paysim' ? 'bg-black text-white' : 'bg-white' }} flex justify-center items-center gap-2 py-2 px-8 max-xs:px-4 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
 
                     <p class="">เบอร์เติมเงิน</p>
                 </a>
                 <a href="/bermonthly?sim=month"
-                    class="{{ (isset($_GET['sim']) && $_GET['sim'] == 'month')  ? 'bg-black text-white' : 'bg-white' }} flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
+                    class="{{ isset($_GET['sim']) && $_GET['sim'] == 'month' ? 'bg-black text-white' : 'bg-white' }} flex justify-center items-center gap-2 py-2 px-6 max-xs:px-3 rounded-[5px] hover:scale-105 transition-all duration-500 ease-in-out text-[#CE090E] text-[17px]  max-xs:text-[14px]  hover:bg-black hover:text-white ">
                     <p class="">เบอร์รายเดือน</p>
                 </a>
                 <a href="/bermonthly?min=0&max=0"
@@ -116,7 +116,7 @@
                         {{-- วิเคราะห์เบอร์ --}}
                         <div
                             class="w-full p-2 flex flex-col bg-gradient-to-r from-[#EC1F25] to-[#960004] rounded-[10px] mb-4 ">
-                            <label class="text-white " for="input-fortune">กรอกเบอร์โทรศัพท์</label>
+                            <label class="text-white " for="input-fortune">ทำนายเบอร์</label>
                             <div class="w-full flex gap-4">
                                 <input
                                     class="w-full h-7 text-center rounded-[3px] bg-white max-es:text-[14px] max-es:text-left p-2"
@@ -507,28 +507,37 @@
                             </div>
                             {{-- berproduct --}}
                             {{-- @dd($title_package = $packages->firstWhere('id', $product->product_package)) --}}
-                            @if ($product->monthly_status == 'yes')
-                                <div
-                                    class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
-                                    {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
-
+                            {{-- <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-dm:h-[130px] max-yy:h-[150px] h-[140px]">
+                                @if ($product->monthly_status == 'yes')
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                         {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
                                     </p>
                                     <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+                                @endif
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
+                            </div> --}}
 
-                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                        {{ $product->product_comment }}</p>
-                                </div>
-                            @endif
 
-                            @if ($product->monthly_status != 'yes')
-                                <div
-                                    class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
+                            <div
+                                class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
+                                {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
+                                @if ($product->monthly_status == 'yes')
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                        {{ $product->product_comment }}</p>
-                                </div>
-                            @endif
+                                        {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
+                                    </p>
+                                    <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+                                @elseif ($product->monthly_status != 'yes')
+                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
+                                        {{ $webInfo->contact->detail_paysim->value }}
+                                    </p>
+                                    <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+                                @endif
+                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
+                                    {{ $product->product_comment }}</p>
+                            </div>
+
+
+
 
 
 
@@ -536,22 +545,32 @@
                                 class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-2 px-2 items-center">
                                 <img class=" absolute left-0 bottom-0" src="/images/circle/Intersect (2).png"
                                     alt="">
-                                <div class="grid grid-cols-3 items-center">
-                                    <p class="text-white text-left text-[18px] pt-1 ">
-                                        ราคา
-                                    </p>
-                                    <p class="flex items-center flex-col">
-                                        @if ($product->product_discount > 0)
-                                            <span
-                                                class="text-gray-100 line-through leading-[2px] text-[35px]">{{ number_format($product->product_price) }}</span>
-                                        @endif
-                                        <span
-                                            class="text-white font-medium text-center text-[35px]">{{ $product->product_price == 0 ? 'แจกฟรี' : number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
-                                    </p>
-                                    <p class="text-white text-right text-[18px] pt-1 ">บาท
-                                    </p>
+                                    
+                                    @if ($product->product_price == 0)
+                                        <div class="flex items-center justify-center">
+                                            <span class="text-white font-medium text-center text-[35px]">แจกฟรี</span>
+                                        </div>
+                                    @endif
+                                    @if ($product->product_price > 0)
+                                    <div class="grid grid-cols-3 items-center">
+                                        <p class="text-white text-left text-[18px] pt-1 ">
+                                            ราคา
+                                        </p>
+                                        <p class="flex items-center flex-col">
+                                            @if ($product->product_discount > 0)
+                                                <span
+                                                    class="text-gray-100 line-through leading-[2px] text-[35px]">{{ number_format($product->product_price) }}</span>
+                                            @endif
 
-                                </div>
+                                            <span
+                                                class="text-white font-medium text-center text-[35px]">{{ number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
+                                        </p>
+                                        <p class="text-white text-right text-[18px] pt-1 ">บาท
+                                        </p>
+
+                                    </div>
+                                    @endif
+
                             </div>
 
 
@@ -563,7 +582,7 @@
                                         class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-30">
                                 </div>
 
-                                <a href="https://line.me/ti/p/~@berhoro" class="flex justify-center items-center">
+                                <a href="" class="flex justify-center items-center">
                                     <div
                                         class="  group rounded-full border border-green-500 w-[50px] h-[50px]  max-yy:w-[45px] max-yy:h-[45px] p-2 hover:bg-green-600">
                                         <img src="/images/icons8-line-app (1) 6.png" alt=""
