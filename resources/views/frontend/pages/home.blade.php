@@ -287,11 +287,19 @@
                                                     </a>
                                                 </div>
                                                 {{-- berproduct --}}
-
-                                                <div
-                                                    class="bg-[#F8F9FA] flex justify-start px-4 py-2 max-dm:h-[80px] h-[110px]">
-                                                    {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4"> --}}
-                                                    
+                                                <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
+                                                    {{-- <img src="/images/Ellipse 6.png" alt="" class="px-4 py-1"> --}}
+                                                    @if ($ber->monthly_status == 'yes')
+                                                        <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
+                                                            {{ $ber->package }}
+                                                        </p>
+                                                        <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+                                                    @elseif ($ber->monthly_status != 'yes')
+                                                        <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
+                                                            {{ $webInfo->contact->detail_paysim->value }}
+                                                        </p>
+                                                        <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
+                                                    @endif
                                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $ber->product_comment }}</p>
                                                 </div>
 

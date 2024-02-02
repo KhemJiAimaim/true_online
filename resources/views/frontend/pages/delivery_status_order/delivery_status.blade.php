@@ -57,10 +57,16 @@
                                     @foreach ($orders as $order)
                                         @php
                                             $carrier = '';
+                                            $link_tracking = '';
                                             if ($order->order_carrier == 'EMS') {
                                                 $carrier = '/images/tracking/ems.jpg';
+                                                $link_tracking = 'https://track.thailandpost.co.th/?trackNumber=';
                                             } elseif ($order->order_carrier == 'Kerry') {
                                                 $carrier = '/images/tracking/k.png';
+                                                $link_tracking = 'https://th.kerryexpress.com/en/track/?track=';
+                                            } elseif ($order->order_carrier == 'Flash') {
+                                                $carrier = '/images/tracking/flash.jpg';
+                                                $link_tracking = 'https://flashexpress.com/fle/tracking?se=';
                                             } else {
                                                 $carrier = '/images/tracking/logotrue.png';
                                             }
@@ -74,7 +80,7 @@
                                             </td>
                                             <td class="whitespace-nowrap  px-6 py-4">
                                                 @if ($order->tracking_number)
-                                                    <a href="https://th.kerryexpress.com/en/track/?track=PEX074400008907"
+                                                    <a href="{{$link_tracking}}{{ $order->tracking_number }}"
                                                         target="_blank"
                                                         class="text-center 2xl:text-[18px] text-[16px]">{{ $order->tracking_number }}</a>
                                                 @else

@@ -10,6 +10,10 @@ use App\Models\Post;
 
 class ArticleController extends Controller
 {
+    public function articleHome() {
+        return view();
+    }
+
     public function articlePage($cate) {
         $cate_id = Category::select('id')->where('cate_keyword', $cate)->first();
         $post = Post::where('category', 'LIKE', '%' . $cate_id->id . '%')->first();

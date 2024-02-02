@@ -488,7 +488,7 @@
                                 {{-- เปิดกลุ่มใหม่ --}}
                                 @php
                                     $love_group = $product->lover_group;
-                                    $open_tag = '<div class="w-4/5 lover border-2 border-y-[#c5a04f] flex flex-wrap items-center ss:p-1 p-4 gap-7 max-yy:gap-[2.5rem] max-2xl:gap-6">';
+                                    $open_tag = '<div id="lover" class="w-4/5 max-xs:w-full border-2 border-y-[#c5a04f] flex flex-wrap max-lg:justify-center items-center ss:px-1 ss:py-4 p-4 gap-7 max-yy:gap-[2.5rem] max-2xl:gap-6">';
                                     $end_tag = '</div>';
                                 @endphp
                                 {!! $open_tag !!}

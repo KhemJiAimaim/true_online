@@ -448,6 +448,34 @@ return new class extends Migration
                 'info_iframe' => '',
                 'info_attribute' => ''
             ],
+            [
+                'info_id' => 30,
+                'info_type' => 2,
+                'info_param' => "line1",
+                'info_title' => "Line",
+                'info_priority' => 1,
+                'admin_level' => 3,
+                'language' => "th",
+                'defaults' => 1,
+                'info_value' => '@fibertrue',
+                'info_link' => 'https://lin.ee/heZ761Y',
+                'info_iframe' => '',
+                'info_attribute' => ''
+            ],
+            [
+                'info_id' => 31,
+                'info_type' => 2,
+                'info_param' => "detail_paysim",
+                'info_title' => "เงื่อนไขซิมเติมเงิน",
+                'info_priority' => 1,
+                'admin_level' => 3,
+                'language' => "th",
+                'defaults' => 1,
+                'info_value' => 'เบอร์เป็นระบบเติมเงินสามารถเปลี่ยนเป็นรายเดือนได้ไม่มีสัญญาผูกมัด',
+                'info_link' => '',
+                'info_iframe' => '',
+                'info_attribute' => ''
+            ],
         ]);
     }
 

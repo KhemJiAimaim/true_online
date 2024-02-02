@@ -57,7 +57,7 @@
         <div class="text-white">
             <h2 class="text-[1.2rem] mb-2">
                 บริการของเรา</h2>
-            <ul class="font-light text-[0.8rem] max-md:pl-6">
+            <ul class="font-light list-none text-[0.8rem] max-md:pl-6">
                 <li>อินเตอร์เน็ตบ้าน</li>
                 <li>เบอร์มงคล</li>
                 <li>เติมเงิน</li>
@@ -65,9 +65,6 @@
                 <li>ซิมท่องเที่ยว</li>
             </ul>
         </div>
-
-
-
 
     </div>
 </div>
