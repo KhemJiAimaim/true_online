@@ -230,17 +230,21 @@
         </div>
 
         {{-- modal google map --}}
-        <div id="modal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[99] hidden  ">
+        <div id="modal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[99] hidden ">
             <div class="flex items-center justify-center h-full">
-                <div class="bg-white p-2 rounded-[10px] shadow-lg w-[1100px] h-[600px] max-ex:h-[80%] max-ex:w-[95%]  mx-4">
-                    <div id="close-modal" class="cursor-pointer text-gray-600 text-[60px]">
-                        &times;
+                <div
+                    class="bg-white px-2  rounded-[10px] shadow-lg w-[1100px] h-[650px] max-ex:h-[85%] max-ex:w-[95%] mx-3 ">
+                    <div class="flex justify-end items-center my-2">
+                        <img src="/images/cross-round-svgrepo-com.png" alt="" id="close-modal"
+                            class="close w-8 cursor-pointer hover:scale-110 ">
                     </div>
-                    <div class="w-full mx-auto flex gap-4 my-4">
-                        <input type="text" id="search" class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
-                        <button onclick="searchLocation()" class="bg-blue-500 text-white py-2 px-4 rounded">Search</button>
+                    <div class="w-full mx-auto flex gap-4 my-2 ">
+                        <input type="text" id="search"
+                            class="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent">
+                        <button onclick="searchLocation()"
+                            class="bg-blue-500 text-white py-2 px-4 rounded">Search</button>
                     </div>
-                    <div id="gMap" style="width: 100%;height:500px" class="overflow-hidden"></div>
+                    <div id="gMap" style="width: 100%; height:500px"></div>
                 </div>
             </div>
         </div>
