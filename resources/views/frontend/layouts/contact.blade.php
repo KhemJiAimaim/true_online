@@ -15,7 +15,7 @@
 
         <div id="social"
             class="hidden rounded-lg w-[160px] py-2 px-1 flex justify-start flex-col gap-2  mx-auto bg-[#fff] shadow-lg ">
-            <a href="https://line.me/ti/p/~@berhoro" target="_blank">
+            <a href="{{$webInfo->contact->line1->link}}" target="_blank">
                 <div class="flex items-center gap-2">
                     <div
                         class="group bg-white rounded-full border-2 border-green-500 hover:border-white mx-1 w-[45px] h-[45px] max-md:w-[40px] max-md:h-[40px]   flex justify-center items-center hover:scale-110 p-1 hover:bg-green-600">
