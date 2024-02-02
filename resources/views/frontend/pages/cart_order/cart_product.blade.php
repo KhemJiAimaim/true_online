@@ -71,7 +71,7 @@
         .error-border {
             border-color: red !important;
         }
-        
+
     </style>
 @endsection
 @section('content')
@@ -329,7 +329,6 @@
                     <div class="grid grid-cols-2 max-lg:grid-cols-1 gap-4 max-lg:gap-2 pt-2">
                         <div class="flex flex-col gap-2">
                             <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
-<<<<<<< HEAD
                                 <label class="text-end" for="name">ชื่อ*</label>
                                 <input
                                     class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full focus:border-red-500 required-field"
@@ -351,32 +350,12 @@
                                 <label class="text-end" for="customer-email">อีเมล*</label>
                                 <input
                                     class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full focus:border-red-500 required-field"
-=======
-                                <label class="text-end" for="name">ชื่อ</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
-                                    type="text" name="name" id="name">
-                            </div>
-                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
-                                <label class="text-end" for="last-name">นามสกุล</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
-                                    type="text" name="last-name" id="last-name">
-                            </div>
-                            <div class="grid grid-cols-[62px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
-                                <label class="text-end" for="customer-tel">เบอร์โทร</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
-                                    type="text" name="customer-tel" id="customer-tel" maxlength="10">
-                            </div>
-                            <div class="grid grid-cols-[60px,1fr] max-lg:grid-cols-[86px,1fr] gap-4">
-                                <label class="text-end" for="customer-email">อีเมล</label>
-                                <input class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] w-full"
->>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                     type="text" name="customer-email" id="customer-email">
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-2">
                             <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
-<<<<<<< HEAD
                                 <label class="text-end" for="customer-address">ที่อยู่*</label>
                                 <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
                                     name="customer-address" id="customer-address" cols="30" rows="3"></textarea>
@@ -387,17 +366,6 @@
                                     <select
                                         class=" bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
                                         name="province" id="province">
-=======
-                                <label class="text-end" for="customer-address">ที่อยู่</label>
-                                <textarea class="px-2 h-14 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="customer-address"
-                                    id="customer-address" cols="30" rows="3"></textarea>
-                            </div>
-                            <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
-                                <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
-                                    <label class="text-end" for="province">จังหวัด</label>
-                                    <select class=" bg-white border border-[1px]-[#D9D9D9] rounded-[3px]" name="province"
-                                        id="province">
->>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                         <option value="">เลือกจังหวัด</option>
                                         @foreach ($provinces as $province)
                                             <option data-id="{{ $province->code }}" value="{{ $province->name_th }}">
@@ -407,14 +375,9 @@
                                 </div>
 
                                 <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4 ">
-<<<<<<< HEAD
                                     <label class="text-end" for="district">อำเภอ/เขต*</label>
                                     <select
                                         class="px-1   bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
-=======
-                                    <label class="text-end" for="district">อำเภอ/เขต</label>
-                                    <select class="px-1   bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
->>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                         name="district" id="district">
                                         <option value="">เลือกอำเภอ</option>
                                     </select>
@@ -422,28 +385,18 @@
                             </div>
                             <div class="grid grid-cols-2 max-xs:grid-cols-1 gap-4">
                                 <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
-<<<<<<< HEAD
                                     <label class="text-end" for="sub-district">ตำบล/แขวง*</label>
                                     <select
                                         class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
-=======
-                                    <label class="text-end" for="sub-district">ตำบล/แขวง</label>
-                                    <select class="px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
->>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                         name="sub-district" id="sub-district">
                                         <option value="">เลือกตำบล</option>
                                     </select>
                                 </div>
 
                                 <div class="grid grid-cols-[86px,1fr] xl:grid-cols-[100px,1fr] gap-4">
-<<<<<<< HEAD
                                     <label class="text-end" for="zip-code">รหัสไปรษณี*</label>
                                     <input
                                         class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px] focus:border-red-500 required-field"
-=======
-                                    <label class="text-end" for="zip-code">รหัสไปรษณี</label>
-                                    <input class="w-full px-2 bg-white border border-[1px]-[#D9D9D9] rounded-[3px]"
->>>>>>> dd19abbcdd4425d0cf1836695ac045d4467450e2
                                         type="text" name="zip-code" id="zip-code" maxlength="5">
                                 </div>
                             </div>

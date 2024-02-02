@@ -102,7 +102,7 @@
         </div>
         {{-- box fortune --}}
 
-        <div class="bg-white drop-shadow-sm items-center w-full "
+        <div class="bg-white drop-shadow-sm items-center w-full mt-2 max-2xl:mt-[12rem] max-xs:mt-[42rem] "
             style="box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15);">
             <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
                 <p class="text-[20px]">ราคา</p>
@@ -182,7 +182,7 @@
         </div>
         {{-- box manual --}}
 
-        <div class="mt-10 max-2xl:mt-[12rem] max-xs:mt-[42rem] ">
+        <div class="mt-10 ">
             {{-- box package --}}
             @if ($berproduct->monthly_status == 'yes')
                 <div class="w-4/5 max-lg:w-full  mx-auto mb-12">
