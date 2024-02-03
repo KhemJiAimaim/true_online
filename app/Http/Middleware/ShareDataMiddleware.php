@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Category;
 use App\Models\AdSlide;
+use App\Models\Post;
 use App\Models\WebInfo;
 
 class ShareDataMiddleware extends Controller
@@ -27,6 +28,9 @@ class ShareDataMiddleware extends Controller
         $expath = explode("/",$path);
         $seo = Category::where('cate_url', $path)->first();
         $main_menu = Category::where('cate_url',  $expath[0])->first();
+
+        $content_seo = Post::where('slug', ($expath[0])? $expath[0]: "home")->where('category', 'LIKE', '%39%')->first();
+
         $infos = $this->getWebInfo('', '');
         $webInfo = $this->infoSetting($infos);
  
@@ -41,9 +45,11 @@ class ShareDataMiddleware extends Controller
             $amount = $cartList['amount'];
         }
         $menu_footer = Category::where('cate_parent_id', '0')->where('cate_status_display', true)->where('is_bottomside', true)->OrderBy('cate_priority')->get();
-// dd($slide_image);
+
+        // dd($content_seo);
         // Sharing is caring
         View::share('seo', $seo);
+        View::share('content_seo', $content_seo);
         View::share('webInfo', $webInfo);
         View::share('main_cate', $query_main_cate);
         View::share('sub_cate', $query_sub_cate);
