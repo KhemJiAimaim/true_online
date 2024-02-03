@@ -30,7 +30,9 @@
                     </div>
                 </div>
 
-                <div class="w-[201px] h-1 bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] rounded-lg mx-auto mt-6 "></div>
+                <div
+                    class="w-[201px] h-1 bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] rounded-lg mx-auto mt-6 ">
+                </div>
             </div>
 
         </div>
@@ -80,7 +82,7 @@
                                             </td>
                                             <td class="whitespace-nowrap  px-6 py-4">
                                                 @if ($order->tracking_number)
-                                                    <a href="{{$link_tracking}}{{ $order->tracking_number }}"
+                                                    <a href="{{ $link_tracking }}{{ $order->tracking_number }}"
                                                         target="_blank"
                                                         class="text-center 2xl:text-[18px] text-[16px]">{{ $order->tracking_number }}</a>
                                                 @else
@@ -99,13 +101,12 @@
                                                 @endforeach
 
                                             </td> --}}
-                                            <td class="whitespace-nowrap px-6 py-4 text-[16px] flex flex-col">
+                                            <td class="whitespace-nowrap  px-6 py-4 text-[16px] flex flex-col">
                                                 @foreach ($order->orderItems as $item)
                                                     @if ($item['type_id'] === 3)
-                                                        @php
-                                                            $trimmedProductName = substr($item['product_name'], 0, 3) . substr($item['product_name'], 3);
-                                                        @endphp
-                                                        <div>{{ $trimmedProductName }}</div>
+                                                        <div class="flex justify-center items-center ">
+                                                            XXXX{{ substr($item['product_name'], 6) }}</div>
+                                                        {{-- <div class="">{{$item['product_name']}}</div> --}}
                                                     @elseif ($item['type_id'] === 4)
                                                         <div>ซิมเติมเงิน</div>
                                                     @elseif ($item['type_id'] === 6)
@@ -121,12 +122,16 @@
 
                     </div>
                 </div>
-                <div class="mt-4 flex justify-end items-center gap-4">
-                    <a href="{{ $orders->previousPageUrl() }}"
-                        class="px-2 py-1 border rounded hover:bg-gray-200">Previous</a>
-                    <span class="mr-2">Page {{ $orders->currentPage() }} of {{ $orders->lastPage() }}</span>
-                    <a href="{{ $orders->nextPageUrl() }}" class="px-2 py-1 border rounded hover:bg-gray-200">Next</a>
+
+                <div class="mt-4 flex justify-end items-center gap-4 ">
+                    <div class="w-64 border rounded flex justify-between items-center">
+                        <a href="{{ $orders->previousPageUrl() }}"
+                            class="px-2 py-1 border-r  hover:bg-gray-200">Previous</a>
+                        <span class="mr-2">Page {{ $orders->currentPage() }} of {{ $orders->lastPage() }}</span>
+                        <a href="{{ $orders->nextPageUrl() }}" class="px-2 py-1 border-l hover:bg-gray-200">Next</a>
+                    </div>
                 </div>
+
             </div>
 
         </div>
