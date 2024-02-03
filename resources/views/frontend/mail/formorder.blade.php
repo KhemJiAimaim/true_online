@@ -47,7 +47,7 @@
                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:8px;background-color:#f6f8f9;text-align:center">
                               <div style="font-weight:bold;color:#000000;font-size:16px;line-height:150%">เบอร์มงคลที่ดีที่สุดเพื่อคุณ</div>
                               <div>
-                                <a href="https://simnetunlimited.com/" title="www.simnetunlimited.com" style="text-decoration:none;font-size:11px;line-height:150%;color:#9b9b9b"target="_blank">www.simulimited.com</a>
+                                <a href="https://www.simnetunlimited.com/" title="www.simnetunlimited.com" style="text-decoration:none;font-size:11px;line-height:150%;color:#9b9b9b"target="_blank">www.simnetunlimited.com</a>
                               </div>
                             </td>
                           </tr>
@@ -408,7 +408,7 @@
                                 <div>ขอขอบคุณที่อุดหนุนสินค้าจากเรา</div>
                                 <font color="#888888">
                                     <div style="padding-bottom:50px">
-                                        <a href="https://simnetunlimited.com/" style="color:#00aeef;text-decoration:none;line-height:200%" target="_blank" >www.simnetunlimited.com</a>
+                                        <a href="https://www.simnetunlimited.com/" style="color:#00aeef;text-decoration:none;line-height:200%" target="_blank" >www.simnetunlimited.com</a>
                                     </div>
                                 </font>
                               </td>
