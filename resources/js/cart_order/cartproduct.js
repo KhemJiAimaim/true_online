@@ -218,7 +218,7 @@ submitBuy.addEventListener("click", () => {
     }).then((result) => {
         if (result.isConfirmed) {
             document.getElementById("loader").style.display = "block";
-
+           
             axios.post(`/confirmorder`, params).then((response) => {
                 if (response.status === 201) {
                     document.getElementById("loader").style.display = "none";
@@ -231,7 +231,7 @@ submitBuy.addEventListener("click", () => {
                     }).then(() => {
                         let formData = new FormData();
                         formData.append("refno", response.data.ref_order);
-                        formData.append("merchantid", "13745519");
+                        formData.append("merchantid", "26816389");
                         formData.append("customeremail", customer_email);
                         formData.append("cc", "00");
                         formData.append("productdetail", "สินค้าเบอร์ true");

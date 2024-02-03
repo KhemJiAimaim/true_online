@@ -193,7 +193,7 @@
                                                                 </td>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
                                                                 @if($item->discount > 0)
-                                                                    <div><span style="color : gray; font-size: 12px;text-decoration: line-through;">{{ number_format($item->product_price) }}</span> <span style="font-size:10px;color:#9b9b9b;"> บาท</span> </div>
+                                                                    <div><span style="color: gray; font-size: 12px;text-decoration: line-through;">{{ number_format($item->product_price) }}</span> <span style="font-size:10px;color: gray ;text-decoration: line-through;"> บาท</span> </div>
                                                                 @endif
                                                                     <div>{{ number_format( $item->product_price - (($item->product_price * $item->discount) / 100 ) ) }} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                 </td>
@@ -342,12 +342,13 @@
                             <tr>
                               <td style="padding-top:10px">
                                 <div style="text-align:center;padding:10px 0px;background:#f6f8f9;margin:0px 16px">
-                                    <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
-                                    <a href="tel:0832289789" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                      <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> </a>
-                                      <a href="tel:0832289789" target="_blank">0832289789</a> 
-                                      <a href="tel:0645695656" target="_blank">0645695656</a>
-                                    <a href="https://lin.ee/heZ761Y" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
+                                  <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
+                                  <a href="tel:0832289789" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
+                                    <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> 
+                                  </a>
+                                  <a href="tel:0832289789" target="_blank">0832289789</a> 
+                                  <a href="tel:0645695656" target="_blank">0645695656</a>
+                                  <a href="https://lin.ee/heZ761Y" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
                                       <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png">
                                     @fibertrue </a>
                                 </div>
@@ -382,7 +383,7 @@
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <a rel="noopener" href="https://www.berhoro.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items='สินค้าเบอร์ true'&amp;netpay={{$dataCustomer->total_price}}" target="_blank" >
+                                                <a rel="noopener" href="https://www.simnetunlimited.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items='สินค้าเบอร์ true'&amp;netpay={{$dataCustomer->total_price}}" target="_blank" >
                                                     <button style="color:white;background:red;padding:10px 20px;border-radius:5px;border:2px solid red;margin-top:10px; cursor: pointer;" type="submit">
                                                         <div style="font-weight:bold;text-align:center">ชำระผ่าน Pay Solution กดที่นี่</div>
                                                     </button>

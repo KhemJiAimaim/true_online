@@ -574,7 +574,7 @@
                                             class="text-gray-100 line-through leading-[2px] text-[35px]">{{ number_format($product->product_price) }}</span>
                                     @endif
                                     <span
-                                        class="text-white font-medium text-center text-[35px] {{ $product->product_price == 0 ? 'text-[20px]' : 'text-[35px]' }} ">{{ $product->product_price == 0 ? 'แจกฟรี' : number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
+                                        class="text-white font-medium text-center {{ $product->product_price == 0 ? 'text-[30px]' : 'text-[35px]' }} ">{{ $product->product_price == 0 ? 'แจกฟรี' : number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
                                 </p>
                                 <p class="text-white text-right text-[18px] pt-1 ">บาท
                                 </p>

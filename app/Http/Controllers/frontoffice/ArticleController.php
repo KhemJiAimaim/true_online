@@ -10,9 +10,20 @@ use App\Models\Post;
 
 class ArticleController extends Controller
 {
-    public function articlePage($cate) {
+    public function articleHome() {
+        $post_all = Post::where('category', 'not like', '%8%')
+            ->where('category', 'not like', '%9%')
+            ->where('pin', false)
+            ->where('status_display', true)
+            ->orderBy('priority', 'DESC')
+            ->paginate(10);
+        // dd($post_all);
+        return view('frontend.pages.article.article', compact('post_all'));
+    }
+
+    public function articleDetail($cate) {
         $cate_id = Category::select('id')->where('cate_keyword', $cate)->first();
         $post = Post::where('category', 'LIKE', '%' . $cate_id->id . '%')->first();
-        return view('frontend.pages.article_product.article', compact('post'));
+        return view('frontend.pages.article.article-detail', compact('post'));
     }
 }
