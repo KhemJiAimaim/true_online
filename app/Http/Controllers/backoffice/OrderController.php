@@ -31,6 +31,7 @@ class OrderController extends BaseController
             });
 
             $berlucky = BerproductMonthly::whereIn('product_phone', $berluckyPhone)->get();
+           
             $travelsims = TravelSim::get();
             $prepaidsims = PrepaidSim::get();
             $cates = Category::whereIn('id', [3, 4, 6])->get();
@@ -43,37 +44,41 @@ class OrderController extends BaseController
                     if ($item) {
                         foreach ($item as $i) {
                             $type = $i->type_id;
-                            $product = null;
-
+                            $product = new stdClass;
+                            
                             if ($type === 3) {
                                 $product = $berlucky->filter(function ($ber) use ($i) {
                                     return $ber->product_phone === $i->product_name;
                                 })->first();
-
+                                // dd($product); 
                                 if ($product) {
                                     $product->id = $product->product_id;
                                     $product->title = $product->product_phone;
                                     $product->details = $product->product_comment;
                                 } else {
+                                    $product = new stdClass;
+
                                     $product->id = $i->product_id;
                                     $product->title = $i->product_name;
                                     $product->details = "";
                                 }
+                                
                             } else if ($type === 4) {
                                 $product = $prepaidsims->filter(function ($sim) use ($i) {
                                     return $sim->id === $i->product_id;
                                 })->first();
+                                $product->amount = $product->quantity;
                             } else if ($type === 6) {
                                 $product = $travelsims->filter(function ($sim) use ($i) {
                                     return $sim->id === $i->product_id;
                                 })->first();
+                                $product->amount = $product->quantity;
                             }
 
                             $cate = $cates->filter(function ($sim) use ($type) {
                                 return $sim->id === $type;
                             })->first();
 
-                            $product->amount = $product->quantity;
                             $product->item_id = $i->id;
                             $product->cate_name = $cate->cate_title;
                             $product->type_id = $type;
@@ -87,6 +92,7 @@ class OrderController extends BaseController
 
                     $order->product_items = $productArr;
                 }
+
             }
 
             return response([
