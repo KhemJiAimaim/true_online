@@ -39,7 +39,7 @@
           </a>
           {{-- @dd($post) --}}
           <p>{{$post->description}}</p>
-          {{-- <p>{{$post->description}}</p> --}}
+           
         </div>
       </div>
       <hr>
