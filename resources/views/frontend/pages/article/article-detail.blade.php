@@ -1,10 +1,11 @@
 @extends('frontend.layouts.main')
 
 @section('content')
-<div class="text-left mt-[120px] max-xl:mt-[74px]">
+<div class="text-left mt-[120px] max-xl:mt-[70px]">
   <div class="p-8 h-20" style="background: var(--RP-GD, linear-gradient(180deg, #EC1F25 0%, #CD1A70 100%));">
     <h1 class=" text-white text-center text-[22px] font-medium">{{$post->keyword}}</h1>
   </div>
+
   <div class="w-full mt-4 mx-auto max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%]">
 
     <div class="max-w-[1300px] h-[400px] max-[1023px]:h-[350px] max-[540px]:h-[260px] max-xs:h-[190px]  mx-auto">
