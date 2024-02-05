@@ -47,12 +47,16 @@
         @yield('content')
     </div>
 
-    {{-- @if(isset($content_seo))
+    @if(isset($content_seo))
     <div class="text-center py-6 relative z-0 px-3 ss:px-6">
         <h3>{{$content_seo->topic}}</h3>
         <p>{!! $content_seo->content !!}</p>
     </div>
-    @endif --}}
+    @endif
+  
+    @if(isset($main_menu) && $main_menu->cate_url != 'article')
+        @include('frontend.layouts.footer_delivery')
+    @endif
 
     @include('frontend.layouts.contact')
 

@@ -30,6 +30,7 @@ class ShareDataMiddleware extends Controller
         $main_menu = Category::where('cate_url',  $expath[0])->first();
 
         $content_seo = Post::where('slug', ($expath[0])? $expath[0]: "home")->where('category', 'LIKE', '%39%')->first();
+        // dd($main_menu);
 
         $infos = $this->getWebInfo('', '');
         $webInfo = $this->infoSetting($infos);
@@ -51,6 +52,7 @@ class ShareDataMiddleware extends Controller
         View::share('seo', $seo);
         View::share('content_seo', $content_seo);
         View::share('webInfo', $webInfo);
+        View::share('main_menu', $main_menu);
         View::share('main_cate', $query_main_cate);
         View::share('sub_cate', $query_sub_cate);
         View::share('menu_footer', $menu_footer);
