@@ -123,7 +123,7 @@
                     </div>
                 </div>
 
-                <div class="mt-4 flex justify-end items-center gap-4 ">
+                <div class="mt-4 flex justify-end max-xs:justify-center items-center gap-4 ">
                     <div class="w-64 border rounded flex justify-between items-center">
                         <a href="{{ $orders->previousPageUrl() }}"
                             class="px-2 py-1 border-r  hover:bg-gray-200">Previous</a>

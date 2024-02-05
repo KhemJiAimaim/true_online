@@ -931,7 +931,7 @@ return new class extends Migration
             ],
             [
                 'id' => 38,
-                'cate_url' => 'บทความ',
+                'cate_url' => 'article',
                 'cate_title' => 'บทความ',
                 'cate_keyword' => 'บทความ',
                 'cate_description' => 'หน้าเว็บไซต์หน้าหลักของบทความ',

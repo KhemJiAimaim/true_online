@@ -47,6 +47,13 @@
         @yield('content')
     </div>
 
+    {{-- @if(isset($content_seo))
+    <div class="text-center py-6 relative z-0 px-3 ss:px-6">
+        <h3>{{$content_seo->topic}}</h3>
+        <p>{!! $content_seo->content !!}</p>
+    </div>
+    @endif --}}
+
     @include('frontend.layouts.contact')
 
     <div class="sticky top-[100vh]">
