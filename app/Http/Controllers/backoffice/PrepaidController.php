@@ -231,6 +231,7 @@ class PrepaidController extends BaseController
             ], 500);
         }
     }
+    
     //net
     public function netIndex()
     {
@@ -566,7 +567,7 @@ class PrepaidController extends BaseController
 
     private function getPrepaidCateNet()
     {
-        $data = PrepaidCategory::join('prepaid_netwoeks AS pn', 'pn.id', 'prepaid_categories.networks_id')
+        $data = PrepaidCategory::leftjoin('prepaid_netwoeks AS pn', 'pn.id', 'prepaid_categories.networks_id')
             ->select('prepaid_categories.*', 'pn.network_name AS prepaid_networks_name')
             ->where('prepaid_categories.delete_status', 0)
             ->orderBy('prepaid_categories.updated_at', 'DESC')
