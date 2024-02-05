@@ -26,16 +26,5 @@ class Post extends Model
 
     protected $guarded = [];
 
-    public function getFormattedCreatedAtAttribute()
-    {
-        if ($this->attributes['created_at']) {
-            return Carbon::parse($this->attributes['created_at'])
-                ->locale('th')
-                ->isoFormat('MMM D, Y H:i:s')
-                ->addYears(543);
-        }
-
-        return null;
-    }
 }
 
