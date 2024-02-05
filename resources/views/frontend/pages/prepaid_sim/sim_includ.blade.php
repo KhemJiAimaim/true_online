@@ -26,7 +26,7 @@
                 @foreach ($prepaid_cate as $prepaid)
                     <div class="drop-shadow-md w-[350px] max-xl:w-[320px] max-es:w-[300px] h-[100%]">
                         <div
-                            class="{{ $color_bg[$prepaid->network_name] }} relative overflow-hidden rounded-tl-[10px] rounded-tr-[10px] py-2">
+                            class="{{ $color_bg[($prepaid->network_name)?$prepaid->network_name:'TRUE'] }} relative overflow-hidden rounded-tl-[10px] rounded-tr-[10px] py-2">
                             {{-- <div class="flex justify-start items-center"> --}}
                             <p class="text-white text-left ml-3 text-[16px]">{{ $prepaid->title }}</p>
                             <img class=" absolute right-0 top-0" src="/images/circle/Intersect.png" alt="">

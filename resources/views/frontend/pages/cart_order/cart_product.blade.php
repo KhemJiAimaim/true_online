@@ -193,7 +193,7 @@
                                     <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
                                         <figure>
                                             <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
-                                                src="/icons/category/imgcart.png" alt="">
+                                                src="{{ url($prepaid->thumbnail_link) }}" alt="">
                                         </figure>
                                         <div class="">
                                             <p class="font-semibold">ซิมเติมเงิน</p>
@@ -239,7 +239,7 @@
                                     <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
                                         <figure>
                                             <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
-                                                src="/images/cart/travelsim.png" alt="">
+                                                src="{{ url($travel->thumbnail_link) }}" alt="">
                                         </figure>
                                         <div class="">
                                             <p class="font-semibold">ซิมท่องเที่ยว</p>

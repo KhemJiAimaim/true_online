@@ -11,13 +11,11 @@ class ArticleController extends Controller
 {
     public function articleHome() {
        
-        $post_all = Post::where('category', 'not like', '%8%')
-            ->where('category', 'not like', '%9%')
+        $post_all = Post::where('category', 'LIKE', '%38%')
             ->where('pin', false)
             ->where('status_display', true)
             ->orderBy('priority', 'DESC')
             ->paginate(10);
-
         return view('frontend.pages.article.article', compact('post_all'));
     }
 
