@@ -65,8 +65,8 @@
         <footer>
             @include('frontend.pages.internet_fiber.footer_fiber')
         </footer>
-    @endif --}}
-
+        @endif --}}
+        {{-- @dd($main_cate) --}}
         @if (Request::is('/'))
             @include('frontend.layouts.banner_footer')
         @endif

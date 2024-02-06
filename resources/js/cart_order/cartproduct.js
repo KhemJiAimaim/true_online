@@ -220,6 +220,10 @@ submitBuy.addEventListener("click", () => {
             document.getElementById("loader").style.display = "block";
            
             axios.post(`/confirmorder`, params).then((response) => {
+                const details = response.data.item_list.map(item => item.detail);
+                const itemList = details.join(', ');
+                // console.log(itemList);
+                // return false;
                 if (response.status === 201) {
                     document.getElementById("loader").style.display = "none";
                     Swal.fire({
@@ -234,7 +238,7 @@ submitBuy.addEventListener("click", () => {
                         formData.append("merchantid", "26816389");
                         formData.append("customeremail", customer_email);
                         formData.append("cc", "00");
-                        formData.append("productdetail", "สินค้าเบอร์ true");
+                        formData.append("productdetail", itemList);
                         formData.append("total", total_price);
                         formData.append("lang", "TH");
 
@@ -271,58 +275,4 @@ submitBuy.addEventListener("click", () => {
             });
         }
     });
-
-    // Show the loader
-    //  document.getElementById("loader").style.display = "block";
-
-    // axios.post(`/confirmorder`, params).then((response) => {
-    //     if (response.status === 201) {
-    //         document.getElementById("loader").style.display = "none";
-    //         Swal.fire({
-    //             icon: "success",
-    //             title: "สั่งซื้อสำเร็จ",
-    //             text: "กำลังจะนำท่านสู่หน้าชำระสินค้า",
-    //             showConfirmButton: false,
-    //             timer: 1500,
-    //         }).then(() => {
-    //             let formData = new FormData();
-    //             formData.append("refno", response.data.ref_order);
-    //             formData.append("merchantid", "13745519");
-    //             formData.append("customeremail", customer_email);
-    //             formData.append("cc", "00");
-    //             formData.append("productdetail", "สินค้าเบอร์ true");
-    //             formData.append("total", total_price);
-    //             formData.append("lang", "TH");
-
-    //             let form = document.createElement("form");
-    //             form.method = "POST";
-    //             form.action =
-    //                 "https://payment.paysolutions.asia/epaylink/payment.aspx";
-
-    //             formData.forEach(function (value, key) {
-    //                 let input = document.createElement("input");
-    //                 input.type = "hidden";
-    //                 input.name = key;
-    //                 input.value = value;
-    //                 form.appendChild(input);
-    //             });
-
-    //             document.body.appendChild(form);
-    //             form.submit();
-
-    //             for (var pair of formData.entries()) {
-    //                 console.log(pair[0] + ": " + pair[1]);
-    //             }
-    //             return false;
-    //             // window.location.reload('/')
-    //         });
-    //     } else {
-    //         Swal.fire({
-    //             icon: "error",
-    //             title: "มีบางอย่างผิดพลาด",
-    //             showConfirmButton: false,
-    //             timer: 1500,
-    //         });
-    //     };
-    // });
 });

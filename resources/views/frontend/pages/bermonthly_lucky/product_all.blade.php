@@ -547,7 +547,7 @@
                                     <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
                                 @elseif ($product->monthly_status != 'yes')
                                     <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                        rrr
+                                        {{ $webInfo->contact->detail_paysim->value }}
                                     </p>
                                     <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
                                 @endif

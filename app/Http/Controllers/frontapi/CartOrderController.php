@@ -68,7 +68,7 @@ class CartOrderController extends Controller
 
             $newOrder->update(['order_number' => "TRUEONLINE-" . $newOrder->id]);
 
-            $this->saveOrderitem($params, $newOrder->id);
+            $itemList = $this->saveOrderitem($params, $newOrder->id);
 
             $this->sendOrderMail($newOrder);
 
@@ -78,7 +78,8 @@ class CartOrderController extends Controller
             return response([
                 'message' => 'ok',
                 'status' => true,
-                'ref_order' => $newOrder->id
+                'ref_order' => $newOrder->id,
+                'item_list' => $itemList
                 // 'description' => 'Send form fiber successfully',
             ], 201);
         } catch (Exception $e) {
@@ -96,11 +97,18 @@ class CartOrderController extends Controller
     public function saveOrderitem($params, $id_order) {
 
         $orderItems = [];
+        $itemList = [];
 
         if($params['bermonthly'] > 0){
             foreach ($params['bermonthly'] as $bermonthly) {
-                $ber = BerproductMonthly::where('product_id', $bermonthly['product_id'])->first();
-
+                $ber = BerproductMonthly::select('*')
+                    ->selectSub(function ($query) {
+                        $query->select('details')
+                            ->from('berlucky_packages')
+                            ->whereColumn('berproduct_monthlies.product_package', 'berlucky_packages.id');
+                    }, 'detail')
+                    ->where('product_id', $bermonthly['product_id'])->first();
+                
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => $bermonthly['type_cate'],
@@ -113,13 +121,16 @@ class CartOrderController extends Controller
                     'discount' => $bermonthly['product_discount'],
                     'quantity' => 1,
                 ];
+
+                $itemList[] = [
+                    "detail" => $ber->product_phone ." ". $ber->detail,
+                ];
             }
         }
-
+     
         if($params['prepaid_sim'] > 0){
             foreach ($params['prepaid_sim'] as $prepaid) {
                 $prepaidsim = PrepaidSim::where('id', $prepaid['id'])->first();
-
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => 4,
@@ -132,13 +143,17 @@ class CartOrderController extends Controller
                     'discount' => 0,
                     'quantity' => $prepaid['quantity'],
                 ];
+
+                $itemList[] = [
+                    "detail" => "ซิมเทพเติมเงิน แพ็กเกจ ".$prepaidsim->title,
+                ];
             }
         }
 
         if($params['travel_sim'] > 0){
             foreach ($params['travel_sim'] as $travel_sim) {
                 $travelsim = TravelSim::where('id', $travel_sim['id'])->first();
-
+               
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => 6,
@@ -151,20 +166,26 @@ class CartOrderController extends Controller
                     'discount' => 0,
                     'quantity' => $travel_sim['quantity'],
                 ];
+
+                $itemList[] = [
+                    "detail" => "ซิมท่องเที่ยว แพ็กเกจ".$travelsim->title,
+                ];
             }
         }
-
+  
         try {
             DB::beginTransaction();
             
             OrderItem::insert($orderItems);
             
             DB::commit();
-            return response([
-                'message' => 'ok',
-                'status' => true,
-                'description' => 'Send form fiber successfully',
-            ], 201);
+
+            return $itemList;
+            // return response([
+            //     'message' => 'ok',
+            //     'status' => true,
+            //     'description' => 'save orderItem successfully',
+            // ], 201);
         } catch (Exception $e) {
             DB::rollBack();
             return response([

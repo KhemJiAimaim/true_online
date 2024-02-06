@@ -2,13 +2,9 @@
 
     <div class="w-4/5 mx-auto py-4 flex justify-between max-md:flex-col max-md:gap-y-6">
         <div class="text-white ">
-            <h2 class="text-[1.2rem] mb-2">
-                ที่อยู่
-            </h2>
+            <h2 class="text-[1.2rem] mb-2">ที่อยู่</h2>
             <div class="font-light text-[0.8rem]">
-                <p class="">
-                    บริษัท
-                    พาณิชย์อมรกิจ จำกัด 19/39</p>
+                <p class="">บริษัท พาณิชย์อมรกิจ จำกัด 19/39</p>
                 <p class=""> ซอย 01 ถนนกาญจนาภิเษก 5 </p>
                 <p class=""> แขวงสามตะวันตก </p>
                 <p class=""> เขตคลองสามวา กรุงเทพมหานคร 10510</p>
@@ -26,43 +22,36 @@
                         <img class="w-full" src="/icons/line-white_0.png" alt="">
                     </div>
 
-                    <p class="font-light
-                          ">LINE
-                        ID : @fibertrue
-                    </p>
+                    <p class="font-light">LINE ID : @fibertrue</p>
                 </a>
 
                 <a href="tel:0832289789" class="flex items-center gap-2 hover:underline decoration-solid">
                     <div class="max-w-[30px]">
                         <img class="w-full" src="/icons/call-white_0.png" alt="">
                     </div>
-                    <p class="font-light
-                         ">
-                        สมัครบริการใหม่ :
-                        0832289789 </p>
+                    <p class="font-light">สมัครบริการใหม่ : 0832289789 </p>
                 </a>
 
                 <a href="tel:1242" class="flex gap-2 hover:underline decoration-solid items-center">
                     <div class=" max-w-[30px]">
                         <img class="w-full" src="/icons/exclamation-mark-white_0.png" alt="">
                     </div>
-                    <p class="font-light
-                        ">
-                        แจ้งปัญหาติดต่อ: 1242
-                    </p>
+                    <p class="font-light">แจ้งปัญหาติดต่อ: 1242</p>
                 </a>
             </div>
         </div>
 
+        @php
+            // dd($main_cate);
+            $cate_menu = $main_cate->whereIn('id', [2,3,4,5,6])->where('cate_status_display', true)->where('is_bottomside', true);
+            // dd($cate_menu);
+        @endphp
         <div class="text-white">
-            <h2 class="text-[1.2rem] mb-2">
-                บริการของเรา</h2>
+            <h2 class="text-[1.2rem] mb-2">บริการของเรา</h2>
             <ul class="font-light list-none text-[0.8rem] max-md:pl-6">
-                <li>อินเตอร์เน็ตบ้าน</li>
-                <li>เบอร์มงคล</li>
-                <li>เติมเงิน</li>
-                <li>ย้ายค่ายมาทรู</li>
-                <li>ซิมท่องเที่ยว</li>
+                @foreach($cate_menu as $menu)
+                <a href="{{ url($menu->cate_url) }}" class="hover:underline decoration-solid items-center"><li>{{$menu->cate_title}}</li></a>
+                @endforeach
             </ul>
         </div>
 

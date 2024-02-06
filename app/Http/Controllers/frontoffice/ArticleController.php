@@ -20,8 +20,8 @@ class ArticleController extends Controller
     }
 
     public function articleDetail($cate) {
-        $cate_id = Category::select('id')->where('cate_keyword', $cate)->first();
-        $post = Post::where('category', 'LIKE', '%' . $cate_id->id . '%')->first();
+        // $cate_id = Category::select('id')->where('cate_keyword', $cate)->first();
+        $post = Post::where('slug', '=', 'article/' . $cate)->first();
 
         return view('frontend.pages.article.article-detail', compact('post'));
     }

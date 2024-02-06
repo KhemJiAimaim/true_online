@@ -38,7 +38,7 @@
             @foreach ($post_all as $post)
                 <div class="">
                     <div class="item flex max-xs:flex-col  gap-4 relative">
-                        <a href="{{ url('article/' . $post->keyword) }}">
+                        <a href="{{ url($post->slug) }}">
                             <div class="w-[350px] h-[200px] max-xs:w-full max-xs:h-[150px] shadow-md">
                                 <img class="w-full h-full" src="{{ url($post->thumbnail_link) }}" alt="">
                             </div>
@@ -47,7 +47,7 @@
 
                         <div class=" flex flex-col w-full gap-y-4">
                             <div class="flex justify-between w-full">
-                                <a href="{{ url('article/' . $post->keyword) }}">
+                                <a href="{{ url($post->slug) }}">
                                     <h1 class="text-[20px] max-xs:text-[16px] font-semibold">{{ $post->title }}</h1>
                                 </a>
                                 <p class="text-[20px] font-semibold max-xs:hidden">
