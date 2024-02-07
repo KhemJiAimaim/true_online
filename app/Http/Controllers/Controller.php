@@ -147,7 +147,7 @@ class Controller extends BaseController
                     WHERE g.language = :lang OR g.defaults = 1
                     GROUP BY g.id
                 ) as cate ON cate.cateId = c.id AND cate.cateLang = c.language
-                -- WHERE c.is_menu = 1
+                WHERE c.id != 39
                 ORDER BY cateLevel DESC ,  priority ASC";
         $result = DB::select($sql, [":lang" => $language]);
         return $this->categoryConvertGroup($result);
