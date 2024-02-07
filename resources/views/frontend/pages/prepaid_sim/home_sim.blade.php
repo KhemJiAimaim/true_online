@@ -52,6 +52,12 @@
                                     if (count($prepaid_cate) > 3) {
                                         $justify = 'justify-start';
                                     }
+
+                                    $color_bg = [
+                                        "TRUE" => 'bg-gradient-to-r from-[#ED4312] to-[#F6911D]',
+                                        "DTAC" => 'bg-gradient-to-r from-[#00BCFF] to-[#5642CD]'
+                                        "" => 'bg-gradient-to-r from-[#ED4312] to-[#F6911D]',
+                                    ];
                                 @endphp
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
                                     @foreach ($prepaid_cate as $prepaid)
@@ -59,7 +65,7 @@
                                             <div
                                                 class="drop-shadow-md py-4 w-[350px] max-xx:w-[330px] max-es:w-[300px] h-[100%]">
                                                 <div
-                                                    class="relative overflow-hidden bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                                    class="{{ $color_bg[$prepaid->network_name] }} relative overflow-hidden rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
                                                     <p class="text-white text-left ml-3 text-[16px]">{{ $prepaid->title }}
                                                     </p>
@@ -78,14 +84,13 @@
                                                 </div>
 
                                                 <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[120px]">
-                                                    <img src="/images/Ellipse 6.png" alt="" class="px-4">
+                                                    <img src="{{ url($prepaid->network_thumbnail )}}" alt="" class="px-4">
                                                     <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">
                                                         {{ $prepaid->details }}</p>
                                                 </div>
 
-
                                                 <div
-                                                    class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
+                                                    class="{{ $color_bg[$prepaid->network_name] }} relative py-2 px-2 items-center">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="flex justify-between items-center">

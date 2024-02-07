@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] relative overflow-hidden">
+{{-- <div class="bg-gradient-to-r from-[#5642CD] to-[#00BCFF] relative overflow-hidden">
     <img class="absolute right-0 top-0" src="/images/circle/Intersect (3).png" alt="">
     <div class="p-6 flex justify-center gap-[6rem] 2xl:gap-[15rem]">
         <a href="https://line.me/R/ti/p/@488jedjg?oat_content=url" target="_blank" class="flex flex-col items-center cursor-pointer z-50">
@@ -14,4 +14,4 @@
         </a>
     </div>
     <img class="absolute left-0 bottom-0" src="/images/circle/Intersect (4).png" alt="">
-</div>
+</div> --}}

@@ -34,21 +34,21 @@
         {{-- มหัศจรรย์ --}}
 
         {{-- @dd($post_all) --}}
-        <div class="max-w-[1536px] mx-auto flex flex-col gap-4 my-10">
+        <div class="w-4/5 mx-auto flex flex-col gap-4 my-16">
             @foreach ($post_all as $post)
                 <div class="">
                     <div class="item flex max-xs:flex-col  gap-4 relative">
-                        <a href="{{ url('article/' . $post->keyword) }}">
+                        <a href="{{ url($post->slug) }}">
                             <div class="w-[350px] h-[200px] max-xs:w-full max-xs:h-[150px] shadow-md">
                                 <img class="w-full h-full" src="{{ url($post->thumbnail_link) }}" alt="">
                             </div>
                         </a>
 
 
-                        <div class="flex flex-col w-full gap-y-4">
+                        <div class=" flex flex-col w-full gap-y-4">
                             <div class="flex justify-between w-full">
-                                <a href="{{ url('article/' . $post->keyword) }}">
-                                    <h1 class="text-[20px] font-semibold">{{ $post->title }}</h1>
+                                <a href="{{ url($post->slug) }}">
+                                    <h1 class="text-[20px] max-xs:text-[16px] font-semibold">{{ $post->title }}</h1>
                                 </a>
                                 <p class="text-[20px] font-semibold max-xs:hidden">
                                     @if ($post->created_at)
@@ -72,10 +72,10 @@
                         </div>
 
                     </div>
-                    <div class="flex justify-end">
+                    <div class="flex justify-end items-center">
                         <a href="{{ url('article/' . $post->keyword) }}" class="">
                             <p
-                                class="text-[16px] font-semibold border border-red-600 rounded-full px-2 py-1 cursor-pointer hover:bg-red-700">
+                                class="text-[16px] font-semibold border border-red-600 rounded-full px-4 py-1 cursor-pointer hover:bg-red-700 hover:text-white max-xs:text-[16px]">
                                 อ่านต่อ</p>
                         </a>
                     </div>

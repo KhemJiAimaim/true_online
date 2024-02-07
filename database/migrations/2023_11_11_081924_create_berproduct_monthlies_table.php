@@ -44,6 +44,7 @@ return new class extends Migration
                 'product_id' => 1,
                 'product_phone' => '0968965444',
                 'product_sumber' => '55',
+                'product_network' => 'TRUE',
                 'product_price' => 1999,
                 'product_category' => ',1,2,3,',
                 'product_improve' => ',1,100,101,106,',
@@ -63,6 +64,7 @@ return new class extends Migration
                 'product_id' => 2,
                 'product_phone' => '0968964949',
                 'product_sumber' => '64',
+                'product_network' => 'TRUE',
                 'product_price' => 1999,
                 'product_category' => ',1,5,4,',
                 'product_improve' => ',1,100,101,106,',
@@ -82,6 +84,7 @@ return new class extends Migration
                 'product_id' => 3,
                 'product_phone' => '0968961444',
                 'product_sumber' => '51',
+                'product_network' => 'DTACT',
                 'product_price' => 3999,
                 'product_category' => ',1,2,3,',
                 'product_improve' => ',1,100,101,106,',
@@ -101,6 +104,7 @@ return new class extends Migration
                 'product_id' => 4,
                 'product_phone' => '0966895944',
                 'product_sumber' => '58',
+                'product_network' => 'DTAC',
                 'product_price' => 50000,
                 'product_category' => ',1,5,6,7,',
                 'product_improve' => ',1,100,101,106,',
@@ -120,6 +124,7 @@ return new class extends Migration
                 'product_id' => 5,
                 'product_phone' => '0968956966',
                 'product_sumber' => '64',
+                'product_network' => 'TRUE',
                 'product_price' => 60000,
                 'product_category' => ',1,5,6,8,',
                 'product_improve' => ',1,100,101,106,',
@@ -133,12 +138,13 @@ return new class extends Migration
                 'product_grade' => 'A+',
                 'default_cate' => '1',
                 'product_display' => 'yes',
-                'monthly_status' => 'yes'
+                'monthly_status' => 'no'
             ],
             [
                 'product_id' => 6,
                 'product_phone' => '0933501625',
                 'product_sumber' => '34',
+                'product_network' => 'TRUE',
                 'product_price' => 25000,
                 'product_category' => ',1,5,6,8,',
                 'product_improve' => ',1,100,101,106,',
@@ -158,6 +164,7 @@ return new class extends Migration
                 'product_id' => 7,
                 'product_phone' => '0615757352',
                 'product_sumber' => '41',
+                'product_network' => 'DTAC',
                 'product_price' => 25000,
                 'product_category' => ',1,5,6,8,',
                 'product_improve' => ',1,100,101,106,',
@@ -171,7 +178,7 @@ return new class extends Migration
                 'product_grade' => 'F',
                 'default_cate' => '1',
                 'product_display' => 'yes',
-                'monthly_status' => 'yes'
+                'monthly_status' => 'no'
             ]
             // เพิ่มข้อมูลของรายการอื่น ๆ ที่ต้องการเพิ่ม
         ]);

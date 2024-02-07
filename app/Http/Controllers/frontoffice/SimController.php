@@ -63,12 +63,14 @@ class SimController extends Controller
 
     public function getPrepaid_product() {
         return PrepaidCategory::select('*',
-        DB::raw("(SELECT id FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false ORDER BY price ASC LIMIT 1) as prepaid_sim_id"),
-        DB::raw("(SELECT MIN(price) FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false) as price"))
+                DB::raw("(SELECT id FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false ORDER BY price ASC LIMIT 1) as prepaid_sim_id"),
+                DB::raw("(SELECT MIN(price) FROM prepaid_sims WHERE prepaid_sims.prepaid_cate_id = prepaid_categories.id AND display = true AND delete_status = false) as price"),
+                DB::raw("(SELECT network_name FROM prepaid_netwoeks WHERE prepaid_categories.networks_id = prepaid_netwoeks.id) as network_name"),
+                DB::raw("(SELECT thumbnail FROM prepaid_netwoeks WHERE prepaid_categories.networks_id = prepaid_netwoeks.id) as network_thumbnail")
+            )
             ->where('display', true)
             ->where('delete_status', false)
             ->orderBy('priority')
             ->get();
-
     }
 }

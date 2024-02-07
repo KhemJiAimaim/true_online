@@ -71,7 +71,6 @@
         .error-border {
             border-color: red !important;
         }
-
     </style>
 @endsection
 @section('content')
@@ -194,7 +193,7 @@
                                     <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
                                         <figure>
                                             <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
-                                                src="/icons/category/imgcart.png" alt="">
+                                                src="{{ url($prepaid->thumbnail_link) }}" alt="">
                                         </figure>
                                         <div class="">
                                             <p class="font-semibold">ซิมเติมเงิน</p>
@@ -240,7 +239,7 @@
                                     <div class="md:flex md:justify-between grid grid-cols-1 md:gap-8 items-center">
                                         <figure>
                                             <img class="max-ex:w-[60px] max-ex:h-[60px] w-[100px] h-[100px] max"
-                                                src="/images/cart/travelsim.png" alt="">
+                                                src="{{ url($travel->thumbnail_link) }}" alt="">
                                         </figure>
                                         <div class="">
                                             <p class="font-semibold">ซิมท่องเที่ยว</p>
@@ -423,34 +422,95 @@
                     id="submit-buy">ยืนยันการสั่งซื้อ</button>
             </div>
 
+
+            <div class="bg-[#F8F9FA] flex flex-col justify-center my-10 rounded-t-[10px] gap-y-6 ">
+                <div class="bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] text-white p-4  rounded-t-[10px] ">
+                    <p class="max-uu:text-[20px] max-xs:text-[16px] ">ช่องทางการชำระเงิน</p>
+                </div>
+                <div class="w-[90%] mx-auto">
+                    <div class="flex justify-center items-center max-xl:justify-start max-xs:flex-col max-xs:justify-center gap-6 py-4 ">
+                        <div class="w-[160px] h-[120px] border border-red-700 ">
+                            <img src="/images/icon/paysolution.jpg" alt="" class="w-full h-full">
+                        </div>
+                        <div class="flex flex-col gap-y-2 text-[16px]">
+                            <p>ชำระผ่าน Pay Solution Asia</p>
+                            <p>ชื่อบัญชี : บริษัท พาณิชย์อมรกิจ จำกัด</p>
+                            <p>ชำระผ่านบัตรเครดิตระบบออนไลน์ Pay SolutionAsia ได้ทุกธนาคาร</p>
+                            <p class="max-xs:text-[14px]">(ยอดชำระผ่านบัตรเครดิตต่ำกว่า 5,500 ชาร์จ 5%)</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex justify-between items-center py-6 max-xl:flex-col max-xl:justify-start max-xs:justify-center">
+                        <div class="w-full">
+                            <p class="text-[18px] max-xs:text-[16px] font-semibold">ชำระผ่านการโอน</p>
+                            <div class="flex justify-start items-center max-xl:justify-start max-xs:flex-col gap-6 py-4">
+                                <div class="w-[130px] h-[100px] border border-red-700 ">
+                                    <img src="/images/icon/a96b3a133175049f51e2d63132b3b124.jpg" alt=""
+                                        class="w-full h-full">
+                                </div>
+                                <div class="flex flex-col gap-y-2 text-[16px]">
+                                    <p>ธนาคาร : ธนาคารไทยพาณิชย์</p>
+                                    <p>เลขบัญชี : 4281463457</p>
+                                    <p>ชื่อบัญชี : บริษัท พาณิชย์อมรกิจ จำกัด</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="w-full">
+                            <p class="text-[18px] max-xs:text-[16px] font-semibold">ชำระผ่านบัตรเครดิต</p>
+                            <div
+                                class="flex justify-center items-center max-xl:justify-start max-xs:flex-wrap  max-xs:justify-center  gap-2  py-4">
+                                <div class="w-[130px] h-[100px] border border-red-700 ">
+                                    <img src="/images/icon/JCB-01.jpg" alt="" class="w-full h-full">
+                                </div>
+                                <div class="w-[130px] h-[100px] border border-red-700 ">
+                                    <img src="/images/icon/visa.jpg" alt="" class="w-full h-full">
+                                </div>
+                                <div class="w-[130px] h-[100px] border border-red-700 ">
+                                    <img src="/images/icon/union-pay.jpg" alt="" class="w-full h-full">
+                                </div>
+                                <div class="w-[130px] h-[100px] border border-red-700 ">
+                                    <img src="/images/icon/american-express.jpg" alt="" class="w-full h-full">
+                                </div>
+                                <div class="w-[130px] h-[100px] border border-red-700 ">
+                                    <img src="/images/icon/Master-card.jpg" alt="" class="w-full h-full">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
-    </div>
 
+        <!-- end box product -->
+        <footer class="lg:mt-[170px]">
+            @include('frontend.pages.bermonthly_lucky.footer_bermonthly_lucky')
+        </footer>
 
-    <!-- end box product -->
-    <footer class="lg:mt-[170px]">
-        @include('frontend.pages.bermonthly_lucky.footer_bermonthly_lucky')
-    </footer>
+    @endsection
 
-@endsection
+    @section('scripts')
+        <script>
+            function onSubmit(token) {
+                document.getElementById("demo-form").submit();
+            }
+        </script>
 
-@section('scripts')
-    <script>
-        function onSubmit(token) {
-            document.getElementById("demo-form").submit();
-        }
-    </script>
+        <script>
+            let bermonthly_data = @json($berMonthlys);
+            let prepaidCate_data = @json($prepaidSims);
+            let travelSims_data = @json($travelSims);
+            let shipping_cost = @json($shipping_cost);
+            let total_price = @json($total_price);
 
-    <script>
-        let bermonthly_data = @json($berMonthlys);
-        let prepaidCate_data = @json($prepaidSims);
-        let travelSims_data = @json($travelSims);
-        let shipping_cost = @json($shipping_cost);
-        let total_price = @json($total_price);
-
-        let district_data = @json($districts);
-        let subdistricts_data = @json($subdistricts);
-    </script>
-    @vite('resources/js/cart_order/cartproduct.js')
-@endsection
+            let district_data = @json($districts);
+            let subdistricts_data = @json($subdistricts);
+        </script>
+        @vite('resources/js/cart_order/cartproduct.js')
+    @endsection

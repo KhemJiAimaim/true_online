@@ -1,4 +1,4 @@
-{{-- @dd($webInfo->contact->link_facebook->link) --}}
+{{-- 
 <div class=" bg-gradient-to-r from-[#960004] to-[#EC1F25]  relative">
     <img class=" absolute right-0 top-0" src="/images/circle/Intersect (3).png" alt="">
     <div class="p-6 flex justify-center gap-[6rem] 2xl:gap-[15rem]">
@@ -15,4 +15,4 @@
         </a>
     </div>
     <img class=" absolute left-0 bottom-0 top-0" src="/images/circle/Intersect (4).png" alt="">
-</div>
+</div>  --}}
