@@ -95,7 +95,7 @@ class CartController extends Controller
             // กรณีที่ $id นี้มีอยู่แล้ว
             if ($typeProduct == 4) {
                 if ($cartList['items'][$typeProduct][$existingProductKey]['id'] == $id) {
-                    $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += 1;
+                    $cartList['items'][$typeProduct][$existingProductKey]['quantity'] += $quantity;
                 } 
 
                 $cartList['amount'] = isset($cartList['amount']) ? $cartList['amount'] + $quantity : 1;
