@@ -70,7 +70,7 @@ class CartOrderController extends Controller
 
             $itemList = $this->saveOrderitem($params, $newOrder->id);
 
-            $this->sendOrderMail($newOrder);
+            $this->sendOrderMail($newOrder, $itemList);
 
             Session::flush();
 
@@ -197,12 +197,12 @@ class CartOrderController extends Controller
 
     }
 
-    public function sendOrderMail($newOrder) {
+    public function sendOrderMail($newOrder, $itemList) {
         $webMail = WebInfo::where('info_type', 2)->where('info_param', 'email')->first();
         $recipients = [
             $newOrder->email,
             $webMail->info_value
         ];
-        Mail::to($recipients)->send(new SendOrderDetail($newOrder));
+        Mail::to($recipients)->send(new SendOrderDetail($newOrder, $itemList));
     }
 }

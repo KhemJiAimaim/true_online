@@ -23,7 +23,7 @@
                     <div class="title-plate-textboxS"></div>
                 </div>
                 <div class="title-plate-textboxC">
-                    <p class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">บทความ</p>
+                    <p class="plate-text  2xl:text-[1.5rem] md:text-[20px]  text-[18px]">{{$seo->cate_h1}}</p>
                 </div>
                 <div class="plate-box-e">
                     <div class="title-plate-textboxE"></div>
@@ -58,16 +58,10 @@
                             </div>
 
                             <div class="">
-                                {{-- @dd($post) --}}
-                                {{-- <p>{!!$post->content!!}</p> --}}
-                                <?php
-                                $content = strip_tags($post->content); // ลบแท็ก HTML
-                                $trimmed_content = mb_substr($content, 0, 250); // ตัดคำเหลือ 300 ตัวอักษร
-                                
-                                // echo "";
-                                
-                                ?>
-                                <p class="text-[16px] max-xs:text-[14px] mb-4">{{ $trimmed_content }}.........</p>
+                                @php
+                                    $trimmed_content = mb_substr($post->description, 0, 250); // ตัดคำเหลือ 300 ตัวอักษร
+                                @endphp
+                                <p class="text-[16px] max-xs:text-[14px] mb-4">{{ ($trimmed_content)? $trimmed_content.".........": "" }}</p>
                             </div>
                         </div>
 

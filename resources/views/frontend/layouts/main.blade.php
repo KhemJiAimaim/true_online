@@ -48,7 +48,7 @@
     </div>
 
     @if(isset($content_seo))
-    <div class="text-center py-6 relative z-0 px-3 ss:px-6">
+    <div class="w-[90%] max-ex:w-full mx-auto my-8">
         <h3>{{$content_seo->topic}}</h3>
         <p>{!! $content_seo->content !!}</p>
     </div>

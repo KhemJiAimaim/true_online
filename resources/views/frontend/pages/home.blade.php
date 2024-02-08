@@ -74,6 +74,11 @@
 
         @php
             $j = 1;
+
+            $color_bg = [
+                "TRUE" => 'bg-gradient-to-r from-[#ED4312] to-[#F6911D]',
+                "DTAC" => 'bg-gradient-to-r from-[#00BCFF] to-[#5642CD]'
+            ];
         @endphp
         @foreach ($cate_home as $cate)
             {{-- @dd($cate) --}}
@@ -373,7 +378,7 @@
                                         <div class="swiper-slide flex justify-center items-center">
                                             <div class="drop-shadow-md w-[350px]  max-es:w-[310px]   h-[100%] py-4">
                                                 <div
-                                                    class="relative  bg-gradient-to-r from-[#ED4312] to-[#F6911D] rounded-tl-[10px] rounded-tr-[10px] py-2">
+                                                    class="{{ $color_bg[$prepaid->network_name] }} relative rounded-tl-[10px] rounded-tr-[10px] py-2">
                                                     {{-- <div class="flex justify-start items-center"> --}}
                                                     <p class="text-white text-left ml-3 text-[16px]">{{ $prepaid->title }}
                                                     </p>
@@ -390,16 +395,16 @@
                                                             class="w-full h-full object-contain">
                                                     </div>
                                                 </div>
-
+                                                {{-- @dd($prepaid) --}}
                                                 <div class="bg-[#F8F9FA] grid grid-cols-5 py-2  h-[120px]">
-                                                    <img src="images/Ellipse 6.png" alt="" class="px-4">
+                                                    <img src="{{ url($prepaid->network_thumbnail) }}" alt="" class="px-4">
                                                     <p class="text-left 2xl:text-[16px] text-[14px] p-2  py-1 col-span-4">
                                                         {{ $prepaid->details }}</p>
                                                 </div>
 
 
                                                 <div
-                                                    class=" relative bg-gradient-to-r from-[#ED4312] to-[#F6911D]  py-2 px-2 items-center">
+                                                    class="{{ $color_bg[$prepaid->network_name] }} relative py-2 px-2 items-center">
                                                     <img class=" absolute left-0 bottom-0"
                                                         src="/images/circle/Intersect (2).png" alt="">
                                                     <div class="flex justify-between items-center">

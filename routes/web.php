@@ -91,3 +91,8 @@ Route::post('/confirmorder', [CartOrderController::class, "confirmOrder"]);
 
 //สถานะส่งพัสดุ
 Route::get('/delivery/{search?}', [DeliveryController::class, "dalivery"]);
+
+// redirect payment gateway
+Route::get('/getpayment', function () {
+    return view("frontend.pages.cart_order.getpayment");
+});
