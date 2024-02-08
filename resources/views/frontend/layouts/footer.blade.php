@@ -4,10 +4,10 @@
         <div class="text-white ">
             <h2 class="text-[1.2rem] mb-2">ที่อยู่</h2>
             <div class="font-light text-[0.8rem]">
-                <p class="">บริษัท พาณิชย์อมรกิจ จำกัด 19/39</p>
-                <p class=""> ซอย 01 ถนนกาญจนาภิเษก 5 </p>
-                <p class=""> แขวงสามตะวันตก </p>
-                <p class=""> เขตคลองสามวา กรุงเทพมหานคร 10510</p>
+                <p class="">{{$webInfo->detail->companyname->value}}</p>
+                <p class="">{{$webInfo->location->address->value}}</p>
+                <p class="">{{$webInfo->location->district->value}}</p>
+                <p class=""> {{$webInfo->location->subdistrict->value ." ". $webInfo->location->province->value ." ". $webInfo->location->zipcode->value}}</p>
 
             </div>
         </div>

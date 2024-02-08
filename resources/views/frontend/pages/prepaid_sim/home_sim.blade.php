@@ -56,7 +56,6 @@
                                     $color_bg = [
                                         "TRUE" => 'bg-gradient-to-r from-[#ED4312] to-[#F6911D]',
                                         "DTAC" => 'bg-gradient-to-r from-[#00BCFF] to-[#5642CD]',
-                                        "" => 'bg-gradient-to-r from-[#ED4312] to-[#F6911D]',
                                     ];
                                 @endphp
                                 <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">
