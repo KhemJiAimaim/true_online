@@ -282,6 +282,7 @@ class BerLuckyController extends BaseController
         $isCached = filter_var($request->iscached, FILTER_VALIDATE_BOOLEAN);;
         $bercates = $this->getBerluckyCateAll();
         $packages = $this->getLuckyPackage();
+        $bernetworks = $this->getBerNetWorks();
         $products = [];
 
         if (!$isCached) {
@@ -297,6 +298,7 @@ class BerLuckyController extends BaseController
                 'products' => $products,
                 'cates' => $bercates,
                 'packages' => $packages,
+                'bernetworks' => $bernetworks
             ]
         ], 200);
     }
@@ -315,6 +317,7 @@ class BerLuckyController extends BaseController
             'default_cate' => 'string|nullable',
             'product_pin' => 'string|required',
             'monthly_status' => 'string|required',
+            'network_name' => 'string|required',
 
         ]);
 
@@ -338,6 +341,7 @@ class BerLuckyController extends BaseController
                 'product_display' => $request->product_display,
                 'product_pin' => $request->product_pin,
                 'monthly_status' => $request->monthly_status,
+                'product_network' => $request->network_name,
 
                 'product_category' => $generated['product_category'],
                 'product_grade' => $generated['product_grade'],
@@ -380,7 +384,7 @@ class BerLuckyController extends BaseController
             'product_phone' => 'string|required',
             'product_comment' => 'string|nullable',
             'default_cate' => 'string|nullable',
-
+            'product_network' => 'string|required',
         ]);
 
         if ($validator->fails()) {
@@ -400,6 +404,7 @@ class BerLuckyController extends BaseController
                 'product_comment' => $request->product_comment,
                 'product_discount' => $request->product_discount,
                 'product_package' => $request->product_package,
+                'product_network' => $request->product_network,
 
                 'product_category' => $generated['product_category'],
                 'product_grade' => $generated['product_grade'],
@@ -788,5 +793,11 @@ class BerLuckyController extends BaseController
         // });
 
         // return $dataCached;
+    }
+
+    private function getBerNetWorks()
+    {
+        $data = Bernetwork::select('network_name')->groupBy('network_name')->get();
+        return $data;
     }
 }

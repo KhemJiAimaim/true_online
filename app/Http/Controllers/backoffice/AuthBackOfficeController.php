@@ -70,7 +70,6 @@ class AuthBackOfficeController extends BaseController
 
     public function loginAccount(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'password' => 'required'
