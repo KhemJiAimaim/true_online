@@ -23,14 +23,17 @@ class SendOrderDetail extends Mailable
      * @return void
      */
     public $dataCustomer;
-    public function __construct($newOrder)
+    public $dataItemList;
+    public function __construct($newOrder, $itemList)
     {
         $this->dataCustomer = $newOrder;
+        $this->dataItemList = $itemList;
     }
 
     public function build() 
     {
         $dataCustomer = $this->dataCustomer;
+        $dataItemList = $this->dataItemList;
         $orderItems = OrderItem::where('order_id', $dataCustomer->id)->get();
         // dd($orderItems);
         $bermonthly = [];
@@ -63,7 +66,7 @@ class SendOrderDetail extends Mailable
             }
         }
         return $this->subject('หมายเลขการสั่งซื้อเลขที่ '.$dataCustomer->order_number)
-            ->markdown('frontend.mail.formorder', compact('orderItems', 'bermonthly'));
+            ->markdown('frontend.mail.formorder', compact('orderItems', 'bermonthly', 'dataItemList'));
     }
 
     /**

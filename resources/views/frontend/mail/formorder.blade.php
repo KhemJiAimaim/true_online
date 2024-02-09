@@ -9,6 +9,15 @@
 </head>
 
 <body>
+    @php 
+
+        $dataItemList = array_map(function ($item) {
+            return $item['detail'];
+        }, $dataItemList);
+
+        $list_item = implode(". ", $dataItemList);
+    
+    @endphp
     <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="border-collapse:collapse;margin:0;padding:0;color:#676867;height:100%!important;width:100%!important;padding:0;background-color:#ffffff;color:#444">
         <tbody>
             <tr>
@@ -83,7 +92,8 @@
                                                     <span>สถานะรายการสั่งซื้อ</span>
                                                 </div>
                                                 <div style="color:#7cc576">
-                                                    <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/1049/0958979698" target="_blank" >รอชำระเงิน</a>
+                                                    {{-- <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/{{$dataCustomer->total_price}}/{{$list_item}}" target="_blank" >รอชำระเงิน</a> --}}
+                                                    <a style="text-decoration:none;color:currentColor" href="https://www.simnetunlimited.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items={{$list_item}}&amp;netpay={{$dataCustomer->total_price}}" target="_blank" >รอชำระเงิน</a>
                                                 </div>
                                                 <div style="font-size:12px;color:#9b9b9b">กรุณาชำระเงินค่าสินค้า</div>
                                             </td>
@@ -100,7 +110,8 @@
                                                     style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
                                             </div>
                                             <div style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
-                                                <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/{{$dataCustomer->total_price}}/'สินค้าเบอร์ทรู'" target="_blank">จำนวนเงินที่ต้องชำระ</a>
+                                                {{-- <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/{{$dataCustomer->total_price}}/{{$list_item}}" target="_blank">จำนวนเงินที่ต้องชำระ</a> --}}
+                                                <a style="text-decoration:none;color:currentColor" href="https://www.simnetunlimited.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items={{$list_item}}&amp;netpay={{$dataCustomer->total_price}}" target="_blank">จำนวนเงินที่ต้องชำระ</a>
                                             </div>
                                             <div style="font-weight:bold;font-size:14px;color:#ff8c00;padding:2px">{{number_format($dataCustomer->total_price)}}</div>
                                             <div style="font-size:12px;color:#9b9b9b"><span>ชำระผ่าน PaySolution</span></div>
@@ -117,7 +128,8 @@
                                                     </div>
                                                     <div style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
                                                         <span style="display:inline-block">
-                                                        <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/1049/0958979698" target="_blank">กรุณาแจ้งชำระสินค้า</a>
+                                                        {{-- <a style="text-decoration:none;color:currentColor" href="https://pay.sn/berhoro/{{$dataCustomer->total_price}}/{{$list_item}}" target="_blank">กรุณาแจ้งชำระสินค้า</a> --}}
+                                                        <a style="text-decoration:none;color:currentColor" href="https://www.simnetunlimited.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items={{$list_item}}&amp;netpay={{$dataCustomer->total_price}}" target="_blank">กรุณาแจ้งชำระสินค้า</a>
                                                         </span>
                                                     </div>
                                                     <div style="font-weight:bold;font-size:14px;color:#5674b9;padding:5px">ภายใน 1 วัน</div>
@@ -132,6 +144,7 @@
                   </table>
               </td>
             </tr>
+
             <tr>
                 <td align="center" valign="top"
                     style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse">
@@ -147,6 +160,9 @@
                                                 <tr>
                                                     <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
                                                         <span>สินค้า</span>
+                                                    </td>
+                                                    <td align="right" style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:32px;color:#9b9b9b;text-align:center;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
+                                                        <span>ราคา</span>
                                                     </td>
                                                     <td align="right" style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;width:32px;color:#9b9b9b;font-size:10px;vertical-align:bottom;border-bottom:1px solid #f0f2f3">
                                                         <span>จำนวน</span>
@@ -189,13 +205,19 @@
                                                                     </table>
                                                                 </td>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
-                                                                <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                                    @if($item->discount > 0)
+                                                                    <div><span style="color: gray; font-size: 12px;text-decoration: line-through;">{{ number_format($item->product_price) }}</span></div>
+                                                                    @endif
+                                                                    <span style="display:inline-block;vertical-align:middle">{{ number_format($item->product_price - (($item->product_price * $item->discount) / 100 )) }}</span>
+                                                                </td>
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                                    <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
                                                                 </td>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
                                                                 @if($item->discount > 0)
                                                                     <div><span style="color: gray; font-size: 12px;text-decoration: line-through;">{{ number_format($item->product_price) }}</span> <span style="font-size:10px;color: gray ;text-decoration: line-through;"> บาท</span> </div>
                                                                 @endif
-                                                                    <div>{{ number_format( $item->product_price - (($item->product_price * $item->discount) / 100 ) ) }} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                                    <div>{{ number_format($item->product_price - (($item->product_price * $item->discount) / 100 )) }} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                 </td>
                                                             </tr>
                                                             @endif
@@ -225,10 +247,13 @@
                                                                         </table>
                                                                     </td>
                                                                     <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
-                                                                    <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                                        <span style="display:inline-block;vertical-align:middle">{{ number_format($item->product_price) }}</span>
+                                                                    </td>
+                                                                    <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                                        <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
                                                                     </td>
                                                                     <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
-                                                                    <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                                        <div>{{ number_format($item->product_price * $item->quantity) }} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                     </td>
                                                                 </tr>
                                                             {{-- @endif
@@ -259,10 +284,13 @@
                                                                     </table>
                                                                 </td>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
-                                                                <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
+                                                                    <span style="display:inline-block;vertical-align:middle">{{number_format($item->product_price)}}</span>
+                                                                </td>
+                                                                <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-right:8px;font-size:14px;color:#9b9b9b;line-height:150%;text-align:right;vertical-align:top">
+                                                                    <span style="display:inline-block;vertical-align:middle">{{$item->quantity}}</span>
                                                                 </td>
                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;font-size:14px;color:#000000;line-height:150%;text-align:right;vertical-align:top">
-                                                                <div>{{$item->product_price}} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
+                                                                    <div>{{ number_format($item->product_price * $item->quantity) }} <span style="font-size:10px;color:#9b9b9b"> บาท</span> </div>
                                                                 </td>
                                                             </tr>
                                                             {{-- @endif
@@ -335,6 +363,7 @@
                     </table>
                 </td>
             </tr>
+
             <tr>
                 <td align="center" valign="top" style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse">
                     <table border="0" cellpadding="0" cellspacing="0" width="600" style="margin:auto;border-collapse:collapse;margin-left:auto;margin-right:auto;border-top:1px solid #fafafa">
@@ -383,7 +412,7 @@
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <a rel="noopener" href="https://www.simnetunlimited.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items='สินค้าเบอร์ true'&amp;netpay={{$dataCustomer->total_price}}" target="_blank" >
+                                                <a rel="noopener" href="https://www.simnetunlimited.com/getpayment?refno={{$dataCustomer->id}}&amp;email={{$dataCustomer->email}}&amp;items={{$list_item}}&amp;netpay={{$dataCustomer->total_price}}" target="_blank" >
                                                     <button style="color:white;background:red;padding:10px 20px;border-radius:5px;border:2px solid red;margin-top:10px; cursor: pointer;" type="submit">
                                                         <div style="font-weight:bold;text-align:center">ชำระผ่าน Pay Solution กดที่นี่</div>
                                                     </button>
