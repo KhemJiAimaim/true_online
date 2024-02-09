@@ -18,7 +18,7 @@
     <div class="2xl:mt-16">
         <div class=" max-2xl:overflow-x-scroll max-uu::overflow-hidden  mb-2 px-3">
 
-            <div class="flex justify-center max-md:justify-start  gap-x-10  py-2  items-center mx-auto ">
+            <div class="flex justify-center max-md:justify-start  gap-x-10  py-2 items-start mx-auto ">
 
                 @foreach ($cate_fiber as $cate)
                     <a href="{{ url($cate->cate_url) }}"

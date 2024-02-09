@@ -43,7 +43,7 @@
         @foreach ($cate_package as $cate)
             <section class="flex justify-center items-center my-8 px-4">
                 <div class="drop-shadow-md w-[1536px] mx-auto">
-                    
+
 
                     @if ($cate->cate_type == 'true')
                         <div
@@ -66,24 +66,34 @@
                                 {{-- @dd($cate->id) --}}
                                 <div
                                     class="item flex justify-between max-uu:px-40 max-lg:px-4 max-xs:px-2  max-uu:py-8  max-xs:py-2 items-center">
-                                    <div class="text-left max-uu:w-full max-es:w-[70%]">
+                                    <div class="text-left w-full">
                                         <p class="2xl:text-lg md:text-[18px] xs:text-[16px] text-[14px] font-medium">
-                                            {{ $product->title }}</p> 
+                                            {{ $product->title }}</p>
                                         <p class="2xl:text-lg  md:text-[18px] xs:text-[16px] text-[14px] font-medium">
                                             {{ $product->details }}</p>
                                         <p class="2xl:text-lg text-gray-500 md:text-[16px] xs:text-[16px] text-[14px]">
                                             {{ $product->package_type }}</p>
                                     </div>
-                                    <div class="flex justify-end items-center gap-1  2xl:gap-4 md:gap-2 xs:gap-2 w-full">
-                                        <div class="border-l border border-[#838383] text-center py-4 rounded-full "></div>
-                                        <p class="2xl:text-lg font-medium md:text-[18px]  xs:text-[16px] text-[14px]">
-                                            {{ $product->lifetime }} วัน</p>
-                                        <div class="border-l border border-[#838383] text-center py-4  rounded-full "></div>
-                                        <p class="2xl:text-lg font-medium md:text-[18px]  xs:text-[16px] text-[14px]">
-                                            {{ number_format($product->price) }} บาท</p>
-                                        <div class="border-l border border-[#838383] text-center  py-4 rounded-full "></div>
-                                        <a href="{{ url('/prepaid_sim/buy_package/' . $product->id) }}"
-                                            class="cursor-pointer py-2 2xl:px-8 px-3 mb-2 mt-2 md:text-[18px]  xs:text-[16px] text-[13px]  font-medium text-white focus:outline-none bg-[#EC1F25] rounded-full border hover:bg-red-500 hover:text-white ">ซื้อเลย</a>
+
+                                    <div class="flex justify-end items-center gap-2 w-full max-xs:flex-col"> {{-- gap-1  2xl:gap-4 md:gap-2 xs:gap-2 --}}
+                                        <div class="flex items-center gap-2 max-xs:justify-between max-xs:gap-1">
+                                            <div class="border-l border border-[#838383] text-center py-4 rounded-full max-xs:hidden ">
+                                            </div>
+                                            <p class="2xl:text-lg font-medium md:text-[18px]  xs:text-[16px] text-[14px]">
+                                                {{ $product->lifetime }} วัน</p>
+                                            <div class="border-l border border-[#838383] text-center py-4  rounded-full ">
+                                            </div>
+                                            <p class="2xl:text-lg font-medium md:text-[18px]  xs:text-[16px] text-[14px]">
+                                                {{ number_format($product->price) }} บาท</p>
+                                            <div class="border-l border border-[#838383] text-center  py-4 rounded-full max-xs:hidden ">
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2 max-xs:flex-col max-xs:gap-1">
+                                            <a href="{{ url('tel:' . $product->package_code) }}"
+                                                class="cursor-pointer  2xl:text-lg font-medium text-black  hover:underline transition-all duration-500 ease-in-out xs:text-[16px] text-[14px]">{{ $product->package_code }}</a>
+                                            <a href="{{ url('/prepaid_sim/buy_package/' . $product->id) }}"
+                                                class="cursor-pointer py-2 2xl:px-8 px-3 mb-2 mt-2 md:text-[18px]  xs:text-[16px] text-[13px]  font-medium text-white focus:outline-none bg-[#EC1F25] rounded-full border hover:bg-red-500 hover:text-white ">ซื้อเลย</a>
+                                        </div>
                                     </div>
                                 </div>
                             @endif
