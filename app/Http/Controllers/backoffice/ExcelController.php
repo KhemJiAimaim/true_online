@@ -13,6 +13,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Http;
 
 class ExcelController extends Controller
 {
@@ -46,7 +47,7 @@ class ExcelController extends Controller
                 $sum = $row[1];
             }
 
-            if($row[8]) {
+            if($row[8] == "") {
                 $comment = $predictSum->firstWhere('predict_sum', $sum)->predict_name;
             } else {
                 $comment = $row[8];
@@ -85,6 +86,9 @@ class ExcelController extends Controller
 
             // generate product_category
             $this->getProductByCategory();
+
+            //จัดหมวดหมู่ตามสูตร หมวดเบอร์คู่รัก และ หมวดเบอร์ห่าม - xxyy #automatic
+            $response = Http::get('http://localhost/apiupload_excel/genaratecate');
 
             return response()->json([
                 'message' => 'ok',

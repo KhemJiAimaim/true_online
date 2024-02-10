@@ -66,7 +66,7 @@ class CartOrderController extends Controller
                 'shipping_cost' => $params['shipping_cost'],
             ]);
 
-            $newOrder->update(['order_number' => "TRUEONLINE-" . $newOrder->id]);
+            $newOrder->update(['order_number' => "SIMNETUNLIMITED-" . $newOrder->id]);
 
             $itemList = $this->saveOrderitem($params, $newOrder->id);
 
@@ -107,8 +107,14 @@ class CartOrderController extends Controller
                             ->from('berlucky_packages')
                             ->whereColumn('berproduct_monthlies.product_package', 'berlucky_packages.id');
                     }, 'detail')
+                    ->selectSub(function ($query) {
+                        $query->select('thumbnail')
+                            ->from('bernetworks')
+                            ->whereColumn('berproduct_monthlies.product_network', '=', 'bernetworks.network_name')
+                            ->whereColumn('berproduct_monthlies.monthly_status', '=', 'bernetworks.monthly');
+                    }, 'thumbnail')
                     ->where('product_id', $bermonthly['product_id'])->first();
-                
+          
                 $orderItems[] = [
                     'order_id' => $id_order,
                     'type_id' => $bermonthly['type_cate'],
@@ -116,7 +122,7 @@ class CartOrderController extends Controller
                     'product_cate_id' => null,
                     'product_name' => $ber->product_phone,
                     'product_id' => $bermonthly['product_id'],
-                    'thumbnail' => null,
+                    'thumbnail' => $ber->thumbnail,
                     'product_price' => $bermonthly['product_price'],
                     'discount' => $bermonthly['product_discount'],
                     'quantity' => 1,

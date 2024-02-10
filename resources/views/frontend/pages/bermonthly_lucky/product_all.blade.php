@@ -357,7 +357,7 @@
                         <div class="flex flex-col mb-4 w-full">
                             <p class="mb-2 text-black">เสริมดวงด้าน</p>
                             <div
-                                class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-8 max-ex:grid-cols-5  gap-y-2 gap-3">
+                                class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-8 max-ex:grid-cols-5 items-start gap-y-2 gap-3">
                                 @php
                                     $exImprove = [];
                                     if (isset($_GET['improve'])) {
@@ -401,7 +401,7 @@
                         <div class="flex flex-col w-full">
                             <p class="mb-2 text-black">หมวดหมู่เบอร์</p>
                             <div
-                                class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-8 max-ex:grid-cols-5  gap-y-2 gap-3 ">
+                                class="grid grid-cols-8 max-yy:grid-cols-7 max-[1400px]:grid-cols-6 max-xl:grid-cols-6 max-[1025px]:grid-cols-5 max-lg:grid-cols-8 max-ex:grid-cols-5 items-start gap-y-2 gap-3 ">
                                 @foreach ($berproduct_cates as $bercate)
                                     @if ($bercate->bercate_pin == true)
                                         @php
@@ -466,7 +466,7 @@
         <div class="text-center py-6">
             <h1 class="2xl:text-[2rem] xl:text-[22px] text-[20px] font-medium ">แหล่งรวมเบอร์มงคล</h1>
             <p class="text-[#838383] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์มงคล พร้อมแพ็กเกจ ที่คุณอาจสนใจ</p>
-            <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ count($totalCount) }}
+            <p class="text-[#EC1F25] 2xl:text-[20px] xl:text-[18px] text-[16px]">เบอร์ที่ค้นพบ {{ $totalCount }}
                 เบอร์</p>
         </div>
 
@@ -524,18 +524,6 @@
                                     </div>
                                 </a>
                             </div>
-                            {{-- berproduct --}}
-                            {{-- @dd($title_package = $packages->firstWhere('id', $product->product_package)) --}}
-                            {{-- <div class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-dm:h-[130px] max-yy:h-[150px] h-[140px]">
-                                @if ($product->monthly_status == 'yes')
-                                    <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
-                                        {{ $title_package = optional($packages->firstWhere('id', $product->product_package))->details }}
-                                    </p>
-                                    <div class="border border-1 border-gray-300 border-dotted rounded-full my-2"></div>
-                                @endif
-                                <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">{{ $product->product_comment }}</p>
-                            </div> --}}
-
 
                             <div
                                 class="bg-[#F8F9FA] flex flex-col  px-4 py-2 max-2xl:h-[130px] max-yy:h-[150px] h-[140px]">
@@ -554,11 +542,6 @@
                                 <p class="text-left 2xl:text-[16px] text-[14px] px-2 col-span-4 font-light">
                                     {{ $product->product_comment }}</p>
                             </div>
-
-
-
-
-
 
                             <div
                             class=" relative bg-gradient-to-r from-[#EC1F25] via-[#C2198D] to-[#00ADEF] py-2 px-2 items-center">
