@@ -58,9 +58,9 @@ class BerLuckyMonthlyController extends Controller
 								HAVING product_display = 'yes' $getpost[sql2]
 								$sql_sort
 							";
-				$sql_count = "SELECT product_display,COUNT(*) AS total_count
+				$sql_count = "SELECT product_display,COUNT(*) AS total_count, MID(product_phone, 4, 7) AS pp
 								FROM berproduct_monthlies 
-								WHERE product_sold = 'no' $getpost[sql]
+								WHERE product_sold = 'no' $getpost[sql] 
 								HAVING product_display = 'yes' $getpost[sql2]
 								$sql_sort
 							";
@@ -78,7 +78,7 @@ class BerLuckyMonthlyController extends Controller
 								HAVING product_sold != 'yes' $getpost[sql2]
 								$sql_sort
 							";
-				$sql_count = "SELECT product_sold,COUNT(*) AS total_count
+				$sql_count = "SELECT product_sold,COUNT(*) AS total_count, MID(product_phone, 4, 7) AS pp
 											FROM berproduct_alovers 
 											WHERE product_sold = 'no' $getpost[sql]
 											HAVING product_sold != 'yes' $getpost[sql2]
@@ -272,26 +272,31 @@ class BerLuckyMonthlyController extends Controller
 		$request['cate'] = isset($request['cate'])? $request['cate'] : 1 ;
 		$cate_val = null;
 		if(isset($request['cate']) && $request['cate'] != 3) {
-			if (isset($request['cate']) && $request['cate'] != 1) {
+			if ( $request['cate'] != 1) {
 					$cate = filter_var($request['cate'], FILTER_SANITIZE_NUMBER_INT);
-					$sql .=  " AND( product_category LIKE '%," . $cate . ",%' ) ";
+					// if(isset($cate) && $cate != "" ) {
+						$sql .=  " AND( product_category LIKE '%," . $cate . ",%' ) ";
+					// }
 			} 
 		} 
 	
 		if ($request['cate'] != 3 && !empty($request['auspicious'])) {
 			$check['auspicious'] = explode(',', $request['auspicious']);
 			$auspicious = $check['auspicious'];
+			$auspicious = array_values(array_filter($auspicious, 'is_numeric'));
+			$check_aus = false;
 			foreach ($auspicious as $key => $val) {
-					$val = filter_var($val, FILTER_SANITIZE_NUMBER_INT);
-					if ($cate_val == $val || $val == "") {
-							continue;
-					}
+				$val = filter_var($val, FILTER_SANITIZE_NUMBER_INT);
+				if ($cate_val == $val || $val == "") {continue;}
 					$sql .= ($key == 0 && !isset($cate_val)) ? " AND( " : " OR ";
 					$sql .= " product_category LIKE '%," . $val . ",%' ";
+					$check_aus = true;
 			}
-			$sql .= " ) ";
+			if($check_aus) {
+				$sql .= " ) ";
+			}
 		}
-		
+	
 		if (isset($request['pin']) && $request['pin'] == "yes") {
 			$sql .= " AND product_pin = 'yes' ";
 		}

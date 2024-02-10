@@ -243,13 +243,13 @@
 
                                 <input class=" w-full  h-8 border border-[#838383] rounded-[3px] price-input p-2"
                                     type="text" name="price-min" id="price-min" placeholder="999"
-                                    value="{{ isset($_GET['min']) ? number_format($_GET['min']) : '' }}">
+                                    value="{{ isset($_GET['min']) ? number_format((float)$_GET['min']) : '' }}">
                             </div>
                             <div class="flex flex-col w-1/2 gap-y-2">
                                 <label for="txt_favorite" class="text-black">ราคาสูงสุด</label>
                                 <input class="w-full  h-8 border border-[#838383] rounded-[3px] price-input p-2"
                                     type="text" name="price-max" id="price-max" placeholder="999,999"
-                                    value="{{ isset($_GET['max']) ? number_format($_GET['max']) : '' }}">
+                                    value="{{ isset($_GET['max']) ? number_format((float)$_GET['max']) : '' }}">
                             </div>
                         </div>
 
