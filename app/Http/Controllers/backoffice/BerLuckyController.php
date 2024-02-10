@@ -411,9 +411,7 @@ class BerLuckyController extends BaseController
                 'product_improve' => $generated['product_improve'],
             ]);
 
-            $updated = BerproductMonthly::where('product_id', $id)
-                ->orWhere('product_phone', $request->product_phone)
-                ->first();
+            $updated = BerproductMonthly::where('product_id', $id)->first();
 
             // generate product_category
             $this->getProductByCategory($updated);
