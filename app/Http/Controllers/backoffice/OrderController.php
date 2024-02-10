@@ -51,19 +51,21 @@ class OrderController extends BaseController
                                 $product = $berlucky->filter(function ($ber) use ($i) {
                                     return $ber->product_phone === $i->product_name;
                                 })->first();
-                                // dd($product);
+                                
                                 if ($product) {
                                     $product->id = $product->product_id;
                                     $product->title = $product->product_phone;
                                     $product->details = $product->product_comment;
                                     $product->sold = $product->product_sold;
+                                    $product->thumbnail_link = $i->thumbnail;
                                 } else {
                                     $product = new stdClass;
-
+                                    
                                     $product->id = $i->product_id;
                                     $product->title = $i->product_name;
                                     $product->details = "";
                                     $product->sold = NULL;
+                                    $product->thumbnail_link = $i->thumbnail;
                                 }
                             } else if ($type === 4) {
                                 $product = $prepaidsims->filter(function ($sim) use ($i) {
