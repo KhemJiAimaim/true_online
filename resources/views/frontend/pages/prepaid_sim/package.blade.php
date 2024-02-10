@@ -60,12 +60,12 @@
                     @endif
 
 
-                    <div class="box-package rounded-bl-[10px] rounded-br-[10px]">
+                    <div class="box-package rounded-bl-[10px] rounded-br-[10px] ">
                         @foreach ($package_product as $product)
                             @if ($cate->id == $product->package_cate_id)
                                 {{-- @dd($cate->id) --}}
                                 <div
-                                    class="item flex justify-between max-uu:px-40 max-lg:px-4 max-xs:px-2  max-uu:py-8  max-xs:py-2 items-center">
+                                    class="item flex justify-between px-40 max-lg:px-4 max-xs:px-2  max-uu:py-8  max-xs:py-2 items-center">
                                     <div class="text-left w-full">
                                         <p class="2xl:text-lg md:text-[18px] xs:text-[16px] text-[14px] font-medium">
                                             {{ $product->title }}</p>
@@ -92,7 +92,7 @@
                                             <a href="{{ url('tel:' . $product->package_code) }}"
                                                 class="cursor-pointer  2xl:text-lg font-medium text-black  hover:underline transition-all duration-500 ease-in-out xs:text-[16px] text-[14px]">{{ $product->package_code }}</a>
                                             <a href="{{ url('/prepaid_sim/buy_package/' . $product->id) }}"
-                                                class="cursor-pointer py-2 2xl:px-8 px-3 mb-2 mt-2 md:text-[18px]  xs:text-[16px] text-[13px]  font-medium text-white focus:outline-none bg-[#EC1F25] rounded-full border hover:bg-red-500 hover:text-white ">ซื้อเลย</a>
+                                                class="cursor-pointer py-2 2xl:px-8 px-3 mb-2 mt-2  xs:text-[16px] text-[13px]  font-medium text-white focus:outline-none bg-[#EC1F25] rounded-full border hover:bg-red-500 hover:text-white ">ซื้อเลย</a>
                                         </div>
                                     </div>
                                 </div>
