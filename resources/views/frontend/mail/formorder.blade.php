@@ -15,7 +15,7 @@
             return $item['detail'];
         }, $dataItemList);
 
-        $list_item = implode(". ", $dataItemList);
+        $list_item = implode(", ", $dataItemList);
     
     @endphp
     <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="border-collapse:collapse;margin:0;padding:0;color:#676867;height:100%!important;width:100%!important;padding:0;background-color:#ffffff;color:#444">
@@ -86,7 +86,7 @@
                                           <tr>
                                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:42px;text-align:center;width:182px;border-right:2px #f0f2f3 solid">
                                                 <div style="line-height:0">
-                                                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NYvu9GUB_2ifpWrEQAJ60xfinLvFB74wr8AQr0DPYc5V31E7LIBawJ6uQEMg3xRSG1VyfCwDeuxditVC-SrHg=s0-d-e1-ft#https://www.berhoro.com//img/icon/bag.png" style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
+                                                    <img src="{{ url('images/email/bag.png')}}" style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
                                                 </div>
                                                 <div style="font-weight:bold;font-size:16px;line-height:150%;color:#000000;padding-top:8px">
                                                     <span>สถานะรายการสั่งซื้อ</span>
@@ -106,7 +106,7 @@
                                         <tr>
                                             <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:42px;text-align:center;width:182px;border-right:2px #f0f2f3 solid">
                                             <div style="line-height:0">
-                                            <img src="https://ci3.googleusercontent.com/meips/ADKq_NYFRPBXwEAY-L5cX7QnqMIlUUM6f-FVwQOxFZUrjBvgVX3qA4aKQ-1K6xjNw5TXLO-FWam7gnq-4RfQMWm2bHGU=s0-d-e1-ft#https://www.berhoro.com//img/icon/coins.png"
+                                            <img src="{{ url('images/email/coins.png')}}"
                                                     style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
                                             </div>
                                             <div style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
@@ -124,7 +124,7 @@
                                           <tr>
                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;padding-top:20px;padding-bottom:20px;text-align:center;width:182px">
                                                     <div style="line-height:0">
-                                                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NaPMSBlW8mzPuIUuvXs7nQkuyilj7Dz-QkHtCyOl1pWAsTrSag8PyZrQN6JVEzzRHumE_eKMv83cWQ2Wl2T1Q=s0-d-e1-ft#https://www.berhoro.com//img/icon/pay.png" style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
+                                                    <img src="{{ url('images/email/pay.png')}}" style="border:0;outline:none;text-decoration:none;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;color:#aaaaaa;font-size:28px;width:36px;height:36px">
                                                     </div>
                                                     <div style="font-weight:bold;font-size:16px;color:#000000;padding-top:8px">
                                                         <span style="display:inline-block">
@@ -373,12 +373,12 @@
                                 <div style="text-align:center;padding:10px 0px;background:#f6f8f9;margin:0px 16px">
                                   <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
                                   <a href="tel:0832289789" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                    <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> 
+                                    <img style="width:12px;height:12px" src="{{ url('images/email/tel.png')}}"> 
                                   </a>
                                   <a href="tel:0832289789" target="_blank">0832289789</a> 
                                   <a href="tel:0645695656" target="_blank">0645695656</a>
                                   <a href="https://lin.ee/heZ761Y" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                      <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png">
+                                      <img style="width:12px;height:12px" src="{{ url('images/email/line.png')}}">
                                     @fibertrue </a>
                                 </div>
                               </td>
@@ -399,7 +399,7 @@
                                             <div style="margin-top:5px;text-align:center;padding:16px">
                                                 <div style="font-weight:bold;text-align:start;color:black">ชำระผ่านบัตรเครดิตออนไลน์ | เค้าเตอร์เซอวิส</div>
                                                 <div style="display:flex;margin:10px 0px">
-                                                  <img style="margin:auto;width:100%;height:125px" src="https://ci3.googleusercontent.com/meips/ADKq_NbyMT_99IoeLKjqYzu87hQSzzg8QVTcljdmnQ6CXQTZeOx9JS-DASa_7wJdbDM6XFsjQTEG-_oBV9W9zxWD1-I=s0-d-e1-ft#https://www.berhoro.com/img/paymentway.jpg" alt="แบนเนอร์จ่ายเงิน-paysolition" class="CToWUd a6T" data-bit="iit" tabindex="0">
+                                                  <img style="margin:auto;width:100%;height:125px" src="{{ url('images/email/paymentway.jpg')}}" alt="แบนเนอร์จ่ายเงิน-paysolition" class="CToWUd a6T" data-bit="iit" tabindex="0">
                                                   <div class="a6S" dir="ltr" style="opacity: 0.01; left: 551.5px; top: 1351.8px;">
                                                     <div id=":146" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q"
                                                         title="ดาวน์โหลด" role="button" tabindex="0"
@@ -422,11 +422,11 @@
                                         <div style="text-align:center;padding:10px 0px;background:#f6f8f9;margin:0px 16px">
                                             <label style="font-size:bold;font-size:16px;padding-right:5px">แจ้งชำระเงิน ติดต่อ</label>
                                             <a href="tel:0832289789" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                              <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbhmezGxiwLnTYaA0Sf6c1XKMwyzjbDo5dYwmw6prFoVuJIQQVE1dYGA5mj9ZYrk6e6WvAiZx4C3IFkRGuF=s0-d-e1-ft#https://www.berhoro.com/img/icon/tel.png"> </a>
+                                              <img style="width:12px;height:12px" src="{{ url('images/email/tel.png')}}"> </a>
                                               <a href="tel:0832289789" target="_blank">0832289789</a> 
                                               <a href="tel:0645695656" target="_blank">0645695656</a>
                                             <a href="https://lin.ee/heZ761Y" style="text-decoration:none;font-size:16px;line-height:150%;color:#00aeef;margin:auto 0px;padding-right:5px" target="_blank">
-                                              <img style="width:12px;height:12px" src="https://ci3.googleusercontent.com/meips/ADKq_NbYf0jZq8huA1CrFypmQqLzraL4htP8HE4wHgkzpqzg1u20iyALQMW6NJb-aZM1PJ0gbx1BcZswUldS3-dTwg=s0-d-e1-ft#https://www.berhoro.com/img/icon/line.png">
+                                              <img style="width:12px;height:12px" src="{{ url('images/email/line.png')}}">
                                             @fibertrue </a>
                                         </div>
                                     </div>

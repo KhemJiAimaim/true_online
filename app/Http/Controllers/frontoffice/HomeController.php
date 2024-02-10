@@ -55,8 +55,7 @@ class HomeController extends Controller
             }, 'package')
             ->where('product_sold', 'no')
             ->where('product_display', 'yes')
-            ->inRandomOrder()
-            ->distinct()
+            // ->orderByRaw('RAND()')
             ->limit(4)
             ->get();
             

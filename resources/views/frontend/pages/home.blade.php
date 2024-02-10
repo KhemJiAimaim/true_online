@@ -346,7 +346,7 @@
                                                     <a href="{{ url('/detailber/' . $ber->product_phone) }}"
                                                         target="_blank"
                                                         class="cursor-pointer flex items-center py-2.5 px-4 max-uu:px-4 max-xs:px-2 max-uu:text-[18px] max-2xl:max-uu:text-[16px]  font-medium text-red-500 focus:outline-none bg-white rounded-full border border-red-500 hover:bg-red-700 hover:text-white">รายละเอียด</a>
-                                                    <button id="addBerToCart" data-id="{{ $ber->product_id }}"
+                                                    <button id="buyProductNow" data-id="{{ $ber->product_id }}"
                                                         data-type="{{ $cate->id }}"
                                                         class="cursor-pointer flex items-center py-2.5 px-6 max-uu:px-6 max-uu:text-[18px] max-2xl:max-uu:text-[16px]  font-medium text-white focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
                                                 </div>
