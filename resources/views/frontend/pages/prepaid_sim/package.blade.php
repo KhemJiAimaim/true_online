@@ -65,8 +65,8 @@
                             @if ($cate->id == $product->package_cate_id)
                                 {{-- @dd($cate->id) --}}
                                 <div
-                                    class="item flex justify-between px-40 max-lg:px-4 max-xs:px-2  max-uu:py-8  max-xs:py-2 items-center">
-                                    <div class="text-left w-full">
+                                    class="item flex justify-between px-40 max-yy:px-20 max-lg:px-4 max-xs:px-2  max-uu:py-8  max-xs:py-2 items-center gap-6">
+                                    <div class="text-left lg:w-full ss:w-[80%]">
                                         <p class="2xl:text-lg md:text-[18px] xs:text-[16px] text-[14px] font-medium">
                                             {{ $product->title }}</p>
                                         <p class="2xl:text-lg  md:text-[18px] xs:text-[16px] text-[14px] font-medium">

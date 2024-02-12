@@ -140,7 +140,7 @@
                                                             <div class="orange-plate-textboxC">
                                                                 <p
                                                                     class="orange-plate-text text-white text-[18px] max-md:text-[16px]">
-                                                                    รับทันที</p>
+                                                                    รับเพิ่ม</p>
                                                             </div>
                                                             <div class="orange-plate-box-e">
                                                                 <div class="orange-plate-textboxE"></div>
@@ -161,7 +161,7 @@
                                                         @foreach ($benefit_items as $item)
                                                             @foreach ($posts as $pos)
                                                                 @if ($pos->id == $item)
-                                                                    <div class="grid grid-cols-[1fr] gap-2">
+                                                                    <div class="grid grid-cols-[1fr] gap-4 max-xl:gap-2">
                                                                         <div
                                                                             class="border-[1px] rounded-lg border-orange-500 p-1 w-[80px] h-[80px]">
                                                                             <img class="w-full h-full object-contain"
