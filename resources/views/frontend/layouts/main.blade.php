@@ -11,7 +11,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <title>True Online | {{ isset($seo) && $seo->meta_title ? $seo->meta_title : 'meta title' }}</title>
+    <title>{{ isset($seo) && $seo->meta_title ? $seo->meta_title : 'SIMNETUNLIMITED' }}</title>
     <meta name="description"
         content="{{ isset($seo) && $seo->meta_description ? $seo->meta_description : 'คำอธิบายเนื้อหาเว็บไซต์' }}">
     <meta name="keywords"

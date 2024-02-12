@@ -372,11 +372,11 @@
                                     @endphp
                                     <div class="flex flex-col justify-center items-center gap-y-1">
                                         <button id="improve-ber" data-id="{{ $numbcate->numbcate_id }}"
-                                            class="relative p-[0.5rem]  w-full bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:text-white hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
+                                            class="relative p-[0.5rem]  w-full bg-white rounded-[5px] group border-2 border-white {{ $imp_selected }} hover:text-white hover:bg-gradient-to-r lg:hover:from-[#EC1F25] lg:hover:to-[#960004]">
                                             <img src="{{ $numbcate->thumbnail }}" alt=""
                                                 style="{{ $image_selected }}"
-                                                class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                            <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                                class="lg:group-hover:filter lg:group-hover:invert lg:group-hover:saturate-12 lg:group-hover:hue-rotate-237 lg:group-hover:brightness-0 lg:group-hover:contrast-100">
+                                            <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden lg:group-hover:block">
                                                 <img class="scale-150 w-full h-full" src="/icons/category/union.png"
                                                     alt="">
                                                 <p class="w-full text-xs absolute top-1 text-black left-0 text-center">
@@ -410,12 +410,12 @@
                                         @endphp
                                         <div class="flex flex-col justify-center items-center gap-y-1">
                                             <button id="cate-ber" data-id="{{ $bercate->bercate_id }}"
-                                                class="relative p-[0.5rem] w-full bg-white rounded-[5px] border-2 border-white group hover:text-white {{ $aus_selected }} hover:bg-gradient-to-r from-[#EC1F25] to-[#960004]">
+                                                class="relative p-[0.5rem] w-full bg-white rounded-[5px] border-2 border-white group hover:text-white {{ $aus_selected }} hover:bg-gradient-to-r lg:hover:from-[#EC1F25] lg:hover:to-[#960004]">
                                                 <img src="{{ $bercate->thumbnail }}" alt=""
                                                     style="{{ $img_selected }}"
-                                                    class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
+                                                    class="lg:group-hover:filter lg:group-hover:invert lg:group-hover:saturate-12 lg:group-hover:hue-rotate-237 lg:group-hover:brightness-0 lg:group-hover:contrast-100">
                                                 <div
-                                                    class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                                    class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden lg:group-hover:block">
                                                     <img class="scale-150 w-full h-full" src="/icons/category/union.png"
                                                         alt="">
                                                     <p class="w-full text-xs absolute top-1 left-0 text-black">
@@ -432,11 +432,11 @@
                                 @endforeach
                                 <div class="flex flex-col justify-center items-center gap-y-1">
                                     <button id="btn-vip" data-id="vip"
-                                        class="relative p-2 w-full bg-white border-2 border-white rounded-[5px] group hover:text-white {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} hover:bg-gradient-to-r  from-[#EC1F25] to-[#960004] ">
+                                        class="relative p-2 w-full bg-white border-2 border-white rounded-[5px] group hover:text-white {{ isset($_GET['pin']) ? 'bg-gradient-to-r from-[#c5a04f] to-[#a1621e] selected' : '' }} lg:hover:bg-gradient-to-r lg:hover:from-[#c5a04f] lg:hover:to-[#a1621e]">
                                         <img src="/images/icon/VIP.png" alt=""
                                             style="{{ isset($_GET['pin']) ? 'filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(200%) contrast(103%);' : '' }}"
-                                            class="group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                                        <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden group-hover:block">
+                                            class="lg:group-hover:filter lg:group-hover:invert lg:group-hover:saturate-12 lg:group-hover:hue-rotate-237 lg:group-hover:brightness-0 lg:group-hover:contrast-100">
+                                        <div class="w-[6.5rem] h-10 absolute -top-6 left-3 hidden lg:group-hover:block">
                                             <img class="scale-150 w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100"
                                                 src="/icons/category/union.png" alt="">
                                             <p class="w-full text-xs absolute top-1 left-0 text-black">เบอร์ VIP</p>
@@ -516,7 +516,7 @@
                                     <img src="{{ isset($product->thumbnail) ? $product->thumbnail : '/images/651e616b04c02CnURE.png' }}"
                                         alt="" class="w-full h-full">
                                 </div>
-                                <a href="{{ url('/detailber/' . $product->product_phone) }}">
+                                <a href="{{ url('/detailber/' . $product->product_phone) }}" target="_bank">
                                     <div class="flex justify-center py-10 max-ex:py-2">
                                         <h2 class="2xl:text-[2rem] text-[30px] text-center font-bold">
                                             {{ substr($product->product_phone, 0, 3) }}-{{ substr($product->product_phone, 3, 3) }}-{{ substr($product->product_phone, 6) }}
@@ -553,11 +553,9 @@
                                 </p>
                                 <p class="flex items-center flex-col">
                                     @if ($product->product_discount > 0)
-                                        <span
-                                            class="text-gray-100 line-through leading-[2px] text-[35px]">{{ number_format($product->product_price) }}</span>
+                                        <span class="text-gray-100 line-through leading-[2px] text-[16px]">{{ number_format($product->product_price) }}</span>
                                     @endif
-                                    <span
-                                        class="text-white font-medium text-center {{ $product->product_price == 0 ? 'text-[30px]' : 'text-[35px]' }} ">{{ $product->product_price == 0 ? 'แจกฟรี' : number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
+                                    <span class="text-white font-medium text-center {{ $product->product_price == 0 ? 'text-[30px]' : 'text-[35px]' }} ">{{ $product->product_price == 0 ? 'แจกฟรี' : number_format($product->product_price - ($product->product_price * $product->product_discount) / 100) }}</span>
                                 </p>
                                 <p class="text-white text-right text-[18px] pt-1 ">บาท
                                 </p>

@@ -297,7 +297,7 @@ class BerLuckyMonthlyController extends Controller
 			}
 		}
 	
-		if (isset($request['pin']) && $request['pin'] == "yes") {
+		if (isset($request['pin']) && $request['pin'] == "yes" && $request['cate'] != 3) {
 			$sql .= " AND product_pin = 'yes' ";
 		}
 
@@ -311,7 +311,10 @@ class BerLuckyMonthlyController extends Controller
 
 	public function detailber_page($tel)
 	{
-			$berproduct = BerproductMonthly::where('product_phone', $tel)->first();
+		$berproduct = BerproductMonthly::select('*')
+    ->leftJoin('berlucky_packages', 'berproduct_monthlies.product_package', '=', 'berlucky_packages.id')
+    ->where('product_phone', $tel)
+    ->first();
 			$benefits = [];
 			if ($berproduct->monthly_status === "yes") {
 				$package = BerluckyPackage::find($berproduct->product_package);
