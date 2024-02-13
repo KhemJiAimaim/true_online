@@ -35,7 +35,11 @@ Route::prefix('backoffice/v1')->group(function () {
         Route::patch('webinfo/token/{token}', [WebInfoController::class, 'editWebInfo']);
         Route::patch('webinfo/display/toggle', [WebInfoController::class, 'toggleDisplayByToken']);
         Route::delete('webinfo/{language}/{token}', [WebInfoController::class, 'deleteWebInfoByInfoId']);
-
+        /* Infomation Bank Page*/
+        Route::get('bankinfo/data',[BankInfoController::class, 'index']);
+        Route::post('bankinfo/create',[BankInfoController::class, 'createBankInfo']);
+        Route::post('bankinfo/update/{id}',[BankInfoController::class, 'updateBankInfo']);
+        Route::delete('bankinfo/delete/{id}', [BankInfoController::class ,'deleteBankInfo']);
         /* Category Page */
         Route::get('category/data', [CategoryController::class, 'index']);
         Route::post('category/create', [CategoryController::class, 'createCategory']);
