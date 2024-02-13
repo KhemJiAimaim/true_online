@@ -106,7 +106,12 @@
             style="box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15);">
             <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
                 <p class="text-[20px]">ราคา</p>
-                <p class="text-[40px] font-bold">{{ $berproduct->product_price == 0 ? "แจกฟรี" :number_format($berproduct->product_price) }}</p>
+                <p class="flex items-center gap-2">
+                    @if ($berproduct->product_discount > 0)
+                        <span class="text-center text-gray-500 line-through leading-[2px] text-[16px]">{{ number_format($berproduct->product_price) }}</span>
+                    @endif
+                    <span class="text-[40px] font-bold">{{ $berproduct->product_price == 0 ? "แจกฟรี" :number_format($berproduct->product_price - ($berproduct->product_price * $berproduct->product_discount) / 100) }}</span>
+                </p>
                 <p class="text-[20px] ">บาท</p>
 
                 <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
@@ -188,17 +193,13 @@
                 <div class="w-4/5 max-lg:w-full  mx-auto mb-12">
                     <div class="mx-2">
                         <div class="flex">
-                            <button id="btn-package"
-                                class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] ">รายละเอียด
-                                แพ็กเกจ</button>
-                            <button id="btn-condition"
-                                class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] ">เงื่อนไข</button>
+                            <button id="btn-package" class="py-2 px-4 text-white bg-gradient-to-r from-[#F6911D] to-[#ED4312] rounded-t-[10px] ">รายละเอียด แพ็กเกจ</button>
+                            <button id="btn-condition" class="py-2 px-6 text-white bg-[#838383] rounded-t-[10px] ">เงื่อนไข</button>
                         </div>
                         {{-- content detail --}}
-                        <div id="box-package"
-                            class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
+                        <div id="box-package" class="h-[250px] overflow-hidden bg-[#F8F9FA] border-solid border-2 border-[#ED4312] rounded-r-[10px] rounded-bl-[10px] relative ">
                             <div class="p-6">
-                                {{-- <p>ย้ายค่ายเบอร์เดิมรับส่วนลดรายเดือน 25% เหลือ 1499.- (ปกติ 1999.-) นาน 12 เดือน</p> --}}
+                                <p class="mb-2">{{$berproduct->title}}</p>
                                 @foreach ($benefits as $benefit)
                                     <div class="flex gap-2 mb-2 ">
                                         <div class="p-1 border border-solid border-1 border-[#ED4312] rounded-[10px]">
@@ -263,8 +264,7 @@
                 @endforeach
 
                 <div class="bg-[#F8F9FA]  rounded-[10px] mx-2">
-                    <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} :
-                        {{ $data_sumber->predict_name }}</h1>
+                    <h1 class="text-lg font-semibold mb-1 p-4">ผลรวม {{ $data_sumber->predict_sum }} : {{ $data_sumber->predict_name }}</h1>
                     <p class="indent-8 text-[16px] p-4">{{ $data_sumber->predict_description }}</p>
                 </div>
 
@@ -272,39 +272,6 @@
             {{-- box meaning ber --}}
         </div>
 
-
-        {{-- box buy detail --}}
-
-        {{-- <div class="bg-white drop-shadow-md items-center w-full "
-            style="box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.15);">
-            <div class="flex items-center justify-center gap-4 p-2 w-full flex-wrap ">
-                <p class="text-[20px]">ราคา</p>
-                <p class="text-[40px] font-bold">{{ $berproduct->product_price == 0 ? "แจกฟรี" :number_format($berproduct->product_price) }}</p>
-                <p class="text-[20px] ">บาท</p>
-
-                <div class="border-l border border-[#838383] text-center py-8 rounded-full max-xs:hidden"></div>
-
-                <div class="flex gap-2 ">
-                    <button id="buyProductNow" data-id="{{ $berproduct->product_id }}" data-type="3"
-                        class="cursor-pointer flex items-center px-8 2xl:py-2 text-md font-medium text-white text-[16px] focus:outline-none bg-red-500 rounded-full border border-red-500 hover:bg-red-700 hover:text-white">ซื้อเลย</button>
-
-                    <button id="addBerToCart" data-id="{{ $berproduct->product_id }}" data-type="3"
-                        class="group rounded-full border border-red-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-red-600">
-                        <img src="/images/mdi_cart-arrow-down.png" alt=""
-                            class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                    </button>
-
-                    <a href="https://line.me/ti/p/~@berhoro">
-                        <div
-                            class="group rounded-full border border-green-500 mx-1 w-[50px] h-[50px] 2xl:w-[55px] 2xl:h-[55px] flex justify-center items-center p-2 hover:bg-green-600">
-                            <img src="/images/icons8-line-app (1) 6.png" alt=""
-                                class="cursor-pointer w-full h-full group-hover:filter group-hover:invert group-hover:saturate-12 group-hover:hue-rotate-237 group-hover:brightness-0 group-hover:contrast-100">
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </div> --}}
     </div>
 
     <!-- end box product -->

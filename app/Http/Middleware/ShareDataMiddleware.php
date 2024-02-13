@@ -38,7 +38,12 @@ class ShareDataMiddleware extends Controller
         $query_main_cate = Category::where('id', "!=", 1)->where('is_menu', true)->where('is_topside', true)->where('cate_parent_id', 0)->where('cate_status_display', true)->OrderBy('cate_priority')->get();
         $main_cate['id_main'] = $query_main_cate->pluck('id')->toArray();
         $query_sub_cate = Category::whereIn('cate_parent_id', $main_cate['id_main'])->where('is_menu', true)->where('is_topside', true)->where('cate_status_display', true)->OrderBy('cate_priority')->get();
-        $slide_image = AdSlide::where('ad_type', 1)->where('ad_position_id', 2)->where('ad_status_display', true)->where('page_id',!$main_menu?1:$main_menu->id)->orWhere('page_id',0)->OrderBy('ad_priority')->get();
+        // dd($main_menu);
+        if(!$main_menu) {
+            $slide_image = AdSlide::where('ad_type', 1)->where('ad_position_id', 2)->where('ad_status_display', true)->orWhere('page_id',0)->OrderBy('ad_priority')->get();
+        } else {
+            $slide_image = AdSlide::where('ad_type', 1)->where('ad_position_id', 2)->where('ad_status_display', true)->where('page_id',$main_menu->id)->orWhere('page_id',0)->OrderBy('ad_priority')->get();
+        }
         
         $amount = 0; 
         $cartList = Session::get('cart_list', []);

@@ -77,7 +77,9 @@
 
             $color_bg = [
                 "TRUE" => 'bg-gradient-to-r from-[#ED4312] to-[#F6911D]',
-                "DTAC" => 'bg-gradient-to-r from-[#00BCFF] to-[#5642CD]'
+                "DTAC" => 'bg-gradient-to-r from-[#00BCFF] to-[#5642CD]',
+                "true" => 'bg-gradient-to-r from-[#ED4312] to-[#F6911D]',
+                "dtac" => 'bg-gradient-to-r from-[#00BCFF] to-[#5642CD]',
             ];
         @endphp
         @foreach ($cate_home as $cate)

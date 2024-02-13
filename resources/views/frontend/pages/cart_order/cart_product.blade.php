@@ -444,18 +444,19 @@
                         class="flex justify-between items-center py-6 max-xl:flex-col max-xl:justify-start max-xs:justify-center">
                         <div class="w-full">
                             <p class="text-[18px] max-xs:text-[16px] font-semibold">ชำระผ่านการโอน</p>
+                            @foreach($bank_if as $bank)
                             <div class="flex justify-start items-center max-xl:justify-start max-xs:flex-col gap-6 py-4">
                                 <div class="w-[130px] h-[100px] border border-red-700 ">
-                                    <img src="/images/icon/a96b3a133175049f51e2d63132b3b124.jpg" alt=""
+                                    <img src="{{ url($bank->bank_image) }}" alt=""
                                         class="w-full h-full">
                                 </div>
                                 <div class="flex flex-col gap-y-2 text-[16px]">
-                                    <p>ธนาคาร : ธนาคารไทยพาณิชย์</p>
-                                    <p>เลขบัญชี : 4281463457</p>
-                                    <p>ชื่อบัญชี : บริษัท พาณิชย์อมรกิจ จำกัด</p>
+                                    <p>ธนาคาร : {{$bank->bank_account}}</p>
+                                    <p>เลขบัญชี : {{$bank->bank_number}}</p>
+                                    <p>ชื่อบัญชี : {{$bank->bank_name}}</p>
                                 </div>
                             </div>
-
+                            @endforeach
                         </div>
                         <div class="w-full">
                             <p class="text-[18px] max-xs:text-[16px] font-semibold">ชำระผ่านบัตรเครดิต</p>

@@ -11,6 +11,7 @@ use App\Models\BerproductMonthly;
 use App\Models\PrepaidCategory;
 use App\Models\PrepaidSim;
 use App\Models\TravelSim;
+use App\Models\BankInfo;
 
 class CartController extends Controller
 {
@@ -75,8 +76,8 @@ class CartController extends Controller
         $provinces = $this->getProvinceData();
         $districts = $this->getDistrictData();
         $subdistricts = $this->getSubDistrictData();
-        
-        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaidSims','travelSims', 'provinces', 'districts', 'subdistricts'));
+        $bank_if = BankInfo::all();
+        return view('frontend.pages.cart_order.cart_product', compact('berMonthlys','prepaidSims','travelSims', 'provinces', 'districts', 'subdistricts', 'bank_if'));
     }
 
     public function addproduct_to_cart(Request $request, $id) {
