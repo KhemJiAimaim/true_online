@@ -238,7 +238,7 @@
                                                                                 </td>
                                                                                 <td style="margin:0;padding:0;font-family:Avenir,Helvetica,Arial,Verdana,sans-serif;border-collapse:collapse;vertical-align:top;padding-left:4px">
                                                                                 <div style="font-size:14px;line-height:120%">
-                                                                                    <span style="color:#00aeef;text-decoration:none">ซิมเติมเงิน</span>
+                                                                                    <span style="color:#00aeef;text-decoration:none">ซิมเทพเติมเงิน</span>
                                                                                     <div style="font-size:10px;color:#9b9b9b;line-height:150%;padding-top:2px">{{$item->product_name}}</div>
                                                                                 </div>
                                                                                 </td>

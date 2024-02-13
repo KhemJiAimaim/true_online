@@ -607,7 +607,7 @@
                         id="page-num">{{ $i }}</button>
                 @endfor
                 <button id=""
-                    class="h-[28px] w-[28px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white rounded-[4px]">{{ $data_paginate['current_page'] }}</button>
+                    class="h-[28px] w-[36px] px-2 py-1 bg-gradient-to-r from-[#EC1F25] to-[#960004] text-white rounded-[4px]">{{ $data_paginate['current_page'] }}</button>
                 {{-- <button id="" class="h-[28px] px-2 py-1">3</button> --}}
                 @for ($i = $data_paginate['current_page'] + 1; $i <= min($data_paginate['total_page'], $data_paginate['current_page'] + 2); $i++)
                     <button class="max-xs:hidden h-[28px] w-[28px] px-2 py-1" data-index="{{ $i }}"

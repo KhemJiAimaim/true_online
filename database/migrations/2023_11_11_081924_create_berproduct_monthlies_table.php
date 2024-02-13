@@ -84,7 +84,7 @@ return new class extends Migration
                 'product_id' => 3,
                 'product_phone' => '0968961444',
                 'product_sumber' => '51',
-                'product_network' => 'DTACT',
+                'product_network' => 'DTAC',
                 'product_price' => 3999,
                 'product_category' => ',1,2,3,',
                 'product_improve' => ',1,100,101,106,',

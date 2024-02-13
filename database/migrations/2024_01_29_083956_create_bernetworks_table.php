@@ -50,7 +50,7 @@ return new class extends Migration
                 'network_name' => 'dtac',
                 'thumbnail' => 'upload/2024/01/30/dtacM.png',
                 'display' => 'yes',
-                'monthly' => 'no',
+                'monthly' => 'yes',
             ],
         ]);
     }
