@@ -181,7 +181,7 @@ class OrderController extends BaseController
 
                     if ($newOrder->order_status === "success") {
                         if ($item['type_id'] === 3) {
-                            BerproductMonthly::where('product_id', $item['product_id'])->update([
+                            BerproductMonthly::where('product_phone', $item['title'])->update([
                                 'product_sold' => $request->order_status === "success" ? 'yes' : 'no',
                             ]);
                         } else if ($item['type_id'] === 4) {
@@ -221,19 +221,19 @@ class OrderController extends BaseController
     {
         try {
 
-            $berlucky = BerproductMonthly::where('product_sold', 'no')->orderBy('product_price', 'ASC')->get();
+            // $berlucky = BerproductMonthly::where('product_sold', 'no')->orderBy('product_price', 'ASC')->get();
             $travelsim = TravelSim::where('quantity', '>', 0)->orderBy('price', 'ASC')->get();
             $prepaidsim = PrepaidSim::where('quantity', '>', 0)->orderBy('price', 'ASC')->get();
 
-            if ($berlucky) {
-                foreach ($berlucky as $ber) {
-                    $ber->id = $ber->product_id;
-                    $ber->title = $ber->product_phone;
-                    $ber->price = $ber->product_price;
-                    $ber->discount = $ber->product_discount;
-                    $ber->p_cate_id = NULL;
-                }
-            }
+            // if ($berlucky) {
+            //     foreach ($berlucky as $ber) {
+            //         $ber->id = $ber->product_id;
+            //         $ber->title = $ber->product_phone;
+            //         $ber->price = $ber->product_price;
+            //         $ber->discount = $ber->product_discount;
+            //         $ber->p_cate_id = NULL;
+            //     }
+            // }
 
             if ($travelsim) {
                 foreach ($travelsim as $ber) {
@@ -257,7 +257,7 @@ class OrderController extends BaseController
                 'message' => 'ok',
                 'status' => true,
                 'productData' => [
-                    'berlucky' => $berlucky,
+                    // 'berlucky' => $berlucky,
                     'travelsim' => $travelsim,
                     'prepaidsim' => $prepaidsim,
                 ],
