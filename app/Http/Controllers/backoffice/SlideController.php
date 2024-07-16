@@ -249,25 +249,35 @@ class SlideController extends BaseController
     }
 
     /* Private Function */
-    private function getSlideList($language)
-    {
-        // $sql = "SELECT * FROM (
-        //             SELECT * FROM `ad_slides`
-        //             WHERE language = :lang OR defaults = 1
-        //             ORDER BY defaults ASC
+    private function getSlideList($language){
+        // $sql = "SELECT * FROM ( 
+        //             SELECT * FROM `ad_slides` 
+        //             WHERE language = :lang OR defaults = 1 
+        //             ORDER BY defaults ASC 
         //         ) as slides GROUP BY id ORDER BY updated_at  DESC";
-
-
+        
+       
         // return DB::select($sql, [':lang' => $language]);
+        
+        
+        // $slides = DB::table(DB::raw("(SELECT * FROM `ad_slides` WHERE language = :lang OR defaults = 1 ORDER BY defaults ASC) as slides"))
+        //     ->leftJoin('categories AS cate', 'cate.id', 'slides.page_id')
+        //     ->select('slides.*', 'cate.cate_title AS page_name')
+        //     ->groupBy('id')
+        //     ->orderBy('updated_at', 'DESC')
+        //     ->addBinding([':lang' => $language], 'select')
+        //     ->get();
 
-        $slides = DB::table(DB::raw("(SELECT * FROM `ad_slides` WHERE language = :lang OR defaults = 1 ORDER BY defaults ASC) as slides"))
-            ->leftJoin('categories AS cate', 'cate.id', 'slides.page_id')
-            ->select('slides.*', 'cate.cate_title AS page_name')
-            ->groupBy('id')
-            ->orderBy('updated_at', 'DESC')
-            ->addBinding([':lang' => $language], 'select')
-            ->get();
-
+        $slides = DB::select("
+            SELECT slides.*, cate.cate_title AS page_name
+            FROM (
+                SELECT * FROM ad_slides WHERE language = :lang OR defaults = 1 ORDER BY defaults ASC
+            ) AS slides
+            LEFT JOIN categories AS cate ON cate.id = slides.page_id
+            GROUP BY slides.id
+            ORDER BY slides.updated_at DESC
+        ", ['lang' => $language]);
+        
         return $slides;
     }
 

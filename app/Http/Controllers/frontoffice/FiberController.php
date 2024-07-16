@@ -72,6 +72,7 @@ class FiberController extends Controller
             ->select('fiber_products.*', 'categories.cate_keyword','categories.cate_description')
             ->where('fiber_products.id', $id)
             ->where('delete_status', false)
+            ->where('display', true)
             ->orderBy('fiber_products.priority')
             ->first();
         
