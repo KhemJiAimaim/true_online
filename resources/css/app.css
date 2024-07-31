@@ -15,6 +15,14 @@
     }
 }
 
+body.open-modal {
+    overflow: hidden;
+}
+
+.centered-image {
+    margin: 0 auto;
+}
+
 .mobile-menu-button{
     width:30px;
     display: flex;

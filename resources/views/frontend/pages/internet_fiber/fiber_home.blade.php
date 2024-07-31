@@ -82,17 +82,39 @@
                         <div class="swiper swiper{{ $j }} flex justify-center items-center mx-auto w-full">
 
                             @php
+                                // $count = 0;
+                                // $justify = 'justify-center max-xs:justify-start';
+
+                                // foreach ($fiber_products as $product) {
+                                //     if ($product->fiber_cate_id == $cate->id) {
+                                //         $count++;
+                                //     }
+                                // }
+                                // if($count > 4) {
+                                //     $justify = 'justify-start';
+                                // } else if ($count > 3) {
+                                //     $justify = 'justify-start';
+                                // } else if ($count <= 3) {
+                                //     $justify = 'justify-center max-lg:justify-start';
+                                // }
+                                // $justify = $count > 4 ? 'justify-start' : $justify;
+
                                 $count = 0;
                                 $justify = 'justify-center max-xs:justify-start';
 
                                 foreach ($fiber_products as $product) {
                                     if ($product->fiber_cate_id == $cate->id) {
-                                        // ทำสิ่งที่คุณต้องการทำ
                                         $count++;
                                     }
                                 }
-                                $justify = $count > 4 ? 'justify-start' : $justify;
-                                // echo "Total count for fiber_cate_id  $justify";
+
+                                if ($count >= 1 && $count <= 2) {
+                                    $justify = 'justify-center max-xs:justify-start max-sm:justify-start';
+                                } elseif ($count >= 3 && $count <= 4) {
+                                    $justify = 'justify-center max-2xl:justify-start';
+                                } elseif ($count > 4) {
+                                    $justify = 'justify-start';
+                                }
                             @endphp
 
                             <div class="swiper-wrapper items-center w-full mx-auto flex {{ $justify }}">

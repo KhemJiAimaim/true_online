@@ -6,8 +6,7 @@
     <h1 class=" text-white text-center text-[22px] font-medium">{{$post->keyword}}</h1>
   </div>
 
-  <div class="w-full mt-4 mx-auto max-w-[1536px] max-2xl:max-w-[90%] max-xs:max-w-[95%]">
-
+  <div class="w-full mt-4 mx-auto max-w-[1400px] max-2xl:max-w-[90%] max-xs:max-w-[95%]">
     @if($post->category !== ',38,')
     <div class="max-w-[1300px] h-[400px] max-[1023px]:h-[350px] max-[540px]:h-[260px] max-xs:h-[190px]  mx-auto">
       <img class="w-full h-full" src="{{ url($post->thumbnail_link) }}" alt="">

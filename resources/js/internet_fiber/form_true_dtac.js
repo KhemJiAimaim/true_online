@@ -140,12 +140,16 @@ save_form_fiber.addEventListener("click", () => {
 });
 
 const pin_address = document.querySelector("#pin_address");
+const body = document.querySelector("body");
 const modal = document.querySelector("#modal");
 const close_modal = document.querySelector("#close-modal");
 pin_address.addEventListener("click", () => {
     // initMap()
     modal.classList.remove("hidden");
+    body.classList.add("open-modal")
+    console.log(body)
 });
 close_modal.addEventListener("click", () => {
     modal.classList.add("hidden");
+    body.classList.remove("open-modal")
 });
