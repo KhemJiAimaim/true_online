@@ -23,6 +23,6 @@ class ArticleController extends Controller
         // $cate_id = Category::select('id')->where('cate_keyword', $cate)->first();
         $post = Post::where('slug', '=', 'article/' . $cate)->first();
 
-        return view('frontend.pages.article.article-detail', compact('post'));
+        return view('frontend.pages.article.article-detail1', compact('post'));
     }
 }
