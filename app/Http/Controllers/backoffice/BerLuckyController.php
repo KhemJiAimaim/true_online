@@ -279,7 +279,7 @@ class BerLuckyController extends BaseController
         // cache()->flush();
         // session()->forget('berlucky_products');
 
-        $isCached = filter_var($request->iscached, FILTER_VALIDATE_BOOLEAN);;
+        $isCached = filter_var($request->iscached, FILTER_VALIDATE_BOOLEAN);
         $bercates = $this->getBerluckyCateAll();
         $packages = $this->getLuckyPackage();
         $bernetworks = $this->getBerNetWorks();

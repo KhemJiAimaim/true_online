@@ -25,4 +25,16 @@ class ArticleController extends Controller
 
         return view('frontend.pages.article.article-detail1', compact('post'));
     }
+
+    // promotion
+    public function promotionPage() {
+       
+        $post_all = Post::where('category', 'LIKE', '%43%')
+            ->where('pin', false)
+            ->where('status_display', true)
+            ->orderBy('priority', 'ASC')
+            ->paginate(10);
+            // dd($post_all);
+        return view('frontend.pages.promotions.promotionpage', compact('post_all'));
+    }
 }

@@ -460,8 +460,8 @@ body.open-modal {
 }
 
 
-  .active{
-	opacity: 1;
+.active{
+    opacity: 1;
 }
 
 ol {
@@ -485,6 +485,18 @@ ol {
 
 #article-content ol, #article-content ul {
     margin-left: 1.5em;
+}
+
+
+#promotionCk ul{
+    margin-left: 1.5em;
+}
+
+#promotionCk ol{
+    margin-left: 1.5em;
+}
+#promotionCk {
+    word-break: break-word;
 }
 
 /* width */
