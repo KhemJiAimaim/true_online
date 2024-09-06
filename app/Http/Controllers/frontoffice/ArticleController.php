@@ -30,11 +30,10 @@ class ArticleController extends Controller
     public function promotionPage() {
        
         $post_all = Post::where('category', 'LIKE', '%43%')
-            ->where('pin', false)
             ->where('status_display', true)
             ->orderBy('priority', 'ASC')
-            ->paginate(10);
-            // dd($post_all);
+            ->with('images') // ดึงข้อมูล images ของแต่ละ post
+            ->get();
         return view('frontend.pages.promotions.promotionpage', compact('post_all'));
     }
 }
