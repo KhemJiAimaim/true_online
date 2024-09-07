@@ -4,13 +4,17 @@ import '../global_js/hide_banner.js'
 
 const moreDetail = document.querySelectorAll('#moreDetail');
 const promotionCk = document.querySelectorAll('#promotionCk');
+const arrowDetail = document.querySelectorAll('#arrowDetail');
 
-console.log(moreDetail)
-console.log(promotionCk)
+// console.log(moreDetail)
+// console.log(promotionCk)
 moreDetail.forEach((element, index) => {
   element.addEventListener('click', () => {
     console.log(index); // แสดง index ของ element ที่คลิก
     console.log(promotionCk[index])
     promotionCk[index].classList.toggle('h-0')
+    promotionCk[index].classList.toggle('m-4')
+    arrowDetail[index].classList.toggle('rotate-90')
+    // promotionCk[index].classList.toggle('opacity-100')
   });
 });
