@@ -51,6 +51,8 @@ export default defineConfig({
                     'resources/js/prepaid_sim/buy_sim.js',
                     'resources/js/prepaid_sim/package.js',
                     'resources/js/prepaid_sim/swiper.js',
+
+                    'resources/js/promotion/promotion.js',
                     
                     'resources/js/travel/buy_sim.js',
                     'resources/js/travel/detail_ber.js',
